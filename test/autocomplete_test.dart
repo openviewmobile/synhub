@@ -55,7 +55,7 @@ ChannelDto _channel({
 void main() {
   group('分词（SpaceTokenizer）', () {
     test('按空格/换行切词，取光标所在的那个', () {
-      expect(currentWord('你好 @fig', 9), '@fig');
+      expect(currentWord('你好 @dem', 9), '@dem');
       expect(currentWord('你好 @demo 再见', 5), '@demo');
       expect(currentWord('@demo', 0), '@demo');
       expect(currentWord('a\n#tag', 6), '#tag');
@@ -130,8 +130,8 @@ void main() {
     });
 
     test('@ 同时匹配 username 与 nickname', () {
-      expect(run('@fig').map((i) => (i as MentionTarget).username), ['demo']);
-      expect(run('@飞').map((i) => (i as MentionTarget).username), ['demo']);
+      expect(run('@dem').map((i) => (i as MentionTarget).username), ['demo']);
+      expect(run('@演').map((i) => (i as MentionTarget).username), ['demo']);
       expect(run('@the').map((i) => (i as MentionTarget).username), ['other']);
       expect(run('@demo')[0].label, '@demo (演示)');
     });
@@ -323,7 +323,7 @@ void main() {
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 300));
 
-      await tester.enterText(find.byType(TextField), '@f');
+      await tester.enterText(find.byType(TextField), '@d');
       await tester.pump();
       expect(find.text('@demo (演示)'), findsOneWidget);
       expect(find.text('@channel'), findsNothing, reason: '过滤后只剩 demo');
