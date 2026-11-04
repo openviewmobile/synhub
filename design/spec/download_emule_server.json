@@ -1,0 +1,80 @@
+{
+  "id": "download_emule_server",
+  "unit": "lib/src/features/downloads/download_emule_server_page.dart",
+  "title": {
+    "zh": "eMule 服务器",
+    "en": "eMule servers"
+  },
+  "appbar": {
+    "actions": [
+      "plus",
+      "more"
+    ]
+  },
+  "body": {
+    "type": "settings",
+    "groups": [
+      {
+        "title": {
+          "zh": "状态",
+          "en": "Status"
+        },
+        "rows": [
+          {
+            "label": {
+              "zh": "已连接",
+              "en": "Connected"
+            },
+            "kind": "arrow"
+          },
+          {
+            "label": {
+              "zh": "Kad 已连接",
+              "en": "Kad connected"
+            },
+            "kind": "switch",
+            "value": true
+          },
+          {
+            "label": {
+              "zh": "ID 低",
+              "en": "Low ID"
+            },
+            "kind": "arrow"
+          }
+        ]
+      },
+      {
+        "title": {
+          "zh": "服务器列表",
+          "en": "Server list"
+        },
+        "rows": [
+          {
+            "label": {
+              "zh": "eMule Security",
+              "en": "eMule Security"
+            },
+            "kind": "arrow"
+          },
+          {
+            "label": {
+              "zh": "TV Underground",
+              "en": "TV Underground"
+            },
+            "kind": "arrow"
+          }
+        ]
+      }
+    ],
+    "note": {
+      "zh": "仅管理员可见；普通账号不显示该入口",
+      "en": "Admin only; hidden for regular accounts"
+    }
+  },
+  "footerAction": {
+    "zh": "连接 Kad",
+    "en": "Connect Kad"
+  },
+  "bottomNav": null
+}

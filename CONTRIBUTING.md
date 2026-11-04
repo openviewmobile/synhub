@@ -1,0 +1,50 @@
+# Contributing
+
+Thanks for helping! A few rules keep this project reviewable.
+
+## Ground rules
+
+1. **No real-NAS artifacts.** No screenshots from your own NAS, no capture files, no
+   credentials, no `SynoToken`/`_sid` values. Tests must run against `tool/mock_dsm/`.
+2. **No vendor code.** Do not paste decompiled Synology source, `.lib`/`.so` extracts, or
+   strings dumps from vendor packages. Describe the protocol in your own words instead
+   (see `reverse/holepunch/PROTOCOL.md` for the intended style).
+3. **Keep tests hermetic.** `flutter test` must pass with the network unplugged.
+4. **One concern per PR.** Bug fix + refactor in the same PR is hard to review.
+
+## Before you open a PR
+
+```bash
+flutter analyze lib test tool/mock_dsm     # must print "No issues found!"
+flutter test                               # must be green, ~800 files
+bash tool/secret_scan.sh                   # must be green
+```
+
+If you touch the UI strings, run `flutter gen-l10n` and commit both ARB files
+(`lib/l10n/app_en.arb`, `lib/l10n/app_zh.arb`) — never hand-edit `lib/l10n/gen/`.
+
+If you touch platform runners, add the exact command you used to verify the build
+(e.g. `flutter build macos --debug`) to the PR description.
+
+## Commit messages
+
+```
+<area>: <what changed>
+
+Why: <one or two sentences; the problem, not the diff>
+Verified: <command(s) you ran and what you saw>
+```
+
+`<area>` is one of: `files`, `photos`, `chat`, `notes`, `audio`, `drive`, `download`,
+`office`, `surveillance`, `admin`, `core`, `i18n`, `design`, `android`, `ios`, `macos`,
+`linux`, `windows`, `web`, `reimpl`, `tooling`, `docs`.
+
+## Reporting bugs
+
+Use the issue template. Include: platform + version, whether the NAS is reachable
+(QuickConnect vs direct), and the exact steps. **Redact** hosts, accounts, session ids and
+file names before pasting logs.
+
+## Security issues
+
+Do not open a public issue — see [SECURITY.md](SECURITY.md).

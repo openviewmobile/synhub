@@ -1,0 +1,24 @@
+{
+  "id": "media_player",
+  "unit": "lib/src/features/media/media_player_view.dart",
+  "title": {"zh": "正在播放", "en": "Now playing"},
+  "appbar": {"actions": ["more"]},
+  "body": {
+    "type": "viewer",
+    "kind": "video",
+    "caption": {"zh": "1920×1080 · H.264 · 4 分 12 秒", "en": "1920×1080 · H.264 · 4m 12s"},
+    "toolbar": [
+      {"zh": "播放", "en": "Play"},
+      {"zh": "快退 10 秒", "en": "Back 10s"},
+      {"zh": "快进 10 秒", "en": "Forward 10s"},
+      {"zh": "下一集", "en": "Next"},
+      {"zh": "播放设置", "en": "Playback settings"},
+      {"zh": "全屏", "en": "Fullscreen"}
+    ]
+  },
+  "bottomNav": null,
+  "note": {
+    "zh": "三行控制条：进度（拖动时浮出目标时间与增量）/ 主控（播放＋±10 秒＋换集，永不折叠）/ 次控（设置·静音·在线字幕·全屏 ＋ 音量）。空格单击显隐、双击左右 ±10 秒、左半竖直调亮度、右半竖直调音量；暂停时中央另有 76dp 大播放键。",
+    "en": "Three-row chrome: scrubber (drag bubble shows target time and delta) / primary row (play, ±10s, prev-next, never folded) / secondary row (settings, mute, online subtitles, fullscreen + volume). Tap toggles chrome, double-tap seeks ±10s, left half swipes brightness, right half volume; a 76dp centre play button appears while paused."
+  }
+}

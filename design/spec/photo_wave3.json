@@ -1,0 +1,73 @@
+{
+  "id": "photo_wave3",
+  "unit": "lib/src/features/photos/photo_wave3_page.dart",
+  "title": {
+    "zh": "相册设置",
+    "en": "Album settings"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "settings",
+    "groups": [
+      {
+        "title": {
+          "zh": "相册缓存",
+          "en": "Album cache"
+        },
+        "rows": [
+          {
+            "label": {
+              "zh": "缓存占用",
+              "en": "Cache size"
+            },
+            "kind": "arrow"
+          },
+          {
+            "label": {
+              "zh": "本机缓存上限",
+              "en": "Local cache limit"
+            },
+            "kind": "arrow"
+          }
+        ]
+      },
+      {
+        "title": {
+          "zh": "显示",
+          "en": "Display"
+        },
+        "rows": [
+          {
+            "label": {
+              "zh": "相册列表显示全部",
+              "en": "Show all albums"
+            },
+            "kind": "switch",
+            "value": true
+          },
+          {
+            "label": {
+              "zh": "仅显示有照片的相册",
+              "en": "Only albums with photos"
+            },
+            "kind": "switch",
+            "value": false
+          }
+        ]
+      }
+    ],
+    "note": {
+      "zh": "清理缓存不会删除 NAS 上的照片",
+      "en": "Clearing the cache never deletes photos on the NAS"
+    }
+  },
+  "footerAction": {
+    "zh": "重新读取",
+    "en": "Reload"
+  },
+  "bottomNav": null
+}

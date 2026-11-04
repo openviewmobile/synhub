@@ -1,0 +1,93 @@
+{
+  "id": "global_search",
+  "unit": "lib/src/features/search/global_search_page.dart",
+  "title": {
+    "zh": "搜索",
+    "en": "Search"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "search": {
+    "hint": {
+      "zh": "搜索文件、笔记、照片、消息",
+      "en": "Search files, notes, photos, messages"
+    }
+  },
+  "chips": [
+    {
+      "zh": "全部",
+      "en": "All"
+    },
+    {
+      "zh": "文件",
+      "en": "Files"
+    },
+    {
+      "zh": "笔记",
+      "en": "Notes"
+    },
+    {
+      "zh": "照片",
+      "en": "Photos"
+    }
+  ],
+  "rowIcon": "search",
+  "body": {
+    "type": "list",
+    "sections": true,
+    "items": [
+      {
+        "section": {
+          "zh": "文件",
+          "en": "Files"
+        },
+        "title": {
+          "zh": "设计稿终版 v12.pdf",
+          "en": "设计稿终版 v12.pdf"
+        },
+        "sub": {
+          "zh": "/我的文件/设计 · 4.2 MB",
+          "en": "/My Drive/Design · 4.2 MB"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "section": {
+          "zh": "笔记",
+          "en": "Notes"
+        },
+        "title": {
+          "zh": "时间线收口说明",
+          "en": "时间线收口说明"
+        },
+        "sub": {
+          "zh": "#设计 · 386 字",
+          "en": "#Design · 386 words"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "section": {
+          "zh": "消息",
+          "en": "Messages"
+        },
+        "title": {
+          "zh": "#设计评审 · 李雷",
+          "en": "#设计评审 · 李雷"
+        },
+        "sub": {
+          "zh": "“时间线那部分要再收一收”",
+          "en": "“tighten the timeline part”"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      }
+    ]
+  },
+  "bottomNav": null
+}

@@ -1,0 +1,50 @@
+{
+  "id": "settings_bots",
+  "unit": "lib/src/features/settings/bots_page.dart",
+  "title": {
+    "zh": "机器人",
+    "en": "Bots"
+  },
+  "appbar": {
+    "actions": [
+      "plus",
+      "more"
+    ]
+  },
+  "rowIcon": "chat",
+  "body": {
+    "type": "list",
+    "items": [
+      {
+        "title": {
+          "zh": "构建通知",
+          "en": "Build notifier"
+        },
+        "sub": {
+          "zh": "Webhook · 已启用",
+          "en": "Webhook · enabled"
+        },
+        "lead": "#8FB8FF",
+        "trail": "more"
+      },
+      {
+        "title": {
+          "zh": "值班助手",
+          "en": "On-call bot"
+        },
+        "sub": {
+          "zh": "Webhook · 已停用",
+          "en": "Webhook · disabled"
+        },
+        "lead": "#A6E3C5",
+        "trail": "more"
+      }
+    ]
+  },
+  "note": {
+    "zh": "机器人只能发消息，不能读频道历史",
+    "en": "Bots can post but cannot read history"
+  },
+  "fab": true,
+  "bottomNav": null
+}

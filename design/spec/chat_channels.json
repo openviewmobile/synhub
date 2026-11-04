@@ -1,0 +1,66 @@
+{
+  "id": "chat_channels",
+  "unit": "lib/src/features/chat/channel_list_page.dart",
+  "title": {
+    "zh": "聊天",
+    "en": "Chat"
+  },
+  "appbar": {
+    "actions": [
+      "search",
+      "more"
+    ]
+  },
+  "chips": [
+    {
+      "zh": "频道",
+      "en": "Channels"
+    },
+    {
+      "zh": "私信",
+      "en": "Direct"
+    },
+    {
+      "zh": "机器人",
+      "en": "Bots"
+    }
+  ],
+  "body": {
+    "type": "list",
+    "items": [
+      {
+        "title": "# 设计评审",
+        "sub": {
+          "zh": "李雷：明早十点碰一下",
+          "en": "Li: sync at 10am"
+        },
+        "lead": "#8FB8FF",
+        "trail": "more"
+      },
+      {
+        "title": "# 家庭",
+        "sub": {
+          "zh": "3 条未读",
+          "en": "3 unread"
+        },
+        "lead": "#A6E3C5",
+        "trail": "more"
+      },
+      {
+        "title": "@ 韩梅梅",
+        "sub": {
+          "zh": "语音消息 · 12 秒",
+          "en": "Voice · 12s"
+        },
+        "lead": "#F0A8C8",
+        "trail": "more"
+      }
+    ]
+  },
+  "note": {
+    "zh": "归档频道在「更多」里，不占主列表",
+    "en": "Archived channels live under More"
+  },
+  "fab": true,
+  "bottomNav": "chat"
+}

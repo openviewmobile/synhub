@@ -1,0 +1,60 @@
+{
+  "id": "login",
+  "unit": "lib/src/features/login/login_page.dart",
+  "title": {
+    "zh": "登录",
+    "en": "Sign in"
+  },
+  "appbar": {
+    "actions": []
+  },
+  "body": {
+    "type": "form",
+    "fields": [
+      {
+        "label": {
+          "zh": "QuickConnect ID",
+          "en": "QuickConnect ID"
+        },
+        "value": "li-home"
+      },
+      {
+        "label": {
+          "zh": "账号",
+          "en": "Account"
+        },
+        "value": "li"
+      },
+      {
+        "label": {
+          "zh": "密码",
+          "en": "Password"
+        },
+        "value": "••••••••"
+      },
+      {
+        "label": {
+          "zh": "两步验证码",
+          "en": "Two-factor code"
+        },
+        "value": "••• •••"
+      }
+    ],
+    "switch": {
+      "label": {
+        "zh": "记住这台设备",
+        "en": "Remember this device"
+      },
+      "value": true
+    },
+    "submit": {
+      "zh": "登录",
+      "en": "Sign in"
+    }
+  },
+  "note": {
+    "zh": "口令只在本机加密保存，不上传",
+    "en": "The password is stored encrypted on-device only"
+  },
+  "bottomNav": null
+}

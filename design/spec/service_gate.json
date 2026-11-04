@@ -1,0 +1,35 @@
+{
+  "id": "service_gate",
+  "unit": "lib/src/features/shell/service_gate_pages.dart",
+  "title": {
+    "zh": "服务不可用",
+    "en": "Service unavailable"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "unavailable",
+    "title": {
+      "zh": "连不上这台 NAS",
+      "en": "Can't reach this NAS"
+    },
+    "body": [
+      {
+        "zh": "QuickConnect 服务器不可达，或设备当前离线。",
+        "en": "QuickConnect relay is unreachable, or the device is offline."
+      },
+      {
+        "zh": "已连过的 NAS 仍可离线看缓存文件。",
+        "en": "A NAS you've connected before still shows cached files offline."
+      }
+    ],
+    "action": {
+      "zh": "重试",
+      "en": "Retry"
+    }
+  },
+  "bottomNav": null
+}

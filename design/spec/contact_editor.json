@@ -1,0 +1,65 @@
+{
+  "id": "contact_editor",
+  "unit": "lib/src/features/contacts/contact_editor_page.dart",
+  "title": {
+    "zh": "编辑联系人",
+    "en": "Edit contact"
+  },
+  "appbar": {
+    "actions": [
+      "save",
+      "more"
+    ]
+  },
+  "body": {
+    "type": "form",
+    "fields": [
+      {
+        "label": {
+          "zh": "姓名",
+          "en": "Name"
+        },
+        "value": {
+          "zh": "李雷",
+          "en": "Li"
+        }
+      },
+      {
+        "label": {
+          "zh": "邮箱",
+          "en": "Email"
+        },
+        "value": "li@example.com"
+      },
+      {
+        "label": {
+          "zh": "电话",
+          "en": "Phone"
+        },
+        "value": "138 0000 0000"
+      },
+      {
+        "label": {
+          "zh": "部门",
+          "en": "Department"
+        },
+        "value": {
+          "zh": "设计部",
+          "en": "Design"
+        }
+      }
+    ],
+    "switch": {
+      "label": {
+        "zh": "加入「常用」标签",
+        "en": "Add to Frequent"
+      },
+      "value": true
+    },
+    "submit": {
+      "zh": "保存联系人",
+      "en": "Save contact"
+    }
+  },
+  "bottomNav": null
+}

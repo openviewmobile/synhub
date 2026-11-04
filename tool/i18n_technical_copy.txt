@@ -1,0 +1,30 @@
+# 「技术字样」ARB 白名单（**棘轮：只许减、不许加**）—— 守卫 test/i18n_user_facing_copy_test.dart
+#
+# 背景：AGENTS §2.0.47「诊断串不许当用户文案」。第 308 轮只给 Office 错误面板一条路加了守卫，
+# **ARB 是另一条旁路**：r339 真机在加密页看到 `Channel/list 不带 broken_users，这里问 Channel.Member/get`，
+# r340 真机在 Drive「新建」菜单看到 `Synology Drive · \`Files/create\``。
+# 为让"新增泄漏"不再静默进仓，把现存的**逐一登记**（这对两份 ARB 都算：任一语种命中即要登记）。
+#
+# 类别三选一：
+#   diag = 诊断/只读渲染内部页专用（**不面向普通用户**，技术字样是有意为之）
+#   md   = Markdown 语法说明（反引号是**正确**记号）
+#   todo = **面向用户但仍带技术字样 ⇒ 待还的债**：改成用户文案后就把它从本表删掉
+#          （守卫的反向断言会强制删除，否则红）
+#
+# 第 340 轮已改成用户文案、**不许**再登记进来的 9 个 key：
+#
+# ★ r344：**22 条 `todo` 已全部还清**（服务端枚举/接口名/内部参数不再当用户文案）——
+#   现在表里**没有 `todo` 行**；`todo` 这一档仍保留（今后若实在要欠债，必须同时写渲染点）。
+#   e2eeSyncMembers / e2eeSyncMembersHint / chatArchiveEmpty /
+#   driveGapNewTextFileHint / driveGapNewOfficeDocHint / driveGapNewOfficeSheetHint /
+#   driveGapNewOfficeSlidesHint / driveGapNewFromTemplateHint / fileNewFolderHint
+#
+# key	类别	首个渲染点
+diagEchoOk	diag	features/diagnostics/diag_page.dart
+drivePdfTextLayerNoWidths	diag	features/drive/drive_pdf_text_layer.dart
+drivePdfTextLayerUnknownOp	diag	features/drive/drive_pdf_text_layer.dart
+noteMarkdownImageHint	md	features/notes/note_editor_page.dart
+noteMdCodeText	md	features/notes/note_editor_page.dart
+noteMdHint	md	features/notes/note_editor_page.dart
+apiAnonymousPromoteUnsupported	diag	data/chat_api.dart（抛 StateError 的诊断串；全仓唯一出口 userFacingError 只按 statusCode 映射、不读 message ⇒ 不上屏）
+apiCompoundMissingResult	diag	data/remote/compound.dart（抛 DsmTransportException 的诊断串，同上）

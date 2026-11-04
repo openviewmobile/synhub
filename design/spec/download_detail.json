@@ -1,0 +1,76 @@
+{
+  "id": "download_detail",
+  "unit": "lib/src/features/downloads/download_detail_page.dart",
+  "title": {
+    "zh": "任务详情",
+    "en": "Task detail"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "fields",
+    "title": {
+      "zh": "ubuntu-24.04.1-desktop-amd64.iso",
+      "en": "ubuntu-24.04.1-desktop-amd64.iso"
+    },
+    "sub": {
+      "zh": "BT · 3.1 GB / 5.8 GB · 53% · 1.2 MB/s",
+      "en": "BT · 3.1 GB / 5.8 GB · 53% · 1.2 MB/s"
+    },
+    "progress": 0.53,
+    "actions": [
+      {
+        "zh": "暂停",
+        "en": "Pause"
+      },
+      {
+        "zh": "删除",
+        "en": "Delete"
+      }
+    ],
+    "rows": [
+      {
+        "label": {
+          "zh": "目的地",
+          "en": "Destination"
+        },
+        "value": "/downloads/iso"
+      },
+      {
+        "label": {
+          "zh": "已用时间",
+          "en": "Elapsed"
+        },
+        "value": "00:12:31"
+      },
+      {
+        "label": {
+          "zh": "做种 / 连接",
+          "en": "Seeds / Peers"
+        },
+        "value": "32 / 12"
+      },
+      {
+        "label": {
+          "zh": "单任务限速",
+          "en": "Per-task limit"
+        },
+        "value": "2 MB/s"
+      },
+      {
+        "label": {
+          "zh": "添加时间",
+          "en": "Added"
+        },
+        "value": {
+          "zh": "今天 10:02",
+          "en": "Today 10:02"
+        }
+      }
+    ]
+  },
+  "bottomNav": null
+}

@@ -1,0 +1,255 @@
+{
+  "has_fail": false,
+  "result": [
+    {
+      "api": "SYNO.Chat.User",
+      "data": {
+        "users": [
+          {
+            "avatar_version": 0,
+            "deleted": false,
+            "dsm_uid": 1026,
+            "first_time_login": false,
+            "human_type": "dsm",
+            "is_disabled": false,
+            "nickname": "",
+            "status": "offline",
+            "type": "human",
+            "user_id": 6,
+            "user_props": {
+              "avatar_color": "#94bf13",
+              "description": "",
+              "email": "",
+              "key_pair": {
+                "public_key": ""
+              },
+              "timezone": "",
+              "timezoneUTC": "Asia/Shanghai"
+            },
+            "username": "demo_admin"
+          },
+          {
+            "avatar_version": 0,
+            "deleted": true,
+            "dsm_uid": 1024,
+            "first_time_login": true,
+            "human_type": "dsm",
+            "is_disabled": true,
+            "nickname": "",
+            "status": "offline",
+            "type": "human",
+            "user_id": 13,
+            "user_props": {
+              "avatar_color": "#24bff2",
+              "description": "System default user",
+              "email": "",
+              "key_pair": {
+                "public_key": ""
+              },
+              "timezone": "",
+              "timezoneUTC": "Asia/Shanghai"
+            },
+            "username": "admin"
+          },
+          {
+            "avatar_version": 0,
+            "create_at": 1756981784474,
+            "delete_at": 0,
+            "dsm_uid": 1028,
+            "first_time_login": false,
+            "human_type": "dsm",
+            "is_disabled": false,
+            "nickname": "",
+            "status": "offline",
+            "type": "human",
+            "update_at": 1789573009235,
+            "user_id": 14,
+            "user_props": {
+              "avatar_color": "#94bf13",
+              "description": "",
+              "email": "",
+              "is_always_offline": false,
+              "key_pair": {
+                "private_key_enc": "",
+                "public_key": ""
+              },
+              "last_post_at": 0,
+              "last_webhook_post_at": 0,
+              "preference": {
+                "calendar_enable": true,
+                "notification_browser_active": false,
+                "notification_mute": false,
+                "notification_showmessage": true,
+                "prefer_user_name_format": "nickname",
+                "sidebar_pinning_unread": false,
+                "snooze": 0,
+                "snooze_schedule_enable": false,
+                "theme_background": 0,
+                "theme_style": "light"
+              },
+              "timezone": "",
+              "timezoneUTC": "Asia/Shanghai"
+            },
+            "username": "demo_user"
+          },
+          {
+            "avatar_version": 1631628056,
+            "deleted": false,
+            "dsm_uid": 1027,
+            "first_time_login": false,
+            "human_type": "dsm",
+            "is_disabled": false,
+            "nickname": "demo",
+            "status": "offline",
+            "type": "human",
+            "user_id": 4,
+            "user_props": {
+              "avatar_color": "#fa9c3e",
+              "description": "When in doubt, use brute force",
+              "email": "",
+              "key_pair": {
+                "public_key": "X5ZRdxS/Bs88ZuyxWCmOY4CswUQKV6Cowq0ThSVgcW0="
+              },
+              "timezone": "",
+              "timezoneUTC": "Asia/Shanghai"
+            },
+            "username": "demo_user"
+          }
+        ]
+      },
+      "method": "list",
+      "success": true,
+      "version": 2
+    },
+    {
+      "api": "SYNO.Chat.User",
+      "data": {
+        "users": [
+          {
+            "app_id": 0,
+            "avatar_version": 0,
+            "bot_props": {
+              "is_system": true,
+              "sticker_name": ""
+            },
+            "bot_type": "synobot",
+            "create_at": 1612400111000,
+            "creator_id": 0,
+            "deleted": false,
+            "is_disabled": false,
+            "nickname": "synobot",
+            "type": "bot",
+            "user_id": 1
+          },
+          {
+            "app_id": 0,
+            "avatar_version": 1572839546,
+            "bot_props": {
+              "is_system": true,
+              "sticker_name": ""
+            },
+            "bot_type": "slash",
+            "create_at": 1612400126814,
+            "creator_id": 1,
+            "deleted": false,
+            "is_disabled": false,
+            "nickname": "jitsi",
+            "slash_props": {
+              "cmd": "jitsi",
+              "description": "webhook_builtin:desc_conference_jitsi",
+              "url": "",
+              "usage": ""
+            },
+            "type": "bot",
+            "user_id": 3
+          },
+          {
+            "app_id": 1,
+            "avatar_version": 0,
+            "bot_props": {
+              "is_system": false,
+              "sticker_name": ""
+            },
+            "bot_type": "broadcast",
+            "create_at": 1613710984741,
+            "creator_id": 0,
+            "deleted": false,
+            "is_disabled": false,
+            "nickname": "Synology_Drive",
+            "type": "bot",
+            "user_id": 7
+          },
+          {
+            "app_id": 0,
+            "avatar_version": 1747907236275,
+            "bot_props": {
+              "is_system": false,
+              "sticker_name": "bear"
+            },
+            "bot_type": "chatbot",
+            "chatbot_props": {
+              "hide_from_user": true,
+              "purpose": "",
+              "welcome_note": "You can interact with the bot now."
+            },
+            "create_at": 1747906556317,
+            "creator_id": 4,
+            "deleted": false,
+            "has_url": true,
+            "is_disabled": true,
+            "nickname": "test",
+            "type": "bot",
+            "user_id": 11
+          },
+          {
+            "app_id": 1,
+            "avatar_version": 0,
+            "bot_props": {
+              "is_system": false,
+              "sticker_name": ""
+            },
+            "bot_type": "chatbot",
+            "chatbot_props": {
+              "hide_from_user": true,
+              "purpose": "The Synology Drive bot will push notifications to you.",
+              "welcome_note": "This is Synology Drive chatbot. From now on, you will receive Synology Drive notifications in this channel."
+            },
+            "create_at": 1613710984816,
+            "creator_id": 0,
+            "deleted": false,
+            "has_url": false,
+            "is_disabled": false,
+            "nickname": "Synology_Drive",
+            "type": "bot",
+            "user_id": 8
+          },
+          {
+            "app_id": 0,
+            "avatar_version": 1771552280,
+            "bot_props": {
+              "is_system": false,
+              "sticker_name": ""
+            },
+            "bot_type": "chatbot",
+            "chatbot_props": {
+              "hide_from_user": false,
+              "purpose": "openclaw",
+              "welcome_note": "You can interact with the openclaw now."
+            },
+            "create_at": 1771503236395,
+            "creator_id": 4,
+            "deleted": false,
+            "has_url": true,
+            "is_disabled": false,
+            "nickname": "openclaw",
+            "type": "bot",
+            "user_id": 27
+          }
+        ]
+      },
+      "method": "list",
+      "success": true,
+      "version": 2
+    }
+  ]
+}

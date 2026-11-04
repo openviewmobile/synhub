@@ -1,0 +1,4 @@
+/* 应用显示名（英文 / 默认）。中文见 zh-Hans.lproj/InfoPlist.strings。
+   ★ 与 `macos/Runner/Base.lproj/InfoPlist.strings` 同一套口径（r680 补齐 iOS）。 */
+CFBundleDisplayName = "SynHub";
+CFBundleName = "SynHub";

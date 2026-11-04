@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 分享/打开用的 FileProvider 路径：应用缓存目录（附件下载缓存就在
+     `<cacheDir>/chat_cache`）与外部缓存目录 -->
+<paths>
+    <cache-path name="chat_cache" path="chat_cache/"/>
+    <cache-path name="cache_root" path="."/>
+    <external-cache-path name="ext_cache" path="."/>
+    <files-path name="files" path="."/>
+    <external-files-path name="ext_files" path="."/>
+    <!-- Flutter 的"应用文档"目录：path_provider 的
+         `getApplicationDocumentsDirectory()` 在 Android 上 = `getDir("flutter")`
+         = `<dataDir>/app_flutter`，是 `<files-path>`（`<dataDir>/files`）的**兄弟**
+         目录，所以上面的 files/cache 条目一个都没盖住它。
+         真机证据：FileProvider 对 `…/app_flutter/downloads/theora.mkv` 报
+         `Failed to find configured root that contains …`，`content://` 根本造不出来，
+         「用其他应用打开」连系统选择器都弹不出来（对所有文件类型通用，不是 mkv 专属）。
+         这里用相对路径 `../app_flutter/`：FileProvider 的 SimplePathStrategy 解析时会
+         把 root `getCanonicalFile()` 归一化成 `<dataDir>/app_flutter`，`getUriForFile`
+         同样 canonicalize 文件路径后做**带 `/` 的** contain 判断（androidx.core
+         1.13.1 / 1.18.0 字节码均已核对，没有"禁止 .."或"目录必须已存在"的校验）。
+         因此授权根**精确等于**本 App 自己的 Flutter 文档目录，不会越权到
+         `/data/data/<其它包>` —— 这也是没有采用 `<root-path name="root" path="." />`
+         （整机可读文件都落进根内）的原因。 -->
+    <files-path name="flutter_docs" path="../app_flutter/"/>
+</paths>

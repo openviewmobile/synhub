@@ -1,0 +1,70 @@
+{
+  "id": "note_adv_search",
+  "unit": "lib/src/features/notes/note_adv_search_page.dart",
+  "title": {
+    "zh": "高级搜索",
+    "en": "Advanced search"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "form",
+    "fields": [
+      {
+        "label": {
+          "zh": "关键词",
+          "en": "Keywords"
+        },
+        "value": {
+          "zh": "时间线",
+          "en": "timeline"
+        }
+      },
+      {
+        "label": {
+          "zh": "标签",
+          "en": "Tags"
+        },
+        "value": {
+          "zh": "全部标签（AND）",
+          "en": "All tags (AND)"
+        }
+      },
+      {
+        "label": {
+          "zh": "笔记本",
+          "en": "Notebook"
+        },
+        "value": {
+          "zh": "设计",
+          "en": "Design"
+        }
+      },
+      {
+        "label": {
+          "zh": "修改时间",
+          "en": "Modified"
+        },
+        "value": {
+          "zh": "最近 30 天",
+          "en": "Last 30 days"
+        }
+      }
+    ],
+    "switch": {
+      "label": {
+        "zh": "搜索附件文本",
+        "en": "Search attachment text"
+      },
+      "value": false
+    },
+    "submit": {
+      "zh": "搜索",
+      "en": "Search"
+    }
+  },
+  "bottomNav": null
+}

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 待办小组件（N1 的 Todo 部分）的元数据。 -->
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:description="@string/widget_todos_label"
+    android:initialLayout="@layout/widget_list_layout"
+    android:minHeight="110dp"
+    android:minWidth="180dp"
+    android:previewLayout="@layout/widget_list_layout"
+    android:resizeMode="horizontal|vertical"
+    android:targetCellHeight="2"
+    android:targetCellWidth="3"
+    android:updatePeriodMillis="1800000"
+    android:widgetCategory="home_screen" />

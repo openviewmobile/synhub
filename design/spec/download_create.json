@@ -1,0 +1,61 @@
+{
+  "id": "download_create",
+  "unit": "lib/src/features/downloads/download_create_page.dart",
+  "title": {
+    "zh": "新建任务",
+    "en": "New task"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "form",
+    "fields": [
+      {
+        "label": {
+          "zh": "下载链接",
+          "en": "URL"
+        },
+        "value": "https://example.com/ubuntu.iso"
+      },
+      {
+        "label": {
+          "zh": "保存到",
+          "en": "Destination"
+        },
+        "value": "/downloads/iso"
+      },
+      {
+        "label": {
+          "zh": "最大下载速率",
+          "en": "Max download"
+        },
+        "value": {
+          "zh": "不限",
+          "en": "Unlimited"
+        }
+      },
+      {
+        "label": {
+          "zh": "最大上传速率",
+          "en": "Max upload"
+        },
+        "value": "2 MB/s"
+      }
+    ],
+    "switch": {
+      "label": {
+        "zh": "立即开始",
+        "en": "Start immediately"
+      },
+      "value": true
+    },
+    "submit": {
+      "zh": "创建任务",
+      "en": "Create task"
+    }
+  },
+  "bottomNav": null
+}

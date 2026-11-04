@@ -1,0 +1,72 @@
+{
+  "id": "drive_sync_tasks",
+  "unit": "lib/src/features/drive/drive_sync_tasks_page.dart",
+  "title": {
+    "zh": "同步任务",
+    "en": "Sync tasks"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "rowIcon": "folder",
+  "body": {
+    "type": "list",
+    "sections": true,
+    "items": [
+      {
+        "section": {
+          "zh": "进行中",
+          "en": "In progress"
+        },
+        "title": {
+          "zh": "上传 原型/截图-48.png",
+          "en": "Upload Prototype/shot-48.png"
+        },
+        "sub": {
+          "zh": "2.1 MB / 4.8 MB · 44%",
+          "en": "2.1 MB / 4.8 MB · 44%"
+        },
+        "lead": "icon",
+        "trail": "pause",
+        "progress": 0.44
+      },
+      {
+        "section": {
+          "zh": "进行中",
+          "en": "In progress"
+        },
+        "title": {
+          "zh": "下载 参考/品牌手册.pdf",
+          "en": "Download Reference/brand.pdf"
+        },
+        "sub": {
+          "zh": "8.4 MB / 12 MB · 70%",
+          "en": "8.4 MB / 12 MB · 70%"
+        },
+        "lead": "icon",
+        "trail": "pause",
+        "progress": 0.7
+      },
+      {
+        "section": {
+          "zh": "已暂停",
+          "en": "Paused"
+        },
+        "title": {
+          "zh": "上传 视频/演示.mp4",
+          "en": "Upload Video/demo.mp4"
+        },
+        "sub": {
+          "zh": "已暂停 · 0 B/s",
+          "en": "Paused · 0 B/s"
+        },
+        "lead": "icon",
+        "trail": "play",
+        "progress": 0.12
+      }
+    ]
+  },
+  "bottomNav": null
+}

@@ -1,0 +1,64 @@
+{
+  "id": "drive_copy_move",
+  "unit": "lib/src/features/drive/drive_copy_move_page.dart",
+  "title": {
+    "zh": "复制到",
+    "en": "Copy to"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "breadcrumb": {
+    "zh": "我的文件 / 设计 / 原型",
+    "en": "My Drive / Design / Prototype"
+  },
+  "rowIcon": "folder",
+  "body": {
+    "type": "list",
+    "items": [
+      {
+        "title": {
+          "zh": "评审截图",
+          "en": "Review shots"
+        },
+        "sub": {
+          "zh": "48 个文件",
+          "en": "48 files"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "title": {
+          "zh": "历史版本",
+          "en": "Old versions"
+        },
+        "sub": {
+          "zh": "12 个文件",
+          "en": "12 files"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "title": {
+          "zh": "导出",
+          "en": "Exports"
+        },
+        "sub": {
+          "zh": "空文件夹",
+          "en": "Empty folder"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      }
+    ]
+  },
+  "footerAction": {
+    "zh": "复制到这里",
+    "en": "Copy here"
+  },
+  "bottomNav": null
+}

@@ -1,0 +1,56 @@
+# ---- Flutter/Dart ----
+.dart_tool/
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+build/
+coverage/
+*.log
+*.bak.*
+*.orig
+*.rej
+*.swp
+.DS_Store
+__pycache__/
+*.pyc
+
+# ---- IDE ----
+.idea/
+*.iml
+.vscode/
+.vision-test/
+
+# ---- 平台产物 ----
+ios/build/
+macos/build/
+linux/build/
+windows/build/
+android/.gradle/
+android/app/build/
+android/local.properties
+android/key.properties
+**/Pods/
+**/.symlinks/
+**/Flutter/ephemeral/
+**/ephemeral/
+**/xcuserdata/
+**/CMakeFiles/
+**/*.xcworkspace/xcuserdata/
+
+# ---- 自研原生库（由 reimpl/ 构建生成，不入库）----
+android/app/src/main/jniLibs/
+ios/lib/libsynochatpunch.a
+
+# ---- 设计生成物 ----
+design/gen/
+design/synhub_ui/out/
+
+# ---- 本地环境 ----
+*.env
+.env.*
+!.env.example
+
+# Flutter 生成的绝对路径文件
+ios/Flutter/Generated.xcconfig
+ios/Flutter/flutter_export_environment.sh
+macos/Flutter/ephemeral/

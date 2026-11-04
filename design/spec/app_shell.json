@@ -1,0 +1,50 @@
+{
+  "id": "app_shell",
+  "unit": "lib/src/features/shell/app_shell_page.dart",
+  "title": {
+    "zh": "工作台",
+    "en": "Workspace"
+  },
+  "appbar": {
+    "actions": [
+      "search",
+      "more"
+    ]
+  },
+  "body": {
+    "type": "grid",
+    "count": 6,
+    "tileIcon": "folder",
+    "labels": [
+      {
+        "zh": "文件",
+        "en": "Files"
+      },
+      {
+        "zh": "相册",
+        "en": "Photos"
+      },
+      {
+        "zh": "下载",
+        "en": "Downloads"
+      },
+      {
+        "zh": "Drive",
+        "en": "Drive"
+      },
+      {
+        "zh": "笔记",
+        "en": "Notes"
+      },
+      {
+        "zh": "Office",
+        "en": "Office"
+      }
+    ]
+  },
+  "note": {
+    "zh": "这里是外壳的「工作台」页；底栏切换不重进页面",
+    "en": "This is the shell's Workspace tab; tabs don't re-push"
+  },
+  "bottomNav": "work"
+}

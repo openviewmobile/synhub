@@ -1,0 +1,1320 @@
+{
+  "station": "windows",
+  "round": "r705",
+  "scope": "lib/src/features/**/*_page.dart（与 Linux 台账同口径：141 个文件 / 163 个页面类）",
+  "verdicts": [
+    {
+      "class": "AdminToolsPage",
+      "module": "admin",
+      "file": "lib/src/features/admin/admin_tools_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/205_admin_tools_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=2（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "AiModelPage",
+      "module": "ai",
+      "file": "lib/src/features/ai/ai_model_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/206_ai_model_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=40（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "AiUsagePage",
+      "module": "ai",
+      "file": "lib/src/features/ai/ai_usage_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/105_ai_usage.png",
+      "note": "r703 深扫（③e）：Scaffold 在、Text=8；首屏文案「全部 / 近 7 天 / 近 30 天 / 以下数字由本机按调用记录估算：token 优先用服务端返回的 usage，缺失时按字符数折算；费用按内置单价表折算。这不是服务商的账单，请以官方后台为准。 / 单价表更新于 2026-09，只覆盖常见模型；认不出单价的按「未知」处理，自建/本地服务按 0 计。 / 还没有云端调用记录」；正常态。窗口像素 docs/evidence-r703-win/105_ai_usage.png"
+    },
+    {
+      "class": "TrafficPage",
+      "module": "analytics",
+      "file": "lib/src/features/analytics/traffic_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/107_analytics_traffic.png",
+      "note": "r703 深扫（③e）：Scaffold 在、Text=27；首屏文案「网络流量 / 按模块与时段统计（精确 + 估算） / 近 24 小时 / 近 7 天 / 合计 / 57.3 MB」；正常态。窗口像素 docs/evidence-r703-win/107_analytics_traffic.png"
+    },
+    {
+      "class": "UsageAnalyticsPage",
+      "module": "analytics",
+      "file": "lib/src/features/analytics/analytics_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/106_analytics_usage.png",
+      "note": "r703 深扫（③e）：Scaffold 在、Text=53；首屏文案「使用分析 / 本地日志 · 96 条事件 / 记录本地使用日志 / 只记\"用了哪个模块的哪个动作\"和数量；不记文件名、标题、正文，也不上传。 / 网络流量 / 按模块与时段统计（精确 + 估算）」；正常态。窗口像素 docs/evidence-r703-win/106_analytics_usage.png"
+    },
+    {
+      "class": "AudioCastPage",
+      "module": "audio",
+      "file": "lib/src/features/audio/audio_cast_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/207_audio_cast_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=4（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "AudioDetailPage",
+      "module": "audio",
+      "file": "lib/src/features/audio/audio_detail_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/191_audio_folder.png",
+      "note": "r703 深扫（③g）：Scaffold 在、Text=4；首屏文案「音乐库加载失败 / 网络连接失败，请检查网络后重试 / 重试 / 1」；含错误/空态提示。窗口像素 docs/evidence-r703-win/191_audio_folder.png；同类另摄 187_audio_artist、188_audio_composer、189_audio_genre、190_audio_album、192_audio_playlist"
+    },
+    {
+      "class": "AudioPage",
+      "module": "audio",
+      "file": "lib/src/features/audio/audio_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r670-win/14_audio.png",
+      "note": "Audio Station 列表 25 首真歌（播放能力位边界见 §3）"
+    },
+    {
+      "class": "AudioPinsPage",
+      "module": "audio",
+      "file": "lib/src/features/audio/audio_pins_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/208_audio_pins_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=3（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "AudioPlayedPage",
+      "module": "audio",
+      "file": "lib/src/features/audio/audio_gaps_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/164_audio_played.png",
+      "note": "r703 深扫（③f）：Scaffold 在、Text=2；首屏文案「还没有播放记录 / 最近播放」；正常态。窗口像素 docs/evidence-r703-win/164_audio_played.png"
+    },
+    {
+      "class": "AudioRadioPage",
+      "module": "audio",
+      "file": "lib/src/features/audio/audio_radio_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/110_audio_radio.png",
+      "note": "r703 深扫（③e）：Scaffold 在、Text=5；首屏文案「点分类进入下一层，点电台开始播放。部分电台要先解析播放列表，起播会慢一拍。 / SHOUTcast(TM) / User-defined radio / My favorite radio / 网络电台」；正常态。窗口像素 docs/evidence-r703-win/110_audio_radio.png"
+    },
+    {
+      "class": "AudioRadioSearchPage",
+      "module": "audio",
+      "file": "lib/src/features/audio/audio_radio_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/111_audio_radio_search.png",
+      "note": "r703 深扫（③e）：Scaffold 在、Text=2；首屏文案「输入关键字搜索网络电台 / 输入关键字搜索网络电台」；正常态。窗口像素 docs/evidence-r703-win/111_audio_radio_search.png"
+    },
+    {
+      "class": "AudioRandom100Page",
+      "module": "audio",
+      "file": "lib/src/features/audio/audio_gaps_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/109_audio_random100.png",
+      "note": "r703 深扫（③e）：Scaffold 在、Text=25；首屏文案「Introduction to the Renaissance / Prof Robert Greenberg · How to Listen to and Understand Great Music - Part I: The Ancient World through the Early Baroque (029/422) / 5:19 · 2001 / 16-05 Protestantism - Problems of Grace / Philip Cary · Philosophy and Religion in the West / 5:52」；正常态。窗口像素 docs/evidence-r703-win/109_audio_random100.png"
+    },
+    {
+      "class": "AudioRecentlyAddedPage",
+      "module": "audio",
+      "file": "lib/src/features/audio/audio_gaps_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/108_audio_recently_added.png",
+      "note": "r703 深扫（③e）：Scaffold 在、Text=17；首屏文案「Hurry Up, We're Dreaming / M83 · 2011 / Zero to Infinity_  A History of Numbers / Wisdom of History / Prof. J. Rufus Fears · 2007 / War, Peace, and Power: Diplomatic History of Europe, 1500–2000」；正常态。窗口像素 docs/evidence-r703-win/108_audio_recently_added.png"
+    },
+    {
+      "class": "AudioRemotePage",
+      "module": "audio",
+      "file": "lib/src/features/audio/audio_remote_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/209_audio_remote_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=7（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "AudioSearchPage",
+      "module": "audio",
+      "file": "lib/src/features/audio/audio_search_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/112_audio_search.png",
+      "note": "r703 深扫（③e）：Scaffold 在、Text=2；首屏文案「搜索歌曲、专辑或艺术家 / 搜索歌曲、专辑或艺术家」；正常态。窗口像素 docs/evidence-r703-win/112_audio_search.png"
+    },
+    {
+      "class": "AudioSongDetailPage",
+      "module": "audio",
+      "file": "lib/src/features/audio/audio_song_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/163_audio_song_detail.png",
+      "note": "r703 深扫（③f）：Scaffold 在、Text=3；首屏文案「歌曲信息加载失败 / 重试 / probe」；含错误/空态提示。窗口像素 docs/evidence-r703-win/163_audio_song_detail.png"
+    },
+    {
+      "class": "AudioWebQueuePage",
+      "module": "audio",
+      "file": "lib/src/features/audio/audio_web_queue_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/210_audio_web_queue_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=4（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "_LyricsFullPage",
+      "module": "audio",
+      "file": "lib/src/features/audio/audio_song_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r706-win/270_lyrics_full_page.png",
+      "note": "r706 走用户路径打开（单曲页歌词卡片标题 → 全屏歌词，**不播放、不写**）：像素里是「Redrum (Robin Schulz Remix) 112 / Sorana & David Guetta」、来源行「歌词来源：lrclib.net 公开歌词库 · … · DMC DJ Promo 277」、13 行歌词正文、A-/A+ 字号键、播放键、`0:00 / 2:55` ⇒ 私有路由真 push 并渲染（Text=18）。★ 选歌不是猜的：先用页面同一套源（`LyricsLookup.search`，只读 lrclib）在 40 首里扫，第 17 首命中（56 行）才推那一首；这台库其余是 Great Courses 讲课录音，公开源无词。",
+      "round": "r706"
+    },
+    {
+      "class": "CalendarPage",
+      "module": "calendar",
+      "file": "lib/src/features/calendar/calendar_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/113_calendar.png",
+      "note": "r703 深扫（③e）：Scaffold 在、Text=66；首屏文案「日历 / Synology Calendar / 今天 / 月 / 周 / 日」；正常态。窗口像素 docs/evidence-r703-win/113_calendar.png"
+    },
+    {
+      "class": "ArchivePage",
+      "module": "chat",
+      "file": "lib/src/features/chat/archive_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/211_archive_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=17（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "AvailableChannelsPage",
+      "module": "chat",
+      "file": "lib/src/features/chat/available_channels_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/212_available_channels_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=11（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "ChannelContentPage",
+      "module": "chat",
+      "file": "lib/src/features/chat/channel_content_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/165_chat_pinned.png",
+      "note": "r703 深扫（③f）：Scaffold 在、Text=2；首屏文案「这个频道还没有置顶内容 / 置顶」；正常态。窗口像素 docs/evidence-r703-win/165_chat_pinned.png；同类另摄 166_chat_bookmarks"
+    },
+    {
+      "class": "ChannelCreatePage",
+      "module": "chat",
+      "file": "lib/src/features/chat/channel_create_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/114_chat_channel_create.png",
+      "note": "r703 深扫（③e）：Scaffold 在、Text=15；首屏文案「频道名称 / 例如：项目讨论 / 用途（可选） / 私有频道 / 只有被邀请的成员能加入 / 公开频道」；含错误/空态提示。窗口像素 docs/evidence-r703-win/114_chat_channel_create.png"
+    },
+    {
+      "class": "ChannelHashtagsPage",
+      "module": "chat",
+      "file": "lib/src/features/chat/channel_hashtags_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/167_chat_hashtags.png",
+      "note": "r703 深扫（③f）：Scaffold 在、Text=2；首屏文案「这个频道还没有标签 / 标签」；正常态。窗口像素 docs/evidence-r703-win/167_chat_hashtags.png"
+    },
+    {
+      "class": "ChannelListPage",
+      "module": "chat",
+      "file": "lib/src/features/chat/channel_list_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/213_channel_list_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=38（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "ChannelMediaPage",
+      "module": "chat",
+      "file": "lib/src/features/chat/channel_media_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/168_chat_media.png",
+      "note": "r703 深扫（③f）：Scaffold 在、Text=5；首屏文案「#1 · 媒体与文件 / 图片 / 视频 / 音频 / 文件」；正常态。窗口像素 docs/evidence-r703-win/168_chat_media.png"
+    },
+    {
+      "class": "ChannelMembersPage",
+      "module": "chat",
+      "file": "lib/src/features/chat/channel_members_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/169_chat_members.png",
+      "note": "r703 深扫（③f）：Scaffold 在、Text=9；首屏文案「搜索成员 / K / demo_user（我） / F / demo / demo_user」；正常态。窗口像素 docs/evidence-r703-win/169_chat_members.png"
+    },
+    {
+      "class": "ChatPage",
+      "module": "chat",
+      "file": "lib/src/features/chat/chat_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r670-win/04_chat.png",
+      "note": "频道列表行数=5 / 23 个频道（21_chat_desk5.png 同页宽窗）"
+    },
+    {
+      "class": "GlobalContentPage",
+      "module": "chat",
+      "file": "lib/src/features/chat/global_content_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/214_global_content_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=6（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "ReadStatusPage",
+      "module": "chat",
+      "file": "lib/src/features/chat/read_status_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/173_chat_read_status.png",
+      "note": "r703 深扫（③f）：Scaffold 在、Text=1；首屏文案「已读成员」；正常态。窗口像素 docs/evidence-r703-win/173_chat_read_status.png"
+    },
+    {
+      "class": "RemindersPage",
+      "module": "chat",
+      "file": "lib/src/features/chat/channel_scheduled_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/171_chat_reminders.png",
+      "note": "r703 深扫（③f）：Scaffold 在、Text=2；首屏文案「没有提醒 / 提醒」；正常态。窗口像素 docs/evidence-r703-win/171_chat_reminders.png"
+    },
+    {
+      "class": "ScheduledMessagesPage",
+      "module": "chat",
+      "file": "lib/src/features/chat/channel_scheduled_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/170_chat_scheduled.png",
+      "note": "r703 深扫（③f）：Scaffold 在、Text=2；首屏文案「没有待发的定时消息 / 定时消息」；正常态。窗口像素 docs/evidence-r703-win/170_chat_scheduled.png"
+    },
+    {
+      "class": "SubscribedThreadsPage",
+      "module": "chat",
+      "file": "lib/src/features/chat/subscribed_threads_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/172_chat_subscribed.png",
+      "note": "r703 深扫（③f）：Scaffold 在、Text=2；首屏文案「还没有订阅的话题 / 订阅话题」；正常态。窗口像素 docs/evidence-r703-win/172_chat_subscribed.png"
+    },
+    {
+      "class": "ThreadPage",
+      "module": "chat",
+      "file": "lib/src/features/chat/thread_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/200_chat_thread.png",
+      "note": "r703 深扫（③g）：Scaffold 在、Text=3；首屏文案「还没有回复 / 回复话题… / 话题」；正常态。窗口像素 docs/evidence-r703-win/200_chat_thread.png"
+    },
+    {
+      "class": "_InviteMembersPage",
+      "module": "chat",
+      "file": "lib/src/features/chat/channel_members_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r706-win/268_invite_members_page.png",
+      "note": "r706 走用户路径打开（成员页 → 点『邀请成员』，**面板里一个都不点、不发邀请**）：像素里是「邀请成员 / 搜索用户 / 邀请 (0)」＋空态「没有可邀请的用户」（该频道成员已覆盖这台 NAS 的用户）⇒ 路由真的 push 出来并渲染（判据同 §0，空态算渲染）。",
+      "round": "r706"
+    },
+    {
+      "class": "ContactEditorPage",
+      "module": "contacts",
+      "file": "lib/src/features/contacts/contact_editor_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/174_contacts_editor.png",
+      "note": "r703 深扫（③f）：Scaffold 在、Text=16；首屏文案「? / 添加头像 / 基本信息 / 姓名 * / 昵称 / 公司」；正常态。窗口像素 docs/evidence-r703-win/174_contacts_editor.png"
+    },
+    {
+      "class": "ContactImportPage",
+      "module": "contacts",
+      "file": "lib/src/features/contacts/contact_import_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/175_contacts_import.png",
+      "note": "r703 深扫（③f）：Scaffold 在、Text=6；首屏文案「支持 .vcf（vCard）/ .csv / .txt。选好文件会先给一份预览，确认后再导入。 / Suggested / 导入到哪个通讯录 / 选择文件 / 导入到该通讯录」；正常态。窗口像素 docs/evidence-r703-win/175_contacts_import.png"
+    },
+    {
+      "class": "ContactsManagePage",
+      "module": "contacts",
+      "file": "lib/src/features/contacts/contacts_manage_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/115_contacts_manage.png",
+      "note": "r703 深扫（③e）：Scaffold 在、Text=11；首屏文案「Suggested / 0 位联系人 · 建议 / My Contacts / 0 位联系人 · 个人 / Team Contacts / 4 位联系人 · 团队/公开 · 共享自 Contacts · 共享给 所有人」；正常态。窗口像素 docs/evidence-r703-win/115_contacts_manage.png"
+    },
+    {
+      "class": "ContactsPage",
+      "module": "contacts",
+      "file": "lib/src/features/contacts/contacts_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/116_contacts.png",
+      "note": "r703 深扫（③e）：Scaffold 在、Text=19；首屏文案「联系人 / 通讯录 · 标签 · CardDAV / 搜索姓名 / 单位 / 邮箱 / 电话」；正常态。窗口像素 docs/evidence-r703-win/116_contacts.png"
+    },
+    {
+      "class": "DesignPreviewPage",
+      "module": "design",
+      "file": "lib/src/features/design/design_preview_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/117_design_preview.png",
+      "note": "r703 深扫（③e）：Scaffold 在、Text=41；首屏文案「效果开关（可现场对比） / Material You 动态取色 / DYNAMIC COLOR · 跟随系统壁纸 / 设备档位 入门 · 2 核 / 性能模式 / PERF · 关闭毛玻璃」；正常态。窗口像素 docs/evidence-r703-win/117_design_preview.png"
+    },
+    {
+      "class": "DiagPage",
+      "module": "diagnostics",
+      "file": "lib/src/features/diagnostics/diag_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/215_diag_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=24（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "DownloadBtSearchPage",
+      "module": "downloads",
+      "file": "lib/src/features/downloads/download_bt_search_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/216_download_bt_search_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=18（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "DownloadCaptchaPage",
+      "module": "downloads",
+      "file": "lib/src/features/downloads/download_captcha_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/118_dl_captcha.png",
+      "note": "r703 深扫（③e）：Scaffold 在、Text=3；首屏文案「没有需要验证码的任务 / 需要验证码的任务都已经处理完了。 / 输入验证码」；正常态。窗口像素 docs/evidence-r703-win/118_dl_captcha.png"
+    },
+    {
+      "class": "DownloadCreatePage",
+      "module": "downloads",
+      "file": "lib/src/features/downloads/download_create_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/119_dl_create.png",
+      "note": "r703 深扫（③e）：Scaffold 在、Text=16；首屏文案「链接 / 支持 HTTP／FTP／磁力／迅雷等链接，每行一个 / 需要 FTP/HTTP 账号密码 / 选择 .torrent／.nzb 文件 / 选择文件 / 下载目录（留空用默认目录）」；正常态。窗口像素 docs/evidence-r703-win/119_dl_create.png"
+    },
+    {
+      "class": "DownloadDetailPage",
+      "module": "downloads",
+      "file": "lib/src/features/downloads/download_detail_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/161_dl_detail.png",
+      "note": "r703 深扫（③f）：Scaffold 在、Text=4；首屏文案「任务详情加载失败 / 请求参数不被接受 / 重试 / 任务详情」；含错误/空态提示。窗口像素 docs/evidence-r703-win/161_dl_detail.png"
+    },
+    {
+      "class": "DownloadEmulePage",
+      "module": "downloads",
+      "file": "lib/src/features/downloads/download_emule_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/217_download_emule_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=3（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "DownloadEmuleSearchPage",
+      "module": "downloads",
+      "file": "lib/src/features/downloads/download_emule_search_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/218_download_emule_search_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=11（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "DownloadEmuleServerPage",
+      "module": "downloads",
+      "file": "lib/src/features/downloads/download_emule_server_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/219_download_emule_server_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=2（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "DownloadFileSelectPage",
+      "module": "downloads",
+      "file": "lib/src/features/downloads/download_file_select_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/162_dl_file_select.png",
+      "note": "r703 深扫（③f）：Scaffold 在、Text=4；首屏文案「文件清单加载失败 / 请求参数无效 (list_id) / 重试 / 选择要下载的文件」；含错误/空态提示。窗口像素 docs/evidence-r703-win/162_dl_file_select.png"
+    },
+    {
+      "class": "DownloadPage",
+      "module": "downloads",
+      "file": "lib/src/features/downloads/download_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r670-win/17_downloads.png",
+      "note": "统计条 + 空态「还没有下载」"
+    },
+    {
+      "class": "DownloadRssFeedPage",
+      "module": "downloads",
+      "file": "lib/src/features/downloads/download_rss_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/120_dl_rss_feed.png",
+      "note": "r703 深扫（③e）：Scaffold 在、Text=4；首屏文案「已经到底了 / RSS / 条目 / 自动下载」；正常态。窗口像素 docs/evidence-r703-win/120_dl_rss_feed.png"
+    },
+    {
+      "class": "DownloadRssPage",
+      "module": "downloads",
+      "file": "lib/src/features/downloads/download_rss_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/220_download_rss_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=4（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "DownloadSettingsPage",
+      "module": "downloads",
+      "file": "lib/src/features/downloads/download_settings_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/221_download_settings_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=19（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "DriveAdminPage",
+      "module": "drive",
+      "file": "lib/src/features/drive/drive_admin_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/121_drive_admin.png",
+      "note": "r703 深扫（③e）：Scaffold 在、Text=2；首屏文案「需要管理员权限 / Drive（管理员）」；正常态。窗口像素 docs/evidence-r703-win/121_drive_admin.png"
+    },
+    {
+      "class": "DriveAdvanceSharingPage",
+      "module": "drive",
+      "file": "lib/src/features/drive/drive_advance_sharing_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/158_drive_advance_sharing.png",
+      "note": "r703 深扫（③f）：Scaffold 在、Text=6；首屏文案「高级共享 / probe.txt / 匿名公开链接：拿到链接的人无需账号即可访问；成员共享请用「分享」。 / 拿不到文件链接（可能没有分享权限） / 错误码 1000 / 重试」；含错误/空态提示。窗口像素 docs/evidence-r703-win/158_drive_advance_sharing.png"
+    },
+    {
+      "class": "DriveCategoryPage",
+      "module": "drive",
+      "file": "lib/src/features/drive/drive_category_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/122_drive_category.png",
+      "note": "r703 深扫（③e）：Scaffold 在、Text=7；首屏文案「照片（1） / 视频（0） / 音频（0） / 文档（17） / PROBE_V2.png / /mydrive/PhotoBackup/LGE-AN10/PROBE_V2.png」；正常态。窗口像素 docs/evidence-r703-win/122_drive_category.png"
+    },
+    {
+      "class": "DriveCollectionFilesPage",
+      "module": "drive",
+      "file": "lib/src/features/drive/drive_collection_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/160_drive_collection_files.png",
+      "note": "r703 深扫（③f）：Scaffold 在、Text=5；首屏文案「probe / 暂时取不到收藏集里的文件 / 错误码 1006 / 重试」；含错误/空态提示。窗口像素 docs/evidence-r703-win/160_drive_collection_files.png"
+    },
+    {
+      "class": "DriveCollectionPage",
+      "module": "drive",
+      "file": "lib/src/features/drive/drive_collection_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/123_drive_collection.png",
+      "note": "r703 深扫（③e）：Scaffold 在、Text=10；首屏文案「收藏集 / 还没有收藏集 / 全部 / 照片收藏集 / 文档收藏集 / 音乐收藏集」；正常态。窗口像素 docs/evidence-r703-win/123_drive_collection.png"
+    },
+    {
+      "class": "DriveComputersPage",
+      "module": "drive",
+      "file": "lib/src/features/drive/drive_computers_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/222_drive_computers_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=4（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "DriveConnectionsPage",
+      "module": "drive",
+      "file": "lib/src/features/drive/drive_connections_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/223_drive_connections_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=4（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "DriveCopyMovePage",
+      "module": "drive",
+      "file": "lib/src/features/drive/drive_copy_move_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/130_drive_copy_move.png",
+      "note": "r703 深扫（③e）：Scaffold 在、Text=3；首屏文案「PhotoBackup / 移动到… / 移动到这里」；正常态。窗口像素 docs/evidence-r703-win/130_drive_copy_move.png"
+    },
+    {
+      "class": "DriveExtrasPage",
+      "module": "drive",
+      "file": "lib/src/features/drive/drive_extras_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/224_drive_extras_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=19（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "DriveFileRequestPage",
+      "module": "drive",
+      "file": "lib/src/features/drive/drive_file_request_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/225_drive_file_request_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=4（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "DriveFolderPage",
+      "module": "drive",
+      "file": "lib/src/features/drive/drive_folder_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/127_drive_folder.png",
+      "note": "r703 深扫（③e）：Scaffold 在、Text=4；首屏文案「打不开这个文件夹 / 目标位置不存在（可能已被移动或删除） / 重试 / /」；含错误/空态提示。窗口像素 docs/evidence-r703-win/127_drive_folder.png"
+    },
+    {
+      "class": "DriveFolderTrashPage",
+      "module": "drive",
+      "file": "lib/src/features/drive/drive_team_trash_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/157_drive_folder_trash.png",
+      "note": "r703 深扫（③f）：Scaffold 在、Text=6；首屏文案「probe / 回收站是空的 / 团队文件夹回收站不支持\"清空\"（与官方一致）；可以逐条还原或彻底删除。 / 暂时取不到团队文件夹 / 目标位置不存在（可能已被移动或删除） / 重试」；含错误/空态提示。窗口像素 docs/evidence-r703-win/157_drive_folder_trash.png"
+    },
+    {
+      "class": "DriveLocalFilesPage",
+      "module": "drive",
+      "file": "lib/src/features/drive/drive_local_files_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/129_drive_local_files.png",
+      "note": "r703 深扫（③e）：Scaffold 在、Text=3；首屏文案「本机文件 / 上传到 /home / C:\\Users\\dev\\Documents」；正常态。窗口像素 docs/evidence-r703-win/129_drive_local_files.png"
+    },
+    {
+      "class": "DriveNotificationsPage",
+      "module": "drive",
+      "file": "lib/src/features/drive/drive_notifications_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/226_drive_notifications_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=19（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "DrivePdfMarkupPage",
+      "module": "drive",
+      "file": "lib/src/features/drive/drive_pdf_markup_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/155_drive_pdf_markup.png",
+      "note": "r703 深扫（③f）：Scaffold 在、Text=9；首屏文案「高亮 / 手写/签名 / 便签 / 0 条批注 / · 页 0 / 渲染失败：PlatformException(pdfx_exception, Document failed to open, null, null)」；含错误/空态提示。窗口像素 docs/evidence-r703-win/155_drive_pdf_markup.png"
+    },
+    {
+      "class": "DriveQuotaPage",
+      "module": "drive",
+      "file": "lib/src/features/drive/drive_quota_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/227_drive_quota_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=4（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "DriveScanPage",
+      "module": "drive",
+      "file": "lib/src/features/drive/drive_scan_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/128_drive_scan.png",
+      "note": "r703 深扫（③e）：Scaffold 在、Text=7；首屏文案「扫描件 / 已拍 0 页 / 扫描件 / 拍一页 / 相册导入 / 生成 PDF 并上传」；正常态。窗口像素 docs/evidence-r703-win/128_drive_scan.png"
+    },
+    {
+      "class": "DriveSearchPage",
+      "module": "drive",
+      "file": "lib/src/features/drive/drive_search_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/228_drive_search_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=10（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "DriveSyncTasksPage",
+      "module": "drive",
+      "file": "lib/src/features/drive/drive_sync_tasks_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/229_drive_sync_tasks_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=3（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "DriveTeamMemberListPage",
+      "module": "drive",
+      "file": "lib/src/features/drive/drive_team_members_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/156_drive_team_member_list.png",
+      "note": "r703 深扫（③f）：Scaffold 在、Text=4；首屏文案「probe / 打不开这个列表 / 参数不被接受（可能是路径或文件名） / 重试」；含错误/空态提示。窗口像素 docs/evidence-r703-win/156_drive_team_member_list.png"
+    },
+    {
+      "class": "DriveTeamMembersPage",
+      "module": "drive",
+      "file": "lib/src/features/drive/drive_team_members_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/230_drive_team_members_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=3（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "DriveTeamTrashPage",
+      "module": "drive",
+      "file": "lib/src/features/drive/drive_team_trash_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/231_drive_team_trash_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=4（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "DriveTextEditorPage",
+      "module": "drive",
+      "file": "lib/src/features/drive/drive_text_editor_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/131_drive_text_editor.png",
+      "note": "r703 深扫（③e）：Scaffold 在、Text=2；首屏文案「开始输入… / probe.txt」；正常态。窗口像素 docs/evidence-r703-win/131_drive_text_editor.png"
+    },
+    {
+      "class": "DriveTrashPage",
+      "module": "drive",
+      "file": "lib/src/features/drive/drive_trash_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/232_drive_trash_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=5（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "DriveLabelledPage",
+      "module": "files",
+      "file": "lib/src/features/files/drive_labels_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/159_drive_labelled.png",
+      "note": "r703 深扫（③f）：Scaffold 在、Text=5；首屏文案「probe / Synology Drive · 标签下的文件 / 打不开这个标签 / 错误码 1006 / 重试」；含错误/空态提示。窗口像素 docs/evidence-r703-win/159_drive_labelled.png"
+    },
+    {
+      "class": "DriveLabelsPage",
+      "module": "files",
+      "file": "lib/src/features/files/drive_labels_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/124_drive_labels.png",
+      "note": "r703 深扫（③e）：Scaffold 在、Text=4；首屏文案「标签 / Synology Drive · 个人标签 / 还没有标签 / 标签是 Drive 里的\"多对多分类\"：」；正常态。窗口像素 docs/evidence-r703-win/124_drive_labels.png"
+    },
+    {
+      "class": "DriveMorePage",
+      "module": "files",
+      "file": "lib/src/features/files/drive_more_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/125_drive_more.png",
+      "note": "r703 深扫（③e）：Scaffold 在、Text=15；首屏文案「Drive 更多 / Synology Drive · 回收站 / Office 文档 / 只看 Drive 里的 .odoc / .osheet / .oslides」；正常态。窗口像素 docs/evidence-r703-win/125_drive_more.png"
+    },
+    {
+      "class": "DriveRevisionsPage",
+      "module": "files",
+      "file": "lib/src/features/files/drive_revisions_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/154_drive_revisions.png",
+      "note": "r703 深扫（③f）：Scaffold 在、Text=5；首屏文案「版本历史 / Synology Drive · probe.txt / 打不开版本历史 / 目标位置不存在（可能已被移动或删除） / 重试」；含错误/空态提示。窗口像素 docs/evidence-r703-win/154_drive_revisions.png；同类另摄 204_drive_versions_office"
+    },
+    {
+      "class": "DriveSharePage",
+      "module": "files",
+      "file": "lib/src/features/files/drive_share_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/153_drive_share.png",
+      "note": "r703 深扫（③f）：Scaffold 在、Text=11；首屏文案「共享 / Synology Drive · probe.txt / 永久打开链接 / 拿不到文件链接（可能没有分享权限） / 重试 / 这是文件的永久入口，本页关不掉它。要停止匿名访问，请在「公开分享管理」里关闭公开链接。」；含错误/空态提示。窗口像素 docs/evidence-r703-win/153_drive_share.png"
+    },
+    {
+      "class": "DriveTasksPage",
+      "module": "files",
+      "file": "lib/src/features/files/drive_tasks_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/126_drive_tasks.png",
+      "note": "r703 深扫（③e）：Scaffold 在、Text=3；首屏文案「没有后台任务 / Synology Drive 的上传/下载/转存任务会出现在这里。」；正常态。窗口像素 docs/evidence-r703-win/126_drive_tasks.png"
+    },
+    {
+      "class": "FileBrowsePage",
+      "module": "files",
+      "file": "lib/src/features/files/file_browse_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r670-win/05_files_root.png",
+      "note": "/home→/home/Drive→上一级 三跳都在像素上（05/06/07/07b）；r703 Windows 深扫复摄 132_files_browse（Text=15）",
+      "r703": "docs/evidence-r703-win/132_files_browse.png"
+    },
+    {
+      "class": "FileMountPage",
+      "module": "files",
+      "file": "lib/src/features/files/file_mount_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/133_files_mount.png",
+      "note": "r703 深扫（③e）：Scaffold 在、Text=3；首屏文案「无法管理远程挂载 / 这台服务器没有为这个账号开启挂载能力，所以没有可新增的类型。请联系管理员在 File Station 里开启远程挂载或 ISO 挂载。 / 远程挂载」；含错误/空态提示。窗口像素 docs/evidence-r703-win/133_files_mount.png"
+    },
+    {
+      "class": "FileOfflinePage",
+      "module": "files",
+      "file": "lib/src/features/files/file_offline_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/134_files_offline.png",
+      "note": "r703 深扫（③e）：Scaffold 在、Text=3；首屏文案「离线文件 / 还没有离线文件 / 在文件菜单里选「加入离线文件」，之后就能在这里找到它。」；正常态。窗口像素 docs/evidence-r703-win/134_files_offline.png"
+    },
+    {
+      "class": "FilePreviewPage",
+      "module": "files",
+      "file": "lib/src/features/files/file_preview_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/203_files_image_preview.png",
+      "note": "r703 深扫（③g）：Scaffold 在、Text=6；首屏文案「打不开这个文件 / DsmTransportException(HTTP 502, HTTP 502) / 重试 / 双击放大 / 再双击复位 · 双指可缩放 / probe.png」；含错误/空态提示。窗口像素 docs/evidence-r703-win/203_files_image_preview.png；同类另摄 202_files_text_preview"
+    },
+    {
+      "class": "OfficePage",
+      "module": "files",
+      "file": "lib/src/features/files/office_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/198_office_home.png",
+      "note": "r703 深扫（③g）：Scaffold 在、Text=16；首屏文案「默认排序 / PhotoBackup / 所在文件夹 · 09-22 · demo_user / 5-day trip planner.odoc / 260 KB · 10-22 · demo_user / Annual income and expenditure.osheet」；正常态。窗口像素 docs/evidence-r703-win/198_office_home.png"
+    },
+    {
+      "class": "UsbDevicesPage",
+      "module": "files",
+      "file": "lib/src/features/files/usb_devices_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/135_files_usb.png",
+      "note": "r703 深扫（③e）：Scaffold 在、Text=3；首屏文案「外接设备 / 服务端没有返回外接设备（404） / 这不代表 NAS 上没有 U 盘：本机实测 U 盘已挂载、「文件」里能看到它时，这个列表仍然回 404。在 DSM 上它通常只对管理员开放——想用盘请直接在「文件」里打开它。」；含错误/空态提示。窗口像素 docs/evidence-r703-win/135_files_usb.png"
+    },
+    {
+      "class": "WebDavPage",
+      "module": "files",
+      "file": "lib/src/features/files/webdav_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/136_files_webdav.png",
+      "note": "r703 深扫（③e）：Scaffold 在、Text=11；首屏文案「WebDAV 连接 / 用 WebDAV 协议连接 NAS（官方 DS file 的另一条传输路径） / 主机 / NAS 的 IP 或域名 / 端口 / HTTPS」；正常态。窗口像素 docs/evidence-r703-win/136_files_webdav.png"
+    },
+    {
+      "class": "_OfficeVersionsPage",
+      "module": "files",
+      "file": "lib/src/features/files/drive_revisions_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/204_drive_versions_office.png",
+      "note": "r703 探针 204 就是**为这一页**设计的：`DriveRevisionsPage` 在 \".odoc + permanentLink\" 分支**直接返回** `_OfficeVersionsPage`。像素里是「版本历史」标题 ＋「打不开版本历史／目标位置不存在」错误态 ＋ 重试按钮 ⇒ 页面真渲染（判据同 §0，错误态也算渲染；不声称\"有数据\"）。"
+    },
+    {
+      "class": "_SlidePage",
+      "module": "files",
+      "file": "lib/src/features/files/office_viewer_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r706-win/269_slide_page.png",
+      "note": "r706 走**只读**路径打开 `.oslides`（`OfficeNativeViewer`：`Files:list` 找条目 → `Snapshot:get` 取 sections，绕开 `openDriveEntry` 的 `Files:access` 上报）：像素里是真实幻灯片正文「Social Media / Strategy / How to grow your fans from 0 to 10K」＋分页器 `1 / 15`、`PageView=1`（`Dynamic.oslides` 15 页）；空态分支另存 `docs/evidence-r706-win/269_slide_page_empty.png`（`Celestial.oslides` 1 页无文本 ⇒ 「这一页没有文本内容」＋ `1 / 1`）。",
+      "round": "r706"
+    },
+    {
+      "class": "HomePage",
+      "module": "home",
+      "file": "lib/src/features/home/home_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/266_home_page.png",
+      "note": "r705 ③k 单独推上来抓帧：`HomePage.build()` 就是 `const AppShellPage()`，像素与 `265_app_shell_page.png` 同为频道列表（Text=39）⇒ 真渲染。"
+    },
+    {
+      "class": "LoginPage",
+      "module": "login",
+      "file": "lib/src/features/login/login_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/233_login_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=24（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "MailComposePage",
+      "module": "mailplus",
+      "file": "lib/src/features/mailplus/mail_compose_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/138_mail_compose.png",
+      "note": "r703 深扫（③e）：Scaffold 在、Text=7；首屏文案「收件人 / 多个地址用逗号分隔 / 抄送 / 主题 / 正文 / 发送」；正常态。窗口像素 docs/evidence-r703-win/138_mail_compose.png"
+    },
+    {
+      "class": "MailDetailPage",
+      "module": "mailplus",
+      "file": "lib/src/features/mailplus/mail_detail_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/139_mail_detail.png",
+      "note": "r703 深扫（③e）：Scaffold 在、Text=3；首屏文案「这台 NAS 没有安装 MailPlus / 在 DSM「套件中心」安装 MailPlus（并先装好 MailPlus Server）后即可使用 / 邮件」；正常态。窗口像素 docs/evidence-r703-win/139_mail_detail.png"
+    },
+    {
+      "class": "MailPage",
+      "module": "mailplus",
+      "file": "lib/src/features/mailplus/mail_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/137_mail.png",
+      "note": "r703 深扫（③e）：Scaffold 在、Text=3；首屏文案「这台 NAS 没有安装 MailPlus / 在 DSM「套件中心」安装 MailPlus（并先装好 MailPlus Server）后即可使用 / 邮件」；正常态。窗口像素 docs/evidence-r703-win/137_mail.png"
+    },
+    {
+      "class": "NoteAdvSearchPage",
+      "module": "notes",
+      "file": "lib/src/features/notes/note_adv_search_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/234_note_adv_search_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=22（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "NoteBackgroundSyncPage",
+      "module": "notes",
+      "file": "lib/src/features/notes/note_background_sync_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/235_note_background_sync_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=4（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "NoteConflictPage",
+      "module": "notes",
+      "file": "lib/src/features/notes/note_conflict_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/140_note_conflict.png",
+      "note": "r703 深扫（③e）：Scaffold 在、Text=3；首屏文案「没有冲突了 / 两边的内容现在是一致的。 / 同步冲突」；正常态。窗口像素 docs/evidence-r703-win/140_note_conflict.png"
+    },
+    {
+      "class": "NoteDrawingPage",
+      "module": "notes",
+      "file": "lib/src/features/notes/note_drawing_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/141_note_drawing.png",
+      "note": "r703 深扫（③e）：Scaffold 在、Text=8；首屏文案「画笔 / 橡皮 / 白底 / 透明 / 8 / 单指绘制；双指手势不参与绘制。」；正常态。窗口像素 docs/evidence-r703-win/141_note_drawing.png"
+    },
+    {
+      "class": "NoteEditorPage",
+      "module": "notes",
+      "file": "lib/src/features/notes/note_editor_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/142_note_editor.png",
+      "note": "r703 深扫（③e）：Scaffold 在、Text=3；首屏文案「标题 / 新建笔记 / 保存」；正常态。窗口像素 docs/evidence-r703-win/142_note_editor.png"
+    },
+    {
+      "class": "NoteFtsSearchPage",
+      "module": "notes",
+      "file": "lib/src/features/notes/note_fts_search_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/236_note_fts_search_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=4（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "NoteJoinedNotebookPage",
+      "module": "notes",
+      "file": "lib/src/features/notes/note_joined_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/199_note_joined_notebook.png",
+      "note": "r703 深扫（③g）：Scaffold 在、Text=2；首屏文案「这个笔记本还是空的 / probe」；正常态。窗口像素 docs/evidence-r703-win/199_note_joined_notebook.png"
+    },
+    {
+      "class": "NoteJoinedPage",
+      "module": "notes",
+      "file": "lib/src/features/notes/note_joined_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/237_note_joined_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=2（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "NoteOverdueSettingsPage",
+      "module": "notes",
+      "file": "lib/src/features/notes/note_overdue_settings_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/238_note_overdue_settings_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=7（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "NoteRecyclePage",
+      "module": "notes",
+      "file": "lib/src/features/notes/note_recycle_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/239_note_recycle_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=20（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "NoteSharePage",
+      "module": "notes",
+      "file": "lib/src/features/notes/note_share_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/177_note_share.png",
+      "note": "r703 深扫（③f）：Scaffold 在、Text=7；首屏文案「公开分享 / 拿到链接的任何人都能打开 / 关闭时只有被单独分享的账号能看 / 已分享给 / 还没有单独分享给任何账号 / 添加用户或群组」；正常态。窗口像素 docs/evidence-r703-win/177_note_share.png"
+    },
+    {
+      "class": "NoteSharedPage",
+      "module": "notes",
+      "file": "lib/src/features/notes/note_shared_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/240_note_shared_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=2（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "NoteShelfPage",
+      "module": "notes",
+      "file": "lib/src/features/notes/note_shelf_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/241_note_shelf_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=5（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "NoteShortcutPage",
+      "module": "notes",
+      "file": "lib/src/features/notes/note_shortcut_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/242_note_shortcut_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=3（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "NoteSmartNotesPage",
+      "module": "notes",
+      "file": "lib/src/features/notes/note_smart_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/178_note_smart_notes.png",
+      "note": "r703 深扫（③f）：Scaffold 在、Text=15；首屏文案「test / 10-10 / https://example.com/news2 / Example Domain This domain is for use in documentation examples without needing / 10-10 / https://example.com/news」；正常态。窗口像素 docs/evidence-r703-win/178_note_smart_notes.png"
+    },
+    {
+      "class": "NoteSmartPage",
+      "module": "notes",
+      "file": "lib/src/features/notes/note_smart_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/243_note_smart_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=3（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "NoteTagPage",
+      "module": "notes",
+      "file": "lib/src/features/notes/note_tag_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/244_note_tag_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=3（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "NoteTodoEditorPage",
+      "module": "notes",
+      "file": "lib/src/features/notes/note_todo_editor_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/143_note_todo_editor.png",
+      "note": "r703 深扫（③e）：Scaffold 在、Text=16；首屏文案「任务 / 要做什么 / 截止日期 / 无 / 提醒 / 先设置截止日期」；正常态。窗口像素 docs/evidence-r703-win/143_note_todo_editor.png"
+    },
+    {
+      "class": "NoteTodoPage",
+      "module": "notes",
+      "file": "lib/src/features/notes/note_todo_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/245_note_todo_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=8（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "NoteViewPage",
+      "module": "notes",
+      "file": "lib/src/features/notes/note_view_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/176_note_view.png",
+      "note": "r703 深扫（③f）：Scaffold 在、Text=4；首屏文案「打不开这条笔记 / 错误码 1033 / 重试 / probe」；含错误/空态提示。窗口像素 docs/evidence-r703-win/176_note_view.png"
+    },
+    {
+      "class": "NotesPage",
+      "module": "notes",
+      "file": "lib/src/features/notes/notes_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r670-win/13_notes.png",
+      "note": "真实笔记本「我的记事本 6」"
+    },
+    {
+      "class": "OfficeDocPage",
+      "module": "office",
+      "file": "lib/src/features/office/office_doc_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r670-win/08_office_odoc.png",
+      "note": "office-doc-view 出正文（5-Day Trip Planner）；r703 Windows 深扫复摄 193_office_doc（Text=4）",
+      "r703": "docs/evidence-r703-win/193_office_doc.png"
+    },
+    {
+      "class": "OfficeSheetPage",
+      "module": "office",
+      "file": "lib/src/features/office/office_sheet_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r670-win/09_office_osheet.png",
+      "note": "office-sheet-page（INCOME / Wages / 40,000）；r703 Windows 深扫复摄 194_office_sheet（Text=4）",
+      "r703": "docs/evidence-r703-win/194_office_sheet.png"
+    },
+    {
+      "class": "OfficeSlidesPage",
+      "module": "office",
+      "file": "lib/src/features/office/office_slides_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r670-win/10_office_oslides.png",
+      "note": "office-slides-page（Celestial.oslides pages=1）；r703 Windows 深扫复摄 195_office_slides（Text=4）",
+      "r703": "docs/evidence-r703-win/195_office_slides.png"
+    },
+    {
+      "class": "OfficeTemplateLibraryPage",
+      "module": "office",
+      "file": "lib/src/features/office/office_library_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/186_office_template_library.png",
+      "note": "r703 深扫（③f）：Scaffold 在、Text=42；首屏文案「全部 (53) / 文档 (16) / 表格 (13) / 演示文稿 (24) / 文档 (16) / 会议记录」；正常态。窗口像素 docs/evidence-r703-win/186_office_template_library.png"
+    },
+    {
+      "class": "OfficeThemesPage",
+      "module": "office",
+      "file": "lib/src/features/office/office_library_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/196_office_themes.png",
+      "note": "r703 深扫（③g）：Scaffold 在、Text=14；首屏文案「Minimalist White / Profound Black / Navy Blue / Pilot Blue / Microcosmic View / Technology」；正常态。窗口像素 docs/evidence-r703-win/196_office_themes.png"
+    },
+    {
+      "class": "OfficeVersionsReadOnlyPage",
+      "module": "office",
+      "file": "lib/src/features/office/office_library_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/197_office_versions.png",
+      "note": "r703 深扫（③g）：Scaffold 在、Text=3；首屏文案「版本记录加载失败：DSM 1003 / 重试 / 版本记录（只读）」；含错误/空态提示。窗口像素 docs/evidence-r703-win/197_office_versions.png"
+    },
+    {
+      "class": "PhotoAdminPage",
+      "module": "photos",
+      "file": "lib/src/features/photos/photo_admin_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/246_photo_admin_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=2（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "PhotoAiEditSettingsPage",
+      "module": "photos",
+      "file": "lib/src/features/photos/photo_ai_edit_settings_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/247_photo_ai_edit_settings_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=17（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "PhotoAlbumItemsPage",
+      "module": "photos",
+      "file": "lib/src/features/photos/photo_browse_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/179_photo_album_items.png",
+      "note": "r703 深扫（③f）：Scaffold 在、Text=4；首屏文案「加载失败 / 错误码 609 / 重试 / probe」；含错误/空态提示。窗口像素 docs/evidence-r703-win/179_photo_album_items.png"
+    },
+    {
+      "class": "PhotoAlbumSettingsPage",
+      "module": "photos",
+      "file": "lib/src/features/photos/photo_wave3_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/147_photo_album_settings.png",
+      "note": "r703 深扫（③e）：Scaffold 在、Text=21；首屏文案「相册设置 / 相册缓存 / 缓存状态 / 已完成 / 缓存占用 / NAS 上的图片缓存占用了 0 B」；含错误/空态提示。窗口像素 docs/evidence-r703-win/147_photo_album_settings.png"
+    },
+    {
+      "class": "PhotoBackgroundTasksPage",
+      "module": "photos",
+      "file": "lib/src/features/photos/photo_background_tasks_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/248_photo_background_tasks_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=3（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "PhotoBackupPage",
+      "module": "photos",
+      "file": "lib/src/features/photos/photo_backup_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/249_photo_backup_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=34（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "PhotoBrowsePage",
+      "module": "photos",
+      "file": "lib/src/features/photos/photo_browse_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r670-win/11_photos.png",
+      "note": "相册 tab 落点 = PhotoBrowsePage；photo-backup-entry + 时间轴 4 张 Image；r703 Windows 深扫复摄 144_photo_browse（Text=14）",
+      "r703": "docs/evidence-r703-win/144_photo_browse.png"
+    },
+    {
+      "class": "PhotoC2Page",
+      "module": "photos",
+      "file": "lib/src/features/photos/photo_c2_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/250_photo_c2_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=20（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "PhotoFolderPage",
+      "module": "photos",
+      "file": "lib/src/features/photos/photo_browse_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/180_photo_folder.png",
+      "note": "r703 深扫（③f）：Scaffold 在、Text=4；首屏文案「错误码 642 / 错误码 642 / probe / 创建文件夹」；含错误/空态提示。窗口像素 docs/evidence-r703-win/180_photo_folder.png"
+    },
+    {
+      "class": "PhotoFreeUpSpacePage",
+      "module": "photos",
+      "file": "lib/src/features/photos/photo_free_up_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/251_photo_free_up_space_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=6（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "PhotoMapPage",
+      "module": "photos",
+      "file": "lib/src/features/photos/photo_map_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/252_photo_map_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=2（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "PhotoMigrationPage",
+      "module": "photos",
+      "file": "lib/src/features/photos/photo_migration_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/253_photo_migration_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=3（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "PhotoPersonAlbumPage",
+      "module": "photos",
+      "file": "lib/src/features/photos/photo_wave2_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/182_photo_person_album.png",
+      "note": "r703 深扫（③f）：Scaffold 在、Text=3；首屏文案「这个人名下还没有照片 / 照片可能已从这个人物的分组里移出。 / probe」；正常态。窗口像素 docs/evidence-r703-win/182_photo_person_album.png"
+    },
+    {
+      "class": "PhotoPersonsPage",
+      "module": "photos",
+      "file": "lib/src/features/photos/photo_wave2_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/254_photo_persons_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=3（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "PhotoRecentlyAddedPage",
+      "module": "photos",
+      "file": "lib/src/features/photos/photo_recent_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/145_photo_recent.png",
+      "note": "r703 深扫（③e）：Scaffold 在、Text=3；首屏文案「最近添加 / 还没有最近添加的内容 / NAS 端索引完成后，最近加入的照片会出现在这里。」；正常态。窗口像素 docs/evidence-r703-win/145_photo_recent.png"
+    },
+    {
+      "class": "PhotoSmartAlbumPage",
+      "module": "photos",
+      "file": "lib/src/features/photos/photo_browse_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/181_photo_smart_album.png",
+      "note": "r703 深扫（③f）：Scaffold 在、Text=3；首屏文案「这个人名下还没有照片 / 照片可能已从这个人物的分组里移出。 / probe」；正常态。窗口像素 docs/evidence-r703-win/181_photo_smart_album.png"
+    },
+    {
+      "class": "PhotoTagDetailPage",
+      "module": "photos",
+      "file": "lib/src/features/photos/photo_wave2_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/183_photo_tag_detail.png",
+      "note": "r703 深扫（③f）：Scaffold 在、Text=2；首屏文案「probe / 已加载 100 张」；正常态。窗口像素 docs/evidence-r703-win/183_photo_tag_detail.png"
+    },
+    {
+      "class": "PhotoTagsPage",
+      "module": "photos",
+      "file": "lib/src/features/photos/photo_wave2_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/146_photo_tags.png",
+      "note": "r703 深扫（③e）：Scaffold 在、Text=3；首屏文案「标签 / 共 0 个标签 / 还没有标签」；正常态。窗口像素 docs/evidence-r703-win/146_photo_tags.png"
+    },
+    {
+      "class": "PhotoViewerPage",
+      "module": "photos",
+      "file": "lib/src/features/photos/photo_viewer_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/184_photo_viewer.png",
+      "note": "r703 深扫（③f）：Scaffold 在、Text=6；首屏文案「probe.jpg / 解不开这张图 / 下载 / 用其他应用打开 / probe.jpg / 1970 年 1 月 1 日」；正常态。窗口像素 docs/evidence-r703-win/184_photo_viewer.png"
+    },
+    {
+      "class": "SleepBackupPage",
+      "module": "photos",
+      "file": "lib/src/features/photos/sleep_backup_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/255_sleep_backup_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=16（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "GlobalSearchPage",
+      "module": "search",
+      "file": "lib/src/features/search/global_search_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/148_search_global.png",
+      "note": "r703 深扫（③e）：Scaffold 在、Text=3；首屏文案「搜索模块，回车搜文件 / 输入关键词或选择筛选条件后搜索 / 全局搜索」；正常态。窗口像素 docs/evidence-r703-win/148_search_global.png"
+    },
+    {
+      "class": "SearchPage",
+      "module": "search",
+      "file": "lib/src/features/search/search_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/149_search.png",
+      "note": "r703 深扫（③e）：Scaffold 在、Text=9；首屏文案「星标 / 链接 / 文件 / 表情回应 / 置顶 / 投票」；正常态。窗口像素 docs/evidence-r703-win/149_search.png"
+    },
+    {
+      "class": "CertificatesPage",
+      "module": "servers",
+      "file": "lib/src/features/servers/certificates_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/151_servers_certificates.png",
+      "note": "r703 深扫（③e）：Scaffold 在、Text=2；首屏文案「还没有信任任何服务器证书。」；正常态。窗口像素 docs/evidence-r703-win/151_servers_certificates.png"
+    },
+    {
+      "class": "NasManagerPage",
+      "module": "servers",
+      "file": "lib/src/features/servers/nas_manager_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/256_nas_manager_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=5（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "ServerSetupPage",
+      "module": "servers",
+      "file": "lib/src/features/servers/server_setup_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r670-win/00_boot_setup.png",
+      "note": "连接页已渲染（key=srv-orb=1）；r703 Windows 深扫复摄 152_servers_setup（Text=26）",
+      "r703": "docs/evidence-r703-win/152_servers_setup.png"
+    },
+    {
+      "class": "BotsPage",
+      "module": "settings",
+      "file": "lib/src/features/settings/bots_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/257_bots_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=10（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "E2eePage",
+      "module": "settings",
+      "file": "lib/src/features/settings/e2ee_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/258_e2ee_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=18（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "NotificationSettingsPage",
+      "module": "settings",
+      "file": "lib/src/features/settings/notification_settings_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/259_notification_settings_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=16（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "OemKeepalivePage",
+      "module": "settings",
+      "file": "lib/src/features/settings/oem_keepalive_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/260_oem_keepalive_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=12（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "PersonalProfilePage",
+      "module": "settings",
+      "file": "lib/src/features/settings/personal_profile_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/267_personal_profile_slow.png",
+      "note": "r705 ③k 给 **25 s** 重测（r704 的 5 s 只拍到加载圈）：`spinner=0`、Text=9，像素里是「昵称 未设置 / 邮箱 未设置 / 其他邮箱 未绑定邮箱 / 账号类型 普通账号」主态 ⇒ **只是慢，不是卡死**（这台 NAS 一次登录往返就 4.8 s）。"
+    },
+    {
+      "class": "ProfileEditPage",
+      "module": "settings",
+      "file": "lib/src/features/settings/profile_edit_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r670-win/20_profile_edit.png",
+      "note": "资料编辑页已打开，无「拍照」（DA293 同判据）"
+    },
+    {
+      "class": "ScheduleSnoozePage",
+      "module": "settings",
+      "file": "lib/src/features/settings/snooze_settings_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/201_settings_schedule_snooze.png",
+      "note": "r703 深扫（③g）：Scaffold 在、Text=10；首屏文案「定时免打扰 / 在这个时间段内不弹通知（跨午夜也支持） / 起始时间 / 09:00 / 结束时间 / 18:00」；正常态。窗口像素 docs/evidence-r703-win/201_settings_schedule_snooze.png"
+    },
+    {
+      "class": "ServiceCheckPage",
+      "module": "settings",
+      "file": "lib/src/features/settings/service_check_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/262_service_check_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=26（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "SettingsPage",
+      "module": "settings",
+      "file": "lib/src/features/settings/settings_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/263_settings_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=19（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "SnoozeSettingsPage",
+      "module": "settings",
+      "file": "lib/src/features/settings/snooze_settings_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/264_snooze_settings_page.png",
+      "note": "r704 逐页点名（只开页、不提交）：Windows 桌面端真渲染推上来，Scaffold 在、可见 Text=8（判据同 §0，空态/错误态也算渲染）。"
+    },
+    {
+      "class": "AppShellPage",
+      "module": "shell",
+      "file": "lib/src/features/shell/app_shell_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r704-win/265_app_shell_page.png",
+      "note": "r705 ③k 单独推上来抓帧（不再拿\"整轮都在用\"顶替）：Scaffold 在、可见 Text=39，像素里是频道列表（「频道 / 实时已连接 / … · 23 个频道 · 42 个用户 / #271 …」）＋底栏 tab ⇒ 真渲染。"
+    },
+    {
+      "class": "SurvCameraPage",
+      "module": "surveillance",
+      "file": "lib/src/features/surveillance/surv_camera_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/185_surv_camera.png",
+      "note": "r703 深扫（③f）：Scaffold 在、Text=3；首屏文案「这台 NAS 没有安装 Surveillance Station / 在 DSM「套件中心」安装 Surveillance Station 后即可使用 / probe」；正常态。窗口像素 docs/evidence-r703-win/185_surv_camera.png"
+    },
+    {
+      "class": "SurveillancePage",
+      "module": "surveillance",
+      "file": "lib/src/features/surveillance/surv_page.dart",
+      "status": "A",
+      "evidence": "docs/evidence-r703-win/150_surveillance.png",
+      "note": "r703 深扫（③e）：Scaffold 在、Text=3；首屏文案「这台 NAS 没有安装 Surveillance Station / 在 DSM「套件中心」安装 Surveillance Station 后即可使用 / 监控」；正常态。窗口像素 docs/evidence-r703-win/150_surveillance.png"
+    }
+  ]
+}

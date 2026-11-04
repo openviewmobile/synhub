@@ -1,0 +1,67 @@
+{
+  "id": "note_editor",
+  "unit": "lib/src/features/notes/note_editor_page.dart",
+  "title": {
+    "zh": "编辑笔记",
+    "en": "Edit note"
+  },
+  "appbar": {
+    "actions": [
+      "save",
+      "more"
+    ]
+  },
+  "body": {
+    "type": "viewer",
+    "kind": "text",
+    "caption": {
+      "zh": "已自动保存 · 386 字",
+      "en": "Auto-saved · 386 words"
+    },
+    "toolbar": [
+      {
+        "zh": "加粗",
+        "en": "Bold"
+      },
+      {
+        "zh": "列表",
+        "en": "List"
+      },
+      {
+        "zh": "插图",
+        "en": "Image"
+      },
+      {
+        "zh": "标签",
+        "en": "Tag"
+      }
+    ],
+    "text": [
+      {
+        "zh": "时间线收口说明",
+        "en": "Timeline notes"
+      },
+      {
+        "zh": "",
+        "en": ""
+      },
+      {
+        "zh": "1. 一级是年/月，二级在当前月内按日期分组。",
+        "en": "1. Level one is year/month; level two groups by date in the current month."
+      },
+      {
+        "zh": "2. 点标题就地展开，不跳页，只多一次点击。|",
+        "en": "2. Header taps expand in place — one extra tap, no page jump.|"
+      },
+      {
+        "zh": "3. 分组计数取同一份列表。",
+        "en": "3. Group counts come from the same list."
+      }
+    ]
+  },
+  "note": {
+    "zh": "图片走附件表，正文只存引用；换设备也能取到",
+    "en": "Body stores image refs; bytes come from attachments"
+  },
+  "bottomNav": null
+}

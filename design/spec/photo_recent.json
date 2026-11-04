@@ -1,0 +1,34 @@
+{
+  "id": "photo_recent",
+  "unit": "lib/src/features/photos/photo_recent_page.dart",
+  "title": {
+    "zh": "最近添加",
+    "en": "Recently added"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "rowIcon": "photos",
+  "body": {
+    "type": "timeline",
+    "sections": [
+      {
+        "label": {
+          "zh": "今天",
+          "en": "Today"
+        },
+        "count": 6
+      },
+      {
+        "label": {
+          "zh": "更早",
+          "en": "Earlier"
+        },
+        "count": 9
+      }
+    ]
+  },
+  "bottomNav": null
+}

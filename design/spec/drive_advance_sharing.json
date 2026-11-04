@@ -1,0 +1,88 @@
+{
+  "id": "drive_advance_sharing",
+  "unit": "lib/src/features/drive/drive_advance_sharing_page.dart",
+  "title": {
+    "zh": "高级共享",
+    "en": "Advanced sharing"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "settings",
+    "groups": [
+      {
+        "title": {
+          "zh": "链接权限",
+          "en": "Link permissions"
+        },
+        "rows": [
+          {
+            "label": {
+              "zh": "允许下载",
+              "en": "Allow download"
+            },
+            "kind": "switch",
+            "value": true
+          },
+          {
+            "label": {
+              "zh": "允许编辑",
+              "en": "Allow editing"
+            },
+            "kind": "switch",
+            "value": false
+          },
+          {
+            "label": {
+              "zh": "需要密码",
+              "en": "Require password"
+            },
+            "kind": "switch",
+            "value": true
+          },
+          {
+            "label": {
+              "zh": "到期时间",
+              "en": "Expires"
+            },
+            "kind": "arrow"
+          }
+        ]
+      },
+      {
+        "title": {
+          "zh": "谁可以访问",
+          "en": "Who can access"
+        },
+        "rows": [
+          {
+            "label": {
+              "zh": "仅团队成员",
+              "en": "Team members only"
+            },
+            "kind": "arrow"
+          },
+          {
+            "label": {
+              "zh": "已邀请的人",
+              "en": "Invited people"
+            },
+            "kind": "arrow"
+          }
+        ]
+      }
+    ],
+    "note": {
+      "zh": "关闭下载后，对方仍能在线查看",
+      "en": "Turning off download still allows online viewing"
+    }
+  },
+  "footerAction": {
+    "zh": "保存共享设置",
+    "en": "Save sharing settings"
+  },
+  "bottomNav": null
+}

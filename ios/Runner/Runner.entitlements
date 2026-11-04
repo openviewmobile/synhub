@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- r688：主屏小组件的扩展是**另一个进程**，只能看 App Group 的
+	     UserDefaults ⇒ App 侧必须有同一个 group 才能写快照。
+	     与 ios/Widget/Widget.entitlements 逐字一致。 -->
+	<key>com.apple.security.application-groups</key>
+	<array>
+		<string>group.com.openviewai.synhub.ios</string>
+	</array>
+</dict>
+</plist>

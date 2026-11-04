@@ -1,0 +1,53 @@
+{
+  "id": "chat_members",
+  "unit": "lib/src/features/chat/channel_members_page.dart",
+  "title": {
+    "zh": "成员 12",
+    "en": "Members 12"
+  },
+  "appbar": {
+    "actions": [
+      "plus",
+      "more"
+    ]
+  },
+  "search": {
+    "hint": {
+      "zh": "搜索成员",
+      "en": "Search members"
+    }
+  },
+  "body": {
+    "type": "list",
+    "items": [
+      {
+        "title": {
+          "zh": "李雷（管理员）",
+          "en": "Li (admin)"
+        },
+        "sub": "@li · 在线",
+        "lead": "#8FB8FF",
+        "trail": "more"
+      },
+      {
+        "title": {
+          "zh": "韩梅梅",
+          "en": "Han"
+        },
+        "sub": "@han · 5 分钟前",
+        "lead": "#F0A8C8",
+        "trail": "more"
+      },
+      {
+        "title": {
+          "zh": "王五",
+          "en": "Wang"
+        },
+        "sub": "@wang · 昨天",
+        "lead": "#A6E3C5",
+        "trail": "more"
+      }
+    ]
+  },
+  "bottomNav": null
+}

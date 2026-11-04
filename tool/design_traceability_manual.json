@@ -1,0 +1,18 @@
+{
+ "_comment": "人工判定表：机械判据（单元名/类名/屏名）在那几行里找不到，但**人读过原文**、确认引用确实在讲这一屏。每条必须写清「证据行里到底写了什么」，不许只写『已确认』。由 tool/design_traceability.py 读入，anchor 记为 manual。",
+ "channel_content_page.dart": "r348:787/788 是同一页的两个 tab：`所有文件` → 标题 **`文件`**、`所有链接` → 标题 **`链接`**；`channel_content_page.dart` 文件头注释写的就是「置顶 / 文件 / 链接 / @我 / 书签」分 tab（对齐原版 TabPostFragment），所以这两行就是本页的像素与判据。",
+ "channel_members_page.dart": "r348:45 「成员页」`009_03_chat_members.png`：`成员 (3)` + 搜索成员 + `demo_user（我）`/`demo / demo_user`/`demo_admin`；与源码 `chatMembersTitle`（成员 ({count})）一致。屏名带真实计数（3 / 12）故机械匹配不上。",
+ "channel_scheduled_page.dart": "r348:792/793：`计划信息` → 标题 ★**`定时消息`**、空态 `没有待发的定时消息`；`提醒` → 标题 `提醒`、空态 `没有提醒`。本页就是「定时与提醒」两段合一。",
+ "contact_editor_page.dart": "device-verification:1338 记的是新建联系人**写路径**：「新建」→ 选目标通讯录（个人通讯录排最前、团队带「共享自」说明）→ 表单 → 保存后列表立刻出现 `probe_app`，并给出 NAS 侧回读。",
+ "media_player_view.dart": "r348:147 是 §1.9「Audio / Video」实拍节的标题行（播放器整节都在其下）；r343:179 记播放器 `⋮` 次级菜单逐字 `搜索在线字幕…`/`画面比例`/`音轨`/`倍速 1.0x` 与子面板。",
+ "note_share_page.dart": "device-verification:1777：详情页 AppBar「共享」→ 共享页「公开分享开关 + 已分享给列表 + 添加用户或群组」；1783 另记加密笔记点共享只提示、一个请求都不发。",
+ "office_doc_page.dart": "r348:103 第 1 行 **`.odoc` 阅读器**：标题栏 + `编辑` + `保存快照`、页脚 `适宽` + 页码 `1 / 2`、正文整页渲染（大标题/矢量插图/5 张内嵌位图）。文档里的文件名是 `5-day trip planner.odoc`，与 spec 标题 `评审纪要.odoc` 不同，故机械匹配不上。",
+ "office_sheet_page.dart": "r348:104 第 2 行 **`.osheet` 阅读器**：`点按单元格即可编辑（改动会即时同步）`+`所有改动已确认`、工具栏 `适宽`+`25%`、列头 A–O/行号 1–83、分区色带、负数括号式。",
+ "office_slides_page.dart": "r348:105 第 3 行 **`.oslides` 阅读器**：`1 / 15 ⌄` + `备注` + `演示文稿信息` + `全屏放映`、第 1 页按设计渲染、底部缩略图轨 1–4+。",
+ "office_template_preview.dart": "r316:34 记「从模板新建」真机闭环：办公列表顶栏 `Template library` → 模板库（全部 53 = 文档 16 + 表格 13 + 演示文稿 24）→ 选模板进预览。",
+ "photo_c2_page.dart": "r343:84 记「相册 → 更多相册功能」13 项逐条读（释放手机空间/共享相册/照片请求/地点/搜索照片/标签/人物/最近添加/后台任务…），副标题写清「做什么 + 边界」。",
+ "photo_c2_sections.dart": "device-verification:8186 记 r344 相册四段（相册/相册详情/照片请求）：`相册` 段排序 + 相册卡，相册详情 3 列方形格按真实比例不裁切；本单元是这几段的内部件，由 `photo_c2_page` 渲染。",
+ "server_setup_page.dart": "device-verification:4426 连接页：`Connect to your NAS`、`QuickConnect ID` / `Direct address`；r331:96 另给同一屏的 `QUICKCONNECT | HTTPS` 段与输入框。",
+ "oem_keepalive_page.dart": "r348:1867 是 §9.3「设置 → 安全与后台 → 后台保活设置」的节标题，其下逐字给出本页正文（`本机 · HONOR · LGE-AN10 · MagicUI_6.0.0`、`尚未加入电池优化白名单`、`打开自启动管理`）。",
+ "profile_edit_page.dart": "device-verification:120 个人资料页：`Profile`、`Save`、`Choose from library`、`Take photo`、`Remove avatar`、`255 characters remaining`、`Up to 3 lines, visible to everyone`。"
+}

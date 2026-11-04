@@ -1,0 +1,70 @@
+{
+  "id": "contacts_manage",
+  "unit": "lib/src/features/contacts/contacts_manage_page.dart",
+  "title": {
+    "zh": "通讯录管理",
+    "en": "Manage contacts"
+  },
+  "appbar": {
+    "actions": [
+      "plus",
+      "more"
+    ]
+  },
+  "rowIcon": "tag",
+  "body": {
+    "type": "list",
+    "sections": true,
+    "items": [
+      {
+        "section": {
+          "zh": "标签",
+          "en": "Labels"
+        },
+        "title": {
+          "zh": "常用",
+          "en": "Frequent"
+        },
+        "sub": {
+          "zh": "12 人",
+          "en": "12 people"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "section": {
+          "zh": "标签",
+          "en": "Labels"
+        },
+        "title": {
+          "zh": "外部",
+          "en": "External"
+        },
+        "sub": {
+          "zh": "34 人",
+          "en": "34 people"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "section": {
+          "zh": "同步",
+          "en": "Sync"
+        },
+        "title": {
+          "zh": "从 NAS 同步",
+          "en": "Sync from NAS"
+        },
+        "sub": {
+          "zh": "上次 今天 08:02",
+          "en": "Last today 08:02"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      }
+    ]
+  },
+  "bottomNav": null
+}

@@ -1,0 +1,66 @@
+{
+  "id": "chat_global",
+  "unit": "lib/src/features/chat/global_content_page.dart",
+  "title": {
+    "zh": "内容面板",
+    "en": "Content"
+  },
+  "appbar": {
+    "actions": [
+      "search",
+      "more"
+    ]
+  },
+  "tabs": [
+    {
+      "zh": "话题",
+      "en": "Threads"
+    },
+    {
+      "zh": "书签",
+      "en": "Bookmarks"
+    },
+    {
+      "zh": "提醒",
+      "en": "Reminders"
+    },
+    {
+      "zh": "定时消息",
+      "en": "Scheduled"
+    }
+  ],
+  "body": {
+    "type": "list",
+    "items": [
+      {
+        "title": {
+          "zh": "时间线要不要两级？",
+          "en": "Two-level timeline?"
+        },
+        "sub": {
+          "zh": "# 设计评审 · 4 条回复",
+          "en": "# Design review · 4 replies"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "title": {
+          "zh": "暗色下分隔线太亮",
+          "en": "Dividers too bright in dark"
+        },
+        "sub": {
+          "zh": "# 视觉 · 2 条回复",
+          "en": "# Visual · 2 replies"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      }
+    ]
+  },
+  "note": {
+    "zh": "这里汇总所有频道的同类内容",
+    "en": "Aggregates this content across all channels"
+  },
+  "bottomNav": null
+}

@@ -1,0 +1,60 @@
+{
+  "id": "drive_local_files",
+  "unit": "lib/src/features/drive/drive_local_files_page.dart",
+  "title": {
+    "zh": "本地文件",
+    "en": "Local files"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "rowIcon": "folder",
+  "body": {
+    "type": "list",
+    "items": [
+      {
+        "title": {
+          "zh": "季度汇报.pptx",
+          "en": "季度汇报.pptx"
+        },
+        "sub": {
+          "zh": "8.4 MB · 未上传",
+          "en": "8.4 MB · not uploaded"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "title": {
+          "zh": "现场照片.zip",
+          "en": "现场照片.zip"
+        },
+        "sub": {
+          "zh": "120 MB · 已上传",
+          "en": "120 MB · uploaded"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "title": {
+          "zh": "扫描件 001.pdf",
+          "en": "扫描件 001.pdf"
+        },
+        "sub": {
+          "zh": "1.2 MB · 排队中",
+          "en": "1.2 MB · queued"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      }
+    ]
+  },
+  "note": {
+    "zh": "本地文件不会自动删除；上传成功才标「已上传」",
+    "en": "Local files stay until you remove them"
+  },
+  "bottomNav": null
+}

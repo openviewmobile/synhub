@@ -1,0 +1,42 @@
+name: Bug report
+description: Something does not work
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Redact** your NAS host, account, session ids and file names before submitting.
+        Never paste a password.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: Actual vs expected behaviour.
+    validations: { required: true }
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+    validations: { required: true }
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform
+      options: [Android, iOS, macOS, Linux, Windows, Web]
+    validations: { required: true }
+  - type: input
+    id: version
+    attributes:
+      label: Version / commit
+      description: Release version or the commit you built from.
+    validations: { required: true }
+  - type: dropdown
+    id: connection
+    attributes:
+      label: How is the NAS reached
+      options: [QuickConnect, Direct host/port, Local network, Not applicable]
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs (redacted)
+      render: text

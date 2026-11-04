@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  应用名（桌面上显示的那个）。默认 values/ 放英文，values-zh/ 放中文：
+  非中文系统locale 落到 SynHub，中文系统落到「星枢」。
+  应用内语言切换只影响界面文案；桌面名跟**系统语言**走，这是 Android 的惯例。
+-->
+<resources>
+    <string name="app_name">SynHub</string>
+    <!-- 待办提醒（Android 平台批 A）：系统通知渠道 dsnote 的名字与正文 -->
+    <string name="note_reminder_channel">To-do reminders</string>
+    <string name="note_due_prefix">Due %1$s</string>
+    <string name="note_overdue_title">Overdue to-dos</string>
+    <string name="note_overdue_count">%1$d unfinished to-do(s) are overdue</string>
+    <!-- 相册「手机自动备份」：系统通知渠道 + 前台服务通知标题
+         （官方 Synology Photos 的 str_noti_channel_photo_backup = "Backup process"） -->
+    <string name="photo_backup_channel_name">Backup process</string>
+    <string name="photo_backup_notification_title">Photo Backup</string>
+    <!-- 主屏小组件（P66 相册 / N1 笔记）：组件名 + 占位文案 + 行内文案。
+         小组件文案走**原生资源**（不是 ARB）：RemoteViews 由 launcher 进程
+         渲染，跟系统语言走，和"应用内语言切换"是两套系统（桌面名 app_name 同理）。 -->
+    <string name="widget_photos_label">Photos</string>
+    <string name="widget_notes_label">Notes</string>
+    <string name="widget_quickstart_label">Quickstart</string>
+    <string name="widget_action_camera">New from camera</string>
+    <string name="widget_action_audio">Record audio note</string>
+    <string name="widget_action_attach">New with attachment</string>
+    <string name="widget_notebooks_label">Notebooks</string>
+    <string name="widget_todos_label">To-dos</string>
+    <string name="widget_new_note_label">New note</string>
+    <string name="widget_new_note_hint">Tap to write</string>
+    <string name="widget_notebook_pick">Choose a notebook</string>
+    <string name="widget_notebook_all">All notes</string>
+    <string name="widget_notebook_save_failed">Could not save the selection</string>
+    <string name="widget_notebook_count">%1$d notes</string>
+    <string name="widget_placeholder_not_logged_in">Open the app and sign in to see this here</string>
+    <string name="widget_placeholder_not_connected">Not connected to the NAS yet; connect to see this here</string>
+    <string name="widget_placeholder_no_photos">No photos yet</string>
+    <string name="widget_placeholder_no_notes">No notes yet — tap to create one</string>
+    <string name="widget_placeholder_no_notebooks">No notebooks yet</string>
+    <string name="widget_placeholder_no_todos">No open to-dos</string>
+    <string name="widget_updated_prefix">Updated %1$s</string>
+    <string name="widget_due_prefix">Due %1$s</string>
+    <string name="widget_encrypted_marker">Encrypted</string>
+    <string name="widget_untitled_note">Untitled note</string>
+    <string name="widget_untitled_notebook">Untitled notebook</string>
+    <string name="widget_untitled_todo">Untitled to-do</string>
+    <!-- 第 41 轮：原生可见文案（通知/前台服务）——英文默认，App 内语言决定用哪份 -->
+    <string name="chat_reply_hint">Reply…</string>
+    <string name="chat_connecting_foreground">Keeping connection…</string>
+    <string name="chat_reconnecting_foreground">Reconnecting…</string>
+    <string name="sleep_backup_channel">Scheduled backup</string>
+    <string name="photo_backup_preparing">Preparing backup…</string>
+    <string name="photo_backup_progress">Backing up %1$d / %2$d</string>
+    <string name="photo_backup_running">Backing up…</string>
+    <string name="state_done">Done</string>
+    <string name="state_failed">Failed</string>
+    <string name="photo_backup_no_callback">Failed: background callback not registered</string>
+    <string name="photo_backup_failed_fmt">Failed: %1$s</string>
+    <!-- r341 D42：通知渠道名/描述 —— 必须**走 AppLang.s**（App 内语言），
+         不许硬编码中文（英文界面会显示中文）也不许 `context.getString`（跟随系统语言）。
+         渠道名在系统「应用 → 通知」里对用户可见。 -->
+    <string name="chat_service_channel">Background connection</string>
+    <string name="chat_service_channel_desc">Keeps a persistent connection to Chat Server</string>
+    <string name="chat_messages_channel">New messages</string>
+    <string name="chat_messages_channel_desc">New channel messages</string>
+    <string name="download_done_channel">Download finished</string>
+    <string name="download_done_channel_desc">Download task finished</string>
+</resources>

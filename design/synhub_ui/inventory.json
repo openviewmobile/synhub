@@ -1,0 +1,962 @@
+[
+ {
+  "module": "admin",
+  "file": "admin_tools_page.dart",
+  "desc": "★★★ 管理工具页",
+  "verdict": "E"
+ },
+ {
+  "module": "ai",
+  "file": "ai_model_page.dart",
+  "desc": "AI 服务设置页",
+  "verdict": "A"
+ },
+ {
+  "module": "ai",
+  "file": "ai_usage_page.dart",
+  "desc": "「AI 用量与费用」页：把本机记录的云端调用汇总出来",
+  "verdict": "A"
+ },
+ {
+  "module": "analytics",
+  "file": "analytics_page.dart",
+  "desc": "「设置 → 使用分析」页：把本地日志算出来的结论摆出来，并给用户完全的",
+  "verdict": "A"
+ },
+ {
+  "module": "analytics",
+  "file": "traffic_page.dart",
+  "desc": "「设置 → 使用分析 → 网络流量」子页",
+  "verdict": "A"
+ },
+ {
+  "module": "audio",
+  "file": "audio_cast_page.dart",
+  "desc": "C3：Chromecast 投送页",
+  "verdict": "E"
+ },
+ {
+  "module": "audio",
+  "file": "audio_detail_page.dart",
+  "desc": "Audio Station 详情页",
+  "verdict": "A"
+ },
+ {
+  "module": "audio",
+  "file": "audio_equalizer.dart",
+  "desc": "B10：均衡器",
+  "verdict": "A"
+ },
+ {
+  "module": "audio",
+  "file": "audio_gaps_page.dart",
+  "desc": "Audio Station「首页预置列表」与「本地收听记录」页",
+  "verdict": "A"
+ },
+ {
+  "module": "audio",
+  "file": "audio_page.dart",
+  "desc": "Audio Station 音乐库页",
+  "verdict": "A"
+ },
+ {
+  "module": "audio",
+  "file": "audio_pins_page.dart",
+  "desc": "Audio Station 收藏页",
+  "verdict": "A"
+ },
+ {
+  "module": "audio",
+  "file": "audio_radio_page.dart",
+  "desc": "Audio Station 网络电台列表页",
+  "verdict": "A"
+ },
+ {
+  "module": "audio",
+  "file": "audio_remote_page.dart",
+  "desc": "C4：远程播放器页",
+  "verdict": "A"
+ },
+ {
+  "module": "audio",
+  "file": "audio_search_page.dart",
+  "desc": "Audio Station 搜索页",
+  "verdict": "A"
+ },
+ {
+  "module": "audio",
+  "file": "audio_song_page.dart",
+  "desc": "Audio Station 单曲页",
+  "verdict": "A"
+ },
+ {
+  "module": "audio",
+  "file": "audio_web_queue_page.dart",
+  "desc": "Audio Station 服务端播放队列面板",
+  "verdict": "A"
+ },
+ {
+  "module": "calendar",
+  "file": "calendar_page.dart",
+  "desc": "日历页",
+  "verdict": "A"
+ },
+ {
+  "module": "chat",
+  "file": "archive_page.dart",
+  "desc": "归档频道页",
+  "verdict": "A"
+ },
+ {
+  "module": "chat",
+  "file": "attachment_view.dart",
+  "desc": "消息里的附件渲染（`ImageViewerPage`）",
+  "verdict": "A"
+ },
+ {
+  "module": "chat",
+  "file": "available_channels_page.dart",
+  "desc": "「可加入的公开频道」完整浏览页",
+  "verdict": "A"
+ },
+ {
+  "module": "chat",
+  "file": "channel_content_page.dart",
+  "desc": "频道内容列表：置顶 / 文件 / 链接 / @我 / 书签 —— 对齐原版",
+  "verdict": "A"
+ },
+ {
+  "module": "chat",
+  "file": "channel_create_page.dart",
+  "desc": "新建频道页",
+  "verdict": "A"
+ },
+ {
+  "module": "chat",
+  "file": "channel_hashtags_page.dart",
+  "desc": "频道的标签列表",
+  "verdict": "A"
+ },
+ {
+  "module": "chat",
+  "file": "channel_list_page.dart",
+  "desc": "频道/会话列表 —— App 主界面",
+  "verdict": "A"
+ },
+ {
+  "module": "chat",
+  "file": "channel_media_page.dart",
+  "desc": "频道的「媒体与文件」页 —— 原 App 的图片墙 / 文件列表",
+  "verdict": "A"
+ },
+ {
+  "module": "chat",
+  "file": "channel_members_page.dart",
+  "desc": "频道成员页",
+  "verdict": "A"
+ },
+ {
+  "module": "chat",
+  "file": "channel_scheduled_page.dart",
+  "desc": "频道里跟\"时间\"有关的两个列表",
+  "verdict": "A"
+ },
+ {
+  "module": "chat",
+  "file": "chat_page.dart",
+  "desc": "频道消息页 —— Phase 3 的可见成果：能看、能发",
+  "verdict": "A"
+ },
+ {
+  "module": "chat",
+  "file": "global_content_page.dart",
+  "desc": "跨频道内容面板 —— 四 tab：话题 / 书签 / 提醒 / 定时消息",
+  "verdict": "A"
+ },
+ {
+  "module": "chat",
+  "file": "read_status_page.dart",
+  "desc": "「已读成员 / 未读成员」页",
+  "verdict": "A"
+ },
+ {
+  "module": "chat",
+  "file": "subscribed_threads_page.dart",
+  "desc": "订阅话题列表页 —— 对齐官方 CommentsFragment",
+  "verdict": "A"
+ },
+ {
+  "module": "chat",
+  "file": "thread_page.dart",
+  "desc": "话题",
+  "verdict": "A"
+ },
+ {
+  "module": "contacts",
+  "file": "contact_editor_page.dart",
+  "desc": "新建 / 编辑联系人",
+  "verdict": "A"
+ },
+ {
+  "module": "contacts",
+  "file": "contact_import_page.dart",
+  "desc": "导入联系人",
+  "verdict": "A"
+ },
+ {
+  "module": "contacts",
+  "file": "contacts_manage_page.dart",
+  "desc": "通讯录与标签管理",
+  "verdict": "A"
+ },
+ {
+  "module": "contacts",
+  "file": "contacts_page.dart",
+  "desc": "联系人页",
+  "verdict": "A"
+ },
+ {
+  "module": "design",
+  "file": "design_preview_page.dart",
+  "desc": "设计预览画廊",
+  "verdict": "E"
+ },
+ {
+  "module": "diagnostics",
+  "file": "diag_page.dart",
+  "desc": "空洞穿透诊断页 —— \"深空座舱 · 仪器仪表盘\"",
+  "verdict": "A"
+ },
+ {
+  "module": "downloads",
+  "file": "download_bt_search_page.dart",
+  "desc": "Download Station BT 搜索页",
+  "verdict": "A"
+ },
+ {
+  "module": "downloads",
+  "file": "download_captcha_page.dart",
+  "desc": "Download Station「输入验证码」页",
+  "verdict": "A"
+ },
+ {
+  "module": "downloads",
+  "file": "download_create_page.dart",
+  "desc": "Download Station 新建任务页",
+  "verdict": "A"
+ },
+ {
+  "module": "downloads",
+  "file": "download_detail_page.dart",
+  "desc": "Download Station 任务详情页：任务字段 + 单任务 BT 限速",
+  "verdict": "A"
+ },
+ {
+  "module": "downloads",
+  "file": "download_emule_page.dart",
+  "desc": "⑥下载 F1：eMule 任务页",
+  "verdict": "A"
+ },
+ {
+  "module": "downloads",
+  "file": "download_emule_search_page.dart",
+  "desc": "⑥下载 F3：eMule 搜索页",
+  "verdict": "A"
+ },
+ {
+  "module": "downloads",
+  "file": "download_emule_server_page.dart",
+  "desc": "⑥下载 F2：eMule 服务器 / Kad 管理",
+  "verdict": "E"
+ },
+ {
+  "module": "downloads",
+  "file": "download_file_select_page.dart",
+  "desc": "Download Station「选择要下载的文件」页",
+  "verdict": "A"
+ },
+ {
+  "module": "downloads",
+  "file": "download_link_browser.dart",
+  "desc": "⑥下载 F10：内置链接浏览器",
+  "verdict": "A"
+ },
+ {
+  "module": "downloads",
+  "file": "download_page.dart",
+  "desc": "Download Station 任务列表页",
+  "verdict": "A"
+ },
+ {
+  "module": "downloads",
+  "file": "download_rss_page.dart",
+  "desc": "Download Station RSS 订阅页",
+  "verdict": "A"
+ },
+ {
+  "module": "downloads",
+  "file": "download_settings_page.dart",
+  "desc": "Download Station 设置页",
+  "verdict": "A"
+ },
+ {
+  "module": "drive",
+  "file": "drive_admin_page.dart",
+  "desc": "③Drive 管理员页",
+  "verdict": "E"
+ },
+ {
+  "module": "drive",
+  "file": "drive_advance_sharing_page.dart",
+  "desc": "Drive 高级共享",
+  "verdict": "A"
+ },
+ {
+  "module": "drive",
+  "file": "drive_category_page.dart",
+  "desc": "Drive「分类浏览」",
+  "verdict": "A"
+ },
+ {
+  "module": "drive",
+  "file": "drive_collection_page.dart",
+  "desc": "Drive「收藏集 / 收藏夹」页",
+  "verdict": "A"
+ },
+ {
+  "module": "drive",
+  "file": "drive_computers_page.dart",
+  "desc": "Drive「计算机」页",
+  "verdict": "A"
+ },
+ {
+  "module": "drive",
+  "file": "drive_connections_page.dart",
+  "desc": "Drive「已连接的设备」页",
+  "verdict": "A"
+ },
+ {
+  "module": "drive",
+  "file": "drive_copy_move_page.dart",
+  "desc": "复制 / 移动到…",
+  "verdict": "A"
+ },
+ {
+  "module": "drive",
+  "file": "drive_extras_page.dart",
+  "desc": "Drive「扩展」页",
+  "verdict": "A"
+ },
+ {
+  "module": "drive",
+  "file": "drive_file_request_page.dart",
+  "desc": "Drive「请求文件」",
+  "verdict": "A"
+ },
+ {
+  "module": "drive",
+  "file": "drive_folder_page.dart",
+  "desc": "进入一个\"非个人空间\"的 Drive 目录并浏览",
+  "verdict": "A"
+ },
+ {
+  "module": "drive",
+  "file": "drive_local_files_page.dart",
+  "desc": "Drive「本地文件」页",
+  "verdict": "A"
+ },
+ {
+  "module": "drive",
+  "file": "drive_notifications_page.dart",
+  "desc": "Drive 通知页",
+  "verdict": "A"
+ },
+ {
+  "module": "drive",
+  "file": "drive_pdf_markup_page.dart",
+  "desc": "★★★ ③Drive D61「PDF 批注 / 签名」 的界面 + 导出 —— 第 21…",
+  "verdict": "A"
+ },
+ {
+  "module": "drive",
+  "file": "drive_pdf_text_layer.dart",
+  "desc": "★★★ ③Drive D61 最后一项：文字层联动 —— 第 245 轮：自研 PDF …",
+  "verdict": "E"
+ },
+ {
+  "module": "drive",
+  "file": "drive_quota_page.dart",
+  "desc": "Drive 存储空间 / 配额页",
+  "verdict": "A"
+ },
+ {
+  "module": "drive",
+  "file": "drive_scan_page.dart",
+  "desc": "★★★ D37「保存为扫描件」—— 第 99 轮实现",
+  "verdict": "A"
+ },
+ {
+  "module": "drive",
+  "file": "drive_search_page.dart",
+  "desc": "Drive 搜索页",
+  "verdict": "A"
+ },
+ {
+  "module": "drive",
+  "file": "drive_sync_tasks_page.dart",
+  "desc": "★★★ ③Drive D65「同步任务 / 同步设备管理」 的界面层 —— 第 217 …",
+  "verdict": "A"
+ },
+ {
+  "module": "drive",
+  "file": "drive_team_members_page.dart",
+  "desc": "Drive 团队文件夹成员页",
+  "verdict": "A"
+ },
+ {
+  "module": "drive",
+  "file": "drive_team_trash_page.dart",
+  "desc": "Drive「团队文件夹回收站」页",
+  "verdict": "A"
+ },
+ {
+  "module": "drive",
+  "file": "drive_text_editor_page.dart",
+  "desc": "纯文本文件的应用内编辑页",
+  "verdict": "A"
+ },
+ {
+  "module": "drive",
+  "file": "drive_trash_page.dart",
+  "desc": "Drive 回收站页",
+  "verdict": "A"
+ },
+ {
+  "module": "files",
+  "file": "book_resume.dart",
+  "desc": "「继续阅读」——把一条已落库的阅读进度还原成一个能直接打开的阅读页",
+  "verdict": "A"
+ },
+ {
+  "module": "files",
+  "file": "djvu_archive.dart",
+  "desc": "DJVU",
+  "verdict": "E"
+ },
+ {
+  "module": "files",
+  "file": "drive_labels_page.dart",
+  "desc": "Drive 标签页",
+  "verdict": "A"
+ },
+ {
+  "module": "files",
+  "file": "drive_more_page.dart",
+  "desc": "Drive「更多」页",
+  "verdict": "A"
+ },
+ {
+  "module": "files",
+  "file": "drive_revisions_page.dart",
+  "desc": "Drive 版本历史页",
+  "verdict": "A"
+ },
+ {
+  "module": "files",
+  "file": "drive_saf_on_demand_page.dart",
+  "desc": "★★ ③Drive 第 246 轮 D66：SAF「按需下载」的设置页",
+  "verdict": "A"
+ },
+ {
+  "module": "files",
+  "file": "drive_share_page.dart",
+  "desc": "Drive 共享页",
+  "verdict": "A"
+ },
+ {
+  "module": "files",
+  "file": "drive_tasks_page.dart",
+  "desc": "Drive 后台任务页",
+  "verdict": "A"
+ },
+ {
+  "module": "files",
+  "file": "file_browse_page.dart",
+  "desc": "文件",
+  "verdict": "A"
+ },
+ {
+  "module": "files",
+  "file": "file_destination_picker.dart",
+  "desc": "M18：复制 / 移动的目标目录选择器",
+  "verdict": "A"
+ },
+ {
+  "module": "files",
+  "file": "file_mount_page.dart",
+  "desc": "File Station C5：远程挂载 / 虚拟卷管理页",
+  "verdict": "A"
+ },
+ {
+  "module": "files",
+  "file": "file_offline_page.dart",
+  "desc": "219",
+  "verdict": "A"
+ },
+ {
+  "module": "files",
+  "file": "file_pages.dart",
+  "desc": "文件模块的附属页面：搜索、收藏、分享链接",
+  "verdict": "A"
+ },
+ {
+  "module": "files",
+  "file": "file_preview_page.dart",
+  "desc": "文件内嵌预览",
+  "verdict": "A"
+ },
+ {
+  "module": "files",
+  "file": "office_page.dart",
+  "desc": "Synology Office 的入口页",
+  "verdict": "A"
+ },
+ {
+  "module": "files",
+  "file": "office_viewer_page.dart",
+  "desc": "Office 原生文档",
+  "verdict": "A"
+ },
+ {
+  "module": "files",
+  "file": "usb_devices_page.dart",
+  "desc": "223",
+  "verdict": "A"
+ },
+ {
+  "module": "files",
+  "file": "webdav_page.dart",
+  "desc": "226",
+  "verdict": "A"
+ },
+ {
+  "module": "home",
+  "file": "home_page.dart",
+  "desc": "主页 = 应用外壳",
+  "verdict": "E"
+ },
+ {
+  "module": "login",
+  "file": "login_page.dart",
+  "desc": "登录页 —— \"身份验证序列\"",
+  "verdict": "A"
+ },
+ {
+  "module": "mailplus",
+  "file": "mail_compose_page.dart",
+  "desc": "MailPlus 写信页 —— 发送 = Draft.create v7 再 Draft…",
+  "verdict": "E"
+ },
+ {
+  "module": "mailplus",
+  "file": "mail_detail_page.dart",
+  "desc": "MailPlus 邮件详情页",
+  "verdict": "E"
+ },
+ {
+  "module": "mailplus",
+  "file": "mail_page.dart",
+  "desc": "MailPlus 邮件列表页",
+  "verdict": "E"
+ },
+ {
+  "module": "media",
+  "file": "media_player_view.dart",
+  "desc": "内置播放器：可复用的播放视图 + 一个独立播放页",
+  "verdict": "A"
+ },
+ {
+  "module": "notes",
+  "file": "note_adv_search_page.dart",
+  "desc": "G3 笔记高级搜索面板",
+  "verdict": "A"
+ },
+ {
+  "module": "notes",
+  "file": "note_background_sync_page.dart",
+  "desc": "「后台同步」设置页",
+  "verdict": "A"
+ },
+ {
+  "module": "notes",
+  "file": "note_body.dart",
+  "desc": "笔记正文渲染",
+  "verdict": "A"
+ },
+ {
+  "module": "notes",
+  "file": "note_c3_pages.dart",
+  "desc": "C3",
+  "verdict": "A"
+ },
+ {
+  "module": "notes",
+  "file": "note_conflict_page.dart",
+  "desc": "笔记的双向冲突裁决页",
+  "verdict": "C"
+ },
+ {
+  "module": "notes",
+  "file": "note_drawing_page.dart",
+  "desc": "笔记手绘/涂鸦的绘图板页面 + 能力位门控",
+  "verdict": "A"
+ },
+ {
+  "module": "notes",
+  "file": "note_editor_page.dart",
+  "desc": "笔记编辑器",
+  "verdict": "A"
+ },
+ {
+  "module": "notes",
+  "file": "note_fts_search_page.dart",
+  "desc": "G1：笔记全文检索页",
+  "verdict": "A"
+ },
+ {
+  "module": "notes",
+  "file": "note_joined_page.dart",
+  "desc": "「共享给我 / 加入的笔记本」入口",
+  "verdict": "A"
+ },
+ {
+  "module": "notes",
+  "file": "note_nas_picker.dart",
+  "desc": "「从 NAS 选图片」：一个只列图片的简易文件浏览",
+  "verdict": "A"
+ },
+ {
+  "module": "notes",
+  "file": "note_overdue_settings_page.dart",
+  "desc": "逾期汇总通知设置",
+  "verdict": "A"
+ },
+ {
+  "module": "notes",
+  "file": "note_recycle_page.dart",
+  "desc": "「回收站」页",
+  "verdict": "A"
+ },
+ {
+  "module": "notes",
+  "file": "note_share_page.dart",
+  "desc": "笔记共享",
+  "verdict": "A"
+ },
+ {
+  "module": "notes",
+  "file": "note_shared_page.dart",
+  "desc": "「我分享出去的」页",
+  "verdict": "A"
+ },
+ {
+  "module": "notes",
+  "file": "note_shelf_page.dart",
+  "desc": "笔记本层级 Shelf",
+  "verdict": "A"
+ },
+ {
+  "module": "notes",
+  "file": "note_shortcut_page.dart",
+  "desc": "「快捷方式」页",
+  "verdict": "A"
+ },
+ {
+  "module": "notes",
+  "file": "note_smart_page.dart",
+  "desc": "智能 / 条件笔记本",
+  "verdict": "A"
+ },
+ {
+  "module": "notes",
+  "file": "note_tag_page.dart",
+  "desc": "「标签」页",
+  "verdict": "A"
+ },
+ {
+  "module": "notes",
+  "file": "note_todo_editor_page.dart",
+  "desc": "待办的新建 / 编辑",
+  "verdict": "A"
+ },
+ {
+  "module": "notes",
+  "file": "note_todo_page.dart",
+  "desc": "「待办」页",
+  "verdict": "A"
+ },
+ {
+  "module": "notes",
+  "file": "note_view_page.dart",
+  "desc": "单条笔记页",
+  "verdict": "A"
+ },
+ {
+  "module": "notes",
+  "file": "notes_page.dart",
+  "desc": "「笔记」页",
+  "verdict": "A"
+ },
+ {
+  "module": "office",
+  "file": "office_doc_page.dart",
+  "desc": "Office C′ 编辑器 UI 批 2 —— .odoc 页：编辑交互 + 工具栏 +…",
+  "verdict": "A"
+ },
+ {
+  "module": "office",
+  "file": "office_doc_page_frame.dart",
+  "desc": "Office .odoc 的页眉/页脚/页码 → 页边区域",
+  "verdict": "E"
+ },
+ {
+  "module": "office",
+  "file": "office_doc_paper.dart",
+  "desc": "Office .odoc 的纸面阅读",
+  "verdict": "E"
+ },
+ {
+  "module": "office",
+  "file": "office_library_page.dart",
+  "desc": "Office 批 D 接线层",
+  "verdict": "A"
+ },
+ {
+  "module": "office",
+  "file": "office_sheet_page.dart",
+  "desc": "Office C′ 表格",
+  "verdict": "A"
+ },
+ {
+  "module": "office",
+  "file": "office_slides_page.dart",
+  "desc": "Office C′ 演示文稿",
+  "verdict": "A"
+ },
+ {
+  "module": "office",
+  "file": "office_template_preview.dart",
+  "desc": "Office 模板全屏预览：默认直接显示模板正文",
+  "verdict": "A"
+ },
+ {
+  "module": "photos",
+  "file": "photo_admin_page.dart",
+  "desc": "⑦相册 管理员页",
+  "verdict": "E"
+ },
+ {
+  "module": "photos",
+  "file": "photo_ai_edit_settings_page.dart",
+  "desc": "「AI 美化",
+  "verdict": "A"
+ },
+ {
+  "module": "photos",
+  "file": "photo_background_tasks_page.dart",
+  "desc": "相册「后台任务」页",
+  "verdict": "A"
+ },
+ {
+  "module": "photos",
+  "file": "photo_backup_page.dart",
+  "desc": "相册「手机备份」页 —— 把本机相册",
+  "verdict": "A"
+ },
+ {
+  "module": "photos",
+  "file": "photo_browse_page.dart",
+  "desc": "相册浏览页",
+  "verdict": "A"
+ },
+ {
+  "module": "photos",
+  "file": "photo_c2_page.dart",
+  "desc": "C2",
+  "verdict": "A"
+ },
+ {
+  "module": "photos",
+  "file": "photo_c2_sections.dart",
+  "desc": "C2",
+  "verdict": "A"
+ },
+ {
+  "module": "photos",
+  "file": "photo_free_up_page.dart",
+  "desc": "相册「释放手机空间」页",
+  "verdict": "A"
+ },
+ {
+  "module": "photos",
+  "file": "photo_map_page.dart",
+  "desc": "P21：照片地图页",
+  "verdict": "A"
+ },
+ {
+  "module": "photos",
+  "file": "photo_migration_page.dart",
+  "desc": "相册「迁移状态」页",
+  "verdict": "A"
+ },
+ {
+  "module": "photos",
+  "file": "photo_recent_page.dart",
+  "desc": "相册「最近添加」页面",
+  "verdict": "A"
+ },
+ {
+  "module": "photos",
+  "file": "photo_viewer_page.dart",
+  "desc": "大图页",
+  "verdict": "A"
+ },
+ {
+  "module": "photos",
+  "file": "photo_wave2_page.dart",
+  "desc": "相册 wave2 页面层：标签浏览",
+  "verdict": "A"
+ },
+ {
+  "module": "photos",
+  "file": "photo_wave3_page.dart",
+  "desc": "相册 wave3 页面层：相册设置",
+  "verdict": "A"
+ },
+ {
+  "module": "photos",
+  "file": "sleep_backup_page.dart",
+  "desc": "★★ ③Drive D84",
+  "verdict": "A"
+ },
+ {
+  "module": "photos",
+  "file": "sleep_backup_platform.dart",
+  "desc": "★★ ③Drive D84",
+  "verdict": "E"
+ },
+ {
+  "module": "search",
+  "file": "global_search_page.dart",
+  "desc": "全局搜索",
+  "verdict": "A"
+ },
+ {
+  "module": "search",
+  "file": "search_page.dart",
+  "desc": "高级搜索页",
+  "verdict": "A"
+ },
+ {
+  "module": "security",
+  "file": "passcode_screen.dart",
+  "desc": "Phase 9：应用锁的界面 —— 锁屏",
+  "verdict": "A"
+ },
+ {
+  "module": "servers",
+  "file": "certificates_page.dart",
+  "desc": "Phase 9：证书管理页",
+  "verdict": "A"
+ },
+ {
+  "module": "servers",
+  "file": "nas_manager_page.dart",
+  "desc": "多 NAS / 多账号的管理页",
+  "verdict": "C"
+ },
+ {
+  "module": "servers",
+  "file": "server_setup_page.dart",
+  "desc": "连接页",
+  "verdict": "A"
+ },
+ {
+  "module": "settings",
+  "file": "bots_page.dart",
+  "desc": "机器人列表",
+  "verdict": "A"
+ },
+ {
+  "module": "settings",
+  "file": "e2ee_page.dart",
+  "desc": "E2EE 设置页",
+  "verdict": "A"
+ },
+ {
+  "module": "settings",
+  "file": "notification_settings_page.dart",
+  "desc": "Phase 8：通知与后台设置页",
+  "verdict": "A"
+ },
+ {
+  "module": "settings",
+  "file": "oem_keepalive_page.dart",
+  "desc": "★ 厂商",
+  "verdict": "A"
+ },
+ {
+  "module": "settings",
+  "file": "personal_profile_page.dart",
+  "desc": "个人资料页",
+  "verdict": "A"
+ },
+ {
+  "module": "settings",
+  "file": "profile_edit_page.dart",
+  "desc": "个人资料编辑",
+  "verdict": "A"
+ },
+ {
+  "module": "settings",
+  "file": "service_check_page.dart",
+  "desc": "设置 → 服务检测",
+  "verdict": "A"
+ },
+ {
+  "module": "settings",
+  "file": "settings_page.dart",
+  "desc": "Phase 9：设置主页",
+  "verdict": "A"
+ },
+ {
+  "module": "settings",
+  "file": "snooze_settings_page.dart",
+  "desc": "Phase 9：免打扰设置",
+  "verdict": "A"
+ },
+ {
+  "module": "shell",
+  "file": "app_shell_page.dart",
+  "desc": "应用外壳：聊天 · 文件 · 相册 · 工作台 · 我的",
+  "verdict": "A"
+ },
+ {
+  "module": "shell",
+  "file": "service_gate_pages.dart",
+  "desc": "服务不可用时的呈现件",
+  "verdict": "A"
+ },
+ {
+  "module": "surveillance",
+  "file": "surv_camera_page.dart",
+  "desc": "单台摄像机详情页",
+  "verdict": "E"
+ },
+ {
+  "module": "surveillance",
+  "file": "surv_page.dart",
+  "desc": "Surveillance Station 摄像机列表页",
+  "verdict": "E"
+ }
+]

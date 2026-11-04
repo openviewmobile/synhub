@@ -1,0 +1,36 @@
+{
+  "id": "office_slides",
+  "unit": "lib/src/features/office/office_slides_page.dart",
+  "title": {
+    "zh": "季度汇报.pptx",
+    "en": "Quarterly.pptx"
+  },
+  "appbar": {
+    "actions": [
+      "save",
+      "more"
+    ]
+  },
+  "body": {
+    "type": "grid",
+    "count": 6,
+    "tileIcon": "image",
+    "labels": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  "note": {
+    "zh": "缩略图来自服务端渲染，本地不重排版式",
+    "en": "Thumbnails come from the server; layout isn't re-flowed locally"
+  },
+  "footerAction": {
+    "zh": "新建幻灯片",
+    "en": "Add slide"
+  },
+  "bottomNav": null
+}

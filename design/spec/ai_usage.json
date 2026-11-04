@@ -1,0 +1,77 @@
+{
+  "id": "ai_usage",
+  "unit": "lib/src/features/ai/ai_usage_page.dart",
+  "title": {
+    "zh": "AI 用量",
+    "en": "AI usage"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "fields",
+    "title": {
+      "zh": "本月 128 次调用",
+      "en": "128 calls this month"
+    },
+    "sub": {
+      "zh": "本机记录 · 估算费用 ¥12.40",
+      "en": "Recorded on device · est. ¥12.40"
+    },
+    "progress": 0.64,
+    "actions": [
+      {
+        "zh": "导出明细",
+        "en": "Export detail"
+      },
+      {
+        "zh": "清除记录",
+        "en": "Clear records"
+      }
+    ],
+    "rows": [
+      {
+        "label": {
+          "zh": "相册描述",
+          "en": "Photo captions"
+        },
+        "value": "72 次"
+      },
+      {
+        "label": {
+          "zh": "笔记摘要",
+          "en": "Note summaries"
+        },
+        "value": "34 次"
+      },
+      {
+        "label": {
+          "zh": "文件问答",
+          "en": "File Q&A"
+        },
+        "value": "22 次"
+      },
+      {
+        "label": {
+          "zh": "输入 tokens",
+          "en": "Input tokens"
+        },
+        "value": "412K"
+      },
+      {
+        "label": {
+          "zh": "输出 tokens",
+          "en": "Output tokens"
+        },
+        "value": "58K"
+      }
+    ]
+  },
+  "note": {
+    "zh": "数字来自本机日志，服务端账单可能有偏差",
+    "en": "Numbers come from local logs; server billing may differ"
+  },
+  "bottomNav": null
+}

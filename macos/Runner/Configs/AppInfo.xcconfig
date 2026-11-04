@@ -1,0 +1,24 @@
+// Application-level settings for the Runner target.
+//
+// This may be replaced with something auto-generated from metadata (e.g., pubspec.yaml) in the
+// future. If not, the values below would default to using the project name when this becomes a
+// 'flutter create' template.
+
+// The application's name. By default this is also the title of the Flutter window.
+// 产品名 SynHub；中文名「星枢」走 `zh-Hans.lproj/InfoPlist.strings` 的 CFBundleDisplayName。
+PRODUCT_NAME = SynHub
+
+// The application's bundle identifier
+//
+// 为什么是 `com.openviewai.synhub.macos`（第 279 轮定的，别再改）：
+//   * Android 的 `applicationId` 是 `com.openviewai.synhub` —— 那是**产品族根**，
+//     保留给"同一个产品身份"用，不被任何单一平台占掉；
+//   * Apple 两个平台要能在 App Store Connect 里**独立注册、独立发版**
+//     （iOS 首版与 macOS 首版的审核节奏、沙箱能力、最低系统版本都不同），
+//     所以各加平台后缀：macOS = `.macos`，iOS = `.ios`；
+//   * 反向 DNS 段数没有上限，四段完全合法。
+//   ⇒ 族根 `com.openviewai.synhub` + 平台后缀：一对一、可预测、不抢号。
+PRODUCT_BUNDLE_IDENTIFIER = com.openviewai.synhub.macos
+
+// The copyright displayed in application information
+PRODUCT_COPYRIGHT = Copyright © 2025 OpenViewAI. All rights reserved.

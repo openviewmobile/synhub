@@ -1,0 +1,71 @@
+{
+  "id": "audio_song",
+  "unit": "lib/src/features/audio/audio_song_page.dart",
+  "title": {
+    "zh": "正在播放",
+    "en": "Now playing"
+  },
+  "appbar": {
+    "actions": [
+      "heart",
+      "more"
+    ]
+  },
+  "body": {
+    "type": "player",
+    "cover": {
+      "zh": "封面",
+      "en": "Cover"
+    },
+    "song": "Demo Song",
+    "artist": "Demo Artist · 00s Love Songs",
+    "meta": {
+      "zh": "3:51 · 2022",
+      "en": "3:51 · 2022"
+    },
+    "progress": 0.38,
+    "left": "1:32",
+    "right": "−2:19",
+    "lyrics": [
+      {
+        "text": "Sample lyric line one",
+        "active": false
+      },
+      {
+        "text": "Sample lyric line two",
+        "active": false
+      },
+      {
+        "text": "Sample lyric line three",
+        "active": true
+      },
+      {
+        "text": "Sample lyric line four",
+        "active": false
+      },
+      {
+        "text": "Sample lyric line five",
+        "active": false
+      }
+    ],
+    "quick": [
+      {
+        "zh": "播放队列",
+        "en": "Queue"
+      },
+      {
+        "zh": "投送到",
+        "en": "Cast"
+      },
+      {
+        "zh": "音效",
+        "en": "Effects"
+      },
+      {
+        "zh": "歌曲信息",
+        "en": "Info"
+      }
+    ]
+  },
+  "bottomNav": null
+}

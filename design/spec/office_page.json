@@ -1,0 +1,39 @@
+{
+  "id": "office_page",
+  "unit": "lib/src/features/files/office_page.dart",
+  "title": {
+    "zh": "Synology Office",
+    "en": "Synology Office"
+  },
+  "appbar": {
+    "actions": [
+      "search",
+      "more"
+    ]
+  },
+  "chips": [
+    {
+      "zh": "全部",
+      "en": "All"
+    },
+    {
+      "zh": "文档",
+      "en": "Documents"
+    },
+    {
+      "zh": "表格",
+      "en": "Sheets"
+    },
+    {
+      "zh": "幻灯片",
+      "en": "Slides"
+    }
+  ],
+  "body": {
+    "type": "grid",
+    "count": 6,
+    "tileIcon": "doc"
+  },
+  "fab": true,
+  "bottomNav": "files"
+}

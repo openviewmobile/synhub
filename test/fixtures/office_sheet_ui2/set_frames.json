@@ -1,0 +1,203 @@
+{
+ "_provenance": {
+  "source": "host Dart probe /tmp/office_sheet_probe2/probe.dart against LAN NAS https://nas.example.com:5001 (2026-09-21)",
+  "object": "one-shot draft /mydrive/__dsh_p2_<ts>/p2_probe.osheet (created via FileStation.Upload + Office.Import, deleted permanently after the run)",
+  "redaction": "the client frame log redacts \"sid\"/\"id\" keys; the sheet id was restored to \"sh_1\" (non-secret)",
+  "what_it_pins": [
+   "set ack = (revIncoming, currentRev, status) with 1 ok / 2 stale-rev / 0 rejected",
+   "status 2 for rev=99 (currentRev=2) and for a missing rev (null,4,2)",
+   "changes = [[row, col, v], ...] multi-element, rev echoed back"
+  ]
+ },
+ "server_events": [
+  "[\"ready\"]"
+ ],
+ "frames": [
+  {
+   "seq": 1,
+   "dir": "s2c",
+   "transport": "polling",
+   "raw": "0{\"sid\":\"<redacted>\",\"upgrades\":[\"websocket\"],\"pingInterval\":25000,\"pingTimeout\":60000,\"maxPayload\":100000000}"
+  },
+  {
+   "seq": 3,
+   "dir": "c2s",
+   "transport": "websocket",
+   "raw": "2probe"
+  },
+  {
+   "seq": 4,
+   "dir": "s2c",
+   "transport": "websocket",
+   "raw": "3probe"
+  },
+  {
+   "seq": 5,
+   "dir": "c2s",
+   "transport": "websocket",
+   "raw": "5"
+  },
+  {
+   "seq": 6,
+   "dir": "c2s",
+   "transport": "websocket",
+   "raw": "40"
+  },
+  {
+   "seq": 7,
+   "dir": "s2c",
+   "transport": "websocket",
+   "raw": "40{\"sid\":\"<redacted>\"}"
+  },
+  {
+   "seq": 8,
+   "dir": "s2c",
+   "transport": "websocket",
+   "raw": "42[\"ready\"]"
+  },
+  {
+   "seq": 9,
+   "dir": "c2s",
+   "transport": "websocket",
+   "raw": "421[\"init\"]"
+  },
+  {
+   "seq": 10,
+   "dir": "s2c",
+   "transport": "websocket",
+   "raw": "431[\"8e3063b7d999caeb\",0,[]]"
+  },
+  {
+   "seq": 11,
+   "dir": "c2s",
+   "transport": "websocket",
+   "raw": "422[\"peek\"]"
+  },
+  {
+   "seq": 12,
+   "dir": "s2c",
+   "transport": "websocket",
+   "raw": "432[\"8e3063b7d999caeb\",0,true]"
+  },
+  {
+   "seq": 13,
+   "dir": "c2s",
+   "transport": "websocket",
+   "raw": "423[\"set\",{\"cmd\":\"value\",\"id\":\"sh_1\",\"changes\":[[0,2,\"P2SET-r0c2\"],[2,0,\"P2SET-r2c0\"],[1,1,\"P2SET-r1c1\"],[0,0,\"P2SET-r0c0\"]],\"source\":\"dsh-probe2\",\"rev\":1}]"
+  },
+  {
+   "seq": 14,
+   "dir": "s2c",
+   "transport": "websocket",
+   "raw": "433[1,1,1,null]"
+  },
+  {
+   "seq": 15,
+   "dir": "c2s",
+   "transport": "websocket",
+   "raw": "424[\"set\",{\"cmd\":\"value\",\"id\":\"sh_1\",\"changes\":[[3,0,42.5],[3,1,\"=SUM(A1:B1)\"],[3,2,true],[3,3,\"\"]],\"source\":\"dsh-probe2\",\"rev\":2}]"
+  },
+  {
+   "seq": 16,
+   "dir": "s2c",
+   "transport": "websocket",
+   "raw": "434[2,2,1,null]"
+  },
+  {
+   "seq": 17,
+   "dir": "c2s",
+   "transport": "websocket",
+   "raw": "425[\"set\",{\"cmd\":\"value\",\"id\":\"sh_1\",\"changes\":[[5,0,\"P2SET-stale99\"]],\"source\":\"dsh-probe2\",\"rev\":99}]"
+  },
+  {
+   "seq": 18,
+   "dir": "s2c",
+   "transport": "websocket",
+   "raw": "435[99,2,2]"
+  },
+  {
+   "seq": 19,
+   "dir": "c2s",
+   "transport": "websocket",
+   "raw": "426[\"set\",{\"cmd\":\"value\",\"id\":\"sh_1\",\"changes\":[[5,0,\"P2SET-after-stale\"]],\"source\":\"dsh-probe2\",\"rev\":3}]"
+  },
+  {
+   "seq": 20,
+   "dir": "s2c",
+   "transport": "websocket",
+   "raw": "436[3,3,1,null]"
+  },
+  {
+   "seq": 21,
+   "dir": "c2s",
+   "transport": "websocket",
+   "raw": "427[\"set\",{\"cmd\":\"value\",\"id\":\"sh_1\",\"changes\":[[6,0,\"P2SET-badsheet\"]],\"source\":\"dsh-probe2\",\"rev\":4}]"
+  },
+  {
+   "seq": 22,
+   "dir": "s2c",
+   "transport": "websocket",
+   "raw": "437[4,4,1,null]"
+  },
+  {
+   "seq": 23,
+   "dir": "c2s",
+   "transport": "websocket",
+   "raw": "428[\"set\",{\"cmd\":\"value\",\"id\":\"sh_1\",\"changes\":[[6,0,\"P2SET-after-status0\"]],\"source\":\"dsh-probe2\",\"rev\":4}]"
+  },
+  {
+   "seq": 24,
+   "dir": "s2c",
+   "transport": "websocket",
+   "raw": "438[4,4,2]"
+  },
+  {
+   "seq": 25,
+   "dir": "c2s",
+   "transport": "websocket",
+   "raw": "429[\"set\",{\"cmd\":\"value\",\"id\":\"sh_1\",\"changes\":[[7,0,\"P2SET-norev\"]],\"source\":\"dsh-probe2\"}]"
+  },
+  {
+   "seq": 26,
+   "dir": "s2c",
+   "transport": "websocket",
+   "raw": "439[null,4,2]"
+  },
+  {
+   "seq": 27,
+   "dir": "c2s",
+   "transport": "websocket",
+   "raw": "4210[\"set\",{\"cmd\":\"value\",\"id\":\"sh_1\",\"changes\":[[7,0,\"P2SET-after-norev\"]],\"source\":\"dsh-probe2\",\"rev\":5}]"
+  },
+  {
+   "seq": 28,
+   "dir": "s2c",
+   "transport": "websocket",
+   "raw": "4310[5,5,1,null]"
+  },
+  {
+   "seq": 29,
+   "dir": "c2s",
+   "transport": "websocket",
+   "raw": "4211[\"set\",{\"cmd\":\"value\",\"id\":\"sh_1\",\"changes\":[[0,0,\"\"]],\"source\":\"dsh-probe2\",\"rev\":6}]"
+  },
+  {
+   "seq": 30,
+   "dir": "s2c",
+   "transport": "websocket",
+   "raw": "4311[6,6,1,null]"
+  },
+  {
+   "seq": 31,
+   "dir": "c2s",
+   "transport": "websocket",
+   "raw": "4212[\"set\",{\"cmd\":\"value\",\"id\":\"sh_1\",\"changes\":[[1,1,null]],\"source\":\"dsh-probe2\",\"rev\":7}]"
+  },
+  {
+   "seq": 32,
+   "dir": "s2c",
+   "transport": "websocket",
+   "raw": "4312[7,7,1,null]"
+  }
+ ]
+}

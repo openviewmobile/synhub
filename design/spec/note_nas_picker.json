@@ -1,0 +1,23 @@
+{
+  "id": "note_nas_picker",
+  "unit": "lib/src/features/notes/note_nas_picker.dart",
+  "title": {
+    "zh": "从 NAS 选图片",
+    "en": "Pick from NAS"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "grid",
+    "count": 9,
+    "tileIcon": "image"
+  },
+  "footerAction": {
+    "zh": "插入选中的 1 张",
+    "en": "Insert 1 image"
+  },
+  "bottomNav": null
+}

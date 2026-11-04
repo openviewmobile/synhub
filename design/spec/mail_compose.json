@@ -1,0 +1,62 @@
+{
+  "id": "mail_compose",
+  "unit": "lib/src/features/mailplus/mail_compose_page.dart",
+  "title": {
+    "zh": "写信",
+    "en": "Compose"
+  },
+  "appbar": {
+    "actions": [
+      "save",
+      "more"
+    ]
+  },
+  "body": {
+    "type": "form",
+    "fields": [
+      {
+        "label": {
+          "zh": "收件人",
+          "en": "To"
+        },
+        "value": "li@example.com"
+      },
+      {
+        "label": {
+          "zh": "主题",
+          "en": "Subject"
+        },
+        "value": {
+          "zh": "设计稿终版",
+          "en": "Final design"
+        }
+      },
+      {
+        "label": {
+          "zh": "正文",
+          "en": "Body"
+        },
+        "value": {
+          "zh": "附件是终版，周五前请确认。",
+          "en": "Final attached; please confirm by Friday."
+        }
+      }
+    ],
+    "switch": {
+      "label": {
+        "zh": "保存到草稿",
+        "en": "Save to drafts"
+      },
+      "value": true
+    },
+    "submit": {
+      "zh": "发送",
+      "en": "Send"
+    }
+  },
+  "note": {
+    "zh": "发送 = 先建草稿再提交，失败不会丢内容",
+    "en": "Send creates a draft first, so failures don't lose content"
+  },
+  "bottomNav": null
+}

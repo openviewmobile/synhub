@@ -1,0 +1,42 @@
+{
+  "id": "drive_computers",
+  "unit": "lib/src/features/drive/drive_computers_page.dart",
+  "title": {
+    "zh": "Computer",
+    "en": "Computer"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "rowIcon": "folder",
+  "body": {
+    "type": "list",
+    "items": [
+      {
+        "title": "MacBook Pro",
+        "sub": {
+          "zh": "已连接 · 5 分钟前同步",
+          "en": "Connected · synced 5 min ago"
+        },
+        "lead": "#8FB8FF",
+        "trail": "chev"
+      },
+      {
+        "title": "Studio",
+        "sub": {
+          "zh": "离线 · 昨天 18:20",
+          "en": "Offline · yesterday 18:20"
+        },
+        "lead": "#A6E3C5",
+        "trail": "chev"
+      }
+    ]
+  },
+  "note": {
+    "zh": "Computer 是 Drive 客户端备份上来的目录",
+    "en": "Computer folders come from the Drive desktop client"
+  },
+  "bottomNav": null
+}

@@ -1,0 +1,45 @@
+{
+  "id": "surv_camera",
+  "unit": "lib/src/features/surveillance/surv_camera_page.dart",
+  "title": {
+    "zh": "门口",
+    "en": "Front door"
+  },
+  "appbar": {
+    "actions": [
+      "share",
+      "more"
+    ]
+  },
+  "body": {
+    "type": "viewer",
+    "kind": "image",
+    "caption": {
+      "zh": "实时 · 1080p · 已录制 12 分钟",
+      "en": "Live · 1080p · recording 12 min"
+    },
+    "toolbar": [
+      {
+        "zh": "截图",
+        "en": "Snapshot"
+      },
+      {
+        "zh": "对讲",
+        "en": "Talk"
+      },
+      {
+        "zh": "回放",
+        "en": "Playback"
+      },
+      {
+        "zh": "设置",
+        "en": "Settings"
+      }
+    ]
+  },
+  "note": {
+    "zh": "不支持实时对讲的机型不显示「对讲」",
+    "en": "Models without two-way audio don't show Talk"
+  },
+  "bottomNav": null
+}

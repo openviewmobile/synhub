@@ -1,0 +1,81 @@
+{
+  "_note": "Office C' slides batch 2 -- offline replay fixture built from the ONE host-side LAN probe (docs/office-slides-ui-2.md section 1). All credentials are removed; the Office object_id / link_id are replaced by stable placeholders. Frame `id` fields (socket.io ack ids) are placeholders. This fixture is the only online-evidence -> offline-regression channel for .oslides editing.",
+  "probe": {
+    "date": "2026-09-22",
+    "base_url": "https://nas.example.com:5001 (LAN NAS)",
+    "namespace": "presentation",
+    "path": "/oo/socket.io/presentation",
+    "object_id_placeholder": "1028_<probe>.slide",
+    "link_id_placeholder": "<redacted>",
+    "draft": "/mydrive/__dsh_slides_p2_<ts>/Celestial.oslides (copy of a user presentation; permanently deleted after the probe)",
+    "cleanup": {"deleted": 3, "still_present": false}
+  },
+
+  "findings": {
+    "handshake_verb": "fetch (init timed out: no ack within 12s)",
+    "init_ack": {"event": "init", "error": "OfficeCollabTimeoutException: no ack for \"init\" within 12s"},
+    "fetch_ack_shape": "[null, {doc: {version, data}, comment_store: []}]",
+    "peek_ack_shape": "[false, {}] (no args) / [false] ({serverId:null})",
+    "event_frame": "{version, steps: [...], clientId} where version MUST equal the server's current version",
+    "event_ok_ack": "[null, {version: <new>, steps: [<applied step, echo>], clientIDs: [...], id}]",
+    "event_error_ack": "[{status: 402|411|408|...}, \"Error: <object_id>: <message>\"]",
+    "status_codes": {"402": "Not current version (also for a missing version field)", "411": "Invalid command (bad position / unknown stepType at the current version)", "408": "History not available (poll from a too-old version)"},
+    "poll_ack_shape": "[null, {version, wait, steps, clientIDs, selections}]  OR  [{status:408}, {status:408}]",
+    "remote_channel": "poll (there is NO per-step broadcast event; the presentation client's onBroadcast is a no-op)",
+    "snapshot_threshold": "55 accepted steps did NOT flush to Snapshot:get within 75s (unlike .osheet's 50-command threshold) -- registered as unverified"
+  },
+
+  "frames": {
+    "fetch": {
+      "c2s": {"event": "fetch"},
+      "s2c": [null, {"doc": {"version": 13, "data": {"type": "doc", "attrs": {"schema": 13, "type": "presentation", "cx": 960, "cy": 540}, "content": [{"type": "settings"}, {"type": "master_container", "content": []}, {"type": "slide_container", "content": [{"type": "slide", "attrs": {"id": "S1", "master_id": "pilot_blue", "layout_id": "title_slide", "is_visible": true}, "content": [{"type": "slide_background"}, {"type": "slide_content_container", "content": [{"type": "title_slide_holder", "attrs": {"id": "H1", "type_id": "0"}, "content": [{"type": "title_slide_holder_shape", "content": [{"type": "title_slide_holder_text_block", "content": [{"type": "paragraph"}]}]}]}, {"type": "sub_title_slide_holder", "attrs": {"id": "H2", "type_id": "0"}, "content": [{"type": "sub_title_slide_holder_shape", "content": [{"type": "sub_title_slide_holder_text_block", "content": [{"type": "paragraph"}]}]}]}]}, {"type": "note", "content": [{"type": "paragraph"}]}]}]}]}}, "comment_store": []}]
+    },
+
+    "event_ok_set_root_attrs": {
+      "c2s": {"version": 13, "steps": [{"stepType": "setRootNodeAttrs", "attrs": {"cx": 960}}], "clientId": "dsh-probe2"},
+      "s2c": [null, {"id": "<ack-1>", "version": 14, "steps": [{"stepType": "setRootNodeAttrs", "attrs": {"cx": 960}, "uid": 1028, "clientID": "dsh-probe2"}], "clientIDs": ["dsh-probe2"]}]
+    },
+
+    "event_stale_402": {
+      "c2s": {"version": 113, "steps": [{"stepType": "setRootNodeAttrs", "attrs": {"cx": 960}}], "clientId": "dsh-probe2"},
+      "s2c": [{"status": 402}, "Error: 1028_<probe>.slide: Not current version. incoming: 113, current: 13"]
+    },
+
+    "event_missing_version_402": {
+      "c2s": {"steps": [{"stepType": "setRootNodeAttrs", "attrs": {"cx": 960}}], "clientId": "dsh-probe2"},
+      "s2c": [{"status": 402}, "Error: 1028_<probe>.slide: Not current version. incoming: undefined, current: 14"]
+    },
+
+    "event_ok_text_replace": {
+      "c2s": {"version": 14, "steps": [{"stepType": "replace", "from": 565, "to": 565, "slice": {"content": [{"type": "text", "text": "P2SLIDE-TXT"}], "openLeft": 0, "openRight": 0}}], "clientId": "dsh-probe2c"},
+      "s2c": [null, {"id": "<ack-2>", "version": 15, "steps": [{"stepType": "replace", "from": 565, "to": 565, "slice": {"content": [{"type": "text", "text": "P2SLIDE-TXT"}], "openLeft": 0, "openRight": 0}, "uid": 1028, "clientID": "dsh-probe2c"}], "clientIDs": ["dsh-probe2c"]}]
+    },
+
+    "event_invalid_411": {
+      "c2s": {"version": 14, "steps": [{"stepType": "replace", "from": 461, "to": 461, "slice": {"content": [{"type": "text", "text": "P2SLIDE-TXT"}], "openLeft": 0, "openRight": 0}}], "clientId": "dsh-probe2b"},
+      "s2c": [{"status": 411}, "Error: 1028_<probe>.slide: Invalid command"]
+    },
+
+    "poll_increment_peer": {
+      "c2s": {"event": "poll", "data": {"version": 16}},
+      "s2c": [null, {"version": 17, "wait": true, "steps": [{"stepType": "replace", "from": 565, "to": 565, "slice": {"content": [{"type": "text", "text": "PEER-A"}], "openLeft": 0, "openRight": 0}, "uid": 1028, "clientID": "dsh-peer"}], "clientIDs": ["dsh-peer"], "selections": []}]
+    },
+
+    "poll_history_not_avail_408": {
+      "c2s": {"event": "poll", "data": {"version": 0}},
+      "s2c": [{"status": 408}, {"status": 408}]
+    }
+  },
+
+  "step": {
+    "text_replace": {"stepType": "replace", "from": 565, "to": 565, "slice": {"content": [{"type": "text", "text": "P2SLIDE-TXT"}], "openLeft": 0, "openRight": 0}},
+    "position_of_first_slide_paragraph": {
+      "path": [2, 0, 1, 0, 0, 0, 0, 0],
+      "node_start": 564,
+      "content_start": 565,
+      "note": "computed with the SLIDES schema isLeaf rule: an empty paragraph is a container (size 2), not a leaf (size 1). phase 2b used content.isEmpty=>leaf and got 411."
+    }
+  },
+
+  "versions": {"fetch": 13, "after_set_root_attrs": 14, "after_text_replace": 15, "after_second_run": 16, "after_peer": 17}
+}

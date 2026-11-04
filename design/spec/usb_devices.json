@@ -1,0 +1,37 @@
+{
+  "id": "usb_devices",
+  "unit": "lib/src/features/files/usb_devices_page.dart",
+  "title": {
+    "zh": "USB 设备",
+    "en": "USB devices"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "list",
+    "items": [
+      {
+        "title": "SanDisk Ultra 128GB",
+        "sub": {
+          "zh": "USB 存储 · 可用 74.2 GB",
+          "en": "USB storage · 74.2 GB free"
+        },
+        "lead": "icon",
+        "trail": "more"
+      },
+      {
+        "title": "Seagate Backup+",
+        "sub": {
+          "zh": "USB 硬盘 · 未挂载",
+          "en": "USB drive · not mounted"
+        },
+        "lead": "icon",
+        "trail": "more"
+      }
+    ]
+  },
+  "bottomNav": null
+}

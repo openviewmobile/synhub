@@ -1,0 +1,48 @@
+{
+  "id": "download_emule",
+  "unit": "lib/src/features/downloads/download_emule_page.dart",
+  "title": {
+    "zh": "eMule",
+    "en": "eMule"
+  },
+  "appbar": {
+    "actions": [
+      "search",
+      "more"
+    ]
+  },
+  "rowIcon": "download",
+  "body": {
+    "type": "list",
+    "items": [
+      {
+        "title": "debian-12.5.0-amd64-netinst.iso",
+        "sub": {
+          "zh": "640 MB / 640 MB · 已完成",
+          "en": "640 MB / 640 MB · Completed"
+        },
+        "lead": "icon",
+        "trail": "check",
+        "progress": 1.0
+      },
+      {
+        "title": {
+          "zh": "（未命名文件）",
+          "en": "(unnamed file)"
+        },
+        "sub": {
+          "zh": "12 MB / 700 MB · 2% · 排队中",
+          "en": "12 MB / 700 MB · 2% · queued"
+        },
+        "lead": "icon",
+        "trail": "pause",
+        "progress": 0.02
+      }
+    ]
+  },
+  "note": {
+    "zh": "eMule 需要服务端启用 eMule 套件",
+    "en": "eMule requires the server-side eMule package"
+  },
+  "bottomNav": null
+}

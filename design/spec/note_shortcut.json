@@ -1,0 +1,58 @@
+{
+  "id": "note_shortcut",
+  "unit": "lib/src/features/notes/note_shortcut_page.dart",
+  "title": {
+    "zh": "快捷方式",
+    "en": "Shortcuts"
+  },
+  "appbar": {
+    "actions": [
+      "plus",
+      "more"
+    ]
+  },
+  "rowIcon": "star",
+  "body": {
+    "type": "list",
+    "items": [
+      {
+        "title": {
+          "zh": "时间线收口说明",
+          "en": "Timeline notes"
+        },
+        "sub": {
+          "zh": "笔记 · #设计",
+          "en": "Note · #Design"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "title": {
+          "zh": "设计",
+          "en": "Design"
+        },
+        "sub": {
+          "zh": "笔记本 · 24 条",
+          "en": "Notebook · 24 notes"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "title": "#评审",
+        "sub": {
+          "zh": "标签 · 18 条",
+          "en": "Tag · 18 notes"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      }
+    ]
+  },
+  "note": {
+    "zh": "快捷方式只做入口，删除不影响原笔记",
+    "en": "Shortcuts are links; removing one keeps the note"
+  },
+  "bottomNav": null
+}

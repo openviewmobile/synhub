@@ -1,0 +1,67 @@
+{
+  "provenance": "Synology Office SPK 内置模板 template/<cat>/<name>/text.json（官方随包内容）",
+  "spk": "Office-DSM_Enterprise-x86_64-PAS-3.8.0-22711.spk",
+  "note": "仅作本地离线渲染测试夹具；不含图片二进制（files/ 未复制）",
+  "items": [
+    {
+      "file": "invoice_merged_cells.json",
+      "source": "doc/invoice",
+      "title_key": "invoice",
+      "bytes": 40212,
+      "sha256": "b9369089d8ca7d9e35dfb8d590b52892df0f1c0997f0f82469e6a7ce901c970d"
+    },
+    {
+      "file": "slides_group.json",
+      "source": "slides/opinion",
+      "title_key": "opinion",
+      "bytes": 26454,
+      "sha256": "c5b17caf2417c49775c2c4155aaa72144062b341579adc48e0a990e51c01ece6"
+    },
+    {
+      "file": "meeting_minutes.json",
+      "source": "doc/meeting_minutes",
+      "title_key": "meeting_minutes",
+      "bytes": 11771,
+      "sha256": "7e2f5b1e79038242cb9b5151ed47d2dcf827d29c6007edde79539397fb68570b"
+    },
+    {
+      "file": "slides_line.json",
+      "source": "slides/microcosmic_view",
+      "title_key": "microcosmic_view",
+      "bytes": 146102,
+      "sha256": "af58d190e1670878c3872931f7ce4c95ab5bf4f22df869174316f6946b59520e"
+    },
+    {
+      "file": "sheet_to_do_list_simple.json",
+      "source": "sheet/to_do_list_simple",
+      "title_key": "todo_list",
+      "title_section": "template_sheet",
+      "bytes": 5352,
+      "sha256": "b5aa32897267b66515f410acdc021b35b69f7b36998ebd76ec81f36945f5cbd9"
+    },
+    {
+      "file": "sheet_expense_report.json",
+      "source": "sheet/expense_report",
+      "title_key": "expense_report",
+      "title_section": "template_sheet",
+      "bytes": 7155,
+      "sha256": "57f5aa0f0054504e8146605329bfd5b1ea87a1926baa57ad6d54ac69b22c09f9"
+    },
+    {
+      "file": "sheet_to_do_list_professional.json",
+      "source": "sheet/to_do_list_professional",
+      "title_key": "todo_list_2",
+      "title_section": "template_sheet",
+      "bytes": 18743,
+      "sha256": "d528f58d09e5ad2e17d941c20b67b56b54932b09749ed2f801ead4e4895fdd95"
+    },
+    {
+      "file": "sheet_sales_tracker.json",
+      "source": "sheet/sales_tracker",
+      "title_key": "sales_tracker",
+      "title_section": "template_sheet",
+      "bytes": 6510,
+      "sha256": "0fdc607b591a044e964b17a1e92214db1604378bab5b91e8a2195adce879db10"
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "id": "drive_search",
+  "unit": "lib/src/features/drive/drive_search_page.dart",
+  "title": {
+    "zh": "搜索",
+    "en": "Search"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "search": {
+    "hint": {
+      "zh": "搜索文件、文件夹、内容",
+      "en": "Search files, folders, contents"
+    }
+  },
+  "chips": [
+    {
+      "zh": "全部",
+      "en": "All"
+    },
+    {
+      "zh": "文件",
+      "en": "Files"
+    },
+    {
+      "zh": "文件夹",
+      "en": "Folders"
+    }
+  ],
+  "rowIcon": "folder",
+  "body": {
+    "type": "list",
+    "items": [
+      {
+        "title": {
+          "zh": "设计稿终版 v12.pdf",
+          "en": "设计稿终版 v12.pdf"
+        },
+        "sub": {
+          "zh": "/我的文件/设计 · 4.2 MB",
+          "en": "/My Drive/Design · 4.2 MB"
+        },
+        "lead": "icon",
+        "trail": "more"
+      },
+      {
+        "title": {
+          "zh": "设计稿 v11.pdf",
+          "en": "设计稿 v11.pdf"
+        },
+        "sub": {
+          "zh": "/我的文件/设计/历史 · 3.9 MB",
+          "en": "/My Drive/Design/Old · 3.9 MB"
+        },
+        "lead": "icon",
+        "trail": "more"
+      },
+      {
+        "title": {
+          "zh": "设计评审纪要.docx",
+          "en": "设计评审纪要.docx"
+        },
+        "sub": {
+          "zh": "/团队/设计 · 88 KB",
+          "en": "/Team/Design · 88 KB"
+        },
+        "lead": "icon",
+        "trail": "more"
+      }
+    ]
+  },
+  "bottomNav": null
+}

@@ -1,0 +1,79 @@
+{
+  "id": "photo_wave2",
+  "unit": "lib/src/features/photos/photo_wave2_page.dart",
+  "title": {
+    "zh": "标签",
+    "en": "Tags"
+  },
+  "appbar": {
+    "actions": [
+      "plus",
+      "more"
+    ]
+  },
+  "chips": [
+    {
+      "zh": "标签",
+      "en": "Tags"
+    },
+    {
+      "zh": "人物",
+      "en": "People"
+    }
+  ],
+  "body": {
+    "type": "list",
+    "sections": true,
+    "items": [
+      {
+        "section": {
+          "zh": "常用标签",
+          "en": "Common tags"
+        },
+        "title": {
+          "zh": "海边",
+          "en": "Seaside"
+        },
+        "sub": {
+          "zh": "42 张",
+          "en": "42 photos"
+        },
+        "lead": "#8FB8FF",
+        "trail": "chev"
+      },
+      {
+        "section": {
+          "zh": "常用标签",
+          "en": "Common tags"
+        },
+        "title": {
+          "zh": "生日",
+          "en": "Birthday"
+        },
+        "sub": {
+          "zh": "18 张",
+          "en": "18 photos"
+        },
+        "lead": "#F0A8C8",
+        "trail": "chev"
+      },
+      {
+        "section": {
+          "zh": "自动识别",
+          "en": "Auto-detected"
+        },
+        "title": {
+          "zh": "小猫",
+          "en": "Kitten"
+        },
+        "sub": {
+          "zh": "6 张",
+          "en": "6 photos"
+        },
+        "lead": "#A6E3C5",
+        "trail": "chev"
+      }
+    ]
+  },
+  "bottomNav": null
+}

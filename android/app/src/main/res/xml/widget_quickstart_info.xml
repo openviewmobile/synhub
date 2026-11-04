@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 「快捷启动」小组件的元数据 —— 官方 `appwidget_shortcut.xml` 对应物：
+     官方 minWidth=250dip / minHeight=40dip、initialLayout=@layout/appwidget_shortcut、
+     widgetCategory=home_screen|keyguard、**没有** updatePeriodMillis（纯入口，无数据）。 -->
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:description="@string/widget_quickstart_label"
+    android:initialLayout="@layout/widget_action_bar"
+    android:minHeight="40dp"
+    android:minWidth="250dp"
+    android:previewLayout="@layout/widget_action_bar"
+    android:resizeMode="horizontal"
+    android:targetCellHeight="1"
+    android:targetCellWidth="4"
+    android:widgetCategory="home_screen|keyguard" />

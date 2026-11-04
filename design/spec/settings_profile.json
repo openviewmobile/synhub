@@ -1,0 +1,78 @@
+{
+  "id": "settings_profile",
+  "unit": "lib/src/features/settings/personal_profile_page.dart",
+  "title": {
+    "zh": "个人资料",
+    "en": "Profile"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "fields",
+    "title": {
+      "zh": "李雷",
+      "en": "Li"
+    },
+    "sub": {
+      "zh": "li@example.com · 管理员",
+      "en": "li@example.com · admin"
+    },
+    "actions": [
+      {
+        "zh": "编辑资料",
+        "en": "Edit profile"
+      },
+      {
+        "zh": "退出登录",
+        "en": "Sign out"
+      }
+    ],
+    "rows": [
+      {
+        "label": {
+          "zh": "账号",
+          "en": "Account"
+        },
+        "value": "li"
+      },
+      {
+        "label": {
+          "zh": "组织",
+          "en": "Organization"
+        },
+        "value": "设计部"
+      },
+      {
+        "label": {
+          "zh": "角色",
+          "en": "Role"
+        },
+        "value": {
+          "zh": "管理员",
+          "en": "Administrator"
+        }
+      },
+      {
+        "label": {
+          "zh": "本机设备",
+          "en": "This device"
+        },
+        "value": "HONOR LGE-AN10"
+      },
+      {
+        "label": {
+          "zh": "上次登录",
+          "en": "Last sign-in"
+        },
+        "value": {
+          "zh": "今天 08:02",
+          "en": "Today 08:02"
+        }
+      }
+    ]
+  },
+  "bottomNav": null
+}

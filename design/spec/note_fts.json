@@ -1,0 +1,62 @@
+{
+  "id": "note_fts",
+  "unit": "lib/src/features/notes/note_fts_search_page.dart",
+  "title": {
+    "zh": "搜索笔记",
+    "en": "Search notes"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "search": {
+    "hint": {
+      "zh": "搜索标题与正文",
+      "en": "Search titles and body"
+    }
+  },
+  "rowIcon": "doc",
+  "body": {
+    "type": "list",
+    "items": [
+      {
+        "title": {
+          "zh": "时间线收口说明",
+          "en": "Timeline notes"
+        },
+        "sub": {
+          "zh": "命中 3 处 · #设计",
+          "en": "3 matches · #Design"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "title": {
+          "zh": "评审纪要 2 月",
+          "en": "Review minutes Feb"
+        },
+        "sub": {
+          "zh": "命中 1 处 · #评审",
+          "en": "1 match · #Review"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "title": {
+          "zh": "时间线草稿",
+          "en": "Timeline draft"
+        },
+        "sub": {
+          "zh": "命中 2 处",
+          "en": "2 matches"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      }
+    ]
+  },
+  "bottomNav": null
+}

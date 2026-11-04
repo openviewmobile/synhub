@@ -1,0 +1,65 @@
+{
+  "id": "chat_read_status",
+  "unit": "lib/src/features/chat/read_status_page.dart",
+  "title": {
+    "zh": "已读状态",
+    "en": "Read status"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "tabs": [
+    {
+      "zh": "已读 9",
+      "en": "Read 9"
+    },
+    {
+      "zh": "未读 3",
+      "en": "Unread 3"
+    }
+  ],
+  "body": {
+    "type": "list",
+    "items": [
+      {
+        "title": {
+          "zh": "李雷",
+          "en": "Li"
+        },
+        "sub": {
+          "zh": "今天 09:52",
+          "en": "Today 09:52"
+        },
+        "lead": "#8FB8FF",
+        "trail": "none"
+      },
+      {
+        "title": {
+          "zh": "韩梅梅",
+          "en": "Han"
+        },
+        "sub": {
+          "zh": "今天 09:50",
+          "en": "Today 09:50"
+        },
+        "lead": "#F0A8C8",
+        "trail": "none"
+      },
+      {
+        "title": {
+          "zh": "王五",
+          "en": "Wang"
+        },
+        "sub": {
+          "zh": "昨天 22:10",
+          "en": "Yesterday 22:10"
+        },
+        "lead": "#A6E3C5",
+        "trail": "none"
+      }
+    ]
+  },
+  "bottomNav": null
+}

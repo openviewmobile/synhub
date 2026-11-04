@@ -1,0 +1,64 @@
+{
+  "id": "note_c3",
+  "unit": "lib/src/features/notes/note_c3_pages.dart",
+  "title": {
+    "zh": "版本历史",
+    "en": "Version history"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "rowIcon": "clock",
+  "body": {
+    "type": "list",
+    "items": [
+      {
+        "title": {
+          "zh": "今天 09:52 · 李雷",
+          "en": "Today 09:52 · Li"
+        },
+        "sub": {
+          "zh": "386 字 · 改动 12 行",
+          "en": "386 words · 12 lines changed"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "title": {
+          "zh": "今天 09:41 · 我",
+          "en": "Today 09:41 · me"
+        },
+        "sub": {
+          "zh": "412 字 · 改动 40 行",
+          "en": "412 words · 40 lines changed"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "title": {
+          "zh": "昨天 18:20 · 我",
+          "en": "Yesterday 18:20 · me"
+        },
+        "sub": {
+          "zh": "380 字 · 初稿",
+          "en": "380 words · initial draft"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      }
+    ]
+  },
+  "footerAction": {
+    "zh": "回滚到选中的版本",
+    "en": "Roll back to selected version"
+  },
+  "note": {
+    "zh": "回滚前会再确认一次；当前版本会先存成新版本",
+    "en": "Rollback asks once more; the current version is saved first"
+  },
+  "bottomNav": null
+}

@@ -1,0 +1,59 @@
+{
+  "id": "drive_pdf_markup",
+  "unit": "lib/src/features/drive/drive_pdf_markup_page.dart",
+  "title": {
+    "zh": "PDF 批注",
+    "en": "PDF markup"
+  },
+  "appbar": {
+    "actions": [
+      "share",
+      "more"
+    ]
+  },
+  "body": {
+    "type": "viewer",
+    "kind": "document",
+    "caption": {
+      "zh": "设计稿终版 v12.pdf · 第 3 / 28 页",
+      "en": "Design final v12.pdf · page 3 / 28"
+    },
+    "toolbar": [
+      {
+        "zh": "批注",
+        "en": "Annotate"
+      },
+      {
+        "zh": "签名",
+        "en": "Sign"
+      },
+      {
+        "zh": "高亮",
+        "en": "Highlight"
+      },
+      {
+        "zh": "导出",
+        "en": "Export"
+      }
+    ],
+    "text": [
+      {
+        "zh": "批注 1 · 第 3 页：这里的时间线要压成两级。",
+        "en": "Comment 1 · page 3: collapse the timeline to two levels."
+      },
+      {
+        "zh": "批注 2 · 第 5 页：暗色分隔线再压一档。",
+        "en": "Comment 2 · page 5: darken the dividers one notch."
+      },
+      {
+        "zh": "选区：第 5 页第 2 段（386 字）",
+        "en": "Selection: page 5, paragraph 2 (386 words)"
+      }
+    ]
+  },
+  "footerAction": {
+    "zh": "保存并导出副本",
+    "en": "Save and export a copy"
+  },
+  "bottomNav": null
+}

@@ -1,0 +1,229 @@
+{
+ "attrs": {
+  "colgroup": [
+   {
+    "width": 413
+   },
+   {
+    "width": 188
+   }
+  ],
+  "synotable": "2pgIFIeerl"
+ },
+ "content": [
+  {
+   "attrs": {
+    "height": 124
+   },
+   "content": [
+    {
+     "attrs": {
+      "borderBottomColor": "#ffffff",
+      "borderBottomStyle": "solid",
+      "borderBottomWidth": 1,
+      "borderLeftColor": "#ffffff",
+      "borderLeftStyle": "solid",
+      "borderLeftWidth": 1,
+      "borderRightColor": "#ffffff",
+      "borderRightStyle": "solid",
+      "borderRightWidth": 1,
+      "borderTopColor": "#ffffff",
+      "borderTopStyle": "solid",
+      "borderTopWidth": 1,
+      "colspan": 1,
+      "rowspan": 1,
+      "verticalAlign": "middle"
+     },
+     "content": [
+      {
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "strong"
+          }
+         ],
+         "text": "Destination: ",
+         "type": "text"
+        },
+        {
+         "text": "[Enter destination here]",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "textMarks": [
+         {
+          "_": "strong"
+         }
+        ]
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "strong"
+          }
+         ],
+         "text": "Meals: ",
+         "type": "text"
+        },
+        {
+         "text": "[Enter eating plans here]",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "textMarks": [
+         {
+          "_": "strong"
+         }
+        ]
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "strong"
+          }
+         ],
+         "text": "Activities:",
+         "type": "text"
+        },
+        {
+         "text": " [Enter activities here]",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "textMarks": [
+         {
+          "_": "strong"
+         }
+        ]
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "strong"
+          }
+         ],
+         "text": "Accommodation:",
+         "type": "text"
+        },
+        {
+         "text": " [Enter hotel name here]",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "textMarks": [
+         {
+          "_": "strong"
+         }
+        ]
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "strong"
+          }
+         ],
+         "text": "Transportation:",
+         "type": "text"
+        },
+        {
+         "text": " [Enter transportation options here]",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      }
+     ],
+     "type": "table_cell"
+    },
+    {
+     "attrs": {
+      "borderBottomColor": "#ffffff",
+      "borderBottomStyle": "solid",
+      "borderBottomWidth": 1,
+      "borderLeftColor": "#ffffff",
+      "borderLeftStyle": "solid",
+      "borderLeftWidth": 1,
+      "borderRightColor": "#ffffff",
+      "borderRightStyle": "solid",
+      "borderRightWidth": 1,
+      "borderTopColor": "#ffffff",
+      "borderTopStyle": "solid",
+      "borderTopWidth": 1,
+      "colspan": 1,
+      "rowspan": 1,
+      "verticalAlign": "middle"
+     },
+     "content": [
+      {
+       "attrs": {
+        "textAlign": "right"
+       },
+       "content": [
+        {
+         "attrs": {
+          "config": {
+           "alignment": "inline",
+           "alt": "01.png",
+           "config": "",
+           "crop": {
+            "b": 0,
+            "l": 0,
+            "r": 0,
+            "t": 0
+           },
+           "customized_points": {},
+           "deg": 0,
+           "file_alt": "01.png",
+           "file_id": "1ecfac18a9d64d35bff238d546fe2c70",
+           "file_type": "image",
+           "fill": "none",
+           "flip_h": false,
+           "flip_v": false,
+           "height": 120,
+           "left": 100,
+           "order": 0,
+           "prst": "rect",
+           "ref": "",
+           "stroke": "#2E3133",
+           "stroke-width": 0,
+           "top": 100,
+           "type": "rect",
+           "width": 180
+          },
+          "id": "KOCfzmQY4t"
+         },
+         "type": "picture"
+        }
+       ],
+       "type": "paragraph"
+      }
+     ],
+     "type": "table_cell"
+    }
+   ],
+   "type": "table_row"
+  }
+ ],
+ "type": "table"
+}

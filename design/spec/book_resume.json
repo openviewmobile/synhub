@@ -1,0 +1,46 @@
+{
+  "id": "book_resume",
+  "unit": "lib/src/features/files/book_resume.dart",
+  "title": {
+    "zh": "继续阅读",
+    "en": "Continue reading"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "viewer",
+    "kind": "text",
+    "caption": {
+      "zh": "三体 · 第 12 章 · 42%",
+      "en": "The Three-Body Problem · Ch.12 · 42%"
+    },
+    "text": [
+      "叶文洁没有回答。她抬头看着天，",
+      "天空是灰白色的，像一块洗旧了的布。",
+      "她知道，从按下那个按钮的一刻起，",
+      "一切都已经不同了。"
+    ],
+    "toolbar": [
+      {
+        "zh": "目录",
+        "en": "Contents"
+      },
+      {
+        "zh": "字号",
+        "en": "Font"
+      },
+      {
+        "zh": "书签",
+        "en": "Bookmark"
+      },
+      {
+        "zh": "更多",
+        "en": "More"
+      }
+    ]
+  },
+  "bottomNav": null
+}

@@ -1,0 +1,4 @@
+/* 應用顯示名稱（繁體中文）。與安卓 `values-zh-rTW` / `values-zh-rHK` 的
+   `app_name` =「星樞」一致；簡體版是另一個字，見 `zh-Hans.lproj`。 */
+CFBundleDisplayName = "星樞";
+CFBundleName = "星樞";

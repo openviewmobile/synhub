@@ -1,0 +1,62 @@
+{
+  "id": "office_viewer",
+  "unit": "lib/src/features/files/office_viewer_page.dart",
+  "title": {
+    "zh": "旅行计划.docx",
+    "en": "Trip plan.docx"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "viewer",
+    "kind": "document",
+    "caption": {
+      "zh": "第 1 / 12 页 · 已保存",
+      "en": "Page 1 / 12 · Saved"
+    },
+    "toolbar": [
+      {
+        "zh": "编辑",
+        "en": "Edit"
+      },
+      {
+        "zh": "分享",
+        "en": "Share"
+      },
+      {
+        "zh": "导出",
+        "en": "Export"
+      },
+      {
+        "zh": "更多",
+        "en": "More"
+      }
+    ],
+    "text": [
+      {
+        "zh": "季度汇报",
+        "en": "Quarterly report"
+      },
+      {
+        "zh": "",
+        "en": ""
+      },
+      {
+        "zh": "一、设计：3 项已完成，1 项延期。",
+        "en": "1. Design: 3 done, 1 delayed."
+      },
+      {
+        "zh": "二、开发：接口全部打通。",
+        "en": "2. Engineering: all APIs wired."
+      },
+      {
+        "zh": "三、测试：覆盖率 78%。",
+        "en": "3. QA: 78% coverage."
+      }
+    ]
+  },
+  "bottomNav": null
+}

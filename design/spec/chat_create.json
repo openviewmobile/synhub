@@ -1,0 +1,50 @@
+{
+  "id": "chat_create",
+  "unit": "lib/src/features/chat/channel_create_page.dart",
+  "title": {
+    "zh": "新建频道",
+    "en": "New channel"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "form",
+    "fields": [
+      {
+        "label": {
+          "zh": "频道名称",
+          "en": "Channel name"
+        },
+        "value": {
+          "zh": "设计评审",
+          "en": "Design review"
+        }
+      },
+      {
+        "label": {
+          "zh": "简介",
+          "en": "Description"
+        },
+        "value": {
+          "zh": "每周设计评审，只谈界面",
+          "en": "Weekly design review"
+        }
+      }
+    ],
+    "switch": {
+      "label": {
+        "zh": "公开频道（任何人可加入）",
+        "en": "Public channel (anyone can join)"
+      },
+      "value": false
+    },
+    "submit": {
+      "zh": "创建",
+      "en": "Create"
+    }
+  },
+  "bottomNav": null
+}

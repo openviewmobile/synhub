@@ -1,0 +1,67 @@
+{
+  "id": "drive_file_request",
+  "unit": "lib/src/features/drive/drive_file_request_page.dart",
+  "title": {
+    "zh": "请求文件",
+    "en": "File request"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "form",
+    "fields": [
+      {
+        "label": {
+          "zh": "请求标题",
+          "en": "Title"
+        },
+        "value": {
+          "zh": "请上传三月发票",
+          "en": "Upload March invoices"
+        }
+      },
+      {
+        "label": {
+          "zh": "说明",
+          "en": "Instructions"
+        },
+        "value": {
+          "zh": "PDF 或照片均可，命名含日期",
+          "en": "PDF or photo, include the date"
+        }
+      },
+      {
+        "label": {
+          "zh": "截止日期",
+          "en": "Deadline"
+        },
+        "value": "2026-03-31"
+      },
+      {
+        "label": {
+          "zh": "保存到",
+          "en": "Save to"
+        },
+        "value": {
+          "zh": "/请求文件/三月",
+          "en": "/Requests/March"
+        }
+      }
+    ],
+    "switch": {
+      "label": {
+        "zh": "允许上传者看到彼此的文件",
+        "en": "Let uploaders see each other's files"
+      },
+      "value": false
+    },
+    "submit": {
+      "zh": "创建请求",
+      "en": "Create request"
+    }
+  },
+  "bottomNav": null
+}

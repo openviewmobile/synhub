@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- r653：**按名字**引用的资源必须显式保活。
+     `AudioServiceConfig.androidNotificationIcon` 与 `MediaControl.androidIcon`
+     都是**字符串**（`drawable/xxx`），release 构建的资源压缩看不到引用 ⇒
+     - 小图标被删 ⇒ `NotificationManager` 抛 `Invalid notification (no valid small icon)`（**应用直接崩**）；
+     - `audio_service` 自带的按钮图标被删 ⇒ 通知栏上"有 action、没图标"，按钮整行画不出来。
+     用 `tools:keep` 把它们钉住（通配符按资源名匹配）。 -->
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:keep="@drawable/ic_stat_audio,@drawable/audio_service_*" />

@@ -1,0 +1,84 @@
+{
+  "id": "note_bg_sync",
+  "unit": "lib/src/features/notes/note_background_sync_page.dart",
+  "title": {
+    "zh": "后台同步",
+    "en": "Background sync"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "settings",
+    "groups": [
+      {
+        "title": {
+          "zh": "同步",
+          "en": "Sync"
+        },
+        "rows": [
+          {
+            "label": {
+              "zh": "后台同步",
+              "en": "Background sync"
+            },
+            "kind": "switch",
+            "value": true
+          },
+          {
+            "label": {
+              "zh": "仅 Wi-Fi",
+              "en": "Wi-Fi only"
+            },
+            "kind": "switch",
+            "value": true
+          },
+          {
+            "label": {
+              "zh": "仅充电时",
+              "en": "Only while charging"
+            },
+            "kind": "switch",
+            "value": false
+          },
+          {
+            "label": {
+              "zh": "同步间隔",
+              "en": "Interval"
+            },
+            "kind": "arrow"
+          }
+        ]
+      },
+      {
+        "title": {
+          "zh": "状态",
+          "en": "Status"
+        },
+        "rows": [
+          {
+            "label": {
+              "zh": "上次同步",
+              "en": "Last sync"
+            },
+            "kind": "arrow"
+          },
+          {
+            "label": {
+              "zh": "待上传",
+              "en": "Pending uploads"
+            },
+            "kind": "arrow"
+          }
+        ]
+      }
+    ],
+    "note": {
+      "zh": "后台同步失败不会丢内容，下次联网重试",
+      "en": "Failed syncs keep content and retry when online"
+    }
+  },
+  "bottomNav": null
+}

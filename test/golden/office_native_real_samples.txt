@@ -1,0 +1,16 @@
+# golden snapshot: **真实** Synology Office 原生文件（.odoc/.osheet/.oslides）
+# 来源：设备批次 R8（HONOR LGE-AN10 / AXGE022428000622，App 既有会话，
+#       NAS 路径 /home/Drive/<name>，经 File Station「下载到本机」取回逐字节原生文件）。
+# 采集与容器分析见 /tmp/office-samples/REPORT.md、decode.py；样本本体**不进仓库**，
+# 留在宿主 /tmp/office-samples/（缺失时 test/office_native_real_samples_test.dart 整组 skip）。
+# 用途：给 test/office_native_real_samples_test.dart 的真实文件闭环用例做身份对照。
+# 口径：sha256 为宿主实测；size 与设备报告 REPORT.md 第 1 节逐条一致。
+# format: sha256<TAB>size<TAB>name
+fd354379de00cdb17c232e9d26e51d9be8ac1eb0e92682d00890aa2b7375d746	266653	5-day trip planner.odoc
+2f6b708fb9f7eb8e2177f5565b4e63cfc5fa39c18d2d7bb764aa2c826e42d231	4883	Annual income and expenditure.osheet
+570e14e28e1401138ff38f5df897f54cc120471b77c4f1684dab0ed263ab1481	3400	Celestial.oslides
+aaff86b5bc599dac4a16fb95daaa49b2d78ad2c87ea85e7ef657e5ee8aa5dd1b	9205426	Dynamic.oslides
+3765abb1213daf3741e4430d72ac61b052e5bd156afe11a8032e97fc9bebef5c	3390	Product spec.odoc
+2783987e1e9a9cf00cc3bf91e7b82f152223dba4e998528fcca4dd4ca98fe61d	19590	Restaurant menu.odoc
+0f825c084a497943b4971692cedd3190f3939f80ac6e39bcb404ec750f7b13a2	4207	Travel expenses.osheet
+bc13618b1da2dfce7f7379494a30cd2e5c9fa4a5810d0514104830a4945dfd04	671	office-convert-probe.odoc

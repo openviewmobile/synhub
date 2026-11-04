@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 繁體中文的桌面名（界面文案这一轮只有简体，桌面名按地区用繁体更自然） -->
+<resources>
+    <string name="app_name">星樞</string>
+</resources>

@@ -1,0 +1,81 @@
+{
+  "id": "drive_category",
+  "unit": "lib/src/features/drive/drive_category_page.dart",
+  "title": {
+    "zh": "分类浏览",
+    "en": "Categories"
+  },
+  "appbar": {
+    "actions": [
+      "search",
+      "more"
+    ]
+  },
+  "rowIcon": "folder",
+  "body": {
+    "type": "list",
+    "items": [
+      {
+        "title": {
+          "zh": "图片",
+          "en": "Photos"
+        },
+        "sub": {
+          "zh": "1,284 个文件 · 6.2 GB",
+          "en": "1,284 files · 6.2 GB"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "title": {
+          "zh": "文档",
+          "en": "Documents"
+        },
+        "sub": {
+          "zh": "386 个文件 · 1.1 GB",
+          "en": "386 files · 1.1 GB"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "title": {
+          "zh": "视频",
+          "en": "Videos"
+        },
+        "sub": {
+          "zh": "42 个文件 · 8.4 GB",
+          "en": "42 files · 8.4 GB"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "title": {
+          "zh": "音频",
+          "en": "Audio"
+        },
+        "sub": {
+          "zh": "128 个文件 · 940 MB",
+          "en": "128 files · 940 MB"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "title": {
+          "zh": "压缩包",
+          "en": "Archives"
+        },
+        "sub": {
+          "zh": "12 个文件 · 2.2 GB",
+          "en": "12 files · 2.2 GB"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      }
+    ]
+  },
+  "bottomNav": null
+}

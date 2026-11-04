@@ -1,0 +1,65 @@
+{
+  "id": "server_setup",
+  "unit": "lib/src/features/servers/server_setup_page.dart",
+  "title": {
+    "zh": "连接 NAS",
+    "en": "Connect NAS"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "form",
+    "fields": [
+      {
+        "label": {
+          "zh": "连接方式",
+          "en": "Method"
+        },
+        "value": {
+          "zh": "QuickConnect",
+          "en": "QuickConnect"
+        }
+      },
+      {
+        "label": {
+          "zh": "QuickConnect ID",
+          "en": "QuickConnect ID"
+        },
+        "value": "li-home"
+      },
+      {
+        "label": {
+          "zh": "账号",
+          "en": "Account"
+        },
+        "value": "li"
+      },
+      {
+        "label": {
+          "zh": "密码",
+          "en": "Password"
+        },
+        "value": "••••••••"
+      }
+    ],
+    "switch": {
+      "label": {
+        "zh": "信任自签证书",
+        "en": "Trust self-signed certificate"
+      },
+      "value": false
+    },
+    "submit": {
+      "zh": "连接",
+      "en": "Connect"
+    }
+  },
+  "note": {
+    "zh": "证书不受信任时会先让你确认指纹",
+    "en": "Untrusted certificates ask you to confirm the fingerprint"
+  },
+  "bottomNav": null
+}

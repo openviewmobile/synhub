@@ -1,0 +1,76 @@
+{
+  "id": "settings_service_check",
+  "unit": "lib/src/features/settings/service_check_page.dart",
+  "title": {
+    "zh": "服务检测",
+    "en": "Service check"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "rowIcon": "settings",
+  "body": {
+    "type": "list",
+    "items": [
+      {
+        "title": {
+          "zh": "QuickConnect",
+          "en": "QuickConnect"
+        },
+        "sub": {
+          "zh": "可达 · 42 ms",
+          "en": "Reachable · 42 ms"
+        },
+        "lead": "icon",
+        "trail": "check"
+      },
+      {
+        "title": {
+          "zh": "DSM 登录",
+          "en": "DSM sign-in"
+        },
+        "sub": {
+          "zh": "正常",
+          "en": "OK"
+        },
+        "lead": "icon",
+        "trail": "check"
+      },
+      {
+        "title": {
+          "zh": "证书",
+          "en": "Certificate"
+        },
+        "sub": {
+          "zh": "有效至 2027-03-01",
+          "en": "Valid until 2027-03-01"
+        },
+        "lead": "icon",
+        "trail": "check"
+      },
+      {
+        "title": {
+          "zh": "后台长连接",
+          "en": "Background connection"
+        },
+        "sub": {
+          "zh": "信号矛盾 · 按异常显示",
+          "en": "Conflicting · shown as failed"
+        },
+        "lead": "icon",
+        "trail": "more"
+      }
+    ]
+  },
+  "note": {
+    "zh": "检测只读，不写任何服务端设置",
+    "en": "Checks are read-only"
+  },
+  "footerAction": {
+    "zh": "重新检测",
+    "en": "Run checks again"
+  },
+  "bottomNav": null
+}

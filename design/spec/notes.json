@@ -1,0 +1,89 @@
+{
+  "id": "notes",
+  "unit": "lib/src/features/notes/notes_page.dart",
+  "title": {
+    "zh": "笔记",
+    "en": "Notes"
+  },
+  "appbar": {
+    "actions": [
+      "search",
+      "more"
+    ]
+  },
+  "chips": [
+    {
+      "zh": "全部",
+      "en": "All"
+    },
+    {
+      "zh": "笔记本",
+      "en": "Notebooks"
+    },
+    {
+      "zh": "标签",
+      "en": "Tags"
+    },
+    {
+      "zh": "待办",
+      "en": "To-dos"
+    }
+  ],
+  "rowIcon": "doc",
+  "body": {
+    "type": "list",
+    "sections": true,
+    "items": [
+      {
+        "section": {
+          "zh": "置顶",
+          "en": "Pinned"
+        },
+        "title": {
+          "zh": "时间线收口说明",
+          "en": "Timeline notes"
+        },
+        "sub": {
+          "zh": "#设计 · 昨天 18:20",
+          "en": "#Design · yesterday 18:20"
+        },
+        "lead": "icon",
+        "trail": "more"
+      },
+      {
+        "section": {
+          "zh": "最近",
+          "en": "Recent"
+        },
+        "title": {
+          "zh": "评审纪要 2 月",
+          "en": "Review minutes Feb"
+        },
+        "sub": {
+          "zh": "#评审 · 周三",
+          "en": "#Review · Wed"
+        },
+        "lead": "icon",
+        "trail": "more"
+      },
+      {
+        "section": {
+          "zh": "最近",
+          "en": "Recent"
+        },
+        "title": {
+          "zh": "采购清单",
+          "en": "Shopping list"
+        },
+        "sub": {
+          "zh": "待办 8 项 · 周一",
+          "en": "8 to-dos · Mon"
+        },
+        "lead": "icon",
+        "trail": "more"
+      }
+    ]
+  },
+  "fab": true,
+  "bottomNav": null
+}

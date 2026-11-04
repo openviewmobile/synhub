@@ -1,0 +1,24 @@
+{
+ "provenance": "真实 NAS 文档 `Restaurant menu.odoc`（官方模板样例，13 个 Office 节点之一）",
+ "channel": "SYNO.Office.Node.Attachment:get v2，参数 {object_id: <Snapshot:get 返回的 object_id>, file_id: <picture.config.file_id>}",
+ "evidence": {
+  "http": 200,
+  "content_type": "image/png"
+ },
+ "fetched_at": "2026-09-22",
+ "files": [
+  {
+   "file": "icon.png",
+   "bytes": 1026,
+   "sha256": "353c96463fc9d45487ed3ae71cc55f910145ba0f37d6f12137e9e7e1f5f3c8ce",
+   "magic": "89504e470d0a1a0a"
+  },
+  {
+   "file": "logo_2.png",
+   "bytes": 13909,
+   "sha256": "b4aa9cb215e9c0e642550df290343aaf1a41403fb816ebe8d186570ee349242f",
+   "magic": "89504e470d0a1a0a"
+  }
+ ],
+ "note": "第三个候选来自正则误捕获（alt 被 URL 串污染），已删除，不入库。"
+}

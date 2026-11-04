@@ -1,0 +1,5666 @@
+{
+ "generated_by": "tool/office_collab_spike/schema/mine_sheet_commands.js",
+ "generated_at": "2026-09-21T13:34:11.163Z",
+ "sources": {
+  "server/sheet/node_modules/@ss/core.js": {
+   "present": true,
+   "bytes": 1045633,
+   "what": "server model + command implementations",
+   "sha256": "dd6226f1d2ea95d328e8a4bc973d242bf2eb828af5e0ef14286294024636b4d7"
+  },
+  "server/sheet/node_modules/@ss/runtime.js": {
+   "present": true,
+   "bytes": 51626,
+   "what": "server WorkbookController / RuleController dispatchers",
+   "sha256": "03eb49c7fc821bb0723a2a1d809e9ee0a7fc394ec588b03aa0afde71d35083ce"
+  },
+  "server/sheet/node_modules/@ss/gc.js": {
+   "present": true,
+   "bytes": 48571,
+   "what": "server gc",
+   "sha256": "6d154458bb7ff855dce1e5b74301daeb02d0c50f95662d56a6ae7d6bed6452ed"
+  },
+  "server/sheet/core/client.js": {
+   "present": true,
+   "bytes": 2515,
+   "what": "server socket `set` handler",
+   "sha256": "937d7c56dd277d35b2fd9d545afbbe0a47bb27d570bbb69c53f607a3dc4f0eba"
+  },
+  "ui/dist/ui.sheet.js": {
+   "present": true,
+   "bytes": 5618088,
+   "what": "browser client (what the editor emits)",
+   "sha256": "2ec9b2e9d2e8ef183dec72c4f539f7c837c4db631723644d8eb77f1d6e2c63f0"
+  }
+ },
+ "socket_events": [
+  {
+   "event": "init",
+   "direction": "C->S",
+   "handler_found": true,
+   "offset": 301
+  },
+  {
+   "event": "peek",
+   "direction": "C->S",
+   "handler_found": true,
+   "offset": 335
+  },
+  {
+   "event": "set",
+   "direction": "C->S",
+   "handler_found": true,
+   "offset": 413
+  },
+  {
+   "event": "peer",
+   "direction": "C->S",
+   "handler_found": true,
+   "offset": 473
+  },
+  {
+   "event": "query_cell_history",
+   "direction": "C->S",
+   "handler_found": true,
+   "offset": 507
+  },
+  {
+   "event": "save",
+   "direction": "C->S",
+   "handler_found": true,
+   "offset": 575
+  }
+ ],
+ "socket_set_contract": {
+  "ack_shape": "cb(incomingRev, currentRev, status[, extra])",
+  "status_codes": {
+   "0": "rejected (invalid command / not applicable)",
+   "1": "applied (extra = execCommand result)",
+   "2": "version conflict (incoming rev !== current rev + 1)"
+  },
+  "source": "server/sheet/core/client.js :: _onSet"
+ },
+ "client_only_comment_commands_set": "\"create_comment\",\"reply_comment\",\"edit_comment\",\"reopen_comment\",\"resolve_comment\"",
+ "error_codes_source": "server/sheet/core/error_code.js (snapshot err) + server/common/collab/Constants.js (doc/socket err)",
+ "counts": {
+  "literal_cmd_literals": 101,
+  "server_switch_case_labels": 141,
+  "client_emitted_literals": 99,
+  "known_union": 148
+ },
+ "dispatchers": [
+  {
+   "file": "server/sheet/node_modules/@ss/core.js",
+   "offset": 486697,
+   "expression": "e.cmd",
+   "case_labels": [
+    "font",
+    "alignment",
+    "border",
+    "compound",
+    "insert_row",
+    "insert_col",
+    "row_style",
+    "col_style",
+    "global_style",
+    "create_comment",
+    "reply_comment",
+    "reopen_comment",
+    "resolve_comment",
+    "edit_comment"
+   ],
+   "case_count": 14,
+   "context": ")&&ds(e,i)&&(r[e[i]]=t[i]);return r}function dg(e,t,r){r=r||2;for(let i=0,n=t.length;i<n;i++){let n=t[i][r];null!==n&&(t[i][r]=dm(e,n))}return t}function dp(e){switch(e.cmd){case\"font\":dg(dd,e.changes);break;case\"alignment\":dg(df,e.changes);break;case\"border\":dg(dh,e.changes);break;case\"compound\":for(let t=0;t<e.action"
+  },
+  {
+   "file": "server/sheet/node_modules/@ss/core.js",
+   "offset": 630760,
+   "expression": "e.cmd",
+   "case_labels": [
+    "value",
+    "note",
+    "resize_row",
+    "resize_col",
+    "insert_row",
+    "remove_row",
+    "insert_col",
+    "remove_col",
+    "merge",
+    "unmerge",
+    "unmerge_overlaps",
+    "format",
+    "quoteprefix",
+    "font",
+    "fill",
+    "alignment",
+    "border",
+    "row_style",
+    "col_style",
+    "global_style",
+    "paste_autofill_data",
+    "populate_autofill_data",
+    "autofill_number_format",
+    "fix_row",
+    "fix_col",
+    "hide_rows",
+    "show_rows",
+    "hide_cols",
+    "show_cols",
+    "create_filter",
+    "enable_filter",
+    "disable_filter",
+    "set_filter",
+    "update_filter_range",
+    "create_filter_view",
+    "enable_filter_view",
+    "disable_filter_view",
+    "set_filter_view_condition",
+    "update_filter_view_name",
+    "update_filter_view_range",
+    "expand_filter_range",
+    "set_active_filter_view",
+    "add_validation_range",
+    "create_validation",
+    "remove_validation",
+    "remove_all_validation",
+    "create_cf",
+    "remove_cf",
+    "update_cf_ranges",
+    "sort",
+    "insert_image",
+    "remove_image",
+    "resize_image",
+    "insert_chart",
+    "remove_chart",
+    "resize_chart",
+    "adjust_chart",
+    "set_chart_config",
+    "modify_drawings_by_insert",
+    "modify_drawings_by_remove",
+    "modify_drawings_by_move",
+    "move_row",
+    "move_col",
+    "move_range",
+    "clear_range_data",
+    "clear_range_related",
+    "move_formula_range",
+    "remove_formula_range",
+    "add_internal_link",
+    "update_internal_link",
+    "remove_internal_link",
+    "group",
+    "ungroup",
+    "update_group",
+    "set_collapse",
+    "set_worksheet_rtl"
+   ],
+   "case_count": 76,
+   "context": "cessProtection(e)||this._processExternalLinks(e)||this._processPivotTable(e))return;let{id:r}=e,i=this.workbook.getSheetById(r);if(!i)return;let n=i.controller;switch(e.cmd){case\"value\":{let{changes:r,source:i}=e;n.setDataAtCell(fv(r),i??t);break}case\"note\":{let{changes:r}=e;n.setNote(r,t);break}case\"resize_row\":{let{f"
+  },
+  {
+   "file": "server/sheet/node_modules/@ss/core.js",
+   "offset": 636815,
+   "expression": "e.cmd",
+   "case_labels": [
+    "create_comment",
+    "create_comment_local",
+    "reply_comment",
+    "reply_comment_local",
+    "reopen_comment",
+    "reopen_comment_local",
+    "resolve_comment",
+    "resolve_comment_local",
+    "edit_comment",
+    "edit_comment_local",
+    "paste_comment",
+    "clear_comment",
+    "create_define",
+    "remove_define",
+    "modify_define",
+    "create_rule",
+    "update_rule",
+    "remove_rule",
+    "update_external_links",
+    "remove_external_links",
+    "pivot_compound",
+    "create_pivot_table",
+    "delete_pivot_table",
+    "update_pivot_table",
+    "move_pivot_table",
+    "set_pivot_table_caption",
+    "move_pivot_axis_field",
+    "insert_pivot_data_field",
+    "move_pivot_data_field",
+    "remove_pivot_data_field",
+    "set_pivot_field_attr",
+    "set_pivot_data_field_attr",
+    "set_pivot_field_item_order",
+    "set_pivot_field_item_folded",
+    "set_pivot_field_item_hidden",
+    "set_pivot_field_item_caption",
+    "group_pivot_field_item",
+    "ungroup_pivot_field_item",
+    "set_pivot_field_number_group",
+    "set_pivot_field_datetime_group",
+    "worksheet.create",
+    "worksheet.create_pivot_table",
+    "worksheet.dup",
+    "worksheet.undelete",
+    "worksheet.delete",
+    "worksheet.rename",
+    "worksheet.set_order",
+    "worksheet.set_hidden",
+    "worksheet.set_color"
+   ],
+   "case_count": 49,
+   "context": ".type,e.index,e.collapse);break;case\"set_worksheet_rtl\":n.setWorksheetRtl(e.rtl)}}_processComment(e){let t=this.workbook.getController().commentController,r=!0;switch(e.cmd){case\"create_comment\":t.createCommentFromJSON(e.json);break;case\"create_comment_local\":{let{author:r,config:i}=e;t.createComment(r,i);break}case\"re"
+  },
+  {
+   "file": "server/sheet/node_modules/@ss/core.js",
+   "offset": 637800,
+   "expression": "e.cmd",
+   "case_labels": [
+    "create_define",
+    "remove_define",
+    "modify_define",
+    "create_rule",
+    "update_rule",
+    "remove_rule",
+    "update_external_links",
+    "remove_external_links",
+    "pivot_compound",
+    "create_pivot_table",
+    "delete_pivot_table",
+    "update_pivot_table",
+    "move_pivot_table",
+    "set_pivot_table_caption",
+    "move_pivot_axis_field",
+    "insert_pivot_data_field",
+    "move_pivot_data_field",
+    "remove_pivot_data_field",
+    "set_pivot_field_attr",
+    "set_pivot_data_field_attr",
+    "set_pivot_field_item_order",
+    "set_pivot_field_item_folded",
+    "set_pivot_field_item_hidden",
+    "set_pivot_field_item_caption",
+    "group_pivot_field_item",
+    "ungroup_pivot_field_item",
+    "set_pivot_field_number_group",
+    "set_pivot_field_datetime_group",
+    "worksheet.create",
+    "worksheet.create_pivot_table",
+    "worksheet.dup",
+    "worksheet.undelete",
+    "worksheet.delete",
+    "worksheet.rename",
+    "worksheet.set_order",
+    "worksheet.set_hidden",
+    "worksheet.set_color"
+   ],
+   "case_count": 37,
+   "context": "e\"clear_comment\":t.clearCommentFromJson(e.jsonArray);break;default:r=!1}return r}_processDefinedName(e){let t=!0,r=this.workbook.getController().nameController;switch(e.cmd){case\"create_define\":{let{name:t,value:i,scope:n}=e;r.create(t,i,n);break}case\"remove_define\":{let{name:t,scope:i}=e;r.remove(t,i);break}case\"modif"
+  },
+  {
+   "file": "server/sheet/node_modules/@ss/core.js",
+   "offset": 638124,
+   "expression": "e.cmd",
+   "case_labels": [
+    "create_rule",
+    "update_rule",
+    "remove_rule",
+    "update_external_links",
+    "remove_external_links",
+    "pivot_compound",
+    "create_pivot_table",
+    "delete_pivot_table",
+    "update_pivot_table",
+    "move_pivot_table",
+    "set_pivot_table_caption",
+    "move_pivot_axis_field",
+    "insert_pivot_data_field",
+    "move_pivot_data_field",
+    "remove_pivot_data_field",
+    "set_pivot_field_attr",
+    "set_pivot_data_field_attr",
+    "set_pivot_field_item_order",
+    "set_pivot_field_item_folded",
+    "set_pivot_field_item_hidden",
+    "set_pivot_field_item_caption",
+    "group_pivot_field_item",
+    "ungroup_pivot_field_item",
+    "set_pivot_field_number_group",
+    "set_pivot_field_datetime_group",
+    "worksheet.create",
+    "worksheet.create_pivot_table",
+    "worksheet.dup",
+    "worksheet.undelete",
+    "worksheet.delete",
+    "worksheet.rename",
+    "worksheet.set_order",
+    "worksheet.set_hidden",
+    "worksheet.set_color"
+   ],
+   "case_count": 34,
+   "context": "fine\":{let{name:t,change:i,scope:n}=e;r.modify(t,i,n);break}default:t=!1}return t}_processProtection(e){let t=!0,r=this.workbook.getController().ruleController;switch(e.cmd){case\"create_rule\":{let{rule:t}=e;r.create(t);break}case\"update_rule\":{let{ruleId:t,props:i}=e;r.update(t,i);break}case\"remove_rule\":{let{ruleId:t}"
+  },
+  {
+   "file": "server/sheet/node_modules/@ss/core.js",
+   "offset": 638352,
+   "expression": "e.cmd",
+   "case_labels": [
+    "update_external_links",
+    "remove_external_links",
+    "pivot_compound",
+    "create_pivot_table",
+    "delete_pivot_table",
+    "update_pivot_table",
+    "move_pivot_table",
+    "set_pivot_table_caption",
+    "move_pivot_axis_field",
+    "insert_pivot_data_field",
+    "move_pivot_data_field",
+    "remove_pivot_data_field",
+    "set_pivot_field_attr",
+    "set_pivot_data_field_attr",
+    "set_pivot_field_item_order",
+    "set_pivot_field_item_folded",
+    "set_pivot_field_item_hidden",
+    "set_pivot_field_item_caption",
+    "group_pivot_field_item",
+    "ungroup_pivot_field_item",
+    "set_pivot_field_number_group",
+    "set_pivot_field_datetime_group",
+    "worksheet.create",
+    "worksheet.create_pivot_table",
+    "worksheet.dup",
+    "worksheet.undelete",
+    "worksheet.delete",
+    "worksheet.rename",
+    "worksheet.set_order",
+    "worksheet.set_hidden",
+    "worksheet.set_color"
+   ],
+   "case_count": 31,
+   "context": "e\"update_rule\":{let{ruleId:t,props:i}=e;r.update(t,i);break}case\"remove_rule\":{let{ruleId:t}=e;r.delete(t);break}default:t=!1}return t}_processExternalLinks(e){switch(e.cmd){case\"update_external_links\":return this.workbook.getController().updateExternalLinks(e.entry),!0;case\"remove_external_links\":return this.workbook."
+  },
+  {
+   "file": "server/sheet/node_modules/@ss/core.js",
+   "offset": 638636,
+   "expression": "e.cmd",
+   "case_labels": [
+    "pivot_compound",
+    "create_pivot_table",
+    "delete_pivot_table",
+    "update_pivot_table",
+    "move_pivot_table",
+    "set_pivot_table_caption",
+    "move_pivot_axis_field",
+    "insert_pivot_data_field",
+    "move_pivot_data_field",
+    "remove_pivot_data_field",
+    "set_pivot_field_attr",
+    "set_pivot_data_field_attr",
+    "set_pivot_field_item_order",
+    "set_pivot_field_item_folded",
+    "set_pivot_field_item_hidden",
+    "set_pivot_field_item_caption",
+    "group_pivot_field_item",
+    "ungroup_pivot_field_item",
+    "set_pivot_field_number_group",
+    "set_pivot_field_datetime_group",
+    "worksheet.create",
+    "worksheet.create_pivot_table",
+    "worksheet.dup",
+    "worksheet.undelete",
+    "worksheet.delete",
+    "worksheet.rename",
+    "worksheet.set_order",
+    "worksheet.set_hidden",
+    "worksheet.set_color"
+   ],
+   "case_count": 29,
+   "context": "xternal_links\":return this.workbook.getController().removeExternalLinks(e.linkIds),!0}return!1}_processPivotTable(e){let t=this.workbook.getPivotTableManager();switch(e.cmd){case\"pivot_compound\":case\"create_pivot_table\":case\"delete_pivot_table\":case\"update_pivot_table\":case\"move_pivot_table\":case\"set_pivot_table_captio"
+  },
+  {
+   "file": "server/sheet/node_modules/@ss/core.js",
+   "offset": 702883,
+   "expression": "t.cmd",
+   "case_labels": [
+    "value",
+    "font",
+    "fill",
+    "alignment",
+    "border",
+    "format",
+    "quotePrefix",
+    "note",
+    "create_row",
+    "create_col",
+    "remove_row",
+    "remove_col",
+    "resize_row",
+    "hide_rows",
+    "show_rows",
+    "resize_col",
+    "hide_cols",
+    "show_cols",
+    "merge",
+    "unmerge",
+    "sort",
+    "create_filter",
+    "enable_filter",
+    "disable_filter",
+    "set_filter",
+    "create_validation",
+    "remove_validation",
+    "create_cf",
+    "row_style",
+    "col_style",
+    "global_style",
+    "worksheet.delete",
+    "move_row",
+    "move_col",
+    "worksheet.rename",
+    "worksheet.set_hidden",
+    "worksheet.set_color"
+   ],
+   "case_count": 37,
+   "context": "ound\"===e.cmd)return e.actions&&e.actions.every(e=>this.validateCommand(e,t,r,i));let n=e.id;return!(n&&this.getNonPermittedRules(n,t,r).some(t=>!function(e,t){switch(t.cmd){case\"value\":case\"font\":case\"fill\":case\"alignment\":case\"border\":case\"format\":case\"quotePrefix\":case\"note\":var r,i;return r=e,!!Array.isArray(i=t.ch"
+  },
+  {
+   "file": "server/sheet/node_modules/@ss/core.js",
+   "offset": 936362,
+   "expression": "r.cmd",
+   "case_labels": [
+    "delete_pivot_table",
+    "update_pivot_table",
+    "move_pivot_table",
+    "move_pivot_axis_field",
+    "insert_pivot_data_field",
+    "move_pivot_data_field",
+    "remove_pivot_data_field",
+    "set_pivot_field_attr",
+    "set_pivot_data_field_attr",
+    "set_pivot_field_item_order",
+    "set_pivot_field_item_folded",
+    "set_pivot_field_item_hidden",
+    "set_pivot_field_item_caption",
+    "group_pivot_field_item",
+    "ungroup_pivot_field_item",
+    "set_pivot_field_number_group",
+    "set_pivot_field_datetime_group",
+    "create_pivot_table",
+    "set_pivot_table_caption"
+   ],
+   "case_count": 19,
+   "context": ")if(\"create_pivot_table\"!==r.cmd)return null;else{return(i=r.table,n=r.cache,T=i.id&&n.id&&i.cacheId===n.id?new IY(new Ig(n),i):null)?{success:!0,table:T}:null}switch(r.cmd){case\"delete_pivot_table\":S=!0,T=null;break;case\"update_pivot_table\":S=!!(T=function(e,t,r){let i=e.getCache();if(e.getId()!==t.id||i.getId()!==r.i"
+  },
+  {
+   "file": "server/sheet/node_modules/@ss/core.js",
+   "offset": 941480,
+   "expression": "e.cmd",
+   "case_labels": [
+    "create_pivot_table",
+    "delete_pivot_table",
+    "update_pivot_table",
+    "move_pivot_table",
+    "set_pivot_table_caption",
+    "move_pivot_axis_field",
+    "insert_pivot_data_field",
+    "move_pivot_data_field",
+    "remove_pivot_data_field",
+    "set_pivot_field_attr",
+    "set_pivot_data_field_attr",
+    "set_pivot_field_item_order",
+    "set_pivot_field_item_folded",
+    "set_pivot_field_item_hidden",
+    "set_pivot_field_item_caption",
+    "group_pivot_field_item",
+    "ungroup_pivot_field_item",
+    "set_pivot_field_number_group",
+    "set_pivot_field_datetime_group"
+   ],
+   "case_count": 19,
+   "context": "let i=this._execCommand(e.actions[r]);i&&t.push(i)}}catch(e){try{for(let e of t.reverse())this._execCommand(e.getUndoCommand())}catch{}throw e}return new Rw(t)}switch(e.cmd){case\"create_pivot_table\":return this._createPivotTable(e.table,e.cache);case\"delete_pivot_table\":return this._deletePivotTable(e.tableId);case\"upd"
+  },
+  {
+   "file": "server/sheet/node_modules/@ss/runtime.js",
+   "offset": 39149,
+   "expression": "t.cmd",
+   "case_labels": [
+    "value",
+    "font",
+    "fill",
+    "alignment",
+    "border",
+    "format",
+    "quotePrefix",
+    "note",
+    "create_row",
+    "create_col",
+    "remove_row",
+    "remove_col",
+    "resize_row",
+    "hide_rows",
+    "show_rows",
+    "resize_col",
+    "hide_cols",
+    "show_cols",
+    "merge",
+    "unmerge",
+    "sort",
+    "create_filter",
+    "enable_filter",
+    "disable_filter",
+    "set_filter",
+    "create_validation",
+    "remove_validation",
+    "create_cf",
+    "row_style",
+    "col_style",
+    "global_style",
+    "worksheet.delete",
+    "move_row",
+    "move_col",
+    "worksheet.rename",
+    "worksheet.set_hidden",
+    "worksheet.set_color"
+   ],
+   "case_count": 37,
+   "context": "ound\"===e.cmd)return e.actions&&e.actions.every(e=>this.validateCommand(e,t,r,s));let n=e.id;return!(n&&this.getNonPermittedRules(n,t,r).some(t=>!function(e,t){switch(t.cmd){case\"value\":case\"font\":case\"fill\":case\"alignment\":case\"border\":case\"format\":case\"quotePrefix\":case\"note\":var r,s;return r=e,!!Array.isArray(s=t.ch"
+  },
+  {
+   "file": "server/sheet/node_modules/@ss/runtime.js",
+   "offset": 45943,
+   "expression": "e.cmd",
+   "case_labels": [
+    "create_rule",
+    "update_rule",
+    "remove_rule",
+    "insert_row",
+    "insert_col",
+    "remove_row",
+    "remove_col",
+    "move_row",
+    "move_col",
+    "create",
+    "create_pivot_table",
+    "create_with_data",
+    "dup",
+    "undelete",
+    "delete",
+    "rename",
+    "set_order",
+    "set_hidden",
+    "set_color"
+   ],
+   "case_count": 19,
+   "context": "lt:return null}}}let ej=class extends eF{constructor(){super(),this.store=new eB}init(e){this.store.init(e)}getStore(){return this.store}emit(){}execCommand(e){switch(e.cmd){case\"create_rule\":e.uid&&(e.rule.creator=e.uid),this.create(e.rule);break;case\"update_rule\":this.update(e.ruleId,e.props);break;case\"remove_rule\":"
+  },
+  {
+   "file": "server/sheet/core/client.js",
+   "offset": 1423,
+   "expression": "e.cmd",
+   "case_labels": [
+    "select",
+    "update",
+    "deselect",
+    "create_comment",
+    "reply_comment",
+    "edit_comment"
+   ],
+   "case_count": 6,
+   "context": "if(o.size()>=e.SNAPSHOT_THRESHOLD){this.instance.snapshot().catch((()=>{}))}else{this.instance.scheduleSave()}this.updateMtime()}_onPeer(e){e.client_id=this.id;switch(e.cmd){case\"select\":case\"update\":this.selection={row:e.row,col:e.col,img:e.img,id:e.id};break;case\"deselect\":this.selection=null;break}this.broadcast(\"pe"
+  },
+  {
+   "file": "server/sheet/core/client.js",
+   "offset": 1898,
+   "expression": "e.cmd",
+   "case_labels": [
+    "create_comment",
+    "reply_comment",
+    "edit_comment"
+   ],
+   "case_count": 3,
+   "context": "e}))).then((function(e){if(t){t(e)}}))}async _onQueryCellHistory(e,t,i,s,n){const o=await this.instance.queryCellHistory(e,t,i,s);n(o)}_processComment(e){let t;switch(e.cmd){case\"create_comment\":t=e.json.id;break;case\"reply_comment\":t=e.json.target;break;case\"edit_comment\":t=e.json.threadId;break}if(!t){return}const i="
+  },
+  {
+   "file": "ui/dist/ui.sheet.js",
+   "offset": 1005794,
+   "expression": "x.cmd",
+   "case_labels": [
+    "=",
+    "+",
+    "-"
+   ],
+   "case_count": 3,
+   "context": "x1:e})}).remove(function(e){d.push({cmd:\"-\",idx:e})}).execute(),d),h=[],p=[],f=[],g=[],m=[],v=[],b=[],y=o(a,t,l),w=o(s,e,c),_=0;_<u.length;_++){var x=u[_],S=!0;switch(x.cmd){case\"=\":var C=e.getItemLayout(x.idx),k=t.getItemLayout(x.idx1);(isNaN(C[0])||isNaN(C[1]))&&(C=k.slice()),h.push(C),p.push(k),f.push(i[x.idx]),g.pu"
+  },
+  {
+   "file": "ui/dist/ui.sheet.js",
+   "offset": 2467976,
+   "expression": "e.cmd",
+   "case_labels": [
+    "edit",
+    "select",
+    "update",
+    "deselect",
+    "online",
+    "offline"
+   ],
+   "case_count": 6,
+   "context": "tOffline(!1)}async onRemoteCommand(e){super.onRemoteCommand(e),this.onPeer({cmd:\"edit\",client_id:e.client_id})}onPeer(e){var t=e.client_id;let i=A.rb.getView();switch(e.cmd){case\"edit\":i?.getPlugin(\"synoOnlinePeer\").triggerTooltip(t);break;case\"select\":case\"update\":{let n=this.peerManager.updatePeer(t,{row:e.row,col:e."
+  },
+  {
+   "file": "ui/dist/ui.sheet.js",
+   "offset": 3462926,
+   "expression": "e.cmd",
+   "case_labels": [
+    "value",
+    "note",
+    "resize_row",
+    "resize_col",
+    "insert_row",
+    "remove_row",
+    "insert_col",
+    "remove_col",
+    "merge",
+    "unmerge",
+    "unmerge_overlaps",
+    "format",
+    "quoteprefix",
+    "font",
+    "fill",
+    "alignment",
+    "border",
+    "row_style",
+    "col_style",
+    "global_style",
+    "paste_autofill_data",
+    "populate_autofill_data",
+    "autofill_number_format",
+    "fix_row",
+    "fix_col",
+    "hide_rows",
+    "show_rows",
+    "hide_cols",
+    "show_cols",
+    "create_filter",
+    "enable_filter",
+    "disable_filter",
+    "set_filter",
+    "update_filter_range",
+    "create_filter_view",
+    "enable_filter_view",
+    "disable_filter_view",
+    "set_filter_view_condition",
+    "update_filter_view_name",
+    "update_filter_view_range",
+    "expand_filter_range",
+    "set_active_filter_view",
+    "add_validation_range",
+    "create_validation",
+    "remove_validation",
+    "remove_all_validation",
+    "create_cf",
+    "remove_cf",
+    "update_cf_ranges",
+    "sort",
+    "insert_image",
+    "remove_image",
+    "resize_image",
+    "insert_chart",
+    "remove_chart",
+    "resize_chart",
+    "adjust_chart",
+    "set_chart_config",
+    "modify_drawings_by_insert",
+    "modify_drawings_by_remove",
+    "modify_drawings_by_move",
+    "move_row",
+    "move_col",
+    "move_range",
+    "clear_range_data",
+    "clear_range_related",
+    "move_formula_range",
+    "remove_formula_range",
+    "add_internal_link",
+    "update_internal_link",
+    "remove_internal_link",
+    "group",
+    "ungroup",
+    "update_group",
+    "set_collapse",
+    "set_worksheet_rtl"
+   ],
+   "case_count": 76,
+   "context": "cessProtection(e)||this._processExternalLinks(e)||this._processPivotTable(e))return;let{id:i}=e,n=this.workbook.getSheetById(i);if(!n)return;let o=n.controller;switch(e.cmd){case\"value\":{let{changes:i,source:n}=e;o.setDataAtCell((0,ts.jS)(i),n??t);break}case\"note\":{let{changes:i}=e;o.setNote(i,t);break}case\"resize_row\""
+  },
+  {
+   "file": "ui/dist/ui.sheet.js",
+   "offset": 3469016,
+   "expression": "e.cmd",
+   "case_labels": [
+    "create_comment",
+    "create_comment_local",
+    "reply_comment",
+    "reply_comment_local",
+    "reopen_comment",
+    "reopen_comment_local",
+    "resolve_comment",
+    "resolve_comment_local",
+    "edit_comment",
+    "edit_comment_local",
+    "paste_comment",
+    "clear_comment",
+    "create_define",
+    "remove_define",
+    "modify_define",
+    "create_rule",
+    "update_rule",
+    "remove_rule",
+    "update_external_links",
+    "remove_external_links",
+    "pivot_compound",
+    "create_pivot_table",
+    "delete_pivot_table",
+    "update_pivot_table",
+    "move_pivot_table",
+    "set_pivot_table_caption",
+    "move_pivot_axis_field",
+    "insert_pivot_data_field",
+    "move_pivot_data_field",
+    "remove_pivot_data_field",
+    "set_pivot_field_attr",
+    "set_pivot_data_field_attr",
+    "set_pivot_field_item_order",
+    "set_pivot_field_item_folded",
+    "set_pivot_field_item_hidden",
+    "set_pivot_field_item_caption",
+    "group_pivot_field_item",
+    "ungroup_pivot_field_item",
+    "set_pivot_field_number_group",
+    "set_pivot_field_datetime_group",
+    "worksheet.create",
+    "worksheet.create_pivot_table",
+    "worksheet.dup",
+    "worksheet.undelete",
+    "worksheet.delete",
+    "worksheet.rename",
+    "worksheet.set_order",
+    "worksheet.set_hidden",
+    "worksheet.set_color"
+   ],
+   "case_count": 49,
+   "context": ".type,e.index,e.collapse);break;case\"set_worksheet_rtl\":o.setWorksheetRtl(e.rtl)}}_processComment(e){let t=this.workbook.getController().commentController,i=!0;switch(e.cmd){case\"create_comment\":t.createCommentFromJSON(e.json);break;case\"create_comment_local\":{let{author:i,config:n}=e;t.createComment(i,n);break}case\"re"
+  },
+  {
+   "file": "ui/dist/ui.sheet.js",
+   "offset": 3470001,
+   "expression": "e.cmd",
+   "case_labels": [
+    "create_define",
+    "remove_define",
+    "modify_define",
+    "create_rule",
+    "update_rule",
+    "remove_rule",
+    "update_external_links",
+    "remove_external_links",
+    "pivot_compound",
+    "create_pivot_table",
+    "delete_pivot_table",
+    "update_pivot_table",
+    "move_pivot_table",
+    "set_pivot_table_caption",
+    "move_pivot_axis_field",
+    "insert_pivot_data_field",
+    "move_pivot_data_field",
+    "remove_pivot_data_field",
+    "set_pivot_field_attr",
+    "set_pivot_data_field_attr",
+    "set_pivot_field_item_order",
+    "set_pivot_field_item_folded",
+    "set_pivot_field_item_hidden",
+    "set_pivot_field_item_caption",
+    "group_pivot_field_item",
+    "ungroup_pivot_field_item",
+    "set_pivot_field_number_group",
+    "set_pivot_field_datetime_group",
+    "worksheet.create",
+    "worksheet.create_pivot_table",
+    "worksheet.dup",
+    "worksheet.undelete",
+    "worksheet.delete",
+    "worksheet.rename",
+    "worksheet.set_order",
+    "worksheet.set_hidden",
+    "worksheet.set_color"
+   ],
+   "case_count": 37,
+   "context": "e\"clear_comment\":t.clearCommentFromJson(e.jsonArray);break;default:i=!1}return i}_processDefinedName(e){let t=!0,i=this.workbook.getController().nameController;switch(e.cmd){case\"create_define\":{let{name:t,value:n,scope:o}=e;i.create(t,n,o);break}case\"remove_define\":{let{name:t,scope:n}=e;i.remove(t,n);break}case\"modif"
+  },
+  {
+   "file": "ui/dist/ui.sheet.js",
+   "offset": 3470325,
+   "expression": "e.cmd",
+   "case_labels": [
+    "create_rule",
+    "update_rule",
+    "remove_rule",
+    "update_external_links",
+    "remove_external_links",
+    "pivot_compound",
+    "create_pivot_table",
+    "delete_pivot_table",
+    "update_pivot_table",
+    "move_pivot_table",
+    "set_pivot_table_caption",
+    "move_pivot_axis_field",
+    "insert_pivot_data_field",
+    "move_pivot_data_field",
+    "remove_pivot_data_field",
+    "set_pivot_field_attr",
+    "set_pivot_data_field_attr",
+    "set_pivot_field_item_order",
+    "set_pivot_field_item_folded",
+    "set_pivot_field_item_hidden",
+    "set_pivot_field_item_caption",
+    "group_pivot_field_item",
+    "ungroup_pivot_field_item",
+    "set_pivot_field_number_group",
+    "set_pivot_field_datetime_group",
+    "worksheet.create",
+    "worksheet.create_pivot_table",
+    "worksheet.dup",
+    "worksheet.undelete",
+    "worksheet.delete",
+    "worksheet.rename",
+    "worksheet.set_order",
+    "worksheet.set_hidden",
+    "worksheet.set_color"
+   ],
+   "case_count": 34,
+   "context": "fine\":{let{name:t,change:n,scope:o}=e;i.modify(t,n,o);break}default:t=!1}return t}_processProtection(e){let t=!0,i=this.workbook.getController().ruleController;switch(e.cmd){case\"create_rule\":{let{rule:t}=e;i.create(t);break}case\"update_rule\":{let{ruleId:t,props:n}=e;i.update(t,n);break}case\"remove_rule\":{let{ruleId:t}"
+  },
+  {
+   "file": "ui/dist/ui.sheet.js",
+   "offset": 3470553,
+   "expression": "e.cmd",
+   "case_labels": [
+    "update_external_links",
+    "remove_external_links",
+    "pivot_compound",
+    "create_pivot_table",
+    "delete_pivot_table",
+    "update_pivot_table",
+    "move_pivot_table",
+    "set_pivot_table_caption",
+    "move_pivot_axis_field",
+    "insert_pivot_data_field",
+    "move_pivot_data_field",
+    "remove_pivot_data_field",
+    "set_pivot_field_attr",
+    "set_pivot_data_field_attr",
+    "set_pivot_field_item_order",
+    "set_pivot_field_item_folded",
+    "set_pivot_field_item_hidden",
+    "set_pivot_field_item_caption",
+    "group_pivot_field_item",
+    "ungroup_pivot_field_item",
+    "set_pivot_field_number_group",
+    "set_pivot_field_datetime_group",
+    "worksheet.create",
+    "worksheet.create_pivot_table",
+    "worksheet.dup",
+    "worksheet.undelete",
+    "worksheet.delete",
+    "worksheet.rename",
+    "worksheet.set_order",
+    "worksheet.set_hidden",
+    "worksheet.set_color"
+   ],
+   "case_count": 31,
+   "context": "e\"update_rule\":{let{ruleId:t,props:n}=e;i.update(t,n);break}case\"remove_rule\":{let{ruleId:t}=e;i.delete(t);break}default:t=!1}return t}_processExternalLinks(e){switch(e.cmd){case\"update_external_links\":return this.workbook.getController().updateExternalLinks(e.entry),!0;case\"remove_external_links\":return this.workbook."
+  },
+  {
+   "file": "ui/dist/ui.sheet.js",
+   "offset": 3470837,
+   "expression": "e.cmd",
+   "case_labels": [
+    "pivot_compound",
+    "create_pivot_table",
+    "delete_pivot_table",
+    "update_pivot_table",
+    "move_pivot_table",
+    "set_pivot_table_caption",
+    "move_pivot_axis_field",
+    "insert_pivot_data_field",
+    "move_pivot_data_field",
+    "remove_pivot_data_field",
+    "set_pivot_field_attr",
+    "set_pivot_data_field_attr",
+    "set_pivot_field_item_order",
+    "set_pivot_field_item_folded",
+    "set_pivot_field_item_hidden",
+    "set_pivot_field_item_caption",
+    "group_pivot_field_item",
+    "ungroup_pivot_field_item",
+    "set_pivot_field_number_group",
+    "set_pivot_field_datetime_group",
+    "worksheet.create",
+    "worksheet.create_pivot_table",
+    "worksheet.dup",
+    "worksheet.undelete",
+    "worksheet.delete",
+    "worksheet.rename",
+    "worksheet.set_order",
+    "worksheet.set_hidden",
+    "worksheet.set_color"
+   ],
+   "case_count": 29,
+   "context": "xternal_links\":return this.workbook.getController().removeExternalLinks(e.linkIds),!0}return!1}_processPivotTable(e){let t=this.workbook.getPivotTableManager();switch(e.cmd){case\"pivot_compound\":case\"create_pivot_table\":case\"delete_pivot_table\":case\"update_pivot_table\":case\"move_pivot_table\":case\"set_pivot_table_captio"
+  },
+  {
+   "file": "ui/dist/ui.sheet.js",
+   "offset": 3531201,
+   "expression": "t.cmd",
+   "case_labels": [
+    "value",
+    "font",
+    "fill",
+    "alignment",
+    "border",
+    "format",
+    "quotePrefix",
+    "note",
+    "create_row",
+    "create_col",
+    "remove_row",
+    "remove_col",
+    "resize_row",
+    "hide_rows",
+    "show_rows",
+    "resize_col",
+    "hide_cols",
+    "show_cols",
+    "merge",
+    "unmerge",
+    "sort",
+    "create_filter",
+    "enable_filter",
+    "disable_filter",
+    "set_filter",
+    "create_validation",
+    "remove_validation",
+    "create_cf",
+    "row_style",
+    "col_style",
+    "global_style",
+    "worksheet.delete",
+    "move_row",
+    "move_col",
+    "worksheet.rename",
+    "worksheet.set_hidden",
+    "worksheet.set_color"
+   ],
+   "case_count": 37,
+   "context": "ound\"===e.cmd)return e.actions&&e.actions.every(e=>this.validateCommand(e,t,i,n));let o=e.id;return!(o&&this.getNonPermittedRules(o,t,i).some(t=>!function(e,t){switch(t.cmd){case\"value\":case\"font\":case\"fill\":case\"alignment\":case\"border\":case\"format\":case\"quotePrefix\":case\"note\":var i,n;return i=e,!!Array.isArray(n=t.ch"
+  },
+  {
+   "file": "ui/dist/ui.sheet.js",
+   "offset": 3712637,
+   "expression": "i.cmd",
+   "case_labels": [
+    "delete_pivot_table",
+    "update_pivot_table",
+    "move_pivot_table",
+    "move_pivot_axis_field",
+    "insert_pivot_data_field",
+    "move_pivot_data_field",
+    "remove_pivot_data_field",
+    "set_pivot_field_attr",
+    "set_pivot_data_field_attr",
+    "set_pivot_field_item_order",
+    "set_pivot_field_item_folded",
+    "set_pivot_field_item_hidden",
+    "set_pivot_field_item_caption",
+    "group_pivot_field_item",
+    "ungroup_pivot_field_item",
+    "set_pivot_field_number_group",
+    "set_pivot_field_datetime_group",
+    "create_pivot_table",
+    "set_pivot_table_caption"
+   ],
+   "case_count": 19,
+   "context": ")if(\"create_pivot_table\"!==i.cmd)return null;else{return(n=i.table,o=i.cache,D=n.id&&o.id&&n.cacheId===o.id?new sF(new aJ(o),n):null)?{success:!0,table:D}:null}switch(i.cmd){case\"delete_pivot_table\":O=!0,D=null;break;case\"update_pivot_table\":O=!!(D=function(e,t,i){let n=e.getCache();if(e.getId()!==t.id||n.getId()!==i.i"
+  },
+  {
+   "file": "ui/dist/ui.sheet.js",
+   "offset": 3717677,
+   "expression": "e.cmd",
+   "case_labels": [
+    "create_pivot_table",
+    "delete_pivot_table",
+    "update_pivot_table",
+    "move_pivot_table",
+    "set_pivot_table_caption",
+    "move_pivot_axis_field",
+    "insert_pivot_data_field",
+    "move_pivot_data_field",
+    "remove_pivot_data_field",
+    "set_pivot_field_attr",
+    "set_pivot_data_field_attr",
+    "set_pivot_field_item_order",
+    "set_pivot_field_item_folded",
+    "set_pivot_field_item_hidden",
+    "set_pivot_field_item_caption",
+    "group_pivot_field_item",
+    "ungroup_pivot_field_item",
+    "set_pivot_field_number_group",
+    "set_pivot_field_datetime_group"
+   ],
+   "case_count": 19,
+   "context": "let n=this._execCommand(e.actions[i]);n&&t.push(n)}}catch(e){try{for(let e of t.reverse())this._execCommand(e.getUndoCommand())}catch{}throw e}return new cy(t)}switch(e.cmd){case\"create_pivot_table\":return this._createPivotTable(e.table,e.cache);case\"delete_pivot_table\":return this._deletePivotTable(e.tableId);case\"upd"
+  },
+  {
+   "file": "ui/dist/ui.sheet.js",
+   "offset": 3892368,
+   "expression": "t.cmd",
+   "case_labels": [
+    "notifyDataChange",
+    "onAlert",
+    "onAlterGrid",
+    "onColorAdded",
+    "onRtlDataAdded",
+    "onCoordsChanges",
+    "onFilterViewUpdated",
+    "onCurrentSheetChange",
+    "onCommentChanged",
+    "onExternalRequest",
+    "onSearchResultChange",
+    "onSheetChanges",
+    "onSheetPluginChanges",
+    "onStyleAdded",
+    "onExternalChanged",
+    "onRenderHeightAlterGrid",
+    "onRenderHeightMove",
+    "onPivotTableChange",
+    "onPivotCacheChange"
+   ],
+   "case_count": 19,
+   "context": "er.getStoreCollection(),e),o.addEventListener(\"message\",e=>this.handleWorkerEvent(e))}handleWorkerEvent(e){if(e.data?.category!==\"notifier\")return;let t=e.data;switch(t.cmd){case\"notifyDataChange\":this.storeUpdater.notifyDataChange(...t.args);break;case\"onAlert\":this.storeUpdater.onAlert(...t.args);break;case\"onAlterGr"
+  },
+  {
+   "file": "ui/dist/ui.sheet.js",
+   "offset": 4099031,
+   "expression": "e.cmd",
+   "case_labels": [
+    "compound",
+    "insert_row",
+    "insert_col",
+    "remove_row",
+    "remove_col",
+    "resize_row",
+    "resize_col",
+    "hidden_row",
+    "hidden_col",
+    "move_row",
+    "move_col",
+    "unmerge"
+   ],
+   "case_count": 12,
+   "context": "ns.multiSelections.getHighlightRange();i&&i.overlaps(t)&&(i.to.row=i.from.row,i.to.col=i.from.col,this._editorManager.onSelectionUpdated())}_handleCommand(e,t){switch(e.cmd){case\"compound\":for(let i of e.actions)this._handleCommand(i,t);break;case\"insert_row\":this._onAlterGridCommand(e.id,\"create\",\"row\",e.index,e.amoun"
+  },
+  {
+   "file": "ui/dist/ui.sheet.js",
+   "offset": 4387179,
+   "expression": "t.cmd",
+   "case_labels": [
+    "font",
+    "alignment",
+    "compound",
+    "insert_row",
+    "insert_col",
+    "row_style",
+    "col_style",
+    "global_style",
+    "border",
+    "create_comment",
+    "reply_comment",
+    "reopen_comment",
+    "resolve_comment",
+    "edit_comment"
+   ],
+   "case_count": 14,
+   "context": "his.fc&&n.Z.isTime(this.fc)}isDuration(){return!!this.fc&&n.Z.isDuration(this.fc)}}},55272:function(e,t,i){\"use strict\";i.r(t),i.d(t,{compact:()=>function e(t){switch(t.cmd){case\"font\":h(t.changes);break;case\"alignment\":m(t.changes);break;case\"compound\":for(let i=0;i<t.actions.length;i++)e(t.actions[i]);break;case\"inse"
+  },
+  {
+   "file": "ui/dist/ui.sheet.js",
+   "offset": 4387727,
+   "expression": "t.cmd",
+   "case_labels": [
+    "font",
+    "alignment",
+    "border",
+    "compound",
+    "insert_row",
+    "insert_col",
+    "row_style",
+    "col_style",
+    "global_style",
+    "create_comment",
+    "reply_comment",
+    "reopen_comment",
+    "resolve_comment",
+    "edit_comment"
+   ],
+   "case_count": 14,
+   "context": "ect:()=>g,compatibilizeBorder:()=>w,compressAlignment:()=>m,compressDimensionStyle:()=>S,compressFont:()=>h,compressGlobalStyle:()=>k,extract:()=>function e(t){switch(t.cmd){case\"font\":p(t.changes);break;case\"alignment\":v(t.changes);break;case\"border\":w(t.changes);break;case\"compound\":for(let i=0;i<t.actions.length;i++"
+  }
+ ],
+ "prefix_dispatchers": [
+  {
+   "file": "server/sheet/node_modules/@ss/core.js",
+   "offset": 639321,
+   "prefix": "worksheet.",
+   "case_labels": [
+    "worksheet.create",
+    "worksheet.create_pivot_table",
+    "worksheet.dup",
+    "worksheet.undelete",
+    "worksheet.delete",
+    "worksheet.rename",
+    "worksheet.set_order",
+    "worksheet.set_hidden",
+    "worksheet.set_color"
+   ],
+   "case_count": 9,
+   "context": "pivot_field_item\":case\"ungroup_pivot_field_item\":case\"set_pivot_field_number_group\":case\"set_pivot_field_datetime_group\":return t.execCommand(e),!0}return!1}_processWorksheet(e){let t=e.cmd;if(!t||!t.startsWith(\"worksheet.\"))return!1;let r=this.workbook.getController();switch(t){case\"worksheet.create\":{let{id:t,pos:i,title:n,tabColor:o,content:s}=e;r.createWorksheet(t,i,{title:n,tabColor:o},s);break}case\"worksheet.create_pivot_table\":{l"
+  },
+  {
+   "file": "server/sheet/node_modules/@ss/runtime.js",
+   "offset": 48960,
+   "prefix": "worksheet.",
+   "case_labels": [
+    "create",
+    "create_pivot_table",
+    "create_with_data",
+    "dup",
+    "undelete",
+    "delete",
+    "rename",
+    "set_order",
+    "set_hidden",
+    "set_color"
+   ],
+   "case_count": 10,
+   "context": "k=n,this.maxIndex=e||0,this.maxPivotTableIndex=s??0;for(let e=0;e<r.length;e++){let s=r[e],n=t[s];n&&this.insertWorksheet(s,n.title,e,n.tabColor,n.hidden)}}execCommand(e){let t,r=!0,s=e.cmd||\"\";if(!s.startsWith(\"worksheet.\"))return[!0,t];switch(s.substring(10)){case\"create\":r=!!(t=this.createWorksheet(this.generateNextTitle(e.titleTpl),e.pos)),t&&Object.assign(e,t,{titleTpl:void 0});break;case\"create_pivot_table\":r=!!(t=this.createWorks"
+  },
+  {
+   "file": "ui/dist/ui.sheet.js",
+   "offset": 3471522,
+   "prefix": "worksheet.",
+   "case_labels": [
+    "worksheet.create",
+    "worksheet.create_pivot_table",
+    "worksheet.dup",
+    "worksheet.undelete",
+    "worksheet.delete",
+    "worksheet.rename",
+    "worksheet.set_order",
+    "worksheet.set_hidden",
+    "worksheet.set_color"
+   ],
+   "case_count": 9,
+   "context": "pivot_field_item\":case\"ungroup_pivot_field_item\":case\"set_pivot_field_number_group\":case\"set_pivot_field_datetime_group\":return t.execCommand(e),!0}return!1}_processWorksheet(e){let t=e.cmd;if(!t||!t.startsWith(\"worksheet.\"))return!1;let i=this.workbook.getController();switch(t){case\"worksheet.create\":{let{id:t,pos:n,title:o,tabColor:r,content:a}=e;i.createWorksheet(t,n,{title:o,tabColor:r},a);break}case\"worksheet.create_pivot_table\":{l"
+  }
+ ],
+ "commands": [
+  {
+   "cmd": "+",
+   "in_client_ui_sheet": true,
+   "in_server_literal": false,
+   "in_server_switch": false,
+   "family": "other",
+   "field_shapes": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 1005570,
+     "keys": [
+      "cmd",
+      "idx"
+     ],
+     "example": "{cmd:\"+\",idx:e}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 1005570
+    }
+   ]
+  },
+  {
+   "cmd": "-",
+   "in_client_ui_sheet": true,
+   "in_server_literal": false,
+   "in_server_switch": false,
+   "family": "other",
+   "field_shapes": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 1005669,
+     "keys": [
+      "cmd",
+      "idx"
+     ],
+     "example": "{cmd:\"-\",idx:e}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 1005669
+    }
+   ]
+  },
+  {
+   "cmd": "=",
+   "in_client_ui_sheet": true,
+   "in_server_literal": false,
+   "in_server_switch": false,
+   "family": "other",
+   "field_shapes": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 1005617,
+     "keys": [
+      "cmd",
+      "idx",
+      "idx1"
+     ],
+     "example": "{cmd:\"=\",idx:t,idx1:e}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 1005617
+    }
+   ]
+  },
+  {
+   "cmd": "add_internal_link",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "other",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 895881,
+     "keys": [
+      "cmd",
+      "id",
+      "json"
+     ],
+     "example": "{cmd:\"add_internal_link\",id:this.sheetId,json:this.json}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3525793,
+     "keys": [
+      "cmd",
+      "id",
+      "json"
+     ],
+     "example": "{cmd:\"add_internal_link\",id:e,json:t}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 895881
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3525793
+    }
+   ]
+  },
+  {
+   "cmd": "add_validation_range",
+   "in_client_ui_sheet": true,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "data validation",
+   "field_shapes": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3523726,
+     "keys": [
+      "cmd",
+      "id",
+      "validId",
+      "range"
+     ],
+     "example": "{cmd:\"add_validation_range\",id:e,validId:t,range:i.toArray()}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3523726
+    }
+   ]
+  },
+  {
+   "cmd": "adjust_chart",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "drawing/chart",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 699461,
+     "keys": [
+      "cmd",
+      "id",
+      "chartId",
+      "chartObj"
+     ],
+     "example": "{cmd:\"adjust_chart\",id:e,chartId:t,chartObj:r}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3524724,
+     "keys": [
+      "cmd",
+      "id",
+      "chartId",
+      "chartObj"
+     ],
+     "example": "{cmd:\"adjust_chart\",id:e,chartId:t,chartObj:i}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 699461
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3524724
+    }
+   ]
+  },
+  {
+   "cmd": "alignment",
+   "in_client_ui_sheet": false,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "cell/block",
+   "field_shapes": [],
+   "sites": []
+  },
+  {
+   "cmd": "autofill_number_format",
+   "in_client_ui_sheet": true,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "cell/block",
+   "field_shapes": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3522635,
+     "keys": [
+      "cmd",
+      "id",
+      "range",
+      "fc",
+      "direction",
+      "source"
+     ],
+     "example": "{cmd:\"autofill_number_format\",id:e,range:t.toArray(),fc:i,direction:n,source:o}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3522635
+    }
+   ]
+  },
+  {
+   "cmd": "border",
+   "in_client_ui_sheet": false,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "cell/block",
+   "field_shapes": [],
+   "sites": []
+  },
+  {
+   "cmd": "clear_comment",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "comment",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 894442,
+     "keys": [
+      "cmd",
+      "jsonArray"
+     ],
+     "example": "{cmd:\"clear_comment\",jsonArray:this.jsonArray}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3526982,
+     "keys": [
+      "cmd",
+      "jsonArray"
+     ],
+     "example": "{cmd:\"clear_comment\",jsonArray:e}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 894442
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3526982
+    }
+   ]
+  },
+  {
+   "cmd": "clear_range_data",
+   "in_client_ui_sheet": true,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "other",
+   "field_shapes": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3525386,
+     "keys": [
+      "cmd",
+      "id",
+      "range",
+      "source"
+     ],
+     "example": "{cmd:\"clear_range_data\",id:e,range:t.toArray(),source:i}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3525386
+    }
+   ]
+  },
+  {
+   "cmd": "clear_range_related",
+   "in_client_ui_sheet": true,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "other",
+   "field_shapes": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3525470,
+     "keys": [
+      "cmd",
+      "id",
+      "range",
+      "source",
+      "clearMerge"
+     ],
+     "example": "{cmd:\"clear_range_related\",id:e,range:t.toArray(),source:n,clearMerge:i}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3525470
+    }
+   ]
+  },
+  {
+   "cmd": "col_style",
+   "in_client_ui_sheet": false,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "cell/block",
+   "field_shapes": [],
+   "sites": []
+  },
+  {
+   "cmd": "compound",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "other",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 697531,
+     "keys": [
+      "cmd",
+      "actions"
+     ],
+     "example": "{cmd:\"compound\",actions:e}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3521177,
+     "keys": [
+      "cmd",
+      "actions"
+     ],
+     "example": "{cmd:\"compound\",actions:e}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 697531
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3521177
+    }
+   ]
+  },
+  {
+   "cmd": "create",
+   "in_client_ui_sheet": false,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "other",
+   "field_shapes": [],
+   "sites": []
+  },
+  {
+   "cmd": "create_cf",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "conditional formatting",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 893337,
+     "keys": [
+      "cmd",
+      "id",
+      "cf",
+      "index"
+     ],
+     "example": "{cmd:\"create_cf\",id:e,cf:this.cf,index:this.index}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3524040,
+     "keys": [
+      "cmd",
+      "id",
+      "cf",
+      "index"
+     ],
+     "example": "{cmd:\"create_cf\",id:e,cf:t,index:i}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 893337
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3524040
+    }
+   ]
+  },
+  {
+   "cmd": "create_col",
+   "in_client_ui_sheet": false,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "row/column",
+   "field_shapes": [],
+   "sites": []
+  },
+  {
+   "cmd": "create_comment",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "comment",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 915495,
+     "keys": [
+      "cmd",
+      "json"
+     ],
+     "example": "{cmd:\"create_comment\",json:this.json}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3526674,
+     "keys": [
+      "cmd",
+      "json"
+     ],
+     "example": "{cmd:\"create_comment\",json:e}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 915495
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3526674
+    }
+   ]
+  },
+  {
+   "cmd": "create_comment_local",
+   "in_client_ui_sheet": true,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "comment",
+   "field_shapes": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3526331,
+     "keys": [
+      "cmd",
+      "author",
+      "config"
+     ],
+     "example": "{cmd:\"create_comment_local\",author:e,config:t}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3526331
+    }
+   ]
+  },
+  {
+   "cmd": "create_define",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "defined name",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 894912,
+     "keys": [
+      "cmd",
+      "name",
+      "value",
+      "scope"
+     ],
+     "example": "{cmd:\"create_define\",name:e,value:this.value,scope:this.scope}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3527161,
+     "keys": [
+      "cmd",
+      "name",
+      "value",
+      "scope"
+     ],
+     "example": "{cmd:\"create_define\",name:e,value:t,scope:i}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 894912
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3527161
+    }
+   ]
+  },
+  {
+   "cmd": "create_filter",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "filter",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 907751,
+     "keys": [
+      "cmd",
+      "id",
+      "filterId",
+      "range"
+     ],
+     "example": "{cmd:\"create_filter\",id:e,filterId:this.filterId,range:v3(this.range)}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3522970,
+     "keys": [
+      "cmd",
+      "id",
+      "filterId",
+      "range"
+     ],
+     "example": "{cmd:\"create_filter\",id:e,filterId:t,range:nT(i)}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 907751
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3522970
+    }
+   ]
+  },
+  {
+   "cmd": "create_filter_view",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "filter",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 909966,
+     "keys": [
+      "cmd",
+      "id",
+      "filterId",
+      "range",
+      "name",
+      "isPrivate"
+     ],
+     "example": "{cmd:\"create_filter_view\",id:e,filterId:t,range:v3(r),name:i,isPrivate:n}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3523403,
+     "keys": [
+      "cmd",
+      "id",
+      "filterId",
+      "range",
+      "name",
+      "isPrivate"
+     ],
+     "example": "{cmd:\"create_filter_view\",id:e,filterId:t,range:nT(i),name:n,isPrivate:o}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 909966
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3523403
+    }
+   ]
+  },
+  {
+   "cmd": "create_pivot_table",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "pivot table",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 700498,
+     "keys": [
+      "cmd",
+      "table",
+      "cache"
+     ],
+     "example": "{cmd:\"create_pivot_table\",table:e,cache:t}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3527701,
+     "keys": [
+      "cmd",
+      "table",
+      "cache"
+     ],
+     "example": "{cmd:\"create_pivot_table\",table:e,cache:t}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 700498
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3527701
+    }
+   ]
+  },
+  {
+   "cmd": "create_row",
+   "in_client_ui_sheet": false,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "row/column",
+   "field_shapes": [],
+   "sites": []
+  },
+  {
+   "cmd": "create_rule",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "conditional formatting",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 896568,
+     "keys": [
+      "cmd",
+      "rule"
+     ],
+     "example": "{cmd:\"create_rule\",rule:this.rule}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3527487,
+     "keys": [
+      "cmd",
+      "rule"
+     ],
+     "example": "{cmd:\"create_rule\",rule:e}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 896568
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3527487
+    }
+   ]
+  },
+  {
+   "cmd": "create_validation",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "data validation",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 892989,
+     "keys": [
+      "cmd",
+      "id",
+      "validation",
+      "range"
+     ],
+     "example": "{cmd:\"create_validation\",id:e,validation:this.validation,range:this.rangeText}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3523813,
+     "keys": [
+      "cmd",
+      "id",
+      "validation",
+      "range"
+     ],
+     "example": "{cmd:\"create_validation\",id:e,validation:t,range:i}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 892989
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3523813
+    }
+   ]
+  },
+  {
+   "cmd": "create_with_data",
+   "in_client_ui_sheet": false,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "other",
+   "field_shapes": [],
+   "sites": []
+  },
+  {
+   "cmd": "delete",
+   "in_client_ui_sheet": false,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "other",
+   "field_shapes": [],
+   "sites": []
+  },
+  {
+   "cmd": "delete_pivot_table",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "pivot table",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 700562,
+     "keys": [
+      "cmd",
+      "tableId"
+     ],
+     "example": "{cmd:\"delete_pivot_table\",tableId:e}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3527765,
+     "keys": [
+      "cmd",
+      "tableId"
+     ],
+     "example": "{cmd:\"delete_pivot_table\",tableId:e}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 700562
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3527765
+    }
+   ]
+  },
+  {
+   "cmd": "deselect",
+   "in_client_ui_sheet": true,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "other",
+   "field_shapes": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3830904,
+     "keys": [
+      "cmd",
+      "id"
+     ],
+     "example": "{cmd:\"deselect\",id:e.sheetId}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3830904
+    }
+   ]
+  },
+  {
+   "cmd": "disable_filter",
+   "in_client_ui_sheet": false,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "filter",
+   "field_shapes": [],
+   "sites": []
+  },
+  {
+   "cmd": "disable_filter_view",
+   "in_client_ui_sheet": false,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "filter",
+   "field_shapes": [],
+   "sites": []
+  },
+  {
+   "cmd": "dup",
+   "in_client_ui_sheet": false,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "other",
+   "field_shapes": [],
+   "sites": []
+  },
+  {
+   "cmd": "edit",
+   "in_client_ui_sheet": true,
+   "in_server_literal": false,
+   "in_server_switch": false,
+   "family": "other",
+   "field_shapes": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 2467891,
+     "keys": [
+      "cmd",
+      "client_id"
+     ],
+     "example": "{cmd:\"edit\",client_id:e.client_id}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 2467891
+    }
+   ]
+  },
+  {
+   "cmd": "edit_comment",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "comment",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 916513,
+     "keys": [
+      "cmd",
+      "json"
+     ],
+     "example": "{cmd:\"edit_comment\",json:this.json}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3526878,
+     "keys": [
+      "cmd",
+      "json"
+     ],
+     "example": "{cmd:\"edit_comment\",json:e}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 916513
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3526878
+    }
+   ]
+  },
+  {
+   "cmd": "edit_comment_local",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "comment",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 700226,
+     "keys": [
+      "cmd",
+      "author",
+      "threadId",
+      "replyId",
+      "text"
+     ],
+     "example": "{cmd:\"edit_comment_local\",author:e,threadId:t,replyId:r,text:i}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3526589,
+     "keys": [
+      "cmd",
+      "author",
+      "threadId",
+      "replyId",
+      "text"
+     ],
+     "example": "{cmd:\"edit_comment_local\",author:e,threadId:t,replyId:i,text:n}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 700226
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3526589
+    }
+   ]
+  },
+  {
+   "cmd": "enable_filter",
+   "in_client_ui_sheet": false,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "filter",
+   "field_shapes": [],
+   "sites": []
+  },
+  {
+   "cmd": "enable_filter_view",
+   "in_client_ui_sheet": false,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "filter",
+   "field_shapes": [],
+   "sites": []
+  },
+  {
+   "cmd": "expand_filter_range",
+   "in_client_ui_sheet": true,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "filter",
+   "field_shapes": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3523582,
+     "keys": [
+      "cmd",
+      "id",
+      "range"
+     ],
+     "example": "{cmd:\"expand_filter_range\",id:e,range:[t,i,t,i]}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3523582
+    }
+   ]
+  },
+  {
+   "cmd": "fill",
+   "in_client_ui_sheet": false,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "cell/block",
+   "field_shapes": [],
+   "sites": []
+  },
+  {
+   "cmd": "fix_col",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "row/column",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 698531,
+     "keys": [
+      "cmd",
+      "id",
+      "col"
+     ],
+     "example": "{cmd:\"fix_col\",id:e,col:r}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3522788,
+     "keys": [
+      "cmd",
+      "id",
+      "col"
+     ],
+     "example": "{cmd:\"fix_col\",id:e,col:t}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 698531
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3522788
+    }
+   ]
+  },
+  {
+   "cmd": "fix_row",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "row/column",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 698504,
+     "keys": [
+      "cmd",
+      "id",
+      "row"
+     ],
+     "example": "{cmd:\"fix_row\",id:e,row:r}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3522738,
+     "keys": [
+      "cmd",
+      "id",
+      "row"
+     ],
+     "example": "{cmd:\"fix_row\",id:e,row:t}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 698504
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3522738
+    }
+   ]
+  },
+  {
+   "cmd": "font",
+   "in_client_ui_sheet": false,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "cell/block",
+   "field_shapes": [],
+   "sites": []
+  },
+  {
+   "cmd": "format",
+   "in_client_ui_sheet": true,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "cell/block",
+   "field_shapes": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3521979,
+     "keys": [
+      "cmd",
+      "id",
+      "changes",
+      "overwrite",
+      "source"
+     ],
+     "example": "{cmd:\"format\",id:e,changes:t,overwrite:i,source:n}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3521979
+    }
+   ]
+  },
+  {
+   "cmd": "global_style",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "cell/block",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 698365,
+     "keys": [
+      "cmd",
+      "id",
+      "type",
+      "value",
+      "revert",
+      "rowChanges",
+      "colChanges",
+      "cellChanges"
+     ],
+     "example": "{cmd:\"global_style\",id:e,type:t.toLowerCase(),value:r,revert:i,rowChanges:o,colChanges:s,cellChanges:n}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3522272,
+     "keys": [
+      "cmd",
+      "id",
+      "type",
+      "value",
+      "revert",
+      "rowChanges",
+      "colChanges",
+      "cellChanges"
+     ],
+     "example": "{cmd:\"global_style\",id:e,type:t.toLowerCase(),value:i,revert:n,rowChanges:r,colChanges:a,cellChanges:o}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 698365
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3522272
+    }
+   ]
+  },
+  {
+   "cmd": "group",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "cell/block",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 896128,
+     "keys": [
+      "cmd",
+      "id",
+      "type",
+      "from",
+      "to"
+     ],
+     "example": "{cmd:\"group\",id:e,type:t,from:this.from,to:this.to}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3525988,
+     "keys": [
+      "cmd",
+      "id",
+      "type",
+      "from",
+      "to"
+     ],
+     "example": "{cmd:\"group\",id:e,type:t,from:i,to:n}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 896128
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3525988
+    }
+   ]
+  },
+  {
+   "cmd": "group_pivot_field_item",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "pivot table",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 902558,
+     "keys": [
+      "cmd",
+      "tableId",
+      "changes"
+     ],
+     "example": "{cmd:\"group_pivot_field_item\",tableId:this.tableId,changes:t}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3528711,
+     "keys": [
+      "cmd",
+      "tableId",
+      "changes"
+     ],
+     "example": "{cmd:\"group_pivot_field_item\",tableId:e,changes:t}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 902558
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3528711
+    }
+   ]
+  },
+  {
+   "cmd": "hide_cols",
+   "in_client_ui_sheet": false,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "row/column",
+   "field_shapes": [],
+   "sites": []
+  },
+  {
+   "cmd": "hide_rows",
+   "in_client_ui_sheet": false,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "row/column",
+   "field_shapes": [],
+   "sites": []
+  },
+  {
+   "cmd": "insert_chart",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "drawing/chart",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 894049,
+     "keys": [
+      "cmd",
+      "id",
+      "chartId",
+      "position",
+      "chartObj"
+     ],
+     "example": "{cmd:\"insert_chart\",id:e,chartId:t,position:this.position,chartObj:this.chartObj}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3524510,
+     "keys": [
+      "cmd",
+      "id",
+      "chartId",
+      "position",
+      "chartObj"
+     ],
+     "example": "{cmd:\"insert_chart\",id:e,chartId:t,position:i,chartObj:n}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 894049
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3524510
+    }
+   ]
+  },
+  {
+   "cmd": "insert_col",
+   "in_client_ui_sheet": false,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "row/column",
+   "field_shapes": [],
+   "sites": []
+  },
+  {
+   "cmd": "insert_image",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "drawing/chart",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 893659,
+     "keys": [
+      "cmd",
+      "id",
+      "imageId",
+      "position"
+     ],
+     "example": "{cmd:\"insert_image\",id:e,imageId:this.imageId,position:this.position}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3524305,
+     "keys": [
+      "cmd",
+      "id",
+      "imageId",
+      "position"
+     ],
+     "example": "{cmd:\"insert_image\",id:e,imageId:t,position:i}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 893659
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3524305
+    }
+   ]
+  },
+  {
+   "cmd": "insert_pivot_data_field",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "pivot table",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 700978,
+     "keys": [
+      "cmd",
+      "tableId",
+      "fieldId",
+      "position",
+      "json"
+     ],
+     "example": "{cmd:\"insert_pivot_data_field\",tableId:e,fieldId:t,position:r,json:i}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3528181,
+     "keys": [
+      "cmd",
+      "tableId",
+      "fieldId",
+      "position",
+      "json"
+     ],
+     "example": "{cmd:\"insert_pivot_data_field\",tableId:e,fieldId:t,position:i,json:n}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 700978
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3528181
+    }
+   ]
+  },
+  {
+   "cmd": "insert_row",
+   "in_client_ui_sheet": false,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "row/column",
+   "field_shapes": [],
+   "sites": []
+  },
+  {
+   "cmd": "merge",
+   "in_client_ui_sheet": false,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "cell/block",
+   "field_shapes": [],
+   "sites": []
+  },
+  {
+   "cmd": "modify_define",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "defined name",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 700315,
+     "keys": [
+      "cmd",
+      "name",
+      "scope",
+      "change"
+     ],
+     "example": "{cmd:\"modify_define\",name:e,scope:r,change:t}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3527291,
+     "keys": [
+      "cmd",
+      "name",
+      "scope",
+      "change"
+     ],
+     "example": "{cmd:\"modify_define\",name:e,scope:i,change:t}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 700315
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3527291
+    }
+   ]
+  },
+  {
+   "cmd": "modify_drawings_by_insert",
+   "in_client_ui_sheet": true,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "drawing/chart",
+   "field_shapes": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3524879,
+     "keys": [
+      "cmd",
+      "id",
+      "type",
+      "index",
+      "amount"
+     ],
+     "example": "{cmd:\"modify_drawings_by_insert\",id:e,type:t,index:i,amount:n}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3524879
+    }
+   ]
+  },
+  {
+   "cmd": "modify_drawings_by_move",
+   "in_client_ui_sheet": true,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "drawing/chart",
+   "field_shapes": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3525063,
+     "keys": [
+      "cmd",
+      "id",
+      "type",
+      "start",
+      "amount1",
+      "amount2",
+      "isBackward"
+     ],
+     "example": "{cmd:\"modify_drawings_by_move\",id:e,type:t,start:i,amount1:n,amount2:o,isBackward:r}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3525063
+    }
+   ]
+  },
+  {
+   "cmd": "modify_drawings_by_remove",
+   "in_client_ui_sheet": true,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "drawing/chart",
+   "field_shapes": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3524969,
+     "keys": [
+      "cmd",
+      "id",
+      "type",
+      "index",
+      "amount"
+     ],
+     "example": "{cmd:\"modify_drawings_by_remove\",id:e,type:t,index:i,amount:n}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3524969
+    }
+   ]
+  },
+  {
+   "cmd": "move_col",
+   "in_client_ui_sheet": false,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "row/column",
+   "field_shapes": [],
+   "sites": []
+  },
+  {
+   "cmd": "move_formula_range",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "other",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 699724,
+     "keys": [
+      "cmd",
+      "id",
+      "srcRange",
+      "targetSheetId",
+      "targetRange",
+      "keepMovingPart",
+      "applyData"
+     ],
+     "example": "{cmd:\"move_formula_range\",id:e,srcRange:v3(t),targetSheetId:r,targetRange:v3(i),keepMovingPart:n,applyData:o}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3525574,
+     "keys": [
+      "cmd",
+      "id",
+      "srcRange",
+      "targetSheetId",
+      "targetRange",
+      "keepMovingPart",
+      "applyData"
+     ],
+     "example": "{cmd:\"move_formula_range\",id:e,srcRange:nT(t),targetSheetId:i,targetRange:nT(n),keepMovingPart:o,applyData:r}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 699724
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3525574
+    }
+   ]
+  },
+  {
+   "cmd": "move_pivot_axis_field",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "pivot table",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 700855,
+     "keys": [
+      "cmd",
+      "tableId",
+      "fieldId",
+      "axis",
+      "position",
+      "coordShift",
+      "filterUpdate"
+     ],
+     "example": "{cmd:\"move_pivot_axis_field\",tableId:e,fieldId:t,axis:r,position:i,coordShift:n,filterUpdate:o}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3528058,
+     "keys": [
+      "cmd",
+      "tableId",
+      "fieldId",
+      "axis",
+      "position",
+      "coordShift",
+      "filterUpdate"
+     ],
+     "example": "{cmd:\"move_pivot_axis_field\",tableId:e,fieldId:t,axis:i,position:n,coordShift:o,filterUpdate:r}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 700855
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3528058
+    }
+   ]
+  },
+  {
+   "cmd": "move_pivot_data_field",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "pivot table",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 701073,
+     "keys": [
+      "cmd",
+      "tableId",
+      "dataFieldId",
+      "position"
+     ],
+     "example": "{cmd:\"move_pivot_data_field\",tableId:e,dataFieldId:t,position:r}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3528276,
+     "keys": [
+      "cmd",
+      "tableId",
+      "dataFieldId",
+      "position"
+     ],
+     "example": "{cmd:\"move_pivot_data_field\",tableId:e,dataFieldId:t,position:i}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 701073
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3528276
+    }
+   ]
+  },
+  {
+   "cmd": "move_pivot_table",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "pivot table",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 700690,
+     "keys": [
+      "cmd",
+      "tableId",
+      "sheetId",
+      "coord"
+     ],
+     "example": "{cmd:\"move_pivot_table\",tableId:e,sheetId:t,coord:r}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3527893,
+     "keys": [
+      "cmd",
+      "tableId",
+      "sheetId",
+      "coord"
+     ],
+     "example": "{cmd:\"move_pivot_table\",tableId:e,sheetId:t,coord:i}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 700690
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3527893
+    }
+   ]
+  },
+  {
+   "cmd": "move_range",
+   "in_client_ui_sheet": true,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "other",
+   "field_shapes": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3525279,
+     "keys": [
+      "cmd",
+      "id",
+      "srcRange",
+      "targetRange",
+      "clearMerge"
+     ],
+     "example": "{cmd:\"move_range\",id:e,srcRange:t.toArray(),targetRange:i.toArray(),clearMerge:n}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3525279
+    }
+   ]
+  },
+  {
+   "cmd": "move_row",
+   "in_client_ui_sheet": false,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "row/column",
+   "field_shapes": [],
+   "sites": []
+  },
+  {
+   "cmd": "note",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "cell/block",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 697692,
+     "keys": [
+      "cmd",
+      "id",
+      "changes"
+     ],
+     "example": "{cmd:\"note\",id:e,changes:t}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3521372,
+     "keys": [
+      "cmd",
+      "id",
+      "changes"
+     ],
+     "example": "{cmd:\"note\",id:e,changes:t}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 697692
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3521372
+    }
+   ]
+  },
+  {
+   "cmd": "offline",
+   "in_client_ui_sheet": false,
+   "in_server_literal": true,
+   "in_server_switch": false,
+   "family": "other",
+   "field_shapes": [
+    {
+     "file": "server/sheet/core/client.js",
+     "offset": 2382,
+     "keys": [
+      "cmd",
+      "client_id"
+     ],
+     "example": "{cmd:\"offline\",client_id:this.id}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/core/client.js",
+     "offset": 2382
+    }
+   ]
+  },
+  {
+   "cmd": "online",
+   "in_client_ui_sheet": false,
+   "in_server_literal": true,
+   "in_server_switch": false,
+   "family": "other",
+   "field_shapes": [],
+   "sites": [
+    {
+     "file": "server/sheet/core/client.js",
+     "offset": 2313
+    }
+   ]
+  },
+  {
+   "cmd": "paste_autofill_data",
+   "in_client_ui_sheet": true,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "cell/block",
+   "field_shapes": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3522520,
+     "keys": [
+      "cmd",
+      "id",
+      "range",
+      "data",
+      "expandFilter",
+      "source"
+     ],
+     "example": "{cmd:\"paste_autofill_data\",id:e,range:t.toArray(),data:iA(i),expandFilter:n,source:o}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3522520
+    }
+   ]
+  },
+  {
+   "cmd": "paste_comment",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "comment",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 894513,
+     "keys": [
+      "cmd",
+      "jsonArray"
+     ],
+     "example": "{cmd:\"paste_comment\",jsonArray:this.jsonArray}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3526927,
+     "keys": [
+      "cmd",
+      "jsonArray"
+     ],
+     "example": "{cmd:\"paste_comment\",jsonArray:e}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 894513
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3526927
+    }
+   ]
+  },
+  {
+   "cmd": "pivot_compound",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "pivot table",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 700442,
+     "keys": [
+      "cmd",
+      "actions"
+     ],
+     "example": "{cmd:\"pivot_compound\",actions:e}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3527645,
+     "keys": [
+      "cmd",
+      "actions"
+     ],
+     "example": "{cmd:\"pivot_compound\",actions:e}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 700442
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3527645
+    }
+   ]
+  },
+  {
+   "cmd": "populate_autofill_data",
+   "in_client_ui_sheet": true,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "cell/block",
+   "field_shapes": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3522405,
+     "keys": [
+      "cmd",
+      "id",
+      "range",
+      "data",
+      "direction",
+      "source"
+     ],
+     "example": "{cmd:\"populate_autofill_data\",id:e,range:t.toArray(),data:iA(i),direction:n,source:o}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3522405
+    }
+   ]
+  },
+  {
+   "cmd": "quotePrefix",
+   "in_client_ui_sheet": false,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "other",
+   "field_shapes": [],
+   "sites": []
+  },
+  {
+   "cmd": "quoteprefix",
+   "in_client_ui_sheet": false,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "other",
+   "field_shapes": [],
+   "sites": []
+  },
+  {
+   "cmd": "remove_all_validation",
+   "in_client_ui_sheet": true,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "data validation",
+   "field_shapes": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3523962,
+     "keys": [
+      "cmd",
+      "id",
+      "range"
+     ],
+     "example": "{cmd:\"remove_all_validation\",id:e,range:t.toArray()}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3523962
+    }
+   ]
+  },
+  {
+   "cmd": "remove_cf",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "conditional formatting",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 893233,
+     "keys": [
+      "cmd",
+      "id",
+      "cfId"
+     ],
+     "example": "{cmd:\"remove_cf\",id:this.sheetId,cfId:this.cf.cfId}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3524099,
+     "keys": [
+      "cmd",
+      "id",
+      "cfId"
+     ],
+     "example": "{cmd:\"remove_cf\",id:e,cfId:t}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 893233
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3524099
+    }
+   ]
+  },
+  {
+   "cmd": "remove_chart",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "drawing/chart",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 893919,
+     "keys": [
+      "cmd",
+      "id",
+      "chartId"
+     ],
+     "example": "{cmd:\"remove_chart\",id:this.sheetId,chartId:this.chartId}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3524591,
+     "keys": [
+      "cmd",
+      "id",
+      "chartId"
+     ],
+     "example": "{cmd:\"remove_chart\",id:e,chartId:t}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 893919
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3524591
+    }
+   ]
+  },
+  {
+   "cmd": "remove_col",
+   "in_client_ui_sheet": false,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "row/column",
+   "field_shapes": [],
+   "sites": []
+  },
+  {
+   "cmd": "remove_define",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "defined name",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 894805,
+     "keys": [
+      "cmd",
+      "name",
+      "scope"
+     ],
+     "example": "{cmd:\"remove_define\",name:this.name,scope:this.scope}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3527229,
+     "keys": [
+      "cmd",
+      "name",
+      "scope"
+     ],
+     "example": "{cmd:\"remove_define\",name:e,scope:t}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 894805
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3527229
+    }
+   ]
+  },
+  {
+   "cmd": "remove_external_links",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "other",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 923665,
+     "keys": [
+      "cmd",
+      "linkIds"
+     ],
+     "example": "{cmd:\"remove_external_links\",linkIds:this.linkIds}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3527096,
+     "keys": [
+      "cmd",
+      "linkIds"
+     ],
+     "example": "{cmd:\"remove_external_links\",linkIds:e}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 923665
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3527096
+    }
+   ]
+  },
+  {
+   "cmd": "remove_formula_range",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "other",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 699859,
+     "keys": [
+      "cmd",
+      "id",
+      "srcRange",
+      "applyData"
+     ],
+     "example": "{cmd:\"remove_formula_range\",id:e,srcRange:v3(t),applyData:r}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3525709,
+     "keys": [
+      "cmd",
+      "id",
+      "srcRange",
+      "applyData"
+     ],
+     "example": "{cmd:\"remove_formula_range\",id:e,srcRange:nT(t),applyData:i}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 699859
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3525709
+    }
+   ]
+  },
+  {
+   "cmd": "remove_image",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "drawing/chart",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 893552,
+     "keys": [
+      "cmd",
+      "id",
+      "imageId"
+     ],
+     "example": "{cmd:\"remove_image\",id:this.sheetId,imageId:this.imageId}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3524447,
+     "keys": [
+      "cmd",
+      "id",
+      "imageId"
+     ],
+     "example": "{cmd:\"remove_image\",id:e,imageId:t}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 893552
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3524447
+    }
+   ]
+  },
+  {
+   "cmd": "remove_internal_link",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "other",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 895785,
+     "keys": [
+      "cmd",
+      "id",
+      "linkId"
+     ],
+     "example": "{cmd:\"remove_internal_link\",id:this.sheetId,linkId:this.json.id}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3525918,
+     "keys": [
+      "cmd",
+      "id",
+      "linkId"
+     ],
+     "example": "{cmd:\"remove_internal_link\",id:e,linkId:t}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 895785
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3525918
+    }
+   ]
+  },
+  {
+   "cmd": "remove_pivot_data_field",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "pivot table",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 701161,
+     "keys": [
+      "cmd",
+      "tableId",
+      "dataFieldId"
+     ],
+     "example": "{cmd:\"remove_pivot_data_field\",tableId:e,dataFieldId:t}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3528364,
+     "keys": [
+      "cmd",
+      "tableId",
+      "dataFieldId"
+     ],
+     "example": "{cmd:\"remove_pivot_data_field\",tableId:e,dataFieldId:t}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 701161
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3528364
+    }
+   ]
+  },
+  {
+   "cmd": "remove_row",
+   "in_client_ui_sheet": false,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "row/column",
+   "field_shapes": [],
+   "sites": []
+  },
+  {
+   "cmd": "remove_rule",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "conditional formatting",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 896492,
+     "keys": [
+      "cmd",
+      "ruleId"
+     ],
+     "example": "{cmd:\"remove_rule\",ruleId:this.rule.ruleId}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3527595,
+     "keys": [
+      "cmd",
+      "ruleId"
+     ],
+     "example": "{cmd:\"remove_rule\",ruleId:e}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 896492
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3527595
+    }
+   ]
+  },
+  {
+   "cmd": "remove_validation",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "data validation",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 892845,
+     "keys": [
+      "cmd",
+      "id",
+      "validId",
+      "range"
+     ],
+     "example": "{cmd:\"remove_validation\",id:e,validId:this.validation.validId,range:this.rangeText}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3523890,
+     "keys": [
+      "cmd",
+      "id",
+      "validId",
+      "range"
+     ],
+     "example": "{cmd:\"remove_validation\",id:e,validId:t,range:i}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 892845
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3523890
+    }
+   ]
+  },
+  {
+   "cmd": "rename",
+   "in_client_ui_sheet": false,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "other",
+   "field_shapes": [],
+   "sites": []
+  },
+  {
+   "cmd": "reopen_comment",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "comment",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 915865,
+     "keys": [
+      "cmd",
+      "json"
+     ],
+     "example": "{cmd:\"reopen_comment\",json:this.json}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3526775,
+     "keys": [
+      "cmd",
+      "json"
+     ],
+     "example": "{cmd:\"reopen_comment\",json:e}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 915865
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3526775
+    }
+   ]
+  },
+  {
+   "cmd": "reopen_comment_local",
+   "in_client_ui_sheet": false,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "comment",
+   "field_shapes": [],
+   "sites": []
+  },
+  {
+   "cmd": "reply_comment",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "comment",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 915699,
+     "keys": [
+      "cmd",
+      "json"
+     ],
+     "example": "{cmd:\"reply_comment\",json:this.json}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3526725,
+     "keys": [
+      "cmd",
+      "json"
+     ],
+     "example": "{cmd:\"reply_comment\",json:e}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 915699
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3526725
+    }
+   ]
+  },
+  {
+   "cmd": "reply_comment_local",
+   "in_client_ui_sheet": true,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "comment",
+   "field_shapes": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3526401,
+     "keys": [
+      "cmd",
+      "author",
+      "config"
+     ],
+     "example": "{cmd:\"reply_comment_local\",author:e,config:t}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3526401
+    }
+   ]
+  },
+  {
+   "cmd": "resize_chart",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "drawing/chart",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 699389,
+     "keys": [
+      "cmd",
+      "id",
+      "chartId",
+      "position"
+     ],
+     "example": "{cmd:\"resize_chart\",id:e,chartId:t,position:r}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3524652,
+     "keys": [
+      "cmd",
+      "id",
+      "chartId",
+      "position"
+     ],
+     "example": "{cmd:\"resize_chart\",id:e,chartId:t,position:i}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 699389
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3524652
+    }
+   ]
+  },
+  {
+   "cmd": "resize_col",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "row/column",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 697804,
+     "keys": [
+      "cmd",
+      "id",
+      "from",
+      "to",
+      "width"
+     ],
+     "example": "{cmd:\"resize_col\",id:e,from:r,to:i,width:n}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3521499,
+     "keys": [
+      "cmd",
+      "id",
+      "from",
+      "to",
+      "width"
+     ],
+     "example": "{cmd:\"resize_col\",id:e,from:t,to:i,width:n}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 697804
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3521499
+    }
+   ]
+  },
+  {
+   "cmd": "resize_image",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "drawing/chart",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 699317,
+     "keys": [
+      "cmd",
+      "id",
+      "imageId",
+      "position"
+     ],
+     "example": "{cmd:\"resize_image\",id:e,imageId:t,position:r}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3524377,
+     "keys": [
+      "cmd",
+      "id",
+      "imageId",
+      "position"
+     ],
+     "example": "{cmd:\"resize_image\",id:e,imageId:t,position:i}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 699317
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3524377
+    }
+   ]
+  },
+  {
+   "cmd": "resize_row",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "row/column",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 697759,
+     "keys": [
+      "cmd",
+      "id",
+      "from",
+      "to",
+      "height"
+     ],
+     "example": "{cmd:\"resize_row\",id:e,from:r,to:i,height:n}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3521427,
+     "keys": [
+      "cmd",
+      "id",
+      "from",
+      "to",
+      "height"
+     ],
+     "example": "{cmd:\"resize_row\",id:e,from:t,to:i,height:n}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 697759
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3521427
+    }
+   ]
+  },
+  {
+   "cmd": "resolve_comment",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "comment",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 916033,
+     "keys": [
+      "cmd",
+      "json"
+     ],
+     "example": "{cmd:\"resolve_comment\",json:this.json}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3526826,
+     "keys": [
+      "cmd",
+      "json"
+     ],
+     "example": "{cmd:\"resolve_comment\",json:e}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 916033
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3526826
+    }
+   ]
+  },
+  {
+   "cmd": "resolve_comment_local",
+   "in_client_ui_sheet": false,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "comment",
+   "field_shapes": [],
+   "sites": []
+  },
+  {
+   "cmd": "row_style",
+   "in_client_ui_sheet": false,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "cell/block",
+   "field_shapes": [],
+   "sites": []
+  },
+  {
+   "cmd": "select",
+   "in_client_ui_sheet": false,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "other",
+   "field_shapes": [],
+   "sites": []
+  },
+  {
+   "cmd": "set_active_filter_view",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "filter",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 699094,
+     "keys": [
+      "cmd",
+      "id",
+      "filterId"
+     ],
+     "example": "{cmd:\"set_active_filter_view\",id:e,filterId:t}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3523654,
+     "keys": [
+      "cmd",
+      "id",
+      "filterId"
+     ],
+     "example": "{cmd:\"set_active_filter_view\",id:e,filterId:t}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 699094
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3523654
+    }
+   ]
+  },
+  {
+   "cmd": "set_chart_config",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "drawing/chart",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 699535,
+     "keys": [
+      "cmd",
+      "id",
+      "chartId",
+      "name",
+      "args"
+     ],
+     "example": "{cmd:\"set_chart_config\",id:e,chartId:t,name:r,args:i}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3524798,
+     "keys": [
+      "cmd",
+      "id",
+      "chartId",
+      "name",
+      "args"
+     ],
+     "example": "{cmd:\"set_chart_config\",id:e,chartId:t,name:i,args:n}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 699535
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3524798
+    }
+   ]
+  },
+  {
+   "cmd": "set_collapse",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "cell/block",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 700087,
+     "keys": [
+      "cmd",
+      "id",
+      "type",
+      "index",
+      "collapse"
+     ],
+     "example": "{cmd:\"set_collapse\",id:e,type:t,index:r,collapse:i}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3526196,
+     "keys": [
+      "cmd",
+      "id",
+      "type",
+      "index",
+      "collapse"
+     ],
+     "example": "{cmd:\"set_collapse\",id:e,type:t,index:i,collapse:n}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 700087
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3526196
+    }
+   ]
+  },
+  {
+   "cmd": "set_color",
+   "in_client_ui_sheet": false,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "other",
+   "field_shapes": [],
+   "sites": []
+  },
+  {
+   "cmd": "set_filter",
+   "in_client_ui_sheet": false,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "filter",
+   "field_shapes": [],
+   "sites": []
+  },
+  {
+   "cmd": "set_filter_view_condition",
+   "in_client_ui_sheet": false,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "filter",
+   "field_shapes": [],
+   "sites": []
+  },
+  {
+   "cmd": "set_hidden",
+   "in_client_ui_sheet": false,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "other",
+   "field_shapes": [],
+   "sites": []
+  },
+  {
+   "cmd": "set_order",
+   "in_client_ui_sheet": false,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "other",
+   "field_shapes": [],
+   "sites": []
+  },
+  {
+   "cmd": "set_pivot_data_field_attr",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "pivot table",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 701326,
+     "keys": [
+      "cmd",
+      "tableId",
+      "dataFieldId",
+      "changes"
+     ],
+     "example": "{cmd:\"set_pivot_data_field_attr\",tableId:e,dataFieldId:t,changes:r}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3528529,
+     "keys": [
+      "cmd",
+      "tableId",
+      "dataFieldId",
+      "changes"
+     ],
+     "example": "{cmd:\"set_pivot_data_field_attr\",tableId:e,dataFieldId:t,changes:i}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 701326
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3528529
+    }
+   ]
+  },
+  {
+   "cmd": "set_pivot_field_attr",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "pivot table",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 701242,
+     "keys": [
+      "cmd",
+      "tableId",
+      "fieldId",
+      "changes"
+     ],
+     "example": "{cmd:\"set_pivot_field_attr\",tableId:e,fieldId:t,changes:r}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3528445,
+     "keys": [
+      "cmd",
+      "tableId",
+      "fieldId",
+      "changes"
+     ],
+     "example": "{cmd:\"set_pivot_field_attr\",tableId:e,fieldId:t,changes:i}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 701242
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3528445
+    }
+   ]
+  },
+  {
+   "cmd": "set_pivot_field_datetime_group",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "pivot table",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 701625,
+     "keys": [
+      "cmd",
+      "tableId",
+      "fieldId",
+      "changes",
+      "positions",
+      "autoFold",
+      "itemsInfo"
+     ],
+     "example": "{cmd:\"set_pivot_field_datetime_group\",tableId:e,fieldId:t,changes:r,positions:i,autoFold:n,itemsInfo:o}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3528995,
+     "keys": [
+      "cmd",
+      "tableId",
+      "fieldId",
+      "changes",
+      "positions",
+      "autoFold",
+      "itemsInfo"
+     ],
+     "example": "{cmd:\"set_pivot_field_datetime_group\",tableId:e,fieldId:t,changes:i,positions:n,autoFold:o,itemsInfo:r}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 701625
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3528995
+    }
+   ]
+  },
+  {
+   "cmd": "set_pivot_field_item_caption",
+   "in_client_ui_sheet": false,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "pivot table",
+   "field_shapes": [],
+   "sites": []
+  },
+  {
+   "cmd": "set_pivot_field_item_folded",
+   "in_client_ui_sheet": false,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "pivot table",
+   "field_shapes": [],
+   "sites": []
+  },
+  {
+   "cmd": "set_pivot_field_item_hidden",
+   "in_client_ui_sheet": false,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "pivot table",
+   "field_shapes": [],
+   "sites": []
+  },
+  {
+   "cmd": "set_pivot_field_item_order",
+   "in_client_ui_sheet": false,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "pivot table",
+   "field_shapes": [],
+   "sites": []
+  },
+  {
+   "cmd": "set_pivot_field_number_group",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "pivot table",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 701512,
+     "keys": [
+      "cmd",
+      "tableId",
+      "fieldId",
+      "changes",
+      "itemsInfo"
+     ],
+     "example": "{cmd:\"set_pivot_field_number_group\",tableId:e,fieldId:t,changes:r,itemsInfo:i}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3528865,
+     "keys": [
+      "cmd",
+      "tableId",
+      "fieldId",
+      "changes",
+      "itemsInfo"
+     ],
+     "example": "{cmd:\"set_pivot_field_number_group\",tableId:e,fieldId:t,changes:i,itemsInfo:n}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 701512
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3528865
+    }
+   ]
+  },
+  {
+   "cmd": "set_pivot_table_caption",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "pivot table",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 700768,
+     "keys": [
+      "cmd",
+      "tableId",
+      "key",
+      "value"
+     ],
+     "example": "{cmd:\"set_pivot_table_caption\",tableId:e,key:t,value:r}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3527971,
+     "keys": [
+      "cmd",
+      "tableId",
+      "key",
+      "value"
+     ],
+     "example": "{cmd:\"set_pivot_table_caption\",tableId:e,key:t,value:i}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 700768
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3527971
+    }
+   ]
+  },
+  {
+   "cmd": "set_worksheet_rtl",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "other",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 700162,
+     "keys": [
+      "cmd",
+      "id",
+      "rtl"
+     ],
+     "example": "{cmd:\"set_worksheet_rtl\",id:e,rtl:t}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3526271,
+     "keys": [
+      "cmd",
+      "id",
+      "rtl"
+     ],
+     "example": "{cmd:\"set_worksheet_rtl\",id:e,rtl:t}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 700162
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3526271
+    }
+   ]
+  },
+  {
+   "cmd": "show_cols",
+   "in_client_ui_sheet": false,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "row/column",
+   "field_shapes": [],
+   "sites": []
+  },
+  {
+   "cmd": "show_rows",
+   "in_client_ui_sheet": false,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "row/column",
+   "field_shapes": [],
+   "sites": []
+  },
+  {
+   "cmd": "sort",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "cell/block",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 699239,
+     "keys": [
+      "cmd",
+      "id",
+      "rowOrder",
+      "range",
+      "applyData"
+     ],
+     "example": "{cmd:\"sort\",id:e,rowOrder:t,range:v3(r),applyData:i}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3524227,
+     "keys": [
+      "cmd",
+      "id",
+      "rowOrder",
+      "range",
+      "applyData"
+     ],
+     "example": "{cmd:\"sort\",id:e,rowOrder:t,range:nT(i),applyData:n}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 699239
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3524227
+    }
+   ]
+  },
+  {
+   "cmd": "undelete",
+   "in_client_ui_sheet": false,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "other",
+   "field_shapes": [],
+   "sites": []
+  },
+  {
+   "cmd": "ungroup",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "cell/block",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 896245,
+     "keys": [
+      "cmd",
+      "id",
+      "type",
+      "from",
+      "to"
+     ],
+     "example": "{cmd:\"ungroup\",id:e,type:t,from:this.from,to:this.to}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3526053,
+     "keys": [
+      "cmd",
+      "id",
+      "type",
+      "from",
+      "to"
+     ],
+     "example": "{cmd:\"ungroup\",id:e,type:t,from:i,to:n}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 896245
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3526053
+    }
+   ]
+  },
+  {
+   "cmd": "ungroup_pivot_field_item",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "pivot table",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 902733,
+     "keys": [
+      "cmd",
+      "tableId",
+      "changes"
+     ],
+     "example": "{cmd:\"ungroup_pivot_field_item\",tableId:this.tableId,changes:t}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3528785,
+     "keys": [
+      "cmd",
+      "tableId",
+      "changes"
+     ],
+     "example": "{cmd:\"ungroup_pivot_field_item\",tableId:e,changes:t}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 902733
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3528785
+    }
+   ]
+  },
+  {
+   "cmd": "unmerge",
+   "in_client_ui_sheet": false,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "cell/block",
+   "field_shapes": [],
+   "sites": []
+  },
+  {
+   "cmd": "unmerge_overlaps",
+   "in_client_ui_sheet": true,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "cell/block",
+   "field_shapes": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3521904,
+     "keys": [
+      "cmd",
+      "id",
+      "range"
+     ],
+     "example": "{cmd:\"unmerge_overlaps\",id:e,range:t.toArray()}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3521904
+    }
+   ]
+  },
+  {
+   "cmd": "update",
+   "in_client_ui_sheet": false,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "other",
+   "field_shapes": [],
+   "sites": []
+  },
+  {
+   "cmd": "update_cf_ranges",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "other",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 699166,
+     "keys": [
+      "cmd",
+      "id",
+      "cfId",
+      "ranges"
+     ],
+     "example": "{cmd:\"update_cf_ranges\",id:e,cfId:t,ranges:r}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3524154,
+     "keys": [
+      "cmd",
+      "id",
+      "cfId",
+      "ranges"
+     ],
+     "example": "{cmd:\"update_cf_ranges\",id:e,cfId:t,ranges:i}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 699166
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3524154
+    }
+   ]
+  },
+  {
+   "cmd": "update_external_links",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "other",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 923470,
+     "keys": [
+      "cmd",
+      "entry"
+     ],
+     "example": "{cmd:\"update_external_links\",entry:this.entry}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3527037,
+     "keys": [
+      "cmd",
+      "entry"
+     ],
+     "example": "{cmd:\"update_external_links\",entry:e}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 923470
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3527037
+    }
+   ]
+  },
+  {
+   "cmd": "update_filter_range",
+   "in_client_ui_sheet": false,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "filter",
+   "field_shapes": [],
+   "sites": []
+  },
+  {
+   "cmd": "update_filter_view_name",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "filter",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 699016,
+     "keys": [
+      "cmd",
+      "id",
+      "filterId",
+      "name"
+     ],
+     "example": "{cmd:\"update_filter_view_name\",id:e,filterId:t,name:r}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3523502,
+     "keys": [
+      "cmd",
+      "id",
+      "filterId",
+      "name"
+     ],
+     "example": "{cmd:\"update_filter_view_name\",id:e,filterId:t,name:i}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 699016
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3523502
+    }
+   ]
+  },
+  {
+   "cmd": "update_filter_view_range",
+   "in_client_ui_sheet": false,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "filter",
+   "field_shapes": [],
+   "sites": []
+  },
+  {
+   "cmd": "update_group",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "cell/block",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 700011,
+     "keys": [
+      "cmd",
+      "id",
+      "type",
+      "from",
+      "levels"
+     ],
+     "example": "{cmd:\"update_group\",id:e,type:t,from:r,levels:i}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3526120,
+     "keys": [
+      "cmd",
+      "id",
+      "type",
+      "from",
+      "levels"
+     ],
+     "example": "{cmd:\"update_group\",id:e,type:t,from:i,levels:n}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 700011
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3526120
+    }
+   ]
+  },
+  {
+   "cmd": "update_internal_link",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "other",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 699943,
+     "keys": [
+      "cmd",
+      "id",
+      "json"
+     ],
+     "example": "{cmd:\"update_internal_link\",id:e,json:t}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3525854,
+     "keys": [
+      "cmd",
+      "id",
+      "json"
+     ],
+     "example": "{cmd:\"update_internal_link\",id:e,json:t}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 699943
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3525854
+    }
+   ]
+  },
+  {
+   "cmd": "update_pivot_table",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "pivot table",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 700622,
+     "keys": [
+      "cmd",
+      "table",
+      "cache"
+     ],
+     "example": "{cmd:\"update_pivot_table\",table:e,cache:t}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3527825,
+     "keys": [
+      "cmd",
+      "table",
+      "cache"
+     ],
+     "example": "{cmd:\"update_pivot_table\",table:e,cache:t}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 700622
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3527825
+    }
+   ]
+  },
+  {
+   "cmd": "update_rule",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "conditional formatting",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 700384,
+     "keys": [
+      "cmd",
+      "ruleId",
+      "props"
+     ],
+     "example": "{cmd:\"update_rule\",ruleId:e,props:t}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3527537,
+     "keys": [
+      "cmd",
+      "ruleId",
+      "props"
+     ],
+     "example": "{cmd:\"update_rule\",ruleId:e,props:t}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 700384
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3527537
+    }
+   ]
+  },
+  {
+   "cmd": "value",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "cell/block",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 697583,
+     "keys": [
+      "cmd",
+      "id",
+      "changes",
+      "source"
+     ],
+     "example": "{cmd:\"value\",id:e,changes:t.map(e=>[e[0],e[1],fp(e[2])?e[2].toJSON():e[2]]),source:r}"
+    },
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 904334,
+     "keys": [
+      "cmd",
+      "id",
+      "changes",
+      "nfRefs",
+      "nfs"
+     ],
+     "example": "{cmd:\"value\",id:e,changes:t,nfRefs:this.nfRefs,nfs:this.nfs}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3521229,
+     "keys": [
+      "cmd",
+      "id",
+      "changes",
+      "source"
+     ],
+     "example": "{cmd:\"value\",id:e,changes:(0,ts.NP)(t),source:i}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 697583
+    },
+    {
+     "file": "server/sheet/node_modules/@ss/core.js",
+     "offset": 904334
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3521229
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3521305
+    }
+   ]
+  },
+  {
+   "cmd": "worksheet.create",
+   "in_client_ui_sheet": true,
+   "in_server_literal": true,
+   "in_server_switch": true,
+   "family": "worksheet lifecycle",
+   "field_shapes": [
+    {
+     "file": "server/sheet/node_modules/@ss/runtime.js",
+     "offset": 49543,
+     "keys": [
+      "cmd",
+      "titleTpl"
+     ],
+     "example": "{cmd:\"worksheet.create\",titleTpl:void 0}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3529122,
+     "keys": [
+      "cmd",
+      "pos",
+      "titleTpl"
+     ],
+     "example": "{cmd:\"worksheet.create\",pos:e,titleTpl:t}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3529398,
+     "keys": [
+      "cmd",
+      "id",
+      "pos",
+      "title",
+      "tabColor",
+      "content"
+     ],
+     "example": "{cmd:\"worksheet.create\",id:e,pos:t,title:i,tabColor:n,content:o}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "server/sheet/node_modules/@ss/runtime.js",
+     "offset": 49543
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3529122
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3529398
+    }
+   ]
+  },
+  {
+   "cmd": "worksheet.create_pivot_table",
+   "in_client_ui_sheet": true,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "worksheet lifecycle",
+   "field_shapes": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3529191,
+     "keys": [
+      "cmd",
+      "pos",
+      "titleTpl",
+      "cacheJson",
+      "tableJson"
+     ],
+     "example": "{cmd:\"worksheet.create_pivot_table\",pos:e,titleTpl:t,cacheJson:i,tableJson:n}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3529191
+    }
+   ]
+  },
+  {
+   "cmd": "worksheet.create_with_data",
+   "in_client_ui_sheet": true,
+   "in_server_literal": false,
+   "in_server_switch": false,
+   "family": "worksheet lifecycle",
+   "field_shapes": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 2488609,
+     "keys": [
+      "cmd",
+      "titleTpl",
+      "tabColor",
+      "content",
+      "rev"
+     ],
+     "example": "{cmd:\"worksheet.create_with_data\",titleTpl:n,tabColor:r,content:i,rev:t}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3529296,
+     "keys": [
+      "cmd",
+      "titleTpl",
+      "content",
+      "pos",
+      "tabColor"
+     ],
+     "example": "{cmd:\"worksheet.create_with_data\",titleTpl:e,content:t,pos:i,tabColor:n}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 2488609
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3529296
+    }
+   ]
+  },
+  {
+   "cmd": "worksheet.delete",
+   "in_client_ui_sheet": true,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "worksheet lifecycle",
+   "field_shapes": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3529758,
+     "keys": [
+      "cmd",
+      "id",
+      "includeSnapshotData"
+     ],
+     "example": "{cmd:\"worksheet.delete\",id:e,includeSnapshotData:t}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3529758
+    }
+   ]
+  },
+  {
+   "cmd": "worksheet.dup",
+   "in_client_ui_sheet": true,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "worksheet lifecycle",
+   "field_shapes": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3529490,
+     "keys": [
+      "cmd",
+      "id",
+      "pos",
+      "title",
+      "pivotTableIdMapping"
+     ],
+     "example": "{cmd:\"worksheet.dup\",id:e,pos:t,title:i,pivotTableIdMapping:n}"
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3529582,
+     "keys": [
+      "cmd",
+      "id",
+      "pos",
+      "title",
+      "newId",
+      "pivotTableIdMapping"
+     ],
+     "example": "{cmd:\"worksheet.dup\",id:e,pos:t,title:i,newId:n,pivotTableIdMapping:o}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3529490
+    },
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3529582
+    }
+   ]
+  },
+  {
+   "cmd": "worksheet.rename",
+   "in_client_ui_sheet": true,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "worksheet lifecycle",
+   "field_shapes": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3529833,
+     "keys": [
+      "cmd",
+      "id",
+      "title"
+     ],
+     "example": "{cmd:\"worksheet.rename\",id:e,title:t}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3529833
+    }
+   ]
+  },
+  {
+   "cmd": "worksheet.set_color",
+   "in_client_ui_sheet": true,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "worksheet lifecycle",
+   "field_shapes": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3530017,
+     "keys": [
+      "cmd",
+      "id",
+      "color"
+     ],
+     "example": "{cmd:\"worksheet.set_color\",id:e,color:t}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3530017
+    }
+   ]
+  },
+  {
+   "cmd": "worksheet.set_hidden",
+   "in_client_ui_sheet": true,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "worksheet lifecycle",
+   "field_shapes": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3529951,
+     "keys": [
+      "cmd",
+      "id",
+      "hidden"
+     ],
+     "example": "{cmd:\"worksheet.set_hidden\",id:e,hidden:t}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3529951
+    }
+   ]
+  },
+  {
+   "cmd": "worksheet.set_order",
+   "in_client_ui_sheet": true,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "worksheet lifecycle",
+   "field_shapes": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3529892,
+     "keys": [
+      "cmd",
+      "order"
+     ],
+     "example": "{cmd:\"worksheet.set_order\",order:e}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3529892
+    }
+   ]
+  },
+  {
+   "cmd": "worksheet.undelete",
+   "in_client_ui_sheet": true,
+   "in_server_literal": false,
+   "in_server_switch": true,
+   "family": "worksheet lifecycle",
+   "field_shapes": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3529680,
+     "keys": [
+      "cmd",
+      "id",
+      "pos",
+      "info",
+      "content"
+     ],
+     "example": "{cmd:\"worksheet.undelete\",id:e,pos:t,info:i,content:n}"
+    }
+   ],
+   "sites": [
+    {
+     "file": "ui/dist/ui.sheet.js",
+     "offset": 3529680
+    }
+   ]
+  }
+ ],
+ "all_cmd_literals": [
+  "+",
+  "-",
+  "=",
+  "add_internal_link",
+  "add_validation_range",
+  "adjust_chart",
+  "autofill_number_format",
+  "clear_comment",
+  "clear_range_data",
+  "clear_range_related",
+  "compound",
+  "create_cf",
+  "create_comment",
+  "create_comment_local",
+  "create_define",
+  "create_filter",
+  "create_filter_view",
+  "create_pivot_table",
+  "create_rule",
+  "create_validation",
+  "delete_pivot_table",
+  "deselect",
+  "edit",
+  "edit_comment",
+  "edit_comment_local",
+  "expand_filter_range",
+  "fix_col",
+  "fix_row",
+  "format",
+  "global_style",
+  "group",
+  "group_pivot_field_item",
+  "insert_chart",
+  "insert_image",
+  "insert_pivot_data_field",
+  "modify_define",
+  "modify_drawings_by_insert",
+  "modify_drawings_by_move",
+  "modify_drawings_by_remove",
+  "move_formula_range",
+  "move_pivot_axis_field",
+  "move_pivot_data_field",
+  "move_pivot_table",
+  "move_range",
+  "note",
+  "offline",
+  "online",
+  "paste_autofill_data",
+  "paste_comment",
+  "pivot_compound",
+  "populate_autofill_data",
+  "remove_all_validation",
+  "remove_cf",
+  "remove_chart",
+  "remove_define",
+  "remove_external_links",
+  "remove_formula_range",
+  "remove_image",
+  "remove_internal_link",
+  "remove_pivot_data_field",
+  "remove_rule",
+  "remove_validation",
+  "reopen_comment",
+  "reply_comment",
+  "reply_comment_local",
+  "resize_chart",
+  "resize_col",
+  "resize_image",
+  "resize_row",
+  "resolve_comment",
+  "set_active_filter_view",
+  "set_chart_config",
+  "set_collapse",
+  "set_pivot_data_field_attr",
+  "set_pivot_field_attr",
+  "set_pivot_field_datetime_group",
+  "set_pivot_field_number_group",
+  "set_pivot_table_caption",
+  "set_worksheet_rtl",
+  "sort",
+  "ungroup",
+  "ungroup_pivot_field_item",
+  "unmerge_overlaps",
+  "update_cf_ranges",
+  "update_external_links",
+  "update_filter_view_name",
+  "update_group",
+  "update_internal_link",
+  "update_pivot_table",
+  "update_rule",
+  "value",
+  "worksheet.create",
+  "worksheet.create_pivot_table",
+  "worksheet.create_with_data",
+  "worksheet.delete",
+  "worksheet.dup",
+  "worksheet.rename",
+  "worksheet.set_color",
+  "worksheet.set_hidden",
+  "worksheet.set_order",
+  "worksheet.undelete"
+ ],
+ "server_accepted_union": [
+  "add_internal_link",
+  "add_validation_range",
+  "adjust_chart",
+  "alignment",
+  "autofill_number_format",
+  "border",
+  "clear_comment",
+  "clear_range_data",
+  "clear_range_related",
+  "col_style",
+  "compound",
+  "create",
+  "create_cf",
+  "create_col",
+  "create_comment",
+  "create_comment_local",
+  "create_define",
+  "create_filter",
+  "create_filter_view",
+  "create_pivot_table",
+  "create_row",
+  "create_rule",
+  "create_validation",
+  "create_with_data",
+  "delete",
+  "delete_pivot_table",
+  "deselect",
+  "disable_filter",
+  "disable_filter_view",
+  "dup",
+  "edit_comment",
+  "edit_comment_local",
+  "enable_filter",
+  "enable_filter_view",
+  "expand_filter_range",
+  "fill",
+  "fix_col",
+  "fix_row",
+  "font",
+  "format",
+  "global_style",
+  "group",
+  "group_pivot_field_item",
+  "hide_cols",
+  "hide_rows",
+  "insert_chart",
+  "insert_col",
+  "insert_image",
+  "insert_pivot_data_field",
+  "insert_row",
+  "merge",
+  "modify_define",
+  "modify_drawings_by_insert",
+  "modify_drawings_by_move",
+  "modify_drawings_by_remove",
+  "move_col",
+  "move_formula_range",
+  "move_pivot_axis_field",
+  "move_pivot_data_field",
+  "move_pivot_table",
+  "move_range",
+  "move_row",
+  "note",
+  "paste_autofill_data",
+  "paste_comment",
+  "pivot_compound",
+  "populate_autofill_data",
+  "quotePrefix",
+  "quoteprefix",
+  "remove_all_validation",
+  "remove_cf",
+  "remove_chart",
+  "remove_col",
+  "remove_define",
+  "remove_external_links",
+  "remove_formula_range",
+  "remove_image",
+  "remove_internal_link",
+  "remove_pivot_data_field",
+  "remove_row",
+  "remove_rule",
+  "remove_validation",
+  "rename",
+  "reopen_comment",
+  "reopen_comment_local",
+  "reply_comment",
+  "reply_comment_local",
+  "resize_chart",
+  "resize_col",
+  "resize_image",
+  "resize_row",
+  "resolve_comment",
+  "resolve_comment_local",
+  "row_style",
+  "select",
+  "set_active_filter_view",
+  "set_chart_config",
+  "set_collapse",
+  "set_color",
+  "set_filter",
+  "set_filter_view_condition",
+  "set_hidden",
+  "set_order",
+  "set_pivot_data_field_attr",
+  "set_pivot_field_attr",
+  "set_pivot_field_datetime_group",
+  "set_pivot_field_item_caption",
+  "set_pivot_field_item_folded",
+  "set_pivot_field_item_hidden",
+  "set_pivot_field_item_order",
+  "set_pivot_field_number_group",
+  "set_pivot_table_caption",
+  "set_worksheet_rtl",
+  "show_cols",
+  "show_rows",
+  "sort",
+  "undelete",
+  "ungroup",
+  "ungroup_pivot_field_item",
+  "unmerge",
+  "unmerge_overlaps",
+  "update",
+  "update_cf_ranges",
+  "update_external_links",
+  "update_filter_range",
+  "update_filter_view_name",
+  "update_filter_view_range",
+  "update_group",
+  "update_internal_link",
+  "update_pivot_table",
+  "update_rule",
+  "value",
+  "worksheet.create",
+  "worksheet.create_pivot_table",
+  "worksheet.delete",
+  "worksheet.dup",
+  "worksheet.rename",
+  "worksheet.set_color",
+  "worksheet.set_hidden",
+  "worksheet.set_order",
+  "worksheet.undelete"
+ ],
+ "client_emitted_union": [
+  "+",
+  "-",
+  "=",
+  "add_internal_link",
+  "add_validation_range",
+  "adjust_chart",
+  "autofill_number_format",
+  "clear_comment",
+  "clear_range_data",
+  "clear_range_related",
+  "compound",
+  "create_cf",
+  "create_comment",
+  "create_comment_local",
+  "create_define",
+  "create_filter",
+  "create_filter_view",
+  "create_pivot_table",
+  "create_rule",
+  "create_validation",
+  "delete_pivot_table",
+  "deselect",
+  "edit",
+  "edit_comment",
+  "edit_comment_local",
+  "expand_filter_range",
+  "fix_col",
+  "fix_row",
+  "format",
+  "global_style",
+  "group",
+  "group_pivot_field_item",
+  "insert_chart",
+  "insert_image",
+  "insert_pivot_data_field",
+  "modify_define",
+  "modify_drawings_by_insert",
+  "modify_drawings_by_move",
+  "modify_drawings_by_remove",
+  "move_formula_range",
+  "move_pivot_axis_field",
+  "move_pivot_data_field",
+  "move_pivot_table",
+  "move_range",
+  "note",
+  "paste_autofill_data",
+  "paste_comment",
+  "pivot_compound",
+  "populate_autofill_data",
+  "remove_all_validation",
+  "remove_cf",
+  "remove_chart",
+  "remove_define",
+  "remove_external_links",
+  "remove_formula_range",
+  "remove_image",
+  "remove_internal_link",
+  "remove_pivot_data_field",
+  "remove_rule",
+  "remove_validation",
+  "reopen_comment",
+  "reply_comment",
+  "reply_comment_local",
+  "resize_chart",
+  "resize_col",
+  "resize_image",
+  "resize_row",
+  "resolve_comment",
+  "set_active_filter_view",
+  "set_chart_config",
+  "set_collapse",
+  "set_pivot_data_field_attr",
+  "set_pivot_field_attr",
+  "set_pivot_field_datetime_group",
+  "set_pivot_field_number_group",
+  "set_pivot_table_caption",
+  "set_worksheet_rtl",
+  "sort",
+  "ungroup",
+  "ungroup_pivot_field_item",
+  "unmerge_overlaps",
+  "update_cf_ranges",
+  "update_external_links",
+  "update_filter_view_name",
+  "update_group",
+  "update_internal_link",
+  "update_pivot_table",
+  "update_rule",
+  "value",
+  "worksheet.create",
+  "worksheet.create_pivot_table",
+  "worksheet.create_with_data",
+  "worksheet.delete",
+  "worksheet.dup",
+  "worksheet.rename",
+  "worksheet.set_color",
+  "worksheet.set_hidden",
+  "worksheet.set_order",
+  "worksheet.undelete"
+ ]
+}

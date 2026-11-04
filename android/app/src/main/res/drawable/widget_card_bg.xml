@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 小组件卡片底：固定深色 + 圆角。
+     刻意**不用** ?android:attr/colorBackground：RemoteViews 在 launcher 进程的
+     host theme 下解析主题属性，浅色主题的 launcher 上会变成"白底白字"。
+     固定深色 + 白字在任何壁纸上都读得清。 -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="#E6222222" />
+    <corners android:radius="16dp" />
+</shape>

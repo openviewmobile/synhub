@@ -1,0 +1,169 @@
+{
+ "generated_by": "O1 forensics (read-only SYNO.Office.Snapshot:get v4)",
+ "files": {
+  "five_day_trip_planner_snapshot.json": {
+   "source_name": "5-day trip planner.odoc",
+   "permanent_link": "19yWDUyKQgqT7TGZ0wml6hMaNWMD2PaC",
+   "bytes": 35436,
+   "sha256": "e984565fa30cfc6f95102a030d91d77d655224977e256ac456f0d62cc7fefad6",
+   "node_type_counts": {
+    "doc": 1,
+    "edit_area": 1,
+    "footer": 3,
+    "header": 3,
+    "invisible": 1,
+    "page_decorate": 1,
+    "page_num": 1,
+    "page_num_block": 1,
+    "page_num_text": 1,
+    "paragraph": 41,
+    "picture": 10,
+    "settings": 1,
+    "style_editor": 1,
+    "style_paragraph": 7,
+    "table": 5,
+    "table_cell": 10,
+    "table_row": 5,
+    "text": 38
+   }
+  },
+  "product_spec_snapshot.json": {
+   "source_name": "Product spec.odoc",
+   "permanent_link": "19yWEYiAdPde1nixdvKGr8yzfB7Gffru",
+   "bytes": 43414,
+   "sha256": "d12f7ff13d3724205d8aeb7427f62a046b4b40102593799211bc3fd937d9f7f6",
+   "node_type_counts": {
+    "doc": 1,
+    "edit_area": 1,
+    "footer": 3,
+    "header": 3,
+    "invisible": 1,
+    "navigation": 1,
+    "page_decorate": 1,
+    "page_num": 1,
+    "page_num_block": 1,
+    "page_num_text": 1,
+    "paragraph": 59,
+    "picture": 1,
+    "settings": 1,
+    "style_editor": 1,
+    "style_paragraph": 7,
+    "table": 1,
+    "table_cell": 20,
+    "table_row": 5,
+    "text": 36
+   }
+  },
+  "student_report_snapshot.json": {
+   "source_name": "Student report.odoc",
+   "permanent_link": "19yWBFx8g0qKGwpySqkpIRgDjHzgXcrz",
+   "bytes": 27944,
+   "sha256": "071795589c21818d1502344b24ab8519bc1d945fa5de43c02fb33b1dd2d99395",
+   "node_type_counts": {
+    "doc": 1,
+    "edit_area": 1,
+    "footer": 3,
+    "hard_break": 1,
+    "header": 3,
+    "invisible": 1,
+    "navigation": 1,
+    "page_decorate": 1,
+    "page_num": 1,
+    "page_num_block": 1,
+    "page_num_text": 1,
+    "paragraph": 50,
+    "picture": 2,
+    "settings": 1,
+    "style_editor": 1,
+    "style_paragraph": 7,
+    "text": 46
+   }
+  },
+  "vacation_packing_list_snapshot.json": {
+   "source_name": "Vacation packing list.odoc",
+   "permanent_link": "19yWFTWvRBhLM8COd3WCdrIQ1abDLJdz",
+   "bytes": 29272,
+   "sha256": "9e24c1266f739afbfc1aec4ccc1d2d6e79a9c486cc3dee884b22b90ff6808be4",
+   "node_type_counts": {
+    "doc": 1,
+    "edit_area": 1,
+    "footer": 3,
+    "header": 3,
+    "invisible": 1,
+    "page_decorate": 1,
+    "page_num": 1,
+    "page_num_block": 1,
+    "page_num_text": 1,
+    "paragraph": 38,
+    "picture": 2,
+    "settings": 1,
+    "style_editor": 1,
+    "style_paragraph": 7,
+    "table": 1,
+    "table_cell": 12,
+    "table_row": 6,
+    "text": 29
+   }
+  },
+  "restaurant_menu_snapshot.json": {
+   "source_name": "Restaurant menu.odoc",
+   "permanent_link": "19yWCkOh6S8u3Lw4MvBYSkGUHx3wz5h3",
+   "bytes": 57655,
+   "sha256": "353d5f7d3c4043bbe42befad4b0b7f8677a4c3929f702f885808133e74bb6973",
+   "node_type_counts": {
+    "doc": 1,
+    "edit_area": 1,
+    "footer": 3,
+    "header": 3,
+    "invisible": 1,
+    "page_decorate": 1,
+    "page_num": 1,
+    "page_num_block": 1,
+    "page_num_text": 1,
+    "paragraph": 49,
+    "picture": 12,
+    "settings": 1,
+    "style_editor": 1,
+    "style_paragraph": 7,
+    "text": 59
+   }
+  },
+  "product_spec.docx": {
+   "source_name": "Product spec.odoc",
+   "permanent_link": "19yWEYiAdPde1nixdvKGr8yzfB7Gffru",
+   "note": "O1 改派后的**主通道夹具**：同一份 `.odoc` 经 SYNO.SynologyDrive.Files:download 只读下载回来的**标准 DOCX**（PK\\x03\\x04 ZIP）。NAS 上 size=3390 是原生 OFile 大小，下载回来是转码后的 OOXML，所以两者不等。",
+   "container": "docx",
+   "bytes": 12973,
+   "sha256": "b8de53f1182568c1ca3230f919cf2f615724617901e980f81080afd1ff574393",
+   "parts": {
+    "word/document.xml": "正文 + <w:sectPr>（pgSz 11906x16838 / pgMar 1440）",
+    "word/styles.xml": "docDefaults sz=22（11pt）；Heading1/2 outlineLvl 0/1 + sz 48/40",
+    "word/numbering.xml": "numId=1 → 抽象编号 0：ilvl0 ●、ilvl1 ○、ilvl2 ■，ind left/hanging=450",
+    "word/header1..3.xml": "空段落（3 个）",
+    "word/footer1..3.xml": "空段落（3 个）",
+    "word/media/image1.png": "948 B 真 PNG"
+   },
+   "measured": {
+    "page_width_px": 793.73,
+    "page_height_px": 1122.53,
+    "margin_px": 96.0,
+    "content_width_px": 601.73,
+    "paragraphs": 53,
+    "tables": 1,
+    "table_col_widths_px": [
+     136.0,
+     118.0,
+     232.0,
+     114.0
+    ],
+    "list_items": 2,
+    "list_marker": "●",
+    "images": 1,
+    "style_ids": [
+     "Heading1",
+     "Heading2"
+    ]
+   }
+  }
+ }
+}

@@ -1,0 +1,59 @@
+{
+  "id": "photo_tasks",
+  "unit": "lib/src/features/photos/photo_background_tasks_page.dart",
+  "title": {
+    "zh": "后台任务",
+    "en": "Background tasks"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "rowIcon": "photos",
+  "body": {
+    "type": "list",
+    "items": [
+      {
+        "title": {
+          "zh": "上传 IMG_20260214_1032.jpg",
+          "en": "Upload IMG_20260214_1032.jpg"
+        },
+        "sub": {
+          "zh": "2.1 / 4.2 MB · 50%",
+          "en": "2.1 / 4.2 MB · 50%"
+        },
+        "lead": "cover",
+        "trail": "more",
+        "progress": 0.5
+      },
+      {
+        "title": {
+          "zh": "生成缩略图 128 张",
+          "en": "Thumbnails 128"
+        },
+        "sub": {
+          "zh": "96 / 128 · 75%",
+          "en": "96 / 128 · 75%"
+        },
+        "lead": "icon",
+        "trail": "more",
+        "progress": 0.75
+      },
+      {
+        "title": {
+          "zh": "同步相册「2026 春节」",
+          "en": "Sync album"
+        },
+        "sub": {
+          "zh": "已完成 · 今天 09:12",
+          "en": "Done · today 09:12"
+        },
+        "lead": "icon",
+        "trail": "check",
+        "progress": 1.0
+      }
+    ]
+  },
+  "bottomNav": null
+}

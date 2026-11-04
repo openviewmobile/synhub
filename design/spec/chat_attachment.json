@@ -1,0 +1,41 @@
+{
+  "id": "chat_attachment",
+  "unit": "lib/src/features/chat/attachment_view.dart",
+  "title": {
+    "zh": "附件",
+    "en": "Attachment"
+  },
+  "appbar": {
+    "actions": [
+      "share",
+      "more"
+    ]
+  },
+  "body": {
+    "type": "viewer",
+    "kind": "image",
+    "caption": {
+      "zh": "IMG_20260214_1032.jpg · 4.2 MB · 韩梅梅",
+      "en": "IMG_20260214_1032.jpg · 4.2 MB · Han"
+    },
+    "toolbar": [
+      {
+        "zh": "保存",
+        "en": "Save"
+      },
+      {
+        "zh": "分享",
+        "en": "Share"
+      },
+      {
+        "zh": "信息",
+        "en": "Info"
+      },
+      {
+        "zh": "在频道中查看",
+        "en": "In channel"
+      }
+    ]
+  },
+  "bottomNav": null
+}

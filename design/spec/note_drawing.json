@@ -1,0 +1,45 @@
+{
+  "id": "note_drawing",
+  "unit": "lib/src/features/notes/note_drawing_page.dart",
+  "title": {
+    "zh": "手绘",
+    "en": "Drawing"
+  },
+  "appbar": {
+    "actions": [
+      "save",
+      "more"
+    ]
+  },
+  "body": {
+    "type": "viewer",
+    "kind": "canvas",
+    "caption": {
+      "zh": "无限画布 · 双指缩放 · 拖动平移",
+      "en": "Infinite canvas · pinch to zoom · drag to pan"
+    },
+    "toolbar": [
+      {
+        "zh": "画笔",
+        "en": "Pen"
+      },
+      {
+        "zh": "橡皮",
+        "en": "Eraser"
+      },
+      {
+        "zh": "颜色",
+        "en": "Color"
+      },
+      {
+        "zh": "撤销",
+        "en": "Undo"
+      }
+    ]
+  },
+  "note": {
+    "zh": "画布可一直延伸；导出时按内容包围盒裁剪，不按屏幕裁",
+    "en": "The canvas keeps extending; export crops to the content bounds, not the screen"
+  },
+  "bottomNav": null
+}

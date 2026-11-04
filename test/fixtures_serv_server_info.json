@@ -1,0 +1,50 @@
+{
+ "command": "get_server_info",
+ "env": {
+  "control_host": "cnc.quickconnect.cn",
+  "relay_region": "cn"
+ },
+ "errno": 0,
+ "server": {
+  "ca_fingerprints": [
+   "<redacted>"
+  ],
+  "ddns": "nas.example.com",
+  "ds_state": "CONNECTED",
+  "external": {
+   "ip": "115.204.122.167",
+   "ipv6": "::"
+  },
+  "fqdn": "NULL",
+  "gateway": "192.168.0.1",
+  "interface": [
+   {
+    "ip": "nas.example.com",
+    "ipv6": [],
+    "mask": "255.255.255.0",
+    "name": "eth2"
+   }
+  ],
+  "ipv6_tunnel": [],
+  "is_bsm": false,
+  "pingpong_path": "",
+  "redirect_prefix": "",
+  "serverID": "089002082",
+  "tcp_punch_port": 0,
+  "udp_punch_port": 48743
+ },
+ "service": {
+  "port": 5001,
+  "ext_port": 5001,
+  "pingpong": "UNKNOWN",
+  "pingpong_desc": []
+ },
+ "smartdns": {
+  "host": "DEMO_ADMIN-QQ.direct.quickconnect.cn",
+  "lan": [
+   "192-168-0-181.DEMO_ADMIN-QQ.direct.quickconnect.cn"
+  ],
+  "hole_punch": "127-0-0-1.DEMO_ADMIN-QQ.direct.quickconnect.cn"
+ },
+ "version": 1
+}

@@ -1,0 +1,33 @@
+{
+  "id": "audio_gaps",
+  "unit": "lib/src/features/audio/audio_gaps_page.dart",
+  "title": {
+    "zh": "发现",
+    "en": "Discover"
+  },
+  "appbar": {
+    "actions": [
+      "search",
+      "more"
+    ]
+  },
+  "tabs": [
+    {
+      "zh": "最近添加",
+      "en": "Recently added"
+    },
+    {
+      "zh": "随机 100 首",
+      "en": "100 random"
+    },
+    {
+      "zh": "最近播放",
+      "en": "Recently played"
+    }
+  ],
+  "body": {
+    "type": "grid",
+    "count": 9
+  },
+  "bottomNav": null
+}

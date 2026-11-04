@@ -1,0 +1,25 @@
+{
+  "_source": "**键名**出自反编译 APK `Android-SynologyDrive.3.9.0-1113.ww.apk`：`ApiSynoDriveFiles.METHOD_NAME__LIST_BACKUP_TASKS = \"list_backup_tasks\"`（`:73`）、`VersionComputer = Math.min(3, api.getMaxVersion())`（`ApiSynoDriveFiles.java:665` 区）、分页默认 `offset=0/limit=100`（`ComputerListWork`），条目形状 = 普通 `FileInfoVo`（`ComputerFileInfo` 只包一层、**不加字段**）⇒ 键名 `items/total` 与 `file_id/name/path/isdir/size/mtime/type` 全部来自 **APK 解析代码**（逐字记录见 `lib/src/data/drive_api.dart:1833-1858`）。**条目取值是构造的**（本机 NAS 上没有任何计算机在同步 ⇒ 真机探针只回过 `{\"items\":[],\"total\":0}`，`drive_api.dart:1845-1852`），这里只借它验证分页/解析，**不冒充真机样本**。",
+  "_note": "★ 版本硬门槛已被真机钉住：`Files/list_backup_tasks` **v3 成功**，v1/v2 一律 `103 method not found`（`drive_api.dart:1849-1856`）。夹具只有 v3 一个版本，所以 v1/v2 会撞上 mock 权威目录的 103 分支（`tool/mock_dsm/catalog.json` 的方法表里 v2 没有 list_backup_tasks）。",
+  "total": 2,
+  "items": [
+    {
+      "file_id": "computer-demo-1",
+      "name": "DESKTOP-7",
+      "path": "/mydrive/DESKTOP-7",
+      "isdir": true,
+      "size": 0,
+      "mtime": 1700000000,
+      "type": "dir"
+    },
+    {
+      "file_id": "computer-demo-2",
+      "name": "MacBook-Pro",
+      "path": "/mydrive/MacBook-Pro",
+      "isdir": true,
+      "size": 0,
+      "mtime": 1700000100,
+      "type": "dir"
+    }
+  ]
+}

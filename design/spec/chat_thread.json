@@ -1,0 +1,59 @@
+{
+  "id": "chat_thread",
+  "unit": "lib/src/features/chat/thread_page.dart",
+  "title": {
+    "zh": "时间线要不要两级？",
+    "en": "Two-level timeline?"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "bubbles",
+    "day": {
+      "zh": "话题 · 4 条回复",
+      "en": "Thread · 4 replies"
+    },
+    "messages": [
+      {
+        "side": "in",
+        "name": {
+          "zh": "李雷",
+          "en": "Li"
+        },
+        "text": {
+          "zh": "年/月两级我担心点击成本，用户得点两次才能到某个月。",
+          "en": "Two levels worries me — two taps to reach a month."
+        },
+        "time": "09:41"
+      },
+      {
+        "side": "out",
+        "text": {
+          "zh": "第二级是「点标题展开」，不是跳页，成本只有一次点击。",
+          "en": "The second level expands inline, not a page jump — one tap."
+        },
+        "time": "09:45"
+      },
+      {
+        "side": "in",
+        "name": {
+          "zh": "韩梅梅",
+          "en": "Han"
+        },
+        "text": {
+          "zh": "这样可接受，同意。",
+          "en": "That works for me."
+        },
+        "time": "09:47"
+      }
+    ],
+    "composer": {
+      "zh": "回复话题…",
+      "en": "Reply…"
+    }
+  },
+  "bottomNav": null
+}

@@ -1,0 +1,80 @@
+{
+  "id": "drive_extras",
+  "unit": "lib/src/features/drive/drive_extras_page.dart",
+  "title": {
+    "zh": "更多",
+    "en": "More"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "rowIcon": "folder",
+  "body": {
+    "type": "list",
+    "items": [
+      {
+        "title": {
+          "zh": "Computer",
+          "en": "Computer"
+        },
+        "sub": {
+          "zh": "2 台已连接",
+          "en": "2 connected"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "title": {
+          "zh": "请求文件",
+          "en": "File requests"
+        },
+        "sub": {
+          "zh": "1 个进行中",
+          "en": "1 active"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "title": {
+          "zh": "已连接的设备",
+          "en": "Connected devices"
+        },
+        "sub": {
+          "zh": "3 台",
+          "en": "3 devices"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "title": {
+          "zh": "团队文件夹回收站",
+          "en": "Team folder trash"
+        },
+        "sub": {
+          "zh": "34 项",
+          "en": "34 items"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "title": {
+          "zh": "通知",
+          "en": "Notifications"
+        },
+        "sub": {
+          "zh": "2 条未读",
+          "en": "2 unread"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      }
+    ]
+  },
+  "bottomNav": null
+}

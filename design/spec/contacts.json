@@ -1,0 +1,62 @@
+{
+  "id": "contacts",
+  "unit": "lib/src/features/contacts/contacts_page.dart",
+  "title": {
+    "zh": "联系人",
+    "en": "Contacts"
+  },
+  "appbar": {
+    "actions": [
+      "search",
+      "more"
+    ]
+  },
+  "rowIcon": "user",
+  "body": {
+    "type": "list",
+    "sections": true,
+    "items": [
+      {
+        "section": "L",
+        "title": {
+          "zh": "李雷",
+          "en": "Li"
+        },
+        "sub": {
+          "zh": "设计部 · li@example.com",
+          "en": "Design · li@example.com"
+        },
+        "lead": "#8FB8FF",
+        "trail": "chev"
+      },
+      {
+        "section": "L",
+        "title": {
+          "zh": "林可",
+          "en": "Lin"
+        },
+        "sub": {
+          "zh": "研发部 · lin@example.com",
+          "en": "Engineering · lin@example.com"
+        },
+        "lead": "#A6E3C5",
+        "trail": "chev"
+      },
+      {
+        "section": "H",
+        "title": {
+          "zh": "韩梅梅",
+          "en": "Han"
+        },
+        "sub": {
+          "zh": "市场部 · han@example.com",
+          "en": "Marketing · han@example.com"
+        },
+        "lead": "#F0A8C8",
+        "trail": "chev"
+      }
+    ]
+  },
+  "fab": true,
+  "bottomNav": null
+}

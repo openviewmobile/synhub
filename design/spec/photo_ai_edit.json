@@ -1,0 +1,67 @@
+{
+  "id": "photo_ai_edit",
+  "unit": "lib/src/features/photos/photo_ai_edit_settings_page.dart",
+  "title": {
+    "zh": "AI 美化",
+    "en": "AI enhance"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "settings",
+    "groups": [
+      {
+        "title": {
+          "zh": "强度",
+          "en": "Strength"
+        },
+        "rows": [
+          {
+            "label": {
+              "zh": "自动增强",
+              "en": "Auto enhance"
+            },
+            "kind": "switch",
+            "value": true
+          },
+          {
+            "label": {
+              "zh": "亮度",
+              "en": "Brightness"
+            },
+            "kind": "slider",
+            "value": 0.62
+          },
+          {
+            "label": {
+              "zh": "色彩",
+              "en": "Color"
+            },
+            "kind": "slider",
+            "value": 0.48
+          },
+          {
+            "label": {
+              "zh": "降噪",
+              "en": "Noise reduction"
+            },
+            "kind": "slider",
+            "value": 0.35
+          }
+        ]
+      }
+    ],
+    "note": {
+      "zh": "美化只改 NAS 上的渲染副本，原图不动",
+      "en": "Enhancement only affects the rendered copy; the original is untouched"
+    }
+  },
+  "footerAction": {
+    "zh": "应用并保存",
+    "en": "Apply & save"
+  },
+  "bottomNav": null
+}

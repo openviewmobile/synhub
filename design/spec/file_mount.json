@@ -1,0 +1,44 @@
+{
+  "id": "file_mount",
+  "unit": "lib/src/features/files/file_mount_page.dart",
+  "title": {
+    "zh": "远程挂载",
+    "en": "Remote mounts"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "list",
+    "items": [
+      {
+        "title": {
+          "zh": "NAS 媒体库（NFS）",
+          "en": "NAS media (NFS)"
+        },
+        "sub": {
+          "zh": "192.168.1.10:/volume1/media · 已挂载",
+          "en": "192.168.1.10:/volume1/media · mounted"
+        },
+        "lead": "icon",
+        "trail": "check"
+      },
+      {
+        "title": {
+          "zh": "同事共享（SMB）",
+          "en": "Team share (SMB)"
+        },
+        "sub": {
+          "zh": "192.168.1.22/share · 未挂载",
+          "en": "192.168.1.22/share · not mounted"
+        },
+        "lead": "icon",
+        "trail": "more"
+      }
+    ]
+  },
+  "fab": true,
+  "bottomNav": "files"
+}

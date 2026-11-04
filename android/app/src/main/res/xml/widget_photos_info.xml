@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 相册小组件（P66）的元数据。
+     * updatePeriodMillis=1800000（30 分钟）是 Android 允许的**最小值**：
+       它提供"被动定时刷新"兜底（App 没跑或被杀时，小组件至少半小时重画一次，
+       状态不会永远停在旧数据上）。真正即时的刷新走
+       SynologyWidgetBridge.pushSnapshot → updateAppWidget。
+     * targetCellWidth/Height 是 API 31+ 的"格子"提示，低版本忽略（不报错）。 -->
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:description="@string/widget_photos_label"
+    android:initialLayout="@layout/widget_photos_layout"
+    android:minHeight="110dp"
+    android:minWidth="180dp"
+    android:previewLayout="@layout/widget_photos_layout"
+    android:resizeMode="horizontal|vertical"
+    android:targetCellHeight="2"
+    android:targetCellWidth="3"
+    android:updatePeriodMillis="1800000"
+    android:widgetCategory="home_screen" />

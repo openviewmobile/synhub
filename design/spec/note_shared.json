@@ -1,0 +1,48 @@
+{
+  "id": "note_shared",
+  "unit": "lib/src/features/notes/note_shared_page.dart",
+  "title": {
+    "zh": "我分享的",
+    "en": "Shared by me"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "rowIcon": "share",
+  "body": {
+    "type": "list",
+    "items": [
+      {
+        "title": {
+          "zh": "时间线收口说明",
+          "en": "Timeline notes"
+        },
+        "sub": {
+          "zh": "2 人可看 · 无密码",
+          "en": "2 people · no password"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "title": {
+          "zh": "评审纪要 2 月",
+          "en": "Review minutes Feb"
+        },
+        "sub": {
+          "zh": "1 人可编辑 · 有到期",
+          "en": "1 editor · expires"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      }
+    ]
+  },
+  "note": {
+    "zh": "取消分享后，对方立即失去访问",
+    "en": "Unsharing revokes access immediately"
+  },
+  "bottomNav": null
+}

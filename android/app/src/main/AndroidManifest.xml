@@ -1,0 +1,527 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <!-- 语音消息（Phase 5）：录音要用麦克风；just_audio 播放在线附件要联网 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <!-- 日历天气/节假日的"我现在在哪儿"：粗略定位就够（城市级），精确定位能更快锁上 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- Phase 8：常驻前台服务 + 通知 + 开机自启 -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC"/>
+    <!-- 音频后台播放（audio_service，官方 DSaudio 的 PlaybackService 同构）：
+         Android 14+（API 34）起 mediaPlayback 类型要单独声明；低版本忽略，无害。 -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK"/>
+    <!-- ★ 第 278 轮：常驻 Socket 的前台服务改用 **specialUse** 类型。
+         为什么**不再用 dataSync**（Android 15 / API 35 起的两条硬变更，官方
+         behavior-changes-15 逐字）：
+           ① `dataSync` 在 **24 小时内只能累计跑 6 小时**，到点系统调
+              `Service.onTimeout(int,int)`，几秒内不 `stopSelf()` 就抛
+              `RemoteServiceException: A foreground service of type dataSync
+              did not stop within its timeout` —— 常驻 Socket 必然超时；
+           ② Android 15 起 **BOOT_COMPLETED 接收器不允许启动**
+              dataSync / camera / mediaPlayback / phoneCall / mediaProjection /
+              microphone 类型的前台服务，否则 `ForegroundServiceStartNotAllowedException`
+              —— 我们的 `.BootReceiver` 正是开机拉起它。
+         `specialUse` 是"其它类型都不贴切"时的官方兜底类型，**不在**上面两条
+         的限制名单里；代价是要这个普通权限 + service 上的 `<property>`
+         subtype 声明（Google Play 上架需在 Play Console 声明用途；本项目是
+         内部/自用分发，不走上架审核）。
+         证据与完整的版本矩阵：`docs/android-compat-matrix.md` §1（API 35 行）。 -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <!-- 相册「手机自动备份」：WorkManager 的 NetworkType 约束要读当前网络状态 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <!-- 相册「手机自动备份」：引导用户把本 App 加入电池优化白名单，
+         否则 OEM 省电策略会在后台掐掉 Worker（官方 Synology Photos 同样声明） -->
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
+    <!-- Android 平台批 A：待办提醒要"准点"，官方 DS note 也用 AlarmManager。
+         Android 12+（API 31）起 setExact* 需要这个**用户可撤销**的权限；
+         未授权时我们降级为 setAndAllowWhileIdle（不精确、Doze 下仍尽量唤醒），
+         并在设置页如实显示"精确闹钟未授权：提醒可能延迟"。
+         不声明 USE_EXACT_ALARM：那是给闹钟/日历类应用的**自动**授权
+         （Google Play 政策限定用途），本项目是 NAS 客户端，走可撤销的
+         SCHEDULE_EXACT_ALARM + 降级路径更合适。见 NoteReminderPlugin.kt。 -->
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/>
+    <!-- Phase 9：应用锁的生物识别解锁（local_auth / BiometricPrompt） -->
+    <uses-permission android:name="android.permission.USE_BIOMETRIC"/>
+    <!-- Android 13+ 从相册选图（image_picker / file_picker 用系统选择器，这里不申请存储权限） -->
+    <!-- 相册「手机自动备份」：读取本机相册（图片/视频）必须的运行时权限。
+         targetSdk=36 → API 33+ 用 READ_MEDIA_*（READ_EXTERNAL_STORAGE 在 13+ 不再生效），
+         API 12 及以下才回落到 READ_EXTERNAL_STORAGE（用 maxSdkVersion=32 限定），
+         API 14+ 还要处理"部分授权"（用户只选了几张）。见 docs/p2-photos-backup-research.md §2.1 -->
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_VISUAL_USER_SELECTED"/>
+    <!-- Phase 5：把附件存进系统「下载」目录。API 29+ 走 MediaStore（无需权限），
+         只有老的直接写公共目录才需要 WRITE_EXTERNAL_STORAGE -->
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28"/>
+    <!-- ★ 247 轮：只给**回环地址**开明文 —— 真机验证 Kotlin 侧网络代码时
+         本机 Mock Server 经 `adb reverse` 映射到设备 `127.0.0.1`，而平台网络栈
+         （HttpURLConnection/Media3）会严格执行明文策略（Dart 走裸 socket 不受影响）。
+         真实 NAS 走 QuickConnect/局域网 IP 时仍按系统默认**禁止明文**，
+         所以这条不放松真实场景的安全边界。见 res/xml/network_security_config.xml -->
+    <application
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:label="@string/app_name"
+        android:name="${applicationName}"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:localeConfig="@xml/locales_config">
+        <!-- ★ D66（213 轮）：SAF / ContentProvider —— 把「离线文件」暴露给系统
+             文件选择器（官方 Drive 的 `DriveDocumentsProvider` 同构）。
+             * authority 与 Dart 侧 `safAuthority`、Kotlin 侧 `AUTHORITY` **三处一致**；
+             * `MANAGE_DOCUMENTS` 是系统权限：只有系统（文件选择器）能访问，
+               不需要给第三方 App 授权，也不导出给普通应用；
+             * 实现在 `DriveDocumentsProvider.kt`：只读，数据来自 Dart 写下的
+               `<dataDir>/app_flutter/saf/drive_index.json`（只有真正缓存到本地的文件）。 -->
+        <provider
+            android:name=".DriveDocumentsProvider"
+            android:authorities="com.openviewai.synhub.drive.documents"
+            android:exported="true"
+            android:grantUriPermissions="true"
+            android:permission="android.permission.MANAGE_DOCUMENTS"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.content.action.DOCUMENTS_PROVIDER"/>
+            </intent-filter>
+        </provider>
+
+        <!-- C3 Chromecast：Cast SDK 要求声明选项提供者（默认媒体接收器 CC1AD845） -->
+        <meta-data
+            android:name="com.google.android.gms.cast.framework.OPTIONS_PROVIDER_CLASS_NAME"
+            android:value="com.openviewai.synhub.CastOptionsProvider" />
+
+        <!-- Phase 5：分享/打开缓存里的附件要给对方应用临时读权限 -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:taskAffinity=""
+            android:supportsPictureInPicture="true"
+            android:theme="@style/LaunchTheme"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+            android:hardwareAccelerated="true"
+            android:windowSoftInputMode="adjustResize">
+            <!-- Specifies an Android theme to apply to this Activity as soon as
+                 the Android process has started. This theme is visible to the user
+                 while the Flutter UI initializes. After that, this theme continues
+                 to determine the Window background behind the Flutter UI. -->
+            <meta-data
+              android:name="io.flutter.embedding.android.NormalTheme"
+              android:resource="@style/NormalTheme"
+              />
+            <!-- ★ r396 · DA40 修复：**关掉 Flutter 引擎的 deep-linking 路由推送**。
+                 未声明时框架缺省是 **true**（证据 = release embedding jar 的字节码：
+                 `FlutterActivityLaunchConfigs.deepLinkEnabled(Bundle)` 在 key 不存在时
+                 返回 `iconst_1`；`FlutterActivityAndFragmentDelegate.onNewIntent` 会
+                 把 `intent.getData().toString()` 交给
+                 `FlutterEngine.getNavigationChannel().pushRouteInformation(route)`）。
+                 后果（真机实测）：**任何带 data 的 ACTION_VIEW**（连未注册的 scheme、
+                 连 `https://`）都会让 Router 收到一条路由信息：
+                   * 自定义 scheme（host 有值、path 空）→ 被规整成根 → **当前 push 出来的
+                     子页被弹掉**（Me→Settings 弹回 Me 根）；
+                   * http(s)（path 有值但无对应路由）→ 落到 `errorBuilder` 的
+                     「Page not found」整屏。
+                 本 App 的深链**不走这条路**：`synochat*` 由我们自己的 `DeepLinkBridge`
+                 在 `onCreate`/`onNewIntent` 里读 `address`/`account` extras 交给 Dart
+                 （只在未登录时预填登录表单），与引擎的路由推送无关；
+                 `GoRouter` 也显式给了 `initialLocation`，不读 `defaultRouteName`。
+                 故此处**声明 false**，既保留我们的深链，又掐掉「外部 intent 复位子页」。 -->
+            <meta-data
+              android:name="flutter_deeplinking_enabled"
+              android:value="false"
+              />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <!-- 「分享到 Chat」：逐行对位原版 exported `ShareActivity`
+                 （`AndroidManifest.xml:224-241` 的 ACTION_SEND /
+                 ACTION_SEND_MULTIPLE + `*/*`）。落点复用 MainActivity
+                 （`singleTop`：前台时走 `onNewIntent`），不再单起一个 Activity，
+                 这样"选频道 → 发送"沿用同一套会话与本地库。 -->
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="*/*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND_MULTIPLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="*/*"/>
+            </intent-filter>
+            <!-- 审计行 262：聊天深链。逐字对齐官方 SplashActivity 的过滤器
+                 （真机 `dumpsys package` 实测：VIEW + DEFAULT + BROWSABLE，
+                 四条 scheme，**无 authority / path**）。
+                 ⚠️ 故意**不声明** `synology-chat`：那是官方 AppAuth 的 OAuth 回跳
+                 （receiver = net.openid.appauth.RedirectUriReceiverActivity），
+                 本 App 无 OIDC 登录，声明了只会误导。 -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="synochat"/>
+                <data android:scheme="synochats"/>
+                <data android:scheme="synochatGuest"/>
+                <data android:scheme="synochatsGuest"/>
+            </intent-filter>
+        </activity>
+        <!-- Phase 8：常驻 Socket 的前台服务。
+             ★ 第 278 轮：类型由 `dataSync` 改为 **`specialUse`**（理由见上面
+             `FOREGROUND_SERVICE_SPECIAL_USE` 权限的注释：dataSync 有 24h/6h
+             超时 + 不许从 BOOT_COMPLETED 启动）。
+             `android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE` 是 Android 14+
+             对 specialUse 的**必填**说明串（省电/审核用途）。 -->
+        <service
+            android:name=".ChatForegroundService"
+            android:exported="false"
+            android:foregroundServiceType="specialUse">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="persistent_self_hosted_chat_socket"/>
+        </service>
+
+        <!-- 通知里的回复/已读/贪睡 -->
+        <receiver
+            android:name=".NotificationActionReceiver"
+            android:exported="false"/>
+
+        <!-- 开机自启（要在设置里开启） -->
+        <receiver
+            android:name=".BootReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+
+        <!-- Android 平台批 A：待办提醒的系统闹钟（进程外响铃 → 发通知，
+             通知渠道 id = 官方 "dsnote"）。由 AlarmManager 的 PendingIntent
+             触发，只有本 App 能发，exported=false。 -->
+        <receiver
+            android:name=".NoteReminderReceiver"
+            android:exported="false"/>
+        <!-- 每日逾期汇总（官方 setInexactRepeating，24h） -->
+        <receiver
+            android:name=".NoteReminderOverdueReceiver"
+            android:exported="false"/>
+        <!-- 开机 / 应用更新后重排待办闹钟（官方 AlarmInitReceiver 同构）。
+             只读本机快照，不需要 Flutter 引擎，也不需要联网。 -->
+        <receiver
+            android:name=".NoteReminderBootReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+
+        <!-- 相册「手机自动备份」（WorkManager）：开机 / 应用更新后重新入队。
+             进程外只读本机 prefs，不需要 Flutter 引擎；未启用时 receiver 会自行跳过。 -->
+        <receiver
+            android:name=".PhotoBackupBootReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <!-- 相册「手机自动备份」：息屏触发（仅"仅息屏备份"模式下真正入队）。
+             SCREEN_OFF 是少数仍允许静态注册的隐式广播；只有系统能发，exported=false。 -->
+        <receiver
+            android:name=".PhotoBackupScreenOffReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.SCREEN_OFF"/>
+            </intent-filter>
+        </receiver>
+
+        <!-- ================= 主屏小组件（P66 相册 / N1 笔记） =================
+             六个 AppWidgetProvider。共同点：
+               * `exported="false"`：APPWIDGET_UPDATE 是**显式**广播（系统按
+                 ComponentName 直投），不需要对外暴露接收器；这与官方文档示例
+                 （`<receiver ... android:exported="false">`）一致；
+               * `<meta-data android:name="android.appwidget.provider">` 指向
+                 `res/xml/widget_*_info.xml`（尺寸、定时刷新周期、初始布局）；
+               * 布局只含 RemoteViews 支持的视图（LinearLayout / ImageView /
+                 TextView），缩略图走 `setImageViewBitmap` 而不是 `content://`
+                 —— launcher 进程没有本 App FileProvider 的读权限。
+
+             `updatePeriodMillis` 是**被动定时刷新**的兜底（30 分钟，系统最小值；
+             「新建笔记」不需要数据，6 小时）；App 主动刷新走
+             `SynologyWidgetBridge.pushSnapshot → updateAppWidget`。 -->
+        <receiver
+            android:name=".PhotoGridWidgetProvider"
+            android:exported="false"
+            android:label="@string/widget_photos_label">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_photos_info"/>
+        </receiver>
+        <receiver
+            android:name=".NotesWidgetProvider"
+            android:exported="false"
+            android:label="@string/widget_notes_label">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_notes_info"/>
+        </receiver>
+        <receiver
+            android:name=".TodosWidgetProvider"
+            android:exported="false"
+            android:label="@string/widget_todos_label">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_todos_info"/>
+        </receiver>
+        <!-- 「快捷启动」动作栏（官方 `ShortcutAppWidgetProvider` = "Quickstart"，
+             6 格：logo/拍照/录音/附件/明文/待办）。`exported="false"` 与官方一致。 -->
+        <receiver
+            android:name=".QuickstartWidgetProvider"
+            android:exported="false"
+            android:label="@string/widget_quickstart_label">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_quickstart_info"/>
+        </receiver>
+        <receiver
+            android:name=".NotebookWidgetProvider"
+            android:exported="false"
+            android:label="@string/widget_notebooks_label">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_notebooks_info"/>
+        </receiver>
+        <!-- 笔记本小组件的配置页（官方 `NotebookListAppWidgetActivity` 对应物）：
+             必须有 `APPWIDGET_CONFIGURE` action，否则系统点不动配置按钮。
+             `exported="true"` 与官方一致（系统/launcher 会拉起它）。
+             `excludeFromRecents` + `noHistory`：配置页不该出现在最近任务里。 -->
+        <activity
+            android:name=".NotebookWidgetConfigActivity"
+            android:exported="true"
+            android:excludeFromRecents="true"
+            android:label="@string/widget_notebooks_label"
+            android:noHistory="true"
+            android:theme="@android:style/Theme.DeviceDefault.Dialog">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <receiver
+            android:name=".NewNoteWidgetProvider"
+            android:exported="false"
+            android:label="@string/widget_new_note_label">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_new_note_info"/>
+        </receiver>
+
+        <!-- 相册「手机自动备份」：WorkManager 用 `setForeground()` 起的前台服务
+             （`PhotoBackupWorker.createForegroundInfo` → `ForegroundInfo(10001,
+             notification, FOREGROUND_SERVICE_TYPE_DATA_SYNC)`）。
+             `androidx.work` 库自己只声明了 <service>，**不带** foregroundServiceType；
+             本 App 必须在这里覆盖声明，否则 `lintVitalRelease` 直接报
+             "Missing dataSync foregroundServiceType"（release 构建会失败），
+             Android 14+ 运行时也会抛 MissingForegroundServiceTypeException。
+             `tools:node="merge"` = 只补类型，保留库里 exported 等属性。 -->
+        <service
+            android:name="androidx.work.impl.foreground.SystemForegroundService"
+            android:foregroundServiceType="dataSync"
+            tools:node="merge" />
+
+        <!-- 音频后台播放（audio_service）：MediaSession + 前台服务（mediaPlayback）。
+             与既有的 `.ChatForegroundService`（dataSync）、WorkManager 的
+             SystemForegroundService（dataSync）**并存**，互不影响；
+             通知 id 由 Dart 侧分配（聊天 1001 / 备份 10001 / 音频 10002）。
+             `tools:ignore="Instantiatable"` 是官方 README 要求的（该服务由库提供）。 -->
+        <service
+            android:name="com.ryanheise.audioservice.AudioService"
+            android:foregroundServiceType="mediaPlayback"
+            android:exported="true"
+            tools:ignore="Instantiatable">
+            <intent-filter>
+                <action android:name="android.media.browse.MediaBrowserService" />
+            </intent-filter>
+        </service>
+
+        <!-- 耳机线控 / 蓝牙媒体按键（官方 DSaudio 的 MediaButtonReceiver 同构） -->
+        <receiver
+            android:name="com.ryanheise.audioservice.MediaButtonReceiver"
+            android:exported="true"
+            tools:ignore="Instantiatable">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BUTTON" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Don't delete the meta-data below.
+             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
+        <meta-data
+            android:name="flutterEmbedding"
+            android:value="2" />
+            <!-- ★ D65（228 轮）：Drive 同步任务的原生常驻文件监听。
+             只注册 FileObserver + 排 WorkManager 任务，**不** setForeground ⇒
+             无需 foregroundServiceType 声明。 -->
+        <service
+            android:name=".DriveFileWatchService"
+            android:exported="false"
+            android:stopWithTask="false"/>
+
+</application>
+    <!-- Required to query activities that can process text, see:
+         https://developer.android.com/training/package-visibility and
+         https://developer.android.com/reference/android/content/Intent#ACTION_PROCESS_TEXT.
+
+         In particular, this is used by the Flutter engine in io.flutter.plugin.text.ProcessTextPlugin. -->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.PROCESS_TEXT"/>
+            <data android:mimeType="text/plain"/>
+        </intent>
+        <!-- ★ 第 278 轮：**厂商系统设置包**（Android 11+ / API 30+ 的包可见性）。
+             `OemCompatBridge.resolveAutostart()` 要用 `PackageManager.resolveActivity`
+             **验真**本机到底有没有该厂商的「自启动／应用启动管理」页；
+             没有这些声明，`resolveActivity` 会被可见性过滤成 null ⇒
+             明明系统里有页面却探不到（与 `MediaOpenBridge` 的 video/mp4
+             事故同一类，见 `docs/native-media-playback-research.md` §10.3），
+             界面就会退化成"只有手动路径"。
+
+             范围：**只列本 App 真的会探测/启动的厂商系统设置包**，不写通配。
+             这些都是 ROM 自带的系统管理应用；声明可见性**不授予**任何数据访问，
+             只让"这一页在不在"这个判定成立。（`google`/`other` 厂商没有这一层，
+             不列。） -->
+        <package android:name="com.miui.securitycenter"/>
+        <package android:name="com.huawei.systemmanager"/>
+        <package android:name="com.hihonor.systemmanager"/>
+        <package android:name="com.coloros.safecenter"/>
+        <package android:name="com.oplus.safecenter"/>
+        <package android:name="com.oppo.safe"/>
+        <package android:name="com.oneplus.security"/>
+        <package android:name="com.vivo.permissionmanager"/>
+        <package android:name="com.iqoo.secure"/>
+        <package android:name="com.samsung.android.lool"/>
+        <package android:name="com.samsung.android.sm_cn"/>
+        <package android:name="com.meizu.safe"/>
+        <package android:name="com.transsion.phonemaster"/>
+        <package android:name="com.itel.phonemaster"/>
+        <!-- 包可见性（Android 11+ / API 30+）：「用其他应用打开」的 ACTION_VIEW。
+
+             `MediaOpenBridge.viewLocal` / `view` 先用 `queryIntentActivities` 预探测，
+             再 `startActivity`。API 30 起，未在 <queries> 声明的 intent 一律查不到，
+             于是 `video/mp4` / `video/x-matroska` 的查询返回空 → 直接 `return false`
+             （真机 logcat：`没有应用能处理 video/mp4（也没有 video/* / audio/* 兜底）`），
+             而 `adb shell pm query-activities -a android.intent.action.VIEW -t video/mp4
+             -c android.intent.category.DEFAULT` 在同一台设备上能查到
+             `com.huawei.himovie` —— 证明系统里**有** handler，只是本 App 看不见。
+
+             MIME 只声明**规范通配**（`video/*` 这类），**绝不声明 `*/*`**：历史上
+             `*/*` 正是 `.mkv` 被 `com.android.packageinstaller/.InstallStart` 接走的原因
+             （见 docs/native-media-playback-research.md §10.3）。
+
+             `image/*` / `text/*` / `application/*` 覆盖 `kMimeByExtension` 里本 App 实际
+             会外开的其余类型（Office / zip / apk / vCard…）；细分类型靠通配覆盖，
+             不再逐条列举（维护面太大且每多一条就多一份漏配风险）。 -->
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <category android:name="android.intent.category.DEFAULT"/>
+            <data android:mimeType="video/*"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <category android:name="android.intent.category.DEFAULT"/>
+            <data android:mimeType="audio/*"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <category android:name="android.intent.category.DEFAULT"/>
+            <data android:mimeType="image/*"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <category android:name="android.intent.category.DEFAULT"/>
+            <data android:mimeType="text/*"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <category android:name="android.intent.category.DEFAULT"/>
+            <data android:mimeType="application/*"/>
+        </intent>
+        <!-- 相册「在地图中打开」（`lib/src/features/photos/photo_map_links.dart`）：
+             腾讯 / 百度的首选是 **App scheme**，交给 `url_launcher` 的 `ACTION_VIEW`。
+             Android 11+（API 30+）的包可见性下，**没有下面这些声明**时
+             `canLaunchUrl` / `launchUrl` 对自定义 scheme 一律失败（与"App 没装"
+             无法区分）→ 装了 App 也永远回落网页。只声明本 App 真的会调起的三家：
+
+               * 腾讯：`qqmap://map/marker?...`（package `com.tencent.map`）
+               * 百度：`baidumap://map/marker?...`（package `com.baidu.BaiduMap`）
+               * 高德：官方 App URI 是 `androidamap://viewMap?...` 与
+                 `amapuri://route/plan/?...`（见 docs/photo-map-evaluation.md §10 的
+                 官方原文引用）。本 App 高德**不**自己拼 scheme，走 https
+                 `callnative=1`（Dart `Uri` 会把 `viewMap` 归一成小写），
+                 这里声明 package + 官方 scheme 是让"系统里有没有高德"这一判定成立。
+
+             **刻意不声明 Google Maps 的任何包/scheme**：境外统一走
+             `https://maps.google.com/`，https 由系统浏览器处理，**不需要**包可见性；
+             `<queries>` 里每多一条就多一份暴露面。 -->
+        <package android:name="com.tencent.map"/>
+        <package android:name="com.baidu.BaiduMap"/>
+        <package android:name="com.autonavi.minimap"/>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <category android:name="android.intent.category.DEFAULT"/>
+            <data android:scheme="qqmap"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <category android:name="android.intent.category.DEFAULT"/>
+            <data android:scheme="baidumap"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <category android:name="android.intent.category.DEFAULT"/>
+            <data android:scheme="androidamap"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <category android:name="android.intent.category.DEFAULT"/>
+            <data android:scheme="amapuri"/>
+        </intent>
+    </queries>
+</manifest>

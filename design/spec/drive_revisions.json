@@ -1,0 +1,55 @@
+{
+  "id": "drive_revisions",
+  "unit": "lib/src/features/files/drive_revisions_page.dart",
+  "title": {
+    "zh": "版本历史",
+    "en": "Version history"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "list",
+    "items": [
+      {
+        "title": {
+          "zh": "版本 12 · 当前",
+          "en": "Version 12 · current"
+        },
+        "sub": {
+          "zh": "我 · 今天 10:12 · 38 KB",
+          "en": "Me · today 10:12 · 38 KB"
+        },
+        "lead": "icon",
+        "trail": "check"
+      },
+      {
+        "title": {
+          "zh": "版本 11",
+          "en": "Version 11"
+        },
+        "sub": {
+          "zh": "李雷 · 昨天 18:40 · 36 KB",
+          "en": "Li · yesterday 18:40 · 36 KB"
+        },
+        "lead": "icon",
+        "trail": "more"
+      },
+      {
+        "title": {
+          "zh": "版本 10",
+          "en": "Version 10"
+        },
+        "sub": {
+          "zh": "我 · 3 天前 · 35 KB",
+          "en": "Me · 3 days ago · 35 KB"
+        },
+        "lead": "icon",
+        "trail": "more"
+      }
+    ]
+  },
+  "bottomNav": null
+}

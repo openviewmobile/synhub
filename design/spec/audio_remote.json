@@ -1,0 +1,56 @@
+{
+  "id": "audio_remote",
+  "unit": "lib/src/features/audio/audio_remote_page.dart",
+  "title": {
+    "zh": "远程播放器",
+    "en": "Remote players"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "list",
+    "items": [
+      {
+        "title": {
+          "zh": "SynHub Test Renderer",
+          "en": "SynHub Test Renderer"
+        },
+        "sub": {
+          "zh": "DLNA / UPnP · 同一局域网",
+          "en": "DLNA / UPnP · LAN"
+        },
+        "lead": "icon",
+        "trail": "play"
+      },
+      {
+        "title": {
+          "zh": "蓝牙耳机",
+          "en": "Bluetooth headset"
+        },
+        "sub": {
+          "zh": "蓝牙 · 已配对",
+          "en": "Bluetooth · paired"
+        },
+        "lead": "icon",
+        "trail": "play"
+      },
+      {
+        "title": {
+          "zh": "本机当前曲目",
+          "en": "Current track on this device"
+        },
+        "sub": "Demo Song · Demo Artist",
+        "lead": "cover",
+        "trail": "none"
+      }
+    ]
+  },
+  "note": {
+    "zh": "把当前曲目推到该设备",
+    "en": "Push the current track to a device"
+  },
+  "bottomNav": null
+}

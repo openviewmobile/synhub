@@ -1,0 +1,35 @@
+{
+  "id": "audio_cast",
+  "unit": "lib/src/features/audio/audio_cast_page.dart",
+  "title": {
+    "zh": "Chromecast 投送",
+    "en": "Chromecast"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "unavailable",
+    "title": {
+      "zh": "本机没有 Google Play 服务",
+      "en": "Google Play services not available"
+    },
+    "body": [
+      {
+        "zh": "Chromecast 投送需要 GMS，这台设备上不可用。",
+        "en": "Chromecast requires GMS, which is not available on this device."
+      },
+      {
+        "zh": "可以改用同网段的 DLNA 投送。",
+        "en": "You can use DLNA on the same network instead."
+      }
+    ],
+    "action": {
+      "zh": "改用 DLNA 投送",
+      "en": "Use DLNA instead"
+    }
+  },
+  "bottomNav": null
+}

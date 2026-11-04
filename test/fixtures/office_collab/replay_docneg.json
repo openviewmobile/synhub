@@ -1,0 +1,135 @@
+{
+ "_provenance": {
+  "source": "/tmp/office-collab-spike/evid/dart_frames_docneg.json",
+  "batch": "docs/office-collab-protocol-spike.md (M0 live spike, negative probes 402/411)",
+  "document": "same self-created temporary .odoc (deleted after the batch)",
+  "kept": "only dir=c2s|s2c protocol frames (notice/HTTP-log frames dropped)",
+  "masking": "every \"sid\":\"...\" and \"id\":\"...\" value replaced with \"<redacted>\"; document content kept"
+ },
+ "target_temporary_document": {
+  "path": "/mydrive/__verify_tmp3_20260921/spike_min.odoc",
+  "link_id": "19yfWXfe2ZGfFb5oigOvzXifW0g5LZnn",
+  "file_id": "974379785773955395",
+  "object_id": "1028_FATHU56MD53F5ARCP55HVG877S.doc",
+  "ntype": "doc"
+ },
+ "server_events": [
+  "[\"ready\"]"
+ ],
+ "frames": [
+  {
+   "seq": 3,
+   "dir": "s2c",
+   "transport": "polling",
+   "raw": "0{\"sid\":\"<redacted>\",\"upgrades\":[\"websocket\"],\"pingInterval\":25000,\"pingTimeout\":60000,\"maxPayload\":100000000}"
+  },
+  {
+   "seq": 5,
+   "dir": "c2s",
+   "transport": "websocket",
+   "raw": "2probe"
+  },
+  {
+   "seq": 6,
+   "dir": "s2c",
+   "transport": "websocket",
+   "raw": "3probe"
+  },
+  {
+   "seq": 7,
+   "dir": "c2s",
+   "transport": "websocket",
+   "raw": "5"
+  },
+  {
+   "seq": 8,
+   "dir": "c2s",
+   "transport": "websocket",
+   "raw": "40"
+  },
+  {
+   "seq": 9,
+   "dir": "s2c",
+   "transport": "websocket",
+   "raw": "40{\"sid\":\"<redacted>\"}"
+  },
+  {
+   "seq": 10,
+   "dir": "s2c",
+   "transport": "websocket",
+   "raw": "42[\"ready\"]"
+  },
+  {
+   "seq": 11,
+   "dir": "c2s",
+   "transport": "websocket",
+   "raw": "421[\"say_hello\"]"
+  },
+  {
+   "seq": 12,
+   "dir": "s2c",
+   "transport": "websocket",
+   "raw": "431[{\"id\":\"<redacted>\",\"serverId\":\"f663682760b06e48\"}]"
+  },
+  {
+   "seq": 13,
+   "dir": "c2s",
+   "transport": "websocket",
+   "raw": "422[\"ask_peers\"]"
+  },
+  {
+   "seq": 14,
+   "dir": "s2c",
+   "transport": "websocket",
+   "raw": "432[[{\"id\":\"<redacted>\",\"uid\":1028,\"selection\":null,\"nickname\":\"\",\"color\":\"#94bf13\",\"guest_id\":null,\"name\":\"demo_user\"}]]"
+  },
+  {
+   "seq": 15,
+   "dir": "c2s",
+   "transport": "websocket",
+   "raw": "423[\"fetch\"]"
+  },
+  {
+   "seq": 16,
+   "dir": "s2c",
+   "transport": "websocket",
+   "raw": "433[null,{\"doc\":{\"version\":2,\"data\":{\"type\":\"doc\",\"attrs\":{\"schema\":13,\"type\":\"document\",\"page_setup\":{\"left\":2.54,\"top\":2.54,\"right\":2.54,\"bottom\":2.54,\"orientation\":\"portrait\",\"page_type\":\"letter\"}},\"content\":[{\"type\":\"settings\"},{\"type\":\"style_editor\",\"content\":[{\"type\":\"style_paragraph\"},{\"type\":\"style_paragraph\",\"attrs\":{\"paddingTop\":0,\"paddingBottom\":0,\"headingId\":\"_heading0\",\"headingLevel\":0}},{\"type\":\"style_paragraph\",\"attrs\":{\"paddingTop\":0,\"paddingBottom\":0,\"headingId\":\"_heading1\",\"headingLevel\":1}},{\"type\":\"style_paragraph\",\"attrs\":{\"paddingTop\":0,\"paddingBottom\":0,\"headingId\":\"_heading2\",\"headingLevel\":2}},{\"type\":\"style_paragraph\",\"attrs\":{\"paddingTop\":0,\"paddingBottom\":0,\"headingId\":\"_heading3\",\"headingLevel\":3}},{\"type\":\"style_paragraph\",\"attrs\":{\"paddingTop\":0,\"paddingBottom\":0,\"headingId\":\"_heading4\",\"headingLevel\":4}},{\"type\":\"style_paragraph\",\"attrs\":{\"paddingTop\":0,\"paddingBottom\":0,\"headingId\":\"_heading5\",\"headingLevel\":5}}]},{\"type\":\"invisible\"},{\"type\":\"edit_area\",\"attrs\":{\"listMap\":{}},\"content\":[{\"type\":\"paragraph\",\"content\":[{\"type\":\"text\",\"text\":\"C3SPIKE-DOC-BASE#\"}]}]},{\"type\":\"page_decorate\",\"attrs\":{\"place-show\":false,\"place-cover\":false,\"place-even\":false,\"num-show\":false,\"num-cover\":false,\"num-even\":false,\"num-pos\":\"br\"},\"content\":[{\"type\":\"header\",\"attrs\":{\"type\":\"cover\"},\"content\":[{\"type\":\"paragraph\"}]},{\"type\":\"header\",\"attrs\":{\"type\":\"even\"},\"content\":[{\"type\":\"paragraph\"}]},{\"type\":\"header\",\"attrs\":{\"type\":\"normal\"},\"content\":[{\"type\":\"paragraph\"}]},{\"type\":\"footer\",\"attrs\":{\"type\":\"cover\"},\"content\":[{\"type\":\"paragraph\"}]},{\"type\":\"footer\",\"attrs\":{\"type\":\"even\"},\"content\":[{\"type\":\"paragraph\"}]},{\"type\":\"footer\",\"attrs\":{\"type\":\"normal\"},\"content\":[{\"type\":\"paragraph\"}]},{\"type\":\"page_num\",\"attrs\":{\"type\":\"normal\"},\"content\":[{\"type\":\"page_num_block\",\"content\":[{\"type\":\"page_num_text\"}]}]}]}]},\"comment_store\":[]}}]"
+  },
+  {
+   "seq": 17,
+   "dir": "c2s",
+   "transport": "websocket",
+   "raw": "424[\"event\",{\"version\":7,\"steps\":[{\"stepType\":\"replace\",\"from\":37,\"to\":37,\"slice\":{\"content\":[{\"type\":\"text\",\"text\":\"X\"}],\"openLeft\":0,\"openRight\":0},\"structure\":false}],\"clientId\":\"spikedart01\",\"selection\":null}]"
+  },
+  {
+   "seq": 18,
+   "dir": "s2c",
+   "transport": "websocket",
+   "raw": "434[{\"status\":402},\"Error: 1028_FATHU56MD53F5ARCP55HVG877S.doc: Not current version. incoming: 7, current: 2\"]"
+  },
+  {
+   "seq": 19,
+   "dir": "c2s",
+   "transport": "websocket",
+   "raw": "425[\"event\",{\"version\":2,\"steps\":[{\"stepType\":\"dsh_bogus_step\",\"from\":0,\"to\":0}],\"clientId\":\"spikedart01\",\"selection\":null}]"
+  },
+  {
+   "seq": 20,
+   "dir": "s2c",
+   "transport": "websocket",
+   "raw": "435[{\"status\":411},\"Error: 1028_FATHU56MD53F5ARCP55HVG877S.doc: Invalid command\"]"
+  },
+  {
+   "seq": 21,
+   "dir": "c2s",
+   "transport": "websocket",
+   "raw": "426[\"fetch\"]"
+  },
+  {
+   "seq": 22,
+   "dir": "s2c",
+   "transport": "websocket",
+   "raw": "436[null,{\"doc\":{\"version\":2,\"data\":{\"type\":\"doc\",\"attrs\":{\"schema\":13,\"type\":\"document\",\"page_setup\":{\"left\":2.54,\"top\":2.54,\"right\":2.54,\"bottom\":2.54,\"orientation\":\"portrait\",\"page_type\":\"letter\"}},\"content\":[{\"type\":\"settings\"},{\"type\":\"style_editor\",\"content\":[{\"type\":\"style_paragraph\"},{\"type\":\"style_paragraph\",\"attrs\":{\"paddingTop\":0,\"paddingBottom\":0,\"headingId\":\"_heading0\",\"headingLevel\":0}},{\"type\":\"style_paragraph\",\"attrs\":{\"paddingTop\":0,\"paddingBottom\":0,\"headingId\":\"_heading1\",\"headingLevel\":1}},{\"type\":\"style_paragraph\",\"attrs\":{\"paddingTop\":0,\"paddingBottom\":0,\"headingId\":\"_heading2\",\"headingLevel\":2}},{\"type\":\"style_paragraph\",\"attrs\":{\"paddingTop\":0,\"paddingBottom\":0,\"headingId\":\"_heading3\",\"headingLevel\":3}},{\"type\":\"style_paragraph\",\"attrs\":{\"paddingTop\":0,\"paddingBottom\":0,\"headingId\":\"_heading4\",\"headingLevel\":4}},{\"type\":\"style_paragraph\",\"attrs\":{\"paddingTop\":0,\"paddingBottom\":0,\"headingId\":\"_heading5\",\"headingLevel\":5}}]},{\"type\":\"invisible\"},{\"type\":\"edit_area\",\"attrs\":{\"listMap\":{}},\"content\":[{\"type\":\"paragraph\",\"content\":[{\"type\":\"text\",\"text\":\"C3SPIKE-DOC-BASE#\"}]}]},{\"type\":\"page_decorate\",\"attrs\":{\"place-show\":false,\"place-cover\":false,\"place-even\":false,\"num-show\":false,\"num-cover\":false,\"num-even\":false,\"num-pos\":\"br\"},\"content\":[{\"type\":\"header\",\"attrs\":{\"type\":\"cover\"},\"content\":[{\"type\":\"paragraph\"}]},{\"type\":\"header\",\"attrs\":{\"type\":\"even\"},\"content\":[{\"type\":\"paragraph\"}]},{\"type\":\"header\",\"attrs\":{\"type\":\"normal\"},\"content\":[{\"type\":\"paragraph\"}]},{\"type\":\"footer\",\"attrs\":{\"type\":\"cover\"},\"content\":[{\"type\":\"paragraph\"}]},{\"type\":\"footer\",\"attrs\":{\"type\":\"even\"},\"content\":[{\"type\":\"paragraph\"}]},{\"type\":\"footer\",\"attrs\":{\"type\":\"normal\"},\"content\":[{\"type\":\"paragraph\"}]},{\"type\":\"page_num\",\"attrs\":{\"type\":\"normal\"},\"content\":[{\"type\":\"page_num_block\",\"content\":[{\"type\":\"page_num_text\"}]}]}]}]},\"comment_store\":[]}}]"
+  }
+ ]
+}

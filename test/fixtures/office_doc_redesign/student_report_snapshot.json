@@ -1,0 +1,1407 @@
+{
+ "provenance": {
+  "source": "NAS /mydrive/Student report.odoc",
+  "channel": "SYNO.Office.Snapshot:get v4 (read-only, link_id=permanent_link)",
+  "permanent_link": "19yWBFx8g0qKGwpySqkpIRgDjHzgXcrz",
+  "object_id": "1028_A42GDM6BD14VV4SSAEA677VMEG.doc",
+  "ntype": "doc"
+ },
+ "content": {
+  "data": {
+   "attrs": {
+    "page_setup": {
+     "bottom": 2.54,
+     "left": 2.54,
+     "orientation": "portrait",
+     "page_type": "a4",
+     "right": 2.54,
+     "top": 2.54
+    },
+    "schema": 13,
+    "type": "document"
+   },
+   "content": [
+    {
+     "type": "settings"
+    },
+    {
+     "content": [
+      {
+       "attrs": {
+        "lineHeight": 1.5
+       },
+       "type": "style_paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "_heading0",
+        "headingLevel": 0,
+        "lineHeight": 1.5
+       },
+       "type": "style_paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "_heading1",
+        "headingLevel": 1,
+        "lineHeight": 1.5
+       },
+       "type": "style_paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "_heading2",
+        "headingLevel": 2,
+        "lineHeight": 1.5
+       },
+       "type": "style_paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "_heading3",
+        "headingLevel": 3,
+        "lineHeight": 1.5
+       },
+       "type": "style_paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "_heading4",
+        "headingLevel": 4,
+        "lineHeight": 1.5
+       },
+       "type": "style_paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "_heading5",
+        "headingLevel": 5,
+        "lineHeight": 1.5
+       },
+       "type": "style_paragraph"
+      }
+     ],
+     "type": "style_editor"
+    },
+    {
+     "type": "invisible"
+    },
+    {
+     "attrs": {
+      "listMap": {
+       "JaRRkEoF9l": {
+        "configs": [
+         {},
+         null,
+         null,
+         null,
+         null,
+         null,
+         null,
+         null,
+         null
+        ],
+        "type": "ol"
+       },
+       "aDp9xpnMRi": {
+        "configs": [
+         {},
+         null,
+         null,
+         null,
+         null,
+         null,
+         null,
+         null,
+         null
+        ],
+        "type": "ol"
+       }
+      }
+     },
+     "content": [
+      {
+       "attrs": {
+        "lineHeight": 1.15
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 40
+          },
+          {
+           "_": "font_family",
+           "complexScript": "Trebuchet MS",
+           "eastAsia": "Trebuchet MS",
+           "value": "Trebuchet MS"
+          },
+          {
+           "_": "color",
+           "value": "#38628c"
+          }
+         ],
+         "text": "REPORT TITLE",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 13
+          },
+          {
+           "_": "font_family",
+           "complexScript": "Trebuchet MS",
+           "eastAsia": "Trebuchet MS",
+           "value": "Trebuchet MS"
+          },
+          {
+           "_": "color",
+           "value": "#7b8187"
+          }
+         ],
+         "text": "Brief description of the report",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "textMarks": [
+         {
+          "_": "font_size",
+          "value": 12
+         }
+        ]
+       },
+       "type": "paragraph"
+      },
+      {
+       "content": [
+        {
+         "attrs": {
+          "config": {
+           "alignment": "inline",
+           "alt": "cover_04.png",
+           "config": "",
+           "crop": {
+            "b": 0,
+            "l": 0,
+            "r": 0,
+            "t": 0
+           },
+           "customized_points": {},
+           "deg": 0,
+           "file_alt": "cover_04.png",
+           "file_id": "931a210887824f8799956ef5ea58dd1e",
+           "file_type": "image",
+           "fill": "none",
+           "flip_h": false,
+           "flip_v": false,
+           "height": 221,
+           "left": 100,
+           "order": 0,
+           "prst": "rect",
+           "ref": "",
+           "stroke": "#2E3133",
+           "stroke-width": 0,
+           "top": 100,
+           "type": "rect",
+           "width": 594
+          },
+          "id": "1VSAQlUlYt"
+         },
+         "type": "picture"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "type": "paragraph"
+      },
+      {
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 13
+          },
+          {
+           "_": "strong"
+          }
+         ],
+         "text": "Your Name",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 11
+          },
+          {
+           "_": "color",
+           "value": "#7b8187"
+          }
+         ],
+         "text": "09.24.2016",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "textMarks": [
+         {
+          "_": "color",
+          "value": "#7b8187"
+         }
+        ]
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "color",
+           "value": "#7b8187"
+          }
+         ],
+         "text": "Course Name",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "paddingTop": 26.66666666666666
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 18
+          },
+          {
+           "_": "color",
+           "value": "#f28130"
+          }
+         ],
+         "text": "Table of Contents",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "content": [
+        {
+         "content": [
+          {
+           "marks": [
+            {
+             "_": "link",
+             "href": "#jPjN3WfEJ3"
+            },
+            {
+             "_": "color",
+             "value": "#0F7BE9"
+            },
+            {
+             "_": "underline"
+            }
+           ],
+           "text": "Introduction",
+           "type": "text"
+          }
+         ],
+         "type": "paragraph"
+        },
+        {
+         "attrs": {
+          "paddingTop": 16
+         },
+         "content": [
+          {
+           "marks": [
+            {
+             "_": "link",
+             "href": "#SqGpiWYgTF"
+            },
+            {
+             "_": "color",
+             "value": "#0F7BE9"
+            },
+            {
+             "_": "underline"
+            }
+           ],
+           "text": "Previous Studies",
+           "type": "text"
+          }
+         ],
+         "type": "paragraph"
+        },
+        {
+         "attrs": {
+          "indentFirst": 30,
+          "indentLeft": 30,
+          "paddingTop": 6
+         },
+         "content": [
+          {
+           "marks": [
+            {
+             "_": "link",
+             "href": "#6UtoOd9ks3"
+            },
+            {
+             "_": "color",
+             "value": "#0F7BE9"
+            },
+            {
+             "_": "underline"
+            }
+           ],
+           "text": "Figures and Tables",
+           "type": "text"
+          }
+         ],
+         "type": "paragraph"
+        },
+        {
+         "attrs": {
+          "paddingTop": 16
+         },
+         "content": [
+          {
+           "marks": [
+            {
+             "_": "link",
+             "href": "#7oWk1ZNeWM"
+            },
+            {
+             "_": "color",
+             "value": "#0F7BE9"
+            },
+            {
+             "_": "underline"
+            }
+           ],
+           "text": "Method",
+           "type": "text"
+          }
+         ],
+         "type": "paragraph"
+        },
+        {
+         "attrs": {
+          "paddingTop": 16
+         },
+         "content": [
+          {
+           "marks": [
+            {
+             "_": "link",
+             "href": "#4xsa35CRfW"
+            },
+            {
+             "_": "color",
+             "value": "#0F7BE9"
+            },
+            {
+             "_": "underline"
+            }
+           ],
+           "text": "Analysis",
+           "type": "text"
+          }
+         ],
+         "type": "paragraph"
+        },
+        {
+         "attrs": {
+          "paddingTop": 16
+         },
+         "content": [
+          {
+           "marks": [
+            {
+             "_": "link",
+             "href": "#XjTNN0MlTf"
+            },
+            {
+             "_": "color",
+             "value": "#0F7BE9"
+            },
+            {
+             "_": "underline"
+            }
+           ],
+           "text": "Conclusion",
+           "type": "text"
+          }
+         ],
+         "type": "paragraph"
+        },
+        {
+         "attrs": {
+          "indentFirst": 30,
+          "indentLeft": 30,
+          "paddingTop": 6
+         },
+         "content": [
+          {
+           "marks": [
+            {
+             "_": "link",
+             "href": "#AJa73M7wAH"
+            },
+            {
+             "_": "color",
+             "value": "#0F7BE9"
+            },
+            {
+             "_": "underline"
+            }
+           ],
+           "text": "Concluding Remarks",
+           "type": "text"
+          }
+         ],
+         "type": "paragraph"
+        },
+        {
+         "attrs": {
+          "indentFirst": 30,
+          "indentLeft": 30,
+          "paddingTop": 6
+         },
+         "content": [
+          {
+           "marks": [
+            {
+             "_": "link",
+             "href": "#8GKeQArfNc"
+            },
+            {
+             "_": "color",
+             "value": "#0F7BE9"
+            },
+            {
+             "_": "underline"
+            }
+           ],
+           "text": "Acknowledgements",
+           "type": "text"
+          }
+         ],
+         "type": "paragraph"
+        },
+        {
+         "attrs": {
+          "paddingTop": 16
+         },
+         "content": [
+          {
+           "marks": [
+            {
+             "_": "link",
+             "href": "#081h6XbMG0"
+            },
+            {
+             "_": "color",
+             "value": "#0F7BE9"
+            },
+            {
+             "_": "underline"
+            }
+           ],
+           "text": "References",
+           "type": "text"
+          }
+         ],
+         "type": "paragraph"
+        }
+       ],
+       "type": "navigation"
+      },
+      {
+       "attrs": {
+        "headingId": "jPjN3WfEJ3",
+        "headingLevel": 0,
+        "textMarks": [
+         {
+          "_": "font_size",
+          "value": 18
+         },
+         {
+          "_": "color",
+          "value": "#f28130"
+         }
+        ]
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 18
+          },
+          {
+           "_": "color",
+           "value": "#f28130"
+          }
+         ],
+         "text": "Introduction",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "content": [
+        {
+         "text": "Familiarize your reader with your topic. Explain the purpose of this report and list a few questions that you want to address.",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "listId": "JaRRkEoF9l"
+       },
+       "content": [
+        {
+         "text": "Research question 1",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "listId": "JaRRkEoF9l"
+       },
+       "content": [
+        {
+         "text": "Research question 2",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "listId": "JaRRkEoF9l"
+       },
+       "content": [
+        {
+         "text": "Research question 3",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "SqGpiWYgTF",
+        "headingLevel": 0,
+        "textMarks": [
+         {
+          "_": "font_size",
+          "value": 18
+         },
+         {
+          "_": "color",
+          "value": "#f28130"
+         }
+        ]
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 18
+          },
+          {
+           "_": "color",
+           "value": "#f28130"
+          }
+         ],
+         "text": "Previous Studies",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "content": [
+        {
+         "text": "Summarize the most relevant and critical opinions and findings in this field. Point out what seems to be missing and connect it to your research questions. ",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "6UtoOd9ks3",
+        "headingLevel": 1,
+        "textMarks": [
+         {
+          "_": "strong"
+         },
+         {
+          "_": "font_size",
+          "value": 12
+         }
+        ]
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 12
+          },
+          {
+           "_": "strong"
+          }
+         ],
+         "text": "Figures and Tables",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "content": [
+        {
+         "text": "Sometimes figures and tables can help people grasp your idea at a glance. Be sure to name all of your figures and tables if you include any in your report.",
+         "type": "text"
+        },
+        {
+         "type": "hard_break"
+        },
+        {
+         "attrs": {
+          "config": {
+           "alignment": "inline",
+           "alt": "worldmap.png",
+           "config": "",
+           "crop": {
+            "b": 0,
+            "l": 0,
+            "r": 0,
+            "t": 0
+           },
+           "customized_points": {},
+           "deg": 0,
+           "file_alt": "worldmap.png",
+           "file_id": "7d53fe23392f4bc08f3da8e29b86fd80",
+           "file_type": "image",
+           "fill": "none",
+           "flip_h": false,
+           "flip_v": false,
+           "height": 330,
+           "left": 100,
+           "order": 0,
+           "prst": "rect",
+           "ref": "",
+           "stroke": "#2E3133",
+           "stroke-width": 0,
+           "top": 100,
+           "type": "rect",
+           "width": 594
+          },
+          "id": "QvM4n2F26B"
+         },
+         "type": "picture"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "content": [
+        {
+         "text": "Figure 1. We Live in a Digital World",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "7oWk1ZNeWM",
+        "headingLevel": 0,
+        "textMarks": [
+         {
+          "_": "font_size",
+          "value": 18
+         },
+         {
+          "_": "color",
+          "value": "#42a611"
+         }
+        ]
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 18
+          },
+          {
+           "_": "color",
+           "value": "#f28130"
+          }
+         ],
+         "text": "Method",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "content": [
+        {
+         "text": "Describe your research method (experiment, questionnaire, interview, etc.).",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "4xsa35CRfW",
+        "headingLevel": 0,
+        "textMarks": [
+         {
+          "_": "font_size",
+          "value": 18
+         },
+         {
+          "_": "color",
+          "value": "#f28130"
+         }
+        ]
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 18
+          },
+          {
+           "_": "color",
+           "value": "#f28130"
+          }
+         ],
+         "text": "Analysis",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "content": [
+        {
+         "text": "Analyze your observations and provide your own explanation. Evaluate the results in comparison with previous studies.",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "XjTNN0MlTf",
+        "headingLevel": 0
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 18
+          },
+          {
+           "_": "color",
+           "value": "#f28130"
+          }
+         ],
+         "text": "Conclusion",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "content": [
+        {
+         "text": "State the contribution as well as limitation of your report and propose directions for future studies.",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "AJa73M7wAH",
+        "headingLevel": 1,
+        "textMarks": [
+         {
+          "_": "strong"
+         },
+         {
+          "_": "font_size",
+          "value": 12
+         }
+        ]
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 12
+          },
+          {
+           "_": "strong"
+          }
+         ],
+         "text": "Concluding Remarks",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "content": [
+        {
+         "text": "Write your concluding remarks here.",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "8GKeQArfNc",
+        "headingLevel": 1
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 12
+          },
+          {
+           "_": "strong"
+          }
+         ],
+         "text": "Acknowledgements",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "content": [
+        {
+         "text": "Thank those who have provided comments, suggestions, or assistance of any sort in your research process.",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "081h6XbMG0",
+        "headingLevel": 0
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 18
+          },
+          {
+           "_": "color",
+           "value": "#f28130"
+          }
+         ],
+         "text": "References",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "listId": "aDp9xpnMRi"
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 11
+          },
+          {
+           "_": "font_family",
+           "complexScript": "Arial",
+           "eastAsia": "Arial",
+           "value": "Arial"
+          },
+          {
+           "_": "em"
+          },
+          {
+           "_": "color",
+           "value": "#64696e"
+          },
+          {
+           "_": "background_color",
+           "value": "transparent"
+          }
+         ],
+         "text": "Reference 1",
+         "type": "text"
+        },
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 11
+          },
+          {
+           "_": "font_family",
+           "complexScript": "Arial",
+           "eastAsia": "Arial",
+           "value": "Arial"
+          },
+          {
+           "_": "color",
+           "value": "#64696e"
+          },
+          {
+           "_": "background_color",
+           "value": "transparent"
+          }
+         ],
+         "text": ". - 2010 ",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "listId": "aDp9xpnMRi",
+        "listMarks": [
+         {
+          "_": "em"
+         },
+         {
+          "_": "font_size",
+          "value": 11
+         },
+         {
+          "_": "font_family",
+          "complexScript": "Arial",
+          "eastAsia": "Arial",
+          "value": "Arial"
+         },
+         {
+          "_": "color",
+          "value": "rgb(100, 105, 110)"
+         },
+         {
+          "_": "background_color",
+          "value": "transparent"
+         }
+        ],
+        "textMarks": [
+         {
+          "_": "em"
+         },
+         {
+          "_": "font_size",
+          "value": 11
+         },
+         {
+          "_": "font_family",
+          "complexScript": "Arial",
+          "eastAsia": "Arial",
+          "value": "Arial"
+         },
+         {
+          "_": "color",
+          "value": "rgb(100, 105, 110)"
+         },
+         {
+          "_": "background_color",
+          "value": "transparent"
+         }
+        ]
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 11
+          },
+          {
+           "_": "font_family",
+           "complexScript": "Arial",
+           "eastAsia": "Arial",
+           "value": "Arial"
+          },
+          {
+           "_": "em"
+          },
+          {
+           "_": "color",
+           "value": "rgb(100, 105, 110)"
+          },
+          {
+           "_": "background_color",
+           "value": "transparent"
+          }
+         ],
+         "text": "Reference 2",
+         "type": "text"
+        },
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 11
+          },
+          {
+           "_": "font_family",
+           "complexScript": "Arial",
+           "eastAsia": "Arial",
+           "value": "Arial"
+          },
+          {
+           "_": "color",
+           "value": "rgb(100, 105, 110)"
+          },
+          {
+           "_": "background_color",
+           "value": "transparent"
+          }
+         ],
+         "text": ". - 2010",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "listId": "aDp9xpnMRi"
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 11
+          },
+          {
+           "_": "font_family",
+           "complexScript": "Arial",
+           "eastAsia": "Arial",
+           "value": "Arial"
+          },
+          {
+           "_": "em"
+          },
+          {
+           "_": "color",
+           "value": "rgb(100, 105, 110)"
+          },
+          {
+           "_": "background_color",
+           "value": "transparent"
+          }
+         ],
+         "text": "Reference 3",
+         "type": "text"
+        },
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 11
+          },
+          {
+           "_": "font_family",
+           "complexScript": "Arial",
+           "eastAsia": "Arial",
+           "value": "Arial"
+          },
+          {
+           "_": "color",
+           "value": "rgb(100, 105, 110)"
+          },
+          {
+           "_": "background_color",
+           "value": "transparent"
+          }
+         ],
+         "text": ". - 2010",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "listId": "aDp9xpnMRi"
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 11
+          },
+          {
+           "_": "font_family",
+           "complexScript": "Arial",
+           "eastAsia": "Arial",
+           "value": "Arial"
+          },
+          {
+           "_": "em"
+          },
+          {
+           "_": "color",
+           "value": "rgb(100, 105, 110)"
+          },
+          {
+           "_": "background_color",
+           "value": "transparent"
+          }
+         ],
+         "text": "Reference 4",
+         "type": "text"
+        },
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 11
+          },
+          {
+           "_": "font_family",
+           "complexScript": "Arial",
+           "eastAsia": "Arial",
+           "value": "Arial"
+          },
+          {
+           "_": "color",
+           "value": "rgb(100, 105, 110)"
+          },
+          {
+           "_": "background_color",
+           "value": "transparent"
+          }
+         ],
+         "text": ". - 2010",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "listId": "aDp9xpnMRi"
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 11
+          },
+          {
+           "_": "font_family",
+           "complexScript": "Arial",
+           "eastAsia": "Arial",
+           "value": "Arial"
+          },
+          {
+           "_": "em"
+          },
+          {
+           "_": "color",
+           "value": "rgb(100, 105, 110)"
+          },
+          {
+           "_": "background_color",
+           "value": "transparent"
+          }
+         ],
+         "text": "Reference 5",
+         "type": "text"
+        },
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 11
+          },
+          {
+           "_": "font_family",
+           "complexScript": "Arial",
+           "eastAsia": "Arial",
+           "value": "Arial"
+          },
+          {
+           "_": "color",
+           "value": "rgb(100, 105, 110)"
+          },
+          {
+           "_": "background_color",
+           "value": "transparent"
+          }
+         ],
+         "text": ". - 2010",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      }
+     ],
+     "type": "edit_area"
+    },
+    {
+     "attrs": {
+      "num-cover": false,
+      "num-even": false,
+      "num-pos": "br",
+      "num-show": false,
+      "place-cover": false,
+      "place-even": false,
+      "place-show": false
+     },
+     "content": [
+      {
+       "attrs": {
+        "type": "cover"
+       },
+       "content": [
+        {
+         "type": "paragraph"
+        }
+       ],
+       "type": "header"
+      },
+      {
+       "attrs": {
+        "type": "even"
+       },
+       "content": [
+        {
+         "type": "paragraph"
+        }
+       ],
+       "type": "header"
+      },
+      {
+       "attrs": {
+        "type": "normal"
+       },
+       "content": [
+        {
+         "type": "paragraph"
+        }
+       ],
+       "type": "header"
+      },
+      {
+       "attrs": {
+        "type": "cover"
+       },
+       "content": [
+        {
+         "type": "paragraph"
+        }
+       ],
+       "type": "footer"
+      },
+      {
+       "attrs": {
+        "type": "even"
+       },
+       "content": [
+        {
+         "type": "paragraph"
+        }
+       ],
+       "type": "footer"
+      },
+      {
+       "attrs": {
+        "type": "normal"
+       },
+       "content": [
+        {
+         "type": "paragraph"
+        }
+       ],
+       "type": "footer"
+      },
+      {
+       "attrs": {
+        "type": "normal"
+       },
+       "content": [
+        {
+         "content": [
+          {
+           "type": "page_num_text"
+          }
+         ],
+         "type": "page_num_block"
+        }
+       ],
+       "type": "page_num"
+      }
+     ],
+     "type": "page_decorate"
+    }
+   ],
+   "type": "doc"
+  },
+  "version": 35
+ }
+}

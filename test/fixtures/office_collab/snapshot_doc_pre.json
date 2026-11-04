@@ -1,0 +1,226 @@
+{
+ "comment": {
+  "data": [],
+  "format": 1
+ },
+ "content": {
+  "data": {
+   "attrs": {
+    "page_setup": {
+     "bottom": 2.54,
+     "left": 2.54,
+     "page_type": "letter",
+     "right": 2.54,
+     "top": 2.54
+    },
+    "schema": 13,
+    "type": "document"
+   },
+   "content": [
+    {
+     "attrs": {},
+     "content": [],
+     "type": "settings"
+    },
+    {
+     "attrs": {},
+     "content": [
+      {
+       "attrs": {},
+       "content": [],
+       "type": "style_paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "_heading0",
+        "headingLevel": 0,
+        "paddingBottom": 0,
+        "paddingTop": 0
+       },
+       "content": [],
+       "type": "style_paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "_heading1",
+        "headingLevel": 1,
+        "paddingBottom": 0,
+        "paddingTop": 0
+       },
+       "content": [],
+       "type": "style_paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "_heading2",
+        "headingLevel": 2,
+        "paddingBottom": 0,
+        "paddingTop": 0
+       },
+       "content": [],
+       "type": "style_paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "_heading3",
+        "headingLevel": 3,
+        "paddingBottom": 0,
+        "paddingTop": 0
+       },
+       "content": [],
+       "type": "style_paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "_heading4",
+        "headingLevel": 4,
+        "paddingBottom": 0,
+        "paddingTop": 0
+       },
+       "content": [],
+       "type": "style_paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "_heading5",
+        "headingLevel": 5,
+        "paddingBottom": 0,
+        "paddingTop": 0
+       },
+       "content": [],
+       "type": "style_paragraph"
+      }
+     ],
+     "type": "style_editor"
+    },
+    {
+     "attrs": {},
+     "content": [],
+     "type": "invisible"
+    },
+    {
+     "attrs": {
+      "listMap": {}
+     },
+     "content": [
+      {
+       "attrs": {},
+       "content": [
+        {
+         "attrs": {},
+         "text": "C3SPIKE-DOC-BASE",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      }
+     ],
+     "type": "edit_area"
+    },
+    {
+     "attrs": {},
+     "content": [
+      {
+       "attrs": {
+        "type": "cover"
+       },
+       "content": [
+        {
+         "attrs": {},
+         "content": [],
+         "type": "paragraph"
+        }
+       ],
+       "type": "header"
+      },
+      {
+       "attrs": {
+        "type": "even"
+       },
+       "content": [
+        {
+         "attrs": {},
+         "content": [],
+         "type": "paragraph"
+        }
+       ],
+       "type": "header"
+      },
+      {
+       "attrs": {
+        "type": "normal"
+       },
+       "content": [
+        {
+         "attrs": {},
+         "content": [],
+         "type": "paragraph"
+        }
+       ],
+       "type": "header"
+      },
+      {
+       "attrs": {
+        "type": "cover"
+       },
+       "content": [
+        {
+         "attrs": {},
+         "content": [],
+         "type": "paragraph"
+        }
+       ],
+       "type": "footer"
+      },
+      {
+       "attrs": {
+        "type": "even"
+       },
+       "content": [
+        {
+         "attrs": {},
+         "content": [],
+         "type": "paragraph"
+        }
+       ],
+       "type": "footer"
+      },
+      {
+       "attrs": {
+        "type": "normal"
+       },
+       "content": [
+        {
+         "attrs": {},
+         "content": [],
+         "type": "paragraph"
+        }
+       ],
+       "type": "footer"
+      },
+      {
+       "attrs": {},
+       "content": [
+        {
+         "content": [
+          {
+           "type": "page_num_text"
+          }
+         ],
+         "type": "page_num_block"
+        }
+       ],
+       "type": "page_num"
+      }
+     ],
+     "type": "page_decorate"
+    }
+   ],
+   "type": "doc"
+  },
+  "version": 1
+ },
+ "file": [],
+ "ntype": "doc",
+ "object_id": "1028_FATHU56MD53F5ARCP55HVG877S.doc"
+}

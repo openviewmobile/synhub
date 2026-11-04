@@ -1,0 +1,52 @@
+{
+  "id": "drive_team_trash",
+  "unit": "lib/src/features/drive/drive_team_trash_page.dart",
+  "title": {
+    "zh": "团队文件夹回收站",
+    "en": "Team folder trash"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "rowIcon": "folder",
+  "body": {
+    "type": "list",
+    "items": [
+      {
+        "title": {
+          "zh": "旧版品牌手册.pdf",
+          "en": "旧版品牌手册.pdf"
+        },
+        "sub": {
+          "zh": "李雷 删除 · 2 天前 · 12 MB",
+          "en": "Deleted by Li · 2 days ago · 12 MB"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "title": {
+          "zh": "草稿目录",
+          "en": "Drafts"
+        },
+        "sub": {
+          "zh": "韩梅梅 删除 · 5 天前 · 18 项",
+          "en": "Deleted by Han · 5 days ago · 18 items"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      }
+    ]
+  },
+  "note": {
+    "zh": "团队回收站只有管理员能还原",
+    "en": "Only admins can restore from team trash"
+  },
+  "footerAction": {
+    "zh": "清空回收站",
+    "en": "Empty team trash"
+  },
+  "bottomNav": null
+}

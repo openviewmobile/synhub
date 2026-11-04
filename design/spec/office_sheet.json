@@ -1,0 +1,64 @@
+{
+  "id": "office_sheet",
+  "unit": "lib/src/features/office/office_sheet_page.dart",
+  "title": {
+    "zh": "预算表.ods",
+    "en": "Budget.ods"
+  },
+  "appbar": {
+    "actions": [
+      "save",
+      "more"
+    ]
+  },
+  "body": {
+    "type": "sheet",
+    "columns": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "rows": [
+      [
+        "项目",
+        "预算",
+        "实付",
+        "差额"
+      ],
+      [
+        "设计",
+        "12,000",
+        "11,200",
+        "800"
+      ],
+      [
+        "开发",
+        "34,000",
+        "34,000",
+        "0"
+      ],
+      [
+        "测试",
+        "6,000",
+        "5,400",
+        "600"
+      ],
+      [
+        "合计",
+        "52,000",
+        "50,600",
+        "1,400"
+      ]
+    ],
+    "active": [
+      1,
+      2
+    ]
+  },
+  "footerAction": {
+    "zh": "保存",
+    "en": "Save"
+  },
+  "bottomNav": null
+}

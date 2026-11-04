@@ -1,0 +1,68 @@
+{
+  "id": "note_view",
+  "unit": "lib/src/features/notes/note_view_page.dart",
+  "title": {
+    "zh": "时间线收口说明",
+    "en": "Timeline notes"
+  },
+  "appbar": {
+    "actions": [
+      "edit",
+      "share",
+      "more"
+    ]
+  },
+  "body": {
+    "type": "viewer",
+    "kind": "text",
+    "caption": {
+      "zh": "#设计 · 修改于 昨天 18:20 · 386 字",
+      "en": "#Design · edited yesterday 18:20 · 386 words"
+    },
+    "toolbar": [
+      {
+        "zh": "编辑",
+        "en": "Edit"
+      },
+      {
+        "zh": "分享",
+        "en": "Share"
+      },
+      {
+        "zh": "导出",
+        "en": "Export"
+      },
+      {
+        "zh": "信息",
+        "en": "Info"
+      }
+    ],
+    "text": [
+      {
+        "zh": "时间线收口说明",
+        "en": "Timeline notes"
+      },
+      {
+        "zh": "",
+        "en": ""
+      },
+      {
+        "zh": "1. 一级是年/月，二级在当前月内按日期分组。",
+        "en": "1. Level one is year/month; level two groups by date in the current month."
+      },
+      {
+        "zh": "2. 点标题就地展开，不跳页，只多一次点击。",
+        "en": "2. Header taps expand in place — one extra tap, no page jump."
+      },
+      {
+        "zh": "3. 分组计数取同一份列表，避免两处数字打架。",
+        "en": "3. Group counts come from the same list, so numbers can't disagree."
+      },
+      {
+        "zh": "4. 空的月份不显示分组标题。",
+        "en": "4. Months with no items show no header."
+      }
+    ]
+  },
+  "bottomNav": null
+}

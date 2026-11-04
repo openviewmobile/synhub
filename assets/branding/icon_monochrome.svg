@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 108 108">
+  <g fill="#FFFFFF">
+    <polygon points="54.00,81.00 30.62,67.50 30.62,40.50 54.00,27.00 77.38,40.50 77.38,67.50 54.00,81.00" fill="none" stroke="#FFFFFF" stroke-width="3.1" stroke-linejoin="round"/>
+    <g stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round">
+      <line x1="54.00" y1="61.35" x2="54.00" y2="79.40"/><line x1="47.63" y1="57.67" x2="32.00" y2="66.70"/><line x1="47.63" y1="50.33" x2="32.00" y2="41.30"/><line x1="54.00" y1="46.65" x2="54.00" y2="28.60"/><line x1="60.37" y1="50.32" x2="76.00" y2="41.30"/><line x1="60.37" y1="57.67" x2="76.00" y2="66.70"/>
+    </g>
+    <circle cx="54.00" cy="81.00" r="3.3"/><circle cx="30.62" cy="67.50" r="3.3"/><circle cx="30.62" cy="40.50" r="3.3"/><circle cx="54.00" cy="27.00" r="3.3"/><circle cx="77.38" cy="40.50" r="3.3"/><circle cx="77.38" cy="67.50" r="3.3"/>
+    <polygon points="54.00,64.50 44.91,59.25 44.91,48.75 54.00,43.50 63.09,48.75 63.09,59.25 54.00,64.50"/>
+  </g>
+</svg>

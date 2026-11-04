@@ -1,0 +1,48 @@
+{
+  "id": "note_recycle",
+  "unit": "lib/src/features/notes/note_recycle_page.dart",
+  "title": {
+    "zh": "回收站",
+    "en": "Recycle bin"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "rowIcon": "doc",
+  "body": {
+    "type": "list",
+    "items": [
+      {
+        "title": {
+          "zh": "旧版时间线",
+          "en": "Old timeline"
+        },
+        "sub": {
+          "zh": "删除于 3 天前 · 386 字",
+          "en": "Deleted 3 days ago · 386 words"
+        },
+        "lead": "icon",
+        "trail": "checkbox"
+      },
+      {
+        "title": {
+          "zh": "临时草稿",
+          "en": "Scratch draft"
+        },
+        "sub": {
+          "zh": "删除于 昨天",
+          "en": "Deleted yesterday"
+        },
+        "lead": "icon",
+        "trail": "check"
+      }
+    ]
+  },
+  "footerAction": {
+    "zh": "还原选中的 1 条",
+    "en": "Restore 1 note"
+  },
+  "bottomNav": null
+}

@@ -1,0 +1,41 @@
+{
+  "id": "file_preview",
+  "unit": "lib/src/features/files/file_preview_page.dart",
+  "title": {
+    "zh": "预览",
+    "en": "Preview"
+  },
+  "appbar": {
+    "actions": [
+      "download",
+      "more"
+    ]
+  },
+  "body": {
+    "type": "viewer",
+    "kind": "image",
+    "caption": {
+      "zh": "IMG_20260214_1032.jpg · 4.2 MB",
+      "en": "IMG_20260214_1032.jpg · 4.2 MB"
+    },
+    "toolbar": [
+      {
+        "zh": "缩放",
+        "en": "Zoom"
+      },
+      {
+        "zh": "旋转",
+        "en": "Rotate"
+      },
+      {
+        "zh": "下载",
+        "en": "Download"
+      },
+      {
+        "zh": "更多",
+        "en": "More"
+      }
+    ]
+  },
+  "bottomNav": null
+}

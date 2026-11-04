@@ -1,0 +1,52 @@
+{
+  "id": "photo_free_up",
+  "unit": "lib/src/features/photos/photo_free_up_page.dart",
+  "title": {
+    "zh": "释放手机空间",
+    "en": "Free up space"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "rowIcon": "photos",
+  "body": {
+    "type": "list",
+    "items": [
+      {
+        "title": {
+          "zh": "已备份 · 1,284 张照片",
+          "en": "Backed up · 1,284 photos"
+        },
+        "sub": {
+          "zh": "可释放 3.8 GB",
+          "en": "3.8 GB reclaimable"
+        },
+        "lead": "cover",
+        "trail": "checkbox"
+      },
+      {
+        "title": {
+          "zh": "已备份 · 12 段视频",
+          "en": "Backed up · 12 videos"
+        },
+        "sub": {
+          "zh": "可释放 1.2 GB",
+          "en": "1.2 GB reclaimable"
+        },
+        "lead": "cover",
+        "trail": "checkbox"
+      }
+    ]
+  },
+  "note": {
+    "zh": "删掉已备份到 NAS 的本地照片；没备份的一张都不会动",
+    "en": "Only removes copies already on the NAS; unbacked photos are untouched"
+  },
+  "footerAction": {
+    "zh": "删除已备份的本地副本",
+    "en": "Remove backed-up copies"
+  },
+  "bottomNav": null
+}

@@ -1,0 +1,42 @@
+{
+  "posts": [
+    {
+      "channel_id": 1,
+      "comment_count": 0,
+      "create_at": 1612400211640,
+      "creator_id": 1,
+      "delete_at": 0,
+      "hashtags": [],
+      "hashtags_additional": [],
+      "is_star": false,
+      "is_sticky": false,
+      "last_comment_at": 0,
+      "last_pin_at": 0,
+      "mentions": [],
+      "message": "",
+      "post_id": 4294967297,
+      "props": {
+        "encrypted": false,
+        "forward": {
+          "type": "none"
+        },
+        "safe_url": true
+      },
+      "reactions": [],
+      "system_props": {
+        "channel_id": 1,
+        "effective_user_id": 4,
+        "event": "channel.join",
+        "target_user_ids": [
+          4,
+          6,
+          14
+        ]
+      },
+      "thread_id": 0,
+      "type": "system",
+      "update_at": 0,
+      "url_props": []
+    }
+  ]
+}

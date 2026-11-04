@@ -1,0 +1,8 @@
+{
+  "_source": "真机只读探针（docs/filestation-worm-photoupload-wave.md）：空文件 + 已存在 path + size=0 → 200 {\"data\":{\"blSkip\":false,\"file\":\"…\",\"pid\":31101,\"progress\":1},\"success\":true}",
+  "_note": "`file` 回显的是服务端认下的文件名；`pid` 是上传进度句柄；`blSkip` 表示服务端是否跳过了实际写入（去重命中）",
+  "blSkip": false,
+  "file": "IMG_0001.jpg",
+  "pid": 31101,
+  "progress": 1
+}

@@ -1,0 +1,86 @@
+{
+  "id": "settings_notifications",
+  "unit": "lib/src/features/settings/notification_settings_page.dart",
+  "title": {
+    "zh": "通知设置",
+    "en": "Notifications"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "settings",
+    "groups": [
+      {
+        "title": {
+          "zh": "通知",
+          "en": "Notifications"
+        },
+        "rows": [
+          {
+            "label": {
+              "zh": "允许通知",
+              "en": "Allow notifications"
+            },
+            "kind": "switch",
+            "value": true
+          },
+          {
+            "label": {
+              "zh": "提及我时提醒",
+              "en": "Notify on mentions"
+            },
+            "kind": "switch",
+            "value": true
+          },
+          {
+            "label": {
+              "zh": "声音",
+              "en": "Sound"
+            },
+            "kind": "switch",
+            "value": false
+          },
+          {
+            "label": {
+              "zh": "振动",
+              "en": "Vibration"
+            },
+            "kind": "switch",
+            "value": true
+          }
+        ]
+      },
+      {
+        "title": {
+          "zh": "后台",
+          "en": "Background"
+        },
+        "rows": [
+          {
+            "label": {
+              "zh": "开机自启",
+              "en": "Start on boot"
+            },
+            "kind": "switch",
+            "value": true
+          },
+          {
+            "label": {
+              "zh": "后台长连接",
+              "en": "Background connection"
+            },
+            "kind": "arrow"
+          }
+        ]
+      }
+    ],
+    "note": {
+      "zh": "关闭通知后仍会收消息，只是不提醒",
+      "en": "Messages still arrive; you just won't be alerted"
+    }
+  },
+  "bottomNav": null
+}

@@ -1,0 +1,54 @@
+{
+  "id": "settings_profile_edit",
+  "unit": "lib/src/features/settings/profile_edit_page.dart",
+  "title": {
+    "zh": "编辑资料",
+    "en": "Edit profile"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "form",
+    "fields": [
+      {
+        "label": {
+          "zh": "昵称",
+          "en": "Display name"
+        },
+        "value": {
+          "zh": "李雷",
+          "en": "Li"
+        }
+      },
+      {
+        "label": {
+          "zh": "邮箱",
+          "en": "Email"
+        },
+        "value": "li@example.com"
+      },
+      {
+        "label": {
+          "zh": "签名",
+          "en": "Signature"
+        },
+        "value": {
+          "zh": "只谈界面，不谈实现",
+          "en": "UI first"
+        }
+      }
+    ],
+    "submit": {
+      "zh": "保存",
+      "en": "Save"
+    }
+  },
+  "note": {
+    "zh": "邮箱改完要重新验证，未验证前保留旧邮箱",
+    "en": "Changing email requires re-verification"
+  },
+  "bottomNav": null
+}

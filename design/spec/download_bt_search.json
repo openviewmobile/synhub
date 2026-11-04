@@ -1,0 +1,57 @@
+{
+  "id": "download_bt_search",
+  "unit": "lib/src/features/downloads/download_bt_search_page.dart",
+  "title": {
+    "zh": "BT 搜索",
+    "en": "BT search"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "search": {
+    "hint": {
+      "zh": "输入关键词搜索种子",
+      "en": "Search torrents"
+    }
+  },
+  "rowIcon": "download",
+  "body": {
+    "type": "list",
+    "items": [
+      {
+        "title": "Ubuntu 24.04 LTS Desktop",
+        "sub": {
+          "zh": "5.8 GB · 32 做种 · 8 下载",
+          "en": "5.8 GB · 32 seeds · 8 peers"
+        },
+        "lead": "icon",
+        "trail": "plus"
+      },
+      {
+        "title": "Debian 12 netinst",
+        "sub": {
+          "zh": "640 MB · 18 做种",
+          "en": "640 MB · 18 seeds"
+        },
+        "lead": "icon",
+        "trail": "plus"
+      },
+      {
+        "title": "Fedora 40 Workstation",
+        "sub": {
+          "zh": "2.1 GB · 12 做种",
+          "en": "2.1 GB · 12 seeds"
+        },
+        "lead": "icon",
+        "trail": "plus"
+      }
+    ]
+  },
+  "note": {
+    "zh": "结果来自公共索引源，做种数随时会变",
+    "en": "Results come from public indexes; seed counts change"
+  },
+  "bottomNav": null
+}

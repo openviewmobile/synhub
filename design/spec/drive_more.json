@@ -1,0 +1,71 @@
+{
+  "id": "drive_more",
+  "unit": "lib/src/features/files/drive_more_page.dart",
+  "title": {
+    "zh": "更多",
+    "en": "More"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "settings",
+    "groups": [
+      {
+        "title": {
+          "zh": "文件",
+          "en": "File"
+        },
+        "rows": [
+          {
+            "label": {
+              "zh": "版本历史",
+              "en": "Version history"
+            },
+            "kind": "arrow"
+          },
+          {
+            "label": {
+              "zh": "标签",
+              "en": "Labels"
+            },
+            "kind": "arrow"
+          },
+          {
+            "label": {
+              "zh": "离线可用",
+              "en": "Available offline"
+            },
+            "kind": "switch",
+            "value": true
+          }
+        ]
+      },
+      {
+        "title": {
+          "zh": "共享",
+          "en": "Sharing"
+        },
+        "rows": [
+          {
+            "label": {
+              "zh": "共享设置",
+              "en": "Sharing settings"
+            },
+            "kind": "arrow"
+          },
+          {
+            "label": {
+              "zh": "复制链接",
+              "en": "Copy link"
+            },
+            "kind": "arrow"
+          }
+        ]
+      }
+    ]
+  },
+  "bottomNav": null
+}

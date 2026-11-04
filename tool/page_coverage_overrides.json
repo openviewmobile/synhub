@@ -1,0 +1,874 @@
+{
+ "_comment": "人工裁定覆盖表（tool/page_coverage_matrix.py --overrides）。只放三类：① 管理员专用页统一口径；② 与规范冲突的裁定订正。每条都要给出可复核的路径:行号。",
+ "lib/src/features/admin/admin_tools_page.dart": {
+  "verdict": "E",
+  "evidence": [
+   "docs/android-ui-audit-r348.md:21",
+   "docs/android-acceptance-summary.md:119",
+   "docs/android-acceptance-summary.md:614"
+  ],
+  "reason": "管理员专用页（入口在 settings_page 的 AdminOnly 内）⇒ 真机账号 demo_user 是普通账号，只能验「隐藏」档。**★ 2026-10-11 用户裁定：管理员功能不需要真机验收 ⇒ 范围外·用户裁定**（\"隐藏\"档已在 r348 真机验过；\"展示\"档永久不做）"
+ },
+ "lib/src/features/drive/drive_admin_page.dart": {
+  "verdict": "E",
+  "evidence": [
+   "docs/android-ui-audit-r348.md:21",
+   "docs/android-acceptance-summary.md:614"
+  ],
+  "reason": "管理员专用页（AdminOnly 门控）⇒ 真机账号为普通账号；原引 client-station-plan「管理员不做」的裁定已作废（users 新规）。**★ 2026-10-11 用户裁定：管理员功能不需要真机验收 ⇒ 范围外·用户裁定**（\"隐藏\"档已在 r348 真机验过；\"展示\"档永久不做）；★ 「按身份门控」的实现要求不变，Mock 侧仍必须通过"
+ },
+ "lib/src/features/photos/photo_admin_page.dart": {
+  "verdict": "E",
+  "evidence": [
+   "docs/android-ui-audit-r348.md:21",
+   "docs/android-acceptance-summary.md:614"
+  ],
+  "reason": "管理员专用页（AdminOnly 门控）⇒ 真机账号为普通账号。**★ 2026-10-11 用户裁定：管理员功能不需要真机验收 ⇒ 范围外·用户裁定**（\"隐藏\"档已在 r348 真机验过；\"展示\"档永久不做）"
+ },
+ "lib/src/features/downloads/download_emule_server_page.dart": {
+  "verdict": "E",
+  "evidence": [
+   "docs/android-ui-audit-r348.md:21",
+   "docs/android-acceptance-summary.md:614"
+  ],
+  "reason": "管理员专用页（ed2k 服务器配置，AdminOnly 门控）⇒ 真机账号为普通账号。**★ 2026-10-11 用户裁定：管理员功能不需要真机验收 ⇒ 范围外·用户裁定**（\"隐藏\"档已在 r348 真机验过；\"展示\"档永久不做）"
+ },
+ "lib/src/features/chat/channel_content_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r348.md:784",
+   "docs/android-ui-audit-r348.md:788"
+  ],
+  "reason": "r348d 真机走完频道 ⋮ 二级页，其中「所有文件/所有链接/提及我/书签」四种形态就是本页；★ 另 6 种形态是独立页面文件（channel_scheduled_page 等）"
+ },
+ "lib/src/features/photos/photo_c2_sections.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/device-verification.md:8186",
+   "docs/device-verification.md:8167"
+  ],
+  "reason": "★ 该文件含 9 个页面类，真机只验到「照片请求」(8186) 与「地点」(8167)；共享相册/搜索照片/条件相册/相似照片等仍未验（见 §4）"
+ },
+ "lib/src/features/media/media_player_view.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r348.md:147",
+   "docs/evidence-r343/README.md:179"
+  ],
+  "reason": "音视频播放器本体的真机像素 + logcat 机制量（r348 §1.9）；★ 全屏/横屏/字幕/倍速换档仍未验（见 §4）"
+ },
+ "lib/src/features/audio/audio_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r350.md:26",
+   "docs/evidence-r350/README.md:18"
+  ],
+  "reason": "Audio Station 音乐库页：r350 真机开屏，7 个 tab + 服务端曲库逐字（`Demo Song / Demo Artist · 00s Love Songs / 3:51 · 320 kbps · 44.1 kHz · 9.0 MB`）"
+ },
+ "lib/src/features/audio/audio_song_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r350.md:27",
+   "docs/evidence-r350/README.md:19"
+  ],
+  "reason": "单曲页：r350 真机开屏，评级五档 + `stream.cgi` URL（`_sid`/`SynoToken` 已打码）+ Quality 128/192/320 + Sleep timer"
+ },
+ "lib/src/features/audio/audio_detail_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r350.md:25",
+   "docs/evidence-r350/README.md:20"
+  ],
+  "reason": "专辑详情（`AudioDetailPage.album`）：r350 真机开屏，标题 `00s Love Songs` + 9 首曲目 + `Add to favorites`"
+ },
+ "lib/src/features/audio/audio_radio_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r350.md:29",
+   "docs/evidence-r350/README.md:21"
+  ],
+  "reason": "网络电台列表：r350 真机开屏，三个容器（SHOUTcast(TM)/User-defined/My favorite）+ 页内如实声明播放未验"
+ },
+ "lib/src/features/audio/audio_gaps_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r350.md:30",
+   "docs/evidence-r350/README.md:25"
+  ],
+  "reason": "三页全开：Recently added（11 条真实专辑）/ 100 random tracks（混码率+CJK）/ Recently played（空态 `No play history yet`）"
+ },
+ "lib/src/features/audio/audio_web_queue_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r350.md:31",
+   "docs/evidence-r350/README.md:30"
+  ],
+  "reason": "服务端播放队列：r350 真机开屏，`Sequential`/`Shuffle: off` + 服务端回读 `The server-side play queue is empty`"
+ },
+ "lib/src/features/audio/audio_search_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r350.md:32",
+   "docs/evidence-r350/README.md:29"
+  ],
+  "reason": "搜索页：r350 真机输入 `love` 回 3 张专辑卡片 + 曲目行（时长/码率/大小）"
+ },
+ "lib/src/features/audio/audio_pins_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r350.md:33",
+   "docs/evidence-r350/README.md:25"
+  ],
+  "reason": "收藏页：r350 真机开屏，服务端 `Pin` 为空 ⇒ 空态 `No favorites yet`"
+ },
+ "lib/src/features/audio/audio_remote_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r350.md:34",
+   "docs/evidence-r350/README.md:31"
+  ],
+  "reason": "远程播放器：r350 真机开屏，`No remote players found` + 成因（NAS 上无 DLNA/UPnP 渲染器）；★ 只验到空态"
+ },
+ "lib/src/features/audio/audio_cast_page.dart": {
+  "verdict": "E",
+  "evidence": [
+   "docs/android-ui-audit-r368.md:1",
+   "docs/android-ui-audit-r350.md:32",
+   "docs/evidence-r350/README.md:29"
+  ],
+  "reason": "Chromecast 投送：★ **2026-10-12 用户裁定「做不了」** —— 本机复核**无 GMS**（`pm list packages | grep -iE 'gms|vending'` 零命中；`pm list features` 无 cast 相关特性；App 内嵌 `play-services-cast-framework:21.5.0` 且 `CastContext.getSharedInstance` 在无 GMS 时恒为 null）⇒ **环境/前置不可得·本机结构性**。r350 真机开屏给出「不支持」的读数保留（页面行为确已验过），但按 `docs/android-landing-plan.md:166` 的 C-p 规则（缺前置 ⇒ 如实定性 C→E）**不计入 A**。"
+ },
+ "lib/src/features/audio/audio_equalizer.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r350.md:36",
+   "docs/evidence-r350/README.md:21"
+  ],
+  "reason": "均衡器：r350 真机开屏 + `logcat -s EqualizerBridge:*` 复现异常 `Cannot initialize effect engine ... Error: -3`（`Equalizer(0,0)`）；★ 效果链不可验 + 文案缺陷 DA7"
+ },
+ "lib/src/features/downloads/download_bt_search_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r351.md:36",
+   "docs/evidence-r351/README.md:23"
+  ],
+  "reason": "BT 搜索页：r351 真机开屏；源 chip 11 个（`All sources`/`1337xxx`/`The Pirate Bay`/`EZTV`/`Demonoid`/`Sky torrents`/`MagnetDL`/`YTS`/`NoNaMe-Club`/`Rutor`/`Torrent Downloads`，横滑两端各自复核）；输入 `ubuntu` 提交后界面进入 `Searching sources; results keep coming in…`/`Searching…`（请求确已发出）；★ **结果态在 ≈60 s 观察窗内未出现**，不出结论（像素 d01–d05）"
+ },
+ "lib/src/features/downloads/download_emule_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r351.md:37",
+   "docs/evidence-r351/README.md:28"
+  ],
+  "reason": "eMule 任务页：r351 真机开屏；标题 `eMule` + 工具栏 `eMule search`/`Refresh` + 页签 `eMule downloads` + 空态 `No eMule tasks.`（与 NAS 上 0 个 eMule 任务一致）"
+ },
+ "lib/src/features/downloads/download_emule_search_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r351.md:38",
+   "docs/evidence-r351/README.md:29"
+  ],
+  "reason": "eMule 搜索页：r351 真机开屏（`Keyword`/`Search method`/`File type`/`Min size (MB)`/`Max size (MB)`/`Min sources`/`Extension`）；提交 `ubuntu` 后界面出现 **`Unknown error (2704)`** ⇒ 新机制量（download-api-live 记的是 2706）；语义未定，不写死结论"
+ },
+ "lib/src/features/downloads/download_link_browser.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r351.md:39",
+   "docs/evidence-r351/README.md:31"
+  ],
+  "reason": "内置链接浏览器：r351 真机开屏，dump 含 `android.webkit.WebView [0,482][1148,2377]`；`Open` `https://example.com` 后 dump 出 `Example Domain` + 正文且像素确认渲染 ⇒ 原 C 档理由（WebView 只能真机取证、真机未验）已消除（像素 d09/d10）"
+ },
+ "lib/src/features/downloads/download_settings_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r351.md:40",
+   "docs/evidence-r351/README.md:33"
+  ],
+  "reason": "下载设置页：r351 真机开屏；`Auto extraction`（`Extract to: current_folder`）+ `Download Station package information`（`Version 4.1-5012`，`Modules: BT · eMule`，`BT preview ✓`，`eMule ✓`，`Auto extract ✗`，`Extraction service ✗`）+ `Task completion alerts`；整页可见（复滑 dump 逐字相同）；★ 未翻动任何开关"
+ },
+ "lib/src/features/photos/photo_background_tasks_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r353.md:22",
+   "docs/evidence-r353/README.md:11"
+  ],
+  "reason": "相册「后台任务」：r353 真机开屏（`时间轴 → More photo features → Background tasks`）；dump 读到标题 + 空态 `No background tasks in progress` + 说明行；像素 p02。空态与 `BackgroundTask.Info:list_user_task` 真机 `{\"list\":[]}` 一致"
+ },
+ "lib/src/features/photos/photo_migration_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r353.md:23",
+   "docs/evidence-r353/README.md:12"
+  ],
+  "reason": "相册「迁移状态」：r353 真机开屏（hub → `Migration status`）；dump 读到标题 + 空态 `No migration in progress` + 说明行；像素 p03。★ 接口回 `current:2/status:done/total:0` ⇒ 按 `done && total<=0` 画空态（代码内明写裁定）；`current` 字段界面上无出口，如实记"
+ },
+ "lib/src/features/photos/photo_recent_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r353.md:24",
+   "docs/evidence-r353/README.md:13"
+  ],
+  "reason": "相册「最近添加」：r353 真机开屏（hub → `Recently Added`）；像素 p04 **画满真实缩略图网格**（NAS 侧真有数据）；★ dump 只有标题+Back（缩略图无 text/desc）⇒ 本页判据只能取像素"
+ },
+ "lib/src/features/photos/photo_wave2_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r353.md:25",
+   "docs/evidence-r353/README.md:14"
+  ],
+  "reason": "相册 wave2：r353 真机开屏 **2/4 个页类** —— `Tags`（`0 tags` + 空态 `No tags yet`，像素 p05）与 `People`（`Face recognition is off`，像素 p06）。★ `PhotoTagDetailPage`/`PhotoPersonAlbumPage` **仍未验**：本 NAS 标签数 0、人脸识别关 ⇒ 无详情对象可点（造标签 = 写动词 → W3）"
+ },
+ "lib/src/features/photos/photo_wave3_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r353.md:27",
+   "docs/evidence-r353/README.md:16"
+  ],
+  "reason": "相册设置（wave3）：r353 真机开屏（`Photos 段 → Album settings` `[1001,443][1148,590]`）；dump 逐节读到 Album cache（`Cache status Completed`/`Cache size … 0 B`/只读说明）、Album list preference（`All albums`）、`Local cache limit 500 MB`、`Clear local cache`、Playback settings 两个开关；像素 p07。★ 同屏发现 DA8/DA9"
+ },
+ "lib/src/features/photos/sleep_backup_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r353.md:28",
+   "docs/evidence-r353/README.md:17"
+  ],
+  "reason": "休眠备份页（D84）：r353 真机开屏（`Photos → Phone backup → Focused backup and sync`）；dump 读到卡片（`0 files left to back up`）、三条引导、`Enable`/`Disable`、`Not enabled`、`Test reminder`、检查周期行；像素 p08/p09。★ **未按 Enable**（会改设备后台状态）；同屏发现 **DA8（技术字样）/DA9（自指别家 App 名）**"
+ },
+ "lib/src/features/mailplus/mail_compose_page.dart": {
+  "verdict": "E",
+  "evidence": [
+   "docs/android-acceptance-summary.md:614",
+   "docs/android-page-coverage-matrix.md:600"
+  ],
+  "reason": "MailPlus 写信页：目标 NAS 未安装/未装包，真机只到「套件未安装」这一层。**★ 2026-10-11 用户裁定：不需要支持 ⇒ 产品范围外·用户裁定**（不再是\"待装包\"）"
+ },
+ "lib/src/features/mailplus/mail_detail_page.dart": {
+  "verdict": "E",
+  "evidence": [
+   "docs/android-acceptance-summary.md:614",
+   "docs/android-page-coverage-matrix.md:600"
+  ],
+  "reason": "MailPlus 邮件详情页：目标 NAS 未安装/未装包，真机只到「套件未安装」这一层。**★ 2026-10-11 用户裁定：不需要支持 ⇒ 产品范围外·用户裁定**（不再是\"待装包\"）"
+ },
+ "lib/src/features/mailplus/mail_page.dart": {
+  "verdict": "E",
+  "evidence": [
+   "docs/android-acceptance-summary.md:614",
+   "docs/android-page-coverage-matrix.md:600"
+  ],
+  "reason": "MailPlus 邮件列表页：目标 NAS 未安装/未装包，真机只到「套件未安装」这一层。**★ 2026-10-11 用户裁定：不需要支持 ⇒ 产品范围外·用户裁定**（不再是\"待装包\"）"
+ },
+ "lib/src/features/surveillance/surv_camera_page.dart": {
+  "verdict": "E",
+  "evidence": [
+   "docs/android-acceptance-summary.md:614",
+   "docs/android-page-coverage-matrix.md:600"
+  ],
+  "reason": "单台摄像机详情页：目标 NAS 未安装/未装包，真机只到「套件未安装」这一层。**★ 2026-10-11 用户裁定：不需要支持 ⇒ 产品范围外·用户裁定**（不再是\"待装包\"）"
+ },
+ "lib/src/features/surveillance/surv_page.dart": {
+  "verdict": "E",
+  "evidence": [
+   "docs/android-acceptance-summary.md:614",
+   "docs/android-page-coverage-matrix.md:600"
+  ],
+  "reason": "Surveillance Station 摄像机列表页：目标 NAS 未安装/未装包，真机只到「套件未安装」这一层。**★ 2026-10-11 用户裁定：不需要支持 ⇒ 产品范围外·用户裁定**（不再是\"待装包\"）"
+ },
+ "lib/src/features/search/global_search_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r354.md:21..25",
+   "docs/evidence-r354/README.md:11"
+  ],
+  "reason": "r354 真机开屏：入口 = Files 顶栏 `Search files` → 文件搜索页里的 `Search NAS globally | Universal Search` 行 `[37,507][1111,728]`。页面读数：标题 `Global search`、输入框占位 `Search modules; Enter searches…`、右侧提交箭头、空态 `Enter a keyword or pick filters, then search`；树里 `class=android.widget.EditText [37,323][1111,470]`（正文无节点 ⇒ 判据取像素）。★ **查询态未验**：该页检索会走 `SYNO.FileStation.Search start`（建任务，属写动词）⇒ §5.1 只允许\"开屏 + 空态\"。★ 订正：聊天外壳顶栏的放大镜进的是 `search_page`（不是本页，evidence-r354/s01）。",
+  "pixels": [
+   "docs/evidence-r354/s02_global_search_page.png"
+  ]
+ },
+ "lib/src/features/chat/channel_create_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r354.md:21..25",
+   "docs/evidence-r354/README.md:13"
+  ],
+  "reason": "r354 真机开屏：入口 = Chat 外壳右下 `New Channel` 动作球 `[940,2104][1099,2264]`。读数：`New Channel` / `Channel name`（占位 `e.g. Project discussion`）/ `Purpose (optional)` / `Private channel`（选中）· `Public channel` / `End-to-end encryption`（关）/ `Members` 勾选表（demo·demo_user）；★ 右上 **`Create` 为灰**（名称为空）⇒ **没有创建任何频道**（写动词为零）。★ 提交后态留给 W3。",
+  "pixels": [
+   "docs/evidence-r354/s03_channel_create_page.png"
+  ]
+ },
+ "lib/src/features/chat/channel_media_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r354.md:21..25",
+   "docs/evidence-r354/README.md:14"
+  ],
+  "reason": "r354 真机开屏：入口 = 频道 `My Space` 顶栏 `⋮` → `Photos & videos`。读数：`synobot · Media & files` + 四 tab `Image/Video/Audio/File`（树里 `Image | Tab 1 of 4` … `File | Tab 4 of 4`）；`Image` tab 2 张图块；`Video/Audio/File` 三 tab = `Nothing here yet`（与该 bot 频道只有 2 张图的数据一致，不是\"筛不出\"缺陷）。★ 图块为纯洋红，经查看器（同一实现）自证\"纯色来自原图本身\"。",
+  "pixels": [
+   "docs/evidence-r354/s04_channel_media_page_myspace.png",
+   "docs/evidence-r354/s09_media_tab_Video.png",
+   "docs/evidence-r354/s09_media_tab_Audio.png",
+   "docs/evidence-r354/s09_media_tab_File.png"
+  ]
+ },
+ "lib/src/features/chat/attachment_view.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r354.md:24..28",
+   "docs/evidence-r354/README.md:15"
+  ],
+  "reason": "r354 真机开屏（`ImageViewerPage`）：入口 = `channel_media_page` 媒体墙第一张图块。读数：黑底查看器 + `←` + 标题 `flt-p9-orig-1789608070493.p…` + 右上 `Image actions`；动作弹层 = `Save to Downloads | flt-p9-orig-1789608070493.png` / `Share` / `Open with another app`（★ **三条都没点** —— 下载/外发）。★ 消息气泡入口未验（同一实现，入口不同）。",
+  "pixels": [
+   "docs/evidence-r354/s05_attachment_view_from_media.png",
+   "docs/evidence-r354/s06_attachment_image_actions.png"
+  ]
+ },
+ "lib/src/features/contacts/contact_import_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r354.md:25..29",
+   "docs/evidence-r354/README.md:18"
+  ],
+  "reason": "r354 真机开屏：入口 = Workspace → `Contacts` 瓦片 → 联系人页 `More` → `Import vCard / CSV`。读数：`Import contacts` / 说明 `Supports .vcf (vCard) / .csv / .txt. Pick a file to see a preview first, then confirm the import.` / `Which address book to import into` = `Suggested` / `Choose file`；★ `Import into this address book` **为灰**（未选文件）⇒ **没有导入任何联系人**。★ 预览态与导入后态（`Addressbook/import` 写动词）留给 W3。",
+  "pixels": [
+   "docs/evidence-r354/s08_contact_import_page.png"
+  ]
+ },
+ "lib/src/features/drive/drive_notifications_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r355.md:32",
+   "docs/evidence-r355/README.md:11"
+  ],
+  "reason": "r355 真机开屏：入口 = Files → `My Drive` → 源行尾 `More` → Drive「更多」页顶栏 `Drive more` → 扩展页 `Notifications`。读数：标题 `Notifications` + `Refresh` + `Clear notifications`；**列表是 10+ 条真数据**（`delete` / `delete · spike_min.odoc · +4` / `delete · probe_A.txt` + 日期 09-21/09-22）。★ 列表行的文字**没有**无障碍节点（`dump` 只回 3 个节点）⇒ 判据取像素（仪器⑥/㉙）。★ `Clear notifications` **未点**（写动词）。",
+  "pixels": [
+   "docs/evidence-r355/s02_drive_notifications_page.png"
+  ]
+ },
+ "lib/src/features/drive/drive_team_members_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r355.md:33",
+   "docs/evidence-r355/README.md:12"
+  ],
+  "reason": "r355 真机开屏：入口 = 扩展页 `Team members`。读数：标题 `Team members`；空态 `No team folders` + `Team folders are created by an administrator in the Drive admin console; the parts you can see show up here.`（**有数据档**要管理员建团队文件夹 ⇒ 见 r355 §S5，非页面缺陷）。",
+  "pixels": [
+   "docs/evidence-r355/s03_drive_team_members_page.png"
+  ]
+ },
+ "lib/src/features/drive/drive_computers_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r355.md:34",
+   "docs/evidence-r355/README.md:13"
+  ],
+  "reason": "r355 真机开屏：入口 = 扩展页 `Computers`。读数：标题 `Computers` + 副题 `See computers signed in to the same account and their synced folders`；空态 `No connected computer yet` + `Install the Synology Drive client on a computer and sign in with the same account to see it here.`",
+  "pixels": [
+   "docs/evidence-r355/s04_drive_computers_page.png"
+  ]
+ },
+ "lib/src/features/drive/drive_connections_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r355.md:35",
+   "docs/evidence-r355/README.md:14"
+  ],
+  "reason": "r355 真机开屏：入口 = 扩展页 `Connected devices`。读数：标题 `Connected devices` + 副题 `Devices connected to this NAS with a Drive client`；空态 `No connected devices` + `Once you sign in to this NAS from Synology Drive on a computer or phone, that device will be listed here.`",
+  "pixels": [
+   "docs/evidence-r355/s05_drive_connections_page.png"
+  ]
+ },
+ "lib/src/features/drive/drive_collection_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r355.md:36",
+   "docs/evidence-r355/README.md:15"
+  ],
+  "reason": "r355 真机开屏：入口 = 扩展页 `Collections`。读数：标题 `Collections` + 副题 `No collections yet`；筛选片 `All`（**选中，带勾**）/ `Photo collection` / `Document collection`；空态 `No collections yet` + `Collections gather files scattered across folders into four kinds: photos, documents, music and videos.`；底部 `+ New collection`（**未点**＝写动词）。",
+  "pixels": [
+   "docs/evidence-r355/s06_drive_collection_page.png"
+  ]
+ },
+ "lib/src/features/drive/drive_team_trash_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r355.md:37",
+   "docs/evidence-r355/README.md:16"
+  ],
+  "reason": "r355 真机开屏：入口 = 扩展页**下滚一屏**（仪器⑪）后的末行 `Team folder recycle bin`。读数：标题 `Team folder recycle bin` + 副题 `No team folders`；提示行 `Pick a team folder to view and restore files deleted inside it`；空态 `No team folders` + `This account has no team folders yet, so there is no team folder recycle bin to show.`",
+  "pixels": [
+   "docs/evidence-r355/s07_drive_team_trash_page.png"
+  ]
+ },
+ "lib/src/features/drive/drive_extras_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r355.md:38",
+   "docs/evidence-r355/README.md:10"
+  ],
+  "reason": "r355 真机开屏（W1-g 的 C 格提前清）：入口 = Drive「更多」页顶栏 `Drive more`(903,213)。读数：标题栏 + **11 行入口**（`File requests`/`Notifications`/`Team members`/`Storage`/`Computers`/`Local files`/`Connected devices`/`Collections`/`Team folder recycle bin`…）。★ 末行初始在屏外 ⇒ 按 §2.0.47 先滚到底再判\"有没有这一行\"。",
+  "pixels": [
+   "docs/evidence-r355/s01_drive_extras_page.png"
+  ]
+ },
+ "lib/src/features/drive/drive_quota_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r355.md:39",
+   "docs/evidence-r355/README.md:17"
+  ],
+  "reason": "r355 真机开屏：入口 = 扩展页 `Storage`。读数：标题 `Storage`；卡片 `My files` / **`16.8 GB used`** / `Unlimited` —— **真数据回读**（不是空态），与 `Info:quota` 的只读实测一致。",
+  "pixels": [
+   "docs/evidence-r355/s08_drive_quota_page.png"
+  ]
+ },
+ "lib/src/features/drive/drive_local_files_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r355.md:40",
+   "docs/evidence-r355/README.md:18"
+  ],
+  "reason": "r355 真机开屏（两层）：① 首屏 = 标题 `Local files` + 副题 `Upload to /mydrive` + 根行 `/storage/emulated/0`（`driveLocalRootsProvider`，首屏只有一个根行**是对的**，见 r355 §4.2）；② 点根行后列出**真实本机条目** `.DataStorage` / `.desktop_phone` / `.photoShare` / `.recycle` / `.RecycleBinHW` / `.turingdebug` / `.UTSystemConfig` / `Alarms` / `Android` / `Audiobooks`（每行带 `Device` 类型标）⇒ 本机读权限与列表渲染都成立。★ 未上传任何文件（写动词留给 W3）。",
+  "pixels": [
+   "docs/evidence-r355/s09_drive_local_files_page.png",
+   "docs/evidence-r355/s10_drive_local_files_listing.png"
+  ]
+ },
+ "lib/src/features/drive/drive_sync_tasks_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r355.md:41",
+   "docs/evidence-r355/README.md:21"
+  ],
+  "reason": "r355 真机开屏：入口 = `DriveFolderPage`（从回收站目录行进入）顶栏 `Sync tasks`(927,200)。读数：标题 `Sync tasks` + 右上 `+`；空态 `Sync tasks` + `No sync tasks yet. Create one to compare a local folder with Drive.` ★ `+`（新建同步任务）**未点**＝写动词。",
+  "pixels": [
+   "docs/evidence-r355/s12_drive_sync_tasks_page.png"
+  ]
+ },
+ "lib/src/features/drive/drive_advance_sharing_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r355.md:42",
+   "docs/evidence-r355/README.md:22"
+  ],
+  "reason": "r355 真机开屏：入口 = My Drive 文件行 `More` → 动作表 `Advanced sharing`。读数：标题 `Advanced sharing` + 副题 `Travel expenses.osheet`；提示 `Anonymous public links: anyone with the link can open it without an account; use Share for member sharing.`；空态 `No public links yet` + 同句。★ 没有创建任何公开链接（写动词）。",
+  "pixels": [
+   "docs/evidence-r355/s13_drive_advance_sharing_page.png"
+  ]
+ },
+ "lib/src/features/drive/drive_folder_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r355.md:43",
+   "docs/evidence-r355/README.md:20"
+  ],
+  "reason": "r355 真机开屏：入口 = 扩展页 `Recycle bin` 分段的目录行 `__dsh_p2_1790006423088`。读数：标题 `__dsh_p2_1790006423…`；顶栏 `Sync tasks` + `Scan document`；正文**错误态** `Cannot open this folder` / `Error code 1003` + `Retry`。★ 这条错误态本身就是 **DA10a/DA10b** 的取证：回收站条目 id 拿去 `Files/list` 必然 1003（r355 §4.1，已修\"必然报错的入口\"+文案）。★ 由它进入的 `drive_sync_tasks_page` 见上一条。",
+  "pixels": [
+   "docs/evidence-r355/s11_drive_folder_page.png"
+  ]
+ },
+ "lib/src/features/drive/drive_scan_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r356.md:30",
+   "docs/evidence-r356/README.md:17"
+  ],
+  "reason": "r356 真机开屏（W1-g）：入口 = Drive「更多」→ 回收站片 → 目录行 → `DriveFolderPage` 顶栏 `Scan document`(1074,200)。读数：标题 `Scan document`、开关 `Auto-crop and enhance`/`Text line analysis`、名称 `EditText`、`0 pages captured`、空态 `Capture a page`、按钮 `Capture a page`/`Import from gallery`/`Create PDF and upload`。★ 拍照/合成/上传一律未动（写动词，§5.1）。",
+  "pixels": [
+   "docs/evidence-r356/s08_drive_scan_page.png"
+  ]
+ },
+ "lib/src/features/drive/drive_category_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r356.md:31",
+   "docs/evidence-r356/README.md:13"
+  ],
+  "reason": "r356 真机开屏（W1-g）：入口 = Drive「更多」页顶栏 `Browse by category`(756,213)。读数：标题 + 四 chip（`照片 (1)`/`视频 (0)`/`音频 (0)`/`文档 (16)`）+ 文档 tab 真条目（`cbr-enc.cbr`、`5-day trip planner.odoc`）+ 视频 tab 空态 `No files in this category yet`。★ 同屏抓到 **DA11**（英文界面 chip 的 label 回落中文，已修 + 反向验证，见台账 §4.1）。",
+  "pixels": [
+   "docs/evidence-r356/s04_drive_category_page.png",
+   "docs/evidence-r356/s05_drive_category_docs.png",
+   "docs/evidence-r356/s06_drive_category_video_empty.png"
+  ]
+ },
+ "lib/src/features/drive/drive_file_request_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r356.md:32",
+   "docs/evidence-r356/README.md:16"
+  ],
+  "reason": "r356 真机开屏（W1-g）：入口 = `DriveExtrasPage` 行 `File requests`（点 (574,654)，回读标题确认落点）。读数：标题 `File requests` + 错误态 `Couldn't open this list` + 人话 `File requests are turned off on this NAS. Enable them in the Drive admin console of DSM, then try again.` + `Retry`。★ 对应服务端 `FileRequest:list v1 → 1076`（docs/g6-api-probe-facts.md §4）⇒ **服务端开关不是实现缺口**；该人话只在像素上可见（dump 无此节点，仪器⑥第二例）。",
+  "pixels": [
+   "docs/evidence-r356/s07_drive_file_request_page.png"
+  ]
+ },
+ "lib/src/features/drive/drive_pdf_markup_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r356.md:33",
+   "docs/evidence-r356/README.md:11"
+  ],
+  "reason": "r356 真机开屏（W1-g）：入口 = Files → NAS files → `/home/ebooktest` → `ai_report_en.pdf` → 阅读器 `Annotate / sign`(886,372)。读数：标题 `ai_report_en.pdf`、`Highlight`/`Handwriting / signature`/`Note`、`0 annotations`·`pages 1`、`Undo last`、`Export annotated PDF`、`Write back to the original file (incremental update)`。★ 未批注/未导出/未回写（写动词，§5.1）。",
+  "pixels": [
+   "docs/evidence-r356/s02_pdf_markup_page.png",
+   "docs/evidence-r356/s01_pdf_viewer.png"
+  ]
+ },
+ "lib/src/features/drive/drive_copy_move_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r356.md:34",
+   "docs/evidence-r356/README.md:19"
+  ],
+  "reason": "r356 真机开屏（W1-g）：入口 = My Drive 文件行 `More`(1037,1272) → 行菜单 `Copy to…`(768,2222)。读数：标题 `Copy to…`、右上 `Copy here`、目标列表 `PhotoBackup`（可下钻）。★ 未点 `Copy here`；退出后服务端回读证明未产生副本（My Drive 根仍有 `Celestial.oslides`，目标目录 `PhotoBackup` 里没有它）⇒ §5.1 写动词 0。",
+  "pixels": [
+   "docs/evidence-r356/s10_drive_copy_move_page.png",
+   "docs/evidence-r356/s09_file_action_sheet.png",
+   "docs/evidence-r356/s11_photobackup_readback.png"
+  ]
+ },
+ "lib/src/features/notes/note_todo_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r357.md:29",
+   "docs/evidence-r357/README.md:10"
+  ],
+  "reason": "r357 真机开屏（W1.5）：入口 = 底栏 `Workspace` → 应用格 `Notes`(`NoteStation`) → 笔记页 `More` 菜单 → `To-dos`。读数：标题 `To-dos`、筛选 `All`/`Open`/`Completed`/`Overdue 0`、空态 `No to-dos`+`Tasks created in NoteStation will show up here`、动作 `Overdue alerts`/`Refresh`。★ 未新建/未改任何待办（§5.1）。",
+  "pixels": [
+   "docs/evidence-r357/s02_todo_page.png",
+   "docs/evidence-r357/README.md"
+  ]
+ },
+ "lib/src/features/notes/note_tag_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r357.md:30",
+   "docs/evidence-r357/README.md:11"
+  ],
+  "reason": "r357 真机开屏（W1.5）：`Notes` 菜单 → `Tags`。读数：标题 `Tags`、真数据行 `test` + `1 notes` + 行内 `⋮`、`Refresh`。★ 未改名/未删标签（§5.1）。",
+  "pixels": [
+   "docs/evidence-r357/s03_tags_page.png",
+   "docs/evidence-r357/README.md"
+  ]
+ },
+ "lib/src/features/notes/note_smart_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r357.md:31",
+   "docs/evidence-r357/README.md:12"
+  ],
+  "reason": "r357 真机开屏（W1.5，**原 B 转 A**）：`Notes` 菜单 → `Smart notebooks`。读数：标题 `Smart notebooks`、空态 `No smart notebooks yet`、FAB `New smart notebook`。★ 原来只有 `Smart:list v1` 的空参接口复核，本轮真开了页面。未新建（§5.1）。",
+  "pixels": [
+   "docs/evidence-r357/s04_smart_page.png",
+   "docs/evidence-r357/README.md"
+  ]
+ },
+ "lib/src/features/notes/note_joined_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r357.md:32",
+   "docs/evidence-r357/README.md:13"
+  ],
+  "reason": "r357 真机开屏（W1.5）：`Notes` 菜单 → `Shared with me`（★ 该菜单行对应的是 `NoteJoinedPage`，不是 `NoteSharedPage`；两页各自取像素对齐）。读数：标题 `Shared with me`、空态 `Nothing shared with you yet`。",
+  "pixels": [
+   "docs/evidence-r357/s05_joined_page.png",
+   "docs/evidence-r357/README.md"
+  ]
+ },
+ "lib/src/features/notes/note_shelf_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r357.md:33",
+   "docs/evidence-r357/README.md:14"
+  ],
+  "reason": "r357 真机开屏（W1.5）：`Notes` 菜单 → `Shelves`。读数：标题 `Shelves`、分组头 `Shelves`/计数 `1` + 子行 `My notebook`、FAB `Add to shelf`。★ 未加/未移（§5.1）。",
+  "pixels": [
+   "docs/evidence-r357/s06_shelf_page.png",
+   "docs/evidence-r357/README.md"
+  ]
+ },
+ "lib/src/features/notes/note_shortcut_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r357.md:34",
+   "docs/evidence-r357/README.md:15"
+  ],
+  "reason": "r357 真机开屏（W1.5，**原 B 转 A**）：`Notes` 菜单 → `Shortcuts`。读数：标题 `Shortcuts`、空态 `No shortcuts yet` + `The server has no shortcuts saved for this account`（把\"空\"归因到服务端）、`Refresh`。★ 原来只有 `Shortcut:list v1` 空参复核（`{\"offset\":0,\"total\":0}`）。",
+  "pixels": [
+   "docs/evidence-r357/s07_shortcut_page.png",
+   "docs/evidence-r357/README.md"
+  ]
+ },
+ "lib/src/features/notes/note_fts_search_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r357.md:35",
+   "docs/evidence-r357/README.md:16"
+  ],
+  "reason": "r357 真机开屏（W1.5）：`Notes` 菜单 → `Full-text search`。读数：标题 `Full-text search`、搜索框 `Enter a keyword to search`、说明 `Search titles, content and attachment text`。★ 未发检索请求。",
+  "pixels": [
+   "docs/evidence-r357/s08_fts_page.png",
+   "docs/evidence-r357/README.md"
+  ]
+ },
+ "lib/src/features/notes/note_adv_search_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r357.md:36",
+   "docs/evidence-r357/README.md:20"
+  ],
+  "reason": "r357 真机开屏（W1.5）：`Notes` 菜单（**需先滚动菜单**，仪器㉟）→ `Advanced search`。读数：标题 `Advanced search`、标签/笔记本候选 `test`/`My notebook`、两组 `From`/`To` 日期区间。★ 未执行检索。",
+  "pixels": [
+   "docs/evidence-r357/s12_adv_search_page.png",
+   "docs/evidence-r357/README.md"
+  ]
+ },
+ "lib/src/features/notes/note_background_sync_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r357.md:37",
+   "docs/evidence-r357/README.md:21"
+  ],
+  "reason": "r357 真机开屏（W1.5）：`Notes` 菜单（需滚动）→ `Background sync`。读数：标题 `Background sync`、按钮 `Sync now`。★ **未点 `Sync now`**（它会 push，属写动词，§5.1）。",
+  "pixels": [
+   "docs/evidence-r357/s13_bg_sync_page.png",
+   "docs/evidence-r357/README.md"
+  ]
+ },
+ "lib/src/features/notes/note_overdue_settings_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r357.md:38",
+   "docs/evidence-r357/README.md:22"
+  ],
+  "reason": "r357 真机开屏（W1.5）：待办页顶栏 `Overdue alerts`。读数：标题 `Overdue alerts`、开关行 `Daily overdue summary`(`At the set time, summarize …`)、`Reminder time` `09:00`。★ 未改开关/未改时间。",
+  "pixels": [
+   "docs/evidence-r357/s14_overdue_settings_page.png",
+   "docs/evidence-r357/README.md"
+  ]
+ },
+ "lib/src/features/notes/note_todo_editor_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r357.md:39",
+   "docs/evidence-r357/README.md:23"
+  ],
+  "reason": "r357 真机开屏（W1.5）：待办页 FAB → **新建草稿**。读数：`New to-do`、`Due date`(None)/`Reminder`(`Set a due date first`)/`Priority`(None)/`Star`/`Completed`、顶栏 `Save`。★ 草稿未保存，退出后待办列表仍 `No to-dos`（§5.1 回读）。",
+  "pixels": [
+   "docs/evidence-r357/s15_todo_editor_page.png",
+   "docs/evidence-r357/README.md"
+  ]
+ },
+ "lib/src/features/notes/note_drawing_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r357.md:40",
+   "docs/evidence-r357/README.md:25"
+  ],
+  "reason": "r357 真机开屏（W1.5）：**新笔记草稿**编辑器 → `Insert image` → `Drawing`。读数：标题 `Drawing`、提示 `Draw with one finger; two-finger gestures are ignored`、`Undo`/`Redo`/`Clear`/`Insert`、工具 `Brush`/`Eraser`。★ 未画、未 Insert；草稿退出即弃（§5.1）。",
+  "pixels": [
+   "docs/evidence-r357/s17_drawing_page.png",
+   "docs/evidence-r357/README.md"
+  ]
+ },
+ "lib/src/features/notes/note_nas_picker.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r357.md:41",
+   "docs/evidence-r357/README.md:24"
+  ],
+  "reason": "r357 真机开屏（W1.5）：同上草稿编辑器 → `Insert image` → `From the NAS`。读数：标题 `Pick an image from the NAS`、`/home` + `Up one level`、真目录 `Download`/`Drive`/`ebooktest`/`music`、顶栏 `Insert`。★ 未选图、未 Insert。",
+  "pixels": [
+   "docs/evidence-r357/s16_nas_picker_page.png",
+   "docs/evidence-r357/README.md"
+  ]
+ },
+ "lib/src/features/notes/note_body.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r357.md:42",
+   "docs/evidence-r357/README.md:27"
+  ],
+  "reason": "r357 真机开屏（W1.5）：笔记 `l1.png / nf.png` → 正文图片（点 (574,1200)）。读数：`NoteImagePage` 全屏页标题 **`l1.png  1/2`** + `1.8 MB`；正文缩略图**真渲染**（不是失败占位）。",
+  "pixels": [
+   "docs/evidence-r357/s19_note_image_page.png",
+   "docs/evidence-r357/README.md"
+  ]
+ },
+ "lib/src/features/notes/note_c3_pages.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r357.md:43",
+   "docs/evidence-r357/README.md:17"
+  ],
+  "reason": "r357 真机开屏（W1.5）：`Notes` 菜单 → `Import` / `Web clipper` / `Export notebook to NAS` 三个面板真开（`Import notes`(三来源) / `Clip a web page`(`Save to notebook`+`Simplified`/`Full page`) / 导出(`Include app settings`+`Include to-dos`)）。★ 三个面板都只开后 `←` 关闭、**未点任何 `OK`**（§5.1）。★ 第 4 个子页**版本历史**未开：本账号 4 篇笔记 `showsVersion=false`（`note_view_page.dart:121`；像素 `s18_note_reader.png` 工具栏无历史图标）⇒ 如实记为\"3/4 子页真开 + 1 个子页原因\"。",
+  "pixels": [
+   "docs/evidence-r357/s09_import_dialog.png",
+   "docs/evidence-r357/README.md"
+  ]
+ },
+ "lib/src/features/notes/note_shared_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r357.md:44",
+   "docs/evidence-r357/README.md:28"
+  ],
+  "reason": "r357 真机开屏（W1.5）：`Notes` 菜单（需滚动）→ `Shared by me`。读数：标题 `Shared by me`、空态 `Nothing shared by you yet`。",
+  "pixels": [
+   "docs/evidence-r357/s20_shared_by_me_page.png",
+   "docs/evidence-r357/README.md"
+  ]
+ },
+ "lib/src/features/analytics/traffic_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r358.md:43",
+   "docs/evidence-r358/README.md:16"
+  ],
+  "reason": "r358 真机开屏（W2，**原 C 转 A**）：入口 = 聊天外壳 `⋮` → `Settings` → `Usage analytics` → 行 `Network traffic`。读数：标题 `Network traffic` + 副标题 `Per-module and time-of-day (exact + estimated)`；`Last 24 hours`/`Last 7 days`；`Total 1.75 GB`（`Exact 1.02 GB`/`Estimated 753 MB`/`Unattributed 27.9 MB`）；`vs. system counters`：`System UID total 13.0 GB`/`Attributed in this app 1.75 GB`/`Unaccounted 11.3 GB`/`since 18:06`；`Traffic by module`：`Media 1,001 MB 55.8%`/`Downloads 321 MB 17.9%`/`Settings 273 MB 15.2%`/`Photos 113 MB 6.3%`/`Synology Drive 29.2 MB 1.6%`。★ 只读：未点任何清理/导出。",
+  "pixels": [
+   "docs/evidence-r358/s09_traffic_page.png",
+   "docs/evidence-r358/README.md"
+  ]
+ },
+ "lib/src/features/chat/available_channels_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r358.md:40",
+   "docs/evidence-r358/README.md:10"
+  ],
+  "reason": "r358 真机开屏（W2，**原 C 转 A**）：入口 = 聊天外壳（`channel_list_page.dart:351` `Join public channel`）→ `_openAvailableChannels`。读数：标题 `Public channels`；`Search channel name`；三条**真公开频道** `镜像集散地`/`虚拟化容器化技术`/`Excerpt · 1 members`，各带 `Join`。★ **未点 `Join`**（写动词，§5.1）；回读证明聊天外壳仍 `23 channels · 42 users`。",
+  "pixels": [
+   "docs/evidence-r358/s03_available_channels_page.png",
+   "docs/evidence-r358/README.md"
+  ]
+ },
+ "lib/src/features/chat/global_content_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r358.md:42",
+   "docs/evidence-r358/README.md:12"
+  ],
+  "reason": "r358 真机开屏（W2，**原 C 转 A**）：入口 = 聊天外壳 `⋮` → `Cross-channel content`（`channel_list_page.dart:361`）。读数：标题 `Cross-channel content`；四 tab `Threads`/`Bookmarks`/`Reminders`/`Sch…`（定时）；空态 `No subscribed threads yet`。★ 真机首次打开该页（r348d 走的是频道 ⋮ 里的单频道 tab，标题与空态不同 ⇒ 不是同一页）。",
+  "pixels": [
+   "docs/evidence-r358/s05_global_content_page.png",
+   "docs/evidence-r358/README.md"
+  ]
+ },
+ "lib/src/features/settings/bots_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r358.md:41",
+   "docs/evidence-r358/README.md:11"
+  ],
+  "reason": "r358 真机开屏（W2，**原 C 转 A**）：入口 = 聊天外壳 `⋮` → `Bots`（`channel_list_page.dart:357` → `AppRoutes.bots`）。读数：标题 `Bots`；三条真机器人 `Synology_Drive · Notification bot`/`openclaw · openclaw`/`synobot · System assistant`。★ 只读：未新建/未删除机器人。",
+  "pixels": [
+   "docs/evidence-r358/s04_bots_page.png",
+   "docs/evidence-r358/README.md"
+  ]
+ },
+ "lib/src/features/files/office_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r358.md:44",
+   "docs/evidence-r358/README.md:25"
+  ],
+  "reason": "r358 真机开屏（W2，**原 C 转 A**）：入口 = Files（Drive 源）→ 来源胶囊行尾随 `··· More` → `DriveMorePage` → 行 `Office documents`（`drive_more_page.dart:262`）。读数：标题 `Office`；顶栏 `Template library`；`Default` 排序；真 Office 行 `5-day trip planner.odoc 260 KB`/`Annual income and expenditure.osheet`/`Celestial.oslides`/`Dynamic.oslides 8.8 MB`/`Product spec.odoc`/`Restaurant menu.odoc`/`Ripple.oslides`。★ 只读：未新建/未打开编辑器。",
+  "pixels": [
+   "docs/evidence-r358/s18_office_page.png",
+   "docs/evidence-r358/README.md"
+  ]
+ },
+ "lib/src/features/files/usb_devices_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r358.md:45",
+   "docs/evidence-r358/README.md:20"
+  ],
+  "reason": "r358 真机开屏（W2，**原 C 转 A**；W2 计划把它归 C-p\"要 OTG\"，**判据有误**）：入口 = Files（NAS 源）→ `File tools` → `External devices`（`file_tools_sheet.dart:35`）。读数：标题 `External devices` + 刷新；空态 `No USB device detected` + `Plug a USB drive into the NAS, then refresh.`。★ **页面读侧可开**，空态是如实读数；**有数据档（真插 U 盘/移动硬盘）未验**，且未点任何\"安全弹出\"。",
+  "pixels": [
+   "docs/evidence-r358/s13_usb_devices_page.png",
+   "docs/evidence-r358/README.md"
+  ]
+ },
+ "lib/src/features/files/webdav_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r358.md:46",
+   "docs/evidence-r358/README.md:21"
+  ],
+  "reason": "r358 真机开屏（W2，**原 C 转 A**；W2 计划把它归 C-p\"要一台 WebDAV\"，**判据有误**）：入口 = Files（NAS 源）→ `File tools` → `WebDAV connection`（`file_tools_sheet.dart:65`）。读数：标题 `WebDAV connection`；`Connect to the NAS over WebDAV (the official DS file app's other transport path)`；`Host nas.example.com`/`Port 5001`/`HTTPS` 开（提示 `the https port is usually 5006`）/`Account demo_user`/空 `Password`/`Connect`；底部诚实说明 `Only reads are implemented (OPTIONS / PROPFind listing); upload, create folder, delete and rename are not implemented yet.`。★ **未点 `Connect`**（连接动作）⇒ 真连接与目录浏览未验。",
+  "pixels": [
+   "docs/evidence-r358/s14_webdav_page.png",
+   "docs/evidence-r358/README.md"
+  ]
+ },
+ "lib/src/features/files/drive_saf_on_demand_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r358.md:47",
+   "docs/evidence-r358/README.md:22"
+  ],
+  "reason": "r358 真机开屏（W2，**原 C 转 A**）：入口 = Files（NAS 源）→ `File tools` → `System picker · Files on demand`（`file_tools_sheet.dart:54` → `showDriveSafOnDemandSheet`）。读数：标题 `System picker · Files on demand` + 段 `System “Files” integration`；两行动作 `Turn on files on demand`/`Clear files-on-demand cache`；诚实说明 `Note: no credentials on the native side yet; account (unknown)` 与 `On-demand download is implemented by the native DocumentsProvider; this repo does not verify it on a device (Kotlin unverified on device).`。★ 只开面板**未点任何动作**；**Kotlin `DocumentsProvider` 仍未真机验**（页面自述，原样登记）。",
+  "pixels": [
+   "docs/evidence-r358/s15_saf_on_demand_sheet.png",
+   "docs/evidence-r358/README.md"
+  ]
+ },
+ "lib/src/features/drive/drive_text_editor_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r359.md:58",
+   "docs/evidence-r359/README.md:9"
+  ],
+  "reason": "r359 真机开屏（W3）：入口 = Files→My Drive→行 ⋮ →『Edit text』（drive_browse_view.dart:900-904 只在可写 + .txt/.md 时给入口）。读数：标题=文件名 + 右上 Save + 多行 EditText；加载通道 drive.api.getBytes 真机成功（正文=文件真内容，非乱码兜底）。dump 节点 Back/文件名/Save/EditText[37,323][1111,2377]。★ 同屏保存通道失败（DSM 401，见 DA14）——A 只判“页面真开”，缺陷另计。"
+ },
+ "lib/src/features/security/passcode_screen.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r360.md:51",
+   "docs/evidence-r360/README.md:17"
+  ],
+  "reason": "r360 真机闭环：Me → Settings → Security & background → App lock 开（设 4 位口令）→ Lock now ⇒ 锁屏覆盖层真机渲染（Locked / Enter your 4-digit passcode / 4 个空点 / 数字键盘 1–9,0,退格），错口令出红字 Wrong passcode、正确口令解锁回 Me 且会话仍在；开/关全程当轮还原（UI + 设备库 key_value_rows 两个来源）。"
+ },
+ "lib/src/features/downloads/download_file_select_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r361.md:52",
+   "docs/evidence-r361/README.md:1"
+  ],
+  "reason": "r361 真机开屏：Workspace → Download Station → New task → URL = 我们自己的局域网探针 http://10.254.254.39:8899/probe_r361.zip，开关 Choose files before downloading=ON → Create ⇒ 页面 Select files to download 真机渲染（错误态 Failed to load the file list / The archive is corrupted / Retry；点 Retry 同态）。服务端动作独立可证：NAS nas.example.com 来宿主机 HTTP 服务器取了 HEAD+GET。清单成功态未拿到 ⇒ 见矩阵 §4.4「只验了一半」与 DA18。"
+ },
+ "lib/src/features/servers/nas_manager_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r419.md:1",
+   "docs/evidence-r419/device/r419_04_nas_manager.xml",
+   "docs/evidence-r419/device/r419_05_row1_menu.xml",
+   "docs/evidence-r419/device/r419_07_remove_confirm.xml",
+   "docs/evidence-r419/device/r419_08_add_dialog.xml"
+  ],
+  "reason": "★ r419 真机开屏 + 动作级（C→A）：入口链 = 聊天列表 ⋮ → Sign out → 服务器页 `NasSwitcherBar`「Manage NAS」→ 本页（真机截图 `r419_03_server_setup.png` 可见 `Choose a NAS (2)`）。页面本体 dump：标题 `My NAS` + `Add NAS` + **2 条记录**（`demo_admin-qq` / `nas.example.com:5001`，均 `Account: demo_user`）+ 逐行 `More actions`；行菜单三项 `Switch to this NAS / Rename / Remove`；`Remove` 二次确认文案 **`Only \"demo_admin-qq\" is deleted from this device; other NAS configurations are unaffected.`**（安全不变量真机可见）；`Add NAS` 对话框两档 `QuickConnect ID / Direct address` + `Add and connect`。**全部只读到「打开对话框→Cancel」为止，零写动词**（未切/未改名/未删/未新增）；收尾节点与开屏**逐行相同**。★ 同轮发现：本页在**已登录状态下不可达**（通往 `/` 的生产入口只有登出），已登记 **DA79**。"
+ },
+ "lib/src/features/notes/note_conflict_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r420.md:1",
+   "docs/evidence-r420/device/r420_23_conflict_page.png",
+   "docs/evidence-r420/device/r420_24_conflict_server_tab.png",
+   "docs/evidence-r420/device/r420_22_sync_result.png"
+  ],
+  "reason": "★ r420 真机开屏 + **真实冲突数据**（C→A）：不是打开空态，而是**当轮造出的真冲突** —— 宿主探针建笔记（`tool/r419_conflict_probe_test.dart`，`flutter test` 跑）→ 设备同步后断 Wi-Fi 离线改正文 → 宿主把同一条 `Note/set` 顶 ver（`21e45d49…` → `aa176c9d…`）→ 设备联网同步 ⇒ 列表横幅 `1 notes changed on both sides; tap to choose which one to keep` → 点开本页。页面逐字：标题 `Sync conflict (1)`、说明 `The server changed this note after you edited it offline. Keep one side; the other version will be discarded.`、两栏标签 `My changes (Tab 1 of 2)` / `Server version (Tab 2 of 2)`、**两侧正文都取到真数据**（`本地基线（r419 探针）-FIXED-r420` vs `服务端这一侧改过（r419 探针）`）、三个动作 `Keep mine` / `Keep both` / `Use server`。收尾：清冲突用 `Use server`（服务端那条**已先行永久删除**）⇒ NAS 回读 `notes=16` = 基线。"
+ },
+ "lib/src/features/downloads/download_captcha_page.dart": {
+  "verdict": "A",
+  "evidence": [
+   "docs/android-ui-audit-r423.md:1",
+   "docs/evidence-r423/device/r423_06_after_fix_page.png",
+   "docs/evidence-r423/device/r423_06_after_fix_page.xml",
+   "docs/evidence-r423/device/r423_04_wrong_code_2301.xml",
+   "docs/evidence-r423/device/r423_07_after_fix_submitted.xml",
+   "docs/evidence-r423/device/r423_03_captcha_page_with_image.png"
+  ],
+  "reason": "★ r423 真机开屏 + 动作级（B→A）：入口条 `1 tasks need a captcha to continue` → 点 `Enter captcha` → 页面逐字 `Enter captcha` / `1 of 1` / `This NAS requires a captcha to continue this download task…` / **验证码图真渲染** / `Captcha` 输入框 / `Submit` / `Skip this task`；错码 `0000` ⇒ `Incorrect captcha. Please try again.`（服务端 2301）；对码 `1234` ⇒ 回列表、入口条消失、任务行 `Downloading`。数据源 = **本机 Mock（tool/mock_dsm --download-demo）＋ adb reverse ＋ 127.0.0.1 明文例外**（与 r368 webdav_page 同族仪器），真 NAS **零数据写动词**；当轮并撞到并修掉 DA81（入口条与页面各写一套判据），修后**不做手工刷新**直接进页面即出图（`r423_06_after_fix_page.xml`）。台账 `docs/android-ui-audit-r423.md`。"
+ }
+}

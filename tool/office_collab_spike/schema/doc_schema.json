@@ -1,0 +1,6408 @@
+{
+ "$schema_note": "Machine-readable export of the `.odoc` ProseMirror-fork schema as implemented by Synology Office (SPK 3.8.0-22711). Generated offline from the installed package only.",
+ "generated_by": "tool/office_collab_spike/schema/export_doc_schema.js",
+ "generated_at": "2026-09-21T13:34:11.042Z",
+ "source": {
+  "package": "Synology Office SPK 3.8.0-22711 (x86_64)",
+  "export_dir": "/tmp/spk/export_Office",
+  "bundle": "server/common/prosemirror/index.js",
+  "bundle_bytes": 1835954,
+  "bundle_sha256": "eee7801664008f5082da34c6380dcbeb9508409865de60b7c7b5ebf76e70ee90",
+  "bundle_format": "single-line webpack CommonJS bundle",
+  "load_method": "require() with Module._extensions[\".node\"] stubbed (no native module, no network)",
+  "exports": [
+   "schemaTable",
+   "schemaLegacy",
+   "migrator",
+   "schemaDocument",
+   "model",
+   "schemaList",
+   "schemaPresentationLegacy",
+   "chart",
+   "schemaBasic",
+   "transform",
+   "utils",
+   "schemaPresentation",
+   "schemaDocumentLegacy",
+   "schemaComment"
+  ]
+ },
+ "schema": {
+  "name": "document",
+  "version": 13,
+  "topNode": "doc",
+  "topNode_content": "settings style_editor invisible edit_area page_decorate",
+  "node_count": 32,
+  "mark_count": 12,
+  "attr_mark_count": 4,
+  "nodeSize_rule": {
+   "text": "text node -> its string length",
+   "leaf": "isLeaf && !isText -> 1",
+   "container": "otherwise -> sum(children) + 2",
+   "note": "differs from standard ProseMirror only in that `settings` has no content expression yet isLeaf=true and still occupies 1 position"
+  }
+ },
+ "groups": {
+  "basic_block": [
+   "paragraph",
+   "horizontal_rule"
+  ],
+  "block": [
+   "paragraph",
+   "horizontal_rule",
+   "navigation",
+   "table"
+  ],
+  "inline": [
+   "text",
+   "hard_break",
+   "tab",
+   "shape",
+   "connector",
+   "picture",
+   "image",
+   "chart"
+  ],
+  "first_level_block": [
+   "page_break"
+  ],
+  "drawing": [
+   "shape",
+   "connector",
+   "picture"
+  ]
+ },
+ "serialization": {
+  "json_key_order": [
+   "type",
+   "attrs",
+   "content",
+   "marks"
+  ],
+  "note": "key order inside a node object is `type, attrs, content, marks` in both the Import JSON and the editor toJSON() (verified by inspecting the real-hardware evidence files); canonical comparison should sort keys anyway",
+  "mark_order": [
+   {
+    "name": "font_size",
+    "rank": 0
+   },
+   {
+    "name": "font_family",
+    "rank": 1
+   },
+   {
+    "name": "em",
+    "rank": 2
+   },
+   {
+    "name": "strong",
+    "rank": 3
+   },
+   {
+    "name": "link",
+    "rank": 4
+   },
+   {
+    "name": "color",
+    "rank": 5
+   },
+   {
+    "name": "background_color",
+    "rank": 6
+   },
+   {
+    "name": "superscript",
+    "rank": 7
+   },
+   {
+    "name": "subscript",
+    "rank": 8
+   },
+   {
+    "name": "underline",
+    "rank": 9
+   },
+   {
+    "name": "strike",
+    "rank": 10
+   },
+   {
+    "name": "tracking",
+    "rank": 11
+   }
+  ],
+  "mark_order_note": "`schema.marks` is compiled in declaration order; `rank` is the assigned priority (font_size=0 … strike=10, comment tracking=11). Both the Import JSON and the editor JSON list the em/strong marks of the sample doc in this rank order.",
+  "node_declaration_order": [
+   "paragraph",
+   "text",
+   "hard_break",
+   "tab",
+   "table",
+   "table_row",
+   "table_cell",
+   "text_line",
+   "table_parser",
+   "pseudo_list_item",
+   "doc",
+   "settings",
+   "style_editor",
+   "style_paragraph",
+   "invisible",
+   "edit_area",
+   "page",
+   "navigation",
+   "horizontal_rule",
+   "page_break",
+   "image",
+   "chart",
+   "shape",
+   "connector",
+   "picture",
+   "text_box",
+   "page_decorate",
+   "header",
+   "footer",
+   "page_num",
+   "page_num_block",
+   "page_num_text"
+  ],
+  "node_declaration_order_note": "the order in which the spec declares node types; it is NOT the document child order (which is pinned by content expressions) and carries no wire meaning by itself",
+  "attr_key_order": {
+   "paragraph": [
+    "tabStops",
+    "textMarks",
+    "textAlign",
+    "lineHeight",
+    "paddingTop",
+    "paddingBottom",
+    "backgroundColor",
+    "indentFirst",
+    "indentLeft",
+    "indentRight",
+    "listId",
+    "listLevel",
+    "listMarks",
+    "headingId",
+    "headingLevel",
+    "trackingSelf",
+    "trackingStart",
+    "trackingEnd"
+   ],
+   "text": [],
+   "hard_break": [
+    "trackingSelf"
+   ],
+   "tab": [
+    "trackingSelf"
+   ],
+   "table": [
+    "synotable",
+    "colgroup",
+    "parsed_width",
+    "parsed_height",
+    "align",
+    "indent",
+    "trackingSelf",
+    "trackingStart",
+    "trackingEnd"
+   ],
+   "table_row": [
+    "parsed_empty",
+    "height",
+    "trackingSelf",
+    "trackingStart",
+    "trackingEnd"
+   ],
+   "table_cell": [
+    "verticalAlign",
+    "backgroundColor",
+    "rowspan",
+    "colspan",
+    "borderLeftWidth",
+    "borderLeftStyle",
+    "borderLeftColor",
+    "borderTopWidth",
+    "borderTopStyle",
+    "borderTopColor",
+    "borderRightWidth",
+    "borderRightStyle",
+    "borderRightColor",
+    "borderBottomWidth",
+    "borderBottomStyle",
+    "borderBottomColor",
+    "codeBlock",
+    "trackingSelf",
+    "trackingStart",
+    "trackingEnd"
+   ],
+   "text_line": [
+    "trackingSelf",
+    "trackingStart",
+    "trackingEnd"
+   ],
+   "table_parser": [],
+   "pseudo_list_item": [],
+   "doc": [
+    "schema",
+    "type",
+    "page_setup"
+   ],
+   "settings": [
+    "finalSection"
+   ],
+   "style_editor": [],
+   "style_paragraph": [
+    "tabStops",
+    "textMarks",
+    "textAlign",
+    "lineHeight",
+    "paddingTop",
+    "paddingBottom",
+    "backgroundColor",
+    "indentFirst",
+    "indentLeft",
+    "indentRight",
+    "listId",
+    "listLevel",
+    "listMarks",
+    "headingId",
+    "headingLevel",
+    "trackingSelf",
+    "trackingStart",
+    "trackingEnd"
+   ],
+   "invisible": [
+    "trackingSelf",
+    "trackingStart",
+    "trackingEnd"
+   ],
+   "edit_area": [
+    "listMap"
+   ],
+   "page": [
+    "width",
+    "height",
+    "marginLeft",
+    "marginTop",
+    "marginRight",
+    "marginBottom",
+    "decoratorMaxHeight"
+   ],
+   "navigation": [
+    "trackingSelf",
+    "trackingStart",
+    "trackingEnd"
+   ],
+   "horizontal_rule": [
+    "trackingSelf",
+    "trackingLeaf"
+   ],
+   "page_break": [
+    "trackingSelf",
+    "trackingLeaf"
+   ],
+   "image": [
+    "src",
+    "alt",
+    "ref",
+    "file_id",
+    "file_type",
+    "config",
+    "width",
+    "height",
+    "trackingSelf"
+   ],
+   "chart": [
+    "synochart",
+    "data",
+    "config",
+    "width",
+    "height",
+    "trackingSelf"
+   ],
+   "shape": [
+    "id",
+    "config",
+    "trackingSelf"
+   ],
+   "connector": [
+    "id",
+    "config",
+    "trackingSelf"
+   ],
+   "picture": [
+    "id",
+    "config",
+    "trackingSelf"
+   ],
+   "text_box": [
+    "anchor",
+    "lIns",
+    "tIns",
+    "rIns",
+    "bIns",
+    "listMap"
+   ],
+   "page_decorate": [
+    "place-show",
+    "place-cover",
+    "place-even",
+    "num-show",
+    "num-cover",
+    "num-even",
+    "num-pos"
+   ],
+   "header": [
+    "type",
+    "listMap"
+   ],
+   "footer": [
+    "type",
+    "listMap"
+   ],
+   "page_num": [
+    "type"
+   ],
+   "page_num_block": [
+    "trackingSelf",
+    "trackingStart",
+    "trackingEnd"
+   ],
+   "page_num_text": [
+    "trackingSelf"
+   ]
+  },
+  "attr_key_order_note": "attr key order as resolved by the schema; the editor emits attrs in this order, Import may differ -> compare canonicalised (sorted-key) JSON"
+ },
+ "attr_marks": {
+  "direction": {
+   "name": "direction",
+   "rank": 0,
+   "class": "rf",
+   "attrs": {
+    "value": {
+     "default": "ltr",
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "optional": true,
+      "empty_value": "ltr"
+     },
+     "deep": null
+    }
+   },
+   "applicability": {
+    "applicable_to_nodes": null,
+    "via": "none found",
+    "source": "unproven",
+    "caveat": "attr mark `direction` is registered in the base spec but no attrMarkType(\"direction\") call site exists in server/common/prosemirror/index.js",
+    "disproof": "find a usage site for \"direction\" (likely in ui/dist/*.js DOM renderer, or in a .so); until then its applicable node set is unproven, not guessed"
+   },
+   "provenance": [
+    {
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1513504,
+     "snippet": "class rf extends Ea{static getSelfPropertyName(){return\"Direction\"}get attrs(){return{value:new sn({optional:!0,empty_value:\"ltr\"})}}get matchDOMStyle(){return{"
+    }
+   ]
+  },
+  "text_align": {
+   "name": "text_align",
+   "rank": 1,
+   "class": "tf",
+   "attrs": {
+    "value": {
+     "default": "left",
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "optional": true,
+      "empty_value": "left"
+     },
+     "deep": null
+    }
+   },
+   "applicability": {
+    "applicable_to_nodes": [
+     "paragraph",
+     "style_paragraph"
+    ],
+    "via": "getBlockMarks() -> attrMarkType(\"text_align\") over the node's cssAttrs",
+    "source": "SPK-JS 原文",
+    "site": {
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1460590,
+     "snippet": "attrMarkType(\"text_align\").create({value:r}),e.attrMarkType(\"line_height\").create({value:s})])}),!1,\"has\"),zt(e,\"_getInheritedCssAttrs\",(function(t){return t.st"
+    }
+   },
+   "provenance": [
+    {
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1512780,
+     "snippet": "class tf extends Ea{static getSelfPropertyName(){return\"TextAlign\"}get attrs(){return{value:new sn({optional:!0,empty_value:\"left\"})}}get matchDOMStyle(){return"
+    }
+   ]
+  },
+  "line_height": {
+   "name": "line_height",
+   "rank": 2,
+   "class": "ef",
+   "attrs": {
+    "value": {
+     "default": 1,
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "optional": true,
+      "empty_value": 1
+     },
+     "deep": null
+    }
+   },
+   "applicability": {
+    "applicable_to_nodes": [
+     "paragraph",
+     "style_paragraph"
+    ],
+    "via": "getBlockMarks() -> attrMarkType(\"line_height\") over the node's cssAttrs",
+    "source": "SPK-JS 原文",
+    "site": {
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1460637,
+     "snippet": "attrMarkType(\"line_height\").create({value:s})])}),!1,\"has\"),zt(e,\"_getInheritedCssAttrs\",(function(t){return t.state.inherited_css_attrs}),!1,\"has\"),zt(e,\"getIn"
+    }
+   },
+   "provenance": [
+    {
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1513280,
+     "snippet": "class ef extends Ea{static getSelfPropertyName(){return\"LineHeight\"}get attrs(){return{value:new sn({optional:!0,empty_value:1})}}get matchDOMStyle(){return{\"li"
+    }
+   ]
+  },
+  "text_indent": {
+   "name": "text_indent",
+   "rank": 3,
+   "class": "Kg",
+   "attrs": {
+    "value": {
+     "default": 0,
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "optional": true,
+      "empty_value": 0
+     },
+     "deep": null
+    }
+   },
+   "applicability": {
+    "applicable_to_nodes": null,
+    "via": "none found",
+    "source": "unproven",
+    "caveat": "attr mark `text_indent` is registered in the base spec but no attrMarkType(\"text_indent\") call site exists in server/common/prosemirror/index.js",
+    "disproof": "find a usage site for \"text_indent\" (likely in ui/dist/*.js DOM renderer, or in a .so); until then its applicable node set is unproven, not guessed"
+   },
+   "provenance": [
+    {
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1512492,
+     "snippet": "class Kg extends Ea{static getSelfPropertyName(){return\"TextIndent\"}get attrs(){return{value:new sn({optional:!0,empty_value:0})}}get matchDOMStyle(){return{\"te"
+    }
+   ]
+  }
+ },
+ "nodes": [
+  {
+   "name": "paragraph",
+   "content": "inline<_>*",
+   "content_source": "SPK-JS 原文",
+   "groups": [
+    "basic_block",
+    "block"
+   ],
+   "group_runtime": [
+    "basic_block",
+    "block"
+   ],
+   "isLeaf": false,
+   "isText": false,
+   "empty_node_size": 2,
+   "empty_node_size_error": null,
+   "attrs": {
+    "tabStops": {
+     "default": [],
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": true,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "empty_value": [],
+      "clearable": true,
+      "normalizer": "<fn>",
+      "optional": true
+     },
+     "deep": null
+    },
+    "textMarks": {
+     "default": [],
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": true,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "optional": true,
+      "empty_value": [],
+      "clearable": true,
+      "normalizer": "<fn>"
+     },
+     "deep": null
+    },
+    "textAlign": {
+     "default": "left",
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": true,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "optional": true,
+      "empty_value": "left",
+      "clearable": true,
+      "normalizer": [
+       "left",
+       "right",
+       "center",
+       "justify"
+      ]
+     },
+     "deep": null
+    },
+    "lineHeight": {
+     "default": 1,
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": true,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "optional": true,
+      "empty_value": 1,
+      "clearable": true,
+      "normalizer": "positiveNumber"
+     },
+     "deep": null
+    },
+    "paddingTop": {
+     "default": 0,
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": true,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "optional": true,
+      "empty_value": 0,
+      "normalizer": "nonNegativeNumber",
+      "clearable": true
+     },
+     "deep": null
+    },
+    "paddingBottom": {
+     "default": 0,
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": true,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "optional": true,
+      "empty_value": 0,
+      "normalizer": "nonNegativeNumber",
+      "clearable": true
+     },
+     "deep": null
+    },
+    "backgroundColor": {
+     "default": "transparent",
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "empty_value": "transparent",
+      "optional": true
+     },
+     "deep": null
+    },
+    "indentFirst": {
+     "default": 0,
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": true,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "optional": true,
+      "empty_value": 0,
+      "clearable": true,
+      "normalizer": "number"
+     },
+     "deep": null
+    },
+    "indentLeft": {
+     "default": 0,
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": true,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "optional": true,
+      "empty_value": 0,
+      "clearable": true,
+      "normalizer": "number"
+     },
+     "deep": null
+    },
+    "indentRight": {
+     "default": 0,
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": true,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "optional": true,
+      "empty_value": 0,
+      "clearable": true,
+      "normalizer": "number"
+     },
+     "deep": null
+    },
+    "listId": {
+     "default": null,
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "optional": true
+     },
+     "deep": null
+    },
+    "listLevel": {
+     "default": 0,
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "empty_value": 0,
+      "normalizer": "<fn>",
+      "optional": true
+     },
+     "deep": null
+    },
+    "listMarks": {
+     "default": [],
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": true,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "empty_value": [],
+      "clearable": true,
+      "normalizer": "<fn>",
+      "optional": true
+     },
+     "deep": null
+    },
+    "headingId": {
+     "default": null,
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": true,
+     "copyable": 0,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "optional": true,
+      "copyable": 0,
+      "copyTransformer": "<fn>"
+     },
+     "deep": null
+    },
+    "headingLevel": {
+     "default": 0,
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "optional": true,
+      "empty_value": 0,
+      "normalizer": "<fn>"
+     },
+     "deep": null
+    },
+    "trackingSelf": {
+     "default": [],
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": false,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "empty_value": [],
+      "copyable": true,
+      "settable": false,
+      "normalizer": "<fn>",
+      "optional": true
+     },
+     "deep": null
+    },
+    "trackingStart": {
+     "default": [],
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": false,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "empty_value": [],
+      "copyable": true,
+      "settable": false,
+      "normalizer": "<fn>",
+      "optional": true
+     },
+     "deep": null
+    },
+    "trackingEnd": {
+     "default": [],
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": false,
+     "copyable": 1,
+     "hidden": false,
+     "backward": true,
+     "options": {
+      "empty_value": [],
+      "copyable": true,
+      "settable": false,
+      "normalizer": "<fn>",
+      "optional": true,
+      "backward": true
+     },
+     "deep": null
+    }
+   },
+   "attr_count": 18,
+   "attrs_with_proven_default": 18,
+   "marks_attrs": {
+    "textMarks": {
+     "default": null,
+     "empty_value": [],
+     "optional": true,
+     "deep": null,
+     "array": null,
+     "normalizer": "<fn>",
+     "clearable": true,
+     "hidden": false,
+     "copyable": 1,
+     "copyTransformer": null,
+     "backward": false,
+     "settable": true,
+     "options": {
+      "optional": true,
+      "empty_value": [],
+      "clearable": true,
+      "normalizer": "<fn>"
+     }
+    }
+   },
+   "default_marks_attrs": {
+    "textMarks": []
+   },
+   "css_attrs": {
+    "textAlign": {
+     "default": null,
+     "empty_value": "left",
+     "optional": true,
+     "deep": null,
+     "array": null,
+     "normalizer": "<fn>",
+     "clearable": true,
+     "hidden": false,
+     "copyable": 1,
+     "copyTransformer": null,
+     "backward": false,
+     "settable": true,
+     "options": {
+      "optional": true,
+      "empty_value": "left",
+      "clearable": true,
+      "normalizer": [
+       "left",
+       "right",
+       "center",
+       "justify"
+      ]
+     }
+    },
+    "lineHeight": {
+     "default": null,
+     "empty_value": 1,
+     "optional": true,
+     "deep": null,
+     "array": null,
+     "normalizer": "<fn>",
+     "clearable": true,
+     "hidden": false,
+     "copyable": 1,
+     "copyTransformer": null,
+     "backward": false,
+     "settable": true,
+     "options": {
+      "optional": true,
+      "empty_value": 1,
+      "clearable": true,
+      "normalizer": "positiveNumber"
+     }
+    },
+    "paddingTop": {
+     "default": null,
+     "empty_value": 0,
+     "optional": true,
+     "deep": null,
+     "array": null,
+     "normalizer": "<fn>",
+     "clearable": true,
+     "hidden": false,
+     "copyable": 1,
+     "copyTransformer": null,
+     "backward": false,
+     "settable": true,
+     "options": {
+      "optional": true,
+      "empty_value": 0,
+      "normalizer": "nonNegativeNumber",
+      "clearable": true
+     }
+    },
+    "paddingBottom": {
+     "default": null,
+     "empty_value": 0,
+     "optional": true,
+     "deep": null,
+     "array": null,
+     "normalizer": "<fn>",
+     "clearable": true,
+     "hidden": false,
+     "copyable": 1,
+     "copyTransformer": null,
+     "backward": false,
+     "settable": true,
+     "options": {
+      "optional": true,
+      "empty_value": 0,
+      "normalizer": "nonNegativeNumber",
+      "clearable": true
+     }
+    },
+    "backgroundColor": {
+     "default": null,
+     "empty_value": "transparent",
+     "optional": true,
+     "deep": null,
+     "array": null,
+     "normalizer": null,
+     "clearable": false,
+     "hidden": false,
+     "copyable": 1,
+     "copyTransformer": null,
+     "backward": false,
+     "settable": true,
+     "options": {
+      "empty_value": "transparent",
+      "optional": true
+     }
+    }
+   },
+   "default_css_attrs": {
+    "textAlign": "left",
+    "lineHeight": 1,
+    "paddingTop": 0,
+    "paddingBottom": 0,
+    "backgroundColor": "transparent"
+   },
+   "provenance": [
+    {
+     "source": "SPK-JS 原文",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1653184,
+     "snippet": ",paragraph:{type:Qb}",
+     "what": "node entry in the document spec delta (content expression / type class)"
+    },
+    {
+     "source": "SPK 束内模块",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1568330,
+     "snippet": "class Qb extends Kb{static getSelfPropertyName(){return\"DocumentParagraph\"}registerSelfLocalAttrsUpdateMap(){let t=this.getStateMap();t.register(t.UPDATE_START,",
+     "what": "node class `Qb` — where `attrs` (with empty_value defaults) are declared/composed"
+    }
+   ]
+  },
+  {
+   "name": "text",
+   "content": null,
+   "content_source": "implicit (no content expression)",
+   "groups": [
+    "inline"
+   ],
+   "group_runtime": [
+    "inline"
+   ],
+   "isLeaf": true,
+   "isText": true,
+   "empty_node_size": null,
+   "empty_node_size_error": null,
+   "attrs": {},
+   "attr_count": 0,
+   "attrs_with_proven_default": 0,
+   "marks_attrs": null,
+   "default_marks_attrs": null,
+   "css_attrs": null,
+   "default_css_attrs": null,
+   "provenance": [
+    {
+     "source": "SPK-JS 原文",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1513770,
+     "snippet": ",text:{type:va}",
+     "what": "node entry inherited from the shared base spec `sf`"
+    },
+    {
+     "source": "SPK 束内模块",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1171273,
+     "snippet": "class va extends Sa{static getSelfPropertyName(){return\"Text\"}get isText(){return!0}get Node(){return ua}_create(t,e,r){if(\"string\"!=typeof e)throw Error(\"Inval",
+     "what": "node class `va` — where `attrs` (with empty_value defaults) are declared/composed"
+    }
+   ]
+  },
+  {
+   "name": "hard_break",
+   "content": null,
+   "content_source": "implicit (no content expression)",
+   "groups": [
+    "inline"
+   ],
+   "group_runtime": [
+    "inline"
+   ],
+   "isLeaf": true,
+   "isText": false,
+   "empty_node_size": 1,
+   "empty_node_size_error": null,
+   "attrs": {
+    "trackingSelf": {
+     "default": [],
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": false,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "empty_value": [],
+      "copyable": true,
+      "settable": false,
+      "normalizer": "<fn>",
+      "optional": true
+     },
+     "deep": null
+    }
+   },
+   "attr_count": 1,
+   "attrs_with_proven_default": 1,
+   "marks_attrs": null,
+   "default_marks_attrs": null,
+   "css_attrs": null,
+   "default_css_attrs": null,
+   "provenance": [
+    {
+     "source": "SPK-JS 原文",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1513785,
+     "snippet": ",hard_break:{type:Cg}",
+     "what": "node entry inherited from the shared base spec `sf`"
+    },
+    {
+     "source": "SPK 束内模块",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1504055,
+     "snippet": "class Cg extends Ca{static getSelfPropertyName(){return\"HardBreak\"}getAltText(t){return\"\\n\"}get matchDOMTag(){return{br:null}}toDOM(t,e){return[\"span\",{linebrea",
+     "what": "node class `Cg` — where `attrs` (with empty_value defaults) are declared/composed"
+    }
+   ]
+  },
+  {
+   "name": "tab",
+   "content": null,
+   "content_source": "implicit (no content expression)",
+   "groups": [
+    "inline"
+   ],
+   "group_runtime": [
+    "inline"
+   ],
+   "isLeaf": true,
+   "isText": false,
+   "empty_node_size": 1,
+   "empty_node_size_error": null,
+   "attrs": {
+    "trackingSelf": {
+     "default": [],
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": false,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "empty_value": [],
+      "copyable": true,
+      "settable": false,
+      "normalizer": "<fn>",
+      "optional": true
+     },
+     "deep": null
+    }
+   },
+   "attr_count": 1,
+   "attrs_with_proven_default": 1,
+   "marks_attrs": null,
+   "default_marks_attrs": null,
+   "css_attrs": null,
+   "default_css_attrs": null,
+   "provenance": [
+    {
+     "source": "SPK-JS 原文",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1513806,
+     "snippet": ",tab:{type:Pg}",
+     "what": "node entry inherited from the shared base spec `sf`"
+    },
+    {
+     "source": "SPK 束内模块",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1504248,
+     "snippet": "class Pg extends Ca{static getSelfPropertyName(){return\"Tab\"}getAltText(t){return\"\\t\"}get matchDOMTag(){return{'span[data-syno-schema=\"tab\"]':(t,e)=>this.parseD",
+     "what": "node class `Pg` — where `attrs` (with empty_value defaults) are declared/composed"
+    }
+   ]
+  },
+  {
+   "name": "table",
+   "content": "table_row+",
+   "content_source": "SPK-JS 原文",
+   "groups": [
+    "block"
+   ],
+   "group_runtime": [
+    "block"
+   ],
+   "isLeaf": false,
+   "isText": false,
+   "empty_node_size": 2,
+   "empty_node_size_error": null,
+   "attrs": {
+    "synotable": {
+     "default": "<fn>",
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 0,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": "<fn>",
+      "copyable": false
+     },
+     "deep": null
+    },
+    "colgroup": {
+     "default": [],
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": []
+     },
+     "deep": null
+    },
+    "parsed_width": {
+     "default": null,
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "normalizer": "number",
+      "optional": true
+     },
+     "deep": null
+    },
+    "parsed_height": {
+     "default": null,
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "normalizer": "number",
+      "optional": true
+     },
+     "deep": null
+    },
+    "align": {
+     "default": "left",
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "optional": true,
+      "empty_value": "left",
+      "clearable": false,
+      "normalizer": [
+       "left",
+       "right",
+       "center",
+       "justify"
+      ]
+     },
+     "deep": null
+    },
+    "indent": {
+     "default": 0,
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "empty_value": 0,
+      "optional": true
+     },
+     "deep": null
+    },
+    "trackingSelf": {
+     "default": [],
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": false,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "empty_value": [],
+      "copyable": true,
+      "settable": false,
+      "normalizer": "<fn>",
+      "optional": true
+     },
+     "deep": null
+    },
+    "trackingStart": {
+     "default": [],
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": false,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "empty_value": [],
+      "copyable": true,
+      "settable": false,
+      "normalizer": "<fn>",
+      "optional": true
+     },
+     "deep": null
+    },
+    "trackingEnd": {
+     "default": [],
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": false,
+     "copyable": 1,
+     "hidden": false,
+     "backward": true,
+     "options": {
+      "empty_value": [],
+      "copyable": true,
+      "settable": false,
+      "normalizer": "<fn>",
+      "optional": true,
+      "backward": true
+     },
+     "deep": null
+    }
+   },
+   "attr_count": 9,
+   "attrs_with_proven_default": 9,
+   "marks_attrs": null,
+   "default_marks_attrs": null,
+   "css_attrs": null,
+   "default_css_attrs": null,
+   "provenance": [
+    {
+     "source": "SPK-JS 原文",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1653168,
+     "snippet": ",table:{type:o_}",
+     "what": "node entry in the document spec delta (content expression / type class)"
+    },
+    {
+     "source": "SPK 束内模块",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1574549,
+     "snippet": "class o_ extends ny{get attrs(){return{...super.attrs,align:Vy.textAlign.copy({clearable:!1}),indent:sn.createOptional({empty_value:0})}}getTextRectInfo(t,e){le",
+     "what": "node class `o_` — where `attrs` (with empty_value defaults) are declared/composed"
+    }
+   ]
+  },
+  {
+   "name": "table_row",
+   "content": "table_cell+",
+   "content_source": "SPK-JS 原文",
+   "groups": [],
+   "group_runtime": null,
+   "isLeaf": false,
+   "isText": false,
+   "empty_node_size": 2,
+   "empty_node_size_error": null,
+   "attrs": {
+    "parsed_empty": {
+     "default": false,
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "optional": true,
+      "empty_value": false
+     },
+     "deep": null
+    },
+    "height": {
+     "default": 22,
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": 22,
+      "normalizer": "number"
+     },
+     "deep": null
+    },
+    "trackingSelf": {
+     "default": [],
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": false,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "empty_value": [],
+      "copyable": true,
+      "settable": false,
+      "normalizer": "<fn>",
+      "optional": true
+     },
+     "deep": null
+    },
+    "trackingStart": {
+     "default": [],
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": false,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "empty_value": [],
+      "copyable": true,
+      "settable": false,
+      "normalizer": "<fn>",
+      "optional": true
+     },
+     "deep": null
+    },
+    "trackingEnd": {
+     "default": [],
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": false,
+     "copyable": 1,
+     "hidden": false,
+     "backward": true,
+     "options": {
+      "empty_value": [],
+      "copyable": true,
+      "settable": false,
+      "normalizer": "<fn>",
+      "optional": true,
+      "backward": true
+     },
+     "deep": null
+    }
+   },
+   "attr_count": 5,
+   "attrs_with_proven_default": 5,
+   "marks_attrs": null,
+   "default_marks_attrs": null,
+   "css_attrs": null,
+   "default_css_attrs": null,
+   "provenance": [
+    {
+     "source": "SPK-JS 原文",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1513857,
+     "snippet": ",table_row:{type:ay,content:\"table_cell+\"}",
+     "what": "node entry inherited from the shared base spec `sf`"
+    },
+    {
+     "source": "SPK 束内模块",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1435405,
+     "snippet": "class ay extends ma{get isTableRow(){return!0}get unbreakable(){return!0}get hasCss(){return!0}get attrs(){return{parsed_empty:sn.create({optional:!0,empty_valu",
+     "what": "node class `ay` — where `attrs` (with empty_value defaults) are declared/composed"
+    }
+   ]
+  },
+  {
+   "name": "table_cell",
+   "content": "basic_block block*",
+   "content_source": "SPK-JS 原文",
+   "groups": [],
+   "group_runtime": null,
+   "isLeaf": false,
+   "isText": false,
+   "empty_node_size": 2,
+   "empty_node_size_error": null,
+   "attrs": {
+    "verticalAlign": {
+     "default": "middle",
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "empty_value": "middle",
+      "normalizer": [
+       "top",
+       "middle",
+       "bottom"
+      ],
+      "optional": true
+     },
+     "deep": null
+    },
+    "backgroundColor": {
+     "default": "transparent",
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "empty_value": "transparent",
+      "optional": true
+     },
+     "deep": null
+    },
+    "rowspan": {
+     "default": 1,
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": 1,
+      "empty_value": 1,
+      "normalizer": "<fn>"
+     },
+     "deep": null
+    },
+    "colspan": {
+     "default": 1,
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": 1,
+      "empty_value": 1,
+      "normalizer": "<fn>"
+     },
+     "deep": null
+    },
+    "borderLeftWidth": {
+     "default": 1,
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": 1,
+      "empty_value": 1,
+      "normalizer": "<fn>"
+     },
+     "deep": null
+    },
+    "borderLeftStyle": {
+     "default": "solid",
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": "solid",
+      "empty_value": "solid"
+     },
+     "deep": null
+    },
+    "borderLeftColor": {
+     "default": "#7b8187",
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": "#7b8187",
+      "empty_value": "#7b8187"
+     },
+     "deep": null
+    },
+    "borderTopWidth": {
+     "default": 1,
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": 1,
+      "empty_value": 1,
+      "normalizer": "<fn>"
+     },
+     "deep": null
+    },
+    "borderTopStyle": {
+     "default": "solid",
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": "solid",
+      "empty_value": "solid"
+     },
+     "deep": null
+    },
+    "borderTopColor": {
+     "default": "#7b8187",
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": "#7b8187",
+      "empty_value": "#7b8187"
+     },
+     "deep": null
+    },
+    "borderRightWidth": {
+     "default": 1,
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": 1,
+      "empty_value": 1,
+      "normalizer": "<fn>"
+     },
+     "deep": null
+    },
+    "borderRightStyle": {
+     "default": "solid",
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": "solid",
+      "empty_value": "solid"
+     },
+     "deep": null
+    },
+    "borderRightColor": {
+     "default": "#7b8187",
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": "#7b8187",
+      "empty_value": "#7b8187"
+     },
+     "deep": null
+    },
+    "borderBottomWidth": {
+     "default": 1,
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": 1,
+      "empty_value": 1,
+      "normalizer": "<fn>"
+     },
+     "deep": null
+    },
+    "borderBottomStyle": {
+     "default": "solid",
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": "solid",
+      "empty_value": "solid"
+     },
+     "deep": null
+    },
+    "borderBottomColor": {
+     "default": "#7b8187",
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": "#7b8187",
+      "empty_value": "#7b8187"
+     },
+     "deep": null
+    },
+    "codeBlock": {
+     "default": null,
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "optional": true
+     },
+     "deep": null
+    },
+    "trackingSelf": {
+     "default": [],
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": false,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "empty_value": [],
+      "copyable": true,
+      "settable": false,
+      "normalizer": "<fn>",
+      "optional": true
+     },
+     "deep": null
+    },
+    "trackingStart": {
+     "default": [],
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": false,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "empty_value": [],
+      "copyable": true,
+      "settable": false,
+      "normalizer": "<fn>",
+      "optional": true
+     },
+     "deep": null
+    },
+    "trackingEnd": {
+     "default": [],
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": false,
+     "copyable": 1,
+     "hidden": false,
+     "backward": true,
+     "options": {
+      "empty_value": [],
+      "copyable": true,
+      "settable": false,
+      "normalizer": "<fn>",
+      "optional": true,
+      "backward": true
+     },
+     "deep": null
+    }
+   },
+   "attr_count": 20,
+   "attrs_with_proven_default": 20,
+   "marks_attrs": null,
+   "default_marks_attrs": null,
+   "css_attrs": null,
+   "default_css_attrs": null,
+   "provenance": [
+    {
+     "source": "SPK-JS 原文",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1513899,
+     "snippet": ",table_cell:{type:iy,content:\"basic_block block*\"}",
+     "what": "node entry inherited from the shared base spec `sf`"
+    },
+    {
+     "source": "SPK 束内模块",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1436656,
+     "snippet": "class iy extends ma{get isTableCell(){return!0}get selectable(){return!0}get unbreakable(){return!0}get hasCss(){return!0}get attrs(){let t=sn.create({default:1",
+     "what": "node class `iy` — where `attrs` (with empty_value defaults) are declared/composed"
+    }
+   ]
+  },
+  {
+   "name": "text_line",
+   "content": "inline<_>*",
+   "content_source": "SPK-JS 原文",
+   "groups": [],
+   "group_runtime": null,
+   "isLeaf": false,
+   "isText": false,
+   "empty_node_size": 2,
+   "empty_node_size_error": null,
+   "attrs": {
+    "trackingSelf": {
+     "default": [],
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": false,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "empty_value": [],
+      "copyable": true,
+      "settable": false,
+      "normalizer": "<fn>",
+      "optional": true
+     },
+     "deep": null
+    },
+    "trackingStart": {
+     "default": [],
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": false,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "empty_value": [],
+      "copyable": true,
+      "settable": false,
+      "normalizer": "<fn>",
+      "optional": true
+     },
+     "deep": null
+    },
+    "trackingEnd": {
+     "default": [],
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": false,
+     "copyable": 1,
+     "hidden": false,
+     "backward": true,
+     "options": {
+      "empty_value": [],
+      "copyable": true,
+      "settable": false,
+      "normalizer": "<fn>",
+      "optional": true,
+      "backward": true
+     },
+     "deep": null
+    }
+   },
+   "attr_count": 3,
+   "attrs_with_proven_default": 3,
+   "marks_attrs": null,
+   "default_marks_attrs": null,
+   "css_attrs": null,
+   "default_css_attrs": null,
+   "provenance": [
+    {
+     "source": "SPK-JS 原文",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1513949,
+     "snippet": ",text_line:{type:Ma,content:\"inline<_>*\"}",
+     "what": "node entry inherited from the shared base spec `sf`"
+    },
+    {
+     "source": "SPK 束内模块",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1168593,
+     "snippet": "class Ma extends ma{get isLine(){return!0}get isPseudoType(){return!0}getLocationDOM(t){return t.firstChild}getContentDOM(t){return this.getLocationDOM(t).first",
+     "what": "node class `Ma` — where `attrs` (with empty_value defaults) are declared/composed"
+    }
+   ]
+  },
+  {
+   "name": "table_parser",
+   "content": "basic_block* table basic_block*",
+   "content_source": "SPK-JS 原文",
+   "groups": [],
+   "group_runtime": null,
+   "isLeaf": false,
+   "isText": false,
+   "empty_node_size": 2,
+   "empty_node_size_error": null,
+   "attrs": {},
+   "attr_count": 0,
+   "attrs_with_proven_default": 0,
+   "marks_attrs": null,
+   "default_marks_attrs": null,
+   "css_attrs": null,
+   "default_css_attrs": null,
+   "provenance": [
+    {
+     "source": "SPK-JS 原文",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1513990,
+     "snippet": ",table_parser:{type:Tg,content:\"basic_block* table basic_block*\"}",
+     "what": "node entry inherited from the shared base spec `sf`"
+    },
+    {
+     "source": "SPK 束内模块",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1504668,
+     "snippet": "class Tg extends fa{static getSelfPropertyName(){return\"TableParser\"}}let vg=[9,9,11,12,14,18,24,36],Ig=wt({1:0,2:2,3:3,4:4,5:5,6:6,7:7},(t=>vg[t])),kg=wt({\"xx-",
+     "what": "node class `Tg` — where `attrs` (with empty_value defaults) are declared/composed"
+    }
+   ]
+  },
+  {
+   "name": "pseudo_list_item",
+   "content": null,
+   "content_source": "implicit (no content expression)",
+   "groups": [],
+   "group_runtime": null,
+   "isLeaf": true,
+   "isText": false,
+   "empty_node_size": 1,
+   "empty_node_size_error": null,
+   "attrs": {},
+   "attr_count": 0,
+   "attrs_with_proven_default": 0,
+   "marks_attrs": null,
+   "default_marks_attrs": null,
+   "css_attrs": null,
+   "default_css_attrs": null,
+   "provenance": [
+    {
+     "source": "SPK-JS 原文",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1514055,
+     "snippet": ",pseudo_list_item:{type:hg}",
+     "what": "node entry inherited from the shared base spec `sf`"
+    },
+    {
+     "source": "SPK 束内模块",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1492780,
+     "snippet": "class hg extends xa{static getSelfPropertyName(){return\"PseudoListItem\"}parseAttrsFromJson(t,e,r){try{e.listMarks&&Array.isArray(e.listMarks)&&(e.listMarks=yn.s",
+     "what": "node class `hg` — where `attrs` (with empty_value defaults) are declared/composed"
+    }
+   ]
+  },
+  {
+   "name": "doc",
+   "content": "settings style_editor invisible edit_area page_decorate",
+   "content_source": "SPK-JS 原文",
+   "groups": [],
+   "group_runtime": null,
+   "isLeaf": false,
+   "isText": false,
+   "empty_node_size": 2,
+   "empty_node_size_error": null,
+   "attrs": {
+    "schema": {
+     "default": 13,
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": 13
+     },
+     "deep": null
+    },
+    "type": {
+     "default": "document",
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": "document"
+     },
+     "deep": null
+    },
+    "page_setup": {
+     "default": {
+      "left": 2.54,
+      "top": 2.54,
+      "right": 2.54,
+      "bottom": 2.54,
+      "orientation": "portrait",
+      "page_type": "a4"
+     },
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "deep": {
+       "left": {
+        "default": 2.54,
+        "empty_value": null,
+        "optional": false,
+        "deep": null,
+        "array": null,
+        "normalizer": null,
+        "clearable": false,
+        "hidden": false,
+        "copyable": 1,
+        "copyTransformer": null,
+        "backward": false,
+        "settable": true,
+        "options": {
+         "default": 2.54
+        }
+       },
+       "top": {
+        "default": 2.54,
+        "empty_value": null,
+        "optional": false,
+        "deep": null,
+        "array": null,
+        "normalizer": null,
+        "clearable": false,
+        "hidden": false,
+        "copyable": 1,
+        "copyTransformer": null,
+        "backward": false,
+        "settable": true,
+        "options": {
+         "default": 2.54
+        }
+       },
+       "right": {
+        "default": 2.54,
+        "empty_value": null,
+        "optional": false,
+        "deep": null,
+        "array": null,
+        "normalizer": null,
+        "clearable": false,
+        "hidden": false,
+        "copyable": 1,
+        "copyTransformer": null,
+        "backward": false,
+        "settable": true,
+        "options": {
+         "default": 2.54
+        }
+       },
+       "bottom": {
+        "default": 2.54,
+        "empty_value": null,
+        "optional": false,
+        "deep": null,
+        "array": null,
+        "normalizer": null,
+        "clearable": false,
+        "hidden": false,
+        "copyable": 1,
+        "copyTransformer": null,
+        "backward": false,
+        "settable": true,
+        "options": {
+         "default": 2.54
+        }
+       },
+       "orientation": {
+        "default": "portrait",
+        "empty_value": null,
+        "optional": false,
+        "deep": null,
+        "array": null,
+        "normalizer": null,
+        "clearable": false,
+        "hidden": false,
+        "copyable": 1,
+        "copyTransformer": null,
+        "backward": false,
+        "settable": true,
+        "options": {
+         "default": "portrait"
+        }
+       },
+       "page_type": {
+        "default": "a4",
+        "empty_value": null,
+        "optional": false,
+        "deep": null,
+        "array": null,
+        "normalizer": null,
+        "clearable": false,
+        "hidden": false,
+        "copyable": 1,
+        "copyTransformer": null,
+        "backward": false,
+        "settable": true,
+        "options": {
+         "default": "a4"
+        }
+       }
+      }
+     },
+     "deep": {
+      "left": {
+       "default": 2.54,
+       "default_source": "default",
+       "optional": false,
+       "normalizer": null
+      },
+      "top": {
+       "default": 2.54,
+       "default_source": "default",
+       "optional": false,
+       "normalizer": null
+      },
+      "right": {
+       "default": 2.54,
+       "default_source": "default",
+       "optional": false,
+       "normalizer": null
+      },
+      "bottom": {
+       "default": 2.54,
+       "default_source": "default",
+       "optional": false,
+       "normalizer": null
+      },
+      "orientation": {
+       "default": "portrait",
+       "default_source": "default",
+       "optional": false,
+       "normalizer": null
+      },
+      "page_type": {
+       "default": "a4",
+       "default_source": "default",
+       "optional": false,
+       "normalizer": null
+      }
+     }
+    }
+   },
+   "attr_count": 3,
+   "attrs_with_proven_default": 3,
+   "marks_attrs": null,
+   "default_marks_attrs": null,
+   "css_attrs": null,
+   "default_css_attrs": null,
+   "provenance": [
+    {
+     "source": "SPK-JS 原文",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1652744,
+     "snippet": "{doc:{type:Bb,content:\"settings style_editor invisible edit_area page_decorate\"}",
+     "what": "node entry in the document spec delta (content expression / type class)"
+    },
+    {
+     "source": "SPK 束内模块",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1562489,
+     "snippet": "class Bb extends ex{get isDocument(){return!0}get Node(){return Vb}get attrs(){let t=jb.getDefaultPageSetup(),e=Object.create(null);for(let r in t)Object.protot",
+     "what": "node class `Bb` — where `attrs` (with empty_value defaults) are declared/composed"
+    }
+   ]
+  },
+  {
+   "name": "settings",
+   "content": null,
+   "content_source": "implicit (no content expression)",
+   "groups": [],
+   "group_runtime": null,
+   "isLeaf": true,
+   "isText": false,
+   "empty_node_size": 1,
+   "empty_node_size_error": null,
+   "attrs": {
+    "finalSection": {
+     "default": {
+      "watermark": {
+       "type": "none",
+       "config": {
+        "angle": 0,
+        "fileId": "",
+        "imageWidth": 0,
+        "imageHeight": 0,
+        "faded": false,
+        "scale": 0,
+        "content": "",
+        "opacity": 1,
+        "fontFamily": "Arial",
+        "fontSize": 0,
+        "color": "#000000"
+       }
+      }
+     },
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "deep": {
+       "watermark": {
+        "default": null,
+        "empty_value": {
+         "type": "none",
+         "config": {
+          "angle": 0,
+          "fileId": "",
+          "imageWidth": 0,
+          "imageHeight": 0,
+          "faded": false,
+          "scale": 0,
+          "content": "",
+          "opacity": 1,
+          "fontFamily": "Arial",
+          "fontSize": 0,
+          "color": "#000000"
+         }
+        },
+        "optional": true,
+        "deep": {
+         "type": {
+          "default": null,
+          "empty_value": "none",
+          "optional": true,
+          "deep": null,
+          "array": null,
+          "normalizer": null,
+          "clearable": false,
+          "hidden": false,
+          "copyable": 1,
+          "copyTransformer": null,
+          "backward": false,
+          "settable": true,
+          "options": {
+           "empty_value": "none",
+           "optional": true
+          }
+         },
+         "config": {
+          "default": null,
+          "empty_value": {
+           "angle": 0,
+           "fileId": "",
+           "imageWidth": 0,
+           "imageHeight": 0,
+           "faded": false,
+           "scale": 0,
+           "content": "",
+           "opacity": 1,
+           "fontFamily": "Arial",
+           "fontSize": 0,
+           "color": "#000000"
+          },
+          "optional": true,
+          "deep": {
+           "angle": {
+            "default": null,
+            "empty_value": 0,
+            "optional": true,
+            "deep": null,
+            "array": null,
+            "normalizer": "<fn>",
+            "clearable": false,
+            "hidden": false,
+            "copyable": 1,
+            "copyTransformer": null,
+            "backward": false,
+            "settable": true,
+            "options": "<deep>"
+           },
+           "fileId": {
+            "default": null,
+            "empty_value": "",
+            "optional": true,
+            "deep": null,
+            "array": null,
+            "normalizer": null,
+            "clearable": false,
+            "hidden": false,
+            "copyable": 1,
+            "copyTransformer": null,
+            "backward": false,
+            "settable": true,
+            "options": "<deep>"
+           },
+           "imageWidth": {
+            "default": null,
+            "empty_value": 0,
+            "optional": true,
+            "deep": null,
+            "array": null,
+            "normalizer": null,
+            "clearable": false,
+            "hidden": false,
+            "copyable": 1,
+            "copyTransformer": null,
+            "backward": false,
+            "settable": true,
+            "options": "<deep>"
+           },
+           "imageHeight": {
+            "default": null,
+            "empty_value": 0,
+            "optional": true,
+            "deep": null,
+            "array": null,
+            "normalizer": null,
+            "clearable": false,
+            "hidden": false,
+            "copyable": 1,
+            "copyTransformer": null,
+            "backward": false,
+            "settable": true,
+            "options": "<deep>"
+           },
+           "faded": {
+            "default": null,
+            "empty_value": false,
+            "optional": true,
+            "deep": null,
+            "array": null,
+            "normalizer": null,
+            "clearable": false,
+            "hidden": false,
+            "copyable": 1,
+            "copyTransformer": null,
+            "backward": false,
+            "settable": true,
+            "options": "<deep>"
+           },
+           "scale": {
+            "default": null,
+            "empty_value": 0,
+            "optional": true,
+            "deep": null,
+            "array": null,
+            "normalizer": null,
+            "clearable": false,
+            "hidden": false,
+            "copyable": 1,
+            "copyTransformer": null,
+            "backward": false,
+            "settable": true,
+            "options": "<deep>"
+           },
+           "content": {
+            "default": null,
+            "empty_value": "",
+            "optional": true,
+            "deep": null,
+            "array": null,
+            "normalizer": null,
+            "clearable": false,
+            "hidden": false,
+            "copyable": 1,
+            "copyTransformer": null,
+            "backward": false,
+            "settable": true,
+            "options": "<deep>"
+           },
+           "opacity": {
+            "default": null,
+            "empty_value": 1,
+            "optional": true,
+            "deep": null,
+            "array": null,
+            "normalizer": "<fn>",
+            "clearable": false,
+            "hidden": false,
+            "copyable": 1,
+            "copyTransformer": null,
+            "backward": false,
+            "settable": true,
+            "options": "<deep>"
+           },
+           "fontFamily": {
+            "default": null,
+            "empty_value": "Arial",
+            "optional": true,
+            "deep": null,
+            "array": null,
+            "normalizer": "<fn>",
+            "clearable": false,
+            "hidden": false,
+            "copyable": 1,
+            "copyTransformer": null,
+            "backward": false,
+            "settable": true,
+            "options": "<deep>"
+           },
+           "fontSize": {
+            "default": null,
+            "empty_value": 0,
+            "optional": true,
+            "deep": null,
+            "array": null,
+            "normalizer": null,
+            "clearable": false,
+            "hidden": false,
+            "copyable": 1,
+            "copyTransformer": null,
+            "backward": false,
+            "settable": true,
+            "options": "<deep>"
+           },
+           "color": {
+            "default": null,
+            "empty_value": "#000000",
+            "optional": true,
+            "deep": null,
+            "array": null,
+            "normalizer": null,
+            "clearable": false,
+            "hidden": false,
+            "copyable": 1,
+            "copyTransformer": null,
+            "backward": false,
+            "settable": true,
+            "options": "<deep>"
+           }
+          },
+          "array": null,
+          "normalizer": null,
+          "clearable": false,
+          "hidden": false,
+          "copyable": 1,
+          "copyTransformer": null,
+          "backward": false,
+          "settable": true,
+          "options": {
+           "deep": {
+            "angle": "<deep>",
+            "fileId": "<deep>",
+            "imageWidth": "<deep>",
+            "imageHeight": "<deep>",
+            "faded": "<deep>",
+            "scale": "<deep>",
+            "content": "<deep>",
+            "opacity": "<deep>",
+            "fontFamily": "<deep>",
+            "fontSize": "<deep>",
+            "color": "<deep>"
+           },
+           "optional": true
+          }
+         }
+        },
+        "array": null,
+        "normalizer": null,
+        "clearable": false,
+        "hidden": false,
+        "copyable": 1,
+        "copyTransformer": null,
+        "backward": false,
+        "settable": true,
+        "options": {
+         "deep": {
+          "type": {
+           "default": null,
+           "empty_value": "none",
+           "optional": true,
+           "deep": null,
+           "array": null,
+           "normalizer": null,
+           "clearable": false,
+           "hidden": false,
+           "copyable": 1,
+           "copyTransformer": null,
+           "backward": false,
+           "settable": true,
+           "options": {
+            "empty_value": "none",
+            "optional": true
+           }
+          },
+          "config": {
+           "default": null,
+           "empty_value": {
+            "angle": 0,
+            "fileId": "",
+            "imageWidth": 0,
+            "imageHeight": 0,
+            "faded": false,
+            "scale": 0,
+            "content": "",
+            "opacity": 1,
+            "fontFamily": "Arial",
+            "fontSize": 0,
+            "color": "#000000"
+           },
+           "optional": true,
+           "deep": {
+            "angle": "<deep>",
+            "fileId": "<deep>",
+            "imageWidth": "<deep>",
+            "imageHeight": "<deep>",
+            "faded": "<deep>",
+            "scale": "<deep>",
+            "content": "<deep>",
+            "opacity": "<deep>",
+            "fontFamily": "<deep>",
+            "fontSize": "<deep>",
+            "color": "<deep>"
+           },
+           "array": null,
+           "normalizer": null,
+           "clearable": false,
+           "hidden": false,
+           "copyable": 1,
+           "copyTransformer": null,
+           "backward": false,
+           "settable": true,
+           "options": {
+            "deep": "<deep>",
+            "optional": true
+           }
+          }
+         },
+         "optional": true
+        }
+       }
+      },
+      "optional": true
+     },
+     "deep": {
+      "watermark": {
+       "default": null,
+       "default_source": "default",
+       "optional": true,
+       "normalizer": null
+      }
+     }
+    }
+   },
+   "attr_count": 1,
+   "attrs_with_proven_default": 1,
+   "marks_attrs": null,
+   "default_marks_attrs": null,
+   "css_attrs": null,
+   "default_css_attrs": null,
+   "provenance": [
+    {
+     "source": "SPK-JS 原文",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1652824,
+     "snippet": ",settings:{type:Hb}",
+     "what": "node entry in the document spec delta (content expression / type class)"
+    },
+    {
+     "source": "SPK 束内模块",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1563568,
+     "snippet": "class Hb extends rx{static getSelfPropertyName(){return\"DocumentSettings\"}get attrs(){return{finalSection:Fb}}getFileId(t){return t.getAttrValue(\"finalSection\")",
+     "what": "node class `Hb` — where `attrs` (with empty_value defaults) are declared/composed"
+    }
+   ]
+  },
+  {
+   "name": "style_editor",
+   "content": "style_paragraph style_paragraph[headingId=\"_heading0\",headingLevel=0] style_paragraph[headingId=\"_heading1\",headingLevel=1] style_paragraph[headingId=\"_heading2\",headingLevel=2] style_paragraph[headingId=\"_heading3\",headingLevel=3] style_paragraph[headingId=\"_heading4\",headingLevel=4] style_paragraph[headingId=\"_heading5\",headingLevel=5]",
+   "content_source": "SPK-JS 原文",
+   "groups": [],
+   "group_runtime": null,
+   "isLeaf": false,
+   "isText": false,
+   "empty_node_size": 2,
+   "empty_node_size_error": null,
+   "attrs": {},
+   "attr_count": 0,
+   "attrs_with_proven_default": 0,
+   "marks_attrs": null,
+   "default_marks_attrs": null,
+   "css_attrs": null,
+   "default_css_attrs": null,
+   "provenance": [
+    {
+     "source": "SPK-JS 原文",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1652843,
+     "snippet": ",style_editor:{type:t_,content:Ub.map((({id:t,level:e}",
+     "what": "node entry in the document spec delta (content expression / type class)"
+    },
+    {
+     "source": "SPK 束内模块",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1569039,
+     "snippet": "class t_ extends(Ly(fa)){get isStyleEditor(){return!0}get printable(){return!1}get Node(){return e_}registerSelfLocalAttrsUpdateMap(t){t.register(t.INHERITED_ST",
+     "what": "node class `t_` — where `attrs` (with empty_value defaults) are declared/composed"
+    }
+   ]
+  },
+  {
+   "name": "style_paragraph",
+   "content": "inline<_>*",
+   "content_source": "SPK-JS 原文",
+   "groups": [],
+   "group_runtime": null,
+   "isLeaf": false,
+   "isText": false,
+   "empty_node_size": 2,
+   "empty_node_size_error": null,
+   "attrs": {
+    "tabStops": {
+     "default": [],
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": true,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "empty_value": [],
+      "clearable": true,
+      "normalizer": "<fn>",
+      "optional": true
+     },
+     "deep": null
+    },
+    "textMarks": {
+     "default": [],
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": true,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "optional": true,
+      "empty_value": [],
+      "clearable": true,
+      "normalizer": "<fn>"
+     },
+     "deep": null
+    },
+    "textAlign": {
+     "default": "left",
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": true,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "optional": true,
+      "empty_value": "left",
+      "clearable": true,
+      "normalizer": [
+       "left",
+       "right",
+       "center",
+       "justify"
+      ]
+     },
+     "deep": null
+    },
+    "lineHeight": {
+     "default": 1,
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": true,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "optional": true,
+      "empty_value": 1,
+      "clearable": true,
+      "normalizer": "positiveNumber"
+     },
+     "deep": null
+    },
+    "paddingTop": {
+     "default": 0,
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": true,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "optional": true,
+      "empty_value": 0,
+      "normalizer": "nonNegativeNumber",
+      "clearable": true
+     },
+     "deep": null
+    },
+    "paddingBottom": {
+     "default": 0,
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": true,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "optional": true,
+      "empty_value": 0,
+      "normalizer": "nonNegativeNumber",
+      "clearable": true
+     },
+     "deep": null
+    },
+    "backgroundColor": {
+     "default": "transparent",
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "empty_value": "transparent",
+      "optional": true
+     },
+     "deep": null
+    },
+    "indentFirst": {
+     "default": 0,
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": true,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "optional": true,
+      "empty_value": 0,
+      "clearable": true,
+      "normalizer": "number"
+     },
+     "deep": null
+    },
+    "indentLeft": {
+     "default": 0,
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": true,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "optional": true,
+      "empty_value": 0,
+      "clearable": true,
+      "normalizer": "number"
+     },
+     "deep": null
+    },
+    "indentRight": {
+     "default": 0,
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": true,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "optional": true,
+      "empty_value": 0,
+      "clearable": true,
+      "normalizer": "number"
+     },
+     "deep": null
+    },
+    "listId": {
+     "default": null,
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "optional": true
+     },
+     "deep": null
+    },
+    "listLevel": {
+     "default": 0,
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "empty_value": 0,
+      "normalizer": "<fn>",
+      "optional": true
+     },
+     "deep": null
+    },
+    "listMarks": {
+     "default": [],
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": true,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "empty_value": [],
+      "clearable": true,
+      "normalizer": "<fn>",
+      "optional": true
+     },
+     "deep": null
+    },
+    "headingId": {
+     "default": null,
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": true,
+     "copyable": 0,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "optional": true,
+      "copyable": 0,
+      "copyTransformer": "<fn>"
+     },
+     "deep": null
+    },
+    "headingLevel": {
+     "default": 0,
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "optional": true,
+      "empty_value": 0,
+      "normalizer": "<fn>"
+     },
+     "deep": null
+    },
+    "trackingSelf": {
+     "default": [],
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": false,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "empty_value": [],
+      "copyable": true,
+      "settable": false,
+      "normalizer": "<fn>",
+      "optional": true
+     },
+     "deep": null
+    },
+    "trackingStart": {
+     "default": [],
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": false,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "empty_value": [],
+      "copyable": true,
+      "settable": false,
+      "normalizer": "<fn>",
+      "optional": true
+     },
+     "deep": null
+    },
+    "trackingEnd": {
+     "default": [],
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": false,
+     "copyable": 1,
+     "hidden": false,
+     "backward": true,
+     "options": {
+      "empty_value": [],
+      "copyable": true,
+      "settable": false,
+      "normalizer": "<fn>",
+      "optional": true,
+      "backward": true
+     },
+     "deep": null
+    }
+   },
+   "attr_count": 18,
+   "attrs_with_proven_default": 18,
+   "marks_attrs": {
+    "textMarks": {
+     "default": null,
+     "empty_value": [],
+     "optional": true,
+     "deep": null,
+     "array": null,
+     "normalizer": "<fn>",
+     "clearable": true,
+     "hidden": false,
+     "copyable": 1,
+     "copyTransformer": null,
+     "backward": false,
+     "settable": true,
+     "options": {
+      "optional": true,
+      "empty_value": [],
+      "clearable": true,
+      "normalizer": "<fn>"
+     }
+    }
+   },
+   "default_marks_attrs": {
+    "textMarks": []
+   },
+   "css_attrs": {
+    "textAlign": {
+     "default": null,
+     "empty_value": "left",
+     "optional": true,
+     "deep": null,
+     "array": null,
+     "normalizer": "<fn>",
+     "clearable": true,
+     "hidden": false,
+     "copyable": 1,
+     "copyTransformer": null,
+     "backward": false,
+     "settable": true,
+     "options": {
+      "optional": true,
+      "empty_value": "left",
+      "clearable": true,
+      "normalizer": [
+       "left",
+       "right",
+       "center",
+       "justify"
+      ]
+     }
+    },
+    "lineHeight": {
+     "default": null,
+     "empty_value": 1,
+     "optional": true,
+     "deep": null,
+     "array": null,
+     "normalizer": "<fn>",
+     "clearable": true,
+     "hidden": false,
+     "copyable": 1,
+     "copyTransformer": null,
+     "backward": false,
+     "settable": true,
+     "options": {
+      "optional": true,
+      "empty_value": 1,
+      "clearable": true,
+      "normalizer": "positiveNumber"
+     }
+    },
+    "paddingTop": {
+     "default": null,
+     "empty_value": 0,
+     "optional": true,
+     "deep": null,
+     "array": null,
+     "normalizer": "<fn>",
+     "clearable": true,
+     "hidden": false,
+     "copyable": 1,
+     "copyTransformer": null,
+     "backward": false,
+     "settable": true,
+     "options": {
+      "optional": true,
+      "empty_value": 0,
+      "normalizer": "nonNegativeNumber",
+      "clearable": true
+     }
+    },
+    "paddingBottom": {
+     "default": null,
+     "empty_value": 0,
+     "optional": true,
+     "deep": null,
+     "array": null,
+     "normalizer": "<fn>",
+     "clearable": true,
+     "hidden": false,
+     "copyable": 1,
+     "copyTransformer": null,
+     "backward": false,
+     "settable": true,
+     "options": {
+      "optional": true,
+      "empty_value": 0,
+      "normalizer": "nonNegativeNumber",
+      "clearable": true
+     }
+    },
+    "backgroundColor": {
+     "default": null,
+     "empty_value": "transparent",
+     "optional": true,
+     "deep": null,
+     "array": null,
+     "normalizer": null,
+     "clearable": false,
+     "hidden": false,
+     "copyable": 1,
+     "copyTransformer": null,
+     "backward": false,
+     "settable": true,
+     "options": {
+      "empty_value": "transparent",
+      "optional": true
+     }
+    }
+   },
+   "default_css_attrs": {
+    "textAlign": "left",
+    "lineHeight": 1,
+    "paddingTop": 0,
+    "paddingBottom": 0,
+    "backgroundColor": "transparent"
+   },
+   "provenance": [
+    {
+     "source": "SPK-JS 原文",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1652979,
+     "snippet": ",style_paragraph:{type:r_,content:\"inline<_>*\"}",
+     "what": "node entry in the document spec delta (content expression / type class)"
+    },
+    {
+     "source": "SPK 束内模块",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1570096,
+     "snippet": "class r_ extends(Xy(Kb)){get isStyleParagraph(){return!0}registerSelfLocalAttrsUpdateMap(t){t.register(t.SELF_END,this.name,\"set_paragraph_style\",null,((t,e)=>{",
+     "what": "node class `r_` — where `attrs` (with empty_value defaults) are declared/composed"
+    }
+   ]
+  },
+  {
+   "name": "invisible",
+   "content": "drawing*",
+   "content_source": "SPK-JS 原文",
+   "groups": [],
+   "group_runtime": null,
+   "isLeaf": false,
+   "isText": false,
+   "empty_node_size": 2,
+   "empty_node_size_error": null,
+   "attrs": {
+    "trackingSelf": {
+     "default": [],
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": false,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "empty_value": [],
+      "copyable": true,
+      "settable": false,
+      "normalizer": "<fn>",
+      "optional": true
+     },
+     "deep": null
+    },
+    "trackingStart": {
+     "default": [],
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": false,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "empty_value": [],
+      "copyable": true,
+      "settable": false,
+      "normalizer": "<fn>",
+      "optional": true
+     },
+     "deep": null
+    },
+    "trackingEnd": {
+     "default": [],
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": false,
+     "copyable": 1,
+     "hidden": false,
+     "backward": true,
+     "options": {
+      "empty_value": [],
+      "copyable": true,
+      "settable": false,
+      "normalizer": "<fn>",
+      "optional": true,
+      "backward": true
+     },
+     "deep": null
+    }
+   },
+   "attr_count": 3,
+   "attrs_with_proven_default": 3,
+   "marks_attrs": null,
+   "default_marks_attrs": null,
+   "css_attrs": null,
+   "default_css_attrs": null,
+   "provenance": [
+    {
+     "source": "SPK-JS 原文",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1653026,
+     "snippet": ",invisible:{type:s_,content:\"drawing*\"}",
+     "what": "node entry in the document spec delta (content expression / type class)"
+    },
+    {
+     "source": "SPK 束内模块",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1570916,
+     "snippet": "class s_ extends ma{get isInvisible(){return!0}get printable(){return!1}get matchDOMTag(){return{\"div[syno_invisible]\":null}}toDOM(t,e){return[\"div\",this.render",
+     "what": "node class `s_` — where `attrs` (with empty_value defaults) are declared/composed"
+    }
+   ]
+  },
+  {
+   "name": "edit_area",
+   "content": "basic_block (block | first_level_block)*",
+   "content_source": "SPK-JS 原文",
+   "groups": [],
+   "group_runtime": null,
+   "isLeaf": false,
+   "isText": false,
+   "empty_node_size": 2,
+   "empty_node_size_error": null,
+   "attrs": {
+    "listMap": {
+     "default": {},
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": true,
+     "backward": false,
+     "options": {
+      "optional": true,
+      "empty_value": {},
+      "hidden": true,
+      "normalizer": "<fn>"
+     },
+     "deep": null
+    }
+   },
+   "attr_count": 1,
+   "attrs_with_proven_default": 1,
+   "marks_attrs": null,
+   "default_marks_attrs": null,
+   "css_attrs": null,
+   "default_css_attrs": null,
+   "provenance": [
+    {
+     "source": "SPK-JS 原文",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1653065,
+     "snippet": ",edit_area:{type:a_,content:\"basic_block (block | first_level_block)*\"}",
+     "what": "node entry in the document spec delta (content expression / type class)"
+    },
+    {
+     "source": "SPK 束内模块",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1571695,
+     "snippet": "class a_ extends(Ly(fa)){get isEditArea(){return!0}get pseudoType(){return this.schema.nodes.page}getIndicatorWrapperDOM(t){return t.lastChild}createPseudoNode(",
+     "what": "node class `a_` — where `attrs` (with empty_value defaults) are declared/composed"
+    }
+   ]
+  },
+  {
+   "name": "page",
+   "content": "block*",
+   "content_source": "SPK-JS 原文",
+   "groups": [],
+   "group_runtime": null,
+   "isLeaf": false,
+   "isText": false,
+   "empty_node_size": null,
+   "empty_node_size_error": "No value in attribute.",
+   "attrs": {
+    "width": {
+     "default": null,
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {},
+     "deep": null
+    },
+    "height": {
+     "default": null,
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {},
+     "deep": null
+    },
+    "marginLeft": {
+     "default": null,
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {},
+     "deep": null
+    },
+    "marginTop": {
+     "default": null,
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {},
+     "deep": null
+    },
+    "marginRight": {
+     "default": null,
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {},
+     "deep": null
+    },
+    "marginBottom": {
+     "default": null,
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {},
+     "deep": null
+    },
+    "decoratorMaxHeight": {
+     "default": null,
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {},
+     "deep": null
+    }
+   },
+   "attr_count": 7,
+   "attrs_with_proven_default": 7,
+   "marks_attrs": null,
+   "default_marks_attrs": null,
+   "css_attrs": null,
+   "default_css_attrs": null,
+   "provenance": [
+    {
+     "source": "SPK-JS 原文",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1653136,
+     "snippet": ",page:{type:i_,content:\"block*\"}",
+     "what": "node entry in the document spec delta (content expression / type class)"
+    },
+    {
+     "source": "SPK 束内模块",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1572636,
+     "snippet": "class i_ extends fa{get isPage(){return!0}get isPseudoType(){return!0}get attrs(){return{width:sn.create(),height:sn.create(),marginLeft:sn.create(),marginTop:s",
+     "what": "node class `i_` — where `attrs` (with empty_value defaults) are declared/composed"
+    }
+   ]
+  },
+  {
+   "name": "navigation",
+   "content": "basic_block block*",
+   "content_source": "SPK-JS 原文",
+   "groups": [
+    "block"
+   ],
+   "group_runtime": [
+    "block"
+   ],
+   "isLeaf": false,
+   "isText": false,
+   "empty_node_size": 2,
+   "empty_node_size_error": null,
+   "attrs": {
+    "trackingSelf": {
+     "default": [],
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": false,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "empty_value": [],
+      "copyable": true,
+      "settable": false,
+      "normalizer": "<fn>",
+      "optional": true
+     },
+     "deep": null
+    },
+    "trackingStart": {
+     "default": [],
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": false,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "empty_value": [],
+      "copyable": true,
+      "settable": false,
+      "normalizer": "<fn>",
+      "optional": true
+     },
+     "deep": null
+    },
+    "trackingEnd": {
+     "default": [],
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": false,
+     "copyable": 1,
+     "hidden": false,
+     "backward": true,
+     "options": {
+      "empty_value": [],
+      "copyable": true,
+      "settable": false,
+      "normalizer": "<fn>",
+      "optional": true,
+      "backward": true
+     },
+     "deep": null
+    }
+   },
+   "attr_count": 3,
+   "attrs_with_proven_default": 3,
+   "marks_attrs": null,
+   "default_marks_attrs": null,
+   "css_attrs": null,
+   "default_css_attrs": null,
+   "provenance": [
+    {
+     "source": "SPK-JS 原文",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1653204,
+     "snippet": ",navigation:{type:l_,content:\"basic_block block*\"}",
+     "what": "node entry in the document spec delta (content expression / type class)"
+    },
+    {
+     "source": "SPK 束内模块",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1575554,
+     "snippet": "class l_ extends _a{get isNavigation(){return!0}get unbreakable(){return!0}get selectionExtendable(){return!0}get deleteWhenEmpty(){return!0}getLeftPaddingWidth",
+     "what": "node class `l_` — where `attrs` (with empty_value defaults) are declared/composed"
+    }
+   ]
+  },
+  {
+   "name": "horizontal_rule",
+   "content": null,
+   "content_source": "implicit (no content expression)",
+   "groups": [
+    "basic_block",
+    "block"
+   ],
+   "group_runtime": [
+    "basic_block",
+    "block"
+   ],
+   "isLeaf": true,
+   "isText": false,
+   "empty_node_size": 1,
+   "empty_node_size_error": null,
+   "attrs": {
+    "trackingSelf": {
+     "default": [],
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": false,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "empty_value": [],
+      "copyable": true,
+      "settable": false,
+      "normalizer": "<fn>",
+      "optional": true
+     },
+     "deep": null
+    },
+    "trackingLeaf": {
+     "default": [],
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": false,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "empty_value": [],
+      "copyable": true,
+      "settable": false,
+      "normalizer": "<fn>",
+      "optional": true
+     },
+     "deep": null
+    }
+   },
+   "attr_count": 2,
+   "attrs_with_proven_default": 2,
+   "marks_attrs": null,
+   "default_marks_attrs": null,
+   "css_attrs": null,
+   "default_css_attrs": null,
+   "provenance": [
+    {
+     "source": "SPK-JS 原文",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1653254,
+     "snippet": ",horizontal_rule:{type:h_}",
+     "what": "node entry in the document spec delta (content expression / type class)"
+    },
+    {
+     "source": "SPK 束内模块",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1576130,
+     "snippet": "class h_ extends ba{get isHorizontalRule(){return!0}get forceJoinBackward(){return!0}getTopPaddingHeight(t){return 7}getBottomPaddingHeight(t){return 7}get matc",
+     "what": "node class `h_` — where `attrs` (with empty_value defaults) are declared/composed"
+    }
+   ]
+  },
+  {
+   "name": "page_break",
+   "content": null,
+   "content_source": "implicit (no content expression)",
+   "groups": [
+    "first_level_block"
+   ],
+   "group_runtime": [
+    "first_level_block"
+   ],
+   "isLeaf": true,
+   "isText": false,
+   "empty_node_size": 1,
+   "empty_node_size_error": null,
+   "attrs": {
+    "trackingSelf": {
+     "default": [],
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": false,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "empty_value": [],
+      "copyable": true,
+      "settable": false,
+      "normalizer": "<fn>",
+      "optional": true
+     },
+     "deep": null
+    },
+    "trackingLeaf": {
+     "default": [],
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": false,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "empty_value": [],
+      "copyable": true,
+      "settable": false,
+      "normalizer": "<fn>",
+      "optional": true
+     },
+     "deep": null
+    }
+   },
+   "attr_count": 2,
+   "attrs_with_proven_default": 2,
+   "marks_attrs": null,
+   "default_marks_attrs": null,
+   "css_attrs": null,
+   "default_css_attrs": null,
+   "provenance": [
+    {
+     "source": "SPK-JS 原文",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1653280,
+     "snippet": ",page_break:{type:u_}",
+     "what": "node entry in the document spec delta (content expression / type class)"
+    },
+    {
+     "source": "SPK 束内模块",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1576605,
+     "snippet": "class u_ extends ba{get isPageBreak(){return!0}get forceJoinBackward(){return!0}get matchDOMTag(){return{\"div[data-syno-page-break]\":(t,e)=>this.parseDOM(t,e)}}",
+     "what": "node class `u_` — where `attrs` (with empty_value defaults) are declared/composed"
+    }
+   ]
+  },
+  {
+   "name": "image",
+   "content": null,
+   "content_source": "implicit (no content expression)",
+   "groups": [
+    "inline"
+   ],
+   "group_runtime": [
+    "inline"
+   ],
+   "isLeaf": true,
+   "isText": false,
+   "empty_node_size": 1,
+   "empty_node_size_error": null,
+   "attrs": {
+    "src": {
+     "default": "",
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": ""
+     },
+     "deep": null
+    },
+    "alt": {
+     "default": "",
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": ""
+     },
+     "deep": null
+    },
+    "ref": {
+     "default": "",
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": ""
+     },
+     "deep": null
+    },
+    "file_id": {
+     "default": "",
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": ""
+     },
+     "deep": null
+    },
+    "file_type": {
+     "default": "binary",
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": "binary"
+     },
+     "deep": null
+    },
+    "config": {
+     "default": "",
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": ""
+     },
+     "deep": null
+    },
+    "width": {
+     "default": "",
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": ""
+     },
+     "deep": null
+    },
+    "height": {
+     "default": "",
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": ""
+     },
+     "deep": null
+    },
+    "trackingSelf": {
+     "default": [],
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": false,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "empty_value": [],
+      "copyable": true,
+      "settable": false,
+      "normalizer": "<fn>",
+      "optional": true
+     },
+     "deep": null
+    }
+   },
+   "attr_count": 9,
+   "attrs_with_proven_default": 9,
+   "marks_attrs": null,
+   "default_marks_attrs": null,
+   "css_attrs": {
+    "width": {
+     "default": "",
+     "empty_value": null,
+     "optional": false,
+     "deep": null,
+     "array": null,
+     "normalizer": null,
+     "clearable": false,
+     "hidden": false,
+     "copyable": 1,
+     "copyTransformer": null,
+     "backward": false,
+     "settable": true,
+     "options": {
+      "default": ""
+     }
+    },
+    "height": {
+     "default": "",
+     "empty_value": null,
+     "optional": false,
+     "deep": null,
+     "array": null,
+     "normalizer": null,
+     "clearable": false,
+     "hidden": false,
+     "copyable": 1,
+     "copyTransformer": null,
+     "backward": false,
+     "settable": true,
+     "options": {
+      "default": ""
+     }
+    }
+   },
+   "default_css_attrs": null,
+   "provenance": [
+    {
+     "source": "SPK-JS 原文",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1653301,
+     "snippet": ",image:{type:p_}",
+     "what": "node entry in the document spec delta (content expression / type class)"
+    },
+    {
+     "source": "SPK 束内模块",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1578016,
+     "snippet": "class p_ extends Pa{get isImage(){return!0}get hasCss(){return!0}get cssAttrs(){return{width:new sn({default:\"\"}),height:new sn({default:\"\"})}}get attrs(){retur",
+     "what": "node class `p_` — where `attrs` (with empty_value defaults) are declared/composed"
+    }
+   ]
+  },
+  {
+   "name": "chart",
+   "content": null,
+   "content_source": "implicit (no content expression)",
+   "groups": [
+    "inline"
+   ],
+   "group_runtime": [
+    "inline"
+   ],
+   "isLeaf": true,
+   "isText": false,
+   "empty_node_size": 1,
+   "empty_node_size_error": null,
+   "attrs": {
+    "synochart": {
+     "default": "<fn>",
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 0,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": "<fn>",
+      "copyable": false
+     },
+     "deep": null
+    },
+    "data": {
+     "default": [
+      [
+       "",
+       "Number 1",
+       "Number 2",
+       "Number 3",
+       "Number 4"
+      ],
+      [
+       "Category A",
+       500,
+       520,
+       540,
+       520
+      ],
+      [
+       "Category B",
+       520,
+       540,
+       560,
+       540
+      ],
+      [
+       "Category C",
+       540,
+       560,
+       580,
+       560
+      ]
+     ],
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": [
+       [
+        "",
+        "Number 1",
+        "Number 2",
+        "Number 3",
+        "Number 4"
+       ],
+       [
+        "Category A",
+        500,
+        520,
+        540,
+        520
+       ],
+       [
+        "Category B",
+        520,
+        540,
+        560,
+        540
+       ],
+       [
+        "Category C",
+        540,
+        560,
+        580,
+        560
+       ]
+      ],
+      "normalizer": "<fn>"
+     },
+     "deep": null
+    },
+    "config": {
+     "default": null,
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "optional": true
+     },
+     "deep": null
+    },
+    "width": {
+     "default": "560px",
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": "560px"
+     },
+     "deep": null
+    },
+    "height": {
+     "default": "410px",
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": "410px"
+     },
+     "deep": null
+    },
+    "trackingSelf": {
+     "default": [],
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": false,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "empty_value": [],
+      "copyable": true,
+      "settable": false,
+      "normalizer": "<fn>",
+      "optional": true
+     },
+     "deep": null
+    }
+   },
+   "attr_count": 6,
+   "attrs_with_proven_default": 6,
+   "marks_attrs": null,
+   "default_marks_attrs": null,
+   "css_attrs": null,
+   "default_css_attrs": null,
+   "provenance": [
+    {
+     "source": "SPK-JS 原文",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1653317,
+     "snippet": ",chart:{type:c_}",
+     "what": "node entry in the document spec delta (content expression / type class)"
+    },
+    {
+     "source": "SPK 束内模块",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1576856,
+     "snippet": "class c_ extends Pa{get isChart(){return!0}get sizeRatio(){return 410/560}get attrs(){return{synochart:new sn({default:Tt,copyable:!1}),data:new sn({default:ad.",
+     "what": "node class `c_` — where `attrs` (with empty_value defaults) are declared/composed"
+    }
+   ]
+  },
+  {
+   "name": "shape",
+   "content": "text_box",
+   "content_source": "SPK-JS 原文",
+   "groups": [
+    "inline",
+    "drawing"
+   ],
+   "group_runtime": [
+    "inline",
+    "drawing"
+   ],
+   "isLeaf": false,
+   "isText": false,
+   "empty_node_size": 2,
+   "empty_node_size_error": null,
+   "attrs": {
+    "id": {
+     "default": "<fn>",
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 0,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": "<fn>",
+      "copyable": false
+     },
+     "deep": null
+    },
+    "config": {
+     "default": {},
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": {}
+     },
+     "deep": null
+    },
+    "trackingSelf": {
+     "default": [],
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": false,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "empty_value": [],
+      "copyable": true,
+      "settable": false,
+      "normalizer": "<fn>",
+      "optional": true
+     },
+     "deep": null
+    }
+   },
+   "attr_count": 3,
+   "attrs_with_proven_default": 3,
+   "marks_attrs": null,
+   "default_marks_attrs": null,
+   "css_attrs": null,
+   "default_css_attrs": null,
+   "provenance": [
+    {
+     "source": "SPK-JS 原文",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1653333,
+     "snippet": ",shape:{type:BA,content:\"text_box\"}",
+     "what": "node entry in the document spec delta (content expression / type class)"
+    },
+    {
+     "source": "SPK 束内模块",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1650239,
+     "snippet": "class BA extends FA{static getSelfPropertyName(){return\"Shape\"}parseContentSyno(t,e){let r=super.parseContentSyno(t,e);if(!r)return null;try{let t=this.create(n",
+     "what": "node class `BA` — where `attrs` (with empty_value defaults) are declared/composed"
+    }
+   ]
+  },
+  {
+   "name": "connector",
+   "content": null,
+   "content_source": "implicit (no content expression)",
+   "groups": [
+    "inline",
+    "drawing"
+   ],
+   "group_runtime": [
+    "inline",
+    "drawing"
+   ],
+   "isLeaf": true,
+   "isText": false,
+   "empty_node_size": 1,
+   "empty_node_size_error": null,
+   "attrs": {
+    "id": {
+     "default": "<fn>",
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 0,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": "<fn>",
+      "copyable": false
+     },
+     "deep": null
+    },
+    "config": {
+     "default": {},
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": {}
+     },
+     "deep": null
+    },
+    "trackingSelf": {
+     "default": [],
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": false,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "empty_value": [],
+      "copyable": true,
+      "settable": false,
+      "normalizer": "<fn>",
+      "optional": true
+     },
+     "deep": null
+    }
+   },
+   "attr_count": 3,
+   "attrs_with_proven_default": 3,
+   "marks_attrs": null,
+   "default_marks_attrs": null,
+   "css_attrs": null,
+   "default_css_attrs": null,
+   "provenance": [
+    {
+     "source": "SPK-JS 原文",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1653368,
+     "snippet": ",connector:{type:VA}",
+     "what": "node entry in the document spec delta (content expression / type class)"
+    },
+    {
+     "source": "SPK 束内模块",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1650641,
+     "snippet": "class VA extends FA{static getSelfPropertyName(){return\"Connector\"}}class HA extends FA{static getSelfPropertyName(){return\"Picture\"}getFileId(t){return t.getAt",
+     "what": "node class `VA` — where `attrs` (with empty_value defaults) are declared/composed"
+    }
+   ]
+  },
+  {
+   "name": "picture",
+   "content": null,
+   "content_source": "implicit (no content expression)",
+   "groups": [
+    "inline",
+    "drawing"
+   ],
+   "group_runtime": [
+    "inline",
+    "drawing"
+   ],
+   "isLeaf": true,
+   "isText": false,
+   "empty_node_size": 1,
+   "empty_node_size_error": null,
+   "attrs": {
+    "id": {
+     "default": "<fn>",
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 0,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": "<fn>",
+      "copyable": false
+     },
+     "deep": null
+    },
+    "config": {
+     "default": {},
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": {}
+     },
+     "deep": null
+    },
+    "trackingSelf": {
+     "default": [],
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": false,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "empty_value": [],
+      "copyable": true,
+      "settable": false,
+      "normalizer": "<fn>",
+      "optional": true
+     },
+     "deep": null
+    }
+   },
+   "attr_count": 3,
+   "attrs_with_proven_default": 3,
+   "marks_attrs": null,
+   "default_marks_attrs": null,
+   "css_attrs": null,
+   "default_css_attrs": null,
+   "provenance": [
+    {
+     "source": "SPK-JS 原文",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1653388,
+     "snippet": ",picture:{type:HA}",
+     "what": "node entry in the document spec delta (content expression / type class)"
+    },
+    {
+     "source": "SPK 束内模块",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1650709,
+     "snippet": "class HA extends FA{static getSelfPropertyName(){return\"Picture\"}getFileId(t){return t.getAttrValue(\"config\")?.file_id}}let GA=sn.create({default:9,empty_value:",
+     "what": "node class `HA` — where `attrs` (with empty_value defaults) are declared/composed"
+    }
+   ]
+  },
+  {
+   "name": "text_box",
+   "content": "basic_block block*",
+   "content_source": "SPK-JS 原文",
+   "groups": [],
+   "group_runtime": null,
+   "isLeaf": false,
+   "isText": false,
+   "empty_node_size": 2,
+   "empty_node_size_error": null,
+   "attrs": {
+    "anchor": {
+     "default": "ctr",
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": "ctr",
+      "empty_value": "t",
+      "normalizer": [
+       "t",
+       "ctr",
+       "b"
+      ]
+     },
+     "deep": null
+    },
+    "lIns": {
+     "default": 9,
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": 9,
+      "empty_value": 0
+     },
+     "deep": null
+    },
+    "tIns": {
+     "default": 9,
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": 9,
+      "empty_value": 0
+     },
+     "deep": null
+    },
+    "rIns": {
+     "default": 9,
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": 9,
+      "empty_value": 0
+     },
+     "deep": null
+    },
+    "bIns": {
+     "default": 9,
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": 9,
+      "empty_value": 0
+     },
+     "deep": null
+    },
+    "listMap": {
+     "default": {},
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": true,
+     "backward": false,
+     "options": {
+      "optional": true,
+      "empty_value": {},
+      "hidden": true,
+      "normalizer": "<fn>"
+     },
+     "deep": null
+    }
+   },
+   "attr_count": 6,
+   "attrs_with_proven_default": 6,
+   "marks_attrs": null,
+   "default_marks_attrs": null,
+   "css_attrs": null,
+   "default_css_attrs": null,
+   "provenance": [
+    {
+     "source": "SPK-JS 原文",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1653406,
+     "snippet": ",text_box:{type:qA,content:\"basic_block block*\"}",
+     "what": "node entry in the document spec delta (content expression / type class)"
+    },
+    {
+     "source": "SPK 束内模块",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1651220,
+     "snippet": "class qA extends(UA(fa)){static getSelfPropertyName(){return\"DocumentTextBox\"}registerSelfLocalAttrsUpdateMap(){let t=this.getStateMap();t.register(t.FROM_PAREN",
+     "what": "node class `qA` — where `attrs` (with empty_value defaults) are declared/composed"
+    }
+   ]
+  },
+  {
+   "name": "page_decorate",
+   "content": "header[type=\"cover\"] header[type=\"even\"] header[type=\"normal\"] footer[type=\"cover\"] footer[type=\"even\"] footer[type=\"normal\"] page_num",
+   "content_source": "SPK-JS 原文",
+   "groups": [],
+   "group_runtime": null,
+   "isLeaf": false,
+   "isText": false,
+   "empty_node_size": 2,
+   "empty_node_size_error": null,
+   "attrs": {
+    "place-show": {
+     "default": false,
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": false
+     },
+     "deep": null
+    },
+    "place-cover": {
+     "default": false,
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": false
+     },
+     "deep": null
+    },
+    "place-even": {
+     "default": false,
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": false
+     },
+     "deep": null
+    },
+    "num-show": {
+     "default": false,
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": false
+     },
+     "deep": null
+    },
+    "num-cover": {
+     "default": false,
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": false
+     },
+     "deep": null
+    },
+    "num-even": {
+     "default": false,
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": false
+     },
+     "deep": null
+    },
+    "num-pos": {
+     "default": "br",
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": "br"
+     },
+     "deep": null
+    }
+   },
+   "attr_count": 7,
+   "attrs_with_proven_default": 7,
+   "marks_attrs": null,
+   "default_marks_attrs": null,
+   "css_attrs": null,
+   "default_css_attrs": null,
+   "provenance": [
+    {
+     "source": "SPK-JS 原文",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1653454,
+     "snippet": ",page_decorate:{type:x_,content:'header[type=\"cover\"] header[type=\"even\"] header[type=\"normal\"] footer[type=\"cover\"] footer[type=\"even\"] footer[type=\"normal\"] page_num'}",
+     "what": "node entry in the document spec delta (content expression / type class)"
+    },
+    {
+     "source": "SPK 束内模块",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1579557,
+     "snippet": "class x_ extends fa{get isPageDecorate(){return!0}get printable(){return!1}get attrs(){return{\"place-show\":new sn({default:!1}),\"place-cover\":new sn({default:!1",
+     "what": "node class `x_` — where `attrs` (with empty_value defaults) are declared/composed"
+    }
+   ]
+  },
+  {
+   "name": "header",
+   "content": "basic_block block*",
+   "content_source": "SPK-JS 原文",
+   "groups": [],
+   "group_runtime": null,
+   "isLeaf": false,
+   "isText": false,
+   "empty_node_size": 2,
+   "empty_node_size_error": null,
+   "attrs": {
+    "type": {
+     "default": "normal",
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": "normal"
+     },
+     "deep": null
+    },
+    "listMap": {
+     "default": {},
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": true,
+     "backward": false,
+     "options": {
+      "optional": true,
+      "empty_value": {},
+      "hidden": true,
+      "normalizer": "<fn>"
+     },
+     "deep": null
+    }
+   },
+   "attr_count": 2,
+   "attrs_with_proven_default": 2,
+   "marks_attrs": null,
+   "default_marks_attrs": null,
+   "css_attrs": null,
+   "default_css_attrs": null,
+   "provenance": [
+    {
+     "source": "SPK-JS 原文",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1653623,
+     "snippet": ",header:{type:m_,content:\"basic_block block*\"}",
+     "what": "node entry in the document spec delta (content expression / type class)"
+    },
+    {
+     "source": "SPK 束内模块",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1582320,
+     "snippet": "class m_ extends f_{get isHeader(){return!0}get decoratorType(){return\"header\"}}class b_ extends f_{get isFooter(){return!0}get decoratorType(){return\"footer\"}}",
+     "what": "node class `m_` — where `attrs` (with empty_value defaults) are declared/composed"
+    }
+   ]
+  },
+  {
+   "name": "footer",
+   "content": "basic_block block*",
+   "content_source": "SPK-JS 原文",
+   "groups": [],
+   "group_runtime": null,
+   "isLeaf": false,
+   "isText": false,
+   "empty_node_size": 2,
+   "empty_node_size_error": null,
+   "attrs": {
+    "type": {
+     "default": "normal",
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": "normal"
+     },
+     "deep": null
+    },
+    "listMap": {
+     "default": {},
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": true,
+     "backward": false,
+     "options": {
+      "optional": true,
+      "empty_value": {},
+      "hidden": true,
+      "normalizer": "<fn>"
+     },
+     "deep": null
+    }
+   },
+   "attr_count": 2,
+   "attrs_with_proven_default": 2,
+   "marks_attrs": null,
+   "default_marks_attrs": null,
+   "css_attrs": null,
+   "default_css_attrs": null,
+   "provenance": [
+    {
+     "source": "SPK-JS 原文",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1653669,
+     "snippet": ",footer:{type:b_,content:\"basic_block block*\"}",
+     "what": "node entry in the document spec delta (content expression / type class)"
+    },
+    {
+     "source": "SPK 束内模块",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1582400,
+     "snippet": "class b_ extends f_{get isFooter(){return!0}get decoratorType(){return\"footer\"}}class __ extends g_{get isPageNumber(){return!0}get decoratorType(){return\"page_",
+     "what": "node class `b_` — where `attrs` (with empty_value defaults) are declared/composed"
+    }
+   ]
+  },
+  {
+   "name": "page_num",
+   "content": "page_num_block",
+   "content_source": "SPK-JS 原文",
+   "groups": [],
+   "group_runtime": null,
+   "isLeaf": false,
+   "isText": false,
+   "empty_node_size": 2,
+   "empty_node_size_error": null,
+   "attrs": {
+    "type": {
+     "default": "normal",
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": "normal"
+     },
+     "deep": null
+    }
+   },
+   "attr_count": 1,
+   "attrs_with_proven_default": 1,
+   "marks_attrs": null,
+   "default_marks_attrs": null,
+   "css_attrs": null,
+   "default_css_attrs": null,
+   "provenance": [
+    {
+     "source": "SPK-JS 原文",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1653715,
+     "snippet": ",page_num:{type:__,content:\"page_num_block\"}",
+     "what": "node entry in the document spec delta (content expression / type class)"
+    },
+    {
+     "source": "SPK 束内模块",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1582480,
+     "snippet": "class __ extends g_{get isPageNumber(){return!0}get decoratorType(){return\"page_num\"}getIndicatorWrapperDOM(t){return t}get matchDOMTag(){return{\"div[synonum]\":",
+     "what": "node class `__` — where `attrs` (with empty_value defaults) are declared/composed"
+    }
+   ]
+  },
+  {
+   "name": "page_num_block",
+   "content": "page_num_text<_>",
+   "content_source": "SPK-JS 原文",
+   "groups": [],
+   "group_runtime": null,
+   "isLeaf": false,
+   "isText": false,
+   "empty_node_size": 2,
+   "empty_node_size_error": null,
+   "attrs": {
+    "trackingSelf": {
+     "default": [],
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": false,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "empty_value": [],
+      "copyable": true,
+      "settable": false,
+      "normalizer": "<fn>",
+      "optional": true
+     },
+     "deep": null
+    },
+    "trackingStart": {
+     "default": [],
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": false,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "empty_value": [],
+      "copyable": true,
+      "settable": false,
+      "normalizer": "<fn>",
+      "optional": true
+     },
+     "deep": null
+    },
+    "trackingEnd": {
+     "default": [],
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": false,
+     "copyable": 1,
+     "hidden": false,
+     "backward": true,
+     "options": {
+      "empty_value": [],
+      "copyable": true,
+      "settable": false,
+      "normalizer": "<fn>",
+      "optional": true,
+      "backward": true
+     },
+     "deep": null
+    }
+   },
+   "attr_count": 3,
+   "attrs_with_proven_default": 3,
+   "marks_attrs": null,
+   "default_marks_attrs": null,
+   "css_attrs": null,
+   "default_css_attrs": null,
+   "provenance": [
+    {
+     "source": "SPK-JS 原文",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1653759,
+     "snippet": ",page_num_block:{type:A_,content:\"page_num_text<_>\"}",
+     "what": "node entry in the document spec delta (content expression / type class)"
+    },
+    {
+     "source": "SPK 束内模块",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1582768,
+     "snippet": "class A_ extends Aa{get isPageNumberBlock(){return!0}get textDraggable(){return!1}get matchDOMTag(){return{\"div[synonumblock]\":null}}toDOM(t){return[\"div\",{syno",
+     "what": "node class `A_` — where `attrs` (with empty_value defaults) are declared/composed"
+    }
+   ]
+  },
+  {
+   "name": "page_num_text",
+   "content": null,
+   "content_source": "implicit (no content expression)",
+   "groups": [],
+   "group_runtime": null,
+   "isLeaf": true,
+   "isText": false,
+   "empty_node_size": 1,
+   "empty_node_size_error": null,
+   "attrs": {
+    "trackingSelf": {
+     "default": [],
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": false,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "empty_value": [],
+      "copyable": true,
+      "settable": false,
+      "normalizer": "<fn>",
+      "optional": true
+     },
+     "deep": null
+    }
+   },
+   "attr_count": 1,
+   "attrs_with_proven_default": 1,
+   "marks_attrs": null,
+   "default_marks_attrs": null,
+   "css_attrs": null,
+   "default_css_attrs": null,
+   "provenance": [
+    {
+     "source": "SPK-JS 原文",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1653811,
+     "snippet": ",page_num_text:{type:M_}",
+     "what": "node entry in the document spec delta (content expression / type class)"
+    },
+    {
+     "source": "SPK 束内模块",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1582949,
+     "snippet": "class M_ extends Ta{get isPageNumberText(){return!0}get copyable(){return!1}get matchDOMTag(){return{\"span[synonumtext]\":null}}toDOM(t){return[\"span\",{synonumte",
+     "what": "node class `M_` — where `attrs` (with empty_value defaults) are declared/composed"
+    }
+   ]
+  }
+ ],
+ "marks": [
+  {
+   "name": "font_size",
+   "rank": 0,
+   "is_attr_mark": false,
+   "kind": "inline text mark",
+   "attrs": {
+    "value": {
+     "default": 11,
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": 11,
+      "empty_value": 11,
+      "normalizer": "<fn>"
+     },
+     "deep": null
+    }
+   },
+   "attr_count": 1,
+   "default_mark": null,
+   "preset_mark": null,
+   "applicability": {
+    "applicable_to_nodes": [
+     "paragraph",
+     "style_paragraph",
+     "text_line"
+    ],
+    "via": "text nodes inside a textblock whose content expression matches `inline<…>`",
+    "source": "SPK 束内模块",
+    "caveat": "the fork MarkType exports no per-node allow-list (checked own properties of every mark type: no `excludes`/`marks`); no schema-level restriction was found",
+    "disproof": "find an `excludes`/`marks`/`allowedNodes` field on any MarkType in the bundle"
+   },
+   "provenance": [
+    {
+     "source": "SPK-JS 原文",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1514189,
+     "snippet": "[\"font_size\",Eg]",
+     "what": "mark registration `[\"font_size\", <class>]` in base spec `sf` (order = priority)"
+    },
+    {
+     "source": "SPK 束内模块",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1504912,
+     "snippet": "class Eg extends Na{static getSelfPropertyName(){return\"FontSize\"}get cssName(){return\"font-size\"}get cssDefaultValue(){return\"11pt\"}get attrs(){return{value:sn",
+     "what": "mark class `Eg` — attrs with empty_value defaults"
+    }
+   ]
+  },
+  {
+   "name": "font_family",
+   "rank": 1,
+   "is_attr_mark": false,
+   "kind": "inline text mark",
+   "attrs": {
+    "value": {
+     "default": "Arial",
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "empty_value": "Arial",
+      "normalizer": "<fn>",
+      "optional": true
+     },
+     "deep": null
+    },
+    "eastAsia": {
+     "default": "Arial",
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "empty_value": "Arial",
+      "normalizer": "<fn>",
+      "optional": true
+     },
+     "deep": null
+    },
+    "complexScript": {
+     "default": "Arial",
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "empty_value": "Arial",
+      "normalizer": "<fn>",
+      "optional": true
+     },
+     "deep": null
+    },
+    "hint": {
+     "default": "default",
+     "default_source": "empty_value",
+     "serialization": "omitted by toJSON() when equal to empty_value (optional attr)",
+     "optional": true,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "empty_value": "default",
+      "normalizer": [
+       "default",
+       "eastAsia",
+       "complexScript"
+      ],
+      "optional": true
+     },
+     "deep": null
+    }
+   },
+   "attr_count": 4,
+   "default_mark": null,
+   "preset_mark": null,
+   "applicability": {
+    "applicable_to_nodes": [
+     "paragraph",
+     "style_paragraph",
+     "text_line"
+    ],
+    "via": "text nodes inside a textblock whose content expression matches `inline<…>`",
+    "source": "SPK 束内模块",
+    "caveat": "the fork MarkType exports no per-node allow-list (checked own properties of every mark type: no `excludes`/`marks`); no schema-level restriction was found",
+    "disproof": "find an `excludes`/`marks`/`allowedNodes` field on any MarkType in the bundle"
+   },
+   "provenance": [
+    {
+     "source": "SPK-JS 原文",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1514206,
+     "snippet": "[\"font_family\",Og]",
+     "what": "mark registration `[\"font_family\", <class>]` in base spec `sf` (order = priority)"
+    },
+    {
+     "source": "SPK 束内模块",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1505835,
+     "snippet": "class Og extends Na{static getSelfPropertyName(){return\"FontFamily\"}get cssName(){return\"font-family\"}get cssDefaultValue(){return\"Arial\"}get supportMerge(){ret",
+     "what": "mark class `Og` — attrs with empty_value defaults"
+    }
+   ]
+  },
+  {
+   "name": "em",
+   "rank": 2,
+   "is_attr_mark": false,
+   "kind": "inline text mark",
+   "attrs": {
+    "value": {
+     "default": true,
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": true,
+      "empty_value": false,
+      "normalizer": "boolean"
+     },
+     "deep": null
+    }
+   },
+   "attr_count": 1,
+   "default_mark": null,
+   "preset_mark": null,
+   "applicability": {
+    "applicable_to_nodes": [
+     "paragraph",
+     "style_paragraph",
+     "text_line"
+    ],
+    "via": "text nodes inside a textblock whose content expression matches `inline<…>`",
+    "source": "SPK 束内模块",
+    "caveat": "the fork MarkType exports no per-node allow-list (checked own properties of every mark type: no `excludes`/`marks`); no schema-level restriction was found",
+    "disproof": "find an `excludes`/`marks`/`allowedNodes` field on any MarkType in the bundle"
+   },
+   "provenance": [
+    {
+     "source": "SPK-JS 原文",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1514225,
+     "snippet": "[\"em\",Dg]",
+     "what": "mark registration `[\"em\", <class>]` in base spec `sf` (order = priority)"
+    },
+    {
+     "source": "SPK 束内模块",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1507703,
+     "snippet": "class Dg extends La{static getSelfPropertyName(){return\"Em\"}get cssName(){return\"font-style\"}get cssValue(){return\"italic\"}get cssDefaultValue(){return\"normal\"}",
+     "what": "mark class `Dg` — attrs with empty_value defaults"
+    }
+   ]
+  },
+  {
+   "name": "strong",
+   "rank": 3,
+   "is_attr_mark": false,
+   "kind": "inline text mark",
+   "attrs": {
+    "value": {
+     "default": true,
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": true,
+      "empty_value": false,
+      "normalizer": "boolean"
+     },
+     "deep": null
+    }
+   },
+   "attr_count": 1,
+   "default_mark": null,
+   "preset_mark": null,
+   "applicability": {
+    "applicable_to_nodes": [
+     "paragraph",
+     "style_paragraph",
+     "text_line"
+    ],
+    "via": "text nodes inside a textblock whose content expression matches `inline<…>`",
+    "source": "SPK 束内模块",
+    "caveat": "the fork MarkType exports no per-node allow-list (checked own properties of every mark type: no `excludes`/`marks`); no schema-level restriction was found",
+    "disproof": "find an `excludes`/`marks`/`allowedNodes` field on any MarkType in the bundle"
+   },
+   "provenance": [
+    {
+     "source": "SPK-JS 原文",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1514235,
+     "snippet": "[\"strong\",Fg]",
+     "what": "mark registration `[\"strong\", <class>]` in base spec `sf` (order = priority)"
+    },
+    {
+     "source": "SPK 束内模块",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1508090,
+     "snippet": "class Fg extends La{static getSelfPropertyName(){return\"Strong\"}get cssName(){return\"font-weight\"}get cssValue(){return\"bold\"}get cssDefaultValue(){return\"norma",
+     "what": "mark class `Fg` — attrs with empty_value defaults"
+    }
+   ]
+  },
+  {
+   "name": "link",
+   "rank": 4,
+   "is_attr_mark": false,
+   "kind": "inline text mark",
+   "attrs": {
+    "href": {
+     "default": null,
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "normalizer": "<fn>"
+     },
+     "deep": null
+    }
+   },
+   "attr_count": 1,
+   "default_mark": null,
+   "preset_mark": null,
+   "applicability": {
+    "applicable_to_nodes": [
+     "paragraph",
+     "style_paragraph",
+     "text_line"
+    ],
+    "via": "text nodes inside a textblock whose content expression matches `inline<…>`",
+    "source": "SPK 束内模块",
+    "caveat": "the fork MarkType exports no per-node allow-list (checked own properties of every mark type: no `excludes`/`marks`); no schema-level restriction was found",
+    "disproof": "find an `excludes`/`marks`/`allowedNodes` field on any MarkType in the bundle"
+   },
+   "provenance": [
+    {
+     "source": "SPK-JS 原文",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1514249,
+     "snippet": "[\"link\",Hg]",
+     "what": "mark registration `[\"link\", <class>]` in base spec `sf` (order = priority)"
+    },
+    {
+     "source": "SPK 束内模块",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1508750,
+     "snippet": "class Hg extends ka{static getSelfPropertyName(){return\"Link\"}get clearable(){return!1}get supportTextblock(){return!1}get supportListBlock(){return!1}get inclu",
+     "what": "mark class `Hg` — attrs with empty_value defaults"
+    }
+   ]
+  },
+  {
+   "name": "color",
+   "rank": 5,
+   "is_attr_mark": false,
+   "kind": "inline text mark",
+   "attrs": {
+    "value": {
+     "default": "",
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": "",
+      "empty_value": "#000000"
+     },
+     "deep": null
+    }
+   },
+   "attr_count": 1,
+   "default_mark": null,
+   "preset_mark": null,
+   "applicability": {
+    "applicable_to_nodes": [
+     "paragraph",
+     "style_paragraph",
+     "text_line"
+    ],
+    "via": "text nodes inside a textblock whose content expression matches `inline<…>`",
+    "source": "SPK 束内模块",
+    "caveat": "the fork MarkType exports no per-node allow-list (checked own properties of every mark type: no `excludes`/`marks`); no schema-level restriction was found",
+    "disproof": "find an `excludes`/`marks`/`allowedNodes` field on any MarkType in the bundle"
+   },
+   "provenance": [
+    {
+     "source": "SPK-JS 原文",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1514261,
+     "snippet": "[\"color\",zg]",
+     "what": "mark registration `[\"color\", <class>]` in base spec `sf` (order = priority)"
+    },
+    {
+     "source": "SPK 束内模块",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1510099,
+     "snippet": "class zg extends Na{static getSelfPropertyName(){return\"Color\"}get cssName(){return\"color\"}get cssDefaultValue(){return\"#000000\"}get attrs(){return{value:new sn",
+     "what": "mark class `zg` — attrs with empty_value defaults"
+    }
+   ]
+  },
+  {
+   "name": "background_color",
+   "rank": 6,
+   "is_attr_mark": false,
+   "kind": "inline text mark",
+   "attrs": {
+    "value": {
+     "default": "",
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": "",
+      "empty_value": "transparent"
+     },
+     "deep": null
+    }
+   },
+   "attr_count": 1,
+   "default_mark": null,
+   "preset_mark": null,
+   "applicability": {
+    "applicable_to_nodes": [
+     "paragraph",
+     "style_paragraph",
+     "text_line"
+    ],
+    "via": "text nodes inside a textblock whose content expression matches `inline<…>`",
+    "source": "SPK 束内模块",
+    "caveat": "the fork MarkType exports no per-node allow-list (checked own properties of every mark type: no `excludes`/`marks`); no schema-level restriction was found",
+    "disproof": "find an `excludes`/`marks`/`allowedNodes` field on any MarkType in the bundle"
+   },
+   "provenance": [
+    {
+     "source": "SPK-JS 原文",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1514274,
+     "snippet": "[\"background_color\",Ug]",
+     "what": "mark registration `[\"background_color\", <class>]` in base spec `sf` (order = priority)"
+    },
+    {
+     "source": "SPK 束内模块",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1510498,
+     "snippet": "class Ug extends Na{static getSelfPropertyName(){return\"BackgroundColor\"}get cssName(){return\"background-color\"}get cssDefaultValue(){return\"transparent\"}get at",
+     "what": "mark class `Ug` — attrs with empty_value defaults"
+    }
+   ]
+  },
+  {
+   "name": "superscript",
+   "rank": 7,
+   "is_attr_mark": false,
+   "kind": "inline text mark",
+   "attrs": {
+    "value": {
+     "default": true,
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": true,
+      "empty_value": false,
+      "normalizer": "boolean"
+     },
+     "deep": null
+    }
+   },
+   "attr_count": 1,
+   "default_mark": null,
+   "preset_mark": null,
+   "applicability": {
+    "applicable_to_nodes": [
+     "paragraph",
+     "style_paragraph",
+     "text_line"
+    ],
+    "via": "text nodes inside a textblock whose content expression matches `inline<…>`",
+    "source": "SPK 束内模块",
+    "caveat": "the fork MarkType exports no per-node allow-list (checked own properties of every mark type: no `excludes`/`marks`); no schema-level restriction was found",
+    "disproof": "find an `excludes`/`marks`/`allowedNodes` field on any MarkType in the bundle"
+   },
+   "provenance": [
+    {
+     "source": "SPK-JS 原文",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1514298,
+     "snippet": "[\"superscript\",Jg]",
+     "what": "mark registration `[\"superscript\", <class>]` in base spec `sf` (order = priority)"
+    },
+    {
+     "source": "SPK 束内模块",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1511542,
+     "snippet": "class Jg extends $g{static getSelfPropertyName(){return\"Superscript\"}get scriptType(){return\"super\"}get matchDOMTag(){return{sup:null}}}class Wg extends $g{stat",
+     "what": "mark class `Jg` — attrs with empty_value defaults"
+    }
+   ]
+  },
+  {
+   "name": "subscript",
+   "rank": 8,
+   "is_attr_mark": false,
+   "kind": "inline text mark",
+   "attrs": {
+    "value": {
+     "default": true,
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": true,
+      "empty_value": false,
+      "normalizer": "boolean"
+     },
+     "deep": null
+    }
+   },
+   "attr_count": 1,
+   "default_mark": null,
+   "preset_mark": null,
+   "applicability": {
+    "applicable_to_nodes": [
+     "paragraph",
+     "style_paragraph",
+     "text_line"
+    ],
+    "via": "text nodes inside a textblock whose content expression matches `inline<…>`",
+    "source": "SPK 束内模块",
+    "caveat": "the fork MarkType exports no per-node allow-list (checked own properties of every mark type: no `excludes`/`marks`); no schema-level restriction was found",
+    "disproof": "find an `excludes`/`marks`/`allowedNodes` field on any MarkType in the bundle"
+   },
+   "provenance": [
+    {
+     "source": "SPK-JS 原文",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1514317,
+     "snippet": "[\"subscript\",Wg]",
+     "what": "mark registration `[\"subscript\", <class>]` in base spec `sf` (order = priority)"
+    },
+    {
+     "source": "SPK 束内模块",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1511678,
+     "snippet": "class Wg extends $g{static getSelfPropertyName(){return\"Subscript\"}get scriptType(){return\"sub\"}}class Zg extends La{static getSelfPropertyName(){return\"TextDec",
+     "what": "mark class `Wg` — attrs with empty_value defaults"
+    }
+   ]
+  },
+  {
+   "name": "underline",
+   "rank": 9,
+   "is_attr_mark": false,
+   "kind": "inline text mark",
+   "attrs": {
+    "value": {
+     "default": true,
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": true,
+      "empty_value": false,
+      "normalizer": "boolean"
+     },
+     "deep": null
+    }
+   },
+   "attr_count": 1,
+   "default_mark": null,
+   "preset_mark": null,
+   "applicability": {
+    "applicable_to_nodes": [
+     "paragraph",
+     "style_paragraph",
+     "text_line"
+    ],
+    "via": "text nodes inside a textblock whose content expression matches `inline<…>`",
+    "source": "SPK 束内模块",
+    "caveat": "the fork MarkType exports no per-node allow-list (checked own properties of every mark type: no `excludes`/`marks`); no schema-level restriction was found",
+    "disproof": "find an `excludes`/`marks`/`allowedNodes` field on any MarkType in the bundle"
+   },
+   "provenance": [
+    {
+     "source": "SPK-JS 原文",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1514334,
+     "snippet": "[\"underline\",Yg]",
+     "what": "mark registration `[\"underline\", <class>]` in base spec `sf` (order = priority)"
+    },
+    {
+     "source": "SPK 束内模块",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1512122,
+     "snippet": "class Yg extends Zg{static getSelfPropertyName(){return\"Underline\"}get supportListBlock(){return!1}get decorationType(){return\"underline\"}get matchDOMTag(){retu",
+     "what": "mark class `Yg` — attrs with empty_value defaults"
+    }
+   ]
+  },
+  {
+   "name": "strike",
+   "rank": 10,
+   "is_attr_mark": false,
+   "kind": "inline text mark",
+   "attrs": {
+    "value": {
+     "default": true,
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "default": true,
+      "empty_value": false,
+      "normalizer": "boolean"
+     },
+     "deep": null
+    }
+   },
+   "attr_count": 1,
+   "default_mark": null,
+   "preset_mark": null,
+   "applicability": {
+    "applicable_to_nodes": [
+     "paragraph",
+     "style_paragraph",
+     "text_line"
+    ],
+    "via": "text nodes inside a textblock whose content expression matches `inline<…>`",
+    "source": "SPK 束内模块",
+    "caveat": "the fork MarkType exports no per-node allow-list (checked own properties of every mark type: no `excludes`/`marks`); no schema-level restriction was found",
+    "disproof": "find an `excludes`/`marks`/`allowedNodes` field on any MarkType in the bundle"
+   },
+   "provenance": [
+    {
+     "source": "SPK-JS 原文",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1514351,
+     "snippet": "[\"strike\",Xg]",
+     "what": "mark registration `[\"strike\", <class>]` in base spec `sf` (order = priority)"
+    },
+    {
+     "source": "SPK 束内模块",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1512317,
+     "snippet": "class Xg extends Zg{static getSelfPropertyName(){return\"Strike\"}get decorationType(){return\"line-through\"}get matchDOMTag(){return{s:null,strike:null}}toDOM(t,e",
+     "what": "mark class `Xg` — attrs with empty_value defaults"
+    }
+   ]
+  },
+  {
+   "name": "tracking",
+   "rank": 11,
+   "is_attr_mark": false,
+   "kind": "inline text mark",
+   "attrs": {
+    "id": {
+     "default": null,
+     "default_source": "default",
+     "serialization": "always emitted by toJSON() (required attr)",
+     "optional": false,
+     "clearable": false,
+     "settable": true,
+     "copyable": 1,
+     "hidden": false,
+     "backward": false,
+     "options": {
+      "normalizer": "<fn>"
+     },
+     "deep": null
+    }
+   },
+   "attr_count": 1,
+   "default_mark": null,
+   "preset_mark": null,
+   "applicability": {
+    "applicable_to_nodes": [
+     "paragraph",
+     "style_paragraph",
+     "text_line"
+    ],
+    "via": "text nodes inside a textblock whose content expression matches `inline<…>`",
+    "source": "SPK 束内模块",
+    "caveat": "the fork MarkType exports no per-node allow-list (checked own properties of every mark type: no `excludes`/`marks`); no schema-level restriction was found",
+    "disproof": "find an `excludes`/`marks`/`allowedNodes` field on any MarkType in the bundle"
+   },
+   "provenance": [
+    {
+     "source": "SPK-JS 原文",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1528048,
+     "snippet": "schema.mark(\"tracking\",{id:r})}modifyCommentIds(t,e){return null}fillTrackingAttrs(t,e,r,s){let n=this.modifyCommentIds(e.getAttrValue(r)||Z,s);if(n)return Obje",
+     "what": "`tracking` is NOT in the base spec `sf`; it is registered by the comment schema (schemaComment) — `createTrackingMark(){ return schema.mark(\"tracking\",{id}) }`"
+    },
+    {
+     "source": "SPK-JS 原文",
+     "bundle": "server/common/prosemirror/index.js",
+     "offset": 1456885,
+     "snippet": "let t=[\"link\",\"tracking\"];return sn.createMarksNormalizer((e=>!t.includes(e._)))})(),Oy={textMarks:sn.create({optional:!0,empty_value:Z,clearable:!0,normalizer:",
+     "what": "marks normalizer excludes `link` and `tracking` from the block `textMarks` attr — i.e. these two are not persisted via `textMarks`"
+    }
+   ]
+  }
+ ],
+ "node_size_classes": {
+  "leaf_size_1": [
+   "chart",
+   "connector",
+   "hard_break",
+   "horizontal_rule",
+   "image",
+   "page_break",
+   "page_num_text",
+   "picture",
+   "pseudo_list_item",
+   "settings",
+   "tab"
+  ],
+  "text": [
+   "text"
+  ],
+  "containers_size_sum_plus_2": [
+   "doc",
+   "edit_area",
+   "footer",
+   "header",
+   "invisible",
+   "navigation",
+   "page",
+   "page_decorate",
+   "page_num",
+   "page_num_block",
+   "paragraph",
+   "shape",
+   "style_editor",
+   "style_paragraph",
+   "table",
+   "table_cell",
+   "table_parser",
+   "table_row",
+   "text_box",
+   "text_line"
+  ]
+ },
+ "node_size_exceptions": [
+  {
+   "node": "text",
+   "note": "isLeaf=true and isText=true; nodeSize = string length; an empty text node is rejected by the model (\"Empty text nodes are not allowed\")",
+   "source": "SPK 束内模块"
+  },
+  {
+   "node": "page",
+   "note": "empty-node construction throws \"No value in attribute.\" — `page` declares required attrs (width/height/margins) with no empty_value, so it cannot be instantiated without attrs",
+   "source": "SPK 束内模块 (reproduced in /tmp/office-collab-spike/evid/schema_table.json)"
+  },
+  {
+   "node": "settings",
+   "note": "no content expression (isLeaf=true) yet occupies 1 position; standard ProseMirror reasoning would mis-position edits that follow it",
+   "source": "既有真机帧 + SPK 束内模块 (docs/office-collab-protocol-spike.md §2.4)"
+  }
+ ],
+ "marks_applicability": {
+  "inline_text_marks": [
+   "font_size",
+   "font_family",
+   "em",
+   "strong",
+   "link",
+   "color",
+   "background_color",
+   "superscript",
+   "subscript",
+   "underline",
+   "strike",
+   "tracking"
+  ],
+  "inline_text_marks_applicable_to": [
+   "paragraph",
+   "style_paragraph",
+   "text_line"
+  ],
+  "block_attr_marks": [],
+  "block_attr_mark_owners": {
+   "text_align": [
+    "paragraph",
+    "style_paragraph"
+   ],
+   "line_height": [
+    "paragraph",
+    "style_paragraph"
+   ]
+  },
+  "attr_mark_call_sites": {
+   "text_align": {
+    "bundle": "server/common/prosemirror/index.js",
+    "offset": 1460590,
+    "snippet": "attrMarkType(\"text_align\").create({value:r}),e.attrMarkType(\"line_height\").create({value:s})])}),!1,\"has\"),zt(e,\"_getInheritedCssAttrs\",(function(t){return t.st"
+   },
+   "line_height": {
+    "bundle": "server/common/prosemirror/index.js",
+    "offset": 1460637,
+    "snippet": "attrMarkType(\"line_height\").create({value:s})])}),!1,\"has\"),zt(e,\"_getInheritedCssAttrs\",(function(t){return t.state.inherited_css_attrs}),!1,\"has\"),zt(e,\"getIn"
+   },
+   "direction": null,
+   "text_indent": null
+  }
+ },
+ "normalization": {
+  "evidence": "既有真机帧 (docs/office-collab-protocol-spike.md §3: Import content.data vs editor fetch doc.data, 36 raw diffs -> 3 normalised) + SPK 束内模块 (schema round-trip is byte-exact, see normalization_verification.json)",
+  "direction": "Office.Import (OOXML -> .odoc) omits attributes that equal the schema default; the editor toJSON() always emits REQUIRED attrs and omits OPTIONAL attrs equal to their empty_value. Canonicalise by applying the schema rule below, not by guessing.",
+  "rules": [
+   {
+    "id": "R1-required-attr-fill",
+    "applies_to": "every node attr declared with `optional:false` (default in `.default`)",
+    "rule": "if the attr (or a composite sub-field) is absent, insert its `.default`; these attrs are ALWAYS present in the editor fetch JSON",
+    "status": "schema-backed (SPK 束内模块) — proven by byte-exact round-trip",
+    "examples": [
+     {
+      "path": "doc.attrs.page_setup.orientation",
+      "import_state": "absent",
+      "fetch_state": "\"portrait\"",
+      "schema_default": "portrait"
+     },
+     {
+      "path": "doc.attrs.page_setup.page_type",
+      "import_state": "absent",
+      "fetch_state": "truthy (e.g. \"letter\"/\"a4\")",
+      "schema_default": "a4"
+     },
+     {
+      "path": "page_decorate.attrs.place-show",
+      "import_state": "absent",
+      "fetch_state": "false",
+      "schema_default": false
+     },
+     {
+      "path": "page_decorate.attrs.place-cover",
+      "import_state": "absent",
+      "fetch_state": "false",
+      "schema_default": false
+     },
+     {
+      "path": "page_decorate.attrs.place-even",
+      "import_state": "absent",
+      "fetch_state": "false",
+      "schema_default": false
+     },
+     {
+      "path": "page_decorate.attrs.num-show",
+      "import_state": "absent",
+      "fetch_state": "false",
+      "schema_default": false
+     },
+     {
+      "path": "page_decorate.attrs.num-cover",
+      "import_state": "absent",
+      "fetch_state": "false",
+      "schema_default": false
+     },
+     {
+      "path": "page_decorate.attrs.num-even",
+      "import_state": "absent",
+      "fetch_state": "false",
+      "schema_default": false
+     },
+     {
+      "path": "page_decorate.attrs.num-pos",
+      "import_state": "absent",
+      "fetch_state": "\"br\"",
+      "schema_default": "br"
+     }
+    ]
+   },
+   {
+    "id": "R2-optional-attr-omission",
+    "applies_to": "every node attr declared with `optional:true` (default in `.empty_value`)",
+    "rule": "do NOT insert these when absent; and when comparing against editor output, drop them if they equal `empty_value`. Inserting them (as a naive \"fill all defaults\" pass does) CREATES diffs instead of removing them.",
+    "status": "schema-backed (SPK 束内模块) — the naive fill-all-defaults variant produced 105 diffs, see normalization_verification.json"
+   },
+   {
+    "id": "R3-empty-attrs-content-omission",
+    "applies_to": "every node",
+    "rule": "Import emits `attrs:{}` / `content:[]` explicitly; the editor omits them. Drop `attrs` when it ends up empty and `content` when it is [].",
+    "status": "既有真机帧 + schema-backed"
+   },
+   {
+    "id": "R4-comment-section-format",
+    "applies_to": "`@C_text/comment` BSON section (not part of the doc JSON)",
+    "rule": "Import writes `{\"data\":[],\"format\":1}`; the editor snapshot writes `{\"data\":[]}` (runner.js omits `format`).",
+    "status": "既有真机帧 (docs/office-collab-protocol-spike.md §3 note)"
+   }
+  ],
+  "required_attr_defaults": [
+   {
+    "node": "table",
+    "attr": "synotable",
+    "default": "<fn>",
+    "default_source": "default"
+   },
+   {
+    "node": "table",
+    "attr": "colgroup",
+    "default": [],
+    "default_source": "default"
+   },
+   {
+    "node": "table_row",
+    "attr": "height",
+    "default": 22,
+    "default_source": "default"
+   },
+   {
+    "node": "table_cell",
+    "attr": "rowspan",
+    "default": 1,
+    "default_source": "default"
+   },
+   {
+    "node": "table_cell",
+    "attr": "colspan",
+    "default": 1,
+    "default_source": "default"
+   },
+   {
+    "node": "table_cell",
+    "attr": "borderLeftWidth",
+    "default": 1,
+    "default_source": "default"
+   },
+   {
+    "node": "table_cell",
+    "attr": "borderLeftStyle",
+    "default": "solid",
+    "default_source": "default"
+   },
+   {
+    "node": "table_cell",
+    "attr": "borderLeftColor",
+    "default": "#7b8187",
+    "default_source": "default"
+   },
+   {
+    "node": "table_cell",
+    "attr": "borderTopWidth",
+    "default": 1,
+    "default_source": "default"
+   },
+   {
+    "node": "table_cell",
+    "attr": "borderTopStyle",
+    "default": "solid",
+    "default_source": "default"
+   },
+   {
+    "node": "table_cell",
+    "attr": "borderTopColor",
+    "default": "#7b8187",
+    "default_source": "default"
+   },
+   {
+    "node": "table_cell",
+    "attr": "borderRightWidth",
+    "default": 1,
+    "default_source": "default"
+   },
+   {
+    "node": "table_cell",
+    "attr": "borderRightStyle",
+    "default": "solid",
+    "default_source": "default"
+   },
+   {
+    "node": "table_cell",
+    "attr": "borderRightColor",
+    "default": "#7b8187",
+    "default_source": "default"
+   },
+   {
+    "node": "table_cell",
+    "attr": "borderBottomWidth",
+    "default": 1,
+    "default_source": "default"
+   },
+   {
+    "node": "table_cell",
+    "attr": "borderBottomStyle",
+    "default": "solid",
+    "default_source": "default"
+   },
+   {
+    "node": "table_cell",
+    "attr": "borderBottomColor",
+    "default": "#7b8187",
+    "default_source": "default"
+   },
+   {
+    "node": "doc",
+    "attr": "schema",
+    "default": 13,
+    "default_source": "default"
+   },
+   {
+    "node": "doc",
+    "attr": "type",
+    "default": "document",
+    "default_source": "default"
+   },
+   {
+    "node": "doc",
+    "attr": "page_setup",
+    "default": {
+     "left": 2.54,
+     "top": 2.54,
+     "right": 2.54,
+     "bottom": 2.54,
+     "orientation": "portrait",
+     "page_type": "a4"
+    },
+    "default_source": "default"
+   },
+   {
+    "node": "doc",
+    "attr": "page_setup.left",
+    "default": 2.54,
+    "default_source": "default"
+   },
+   {
+    "node": "doc",
+    "attr": "page_setup.top",
+    "default": 2.54,
+    "default_source": "default"
+   },
+   {
+    "node": "doc",
+    "attr": "page_setup.right",
+    "default": 2.54,
+    "default_source": "default"
+   },
+   {
+    "node": "doc",
+    "attr": "page_setup.bottom",
+    "default": 2.54,
+    "default_source": "default"
+   },
+   {
+    "node": "doc",
+    "attr": "page_setup.orientation",
+    "default": "portrait",
+    "default_source": "default"
+   },
+   {
+    "node": "doc",
+    "attr": "page_setup.page_type",
+    "default": "a4",
+    "default_source": "default"
+   },
+   {
+    "node": "page",
+    "attr": "width",
+    "default": null,
+    "default_source": "default"
+   },
+   {
+    "node": "page",
+    "attr": "height",
+    "default": null,
+    "default_source": "default"
+   },
+   {
+    "node": "page",
+    "attr": "marginLeft",
+    "default": null,
+    "default_source": "default"
+   },
+   {
+    "node": "page",
+    "attr": "marginTop",
+    "default": null,
+    "default_source": "default"
+   },
+   {
+    "node": "page",
+    "attr": "marginRight",
+    "default": null,
+    "default_source": "default"
+   },
+   {
+    "node": "page",
+    "attr": "marginBottom",
+    "default": null,
+    "default_source": "default"
+   },
+   {
+    "node": "page",
+    "attr": "decoratorMaxHeight",
+    "default": null,
+    "default_source": "default"
+   },
+   {
+    "node": "image",
+    "attr": "src",
+    "default": "",
+    "default_source": "default"
+   },
+   {
+    "node": "image",
+    "attr": "alt",
+    "default": "",
+    "default_source": "default"
+   },
+   {
+    "node": "image",
+    "attr": "ref",
+    "default": "",
+    "default_source": "default"
+   },
+   {
+    "node": "image",
+    "attr": "file_id",
+    "default": "",
+    "default_source": "default"
+   },
+   {
+    "node": "image",
+    "attr": "file_type",
+    "default": "binary",
+    "default_source": "default"
+   },
+   {
+    "node": "image",
+    "attr": "config",
+    "default": "",
+    "default_source": "default"
+   },
+   {
+    "node": "image",
+    "attr": "width",
+    "default": "",
+    "default_source": "default"
+   },
+   {
+    "node": "image",
+    "attr": "height",
+    "default": "",
+    "default_source": "default"
+   },
+   {
+    "node": "chart",
+    "attr": "synochart",
+    "default": "<fn>",
+    "default_source": "default"
+   },
+   {
+    "node": "chart",
+    "attr": "data",
+    "default": [
+     [
+      "",
+      "Number 1",
+      "Number 2",
+      "Number 3",
+      "Number 4"
+     ],
+     [
+      "Category A",
+      500,
+      520,
+      540,
+      520
+     ],
+     [
+      "Category B",
+      520,
+      540,
+      560,
+      540
+     ],
+     [
+      "Category C",
+      540,
+      560,
+      580,
+      560
+     ]
+    ],
+    "default_source": "default"
+   },
+   {
+    "node": "chart",
+    "attr": "width",
+    "default": "560px",
+    "default_source": "default"
+   },
+   {
+    "node": "chart",
+    "attr": "height",
+    "default": "410px",
+    "default_source": "default"
+   },
+   {
+    "node": "shape",
+    "attr": "id",
+    "default": "<fn>",
+    "default_source": "default"
+   },
+   {
+    "node": "shape",
+    "attr": "config",
+    "default": {},
+    "default_source": "default"
+   },
+   {
+    "node": "connector",
+    "attr": "id",
+    "default": "<fn>",
+    "default_source": "default"
+   },
+   {
+    "node": "connector",
+    "attr": "config",
+    "default": {},
+    "default_source": "default"
+   },
+   {
+    "node": "picture",
+    "attr": "id",
+    "default": "<fn>",
+    "default_source": "default"
+   },
+   {
+    "node": "picture",
+    "attr": "config",
+    "default": {},
+    "default_source": "default"
+   },
+   {
+    "node": "text_box",
+    "attr": "anchor",
+    "default": "ctr",
+    "default_source": "default"
+   },
+   {
+    "node": "text_box",
+    "attr": "lIns",
+    "default": 9,
+    "default_source": "default"
+   },
+   {
+    "node": "text_box",
+    "attr": "tIns",
+    "default": 9,
+    "default_source": "default"
+   },
+   {
+    "node": "text_box",
+    "attr": "rIns",
+    "default": 9,
+    "default_source": "default"
+   },
+   {
+    "node": "text_box",
+    "attr": "bIns",
+    "default": 9,
+    "default_source": "default"
+   },
+   {
+    "node": "page_decorate",
+    "attr": "place-show",
+    "default": false,
+    "default_source": "default"
+   },
+   {
+    "node": "page_decorate",
+    "attr": "place-cover",
+    "default": false,
+    "default_source": "default"
+   },
+   {
+    "node": "page_decorate",
+    "attr": "place-even",
+    "default": false,
+    "default_source": "default"
+   },
+   {
+    "node": "page_decorate",
+    "attr": "num-show",
+    "default": false,
+    "default_source": "default"
+   },
+   {
+    "node": "page_decorate",
+    "attr": "num-cover",
+    "default": false,
+    "default_source": "default"
+   },
+   {
+    "node": "page_decorate",
+    "attr": "num-even",
+    "default": false,
+    "default_source": "default"
+   },
+   {
+    "node": "page_decorate",
+    "attr": "num-pos",
+    "default": "br",
+    "default_source": "default"
+   },
+   {
+    "node": "header",
+    "attr": "type",
+    "default": "normal",
+    "default_source": "default"
+   },
+   {
+    "node": "footer",
+    "attr": "type",
+    "default": "normal",
+    "default_source": "default"
+   },
+   {
+    "node": "page_num",
+    "attr": "type",
+    "default": "normal",
+    "default_source": "default"
+   }
+  ],
+  "required_attr_default_count": 66,
+  "canonicalisation_algorithm": [
+   "1. parse the doc JSON (from BSON @C_text/content.data or from the `fetch` ack)",
+   "2. for every node, look up its node type in doc_schema.json",
+   "3. for each attr (and composite `deep` sub-field) with optional:false, if absent set it to `.default`",
+   "4. drop attrs whose optional:true value equals `empty_value`; drop `attrs` if it becomes empty",
+   "5. drop `content` when it is an empty array",
+   "6. serialise with sorted keys + no whitespace, then sha256",
+   "NOTE: the strongest correctness check is not this algorithm but `schema.nodeFromJSON(x).toJSON()` — that is byte-exact (see normalization_verification.json)"
+  ],
+  "minimal_verification": {
+   "tool": "tool/office_collab_spike/schema/verify_doc_normalization.js",
+   "command": "node tool/office_collab_spike/schema/verify_doc_normalization.js --evid /tmp/office-collab-spike/evid",
+   "inputs": [
+    "/tmp/office-collab-spike/evid/snapshot_doc_pre.json :: content.data  (Import state, BSON)",
+    "/tmp/office-collab-spike/evid/dart_fetched_doc_v1.json              (editor fetch of the same doc)"
+   ],
+   "manual_cross_check": "open the two JSON files side by side at `$.content[0].attrs` and `$.attrs.page_setup`: the Import copy has `{}` / no `orientation`, the fetch copy has all six page_setup fields including `\"orientation\":\"portrait\"`.",
+   "expected": {
+    "raw_diff_count": 36,
+    "schema_round_trip_diff_count": 0,
+    "save_materialised_diff_count": 0
+   }
+  }
+ },
+ "evidence_grades": {
+  "SPK-JS 原文": "literal text in a plain .js file inside the package (server/common/prosemirror/index.js)",
+  "SPK 束内模块": "value obtained by loading the package bundle in node and reading the live object",
+  "SPK-.so strings": "string extracted from a native .so",
+  "既有真机帧": "frame captured from the real NAS by the previous batch (/tmp/office-collab-spike/evid)",
+  "推断": "inference; each such entry carries a `disproof` field stating what evidence would overturn it"
+ },
+ "provenance_spec_blocks": {
+  "basic": {
+   "marker": "let sf={name:\"\",version:0,nodes:{",
+   "bundle": "server/common/prosemirror/index.js",
+   "offset": 1513697,
+   "snippet": "let sf={name:\"\",version:0,nodes:{paragraph:{type:Sg,content:\"inline<_>*\"},text:{type:va},hard_break:{type:Cg},tab:{type:Pg},table:{type:ny,content:\"table_row+\"},table_row:{type:ay,content:\"table_cell+",
+   "what": "base schema spec shared by document/sheet/presentation (`sf`)"
+  },
+  "document": {
+   "marker": "wm.mergeSpec(sf,{name:\"document\",...})",
+   "bundle": "server/common/prosemirror/index.js",
+   "offset": 1652694,
+   "end": 1654563,
+   "snippet": "wm.mergeSpec(sf,{name:\"document\",version:Cb,nodes:{doc:{type:Bb,content:\"settings style_editor invisible edit_area page_decorate\"},settings:{type:Hb},style_editor:{type:t_,content:Ub.map((({id:t,level",
+   "what": "document (`.odoc`) spec delta merged onto `sf`; `JA=new wm($A)` instantiates it"
+  },
+  "presentation": {
+   "marker": "wm.mergeSpec(sf,{name:\"presentation\",...})",
+   "bundle": "server/common/prosemirror/index.js",
+   "offset": 1779825,
+   "snippet": "wm.mergeSpec(sf,{name:\"presentation\",version:cM,nodes:{doc:{type:class extends ex{get isPresentation(){return!0}get classPrefix(){return\"syno-o-slide-\"}get Node(){return fw}get attrs(){return{schema:n",
+   "what": "presentation (`.oslides`) spec delta — existence proof only for section D"
+  }
+ }
+}

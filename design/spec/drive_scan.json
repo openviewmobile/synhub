@@ -1,0 +1,44 @@
+{
+  "id": "drive_scan",
+  "unit": "lib/src/features/drive/drive_scan_page.dart",
+  "title": {
+    "zh": "保存为扫描件",
+    "en": "Save as scan"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "viewer",
+    "kind": "image",
+    "caption": {
+      "zh": "第 1 / 4 页 · 已自动裁边",
+      "en": "Page 1 of 4 · auto-cropped"
+    },
+    "toolbar": [
+      {
+        "zh": "重拍",
+        "en": "Retake"
+      },
+      {
+        "zh": "裁切",
+        "en": "Crop"
+      },
+      {
+        "zh": "旋转",
+        "en": "Rotate"
+      },
+      {
+        "zh": "加页",
+        "en": "Add page"
+      }
+    ]
+  },
+  "footerAction": {
+    "zh": "保存为 PDF",
+    "en": "Save as PDF"
+  },
+  "bottomNav": null
+}

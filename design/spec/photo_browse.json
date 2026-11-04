@@ -1,0 +1,53 @@
+{
+  "id": "photo_browse",
+  "unit": "lib/src/features/photos/photo_browse_page.dart",
+  "title": {
+    "zh": "照片",
+    "en": "Photos"
+  },
+  "appbar": {
+    "actions": [
+      "search",
+      "more"
+    ]
+  },
+  "chips": [
+    {
+      "zh": "照片",
+      "en": "Photos"
+    },
+    {
+      "zh": "相册",
+      "en": "Albums"
+    },
+    {
+      "zh": "人物",
+      "en": "People"
+    },
+    {
+      "zh": "场景",
+      "en": "Scenes"
+    }
+  ],
+  "body": {
+    "type": "timeline",
+    "sections": [
+      {
+        "label": {
+          "zh": "今天",
+          "en": "Today"
+        },
+        "count": 9
+      },
+      {
+        "label": {
+          "zh": "昨天",
+          "en": "Yesterday"
+        },
+        "count": 6
+      }
+    ]
+  },
+  "fab": true,
+  "bottomNav": "photos"
+}

@@ -1,0 +1,46 @@
+{
+  "id": "certificates",
+  "unit": "lib/src/features/servers/certificates_page.dart",
+  "title": {
+    "zh": "证书",
+    "en": "Certificates"
+  },
+  "appbar": {
+    "actions": [
+      "plus",
+      "more"
+    ]
+  },
+  "rowIcon": "shield",
+  "body": {
+    "type": "list",
+    "items": [
+      {
+        "title": {
+          "zh": "Synology 自签",
+          "en": "Synology self-signed"
+        },
+        "sub": {
+          "zh": "有效至 2026-09-01 · 当前使用",
+          "en": "Valid to 2026-09-01 · in use"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "title": "Let's Encrypt",
+        "sub": {
+          "zh": "有效至 2027-03-01 · 自动续期",
+          "en": "Valid to 2027-03-01 · auto-renew"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      }
+    ]
+  },
+  "note": {
+    "zh": "换证书要重启服务；App 会提示一次",
+    "en": "Switching certificates restarts the service"
+  },
+  "bottomNav": null
+}

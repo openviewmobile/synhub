@@ -1,0 +1,57 @@
+{
+  "id": "settings_oem",
+  "unit": "lib/src/features/settings/oem_keepalive_page.dart",
+  "title": {
+    "zh": "厂商保活",
+    "en": "Keep-alive"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "settings",
+    "groups": [
+      {
+        "title": {
+          "zh": "本机",
+          "en": "This device"
+        },
+        "rows": [
+          {
+            "label": {
+              "zh": "后台保活",
+              "en": "Background keep-alive"
+            },
+            "kind": "switch",
+            "value": true
+          },
+          {
+            "label": {
+              "zh": "后台限制等级",
+              "en": "Background limit"
+            },
+            "kind": "arrow"
+          },
+          {
+            "label": {
+              "zh": "电池优化白名单",
+              "en": "Battery optimization"
+            },
+            "kind": "arrow"
+          }
+        ]
+      }
+    ],
+    "note": {
+      "zh": "不同厂商的省电策略不同；本页给的是本机实测路径，不是通用教程",
+      "en": "不同厂商的省电策略不同；本页给的是本机实测路径，不是通用教程"
+    }
+  },
+  "footerAction": {
+    "zh": "重新检测",
+    "en": "Check again"
+  },
+  "bottomNav": null
+}

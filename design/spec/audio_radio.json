@@ -1,0 +1,89 @@
+{
+  "id": "audio_radio",
+  "unit": "lib/src/features/audio/audio_radio_page.dart",
+  "title": {
+    "zh": "网络电台",
+    "en": "Radio"
+  },
+  "appbar": {
+    "actions": [
+      "search",
+      "more"
+    ]
+  },
+  "chips": [
+    {
+      "zh": "全部",
+      "en": "All"
+    },
+    {
+      "zh": "收藏",
+      "en": "Favorites"
+    },
+    {
+      "zh": "最近播放",
+      "en": "Recent"
+    }
+  ],
+  "body": {
+    "type": "list",
+    "items": [
+      {
+        "title": "BBC Radio 1",
+        "sub": {
+          "zh": "流行 · 新闻 · 直播",
+          "en": "Pop · News · Live"
+        },
+        "lead": "#8FB8FF",
+        "trail": "pause"
+      },
+      {
+        "title": "Radio Paradise",
+        "sub": {
+          "zh": "多元音乐混播",
+          "en": "Eclectic music mix"
+        },
+        "lead": "#FFD28F",
+        "trail": "play"
+      },
+      {
+        "title": "Jazz24",
+        "sub": {
+          "zh": "爵士 24 小时",
+          "en": "Jazz around the clock"
+        },
+        "lead": "#A6E3C5",
+        "trail": "play"
+      },
+      {
+        "title": "Classic FM",
+        "sub": {
+          "zh": "古典音乐台",
+          "en": "Classical music"
+        },
+        "lead": "#F0A8C8",
+        "trail": "play"
+      },
+      {
+        "title": {
+          "zh": "添加自定义电台",
+          "en": "Add custom station"
+        },
+        "sub": {
+          "zh": "粘贴播放列表或直链",
+          "en": "Paste a playlist URL"
+        },
+        "lead": "plus",
+        "trail": "none"
+      }
+    ]
+  },
+  "playerBar": {
+    "title": "BBC Radio 1",
+    "sub": {
+      "zh": "正在播放 · 网络电台",
+      "en": "Now playing · Radio"
+    }
+  },
+  "bottomNav": null
+}

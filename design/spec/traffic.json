@@ -1,0 +1,86 @@
+{
+  "id": "traffic",
+  "unit": "lib/src/features/analytics/traffic_page.dart",
+  "title": {
+    "zh": "网络流量",
+    "en": "Network traffic"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "rowIcon": "globe",
+  "body": {
+    "type": "list",
+    "sections": true,
+    "items": [
+      {
+        "section": {
+          "zh": "本机 · 今天",
+          "en": "This device · today"
+        },
+        "title": {
+          "zh": "上传",
+          "en": "Upload"
+        },
+        "sub": {
+          "zh": "1.24 GB · 相册备份占 82%",
+          "en": "1.24 GB · 82% photo backup"
+        },
+        "lead": "icon",
+        "trail": "none"
+      },
+      {
+        "section": {
+          "zh": "本机 · 今天",
+          "en": "This device · today"
+        },
+        "title": {
+          "zh": "下载",
+          "en": "Download"
+        },
+        "sub": {
+          "zh": "386 MB · 文件预览占 61%",
+          "en": "386 MB · 61% file previews"
+        },
+        "lead": "icon",
+        "trail": "none"
+      },
+      {
+        "section": {
+          "zh": "按目标",
+          "en": "By host"
+        },
+        "title": "NAS · QuickConnect",
+        "sub": {
+          "zh": "1.52 GB",
+          "en": "1.52 GB"
+        },
+        "lead": "icon",
+        "trail": "none"
+      },
+      {
+        "section": {
+          "zh": "按目标",
+          "en": "By host"
+        },
+        "title": {
+          "zh": "AI 服务",
+          "en": "AI service"
+        },
+        "sub": {
+          "zh": "64 MB",
+          "en": "64 MB"
+        },
+        "lead": "icon",
+        "trail": "none"
+      }
+    ]
+  },
+  "note": {
+    "zh": "只统计本 App 的流量，不含系统其他应用",
+    "en": "Only this app's traffic"
+  },
+  "bottomNav": null
+}

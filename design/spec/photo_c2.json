@@ -1,0 +1,79 @@
+{
+  "id": "photo_c2",
+  "unit": "lib/src/features/photos/photo_c2_page.dart",
+  "title": {
+    "zh": "照片工具",
+    "en": "Photo tools"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "list",
+    "items": [
+      {
+        "title": {
+          "zh": "释放手机空间",
+          "en": "Free up space"
+        },
+        "sub": {
+          "zh": "删掉已备份的本地照片",
+          "en": "Remove backed-up local photos"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "title": {
+          "zh": "共享相册",
+          "en": "Shared albums"
+        },
+        "sub": {
+          "zh": "把相册分享给家人",
+          "en": "Share albums with family"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "title": {
+          "zh": "照片请求",
+          "en": "Photo requests"
+        },
+        "sub": {
+          "zh": "收集别人拍的照片",
+          "en": "Collect photos from others"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "title": {
+          "zh": "地点",
+          "en": "Places"
+        },
+        "sub": {
+          "zh": "按拍摄地点浏览",
+          "en": "Browse by location"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "title": {
+          "zh": "搜索照片",
+          "en": "Search photos"
+        },
+        "sub": {
+          "zh": "按关键词检索照片",
+          "en": "Search by keyword"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      }
+    ]
+  },
+  "bottomNav": null
+}

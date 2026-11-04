@@ -1,0 +1,57 @@
+{
+  "id": "drive_connections",
+  "unit": "lib/src/features/drive/drive_connections_page.dart",
+  "title": {
+    "zh": "已连接的设备",
+    "en": "Connected devices"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "rowIcon": "folder",
+  "body": {
+    "type": "list",
+    "items": [
+      {
+        "title": {
+          "zh": "本机 · HONOR LGE-AN10",
+          "en": "This device · HONOR LGE-AN10"
+        },
+        "sub": {
+          "zh": "当前设备",
+          "en": "Current device"
+        },
+        "lead": "#8FB8FF",
+        "trail": "none"
+      },
+      {
+        "title": {
+          "zh": "iPad Air",
+          "en": "iPad Air"
+        },
+        "sub": {
+          "zh": "2 小时前",
+          "en": "2 hours ago"
+        },
+        "lead": "#A6E3C5",
+        "trail": "more"
+      },
+      {
+        "title": "MacBook Pro",
+        "sub": {
+          "zh": "昨天",
+          "en": "Yesterday"
+        },
+        "lead": "#F0A8C8",
+        "trail": "more"
+      }
+    ]
+  },
+  "note": {
+    "zh": "断开后该设备需要重新登录",
+    "en": "Disconnected devices must sign in again"
+  },
+  "bottomNav": null
+}

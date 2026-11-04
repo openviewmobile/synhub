@@ -1,0 +1,20 @@
+{
+  "_source": "真机只读探针（docs/device-verification.md:455-458，LGE AN10 / API 31，`[p7m] ① 服务端 ACL（14 条）`）。**那一处记录的是客户端解析后的 map**；下面的**线上数组形状** `{acls:[{acl_name, allow}]}` 出自反编译 APK 的解析代码（chat_api.dart:704 记录的 `AccountManager.fetchAcl` 形状）。⇒ 键名与 14 个取值是**真机逐字**的，数组包装是 **APK 解析代码**的；两者都不是编的。",
+  "_note": "★ 真机上唯一为 false 的键是 `guest_manage`（本账号非管理员）。其余 13 键都为 true —— 这一点很重要：它说明真机的 ACL 回包**确实会出现 false**，不是永远全 true。",
+  "acls": [
+    { "acl_name": "channel_kick", "allow": true },
+    { "acl_name": "channel_set", "allow": true },
+    { "acl_name": "channel_invite", "allow": true },
+    { "acl_name": "channel_join", "allow": true },
+    { "acl_name": "channel_create", "allow": true },
+    { "acl_name": "channel_close", "allow": true },
+    { "acl_name": "channel_archive", "allow": true },
+    { "acl_name": "channel_anonymous", "allow": true },
+    { "acl_name": "channel_disjoin", "allow": true },
+    { "acl_name": "channel_public", "allow": true },
+    { "acl_name": "channel_encryption", "allow": true },
+    { "acl_name": "webhook_create", "allow": true },
+    { "acl_name": "webhook_read", "allow": true },
+    { "acl_name": "guest_manage", "allow": false }
+  ]
+}

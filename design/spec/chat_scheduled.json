@@ -1,0 +1,69 @@
+{
+  "id": "chat_scheduled",
+  "unit": "lib/src/features/chat/channel_scheduled_page.dart",
+  "title": {
+    "zh": "定时与提醒",
+    "en": "Scheduled & reminders"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "rowIcon": "clock",
+  "body": {
+    "type": "list",
+    "sections": true,
+    "items": [
+      {
+        "section": {
+          "zh": "定时消息",
+          "en": "Scheduled"
+        },
+        "title": {
+          "zh": "周五 09:00 发送",
+          "en": "Send Fri 09:00"
+        },
+        "sub": {
+          "zh": "设计稿终版已上传，请查收",
+          "en": "Final design uploaded"
+        },
+        "lead": "icon",
+        "trail": "more"
+      },
+      {
+        "section": {
+          "zh": "定时消息",
+          "en": "Scheduled"
+        },
+        "title": {
+          "zh": "下周一 10:00 发送",
+          "en": "Send Mon 10:00"
+        },
+        "sub": {
+          "zh": "本周评审结论",
+          "en": "This week's review"
+        },
+        "lead": "icon",
+        "trail": "more"
+      },
+      {
+        "section": {
+          "zh": "提醒",
+          "en": "Reminders"
+        },
+        "title": {
+          "zh": "今天 18:00 提醒我",
+          "en": "Remind me 18:00"
+        },
+        "sub": {
+          "zh": "回韩梅梅的消息",
+          "en": "Reply to Han"
+        },
+        "lead": "icon",
+        "trail": "more"
+      }
+    ]
+  },
+  "bottomNav": null
+}

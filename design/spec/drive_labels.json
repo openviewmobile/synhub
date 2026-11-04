@@ -1,0 +1,56 @@
+{
+  "id": "drive_labels",
+  "unit": "lib/src/features/files/drive_labels_page.dart",
+  "title": {
+    "zh": "标签",
+    "en": "Labels"
+  },
+  "appbar": {
+    "actions": [
+      "plus",
+      "more"
+    ]
+  },
+  "rowIcon": "tag", "body": {
+    "type": "list",
+    "items": [
+      {
+        "title": {
+          "zh": "工作",
+          "en": "Work"
+        },
+        "sub": {
+          "zh": "12 个文件",
+          "en": "12 files"
+        },
+        "lead": "#8FB8FF",
+        "trail": "more"
+      },
+      {
+        "title": {
+          "zh": "个人",
+          "en": "Personal"
+        },
+        "sub": {
+          "zh": "8 个文件",
+          "en": "8 files"
+        },
+        "lead": "#A6E3C5",
+        "trail": "more"
+      },
+      {
+        "title": {
+          "zh": "待整理",
+          "en": "To sort"
+        },
+        "sub": {
+          "zh": "31 个文件",
+          "en": "31 files"
+        },
+        "lead": "#F0A8C8",
+        "trail": "more"
+      }
+    ]
+  },
+  "bottomNav": null
+}

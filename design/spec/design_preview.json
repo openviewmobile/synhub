@@ -1,0 +1,61 @@
+{
+  "id": "design_preview",
+  "unit": "lib/src/features/design/design_preview_page.dart",
+  "title": {
+    "zh": "设计预览",
+    "en": "Design preview"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "grid",
+    "count": 9,
+    "tileIcon": "image",
+    "labels": [
+      {
+        "zh": "聊天",
+        "en": "Chat"
+      },
+      {
+        "zh": "文件",
+        "en": "Files"
+      },
+      {
+        "zh": "相册",
+        "en": "Photos"
+      },
+      {
+        "zh": "下载",
+        "en": "Downloads"
+      },
+      {
+        "zh": "Drive",
+        "en": "Drive"
+      },
+      {
+        "zh": "笔记",
+        "en": "Notes"
+      },
+      {
+        "zh": "设置",
+        "en": "Settings"
+      },
+      {
+        "zh": "Office",
+        "en": "Office"
+      },
+      {
+        "zh": "日历",
+        "en": "Calendar"
+      }
+    ]
+  },
+  "note": {
+    "zh": "仅开发期可见；发布包里没有这个入口",
+    "en": "Dev builds only; absent from release"
+  },
+  "bottomNav": null
+}

@@ -1,0 +1,54 @@
+{
+  "id": "drive_saf_on_demand",
+  "unit": "lib/src/features/files/drive_saf_on_demand_page.dart",
+  "title": {
+    "zh": "按需下载",
+    "en": "On-demand download"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "settings",
+    "groups": [
+      {
+        "title": {
+          "zh": "策略",
+          "en": "Policy"
+        },
+        "rows": [
+          {
+            "label": {
+              "zh": "仅在 Wi-Fi 下下载",
+              "en": "Wi-Fi only"
+            },
+            "kind": "switch",
+            "value": true
+          },
+          {
+            "label": {
+              "zh": "缓存上限",
+              "en": "Cache limit"
+            },
+            "kind": "arrow"
+          },
+          {
+            "label": {
+              "zh": "自动清理 30 天未访问",
+              "en": "Auto-clean unused (30d)"
+            },
+            "kind": "switch",
+            "value": false
+          }
+        ]
+      }
+    ],
+    "note": {
+      "zh": "开启后，未下载的文件在打开时才从 NAS 拉取",
+      "en": "When on, files download only when opened"
+    }
+  },
+  "bottomNav": null
+}

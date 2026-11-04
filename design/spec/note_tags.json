@@ -1,0 +1,78 @@
+{
+  "id": "note_tags",
+  "unit": "lib/src/features/notes/note_tag_page.dart",
+  "title": {
+    "zh": "标签",
+    "en": "Tags"
+  },
+  "appbar": {
+    "actions": [
+      "plus",
+      "more"
+    ]
+  },
+  "rowIcon": "tag",
+  "body": {
+    "type": "list",
+    "sections": true,
+    "items": [
+      {
+        "section": {
+          "zh": "常用",
+          "en": "Frequent"
+        },
+        "title": "#设计",
+        "sub": {
+          "zh": "42 条笔记",
+          "en": "42 notes"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "section": {
+          "zh": "常用",
+          "en": "Frequent"
+        },
+        "title": "#评审",
+        "sub": {
+          "zh": "18 条笔记",
+          "en": "18 notes"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "section": {
+          "zh": "全部标签",
+          "en": "All tags"
+        },
+        "title": "#视觉",
+        "sub": {
+          "zh": "6 条笔记",
+          "en": "6 notes"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "section": {
+          "zh": "全部标签",
+          "en": "All tags"
+        },
+        "title": "#安全",
+        "sub": {
+          "zh": "3 条笔记",
+          "en": "3 notes"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      }
+    ]
+  },
+  "note": {
+    "zh": "多个标签的筛选默认是「同时满足」",
+    "en": "Multiple tags are ANDed by default"
+  },
+  "bottomNav": null
+}

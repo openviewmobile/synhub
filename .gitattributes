@@ -1,0 +1,15 @@
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.webp binary
+*.so binary
+*.a binary
+*.pdf binary
+*.docx binary
+*.xlsx binary
+*.pptx binary
+*.osheet binary
+*.oslides binary
+*.odoc binary
+*.dart linguist-language=Dart
+pubspec.lock linguist-generated=true

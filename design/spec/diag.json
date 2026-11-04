@@ -1,0 +1,76 @@
+{
+  "id": "diag",
+  "unit": "lib/src/features/diagnostics/diag_page.dart",
+  "title": {
+    "zh": "诊断",
+    "en": "Diagnostics"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "fields",
+    "title": {
+      "zh": "空洞穿透诊断",
+      "en": "Hollow-penetration diagnostics"
+    },
+    "sub": {
+      "zh": "8 项指标 · 最近更新 1 分钟前",
+      "en": "8 metrics · updated 1 min ago"
+    },
+    "actions": [
+      {
+        "zh": "重新采样",
+        "en": "Re-sample"
+      },
+      {
+        "zh": "导出报告",
+        "en": "Export report"
+      }
+    ],
+    "rows": [
+      {
+        "label": {
+          "zh": "连接",
+          "en": "Connection"
+        },
+        "value": "WebSocket · 正常"
+      },
+      {
+        "label": {
+          "zh": "RTT",
+          "en": "RTT"
+        },
+        "value": "42 ms"
+      },
+      {
+        "label": {
+          "zh": "丢包",
+          "en": "Packet loss"
+        },
+        "value": "0.2%"
+      },
+      {
+        "label": {
+          "zh": "重建次数",
+          "en": "Reconnects"
+        },
+        "value": "1 / 24h"
+      },
+      {
+        "label": {
+          "zh": "缓存命中",
+          "en": "Cache hit"
+        },
+        "value": "87%"
+      }
+    ]
+  },
+  "note": {
+    "zh": "只读采样，不改任何设置",
+    "en": "Read-only sampling"
+  },
+  "bottomNav": null
+}

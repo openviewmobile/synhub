@@ -1,0 +1,3 @@
+/* 应用显示名（简体中文）。 */
+CFBundleDisplayName = "星枢";
+CFBundleName = "星枢";

@@ -1,0 +1,3 @@
+/* 应用显示名（英文 / 默认）。中文见 zh-Hans.lproj/InfoPlist.strings。 */
+CFBundleDisplayName = "SynHub";
+CFBundleName = "SynHub";

@@ -1,0 +1,51 @@
+{
+  "id": "download_files",
+  "unit": "lib/src/features/downloads/download_file_select_page.dart",
+  "title": {
+    "zh": "选择文件",
+    "en": "Select files"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "rowIcon": "download",
+  "body": {
+    "type": "list",
+    "items": [
+      {
+        "title": "ubuntu-24.04.1-desktop-amd64.iso",
+        "sub": {
+          "zh": "5.8 GB",
+          "en": "5.8 GB"
+        },
+        "lead": "icon",
+        "trail": "checkbox"
+      },
+      {
+        "title": "README.txt",
+        "sub": {
+          "zh": "12 KB",
+          "en": "12 KB"
+        },
+        "lead": "icon",
+        "trail": "check"
+      },
+      {
+        "title": "SHA256SUMS",
+        "sub": {
+          "zh": "2 KB",
+          "en": "2 KB"
+        },
+        "lead": "icon",
+        "trail": "check"
+      }
+    ]
+  },
+  "footerAction": {
+    "zh": "只下载选中的 2 个",
+    "en": "Download 2 selected"
+  },
+  "bottomNav": null
+}

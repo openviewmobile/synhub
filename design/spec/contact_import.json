@@ -1,0 +1,64 @@
+{
+  "id": "contact_import",
+  "unit": "lib/src/features/contacts/contact_import_page.dart",
+  "title": {
+    "zh": "导入联系人",
+    "en": "Import contacts"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "form",
+    "fields": [
+      {
+        "label": {
+          "zh": "来源",
+          "en": "Source"
+        },
+        "value": {
+          "zh": "vCard 文件",
+          "en": "vCard file"
+        }
+      },
+      {
+        "label": {
+          "zh": "文件",
+          "en": "File"
+        },
+        "value": {
+          "zh": "contacts-2026.vcf · 128 条",
+          "en": "contacts-2026.vcf · 128 entries"
+        }
+      },
+      {
+        "label": {
+          "zh": "重名处理",
+          "en": "Duplicates"
+        },
+        "value": {
+          "zh": "合并同名",
+          "en": "Merge by name"
+        }
+      }
+    ],
+    "switch": {
+      "label": {
+        "zh": "导入前先预览",
+        "en": "Preview before importing"
+      },
+      "value": true
+    },
+    "submit": {
+      "zh": "开始导入",
+      "en": "Start import"
+    }
+  },
+  "note": {
+    "zh": "导入只新增，不删除或覆盖已有联系人",
+    "en": "Import only adds; never deletes or overwrites"
+  },
+  "bottomNav": null
+}

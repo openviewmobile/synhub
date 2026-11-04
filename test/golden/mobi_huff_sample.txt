@@ -1,0 +1,11 @@
+# golden snapshot: MOBI HUFF/CDIC（/tmp/ebook-samples/sample-unicode-huffdic.mobi）
+# 生成：dart run tool/golden_snapshot.dart
+# 口径：mobiTextProbe()/mobiHuffProbe()/mobiHeaderProbe() 实跑值
+# 非独立 oracle；libmobi 夹具来源见 docs/ebook-reader-plan.md §7.8
+# format: key<TAB>value
+compression	17480
+phrases	347
+declaredTextLength	111701
+decodedBytes	111701
+matchesDeclared	true
+ok	true

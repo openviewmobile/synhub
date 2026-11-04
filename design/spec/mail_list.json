@@ -1,0 +1,71 @@
+{
+  "id": "mail_list",
+  "unit": "lib/src/features/mailplus/mail_page.dart",
+  "title": {
+    "zh": "邮件",
+    "en": "Mail"
+  },
+  "appbar": {
+    "actions": [
+      "search",
+      "more"
+    ]
+  },
+  "rowIcon": "mail",
+  "body": {
+    "type": "list",
+    "sections": true,
+    "items": [
+      {
+        "section": {
+          "zh": "今天",
+          "en": "Today"
+        },
+        "title": {
+          "zh": "设计稿评审结论",
+          "en": "Design review outcome"
+        },
+        "sub": {
+          "zh": "李雷 · 10:12 · 有附件",
+          "en": "Li · 10:12 · attachment"
+        },
+        "lead": "icon",
+        "trail": "none"
+      },
+      {
+        "section": {
+          "zh": "今天",
+          "en": "Today"
+        },
+        "title": {
+          "zh": "三月账单",
+          "en": "March invoice"
+        },
+        "sub": {
+          "zh": "财务 · 09:02",
+          "en": "Finance · 09:02"
+        },
+        "lead": "icon",
+        "trail": "none"
+      },
+      {
+        "section": {
+          "zh": "更早",
+          "en": "Earlier"
+        },
+        "title": {
+          "zh": "周报模板更新",
+          "en": "Weekly template updated"
+        },
+        "sub": {
+          "zh": "韩梅梅 · 昨天",
+          "en": "Han · yesterday"
+        },
+        "lead": "icon",
+        "trail": "none"
+      }
+    ]
+  },
+  "fab": true,
+  "bottomNav": null
+}

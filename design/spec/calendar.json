@@ -1,0 +1,54 @@
+{
+  "id": "calendar",
+  "unit": "lib/src/features/calendar/calendar_page.dart",
+  "title": {
+    "zh": "日历",
+    "en": "Calendar"
+  },
+  "appbar": {
+    "actions": [
+      "plus",
+      "more"
+    ]
+  },
+  "body": {
+    "type": "calendar",
+    "monthLabel": {
+      "zh": "2026 年 3 月",
+      "en": "March 2026"
+    },
+    "days": 31,
+    "firstWeekday": 6,
+    "today": 18,
+    "marked": [
+      3,
+      10,
+      18,
+      24,
+      27
+    ],
+    "events": [
+      {
+        "title": {
+          "zh": "设计评审",
+          "en": "Design review"
+        },
+        "sub": {
+          "zh": "18 日 10:00 · 频道 #设计评审",
+          "en": "18th 10:00 · #Design review"
+        }
+      },
+      {
+        "title": {
+          "zh": "交付设计稿终版",
+          "en": "Deliver final design"
+        },
+        "sub": {
+          "zh": "24 日 18:00 · 提醒",
+          "en": "24th 18:00 · reminder"
+        }
+      }
+    ]
+  },
+  "bottomNav": null
+}

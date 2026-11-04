@@ -1,0 +1,87 @@
+{
+  "id": "note_share",
+  "unit": "lib/src/features/notes/note_share_page.dart",
+  "title": {
+    "zh": "共享笔记",
+    "en": "Share note"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "settings",
+    "groups": [
+      {
+        "title": {
+          "zh": "链接",
+          "en": "Link"
+        },
+        "rows": [
+          {
+            "label": {
+              "zh": "启用链接共享",
+              "en": "Enable link sharing"
+            },
+            "kind": "switch",
+            "value": true
+          },
+          {
+            "label": {
+              "zh": "需要密码",
+              "en": "Require password"
+            },
+            "kind": "switch",
+            "value": false
+          },
+          {
+            "label": {
+              "zh": "到期时间",
+              "en": "Expires"
+            },
+            "kind": "arrow"
+          },
+          {
+            "label": {
+              "zh": "权限",
+              "en": "Permission"
+            },
+            "kind": "arrow"
+          }
+        ]
+      },
+      {
+        "title": {
+          "zh": "成员",
+          "en": "Members"
+        },
+        "rows": [
+          {
+            "label": {
+              "zh": "李雷",
+              "en": "Li"
+            },
+            "kind": "arrow"
+          },
+          {
+            "label": {
+              "zh": "韩梅梅",
+              "en": "Han"
+            },
+            "kind": "arrow"
+          }
+        ]
+      }
+    ],
+    "note": {
+      "zh": "只读成员不能编辑，但可以复制内容",
+      "en": "Viewers can copy but not edit"
+    }
+  },
+  "footerAction": {
+    "zh": "保存共享设置",
+    "en": "Save sharing"
+  },
+  "bottomNav": null
+}

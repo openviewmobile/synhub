@@ -1,0 +1,69 @@
+{
+  "id": "settings_e2ee",
+  "unit": "lib/src/features/settings/e2ee_page.dart",
+  "title": {
+    "zh": "端到端加密",
+    "en": "End-to-end encryption"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "settings",
+    "groups": [
+      {
+        "title": {
+          "zh": "加密",
+          "en": "Encryption"
+        },
+        "rows": [
+          {
+            "label": {
+              "zh": "启用端到端加密",
+              "en": "Enable E2EE"
+            },
+            "kind": "switch",
+            "value": true
+          },
+          {
+            "label": {
+              "zh": "新会话默认加密",
+              "en": "Encrypt new chats by default"
+            },
+            "kind": "switch",
+            "value": false
+          }
+        ]
+      },
+      {
+        "title": {
+          "zh": "本机密钥",
+          "en": "Device key"
+        },
+        "rows": [
+          {
+            "label": {
+              "zh": "指纹",
+              "en": "Fingerprint"
+            },
+            "kind": "arrow"
+          },
+          {
+            "label": {
+              "zh": "已验证设备",
+              "en": "Verified devices"
+            },
+            "kind": "arrow"
+          }
+        ]
+      }
+    ],
+    "note": {
+      "zh": "密钥只在本机生成；服务端只存密文",
+      "en": "Keys are generated on-device; the server stores ciphertext"
+    }
+  },
+  "bottomNav": null
+}

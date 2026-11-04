@@ -1,0 +1,61 @@
+{
+  "id": "photo_migration",
+  "unit": "lib/src/features/photos/photo_migration_page.dart",
+  "title": {
+    "zh": "迁移状态",
+    "en": "Migration"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "settings",
+    "groups": [
+      {
+        "title": {
+          "zh": "索引迁移",
+          "en": "Index migration"
+        },
+        "rows": [
+          {
+            "label": {
+              "zh": "已迁移 42,318 项",
+              "en": "Migrated 42,318 items"
+            },
+            "kind": "arrow"
+          },
+          {
+            "label": {
+              "zh": "剩余 1,208 项",
+              "en": "Remaining 1,208 items"
+            },
+            "kind": "arrow"
+          }
+        ]
+      },
+      {
+        "title": {
+          "zh": "状态",
+          "en": "Status"
+        },
+        "rows": [
+          {
+            "label": {
+              "zh": "后台继续迁移",
+              "en": "Continue in background"
+            },
+            "kind": "switch",
+            "value": true
+          }
+        ]
+      }
+    ],
+    "note": {
+      "zh": "迁移期间人脸与场景识别会暂停",
+      "en": "Face and scene detection pauses during migration"
+    }
+  },
+  "bottomNav": null
+}

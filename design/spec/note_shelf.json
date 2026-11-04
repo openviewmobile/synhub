@@ -1,0 +1,91 @@
+{
+  "id": "note_shelf",
+  "unit": "lib/src/features/notes/note_shelf_page.dart",
+  "title": {
+    "zh": "笔记本",
+    "en": "Notebooks"
+  },
+  "appbar": {
+    "actions": [
+      "plus",
+      "more"
+    ]
+  },
+  "rowIcon": "folder",
+  "body": {
+    "type": "list",
+    "sections": true,
+    "items": [
+      {
+        "section": {
+          "zh": "我的笔记本",
+          "en": "My notebooks"
+        },
+        "title": {
+          "zh": "设计",
+          "en": "Design"
+        },
+        "sub": {
+          "zh": "24 条笔记",
+          "en": "24 notes"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "section": {
+          "zh": "我的笔记本",
+          "en": "My notebooks"
+        },
+        "title": {
+          "zh": "工作",
+          "en": "Work"
+        },
+        "sub": {
+          "zh": "86 条笔记",
+          "en": "86 notes"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "section": {
+          "zh": "共享与加入",
+          "en": "Shared & joined"
+        },
+        "title": {
+          "zh": "团队周报",
+          "en": "Team weekly"
+        },
+        "sub": {
+          "zh": "共享给我 · 12 条",
+          "en": "Shared with me · 12"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "section": {
+          "zh": "智能",
+          "en": "Smart"
+        },
+        "title": {
+          "zh": "上周修改",
+          "en": "Edited last week"
+        },
+        "sub": {
+          "zh": "条件笔记本 · 18 条",
+          "en": "Smart notebook · 18"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      }
+    ]
+  },
+  "note": {
+    "zh": "归档的笔记本默认不显示，可在筛选里打开",
+    "en": "Archived notebooks are hidden unless filtered"
+  },
+  "fab": true,
+  "bottomNav": null
+}

@@ -1,0 +1,89 @@
+{
+  "id": "office_library",
+  "unit": "lib/src/features/office/office_library_page.dart",
+  "title": {
+    "zh": "Office",
+    "en": "Office"
+  },
+  "appbar": {
+    "actions": [
+      "search",
+      "more"
+    ]
+  },
+  "chips": [
+    {
+      "zh": "全部",
+      "en": "All"
+    },
+    {
+      "zh": "文档",
+      "en": "Docs"
+    },
+    {
+      "zh": "表格",
+      "en": "Sheets"
+    },
+    {
+      "zh": "演示",
+      "en": "Slides"
+    }
+  ],
+  "rowIcon": "doc",
+  "body": {
+    "type": "list",
+    "sections": true,
+    "items": [
+      {
+        "section": {
+          "zh": "最近",
+          "en": "Recent"
+        },
+        "title": {
+          "zh": "季度汇报.pptx",
+          "en": "季度汇报.pptx"
+        },
+        "sub": {
+          "zh": "表格 · 修改于 今天 09:12 · 8.4 MB",
+          "en": "Slides · today 09:12 · 8.4 MB"
+        },
+        "lead": "icon",
+        "trail": "more"
+      },
+      {
+        "section": {
+          "zh": "最近",
+          "en": "Recent"
+        },
+        "title": {
+          "zh": "评审纪要.odoc",
+          "en": "评审纪要.odoc"
+        },
+        "sub": {
+          "zh": "文档 · 昨天 · 88 KB",
+          "en": "Doc · yesterday · 88 KB"
+        },
+        "lead": "icon",
+        "trail": "more"
+      },
+      {
+        "section": {
+          "zh": "模板",
+          "en": "Templates"
+        },
+        "title": {
+          "zh": "会议纪要模板",
+          "en": "Meeting notes template"
+        },
+        "sub": {
+          "zh": "文档模板 · 使用 12 次",
+          "en": "Doc template · used 12×"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      }
+    ]
+  },
+  "fab": true,
+  "bottomNav": null
+}

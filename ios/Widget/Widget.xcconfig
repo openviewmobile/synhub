@@ -1,0 +1,10 @@
+// r688：WidgetKit 扩展的版本号必须**与宿主 App 同一个来源**，否则
+// `simctl install` 直接报
+//   “Failed to create app extension placeholder … Invalid placeholder attributes”
+// （真因是 `CFBundleShortVersionString`/`CFBundleVersion` 展开成空 ⇒ 这两个键
+//  会被从 Info.plist 里整条删掉，而 App Store / simctl 都要求它们存在）。
+//
+// 所以这里只 include Flutter 的 `Generated.xcconfig`（它给 FLUTTER_BUILD_NAME /
+// FLUTTER_BUILD_NUMBER），**不** include `Pods-Runner.*.xcconfig` ——
+// 扩展不链宿主那套 Pods，链了反而把 `OTHER_LDFLAGS` 带进来。
+#include "../Flutter/Generated.xcconfig"

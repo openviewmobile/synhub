@@ -1,0 +1,48 @@
+{
+  "id": "chat_archive",
+  "unit": "lib/src/features/chat/archive_page.dart",
+  "title": {
+    "zh": "归档频道",
+    "en": "Archived"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "rowIcon": "chat",
+  "body": {
+    "type": "list",
+    "items": [
+      {
+        "title": {
+          "zh": "# 旧项目 · 2024",
+          "en": "# Old project 2024"
+        },
+        "sub": {
+          "zh": "最后消息 2024-11-02",
+          "en": "Last message 2024-11-02"
+        },
+        "lead": "icon",
+        "trail": "more"
+      },
+      {
+        "title": {
+          "zh": "# 团建",
+          "en": "# Offsite"
+        },
+        "sub": {
+          "zh": "最后消息 2024-08-15",
+          "en": "Last message 2024-08-15"
+        },
+        "lead": "icon",
+        "trail": "more"
+      }
+    ]
+  },
+  "note": {
+    "zh": "归档后不再推送通知，消息仍保留",
+    "en": "Archived channels stop notifying; messages are kept"
+  },
+  "bottomNav": null
+}

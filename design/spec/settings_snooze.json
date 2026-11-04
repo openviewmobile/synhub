@@ -1,0 +1,61 @@
+{
+  "id": "settings_snooze",
+  "unit": "lib/src/features/settings/snooze_settings_page.dart",
+  "title": {
+    "zh": "免打扰",
+    "en": "Do not disturb"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "settings",
+    "groups": [
+      {
+        "title": {
+          "zh": "免打扰",
+          "en": "Do not disturb"
+        },
+        "rows": [
+          {
+            "label": {
+              "zh": "启用",
+              "en": "Enable"
+            },
+            "kind": "switch",
+            "value": true
+          },
+          {
+            "label": {
+              "zh": "开始",
+              "en": "Starts"
+            },
+            "kind": "arrow"
+          },
+          {
+            "label": {
+              "zh": "结束",
+              "en": "Ends"
+            },
+            "kind": "arrow"
+          },
+          {
+            "label": {
+              "zh": "周末同样生效",
+              "en": "Also on weekends"
+            },
+            "kind": "switch",
+            "value": false
+          }
+        ]
+      }
+    ],
+    "note": {
+      "zh": "免打扰期间消息照常收，只是不响",
+      "en": "Messages still arrive silently during DND"
+    }
+  },
+  "bottomNav": null
+}

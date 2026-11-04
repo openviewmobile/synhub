@@ -1,0 +1,47 @@
+{
+  "id": "audio_pins",
+  "unit": "lib/src/features/audio/audio_pins_page.dart",
+  "title": {
+    "zh": "收藏",
+    "en": "Favorites"
+  },
+  "appbar": {
+    "actions": [
+      "search",
+      "more"
+    ]
+  },
+  "body": {
+    "type": "list",
+    "items": [
+      {
+        "title": "Demo Song",
+        "sub": {
+          "zh": "Demo Artist · 00s Love Songs",
+          "en": "Demo Artist · 00s Love Songs"
+        },
+        "lead": "cover",
+        "trail": "more"
+      },
+      {
+        "title": "Season in the Sun",
+        "sub": {
+          "zh": "Demo Artist · 00s Love Songs",
+          "en": "Demo Artist · 00s Love Songs"
+        },
+        "lead": "cover",
+        "trail": "more"
+      },
+      {
+        "title": "Because of You",
+        "sub": {
+          "zh": "Kelly Clarkson · Breakaway",
+          "en": "Kelly Clarkson · Breakaway"
+        },
+        "lead": "cover",
+        "trail": "more"
+      }
+    ]
+  },
+  "bottomNav": null
+}

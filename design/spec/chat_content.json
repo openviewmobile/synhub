@@ -1,0 +1,78 @@
+{
+  "id": "chat_content",
+  "unit": "lib/src/features/chat/channel_content_page.dart",
+  "title": {
+    "zh": "频道内容",
+    "en": "Channel content"
+  },
+  "appbar": {
+    "actions": [
+      "search",
+      "more"
+    ]
+  },
+  "tabs": [
+    {
+      "zh": "置顶",
+      "en": "Pinned"
+    },
+    {
+      "zh": "文件",
+      "en": "Files"
+    },
+    {
+      "zh": "链接",
+      "en": "Links"
+    },
+    {
+      "zh": "@我",
+      "en": "Mentions"
+    },
+    {
+      "zh": "书签",
+      "en": "Bookmarks"
+    }
+  ],
+  "body": {
+    "type": "list",
+    "items": [
+      {
+        "title": {
+          "zh": "设计稿终版（v12）",
+          "en": "Design final (v12)"
+        },
+        "sub": {
+          "zh": "李雷 · 周三 14:20",
+          "en": "Li · Wed 14:20"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "title": {
+          "zh": "时间线收口说明",
+          "en": "Timeline notes"
+        },
+        "sub": {
+          "zh": "李雷 · 周三 09:05",
+          "en": "Li · Wed 09:05"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "title": {
+          "zh": "评审纪要 2 月",
+          "en": "Review minutes Feb"
+        },
+        "sub": {
+          "zh": "韩梅梅 · 周二",
+          "en": "Han · Tue"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      }
+    ]
+  },
+  "bottomNav": null
+}

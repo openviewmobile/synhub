@@ -1,0 +1,61 @@
+{
+  "id": "drive_collection",
+  "unit": "lib/src/features/drive/drive_collection_page.dart",
+  "title": {
+    "zh": "收藏集",
+    "en": "Collections"
+  },
+  "appbar": {
+    "actions": [
+      "plus",
+      "more"
+    ]
+  },
+  "rowIcon": "folder",
+  "body": {
+    "type": "list",
+    "items": [
+      {
+        "title": {
+          "zh": "设计参考",
+          "en": "Design references"
+        },
+        "sub": {
+          "zh": "24 项",
+          "en": "24 items"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "title": {
+          "zh": "待归档",
+          "en": "To archive"
+        },
+        "sub": {
+          "zh": "8 项",
+          "en": "8 items"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "title": {
+          "zh": "合同",
+          "en": "Contracts"
+        },
+        "sub": {
+          "zh": "6 项",
+          "en": "6 items"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      }
+    ]
+  },
+  "note": {
+    "zh": "收藏集不移动文件，只是引用",
+    "en": "Collections reference files; they don't move them"
+  },
+  "bottomNav": null
+}

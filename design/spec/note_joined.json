@@ -1,0 +1,70 @@
+{
+  "id": "note_joined",
+  "unit": "lib/src/features/notes/note_joined_page.dart",
+  "title": {
+    "zh": "共享与加入",
+    "en": "Shared & joined"
+  },
+  "appbar": {
+    "actions": [
+      "plus",
+      "more"
+    ]
+  },
+  "rowIcon": "folder",
+  "body": {
+    "type": "list",
+    "sections": true,
+    "items": [
+      {
+        "section": {
+          "zh": "共享给我",
+          "en": "Shared with me"
+        },
+        "title": {
+          "zh": "团队周报",
+          "en": "Team weekly"
+        },
+        "sub": {
+          "zh": "李雷 共享 · 可编辑",
+          "en": "Shared by Li · can edit"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "section": {
+          "zh": "共享给我",
+          "en": "Shared with me"
+        },
+        "title": {
+          "zh": "品牌手册",
+          "en": "Brand book"
+        },
+        "sub": {
+          "zh": "韩梅梅 共享 · 仅查看",
+          "en": "Shared by Han · view only"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "section": {
+          "zh": "我加入的",
+          "en": "Joined"
+        },
+        "title": {
+          "zh": "读书会",
+          "en": "Book club"
+        },
+        "sub": {
+          "zh": "8 位成员",
+          "en": "8 members"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      }
+    ]
+  },
+  "bottomNav": null
+}

@@ -1,0 +1,27 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- The INTERNET permission is required for development. Specifically,
+         the Flutter tool needs it to communicate with the running application
+         to allow setting breakpoints, to provide hot reload, etc.
+    -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <!-- ============================================================
+         **仅 debug 构建**：允许对本机 Mock NAS 的**明文 HTTP** 取流。
+
+         背景（R6-5 真机实测，见 docs/device-verification.md §5 / §8）：
+           缓存 `http://<宿主IP>:8788` 在 App 的 API/登录/Dio 路径能连，但
+           交给 **Media3/ExoPlayer** 的原生取流被 targetSdk=36 的明文策略拒
+           （`Cleartext HTTP traffic … not permitted …
+           CleartextURLFilter.checkURLPermitted`）→ "回原位续播"根本进不了播放器。
+         自签 https 也不行（用户 CA 对 targetSdk 36 不生效）。
+
+         ⚠️ 安全姿态**不变**：
+           * 本文件只在 `src/debug/`，**不会**合并进 release（见 docs/r6-findings-fixes.md §4）；
+           * `src/main/` 里**没有** `usesCleartextTraffic`，release 仍按 targetSdk
+             默认**禁止明文**；
+           * 白名单**只列测试用的具体 IP**（`res/xml/network_security_config.xml`），
+             没有通配 `*`、没有放开整段网段。
+         ============================================================ -->
+    <application
+        android:networkSecurityConfig="@xml/network_security_config" />
+</manifest>

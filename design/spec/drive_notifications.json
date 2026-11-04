@@ -1,0 +1,69 @@
+{
+  "id": "drive_notifications",
+  "unit": "lib/src/features/drive/drive_notifications_page.dart",
+  "title": {
+    "zh": "通知",
+    "en": "Notifications"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "rowIcon": "folder",
+  "body": {
+    "type": "list",
+    "sections": true,
+    "items": [
+      {
+        "section": {
+          "zh": "今天",
+          "en": "Today"
+        },
+        "title": {
+          "zh": "李雷 共享了「原型」",
+          "en": "Li shared “Prototype”"
+        },
+        "sub": {
+          "zh": "10:12",
+          "en": "10:12"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "section": {
+          "zh": "今天",
+          "en": "Today"
+        },
+        "title": {
+          "zh": "「设计稿终版 v12.pdf」有新版本",
+          "en": "New version of “Design final v12.pdf”"
+        },
+        "sub": {
+          "zh": "09:12",
+          "en": "09:12"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "section": {
+          "zh": "更早",
+          "en": "Earlier"
+        },
+        "title": {
+          "zh": "你被移出「旧项目」",
+          "en": "You were removed from “Old project”"
+        },
+        "sub": {
+          "zh": "昨天",
+          "en": "Yesterday"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      }
+    ]
+  },
+  "bottomNav": null
+}

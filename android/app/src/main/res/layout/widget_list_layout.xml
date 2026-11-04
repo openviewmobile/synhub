@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 笔记 / 待办小组件的公共骨架：标题 + 动态行容器 + 占位文案。
+     行由 Provider 用 RemoteViews.addView 加进 @id/widget_rows
+     （RemoteViews 支持嵌套 RemoteViews，这是列表型小组件的标准做法）。 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/widget_card_bg"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/widget_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="#FFFFFFFF"
+        android:textSize="13sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/widget_updated"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="#99FFFFFF"
+        android:textSize="10sp" />
+
+    <LinearLayout
+        android:id="@+id/widget_rows"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:orientation="vertical" />
+
+    <!-- 内嵌动作栏（官方 `appwidget_notes`/`appwidget_todo` 同构）：
+         由 `WidgetViews.bindActionBar` 用嵌套 RemoteViews 填 6 格。 -->
+    <LinearLayout
+        android:id="@+id/widget_actions_holder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:orientation="vertical" />
+
+    <TextView
+        android:id="@+id/widget_placeholder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:lineSpacingExtra="2dp"
+        android:textColor="#CCFFFFFF"
+        android:textSize="12sp"
+        android:visibility="gone" />
+</LinearLayout>

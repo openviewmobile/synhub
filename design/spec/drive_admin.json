@@ -1,0 +1,77 @@
+{
+  "id": "drive_admin",
+  "unit": "lib/src/features/drive/drive_admin_page.dart",
+  "title": {
+    "zh": "Drive 管理",
+    "en": "Drive admin"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "settings",
+    "groups": [
+      {
+        "title": {
+          "zh": "服务",
+          "en": "Service"
+        },
+        "rows": [
+          {
+            "label": {
+              "zh": "启用 Drive",
+              "en": "Enable Drive"
+            },
+            "kind": "switch",
+            "value": true
+          },
+          {
+            "label": {
+              "zh": "团队文件夹",
+              "en": "Team folders"
+            },
+            "kind": "arrow"
+          },
+          {
+            "label": {
+              "zh": "配额上限",
+              "en": "Quota limit"
+            },
+            "kind": "arrow"
+          }
+        ]
+      },
+      {
+        "title": {
+          "zh": "安全",
+          "en": "Security"
+        },
+        "rows": [
+          {
+            "label": {
+              "zh": "强制共享链接带密码",
+              "en": "Require password on links"
+            },
+            "kind": "switch",
+            "value": false
+          },
+          {
+            "label": {
+              "zh": "允许外链下载",
+              "en": "Allow external download"
+            },
+            "kind": "switch",
+            "value": true
+          }
+        ]
+      }
+    ],
+    "note": {
+      "zh": "仅管理员可见；普通账号不显示该入口",
+      "en": "Admin only; hidden for regular accounts"
+    }
+  },
+  "bottomNav": null
+}

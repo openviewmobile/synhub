@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- 保留沙箱：App Store 上架前提 + 最小权限默认。 -->
+	<key>com.apple.security.app-sandbox</key>
+	<true/>
+	<!-- ★ 必需：出站网络。没有它 Release 包**完全无法联网**。 -->
+	<key>com.apple.security.network.client</key>
+	<true/>
+	<!-- 用户自己选的下载/导出目录（保存面板）。App 容器内路径不需要授权。 -->
+	<key>com.apple.security.files.user-selected.read-write</key>
+	<true/>
+	<!-- 聊天语音消息 / 笔记语音（`record`）。 -->
+	<key>com.apple.security.device.audio-input</key>
+	<true/>
+	<!-- ★ r328：安全作用域书签（"记住用户上次选的保存目录"）。
+	     实现已落地（`FsBookmarkBridge.swift` + `fs_bookmark.dart`）
+	     ⇒ 现在申请**不是空权限**（第 55 轮故意没加，见文件末的说明）。 -->
+	<key>com.apple.security.files.bookmarks.app-scope</key>
+	<true/>
+	<!-- 刻意**没有**：
+	     * cs.allow-jit / network.server —— 那是调试期才需要的；
+	     * files.downloads.read-write / files.all —— 过宽，用户选择已经够用；
+	     * （`files.bookmarks.app-scope` 已在 r328 **加上** —— 那一条实现已经落地。） -->
+</dict>
+</plist>

@@ -1,0 +1,2568 @@
+{
+ "rows": [
+  {
+   "unit": "admin_tools_page.dart",
+   "module": "admin",
+   "spec": "admin_tools",
+   "cite_anchor": "file",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/001_admin_admin_tools_page.svg",
+   "code_file": "lib/src/features/admin/admin_tools_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "E",
+   "evidence": [
+    "docs/android-ui-audit-r348.md:21",
+    "docs/android-acceptance-summary.md:119",
+    "docs/android-acceptance-summary.md:614"
+   ]
+  },
+  {
+   "unit": "ai_model_page.dart",
+   "module": "ai",
+   "spec": "ai_model",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/002_ai_ai_model_page.svg",
+   "code_file": "lib/src/features/ai/ai_model_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r348.md:308",
+    "docs/android-ui-audit-r348.md:317",
+    "docs/device-verification.md:8161"
+   ]
+  },
+  {
+   "unit": "ai_usage_page.dart",
+   "module": "ai",
+   "spec": "ai_usage",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/003_ai_ai_usage_page.svg",
+   "code_file": "lib/src/features/ai/ai_usage_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/device-verification.md:1938",
+    "docs/device-verification.md:1938"
+   ]
+  },
+  {
+   "unit": "analytics_page.dart",
+   "module": "analytics",
+   "spec": "analytics",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/004_analytics_analytics_page.svg",
+   "code_file": "lib/src/features/analytics/analytics_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/device-verification.md:889",
+    "docs/device-verification.md:954",
+    "docs/android-ui-audit-r348.md:1389"
+   ]
+  },
+  {
+   "unit": "traffic_page.dart",
+   "module": "analytics",
+   "spec": "traffic",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/005_analytics_traffic_page.svg",
+   "code_file": "lib/src/features/analytics/traffic_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r358.md:43",
+    "docs/evidence-r358/README.md:16"
+   ]
+  },
+  {
+   "unit": "audio_cast_page.dart",
+   "module": "audio",
+   "spec": "audio_cast",
+   "cite_anchor": "title",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/006_audio_audio_cast_page.svg",
+   "code_file": "lib/src/features/audio/audio_cast_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "E",
+   "evidence": [
+    "docs/android-ui-audit-r368.md:1",
+    "docs/android-ui-audit-r350.md:32",
+    "docs/evidence-r350/README.md:29"
+   ]
+  },
+  {
+   "unit": "audio_detail_page.dart",
+   "module": "audio",
+   "spec": "audio_detail",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/007_audio_audio_detail_page.svg",
+   "code_file": "lib/src/features/audio/audio_detail_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r350.md:25",
+    "docs/evidence-r350/README.md:20"
+   ]
+  },
+  {
+   "unit": "audio_equalizer.dart",
+   "module": "audio",
+   "spec": "audio_equalizer",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/008_audio_audio_equalizer.svg",
+   "code_file": "lib/src/features/audio/audio_equalizer.dart",
+   "judge": "直达",
+   "code_note": "2 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r350.md:36",
+    "docs/evidence-r350/README.md:21"
+   ]
+  },
+  {
+   "unit": "audio_gaps_page.dart",
+   "module": "audio",
+   "spec": "audio_gaps",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/009_audio_audio_gaps_page.svg",
+   "code_file": "lib/src/features/audio/audio_gaps_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r350.md:30",
+    "docs/evidence-r350/README.md:25"
+   ]
+  },
+  {
+   "unit": "audio_page.dart",
+   "module": "audio",
+   "spec": "audio_library",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/010_audio_audio_page.svg",
+   "code_file": "lib/src/features/audio/audio_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r350.md:26",
+    "docs/evidence-r350/README.md:18"
+   ]
+  },
+  {
+   "unit": "audio_pins_page.dart",
+   "module": "audio",
+   "spec": "audio_pins",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/011_audio_audio_pins_page.svg",
+   "code_file": "lib/src/features/audio/audio_pins_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r350.md:33",
+    "docs/evidence-r350/README.md:25"
+   ]
+  },
+  {
+   "unit": "audio_radio_page.dart",
+   "module": "audio",
+   "spec": "audio_radio",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/012_audio_audio_radio_page.svg",
+   "code_file": "lib/src/features/audio/audio_radio_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r350.md:29",
+    "docs/evidence-r350/README.md:21"
+   ]
+  },
+  {
+   "unit": "audio_remote_page.dart",
+   "module": "audio",
+   "spec": "audio_remote",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/013_audio_audio_remote_page.svg",
+   "code_file": "lib/src/features/audio/audio_remote_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r350.md:34",
+    "docs/evidence-r350/README.md:31"
+   ]
+  },
+  {
+   "unit": "audio_search_page.dart",
+   "module": "audio",
+   "spec": "audio_search",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/014_audio_audio_search_page.svg",
+   "code_file": "lib/src/features/audio/audio_search_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r350.md:32",
+    "docs/evidence-r350/README.md:29"
+   ]
+  },
+  {
+   "unit": "audio_song_page.dart",
+   "module": "audio",
+   "spec": "audio_song",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/015_audio_audio_song_page.svg",
+   "code_file": "lib/src/features/audio/audio_song_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r350.md:27",
+    "docs/evidence-r350/README.md:19"
+   ]
+  },
+  {
+   "unit": "audio_web_queue_page.dart",
+   "module": "audio",
+   "spec": "audio_web_queue",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/016_audio_audio_web_queue_page.svg",
+   "code_file": "lib/src/features/audio/audio_web_queue_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r350.md:31",
+    "docs/evidence-r350/README.md:30"
+   ]
+  },
+  {
+   "unit": "calendar_page.dart",
+   "module": "calendar",
+   "spec": "calendar",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/017_calendar_calendar_page.svg",
+   "code_file": "lib/src/features/calendar/calendar_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r348.md:126",
+    "docs/android-ui-audit-r348.md:1166"
+   ]
+  },
+  {
+   "unit": "archive_page.dart",
+   "module": "chat",
+   "spec": "chat_archive",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/018_chat_archive_page.svg",
+   "code_file": "lib/src/features/chat/archive_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/evidence-r307/README.md:78",
+    "docs/android-acceptance-summary.md:564"
+   ]
+  },
+  {
+   "unit": "attachment_view.dart",
+   "module": "chat",
+   "spec": "chat_attachment",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/019_chat_attachment_view.svg",
+   "code_file": "lib/src/features/chat/attachment_view.dart",
+   "judge": "直达",
+   "code_note": "2 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r354.md:24..28",
+    "docs/evidence-r354/README.md:15"
+   ]
+  },
+  {
+   "unit": "available_channels_page.dart",
+   "module": "chat",
+   "spec": "chat_available",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/020_chat_available_channels_page.svg",
+   "code_file": "lib/src/features/chat/available_channels_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r358.md:40",
+    "docs/evidence-r358/README.md:10"
+   ]
+  },
+  {
+   "unit": "channel_content_page.dart",
+   "module": "chat",
+   "spec": "chat_content",
+   "cite_anchor": "manual",
+   "manual_note": "r348:787/788 是同一页的两个 tab：`所有文件` → 标题 **`文件`**、`所有链接` → 标题 **`链接`**；`channel_content_page.dart` 文件头注释写的就是「置顶 / 文件 / 链接 / @我 / 书签」分 tab（对齐原版 TabPostFragment），所以这两行就是本页的像素与判据。",
+   "design_svg": "design/synhub_ui/out/screens/021_chat_channel_content_page.svg",
+   "code_file": "lib/src/features/chat/channel_content_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r348.md:784",
+    "docs/android-ui-audit-r348.md:788"
+   ]
+  },
+  {
+   "unit": "channel_create_page.dart",
+   "module": "chat",
+   "spec": "chat_create",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/022_chat_channel_create_page.svg",
+   "code_file": "lib/src/features/chat/channel_create_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r354.md:21..25",
+    "docs/evidence-r354/README.md:13"
+   ]
+  },
+  {
+   "unit": "channel_hashtags_page.dart",
+   "module": "chat",
+   "spec": "chat_hashtags",
+   "cite_anchor": "title",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/023_chat_channel_hashtags_page.svg",
+   "code_file": "lib/src/features/chat/channel_hashtags_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r348.md:791"
+   ]
+  },
+  {
+   "unit": "channel_list_page.dart",
+   "module": "chat",
+   "spec": "chat_channels",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/024_chat_channel_list_page.svg",
+   "code_file": "lib/src/features/chat/channel_list_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r348.md:36",
+    "docs/android-ui-audit-r348.md:835"
+   ]
+  },
+  {
+   "unit": "channel_media_page.dart",
+   "module": "chat",
+   "spec": "chat_media",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/025_chat_channel_media_page.svg",
+   "code_file": "lib/src/features/chat/channel_media_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r354.md:21..25",
+    "docs/evidence-r354/README.md:14"
+   ]
+  },
+  {
+   "unit": "channel_members_page.dart",
+   "module": "chat",
+   "spec": "chat_members",
+   "cite_anchor": "manual",
+   "manual_note": "r348:45 「成员页」`009_03_chat_members.png`：`成员 (3)` + 搜索成员 + `demo_user（我）`/`demo / demo_user`/`demo_admin`；与源码 `chatMembersTitle`（成员 ({count})）一致。屏名带真实计数（3 / 12）故机械匹配不上。",
+   "design_svg": "design/synhub_ui/out/screens/026_chat_channel_members_page.svg",
+   "code_file": "lib/src/features/chat/channel_members_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r348.md:45"
+   ]
+  },
+  {
+   "unit": "channel_scheduled_page.dart",
+   "module": "chat",
+   "spec": "chat_scheduled",
+   "cite_anchor": "manual",
+   "manual_note": "r348:792/793：`计划信息` → 标题 ★**`定时消息`**、空态 `没有待发的定时消息`；`提醒` → 标题 `提醒`、空态 `没有提醒`。本页就是「定时与提醒」两段合一。",
+   "design_svg": "design/synhub_ui/out/screens/027_chat_channel_scheduled_page.svg",
+   "code_file": "lib/src/features/chat/channel_scheduled_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r348.md:792",
+    "docs/android-ui-audit-r348.md:793"
+   ]
+  },
+  {
+   "unit": "chat_page.dart",
+   "module": "chat",
+   "spec": "chat_channel",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/028_chat_chat_page.svg",
+   "code_file": "lib/src/features/chat/chat_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r348.md:1330",
+    "docs/android-ui-audit-r348.md:1330"
+   ]
+  },
+  {
+   "unit": "global_content_page.dart",
+   "module": "chat",
+   "spec": "chat_global",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/029_chat_global_content_page.svg",
+   "code_file": "lib/src/features/chat/global_content_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r358.md:42",
+    "docs/evidence-r358/README.md:12"
+   ]
+  },
+  {
+   "unit": "read_status_page.dart",
+   "module": "chat",
+   "spec": "chat_read_status",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/030_chat_read_status_page.svg",
+   "code_file": "lib/src/features/chat/read_status_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/device-verification.md:501",
+    "integration_test/phase9_read_status_test.dart:24"
+   ]
+  },
+  {
+   "unit": "subscribed_threads_page.dart",
+   "module": "chat",
+   "spec": "chat_threads",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/031_chat_subscribed_threads_page.svg",
+   "code_file": "lib/src/features/chat/subscribed_threads_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r348.md:790",
+    "lib/src/features/chat/chat_page.dart:50"
+   ]
+  },
+  {
+   "unit": "thread_page.dart",
+   "module": "chat",
+   "spec": "chat_thread",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/032_chat_thread_page.svg",
+   "code_file": "lib/src/features/chat/thread_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/device-verification.md:386",
+    "integration_test/phase2_broadcast_test.dart:312"
+   ]
+  },
+  {
+   "unit": "contact_editor_page.dart",
+   "module": "contacts",
+   "spec": "contact_editor",
+   "cite_anchor": "manual",
+   "manual_note": "device-verification:1338 记的是新建联系人**写路径**：「新建」→ 选目标通讯录（个人通讯录排最前、团队带「共享自」说明）→ 表单 → 保存后列表立刻出现 `probe_app`，并给出 NAS 侧回读。",
+   "design_svg": "design/synhub_ui/out/screens/033_contacts_contact_editor_page.svg",
+   "code_file": "lib/src/features/contacts/contact_editor_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/evidence-r316/README.md:16",
+    "docs/evidence-r316/README.md:17",
+    "docs/device-verification.md:1338"
+   ]
+  },
+  {
+   "unit": "contact_import_page.dart",
+   "module": "contacts",
+   "spec": "contact_import",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/034_contacts_contact_import_page.svg",
+   "code_file": "lib/src/features/contacts/contact_import_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r354.md:25..29",
+    "docs/evidence-r354/README.md:18"
+   ]
+  },
+  {
+   "unit": "contacts_manage_page.dart",
+   "module": "contacts",
+   "spec": "contacts_manage",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/035_contacts_contacts_manage_page.svg",
+   "code_file": "lib/src/features/contacts/contacts_manage_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/device-verification.md:1341",
+    "docs/android-ui-audit-r348.md:404"
+   ]
+  },
+  {
+   "unit": "contacts_page.dart",
+   "module": "contacts",
+   "spec": "contacts",
+   "cite_anchor": "title",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/036_contacts_contacts_page.svg",
+   "code_file": "lib/src/features/contacts/contacts_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r348.md:125",
+    "docs/device-verification.md:1337"
+   ]
+  },
+  {
+   "unit": "design_preview_page.dart",
+   "module": "design",
+   "spec": "design_preview",
+   "cite_anchor": "title",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/037_design_design_preview_page.svg",
+   "code_file": "lib/src/features/design/design_preview_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "E",
+   "evidence": [
+    "lib/src/features/design/design_preview_page.dart:23",
+    "lib/src/features/design/design_preview_page.dart:26"
+   ]
+  },
+  {
+   "unit": "diag_page.dart",
+   "module": "diagnostics",
+   "spec": "diag",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/038_diagnostics_diag_page.svg",
+   "code_file": "lib/src/features/diagnostics/diag_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-acceptance-summary.md:3111",
+    "docs/evidence-r343/README.md:119"
+   ]
+  },
+  {
+   "unit": "download_bt_search_page.dart",
+   "module": "downloads",
+   "spec": "download_bt_search",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/039_downloads_download_bt_search_page.svg",
+   "code_file": "lib/src/features/downloads/download_bt_search_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r351.md:36",
+    "docs/evidence-r351/README.md:23"
+   ]
+  },
+  {
+   "unit": "download_captcha_page.dart",
+   "module": "downloads",
+   "spec": "download_captcha",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/040_downloads_download_captcha_page.svg",
+   "code_file": "lib/src/features/downloads/download_captcha_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r423.md:1",
+    "docs/evidence-r423/device/r423_06_after_fix_page.png",
+    "docs/evidence-r423/device/r423_06_after_fix_page.xml",
+    "docs/evidence-r423/device/r423_04_wrong_code_2301.xml",
+    "docs/evidence-r423/device/r423_07_after_fix_submitted.xml",
+    "docs/evidence-r423/device/r423_03_captcha_page_with_image.png"
+   ]
+  },
+  {
+   "unit": "download_create_page.dart",
+   "module": "downloads",
+   "spec": "download_create",
+   "cite_anchor": "title",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/041_downloads_download_create_page.svg",
+   "code_file": "lib/src/features/downloads/download_create_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/evidence-r316/README.md:21",
+    "docs/evidence-r316/README.md:20"
+   ]
+  },
+  {
+   "unit": "download_detail_page.dart",
+   "module": "downloads",
+   "spec": "download_detail",
+   "cite_anchor": "title",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/042_downloads_download_detail_page.svg",
+   "code_file": "lib/src/features/downloads/download_detail_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/evidence-r316/README.md:22",
+    "docs/evidence-r316/README.md:20"
+   ]
+  },
+  {
+   "unit": "download_emule_page.dart",
+   "module": "downloads",
+   "spec": "download_emule",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/043_downloads_download_emule_page.svg",
+   "code_file": "lib/src/features/downloads/download_emule_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r351.md:37",
+    "docs/evidence-r351/README.md:28"
+   ]
+  },
+  {
+   "unit": "download_emule_search_page.dart",
+   "module": "downloads",
+   "spec": "download_emule_search",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/044_downloads_download_emule_search_page.svg",
+   "code_file": "lib/src/features/downloads/download_emule_search_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r351.md:38",
+    "docs/evidence-r351/README.md:29"
+   ]
+  },
+  {
+   "unit": "download_emule_server_page.dart",
+   "module": "downloads",
+   "spec": "download_emule_server",
+   "cite_anchor": "file",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/045_downloads_download_emule_server_page.svg",
+   "code_file": "lib/src/features/downloads/download_emule_server_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "E",
+   "evidence": [
+    "docs/android-ui-audit-r348.md:21",
+    "docs/android-acceptance-summary.md:614"
+   ]
+  },
+  {
+   "unit": "download_file_select_page.dart",
+   "module": "downloads",
+   "spec": "download_files",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/046_downloads_download_file_select_page.svg",
+   "code_file": "lib/src/features/downloads/download_file_select_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r361.md:52",
+    "docs/evidence-r361/README.md:1"
+   ]
+  },
+  {
+   "unit": "download_link_browser.dart",
+   "module": "downloads",
+   "spec": "download_link_browser",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/047_downloads_download_link_browser.svg",
+   "code_file": "lib/src/features/downloads/download_link_browser.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r351.md:39",
+    "docs/evidence-r351/README.md:31"
+   ]
+  },
+  {
+   "unit": "download_page.dart",
+   "module": "downloads",
+   "spec": "download_page",
+   "cite_anchor": "title",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/048_downloads_download_page.svg",
+   "code_file": "lib/src/features/downloads/download_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r348.md:141",
+    "docs/android-ui-screenshot-audit.md:105"
+   ]
+  },
+  {
+   "unit": "download_rss_page.dart",
+   "module": "downloads",
+   "spec": "download_rss",
+   "cite_anchor": "title",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/049_downloads_download_rss_page.svg",
+   "code_file": "lib/src/features/downloads/download_rss_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/device-verification.md:8060"
+   ]
+  },
+  {
+   "unit": "download_settings_page.dart",
+   "module": "downloads",
+   "spec": "download_settings",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/050_downloads_download_settings_page.svg",
+   "code_file": "lib/src/features/downloads/download_settings_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r351.md:40",
+    "docs/evidence-r351/README.md:33"
+   ]
+  },
+  {
+   "unit": "drive_admin_page.dart",
+   "module": "drive",
+   "spec": "drive_admin",
+   "cite_anchor": "file",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/051_drive_drive_admin_page.svg",
+   "code_file": "lib/src/features/drive/drive_admin_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "E",
+   "evidence": [
+    "docs/android-ui-audit-r348.md:21",
+    "docs/android-acceptance-summary.md:614"
+   ]
+  },
+  {
+   "unit": "drive_advance_sharing_page.dart",
+   "module": "drive",
+   "spec": "drive_advance_sharing",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/052_drive_drive_advance_sharing_page.svg",
+   "code_file": "lib/src/features/drive/drive_advance_sharing_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r355.md:42",
+    "docs/evidence-r355/README.md:22"
+   ]
+  },
+  {
+   "unit": "drive_category_page.dart",
+   "module": "drive",
+   "spec": "drive_category",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/053_drive_drive_category_page.svg",
+   "code_file": "lib/src/features/drive/drive_category_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r356.md:31",
+    "docs/evidence-r356/README.md:13"
+   ]
+  },
+  {
+   "unit": "drive_collection_page.dart",
+   "module": "drive",
+   "spec": "drive_collection",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/054_drive_drive_collection_page.svg",
+   "code_file": "lib/src/features/drive/drive_collection_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r355.md:36",
+    "docs/evidence-r355/README.md:15"
+   ]
+  },
+  {
+   "unit": "drive_computers_page.dart",
+   "module": "drive",
+   "spec": "drive_computers",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/055_drive_drive_computers_page.svg",
+   "code_file": "lib/src/features/drive/drive_computers_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r355.md:34",
+    "docs/evidence-r355/README.md:13"
+   ]
+  },
+  {
+   "unit": "drive_connections_page.dart",
+   "module": "drive",
+   "spec": "drive_connections",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/056_drive_drive_connections_page.svg",
+   "code_file": "lib/src/features/drive/drive_connections_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r355.md:35",
+    "docs/evidence-r355/README.md:14"
+   ]
+  },
+  {
+   "unit": "drive_copy_move_page.dart",
+   "module": "drive",
+   "spec": "drive_copy_move",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/057_drive_drive_copy_move_page.svg",
+   "code_file": "lib/src/features/drive/drive_copy_move_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r356.md:34",
+    "docs/evidence-r356/README.md:19"
+   ]
+  },
+  {
+   "unit": "drive_extras_page.dart",
+   "module": "drive",
+   "spec": "drive_extras",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/058_drive_drive_extras_page.svg",
+   "code_file": "lib/src/features/drive/drive_extras_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r355.md:38",
+    "docs/evidence-r355/README.md:10"
+   ]
+  },
+  {
+   "unit": "drive_file_request_page.dart",
+   "module": "drive",
+   "spec": "drive_file_request",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/059_drive_drive_file_request_page.svg",
+   "code_file": "lib/src/features/drive/drive_file_request_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r356.md:32",
+    "docs/evidence-r356/README.md:16"
+   ]
+  },
+  {
+   "unit": "drive_folder_page.dart",
+   "module": "drive",
+   "spec": "drive_folder",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/060_drive_drive_folder_page.svg",
+   "code_file": "lib/src/features/drive/drive_folder_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r355.md:43",
+    "docs/evidence-r355/README.md:20"
+   ]
+  },
+  {
+   "unit": "drive_local_files_page.dart",
+   "module": "drive",
+   "spec": "drive_local_files",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/061_drive_drive_local_files_page.svg",
+   "code_file": "lib/src/features/drive/drive_local_files_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r355.md:40",
+    "docs/evidence-r355/README.md:18"
+   ]
+  },
+  {
+   "unit": "drive_notifications_page.dart",
+   "module": "drive",
+   "spec": "drive_notifications",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/062_drive_drive_notifications_page.svg",
+   "code_file": "lib/src/features/drive/drive_notifications_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r355.md:32",
+    "docs/evidence-r355/README.md:11"
+   ]
+  },
+  {
+   "unit": "drive_pdf_markup_page.dart",
+   "module": "drive",
+   "spec": "drive_pdf_markup",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/063_drive_drive_pdf_markup_page.svg",
+   "code_file": "lib/src/features/drive/drive_pdf_markup_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r356.md:33",
+    "docs/evidence-r356/README.md:11"
+   ]
+  },
+  {
+   "unit": "drive_pdf_text_layer.dart",
+   "module": "drive",
+   "spec": null,
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": null,
+   "code_file": "lib/src/features/drive/drive_pdf_text_layer.dart",
+   "judge": "非界面",
+   "code_note": "无 Widget 类（数据模型/平台抽象）",
+   "verdict": "E",
+   "evidence": [
+    "lib/src/features/drive/drive_pdf_text_layer.dart:61",
+    "lib/src/features/drive/drive_pdf_text_layer.dart:90"
+   ]
+  },
+  {
+   "unit": "drive_quota_page.dart",
+   "module": "drive",
+   "spec": "drive_quota",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/065_drive_drive_quota_page.svg",
+   "code_file": "lib/src/features/drive/drive_quota_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r355.md:39",
+    "docs/evidence-r355/README.md:17"
+   ]
+  },
+  {
+   "unit": "drive_scan_page.dart",
+   "module": "drive",
+   "spec": "drive_scan",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/066_drive_drive_scan_page.svg",
+   "code_file": "lib/src/features/drive/drive_scan_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r356.md:30",
+    "docs/evidence-r356/README.md:17"
+   ]
+  },
+  {
+   "unit": "drive_search_page.dart",
+   "module": "drive",
+   "spec": "drive_search",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/067_drive_drive_search_page.svg",
+   "code_file": "lib/src/features/drive/drive_search_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/evidence-r316/README.md:168",
+    "docs/evidence-r316/README.md:169"
+   ]
+  },
+  {
+   "unit": "drive_sync_tasks_page.dart",
+   "module": "drive",
+   "spec": "drive_sync_tasks",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/068_drive_drive_sync_tasks_page.svg",
+   "code_file": "lib/src/features/drive/drive_sync_tasks_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r355.md:41",
+    "docs/evidence-r355/README.md:21"
+   ]
+  },
+  {
+   "unit": "drive_team_members_page.dart",
+   "module": "drive",
+   "spec": "drive_team_members",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/069_drive_drive_team_members_page.svg",
+   "code_file": "lib/src/features/drive/drive_team_members_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r355.md:33",
+    "docs/evidence-r355/README.md:12"
+   ]
+  },
+  {
+   "unit": "drive_team_trash_page.dart",
+   "module": "drive",
+   "spec": "drive_team_trash",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/070_drive_drive_team_trash_page.svg",
+   "code_file": "lib/src/features/drive/drive_team_trash_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r355.md:37",
+    "docs/evidence-r355/README.md:16"
+   ]
+  },
+  {
+   "unit": "drive_text_editor_page.dart",
+   "module": "drive",
+   "spec": "drive_text_editor",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/071_drive_drive_text_editor_page.svg",
+   "code_file": "lib/src/features/drive/drive_text_editor_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r359.md:58",
+    "docs/evidence-r359/README.md:9"
+   ]
+  },
+  {
+   "unit": "drive_trash_page.dart",
+   "module": "drive",
+   "spec": "drive_trash",
+   "cite_anchor": "title",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/072_drive_drive_trash_page.svg",
+   "code_file": "lib/src/features/drive/drive_trash_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/device-verification.md:5212",
+    "docs/device-verification.md:5212"
+   ]
+  },
+  {
+   "unit": "book_resume.dart",
+   "module": "files",
+   "spec": "book_resume",
+   "cite_anchor": "title",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/073_files_book_resume.svg",
+   "code_file": "lib/src/features/files/book_resume.dart",
+   "judge": "经入口",
+   "code_note": "入口 build",
+   "verdict": "A",
+   "evidence": [
+    "docs/device-verification.md:2024",
+    "docs/device-verification.md:2006",
+    "docs/evidence-r316/README.md:219"
+   ]
+  },
+  {
+   "unit": "djvu_archive.dart",
+   "module": "files",
+   "spec": null,
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": null,
+   "code_file": "lib/src/features/files/djvu_archive.dart",
+   "judge": "非界面",
+   "code_note": "无 Widget 类（数据模型/平台抽象）",
+   "verdict": "E",
+   "evidence": [
+    "lib/src/features/files/djvu_archive.dart:2",
+    "lib/src/features/files/djvu_archive.dart:164"
+   ]
+  },
+  {
+   "unit": "drive_labels_page.dart",
+   "module": "files",
+   "spec": "drive_labels",
+   "cite_anchor": "title",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/075_files_drive_labels_page.svg",
+   "code_file": "lib/src/features/files/drive_labels_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/device-verification.md:975",
+    "docs/device-verification.md:975"
+   ]
+  },
+  {
+   "unit": "drive_more_page.dart",
+   "module": "files",
+   "spec": "drive_more",
+   "cite_anchor": "title",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/076_files_drive_more_page.svg",
+   "code_file": "lib/src/features/files/drive_more_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/device-verification.md:85",
+    "docs/evidence-r316/README.md:27"
+   ]
+  },
+  {
+   "unit": "drive_revisions_page.dart",
+   "module": "files",
+   "spec": "drive_revisions",
+   "cite_anchor": "title",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/077_files_drive_revisions_page.svg",
+   "code_file": "lib/src/features/files/drive_revisions_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/device-verification.md:902",
+    "docs/device-verification.md:1710"
+   ]
+  },
+  {
+   "unit": "drive_saf_on_demand_page.dart",
+   "module": "files",
+   "spec": "drive_saf_on_demand",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/078_files_drive_saf_on_demand_page.svg",
+   "code_file": "lib/src/features/files/drive_saf_on_demand_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r358.md:47",
+    "docs/evidence-r358/README.md:22"
+   ]
+  },
+  {
+   "unit": "drive_share_page.dart",
+   "module": "files",
+   "spec": "drive_share",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/079_files_drive_share_page.svg",
+   "code_file": "lib/src/features/files/drive_share_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/device-verification.md:178"
+   ]
+  },
+  {
+   "unit": "drive_tasks_page.dart",
+   "module": "files",
+   "spec": "drive_tasks",
+   "cite_anchor": "title",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/080_files_drive_tasks_page.svg",
+   "code_file": "lib/src/features/files/drive_tasks_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/device-verification.md:1715"
+   ]
+  },
+  {
+   "unit": "file_browse_page.dart",
+   "module": "files",
+   "spec": "file_browse",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/081_files_file_browse_page.svg",
+   "code_file": "lib/src/features/files/file_browse_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-screenshot-audit.md:133",
+    "docs/android-ui-screenshot-audit.md:133"
+   ]
+  },
+  {
+   "unit": "file_destination_picker.dart",
+   "module": "files",
+   "spec": "file_destination",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/082_files_file_destination_picker.svg",
+   "code_file": "lib/src/features/files/file_destination_picker.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-screenshot-audit.md:244",
+    "docs/device-verification.md:7131"
+   ]
+  },
+  {
+   "unit": "file_mount_page.dart",
+   "module": "files",
+   "spec": "file_mount",
+   "cite_anchor": "title",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/083_files_file_mount_page.svg",
+   "code_file": "lib/src/features/files/file_mount_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/device-verification.md:7138"
+   ]
+  },
+  {
+   "unit": "file_offline_page.dart",
+   "module": "files",
+   "spec": "file_offline",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/084_files_file_offline_page.svg",
+   "code_file": "lib/src/features/files/file_offline_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/device-verification.md:7398",
+    "docs/evidence-r302/README.md:90"
+   ]
+  },
+  {
+   "unit": "file_pages.dart",
+   "module": "files",
+   "spec": "file_pages",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/085_files_file_pages.svg",
+   "code_file": "lib/src/features/files/file_pages.dart",
+   "judge": "直达",
+   "code_note": "2 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r348.md:2314",
+    "docs/device-verification.md:7361",
+    "docs/evidence-r301/README.md:45",
+    "docs/android-ui-screenshot-audit.md:135"
+   ]
+  },
+  {
+   "unit": "file_preview_page.dart",
+   "module": "files",
+   "spec": "file_preview",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/086_files_file_preview_page.svg",
+   "code_file": "lib/src/features/files/file_preview_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r348.md:937",
+    "docs/android-ui-audit-r348.md:937"
+   ]
+  },
+  {
+   "unit": "office_page.dart",
+   "module": "files",
+   "spec": "office_page",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/087_files_office_page.svg",
+   "code_file": "lib/src/features/files/office_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r358.md:44",
+    "docs/evidence-r358/README.md:25"
+   ]
+  },
+  {
+   "unit": "office_viewer_page.dart",
+   "module": "files",
+   "spec": "office_viewer",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/088_files_office_viewer_page.svg",
+   "code_file": "lib/src/features/files/office_viewer_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/device-verification.md:4760",
+    "docs/device-verification.md:4760"
+   ]
+  },
+  {
+   "unit": "usb_devices_page.dart",
+   "module": "files",
+   "spec": "usb_devices",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/089_files_usb_devices_page.svg",
+   "code_file": "lib/src/features/files/usb_devices_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r358.md:45",
+    "docs/evidence-r358/README.md:20"
+   ]
+  },
+  {
+   "unit": "webdav_page.dart",
+   "module": "files",
+   "spec": "webdav_page",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/090_files_webdav_page.svg",
+   "code_file": "lib/src/features/files/webdav_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r358.md:46",
+    "docs/evidence-r358/README.md:21"
+   ]
+  },
+  {
+   "unit": "home_page.dart",
+   "module": "home",
+   "spec": null,
+   "cite_anchor": "file",
+   "manual_note": null,
+   "design_svg": null,
+   "code_file": "lib/src/features/home/home_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "E",
+   "evidence": [
+    "lib/src/features/home/home_page.dart:14"
+   ]
+  },
+  {
+   "unit": "login_page.dart",
+   "module": "login",
+   "spec": "login",
+   "cite_anchor": "title",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/092_login_login_page.svg",
+   "code_file": "lib/src/features/login/login_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/device-verification.md:4432"
+   ]
+  },
+  {
+   "unit": "mail_compose_page.dart",
+   "module": "mailplus",
+   "spec": "mail_compose",
+   "cite_anchor": "file",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/093_mailplus_mail_compose_page.svg",
+   "code_file": "lib/src/features/mailplus/mail_compose_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "E",
+   "evidence": [
+    "docs/android-acceptance-summary.md:614",
+    "docs/android-page-coverage-matrix.md:600"
+   ]
+  },
+  {
+   "unit": "mail_detail_page.dart",
+   "module": "mailplus",
+   "spec": "mail_detail",
+   "cite_anchor": "file",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/094_mailplus_mail_detail_page.svg",
+   "code_file": "lib/src/features/mailplus/mail_detail_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "E",
+   "evidence": [
+    "docs/android-acceptance-summary.md:614",
+    "docs/android-page-coverage-matrix.md:600"
+   ]
+  },
+  {
+   "unit": "mail_page.dart",
+   "module": "mailplus",
+   "spec": "mail_list",
+   "cite_anchor": "file",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/095_mailplus_mail_page.svg",
+   "code_file": "lib/src/features/mailplus/mail_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "E",
+   "evidence": [
+    "docs/android-acceptance-summary.md:614",
+    "docs/android-page-coverage-matrix.md:600"
+   ]
+  },
+  {
+   "unit": "media_player_view.dart",
+   "module": "media",
+   "spec": "media_player",
+   "cite_anchor": "manual",
+   "manual_note": "r348:147 是 §1.9「Audio / Video」实拍节的标题行（播放器整节都在其下）；r343:179 记播放器 `⋮` 次级菜单逐字 `搜索在线字幕…`/`画面比例`/`音轨`/`倍速 1.0x` 与子面板。",
+   "design_svg": "design/synhub_ui/out/screens/096_media_media_player_view.svg",
+   "code_file": "lib/src/features/media/media_player_view.dart",
+   "judge": "直达",
+   "code_note": "2 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r348.md:147",
+    "docs/evidence-r343/README.md:179"
+   ]
+  },
+  {
+   "unit": "note_adv_search_page.dart",
+   "module": "notes",
+   "spec": "note_adv_search",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/097_notes_note_adv_search_page.svg",
+   "code_file": "lib/src/features/notes/note_adv_search_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r357.md:36",
+    "docs/evidence-r357/README.md:20"
+   ]
+  },
+  {
+   "unit": "note_background_sync_page.dart",
+   "module": "notes",
+   "spec": "note_bg_sync",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/098_notes_note_background_sync_page.svg",
+   "code_file": "lib/src/features/notes/note_background_sync_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r357.md:37",
+    "docs/evidence-r357/README.md:21"
+   ]
+  },
+  {
+   "unit": "note_body.dart",
+   "module": "notes",
+   "spec": null,
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": null,
+   "code_file": "lib/src/features/notes/note_body.dart",
+   "judge": "直达",
+   "code_note": "4 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r357.md:42",
+    "docs/evidence-r357/README.md:27"
+   ]
+  },
+  {
+   "unit": "note_c3_pages.dart",
+   "module": "notes",
+   "spec": "note_c3",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/100_notes_note_c3_pages.svg",
+   "code_file": "lib/src/features/notes/note_c3_pages.dart",
+   "judge": "经入口",
+   "code_note": "入口 createState",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r357.md:43",
+    "docs/evidence-r357/README.md:17"
+   ]
+  },
+  {
+   "unit": "note_conflict_page.dart",
+   "module": "notes",
+   "spec": "note_conflict",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/101_notes_note_conflict_page.svg",
+   "code_file": "lib/src/features/notes/note_conflict_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r420.md:1",
+    "docs/evidence-r420/device/r420_23_conflict_page.png",
+    "docs/evidence-r420/device/r420_24_conflict_server_tab.png",
+    "docs/evidence-r420/device/r420_22_sync_result.png"
+   ]
+  },
+  {
+   "unit": "note_drawing_page.dart",
+   "module": "notes",
+   "spec": "note_drawing",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/102_notes_note_drawing_page.svg",
+   "code_file": "lib/src/features/notes/note_drawing_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r357.md:40",
+    "docs/evidence-r357/README.md:25"
+   ]
+  },
+  {
+   "unit": "note_editor_page.dart",
+   "module": "notes",
+   "spec": "note_editor",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/103_notes_note_editor_page.svg",
+   "code_file": "lib/src/features/notes/note_editor_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r348.md:749",
+    "docs/device-verification.md:4964"
+   ]
+  },
+  {
+   "unit": "note_fts_search_page.dart",
+   "module": "notes",
+   "spec": "note_fts",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/104_notes_note_fts_search_page.svg",
+   "code_file": "lib/src/features/notes/note_fts_search_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r357.md:35",
+    "docs/evidence-r357/README.md:16"
+   ]
+  },
+  {
+   "unit": "note_joined_page.dart",
+   "module": "notes",
+   "spec": "note_joined",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/105_notes_note_joined_page.svg",
+   "code_file": "lib/src/features/notes/note_joined_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r357.md:32",
+    "docs/evidence-r357/README.md:13"
+   ]
+  },
+  {
+   "unit": "note_nas_picker.dart",
+   "module": "notes",
+   "spec": "note_nas_picker",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/106_notes_note_nas_picker.svg",
+   "code_file": "lib/src/features/notes/note_nas_picker.dart",
+   "judge": "经入口",
+   "code_note": "入口 build",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r357.md:41",
+    "docs/evidence-r357/README.md:24"
+   ]
+  },
+  {
+   "unit": "note_overdue_settings_page.dart",
+   "module": "notes",
+   "spec": "note_overdue",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/107_notes_note_overdue_settings_page.svg",
+   "code_file": "lib/src/features/notes/note_overdue_settings_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r357.md:38",
+    "docs/evidence-r357/README.md:22"
+   ]
+  },
+  {
+   "unit": "note_recycle_page.dart",
+   "module": "notes",
+   "spec": "note_recycle",
+   "cite_anchor": "title",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/108_notes_note_recycle_page.svg",
+   "code_file": "lib/src/features/notes/note_recycle_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r348.md:1694",
+    "docs/android-acceptance-summary.md:575"
+   ]
+  },
+  {
+   "unit": "note_share_page.dart",
+   "module": "notes",
+   "spec": "note_share",
+   "cite_anchor": "manual",
+   "manual_note": "device-verification:1777：详情页 AppBar「共享」→ 共享页「公开分享开关 + 已分享给列表 + 添加用户或群组」；1783 另记加密笔记点共享只提示、一个请求都不发。",
+   "design_svg": "design/synhub_ui/out/screens/109_notes_note_share_page.svg",
+   "code_file": "lib/src/features/notes/note_share_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/device-verification.md:1777",
+    "docs/device-verification.md:1783"
+   ]
+  },
+  {
+   "unit": "note_shared_page.dart",
+   "module": "notes",
+   "spec": "note_shared",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/110_notes_note_shared_page.svg",
+   "code_file": "lib/src/features/notes/note_shared_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r357.md:44",
+    "docs/evidence-r357/README.md:28"
+   ]
+  },
+  {
+   "unit": "note_shelf_page.dart",
+   "module": "notes",
+   "spec": "note_shelf",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/111_notes_note_shelf_page.svg",
+   "code_file": "lib/src/features/notes/note_shelf_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r357.md:33",
+    "docs/evidence-r357/README.md:14"
+   ]
+  },
+  {
+   "unit": "note_shortcut_page.dart",
+   "module": "notes",
+   "spec": "note_shortcut",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/112_notes_note_shortcut_page.svg",
+   "code_file": "lib/src/features/notes/note_shortcut_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r357.md:34",
+    "docs/evidence-r357/README.md:15"
+   ]
+  },
+  {
+   "unit": "note_smart_page.dart",
+   "module": "notes",
+   "spec": "note_smart",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/113_notes_note_smart_page.svg",
+   "code_file": "lib/src/features/notes/note_smart_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r357.md:31",
+    "docs/evidence-r357/README.md:12"
+   ]
+  },
+  {
+   "unit": "note_tag_page.dart",
+   "module": "notes",
+   "spec": "note_tags",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/114_notes_note_tag_page.svg",
+   "code_file": "lib/src/features/notes/note_tag_page.dart",
+   "judge": "直达",
+   "code_note": "2 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r357.md:30",
+    "docs/evidence-r357/README.md:11"
+   ]
+  },
+  {
+   "unit": "note_todo_editor_page.dart",
+   "module": "notes",
+   "spec": "note_todo_editor",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/115_notes_note_todo_editor_page.svg",
+   "code_file": "lib/src/features/notes/note_todo_editor_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r357.md:39",
+    "docs/evidence-r357/README.md:23"
+   ]
+  },
+  {
+   "unit": "note_todo_page.dart",
+   "module": "notes",
+   "spec": "note_todo",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/116_notes_note_todo_page.svg",
+   "code_file": "lib/src/features/notes/note_todo_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r357.md:29",
+    "docs/evidence-r357/README.md:10"
+   ]
+  },
+  {
+   "unit": "note_view_page.dart",
+   "module": "notes",
+   "spec": "note_view",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/117_notes_note_view_page.svg",
+   "code_file": "lib/src/features/notes/note_view_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r348.md:1532",
+    "docs/android-ui-audit-r348.md:1532"
+   ]
+  },
+  {
+   "unit": "notes_page.dart",
+   "module": "notes",
+   "spec": "notes",
+   "cite_anchor": "title",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/118_notes_notes_page.svg",
+   "code_file": "lib/src/features/notes/notes_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r348.md:86",
+    "docs/android-ui-audit-r348.md:85"
+   ]
+  },
+  {
+   "unit": "office_doc_page.dart",
+   "module": "office",
+   "spec": "office_doc",
+   "cite_anchor": "manual",
+   "manual_note": "r348:103 第 1 行 **`.odoc` 阅读器**：标题栏 + `编辑` + `保存快照`、页脚 `适宽` + 页码 `1 / 2`、正文整页渲染（大标题/矢量插图/5 张内嵌位图）。文档里的文件名是 `5-day trip planner.odoc`，与 spec 标题 `评审纪要.odoc` 不同，故机械匹配不上。",
+   "design_svg": "design/synhub_ui/out/screens/119_office_office_doc_page.svg",
+   "code_file": "lib/src/features/office/office_doc_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r348.md:103"
+   ]
+  },
+  {
+   "unit": "office_doc_page_frame.dart",
+   "module": "office",
+   "spec": null,
+   "cite_anchor": "file",
+   "manual_note": null,
+   "design_svg": null,
+   "code_file": "lib/src/features/office/office_doc_page_frame.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "E",
+   "evidence": [
+    "lib/src/features/office/office_doc_page_frame.dart:171",
+    "lib/src/features/office/office_doc_view.dart:1365"
+   ]
+  },
+  {
+   "unit": "office_doc_paper.dart",
+   "module": "office",
+   "spec": null,
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": null,
+   "code_file": "lib/src/features/office/office_doc_paper.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "E",
+   "evidence": [
+    "lib/src/features/office/office_doc_paper.dart:598",
+    "lib/src/features/office/office_doc_paper.dart:599"
+   ]
+  },
+  {
+   "unit": "office_library_page.dart",
+   "module": "office",
+   "spec": "office_library",
+   "cite_anchor": "title",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/122_office_office_library_page.svg",
+   "code_file": "lib/src/features/office/office_library_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r348.md:106",
+    "docs/android-ui-audit-r348.md:1484"
+   ]
+  },
+  {
+   "unit": "office_sheet_page.dart",
+   "module": "office",
+   "spec": "office_sheet",
+   "cite_anchor": "manual",
+   "manual_note": "r348:104 第 2 行 **`.osheet` 阅读器**：`点按单元格即可编辑（改动会即时同步）`+`所有改动已确认`、工具栏 `适宽`+`25%`、列头 A–O/行号 1–83、分区色带、负数括号式。",
+   "design_svg": "design/synhub_ui/out/screens/123_office_office_sheet_page.svg",
+   "code_file": "lib/src/features/office/office_sheet_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r348.md:104"
+   ]
+  },
+  {
+   "unit": "office_slides_page.dart",
+   "module": "office",
+   "spec": "office_slides",
+   "cite_anchor": "manual",
+   "manual_note": "r348:105 第 3 行 **`.oslides` 阅读器**：`1 / 15 ⌄` + `备注` + `演示文稿信息` + `全屏放映`、第 1 页按设计渲染、底部缩略图轨 1–4+。",
+   "design_svg": "design/synhub_ui/out/screens/124_office_office_slides_page.svg",
+   "code_file": "lib/src/features/office/office_slides_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r348.md:105"
+   ]
+  },
+  {
+   "unit": "office_template_preview.dart",
+   "module": "office",
+   "spec": "office_template_preview",
+   "cite_anchor": "manual",
+   "manual_note": "r316:34 记「从模板新建」真机闭环：办公列表顶栏 `Template library` → 模板库（全部 53 = 文档 16 + 表格 13 + 演示文稿 24）→ 选模板进预览。",
+   "design_svg": "design/synhub_ui/out/screens/125_office_office_template_preview.svg",
+   "code_file": "lib/src/features/office/office_template_preview.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/evidence-r316/README.md:34"
+   ]
+  },
+  {
+   "unit": "photo_admin_page.dart",
+   "module": "photos",
+   "spec": "photo_admin",
+   "cite_anchor": "file",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/126_photos_photo_admin_page.svg",
+   "code_file": "lib/src/features/photos/photo_admin_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "E",
+   "evidence": [
+    "docs/android-ui-audit-r348.md:21",
+    "docs/android-acceptance-summary.md:614"
+   ]
+  },
+  {
+   "unit": "photo_ai_edit_settings_page.dart",
+   "module": "photos",
+   "spec": "photo_ai_edit",
+   "cite_anchor": "title",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/127_photos_photo_ai_edit_settings_page.svg",
+   "code_file": "lib/src/features/photos/photo_ai_edit_settings_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-acceptance-summary.md:147",
+    "docs/launch-readiness.md:360"
+   ]
+  },
+  {
+   "unit": "photo_background_tasks_page.dart",
+   "module": "photos",
+   "spec": "photo_tasks",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/128_photos_photo_background_tasks_page.svg",
+   "code_file": "lib/src/features/photos/photo_background_tasks_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r353.md:22",
+    "docs/evidence-r353/README.md:11"
+   ]
+  },
+  {
+   "unit": "photo_backup_page.dart",
+   "module": "photos",
+   "spec": "photo_backup",
+   "cite_anchor": "title",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/129_photos_photo_backup_page.svg",
+   "code_file": "lib/src/features/photos/photo_backup_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/device-verification.md:2497",
+    "docs/device-verification.md:2499"
+   ]
+  },
+  {
+   "unit": "photo_browse_page.dart",
+   "module": "photos",
+   "spec": "photo_browse",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/130_photos_photo_browse_page.svg",
+   "code_file": "lib/src/features/photos/photo_browse_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r348.md:116",
+    "docs/device-verification.md:5602"
+   ]
+  },
+  {
+   "unit": "photo_c2_page.dart",
+   "module": "photos",
+   "spec": "photo_c2",
+   "cite_anchor": "manual",
+   "manual_note": "r343:84 记「相册 → 更多相册功能」13 项逐条读（释放手机空间/共享相册/照片请求/地点/搜索照片/标签/人物/最近添加/后台任务…），副标题写清「做什么 + 边界」。",
+   "design_svg": "design/synhub_ui/out/screens/131_photos_photo_c2_page.svg",
+   "code_file": "lib/src/features/photos/photo_c2_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/evidence-r343/README.md:84"
+   ]
+  },
+  {
+   "unit": "photo_c2_sections.dart",
+   "module": "photos",
+   "spec": null,
+   "cite_anchor": "manual",
+   "manual_note": "device-verification:8186 记 r344 相册四段（相册/相册详情/照片请求）：`相册` 段排序 + 相册卡，相册详情 3 列方形格按真实比例不裁切；本单元是这几段的内部件，由 `photo_c2_page` 渲染。",
+   "design_svg": null,
+   "code_file": "lib/src/features/photos/photo_c2_sections.dart",
+   "judge": "直达",
+   "code_note": "6 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/device-verification.md:8186",
+    "docs/device-verification.md:8167"
+   ]
+  },
+  {
+   "unit": "photo_free_up_page.dart",
+   "module": "photos",
+   "spec": "photo_free_up",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/133_photos_photo_free_up_page.svg",
+   "code_file": "lib/src/features/photos/photo_free_up_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/device-verification.md:8098"
+   ]
+  },
+  {
+   "unit": "photo_map_page.dart",
+   "module": "photos",
+   "spec": "photo_map",
+   "cite_anchor": "title",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/134_photos_photo_map_page.svg",
+   "code_file": "lib/src/features/photos/photo_map_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/evidence-r343/README.md:86",
+    "docs/device-verification.md:8167"
+   ]
+  },
+  {
+   "unit": "photo_migration_page.dart",
+   "module": "photos",
+   "spec": "photo_migration",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/135_photos_photo_migration_page.svg",
+   "code_file": "lib/src/features/photos/photo_migration_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r353.md:23",
+    "docs/evidence-r353/README.md:12"
+   ]
+  },
+  {
+   "unit": "photo_recent_page.dart",
+   "module": "photos",
+   "spec": "photo_recent",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/136_photos_photo_recent_page.svg",
+   "code_file": "lib/src/features/photos/photo_recent_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r353.md:24",
+    "docs/evidence-r353/README.md:13"
+   ]
+  },
+  {
+   "unit": "photo_viewer_page.dart",
+   "module": "photos",
+   "spec": "photo_viewer",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/137_photos_photo_viewer_page.svg",
+   "code_file": "lib/src/features/photos/photo_viewer_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-screenshot-audit.md:882",
+    "docs/device-verification.md:2465"
+   ]
+  },
+  {
+   "unit": "photo_wave2_page.dart",
+   "module": "photos",
+   "spec": "photo_wave2",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/138_photos_photo_wave2_page.svg",
+   "code_file": "lib/src/features/photos/photo_wave2_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r353.md:25",
+    "docs/evidence-r353/README.md:14"
+   ]
+  },
+  {
+   "unit": "photo_wave3_page.dart",
+   "module": "photos",
+   "spec": "photo_wave3",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/139_photos_photo_wave3_page.svg",
+   "code_file": "lib/src/features/photos/photo_wave3_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r353.md:27",
+    "docs/evidence-r353/README.md:16"
+   ]
+  },
+  {
+   "unit": "sleep_backup_page.dart",
+   "module": "photos",
+   "spec": "sleep_backup",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/140_photos_sleep_backup_page.svg",
+   "code_file": "lib/src/features/photos/sleep_backup_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r353.md:28",
+    "docs/evidence-r353/README.md:17"
+   ]
+  },
+  {
+   "unit": "sleep_backup_platform.dart",
+   "module": "photos",
+   "spec": null,
+   "cite_anchor": "file",
+   "manual_note": null,
+   "design_svg": null,
+   "code_file": "lib/src/features/photos/sleep_backup_platform.dart",
+   "judge": "非界面",
+   "code_note": "无 Widget 类（数据模型/平台抽象）",
+   "verdict": "E",
+   "evidence": [
+    "lib/src/features/photos/sleep_backup_platform.dart:1"
+   ]
+  },
+  {
+   "unit": "global_search_page.dart",
+   "module": "search",
+   "spec": "global_search",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/142_search_global_search_page.svg",
+   "code_file": "lib/src/features/search/global_search_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r354.md:21..25",
+    "docs/evidence-r354/README.md:11"
+   ]
+  },
+  {
+   "unit": "search_page.dart",
+   "module": "search",
+   "spec": "search_advanced",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/039_downloads_download_bt_search_page.svg",
+   "code_file": "lib/src/features/search/search_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r348.md:1354"
+   ]
+  },
+  {
+   "unit": "passcode_screen.dart",
+   "module": "security",
+   "spec": "passcode",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/144_security_passcode_screen.svg",
+   "code_file": "lib/src/features/security/passcode_screen.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r360.md:51",
+    "docs/evidence-r360/README.md:17"
+   ]
+  },
+  {
+   "unit": "certificates_page.dart",
+   "module": "servers",
+   "spec": "certificates",
+   "cite_anchor": "title",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/145_servers_certificates_page.svg",
+   "code_file": "lib/src/features/servers/certificates_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r348.md:171"
+   ]
+  },
+  {
+   "unit": "nas_manager_page.dart",
+   "module": "servers",
+   "spec": "nas_manager",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/146_servers_nas_manager_page.svg",
+   "code_file": "lib/src/features/servers/nas_manager_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r419.md:1",
+    "docs/evidence-r419/device/r419_04_nas_manager.xml",
+    "docs/evidence-r419/device/r419_05_row1_menu.xml",
+    "docs/evidence-r419/device/r419_07_remove_confirm.xml",
+    "docs/evidence-r419/device/r419_08_add_dialog.xml"
+   ]
+  },
+  {
+   "unit": "server_setup_page.dart",
+   "module": "servers",
+   "spec": "server_setup",
+   "cite_anchor": "manual",
+   "manual_note": "device-verification:4426 连接页：`Connect to your NAS`、`QuickConnect ID` / `Direct address`；r331:96 另给同一屏的 `QUICKCONNECT | HTTPS` 段与输入框。",
+   "design_svg": "design/synhub_ui/out/screens/147_servers_server_setup_page.svg",
+   "code_file": "lib/src/features/servers/server_setup_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/device-verification.md:4426",
+    "docs/evidence-r331/README.md:96"
+   ]
+  },
+  {
+   "unit": "bots_page.dart",
+   "module": "settings",
+   "spec": "settings_bots",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/148_settings_bots_page.svg",
+   "code_file": "lib/src/features/settings/bots_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r358.md:41",
+    "docs/evidence-r358/README.md:11"
+   ]
+  },
+  {
+   "unit": "e2ee_page.dart",
+   "module": "settings",
+   "spec": "settings_e2ee",
+   "cite_anchor": "title",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/149_settings_e2ee_page.svg",
+   "code_file": "lib/src/features/settings/e2ee_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/device-verification.md:8187",
+    "docs/android-ui-audit-r348.md:170"
+   ]
+  },
+  {
+   "unit": "notification_settings_page.dart",
+   "module": "settings",
+   "spec": "settings_notifications",
+   "cite_anchor": "title",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/150_settings_notification_settings_page.svg",
+   "code_file": "lib/src/features/settings/notification_settings_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r348.md:805",
+    "docs/android-ui-audit-r348.md:805",
+    "docs/device-verification.md:118"
+   ]
+  },
+  {
+   "unit": "oem_keepalive_page.dart",
+   "module": "settings",
+   "spec": "settings_oem",
+   "cite_anchor": "manual",
+   "manual_note": "r348:1867 是 §9.3「设置 → 安全与后台 → 后台保活设置」的节标题，其下逐字给出本页正文（`本机 · HONOR · LGE-AN10 · MagicUI_6.0.0`、`尚未加入电池优化白名单`、`打开自启动管理`）。",
+   "design_svg": "design/synhub_ui/out/screens/151_settings_oem_keepalive_page.svg",
+   "code_file": "lib/src/features/settings/oem_keepalive_page.dart",
+   "judge": "直达",
+   "code_note": "2 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r348.md:1867"
+   ]
+  },
+  {
+   "unit": "personal_profile_page.dart",
+   "module": "settings",
+   "spec": "settings_profile",
+   "cite_anchor": "title",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/152_settings_personal_profile_page.svg",
+   "code_file": "lib/src/features/settings/personal_profile_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/evidence-r343/README.md:82",
+    "docs/device-verification.md:8225"
+   ]
+  },
+  {
+   "unit": "profile_edit_page.dart",
+   "module": "settings",
+   "spec": "settings_profile_edit",
+   "cite_anchor": "manual",
+   "manual_note": "device-verification:120 个人资料页：`Profile`、`Save`、`Choose from library`、`Take photo`、`Remove avatar`、`255 characters remaining`、`Up to 3 lines, visible to everyone`。",
+   "design_svg": "design/synhub_ui/out/screens/153_settings_profile_edit_page.svg",
+   "code_file": "lib/src/features/settings/profile_edit_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r348.md:168",
+    "docs/device-verification.md:120"
+   ]
+  },
+  {
+   "unit": "service_check_page.dart",
+   "module": "settings",
+   "spec": "settings_service_check",
+   "cite_anchor": "title",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/154_settings_service_check_page.svg",
+   "code_file": "lib/src/features/settings/service_check_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r348.md:1819",
+    "docs/android-ui-audit-r348.md:1821"
+   ]
+  },
+  {
+   "unit": "settings_page.dart",
+   "module": "settings",
+   "spec": "settings",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/127_photos_photo_ai_edit_settings_page.svg",
+   "code_file": "lib/src/features/settings/settings_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r348.md:314",
+    "docs/android-ui-audit-r348.md:314"
+   ]
+  },
+  {
+   "unit": "snooze_settings_page.dart",
+   "module": "settings",
+   "spec": "settings_snooze",
+   "cite_anchor": "title",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/156_settings_snooze_settings_page.svg",
+   "code_file": "lib/src/features/settings/snooze_settings_page.dart",
+   "judge": "直达",
+   "code_note": "2 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r348.md:169",
+    "docs/android-ui-audit-r348.md:988"
+   ]
+  },
+  {
+   "unit": "app_shell_page.dart",
+   "module": "shell",
+   "spec": "app_shell",
+   "cite_anchor": "title",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/157_shell_app_shell_page.svg",
+   "code_file": "lib/src/features/shell/app_shell_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "A",
+   "evidence": [
+    "docs/android-ui-audit-r348.md:178",
+    "docs/android-ui-audit-r348.md:179"
+   ]
+  },
+  {
+   "unit": "service_gate_pages.dart",
+   "module": "shell",
+   "spec": "service_gate",
+   "cite_anchor": "line",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/158_shell_service_gate_pages.svg",
+   "code_file": "lib/src/features/shell/service_gate_pages.dart",
+   "judge": "经入口",
+   "code_note": "入口 build",
+   "verdict": "A",
+   "evidence": [
+    "docs/device-verification.md:8073",
+    "docs/device-verification.md:8073"
+   ]
+  },
+  {
+   "unit": "surv_camera_page.dart",
+   "module": "surveillance",
+   "spec": "surv_camera",
+   "cite_anchor": "file",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/159_surveillance_surv_camera_page.svg",
+   "code_file": "lib/src/features/surveillance/surv_camera_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "E",
+   "evidence": [
+    "docs/android-acceptance-summary.md:614",
+    "docs/android-page-coverage-matrix.md:600"
+   ]
+  },
+  {
+   "unit": "surv_page.dart",
+   "module": "surveillance",
+   "spec": "surv",
+   "cite_anchor": "file",
+   "manual_note": null,
+   "design_svg": "design/synhub_ui/out/screens/160_surveillance_surv_page.svg",
+   "code_file": "lib/src/features/surveillance/surv_page.dart",
+   "judge": "直达",
+   "code_note": "1 处引用",
+   "verdict": "E",
+   "evidence": [
+    "docs/android-acceptance-summary.md:614",
+    "docs/android-page-coverage-matrix.md:600"
+   ]
+  }
+ ],
+ "counts": {
+  "E": 17,
+  "A": 143
+ }
+}

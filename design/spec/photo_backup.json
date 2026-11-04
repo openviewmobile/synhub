@@ -1,0 +1,78 @@
+{
+  "id": "photo_backup",
+  "unit": "lib/src/features/photos/photo_backup_page.dart",
+  "title": {
+    "zh": "手机备份",
+    "en": "Phone backup"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "settings",
+    "groups": [
+      {
+        "title": {
+          "zh": "备份目标",
+          "en": "Destination"
+        },
+        "rows": [
+          {
+            "label": {
+              "zh": "自动备份",
+              "en": "Auto backup"
+            },
+            "kind": "switch",
+            "value": true
+          },
+          {
+            "label": {
+              "zh": "备份落点",
+              "en": "Target folder"
+            },
+            "kind": "arrow"
+          }
+        ]
+      },
+      {
+        "title": {
+          "zh": "条件",
+          "en": "Conditions"
+        },
+        "rows": [
+          {
+            "label": {
+              "zh": "仅充电时备份",
+              "en": "Only while charging"
+            },
+            "kind": "switch",
+            "value": true
+          },
+          {
+            "label": {
+              "zh": "仅息屏时备份",
+              "en": "Only when screen off"
+            },
+            "kind": "switch",
+            "value": false
+          },
+          {
+            "label": {
+              "zh": "只备份 DCIM（相机）",
+              "en": "DCIM only"
+            },
+            "kind": "switch",
+            "value": true
+          }
+        ]
+      }
+    ],
+    "note": {
+      "zh": "当前未在充电，已按「仅充电时备份」暂停",
+      "en": "Not charging, backup paused by the charging rule"
+    }
+  },
+  "bottomNav": null
+}

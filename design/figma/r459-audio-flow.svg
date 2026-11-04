@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="850" height="948" viewBox="0 0 850 948">
+<rect x="0" y="0" width="850" height="948" rx="0" fill="#0d1014"/>
+<text x="8" y="34" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="18" fill="#e9edf2" font-weight="650" text-anchor="start">r459 · 音频流程设计稿（第 1 版）</text>
+<text x="8" y="56" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" fill="#98a2af" font-weight="400" text-anchor="start">① 现在播放：歌词由播放位置驱动、全屏只有一个 ⋮    ② 网络电台：行内可直接播放 + 底部常驻迷你播放器（暂停 / 关闭）</text>
+<rect x="0" y="96" width="393" height="852" rx="30" fill="#0f1216" stroke="#2a3140" stroke-width="1"/>
+<text x="20" y="126" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="11" fill="#98a2af" font-weight="400" text-anchor="start">9:41</text>
+<text x="369" y="126" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="11" fill="#98a2af" font-weight="400" text-anchor="end">⌁ ▮▮▮</text>
+<rect x="1" y="140" width="391" height="1" rx="0" fill="#2a3140"/>
+<text x="22" y="174" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="20" fill="#e9edf2" font-weight="400" text-anchor="start">‹</text>
+<text x="52" y="175" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="15" fill="#e9edf2" font-weight="600" text-anchor="start">正在播放</text>
+<text x="315" y="174" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="17" fill="#e9edf2" font-weight="400" text-anchor="start">♡</text>
+<circle cx="357" cy="163" r="2.4" fill="#e9edf2"/><circle cx="357" cy="168" r="2.4" fill="#e9edf2"/><circle cx="357" cy="173" r="2.4" fill="#e9edf2"/>
+<rect x="16" y="204" width="361" height="176" rx="18" fill="#1b2534" stroke="#2b3648" stroke-width="1"/>
+<circle cx="196.5" cy="292" r="54" fill="#2a3a55" fill-opacity="0.55"/>
+<text x="196.5" y="296" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="11" fill="#94a9c7" font-weight="400" text-anchor="middle" letter-spacing="1">封面 / 主色律动</text>
+<text x="16" y="412" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="17" fill="#e9edf2" font-weight="640" text-anchor="start">Demo Song</text>
+<text x="16" y="433" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#98a2af" font-weight="400" text-anchor="start">Demo Artist · 320 kbps · 无损直连</text>
+<rect x="16" y="458" width="361" height="4" rx="3" fill="#242b36"/>
+<rect x="16" y="458" width="137.18" height="4" rx="3" fill="#4c8dff"/>
+<circle cx="153.18" cy="460" r="6" fill="#ffffff"/>
+<text x="16" y="481" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="11" fill="#98a2af" font-weight="400" text-anchor="start">1:32</text>
+<text x="377" y="481" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="11" fill="#98a2af" font-weight="400" text-anchor="end">−2:19</text>
+<text x="34" y="525" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="15" fill="#98a2af" font-weight="400" text-anchor="middle">⤨</text>
+<text x="104" y="525" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="13" fill="#e9edf2" font-weight="400" text-anchor="middle">◀◀</text>
+<circle cx="196.5" cy="520" r="30" fill="#4c8dff"/>
+<path d="M191.75 510.7 L207.8 520 L191.75 529.3 Z" fill="#08111f"/>
+<text x="289" y="525" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="13" fill="#e9edf2" font-weight="400" text-anchor="middle">▶▶</text>
+<text x="359" y="525" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#98a2af" font-weight="400" text-anchor="middle">↻</text>
+<rect x="16" y="562" width="361" height="214" rx="14" fill="#1a1f27" stroke="#2a3140" stroke-width="1"/>
+<text x="30" y="586" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="11.5" fill="#98a2af" font-weight="600" text-anchor="start" letter-spacing="0.4">歌词</text>
+<text x="363" y="586" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="10.5" fill="#5c6675" font-weight="400" text-anchor="end">lrclib · 带时间轴</text>
+<text x="196.5" y="624" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" fill="#6f7b8b" font-weight="400" text-anchor="middle">Sample lyric line one</text>
+<text x="196.5" y="654" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" fill="#6f7b8b" font-weight="400" text-anchor="middle">Sample lyric line two</text>
+<text x="196.5" y="690" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="15" fill="#8fb8ff" font-weight="650" text-anchor="middle">Sample lyric line three</text>
+<text x="196.5" y="720" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" fill="#6f7b8b" font-weight="400" text-anchor="middle">Sample lyric line four</text>
+<text x="196.5" y="750" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" fill="#6f7b8b" font-weight="400" text-anchor="middle">Sample lyric line five</text>
+<rect x="44.125" y="857" width="34" height="34" rx="10" fill="#1a1f27"/>
+<text x="61.125" y="879" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#e9edf2" font-weight="400" text-anchor="middle">≡</text>
+<text x="61.125" y="908" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="10.5" fill="#98a2af" font-weight="400" text-anchor="middle">播放队列</text>
+<rect x="134.375" y="857" width="34" height="34" rx="10" fill="#1a1f27"/>
+<text x="151.375" y="879" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#e9edf2" font-weight="400" text-anchor="middle">⇄</text>
+<text x="151.375" y="908" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="10.5" fill="#98a2af" font-weight="400" text-anchor="middle">投送到</text>
+<rect x="224.625" y="857" width="34" height="34" rx="10" fill="#1a1f27"/>
+<text x="241.625" y="879" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#e9edf2" font-weight="400" text-anchor="middle">♩</text>
+<text x="241.625" y="908" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="10.5" fill="#98a2af" font-weight="400" text-anchor="middle">音效</text>
+<rect x="314.875" y="857" width="34" height="34" rx="10" fill="#1a1f27"/>
+<text x="331.875" y="879" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#e9edf2" font-weight="400" text-anchor="middle">⏱</text>
+<text x="331.875" y="908" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="10.5" fill="#98a2af" font-weight="400" text-anchor="middle">睡眠定时</text>
+<rect x="457" y="96" width="393" height="852" rx="30" fill="#0f1216" stroke="#2a3140" stroke-width="1"/>
+<text x="477" y="126" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="11" fill="#98a2af" font-weight="400" text-anchor="start">9:41</text>
+<text x="826" y="126" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="11" fill="#98a2af" font-weight="400" text-anchor="end">⌁ ▮▮▮</text>
+<rect x="458" y="140" width="391" height="1" rx="0" fill="#2a3140"/>
+<text x="479" y="174" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="20" fill="#e9edf2" font-weight="400" text-anchor="start">‹</text>
+<text x="509" y="175" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="15" fill="#e9edf2" font-weight="600" text-anchor="start">网络电台</text>
+<text x="772" y="174" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="16" fill="#e9edf2" font-weight="400" text-anchor="start">⌕</text>
+<circle cx="814" cy="163" r="2.4" fill="#e9edf2"/><circle cx="814" cy="168" r="2.4" fill="#e9edf2"/><circle cx="814" cy="173" r="2.4" fill="#e9edf2"/>
+<rect x="458" y="192" width="391" height="0" rx="0" fill="#2a3140"/>
+<rect x="473" y="200" width="50" height="32" rx="9" fill="#1d2c48" stroke="#2f4a7a" stroke-width="1"/>
+<text x="498.0" y="221" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#8fb8ff" font-weight="600" text-anchor="middle">全部</text>
+<rect x="531" y="200" width="50" height="32" rx="9" fill="#1a1f27"/>
+<text x="556.0" y="221" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#98a2af" font-weight="400" text-anchor="middle">收藏</text>
+<rect x="589" y="200" width="74" height="32" rx="9" fill="#1a1f27"/>
+<text x="626.0" y="221" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#98a2af" font-weight="400" text-anchor="middle">最近播放</text>
+<rect x="671" y="200" width="74" height="32" rx="9" fill="#1a1f27"/>
+<text x="708.0" y="221" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#98a2af" font-weight="400" text-anchor="middle">我的电台</text>
+<rect x="473" y="248" width="361" height="62" rx="13" fill="#1a1f27"/>
+<rect x="483" y="259" width="40" height="40" rx="11" fill="#8fb8ff" fill-opacity="0.9"/>
+<text x="503" y="285" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#0b121e" font-weight="700" text-anchor="middle">♫</text>
+<text x="535" y="277" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="13" fill="#e9edf2" font-weight="600" text-anchor="start">BBC Radio 1</text>
+<text x="535" y="295" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="11" fill="#98a2af" font-weight="400" text-anchor="start">Shoutcast · 128 kbps</text>
+<circle cx="804" cy="279" r="20" fill="#4c8dff"/>
+<rect x="800.128" y="272.18" width="2.42" height="13.64" rx="1" fill="#08111f"/><rect x="805.452" y="272.18" width="2.42" height="13.64" rx="1" fill="#08111f"/>
+<rect x="473" y="318" width="361" height="62" rx="13" fill="#1a1f27"/>
+<rect x="483" y="329" width="40" height="40" rx="11" fill="#ffd28f" fill-opacity="0.9"/>
+<text x="503" y="355" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#0b121e" font-weight="700" text-anchor="middle">♫</text>
+<text x="535" y="347" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="13" fill="#e9edf2" font-weight="600" text-anchor="start">Radio Paradise</text>
+<text x="535" y="365" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="11" fill="#98a2af" font-weight="400" text-anchor="start">MP3 · 320 kbps</text>
+<circle cx="804" cy="349" r="20" fill="#243040"/>
+<path d="M800.6 341.56 L813.44 349 L800.6 356.44 Z" fill="#8fb8ff"/>
+<rect x="473" y="388" width="361" height="62" rx="13" fill="#1a1f27"/>
+<rect x="483" y="399" width="40" height="40" rx="11" fill="#a6e3c5" fill-opacity="0.9"/>
+<text x="503" y="425" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#0b121e" font-weight="700" text-anchor="middle">♫</text>
+<text x="535" y="417" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="13" fill="#e9edf2" font-weight="600" text-anchor="start">Jazz24</text>
+<text x="535" y="435" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="11" fill="#98a2af" font-weight="400" text-anchor="start">AAC · 96 kbps</text>
+<circle cx="804" cy="419" r="20" fill="#243040"/>
+<path d="M800.6 411.56 L813.44 419 L800.6 426.44 Z" fill="#8fb8ff"/>
+<rect x="473" y="458" width="361" height="62" rx="13" fill="#1a1f27"/>
+<rect x="483" y="469" width="40" height="40" rx="11" fill="#f0a8c8" fill-opacity="0.9"/>
+<text x="503" y="495" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#0b121e" font-weight="700" text-anchor="middle">♫</text>
+<text x="535" y="487" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="13" fill="#e9edf2" font-weight="600" text-anchor="start">Classic FM</text>
+<text x="535" y="505" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="11" fill="#98a2af" font-weight="400" text-anchor="start">HLS · 128 kbps</text>
+<circle cx="804" cy="489" r="20" fill="#243040"/>
+<path d="M800.6 481.56 L813.44 489 L800.6 496.44 Z" fill="#8fb8ff"/>
+<rect x="473" y="528" width="361" height="56" rx="13" fill="#1a1f27" fill-opacity="0.55"/>
+<rect x="483" y="536" width="40" height="40" rx="11" fill="#2a3341"/>
+<text x="503" y="562" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="15" fill="#98a2af" font-weight="400" text-anchor="middle">＋</text>
+<text x="535" y="554" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="13" fill="#b9c3d0" font-weight="600" text-anchor="start">添加自定义电台</text>
+<text x="535" y="572" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="11" fill="#98a2af" font-weight="400" text-anchor="start">粘贴播放列表或直链</text>
+<rect x="469" y="860" width="369" height="64" rx="16" fill="#1d2531" stroke="#2c3646" stroke-width="1"/>
+<rect x="481" y="872" width="40" height="40" rx="10" fill="#22314a" stroke="#2b3648" stroke-width="1"/>
+<text x="537" y="887" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="12.5" fill="#e9edf2" font-weight="600" text-anchor="start">BBC Radio 1</text>
+<text x="537" y="905" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="10.5" fill="#98a2af" font-weight="400" text-anchor="start">正在播放 · 网络电台</text>
+<circle cx="766" cy="892" r="17" fill="#4c8dff"/>
+<rect x="762.656" y="886.11" width="2.09" height="11.78" rx="1" fill="#08111f"/><rect x="767.254" y="886.11" width="2.09" height="11.78" rx="1" fill="#08111f"/>
+<text x="808" y="897" font-family="-apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif" font-size="14" fill="#98a2af" font-weight="400" text-anchor="middle">✕</text>
+<g id="frame-now-playing">
+</g>
+</svg>

@@ -1,0 +1,50 @@
+{
+  "id": "nas_manager",
+  "unit": "lib/src/features/servers/nas_manager_page.dart",
+  "title": {
+    "zh": "NAS 管理",
+    "en": "Manage NAS"
+  },
+  "appbar": {
+    "actions": [
+      "plus",
+      "more"
+    ]
+  },
+  "rowIcon": "server",
+  "body": {
+    "type": "list",
+    "items": [
+      {
+        "title": {
+          "zh": "li-home",
+          "en": "li-home"
+        },
+        "sub": {
+          "zh": "当前连接 · QuickConnect",
+          "en": "Current · QuickConnect"
+        },
+        "lead": "#8FB8FF",
+        "trail": "chev"
+      },
+      {
+        "title": {
+          "zh": "office-nas",
+          "en": "office-nas"
+        },
+        "sub": {
+          "zh": "局域网 · 上次 3 天前",
+          "en": "LAN · 3 days ago"
+        },
+        "lead": "#A6E3C5",
+        "trail": "chev"
+      }
+    ]
+  },
+  "note": {
+    "zh": "同一账号可以连多台 NAS；切换需要重新验证口令",
+    "en": "One account, many NAS; switching asks for the password"
+  },
+  "fab": true,
+  "bottomNav": null
+}

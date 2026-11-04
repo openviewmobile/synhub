@@ -1,0 +1,41 @@
+{
+  "id": "photo_viewer",
+  "unit": "lib/src/features/photos/photo_viewer_page.dart",
+  "title": {
+    "zh": "第 3 / 128 张",
+    "en": "3 / 128"
+  },
+  "appbar": {
+    "actions": [
+      "share",
+      "more"
+    ]
+  },
+  "body": {
+    "type": "viewer",
+    "kind": "image",
+    "caption": {
+      "zh": "IMG_20260214_1032.jpg · 今天 10:32 · 4.2 MB",
+      "en": "IMG_20260214_1032.jpg · Today 10:32 · 4.2 MB"
+    },
+    "toolbar": [
+      {
+        "zh": "分享",
+        "en": "Share"
+      },
+      {
+        "zh": "收藏",
+        "en": "Favorite"
+      },
+      {
+        "zh": "信息",
+        "en": "Info"
+      },
+      {
+        "zh": "删除",
+        "en": "Delete"
+      }
+    ]
+  },
+  "bottomNav": null
+}

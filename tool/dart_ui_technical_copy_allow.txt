@@ -1,0 +1,14 @@
+# 「Dart 渲染点技术字样」白名单（**棘轮：只许减、不许加**）
+# 守卫 test/dart_ui_technical_copy_guard_test.dart
+#
+# 背景：r340 的守卫只扫 ARB；D46（r342 真机）证明 **Dart 渲染点是第二条旁路** ——
+# `设置 → AI 服务` 的「NAS AI Console」卡把运行时拼出来的 API 名直接印给用户
+# （`channel.detectedApis.join(' · ')` ⇒ `SYNO.AI.Completion · SYNO.AI.Thread · …`）。
+# 已改成用户文案；**技术事实挪进诊断页**，也就是下面这一条 ——
+# 它是**有意保留**的（诊断面正是技术事实该出现的地方），同时当守卫的"非空锚点"。
+#
+# 类别：diag = 诊断/只读渲染内部页专用（**不面向普通用户**）。此刻只有这一类。
+# ★ 陈旧检测：登记了却不再命中 ⇒ 守卫会红，必须删掉条目。
+#
+# 文件	类别/理由
+lib/src/features/diagnostics/diag_page.dart	diag 诊断页「服务端 AI 通道」一行：如实列出检测到的 API 名（技术自检页）

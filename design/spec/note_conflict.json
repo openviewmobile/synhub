@@ -1,0 +1,93 @@
+{
+  "id": "note_conflict",
+  "unit": "lib/src/features/notes/note_conflict_page.dart",
+  "title": {
+    "zh": "发现冲突",
+    "en": "Conflict found"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "compare",
+    "title": {
+      "zh": "这条笔记在两处都被改过，选一个版本",
+      "en": "This note changed in two places — pick one"
+    },
+    "options": [
+      {
+        "label": {
+          "zh": "本机版本",
+          "en": "This device"
+        },
+        "meta": [
+          {
+            "label": {
+              "zh": "修改于",
+              "en": "Modified"
+            },
+            "value": {
+              "zh": "今天 09:41",
+              "en": "Today 09:41"
+            }
+          },
+          {
+            "label": {
+              "zh": "字数",
+              "en": "Words"
+            },
+            "value": "412"
+          }
+        ],
+        "body": {
+          "zh": "时间线收口说明：一级是年/月，二级在当前月内按日期分组；点标题就地展开，不跳页。",
+          "en": "Two levels: year/month, then date groups; tapping a header expands in place."
+        }
+      },
+      {
+        "label": {
+          "zh": "服务端版本",
+          "en": "Server"
+        },
+        "meta": [
+          {
+            "label": {
+              "zh": "修改于",
+              "en": "Modified"
+            },
+            "value": {
+              "zh": "今天 09:52",
+              "en": "Today 09:52"
+            }
+          },
+          {
+            "label": {
+              "zh": "字数",
+              "en": "Words"
+            },
+            "value": "386"
+          }
+        ],
+        "body": {
+          "zh": "时间线收口：两级结构，月内按日期分组，标题点击展开。（服务端被同事改过）",
+          "en": "Two-level structure with date groups; header tap expands. Edited by a colleague."
+        }
+      }
+    ],
+    "keepBoth": {
+      "zh": "两份都留下（另存成本机副本）",
+      "en": "Keep both (save this-device copy separately)"
+    }
+  },
+  "footerAction": {
+    "zh": "采用服务端版本",
+    "en": "Use server version"
+  },
+  "note": {
+    "zh": "选中的版本会覆盖另一份；另一份留一份副本在回收站",
+    "en": "The chosen version wins; the other is kept in trash"
+  },
+  "bottomNav": null
+}

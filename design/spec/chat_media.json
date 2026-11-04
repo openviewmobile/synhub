@@ -1,0 +1,29 @@
+{
+  "id": "chat_media",
+  "unit": "lib/src/features/chat/channel_media_page.dart",
+  "title": {
+    "zh": "媒体与文件",
+    "en": "Media & files"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "tabs": [
+    {
+      "zh": "图片",
+      "en": "Photos"
+    },
+    {
+      "zh": "文件",
+      "en": "Files"
+    }
+  ],
+  "body": {
+    "type": "grid",
+    "count": 9,
+    "tileIcon": "image"
+  },
+  "bottomNav": null
+}

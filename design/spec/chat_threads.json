@@ -1,0 +1,68 @@
+{
+  "id": "chat_threads",
+  "unit": "lib/src/features/chat/subscribed_threads_page.dart",
+  "title": {
+    "zh": "订阅的话题",
+    "en": "Subscribed threads"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "list",
+    "sections": true,
+    "items": [
+      {
+        "section": {
+          "zh": "未读",
+          "en": "Unread"
+        },
+        "title": {
+          "zh": "时间线要不要两级？",
+          "en": "Two-level timeline?"
+        },
+        "sub": {
+          "zh": "# 设计评审 · 韩梅梅 回复",
+          "en": "# Design review · Han replied"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "section": {
+          "zh": "未读",
+          "en": "Unread"
+        },
+        "title": {
+          "zh": "暗色下分隔线太亮",
+          "en": "Dividers too bright"
+        },
+        "sub": {
+          "zh": "# 视觉 · 李雷 回复",
+          "en": "# Visual · Li replied"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "section": {
+          "zh": "已读",
+          "en": "Read"
+        },
+        "title": {
+          "zh": "外链要不要拦截",
+          "en": "Intercept external links?"
+        },
+        "sub": {
+          "zh": "# 安全 · 6 条回复",
+          "en": "# Security · 6 replies"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      }
+    ]
+  },
+  "bottomNav": null
+}

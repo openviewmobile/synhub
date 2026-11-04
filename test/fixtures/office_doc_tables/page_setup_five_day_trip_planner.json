@@ -1,0 +1,15 @@
+{
+ "type": "doc",
+ "attrs": {
+  "page_setup": {
+   "bottom": 2.54,
+   "left": 2.54,
+   "orientation": "portrait",
+   "page_type": "a4",
+   "right": 2.54,
+   "top": 2.54
+  },
+  "schema": 13,
+  "type": "document"
+ }
+}

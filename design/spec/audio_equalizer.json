@@ -1,0 +1,72 @@
+{
+  "id": "audio_equalizer",
+  "unit": "lib/src/features/audio/audio_equalizer.dart",
+  "title": {
+    "zh": "均衡器",
+    "en": "Equalizer"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "settings",
+    "groups": [
+      {
+        "title": {
+          "zh": "总开关",
+          "en": "Master"
+        },
+        "rows": [
+          {
+            "label": {
+              "zh": "启用均衡器",
+              "en": "Enable equalizer"
+            },
+            "kind": "switch",
+            "value": true
+          }
+        ]
+      },
+      {
+        "title": {
+          "zh": "频段",
+          "en": "Bands"
+        },
+        "rows": [
+          {
+            "label": "60 Hz",
+            "kind": "slider",
+            "value": 0.62
+          },
+          {
+            "label": "230 Hz",
+            "kind": "slider",
+            "value": 0.48
+          },
+          {
+            "label": "910 Hz",
+            "kind": "slider",
+            "value": 0.5
+          },
+          {
+            "label": "3.6 kHz",
+            "kind": "slider",
+            "value": 0.44
+          },
+          {
+            "label": "14 kHz",
+            "kind": "slider",
+            "value": 0.58
+          }
+        ]
+      }
+    ],
+    "note": {
+      "zh": "开启均衡器会影响无缝播放",
+      "en": "Enabling the equalizer affects gapless playback"
+    }
+  },
+  "bottomNav": null
+}

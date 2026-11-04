@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">星枢</string>
+    <!-- 待办提醒（Android 平台批 A）：系统通知渠道 dsnote 的名字与正文 -->
+    <string name="note_reminder_channel">待办提醒</string>
+    <string name="note_due_prefix">截止 %1$s</string>
+    <string name="note_overdue_title">逾期任务</string>
+    <string name="note_overdue_count">%1$d 条未完成任务已逾期</string>
+    <!-- 相册「手机自动备份」：系统通知渠道 + 前台服务通知标题 -->
+    <string name="photo_backup_channel_name">备份进程</string>
+    <string name="photo_backup_notification_title">相册备份</string>
+    <!-- 主屏小组件（P66 相册 / N1 笔记）：组件名 + 占位文案 + 行内文案 -->
+    <string name="widget_photos_label">相册</string>
+    <string name="widget_notes_label">笔记</string>
+    <string name="widget_quickstart_label">快捷启动</string>
+    <string name="widget_action_camera">拍照新建</string>
+    <string name="widget_action_audio">录音新建</string>
+    <string name="widget_action_attach">加附件新建</string>
+    <string name="widget_notebooks_label">笔记列表</string>
+    <string name="widget_todos_label">待办</string>
+    <string name="widget_new_note_label">新建笔记</string>
+    <string name="widget_new_note_hint">点一下就开始写</string>
+    <string name="widget_notebook_pick">选择笔记本</string>
+    <string name="widget_notebook_all">全部笔记</string>
+    <string name="widget_notebook_save_failed">保存选择失败</string>
+    <string name="widget_notebook_count">%1$d 条笔记</string>
+    <string name="widget_placeholder_not_logged_in">打开 App 登录后，这里会显示内容</string>
+    <string name="widget_placeholder_not_connected">还没连接 NAS，连接后这里会显示内容</string>
+    <string name="widget_placeholder_no_photos">相册里还没有照片</string>
+    <string name="widget_placeholder_no_notes">还没有笔记，点一下就能新建</string>
+    <string name="widget_placeholder_no_notebooks">还没有笔记本</string>
+    <string name="widget_placeholder_no_todos">没有未完成的待办</string>
+    <string name="widget_updated_prefix">更新于 %1$s</string>
+    <string name="widget_due_prefix">截止 %1$s</string>
+    <string name="widget_encrypted_marker">已加密</string>
+    <string name="widget_untitled_note">无标题笔记</string>
+    <string name="widget_untitled_notebook">未命名笔记本</string>
+    <string name="widget_untitled_todo">未命名待办</string>
+    <!-- 第 41 轮：原生可见文案（通知/前台服务）中文 -->
+    <string name="chat_reply_hint">回复…</string>
+    <string name="chat_connecting_foreground">正在保持连接</string>
+    <string name="chat_reconnecting_foreground">正在恢复连接</string>
+    <string name="sleep_backup_channel">休眠备份提醒</string>
+    <string name="photo_backup_preparing">准备备份…</string>
+    <string name="photo_backup_progress">正在备份 %1$d / %2$d</string>
+    <string name="photo_backup_running">正在备份…</string>
+    <string name="state_done">完成</string>
+    <string name="state_failed">失败</string>
+    <string name="photo_backup_no_callback">失败：未注册后台回调</string>
+    <string name="photo_backup_failed_fmt">失败：%1$s</string>
+    <!-- r341 D42：通知渠道名/描述中文 -->
+    <string name="chat_service_channel">后台连接</string>
+    <string name="chat_service_channel_desc">保持与 Chat Server 的长连接</string>
+    <string name="chat_messages_channel">新消息</string>
+    <string name="chat_messages_channel_desc">频道新消息通知</string>
+    <string name="download_done_channel">下载完成</string>
+    <string name="download_done_channel_desc">下载任务完成提醒</string>
+</resources>

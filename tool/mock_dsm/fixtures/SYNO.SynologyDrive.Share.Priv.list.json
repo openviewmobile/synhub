@@ -1,0 +1,8 @@
+{
+  "_source": "**键名**出自本仓客户端解析代码 `lib/src/data/drive_api.dart:825-845`（`searchPrincipals`）：响应是 `data.list[]`，每项读 `name` / `nickname` / `type`（`type` 缺省按 `user`）；请求参数 `query` / `limit` / `additional:'[\"nickname\"]'` / `filter:'{\"login\":false}'` 是**官方 Web 前端同款**（同一处注释记录）。API/method/版本 `SYNO.SynologyDrive.Share.Priv` / `list` / **v1** 出自 `tool/mock_dsm/catalog.json`（反编译 SPK 的 `webapi/*.lib`，权威）。**取值是构造的**（本机没有为这条接口留真机回包），只用它验证「数组形状 + 三个字段 + 空结果不是错误」，**不冒充真机样本**。",
+  "_note": "★ 与根 API `SYNO.SynologyDrive.Share:list` **不是一回事**：根 `Share` 是桌面同步/管理台面（Hybrid Share、索引迁移），普通账号真机回 **105（权限不足）**，见 `docs/api-method-coverage.md:370,377`；App 用的是 `Share.Priv/list`（分享权限位/可选人）。",
+  "list": [
+    { "name": "demo-user-1", "nickname": "示例用户甲", "type": "user" },
+    { "name": "demo-group-1", "nickname": "示例研发组", "type": "group" }
+  ]
+}

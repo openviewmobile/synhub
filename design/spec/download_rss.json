@@ -1,0 +1,70 @@
+{
+  "id": "download_rss",
+  "unit": "lib/src/features/downloads/download_rss_page.dart",
+  "title": {
+    "zh": "RSS 订阅",
+    "en": "RSS feeds"
+  },
+  "appbar": {
+    "actions": [
+      "plus",
+      "more"
+    ]
+  },
+  "rowIcon": "download",
+  "body": {
+    "type": "list",
+    "sections": true,
+    "items": [
+      {
+        "section": {
+          "zh": "我的订阅",
+          "en": "My feeds"
+        },
+        "title": {
+          "zh": "Ubuntu 发布",
+          "en": "Ubuntu releases"
+        },
+        "sub": {
+          "zh": "12 条 · 最后更新 2 小时前",
+          "en": "12 items · updated 2h ago"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "section": {
+          "zh": "我的订阅",
+          "en": "My feeds"
+        },
+        "title": {
+          "zh": "Debian 镜像",
+          "en": "Debian mirrors"
+        },
+        "sub": {
+          "zh": "8 条 · 最后更新 昨天",
+          "en": "8 items · updated yesterday"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "section": {
+          "zh": "推荐",
+          "en": "Suggested"
+        },
+        "title": {
+          "zh": "Fedora 公告",
+          "en": "Fedora announce"
+        },
+        "sub": {
+          "zh": "6 条",
+          "en": "6 items"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      }
+    ]
+  },
+  "bottomNav": null
+}

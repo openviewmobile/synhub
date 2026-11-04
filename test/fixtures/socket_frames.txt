@@ -1,0 +1,11 @@
+0{"sid":"MRvZqUcQrS-r1S5IAAAD","upgrades":[],"pingInterval":25000,"pingTimeout":60000}
+40
+42["client.init",{"id":"MRvZqUcQrS-r1S5IAAAD","version":"2.0.0"}]
+42["client.broadcast",{"type":"user.update","data":{"avatar_version":0,"create_at":1756981784474,"delete_at":0,"disable_system_post":false,"dsm_uid":1028,"first_time_login":false,"human_type":"dsm","is_disabled":false,"nickname":"","status":"online","type":"human","update_at":1789573009235,"user_id":14,"user_props":{"avatar_color":"#94bf13","description":"","email":"","is_always_offline":false,"key_pair":{"private_key_enc":"","public_key":""},"last_post_at":0,"last_webhook_post_at":0,"preference":{"calendar_enable":true,"notification_browser_active":false,"notification_mute":false,"notification_showmessage":true,"prefer_user_name_format":"nickname","sidebar_pinning_unread":false,"snooze":0,"snooze_schedule_enable":false,"theme_background":0,"theme_style":"light"},"timezone":"","timezoneUTC":"Asia/Shanghai"},"username":"demo_user"}}]
+40
+42["client.init",{"id":"MRvZqUcQrS-r1S5IAAAD","version":"2.0.0"}]
+
+# ---- 2026-09 追加：B 会话收到 A 发的消息（实测；注意 channel_id 在顶层，
+#      data 里只有 creator_id/post_id/thread_id/create_at/mentions）----
+42["client.post.create",{"user_id":14,"channel_id":1,"data":{"creator_id":14,"create_at":1789574657601,"mentions":[],"post_id":4294967302,"thread_id":0}}]
+42["client.broadcast",{"type":"post.delete","data":{"channel_id":1,"disable_system_post":false,"lazy_delete":true,"post_id":4294967302}}]

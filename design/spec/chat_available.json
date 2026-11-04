@@ -1,0 +1,61 @@
+{
+  "id": "chat_available",
+  "unit": "lib/src/features/chat/available_channels_page.dart",
+  "title": {
+    "zh": "可加入的频道",
+    "en": "Channels to join"
+  },
+  "appbar": {
+    "actions": [
+      "search",
+      "more"
+    ]
+  },
+  "rowIcon": "chat",
+  "body": {
+    "type": "list",
+    "items": [
+      {
+        "title": {
+          "zh": "# 前端周会",
+          "en": "# Frontend weekly"
+        },
+        "sub": {
+          "zh": "48 人 · 公开",
+          "en": "48 members · public"
+        },
+        "lead": "#8FB8FF",
+        "trail": "plus"
+      },
+      {
+        "title": {
+          "zh": "# 摄影",
+          "en": "# Photography"
+        },
+        "sub": {
+          "zh": "126 人 · 公开",
+          "en": "126 members · public"
+        },
+        "lead": "#A6E3C5",
+        "trail": "plus"
+      },
+      {
+        "title": {
+          "zh": "# 读书",
+          "en": "# Books"
+        },
+        "sub": {
+          "zh": "31 人 · 公开",
+          "en": "31 members · public"
+        },
+        "lead": "#F0A8C8",
+        "trail": "plus"
+      }
+    ]
+  },
+  "note": {
+    "zh": "加入后频道会出现在聊天列表里",
+    "en": "Joined channels appear in your chat list"
+  },
+  "bottomNav": null
+}

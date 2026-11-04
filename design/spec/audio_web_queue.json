@@ -1,0 +1,40 @@
+{
+  "id": "audio_web_queue",
+  "unit": "lib/src/features/audio/audio_web_queue_page.dart",
+  "title": {
+    "zh": "服务端播放队列",
+    "en": "Server play queue"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "list",
+    "numbered": true,
+    "items": [
+      {
+        "title": "Demo Song",
+        "sub": "Demo Artist · 3:51",
+        "trail": "pause"
+      },
+      {
+        "title": "Nothing's Gonna Change Demo Song",
+        "sub": "George Benson · 3:59",
+        "trail": "more"
+      },
+      {
+        "title": "Season in the Sun",
+        "sub": "Demo Artist · 3:44",
+        "trail": "more"
+      },
+      {
+        "title": "Because of You",
+        "sub": "Kelly Clarkson · 3:39",
+        "trail": "more"
+      }
+    ]
+  },
+  "bottomNav": null
+}

@@ -1,0 +1,757 @@
+{
+ "attrs": {
+  "colgroup": [
+   {
+    "width": 301
+   },
+   {
+    "width": 299
+   }
+  ],
+  "synotable": "5AyzplBQto"
+ },
+ "content": [
+  {
+   "attrs": {
+    "height": 26
+   },
+   "content": [
+    {
+     "attrs": {
+      "borderBottomColor": "#ffffff",
+      "borderBottomStyle": "solid",
+      "borderBottomWidth": 1,
+      "borderLeftColor": "#ffffff",
+      "borderLeftStyle": "solid",
+      "borderLeftWidth": 1,
+      "borderRightColor": "#ffffff",
+      "borderRightStyle": "solid",
+      "borderRightWidth": 1,
+      "borderTopColor": "#ffffff",
+      "borderTopStyle": "solid",
+      "borderTopWidth": 1,
+      "colspan": 1,
+      "rowspan": 1,
+      "verticalAlign": "middle"
+     },
+     "content": [
+      {
+       "attrs": {
+        "headingId": "rSkJS249i0",
+        "headingLevel": 1,
+        "paddingTop": 5.333333333333333
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 12
+          },
+          {
+           "_": "font_family",
+           "complexScript": "Trebuchet MS",
+           "eastAsia": "Trebuchet MS",
+           "value": "Trebuchet MS"
+          },
+          {
+           "_": "strong"
+          },
+          {
+           "_": "color",
+           "value": "#00b23b"
+          }
+         ],
+         "text": "Clothes",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      }
+     ],
+     "type": "table_cell"
+    },
+    {
+     "attrs": {
+      "borderBottomColor": "#ffffff",
+      "borderBottomStyle": "solid",
+      "borderBottomWidth": 1,
+      "borderLeftColor": "#ffffff",
+      "borderLeftStyle": "solid",
+      "borderLeftWidth": 1,
+      "borderRightColor": "#ffffff",
+      "borderRightStyle": "solid",
+      "borderRightWidth": 1,
+      "borderTopColor": "#ffffff",
+      "borderTopStyle": "solid",
+      "borderTopWidth": 1,
+      "colspan": 1,
+      "rowspan": 1,
+      "verticalAlign": "middle"
+     },
+     "content": [
+      {
+       "attrs": {
+        "headingId": "q4gT4Anrid",
+        "headingLevel": 1,
+        "paddingTop": 5.333333333333333
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 12
+          },
+          {
+           "_": "font_family",
+           "complexScript": "Trebuchet MS",
+           "eastAsia": "Trebuchet MS",
+           "value": "Trebuchet MS"
+          },
+          {
+           "_": "strong"
+          },
+          {
+           "_": "color",
+           "value": "#00b23b"
+          }
+         ],
+         "text": "Toiletries",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      }
+     ],
+     "type": "table_cell"
+    }
+   ],
+   "type": "table_row"
+  },
+  {
+   "attrs": {
+    "height": 44
+   },
+   "content": [
+    {
+     "attrs": {
+      "borderBottomColor": "#ffffff",
+      "borderBottomStyle": "solid",
+      "borderBottomWidth": 1,
+      "borderLeftColor": "#ffffff",
+      "borderLeftStyle": "solid",
+      "borderLeftWidth": 1,
+      "borderRightColor": "#ffffff",
+      "borderRightStyle": "solid",
+      "borderRightWidth": 1,
+      "borderTopColor": "#ffffff",
+      "borderTopStyle": "solid",
+      "borderTopWidth": 1,
+      "colspan": 1,
+      "rowspan": 1,
+      "verticalAlign": "middle"
+     },
+     "content": [
+      {
+       "attrs": {
+        "listId": "sLyw4nPHmt",
+        "textMarks": [
+         {
+          "_": "underline"
+         }
+        ]
+       },
+       "content": [
+        {
+         "text": "Swimsuits",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "listId": "sLyw4nPHmt",
+        "textMarks": [
+         {
+          "_": "underline"
+         }
+        ]
+       },
+       "content": [
+        {
+         "text": "Workout wear",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "listId": "sLyw4nPHmt",
+        "textMarks": [
+         {
+          "_": "underline"
+         }
+        ]
+       },
+       "content": [
+        {
+         "text": "Beach wear",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      }
+     ],
+     "type": "table_cell"
+    },
+    {
+     "attrs": {
+      "borderBottomColor": "#ffffff",
+      "borderBottomStyle": "solid",
+      "borderBottomWidth": 1,
+      "borderLeftColor": "#ffffff",
+      "borderLeftStyle": "solid",
+      "borderLeftWidth": 1,
+      "borderRightColor": "#ffffff",
+      "borderRightStyle": "solid",
+      "borderRightWidth": 1,
+      "borderTopColor": "#ffffff",
+      "borderTopStyle": "solid",
+      "borderTopWidth": 1,
+      "colspan": 1,
+      "rowspan": 1,
+      "verticalAlign": "middle"
+     },
+     "content": [
+      {
+       "attrs": {
+        "listId": "VoVVhgjYoX"
+       },
+       "content": [
+        {
+         "text": "Shampoo and conditioner",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "listId": "VoVVhgjYoX"
+       },
+       "content": [
+        {
+         "text": "Floss",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "listId": "VoVVhgjYoX"
+       },
+       "content": [
+        {
+         "text": "Moisturizer",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      }
+     ],
+     "type": "table_cell"
+    }
+   ],
+   "type": "table_row"
+  },
+  {
+   "attrs": {
+    "height": 54
+   },
+   "content": [
+    {
+     "attrs": {
+      "borderBottomColor": "#ffffff",
+      "borderBottomStyle": "solid",
+      "borderBottomWidth": 1,
+      "borderLeftColor": "#ffffff",
+      "borderLeftStyle": "solid",
+      "borderLeftWidth": 1,
+      "borderRightColor": "#ffffff",
+      "borderRightStyle": "solid",
+      "borderRightWidth": 1,
+      "borderTopColor": "#ffffff",
+      "borderTopStyle": "solid",
+      "borderTopWidth": 1,
+      "colspan": 1,
+      "rowspan": 1,
+      "verticalAlign": "middle"
+     },
+     "content": [
+      {
+       "attrs": {
+        "headingId": "L8LMuQPQHL",
+        "headingLevel": 1,
+        "paddingTop": 5.333333333333333
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 12
+          },
+          {
+           "_": "font_family",
+           "complexScript": "Trebuchet MS",
+           "eastAsia": "Trebuchet MS",
+           "value": "Trebuchet MS"
+          },
+          {
+           "_": "strong"
+          },
+          {
+           "_": "color",
+           "value": "#00b23b"
+          }
+         ],
+         "text": "Important Documents",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      }
+     ],
+     "type": "table_cell"
+    },
+    {
+     "attrs": {
+      "borderBottomColor": "#ffffff",
+      "borderBottomStyle": "solid",
+      "borderBottomWidth": 1,
+      "borderLeftColor": "#ffffff",
+      "borderLeftStyle": "solid",
+      "borderLeftWidth": 1,
+      "borderRightColor": "#ffffff",
+      "borderRightStyle": "solid",
+      "borderRightWidth": 1,
+      "borderTopColor": "#ffffff",
+      "borderTopStyle": "solid",
+      "borderTopWidth": 1,
+      "colspan": 1,
+      "rowspan": 1,
+      "verticalAlign": "middle"
+     },
+     "content": [
+      {
+       "attrs": {
+        "headingId": "e14UDblcwZ",
+        "headingLevel": 1,
+        "paddingTop": 5.333333333333333
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 12
+          },
+          {
+           "_": "font_family",
+           "complexScript": "Trebuchet MS",
+           "eastAsia": "Trebuchet MS",
+           "value": "Trebuchet MS"
+          },
+          {
+           "_": "strong"
+          },
+          {
+           "_": "color",
+           "value": "#00b23b"
+          }
+         ],
+         "text": "Medical",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      }
+     ],
+     "type": "table_cell"
+    }
+   ],
+   "type": "table_row"
+  },
+  {
+   "attrs": {
+    "height": 91
+   },
+   "content": [
+    {
+     "attrs": {
+      "borderBottomColor": "#ffffff",
+      "borderBottomStyle": "solid",
+      "borderBottomWidth": 1,
+      "borderLeftColor": "#ffffff",
+      "borderLeftStyle": "solid",
+      "borderLeftWidth": 1,
+      "borderRightColor": "#ffffff",
+      "borderRightStyle": "solid",
+      "borderRightWidth": 1,
+      "borderTopColor": "#ffffff",
+      "borderTopStyle": "solid",
+      "borderTopWidth": 1,
+      "colspan": 1,
+      "rowspan": 1,
+      "verticalAlign": "middle"
+     },
+     "content": [
+      {
+       "attrs": {
+        "listId": "ItrE3fHI11"
+       },
+       "content": [
+        {
+         "text": "Passport",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "listId": "ItrE3fHI11"
+       },
+       "content": [
+        {
+         "text": "Travel and event tickets",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "listId": "ItrE3fHI11"
+       },
+       "content": [
+        {
+         "text": "Insurance card",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      }
+     ],
+     "type": "table_cell"
+    },
+    {
+     "attrs": {
+      "borderBottomColor": "#ffffff",
+      "borderBottomStyle": "solid",
+      "borderBottomWidth": 1,
+      "borderLeftColor": "#ffffff",
+      "borderLeftStyle": "solid",
+      "borderLeftWidth": 1,
+      "borderRightColor": "#ffffff",
+      "borderRightStyle": "solid",
+      "borderRightWidth": 1,
+      "borderTopColor": "#ffffff",
+      "borderTopStyle": "solid",
+      "borderTopWidth": 1,
+      "colspan": 1,
+      "rowspan": 1,
+      "verticalAlign": "middle"
+     },
+     "content": [
+      {
+       "attrs": {
+        "listId": "wpv0wdFN8f"
+       },
+       "content": [
+        {
+         "text": "Sunscreen",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "listId": "wpv0wdFN8f"
+       },
+       "content": [
+        {
+         "text": "Lip balm",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "listId": "wpv0wdFN8f"
+       },
+       "content": [
+        {
+         "text": "Bandages",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      }
+     ],
+     "type": "table_cell"
+    }
+   ],
+   "type": "table_row"
+  },
+  {
+   "attrs": {
+    "height": 53
+   },
+   "content": [
+    {
+     "attrs": {
+      "borderBottomColor": "#ffffff",
+      "borderBottomStyle": "solid",
+      "borderBottomWidth": 1,
+      "borderLeftColor": "#ffffff",
+      "borderLeftStyle": "solid",
+      "borderLeftWidth": 1,
+      "borderRightColor": "#ffffff",
+      "borderRightStyle": "solid",
+      "borderRightWidth": 1,
+      "borderTopColor": "#ffffff",
+      "borderTopStyle": "solid",
+      "borderTopWidth": 1,
+      "colspan": 1,
+      "rowspan": 1,
+      "verticalAlign": "middle"
+     },
+     "content": [
+      {
+       "attrs": {
+        "headingId": "ed8qWa4LJH",
+        "headingLevel": 1,
+        "paddingTop": 5.333333333333333
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 12
+          },
+          {
+           "_": "font_family",
+           "complexScript": "Trebuchet MS",
+           "eastAsia": "Trebuchet MS",
+           "value": "Trebuchet MS"
+          },
+          {
+           "_": "strong"
+          },
+          {
+           "_": "color",
+           "value": "#00b23b"
+          }
+         ],
+         "text": "Accessories",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      }
+     ],
+     "type": "table_cell"
+    },
+    {
+     "attrs": {
+      "borderBottomColor": "#ffffff",
+      "borderBottomStyle": "solid",
+      "borderBottomWidth": 1,
+      "borderLeftColor": "#ffffff",
+      "borderLeftStyle": "solid",
+      "borderLeftWidth": 1,
+      "borderRightColor": "#ffffff",
+      "borderRightStyle": "solid",
+      "borderRightWidth": 1,
+      "borderTopColor": "#ffffff",
+      "borderTopStyle": "solid",
+      "borderTopWidth": 1,
+      "colspan": 1,
+      "rowspan": 1,
+      "verticalAlign": "middle"
+     },
+     "content": [
+      {
+       "attrs": {
+        "headingId": "jwkaEvelJn",
+        "headingLevel": 1,
+        "paddingTop": 5.333333333333333
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 12
+          },
+          {
+           "_": "font_family",
+           "complexScript": "Trebuchet MS",
+           "eastAsia": "Trebuchet MS",
+           "value": "Trebuchet MS"
+          },
+          {
+           "_": "strong"
+          },
+          {
+           "_": "color",
+           "value": "#00b23b"
+          }
+         ],
+         "text": "Electronics",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      }
+     ],
+     "type": "table_cell"
+    }
+   ],
+   "type": "table_row"
+  },
+  {
+   "attrs": {
+    "height": 91
+   },
+   "content": [
+    {
+     "attrs": {
+      "borderBottomColor": "#ffffff",
+      "borderBottomStyle": "solid",
+      "borderBottomWidth": 1,
+      "borderLeftColor": "#ffffff",
+      "borderLeftStyle": "solid",
+      "borderLeftWidth": 1,
+      "borderRightColor": "#ffffff",
+      "borderRightStyle": "solid",
+      "borderRightWidth": 1,
+      "borderTopColor": "#ffffff",
+      "borderTopStyle": "solid",
+      "borderTopWidth": 1,
+      "colspan": 1,
+      "rowspan": 1,
+      "verticalAlign": "middle"
+     },
+     "content": [
+      {
+       "attrs": {
+        "listId": "bf3esApbrP"
+       },
+       "content": [
+        {
+         "text": "Sun glasses",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "listId": "bf3esApbrP"
+       },
+       "content": [
+        {
+         "text": "Hair clips",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "listId": "bf3esApbrP"
+       },
+       "content": [
+        {
+         "text": "Hat",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      }
+     ],
+     "type": "table_cell"
+    },
+    {
+     "attrs": {
+      "borderBottomColor": "#ffffff",
+      "borderBottomStyle": "solid",
+      "borderBottomWidth": 1,
+      "borderLeftColor": "#ffffff",
+      "borderLeftStyle": "solid",
+      "borderLeftWidth": 1,
+      "borderRightColor": "#ffffff",
+      "borderRightStyle": "solid",
+      "borderRightWidth": 1,
+      "borderTopColor": "#ffffff",
+      "borderTopStyle": "solid",
+      "borderTopWidth": 1,
+      "colspan": 1,
+      "rowspan": 1,
+      "verticalAlign": "middle"
+     },
+     "content": [
+      {
+       "attrs": {
+        "listId": "7bxmai6deo"
+       },
+       "content": [
+        {
+         "text": "Tablet",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "listId": "7bxmai6deo"
+       },
+       "content": [
+        {
+         "text": "Chargers for all devices",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "listId": "7bxmai6deo"
+       },
+       "content": [
+        {
+         "text": "Bluetooth headset",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      }
+     ],
+     "type": "table_cell"
+    }
+   ],
+   "type": "table_row"
+  }
+ ],
+ "type": "table"
+}

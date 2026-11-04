@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 官方 `appwidget_shortcut` 动作栏的对应物（N1，第 110 轮）。
+     官方 6 格：`app`(logo) / `new_camera` / `new_audio` / `new_att` /
+     `new_plain` / `todos` —— 本布局逐格对应（id 命名不同，语义一致）。
+
+     两处用法：
+       ① 作为「快捷启动」小组件的**根布局**（官方 ShortcutAppWidgetProvider）；
+       ② 作为笔记/待办/笔记列表小组件的**内嵌动作栏**
+          （官方 `appwidget_notes` / `appwidget_todo` 都是
+           `<include layout="@layout/appwidget_shortcut" />`）。 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_actions"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <ImageButton
+        android:id="@+id/widget_action_logo"
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/widget_quickstart_label"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_widget_logo" />
+
+    <ImageButton
+        android:id="@+id/widget_action_camera"
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/widget_action_camera"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_widget_camera" />
+
+    <ImageButton
+        android:id="@+id/widget_action_audio"
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/widget_action_audio"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_widget_audio" />
+
+    <ImageButton
+        android:id="@+id/widget_action_attach"
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/widget_action_attach"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_widget_attach" />
+
+    <ImageButton
+        android:id="@+id/widget_action_note"
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/widget_new_note_label"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_widget_new_note" />
+
+    <ImageButton
+        android:id="@+id/widget_action_todo"
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/widget_todos_label"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_widget_todo" />
+</LinearLayout>

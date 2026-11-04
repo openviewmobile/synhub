@@ -1,0 +1,73 @@
+{
+  "id": "drive_quota",
+  "unit": "lib/src/features/drive/drive_quota_page.dart",
+  "title": {
+    "zh": "存储空间",
+    "en": "Storage"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "fields",
+    "title": {
+      "zh": "已用 64.2 GB / 200 GB",
+      "en": "64.2 GB of 200 GB used"
+    },
+    "sub": {
+      "zh": "剩余 135.8 GB · 按管理员配额",
+      "en": "135.8 GB free · per admin quota"
+    },
+    "progress": 0.32,
+    "actions": [
+      {
+        "zh": "购买空间",
+        "en": "Buy storage"
+      },
+      {
+        "zh": "清理",
+        "en": "Clean up"
+      }
+    ],
+    "rows": [
+      {
+        "label": {
+          "zh": "文档",
+          "en": "Documents"
+        },
+        "value": "12.4 GB"
+      },
+      {
+        "label": {
+          "zh": "图片",
+          "en": "Photos"
+        },
+        "value": "28.6 GB"
+      },
+      {
+        "label": {
+          "zh": "视频",
+          "en": "Videos"
+        },
+        "value": "18.2 GB"
+      },
+      {
+        "label": {
+          "zh": "其他",
+          "en": "Other"
+        },
+        "value": "5.0 GB"
+      },
+      {
+        "label": {
+          "zh": "回收站占用",
+          "en": "Trash"
+        },
+        "value": "1.2 GB"
+      }
+    ]
+  },
+  "bottomNav": null
+}

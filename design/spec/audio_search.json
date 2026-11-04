@@ -1,0 +1,52 @@
+{
+  "id": "audio_search",
+  "unit": "lib/src/features/audio/audio_search_page.dart",
+  "title": {
+    "zh": "搜索",
+    "en": "Search"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "search": {
+    "hint": {
+      "zh": "搜索歌曲、专辑、艺术家",
+      "en": "Search songs, albums, artists"
+    }
+  },
+  "body": {
+    "type": "list",
+    "sections": true,
+    "items": [
+      {
+        "section": {
+          "zh": "专辑",
+          "en": "Albums"
+        },
+        "title": "00s Love Songs",
+        "sub": "Demo Artist · 9 首",
+        "lead": "cover",
+        "trail": "more"
+      },
+      {
+        "section": {
+          "zh": "曲目",
+          "en": "Tracks"
+        },
+        "title": "Demo Song",
+        "sub": "Demo Artist · 3:51 · 320 kbps",
+        "lead": "cover",
+        "trail": "more"
+      },
+      {
+        "title": "Season in the Sun",
+        "sub": "Demo Artist · 3:44 · 320 kbps",
+        "lead": "cover",
+        "trail": "more"
+      }
+    ]
+  },
+  "bottomNav": null
+}

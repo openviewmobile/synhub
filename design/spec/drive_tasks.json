@@ -1,0 +1,58 @@
+{
+  "id": "drive_tasks",
+  "unit": "lib/src/features/files/drive_tasks_page.dart",
+  "title": {
+    "zh": "后台任务",
+    "en": "Background tasks"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "list",
+    "items": [
+      {
+        "title": {
+          "zh": "上传 2026 春节 相册",
+          "en": "Upload album 2026"
+        },
+        "sub": {
+          "zh": "42 / 128 · 33%",
+          "en": "42 / 128 · 33%"
+        },
+        "lead": "icon",
+        "trail": "more",
+        "progress": 0.33
+      },
+      {
+        "title": {
+          "zh": "下载 backup.tar.gz",
+          "en": "Download backup.tar.gz"
+        },
+        "sub": {
+          "zh": "620 MB / 1.8 GB · 34%",
+          "en": "620 MB / 1.8 GB · 34%"
+        },
+        "lead": "icon",
+        "trail": "more",
+        "progress": 0.34
+      },
+      {
+        "title": {
+          "zh": "同步 doc 文件夹",
+          "en": "Sync folder doc"
+        },
+        "sub": {
+          "zh": "已完成 · 今天 09:12",
+          "en": "Done · today 09:12"
+        },
+        "lead": "icon",
+        "trail": "check",
+        "progress": 1.0
+      }
+    ]
+  },
+  "bottomNav": null
+}

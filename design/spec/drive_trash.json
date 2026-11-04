@@ -1,0 +1,60 @@
+{
+  "id": "drive_trash",
+  "unit": "lib/src/features/drive/drive_trash_page.dart",
+  "title": {
+    "zh": "回收站",
+    "en": "Trash"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "rowIcon": "folder",
+  "body": {
+    "type": "list",
+    "items": [
+      {
+        "title": {
+          "zh": "旧版设计稿.pdf",
+          "en": "旧版设计稿.pdf"
+        },
+        "sub": {
+          "zh": "删除于 3 天前 · 4.0 MB",
+          "en": "Deleted 3 days ago · 4.0 MB"
+        },
+        "lead": "icon",
+        "trail": "checkbox"
+      },
+      {
+        "title": {
+          "zh": "废弃草稿.txt",
+          "en": "废弃草稿.txt"
+        },
+        "sub": {
+          "zh": "删除于 昨天 · 2 KB",
+          "en": "Deleted yesterday · 2 KB"
+        },
+        "lead": "icon",
+        "trail": "check"
+      },
+      {
+        "title": {
+          "zh": "临时截图.png",
+          "en": "临时截图.png"
+        },
+        "sub": {
+          "zh": "删除于 昨天 · 880 KB",
+          "en": "Deleted yesterday · 880 KB"
+        },
+        "lead": "icon",
+        "trail": "check"
+      }
+    ]
+  },
+  "footerAction": {
+    "zh": "还原选中的 2 项",
+    "en": "Restore 2 items"
+  },
+  "bottomNav": null
+}

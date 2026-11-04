@@ -1,0 +1,70 @@
+{
+  "id": "download_page",
+  "unit": "lib/src/features/downloads/download_page.dart",
+  "title": {
+    "zh": "下载",
+    "en": "Downloads"
+  },
+  "appbar": {
+    "actions": [
+      "search",
+      "more"
+    ]
+  },
+  "chips": [
+    {
+      "zh": "全部",
+      "en": "All"
+    },
+    {
+      "zh": "正在下载",
+      "en": "Downloading"
+    },
+    {
+      "zh": "等待中",
+      "en": "Queued"
+    },
+    {
+      "zh": "已完成",
+      "en": "Completed"
+    }
+  ],
+  "rowIcon": "download",
+  "body": {
+    "type": "list",
+    "items": [
+      {
+        "title": "ubuntu-24.04.1-desktop-amd64.iso",
+        "sub": {
+          "zh": "3.1 GB / 5.8 GB · 53% · 1.2 MB/s",
+          "en": "3.1 GB / 5.8 GB · 53% · 1.2 MB/s"
+        },
+        "lead": "icon",
+        "trail": "pause",
+        "progress": 0.53
+      },
+      {
+        "title": "ubuntu-24.04.1-live-server-amd64.iso",
+        "sub": {
+          "zh": "等待中 · 0 B/s",
+          "en": "Queued · 0 B/s"
+        },
+        "lead": "icon",
+        "trail": "play",
+        "progress": 0.0
+      },
+      {
+        "title": "Debian 12 netinst",
+        "sub": {
+          "zh": "640 MB · 已完成",
+          "en": "640 MB · Completed"
+        },
+        "lead": "icon",
+        "trail": "more",
+        "progress": 1.0
+      }
+    ]
+  },
+  "fab": true,
+  "bottomNav": null
+}

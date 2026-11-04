@@ -1,0 +1,2544 @@
+{
+ "provenance": {
+  "source": "NAS /mydrive/Restaurant menu.odoc",
+  "channel": "SYNO.Office.Snapshot:get v4 (read-only, link_id=permanent_link)",
+  "permanent_link": "19yWCkOh6S8u3Lw4MvBYSkGUHx3wz5h3",
+  "object_id": "1028_OLCNHFQ0JL3TPDGDI47GGF0MM8.doc",
+  "ntype": "doc"
+ },
+ "content": {
+  "data": {
+   "attrs": {
+    "page_setup": {
+     "bottom": 2.54,
+     "left": 2.54,
+     "orientation": "portrait",
+     "page_type": "a4",
+     "right": 2.54,
+     "top": 2.54
+    },
+    "schema": 13,
+    "type": "document"
+   },
+   "content": [
+    {
+     "type": "settings"
+    },
+    {
+     "content": [
+      {
+       "attrs": {
+        "lineHeight": 1.5
+       },
+       "type": "style_paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "_heading0",
+        "headingLevel": 0,
+        "lineHeight": 1.5
+       },
+       "type": "style_paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "_heading1",
+        "headingLevel": 1,
+        "lineHeight": 1.5
+       },
+       "type": "style_paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "_heading2",
+        "headingLevel": 2,
+        "lineHeight": 1.5
+       },
+       "type": "style_paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "_heading3",
+        "headingLevel": 3,
+        "lineHeight": 1.5
+       },
+       "type": "style_paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "_heading4",
+        "headingLevel": 4,
+        "lineHeight": 1.5
+       },
+       "type": "style_paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "_heading5",
+        "headingLevel": 5,
+        "lineHeight": 1.5
+       },
+       "type": "style_paragraph"
+      }
+     ],
+     "type": "style_editor"
+    },
+    {
+     "type": "invisible"
+    },
+    {
+     "content": [
+      {
+       "attrs": {
+        "textAlign": "center"
+       },
+       "content": [
+        {
+         "attrs": {
+          "config": {
+           "alignment": "inline",
+           "alt": "logo_2.png",
+           "config": "",
+           "crop": {
+            "b": 0,
+            "l": 0,
+            "r": 0,
+            "t": 0
+           },
+           "customized_points": {},
+           "deg": 0,
+           "file_alt": "logo_2.png",
+           "file_id": "d0306eae10464b51907412deaefd07f7",
+           "file_type": "image",
+           "fill": "none",
+           "flip_h": false,
+           "flip_v": false,
+           "height": 153,
+           "left": 100,
+           "order": 0,
+           "prst": "rect",
+           "ref": "",
+           "stroke": "#2E3133",
+           "stroke-width": 0,
+           "top": 100,
+           "type": "rect",
+           "width": 296
+          },
+          "id": "I2itmTrwuu"
+         },
+         "type": "picture"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "paddingBottom": 10.66666666666667,
+        "paddingTop": 16,
+        "textAlign": "center",
+        "textMarks": [
+         {
+          "_": "font_size",
+          "value": 24
+         }
+        ]
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 24
+          },
+          {
+           "_": "font_family",
+           "complexScript": "Trebuchet MS",
+           "eastAsia": "Trebuchet MS",
+           "value": "Trebuchet MS"
+          },
+          {
+           "_": "strong"
+          },
+          {
+           "_": "color",
+           "value": "#2e5c73"
+          }
+         ],
+         "text": "— M E N U —",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "8lEWwQSpbC",
+        "headingLevel": 0,
+        "paddingTop": 16,
+        "textAlign": "center",
+        "textMarks": [
+         {
+          "_": "strong"
+         },
+         {
+          "_": "font_size",
+          "value": 15
+         },
+         {
+          "_": "font_family",
+          "complexScript": "Trebuchet MS",
+          "eastAsia": "Trebuchet MS",
+          "value": "Trebuchet MS"
+         },
+         {
+          "_": "color",
+          "value": "#e55d50"
+         }
+        ]
+       },
+       "content": [
+        {
+         "attrs": {
+          "config": {
+           "alignment": "inline",
+           "alt": "icon.png",
+           "config": "",
+           "crop": {
+            "b": 0,
+            "l": 0,
+            "r": 0,
+            "t": 0
+           },
+           "customized_points": {},
+           "deg": 0,
+           "file_alt": "icon.png",
+           "file_id": "0f7de14c3bb3454eac7c594fe607f928",
+           "file_type": "image",
+           "fill": "none",
+           "flip_h": false,
+           "flip_v": false,
+           "height": 20,
+           "left": 100,
+           "order": 0,
+           "prst": "rect",
+           "ref": "",
+           "stroke": "#2E3133",
+           "stroke-width": 0,
+           "top": 100,
+           "type": "rect",
+           "width": 12
+          },
+          "id": "9tv2fb70Su"
+         },
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 15
+          }
+         ],
+         "type": "picture"
+        },
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 15
+          },
+          {
+           "_": "font_family",
+           "complexScript": "Trebuchet MS",
+           "eastAsia": "Trebuchet MS",
+           "value": "Trebuchet MS"
+          },
+          {
+           "_": "strong"
+          },
+          {
+           "_": "color",
+           "value": "#e55d50"
+          }
+         ],
+         "text": " ",
+         "type": "text"
+        },
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 15
+          },
+          {
+           "_": "font_family",
+           "complexScript": "\"Trebuchet MS\"",
+           "eastAsia": "\"Trebuchet MS\"",
+           "value": "\"Trebuchet MS\""
+          },
+          {
+           "_": "strong"
+          },
+          {
+           "_": "color",
+           "value": "rgb(229, 93, 80)"
+          }
+         ],
+         "text": "Appetizers",
+         "type": "text"
+        },
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 15
+          },
+          {
+           "_": "font_family",
+           "complexScript": "Trebuchet MS",
+           "eastAsia": "Trebuchet MS",
+           "value": "Trebuchet MS"
+          },
+          {
+           "_": "strong"
+          },
+          {
+           "_": "color",
+           "value": "#e55d50"
+          }
+         ],
+         "text": " ",
+         "type": "text"
+        },
+        {
+         "attrs": {
+          "config": {
+           "alignment": "inline",
+           "alt": "icon.png",
+           "config": "",
+           "crop": {
+            "b": 0,
+            "l": 0,
+            "r": 0,
+            "t": 0
+           },
+           "customized_points": {},
+           "deg": 0,
+           "file_alt": "icon.png",
+           "file_id": "540bd91a5f8e4553865bfd945e763ae4",
+           "file_type": "image",
+           "fill": "none",
+           "flip_h": false,
+           "flip_v": false,
+           "height": 20,
+           "left": 100,
+           "order": 0,
+           "prst": "rect",
+           "ref": "",
+           "stroke": "#2E3133",
+           "stroke-width": 0,
+           "top": 100,
+           "type": "rect",
+           "width": 12
+          },
+          "id": "HdFwOkQHMe"
+         },
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 15
+          },
+          {
+           "_": "font_family",
+           "complexScript": "Trebuchet MS",
+           "eastAsia": "Trebuchet MS",
+           "value": "Trebuchet MS"
+          },
+          {
+           "_": "strong"
+          },
+          {
+           "_": "color",
+           "value": "#e55d50"
+          }
+         ],
+         "type": "picture"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "NS80ErnVYQ",
+        "headingLevel": 1,
+        "paddingTop": 10.66666666666667
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 12
+          },
+          {
+           "_": "font_family",
+           "complexScript": "Trebuchet MS",
+           "eastAsia": "Trebuchet MS",
+           "value": "Trebuchet MS"
+          },
+          {
+           "_": "strong"
+          },
+          {
+           "_": "color",
+           "value": "#2e5c73"
+          }
+         ],
+         "text": "Menu Item Name",
+         "type": "text"
+        },
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 12
+          },
+          {
+           "_": "font_family",
+           "complexScript": "Trebuchet MS",
+           "eastAsia": "Trebuchet MS",
+           "value": "Trebuchet MS"
+          },
+          {
+           "_": "color",
+           "value": "#2e5c73"
+          }
+         ],
+         "text": " ……………………………………………………………………………….…………… $20.00",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "5hP6QQinkA",
+        "headingLevel": 2
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 11
+          },
+          {
+           "_": "font_family",
+           "complexScript": "Trebuchet MS",
+           "eastAsia": "Trebuchet MS",
+           "value": "Trebuchet MS"
+          },
+          {
+           "_": "color",
+           "value": "#96989a"
+          }
+         ],
+         "text": "Menu item description.",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "4xATa4hQDR",
+        "headingLevel": 1,
+        "paddingTop": 10.66666666666667
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 12
+          },
+          {
+           "_": "font_family",
+           "complexScript": "\"Trebuchet MS\"",
+           "eastAsia": "\"Trebuchet MS\"",
+           "value": "\"Trebuchet MS\""
+          },
+          {
+           "_": "strong"
+          },
+          {
+           "_": "color",
+           "value": "rgb(46, 92, 115)"
+          }
+         ],
+         "text": "Menu Item Name",
+         "type": "text"
+        },
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 12
+          },
+          {
+           "_": "font_family",
+           "complexScript": "\"Trebuchet MS\"",
+           "eastAsia": "\"Trebuchet MS\"",
+           "value": "\"Trebuchet MS\""
+          },
+          {
+           "_": "color",
+           "value": "rgb(46, 92, 115)"
+          }
+         ],
+         "text": " ……………………………………………………………………………….…………… $20.00",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "fAiPZCw92v",
+        "headingLevel": 2
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 11
+          },
+          {
+           "_": "font_family",
+           "complexScript": "\"Trebuchet MS\"",
+           "eastAsia": "\"Trebuchet MS\"",
+           "value": "\"Trebuchet MS\""
+          },
+          {
+           "_": "color",
+           "value": "rgb(150, 152, 154)"
+          }
+         ],
+         "text": "Menu item description.",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "Ir9vw0Nvaj",
+        "headingLevel": 1,
+        "paddingTop": 10.66666666666667
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 12
+          },
+          {
+           "_": "font_family",
+           "complexScript": "\"Trebuchet MS\"",
+           "eastAsia": "\"Trebuchet MS\"",
+           "value": "\"Trebuchet MS\""
+          },
+          {
+           "_": "strong"
+          },
+          {
+           "_": "color",
+           "value": "rgb(46, 92, 115)"
+          }
+         ],
+         "text": "Menu Item Name",
+         "type": "text"
+        },
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 12
+          },
+          {
+           "_": "font_family",
+           "complexScript": "\"Trebuchet MS\"",
+           "eastAsia": "\"Trebuchet MS\"",
+           "value": "\"Trebuchet MS\""
+          },
+          {
+           "_": "color",
+           "value": "rgb(46, 92, 115)"
+          }
+         ],
+         "text": " ……………………………………………………………………………….…………… $20.00",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "0ZLVVKNfVu",
+        "headingLevel": 2
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 11
+          },
+          {
+           "_": "font_family",
+           "complexScript": "\"Trebuchet MS\"",
+           "eastAsia": "\"Trebuchet MS\"",
+           "value": "\"Trebuchet MS\""
+          },
+          {
+           "_": "color",
+           "value": "rgb(150, 152, 154)"
+          }
+         ],
+         "text": "Menu item description.",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "textMarks": [
+         {
+          "_": "font_size",
+          "value": 11
+         },
+         {
+          "_": "font_family",
+          "complexScript": "\"Trebuchet MS\"",
+          "eastAsia": "\"Trebuchet MS\"",
+          "value": "\"Trebuchet MS\""
+         },
+         {
+          "_": "color",
+          "value": "rgb(150, 152, 154)"
+         }
+        ]
+       },
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "0FWh1CIUwN",
+        "headingLevel": 0,
+        "paddingTop": 16,
+        "textAlign": "center",
+        "textMarks": [
+         {
+          "_": "strong"
+         },
+         {
+          "_": "font_size",
+          "value": 15
+         },
+         {
+          "_": "font_family",
+          "complexScript": "Trebuchet MS",
+          "eastAsia": "Trebuchet MS",
+          "value": "Trebuchet MS"
+         },
+         {
+          "_": "color",
+          "value": "#e55d50"
+         }
+        ]
+       },
+       "content": [
+        {
+         "attrs": {
+          "config": {
+           "alignment": "inline",
+           "alt": "null?_sid=%22JOzRNvBnqzmis13C0LTN00612.png",
+           "config": "",
+           "crop": {
+            "b": 0,
+            "l": 0,
+            "r": 0,
+            "t": 0
+           },
+           "customized_points": {},
+           "deg": 0,
+           "file_alt": "null?_sid=%22JOzRNvBnqzmis13C0LTN00612.png",
+           "file_id": "beca7febc1464da89213461d964afb62",
+           "file_type": "image",
+           "fill": "none",
+           "flip_h": false,
+           "flip_v": false,
+           "height": 20,
+           "left": 100,
+           "order": 0,
+           "prst": "rect",
+           "ref": "",
+           "stroke": "#2E3133",
+           "stroke-width": 0,
+           "top": 100,
+           "type": "rect",
+           "width": 12
+          },
+          "id": "JvQzDF5oOn"
+         },
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 15
+          }
+         ],
+         "type": "picture"
+        },
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 15
+          },
+          {
+           "_": "font_family",
+           "complexScript": "Trebuchet MS",
+           "eastAsia": "Trebuchet MS",
+           "value": "Trebuchet MS"
+          },
+          {
+           "_": "strong"
+          },
+          {
+           "_": "color",
+           "value": "#e55d50"
+          }
+         ],
+         "text": " Salads ",
+         "type": "text"
+        },
+        {
+         "attrs": {
+          "config": {
+           "alignment": "inline",
+           "alt": "null?_sid=%22JOzRNvBnqzmis13C0LTN00612.png",
+           "config": "",
+           "crop": {
+            "b": 0,
+            "l": 0,
+            "r": 0,
+            "t": 0
+           },
+           "customized_points": {},
+           "deg": 0,
+           "file_alt": "null?_sid=%22JOzRNvBnqzmis13C0LTN00612.png",
+           "file_id": "b66a3d09b4154d31a4f5369812945daa",
+           "file_type": "image",
+           "fill": "none",
+           "flip_h": false,
+           "flip_v": false,
+           "height": 20,
+           "left": 100,
+           "order": 0,
+           "prst": "rect",
+           "ref": "",
+           "stroke": "#2E3133",
+           "stroke-width": 0,
+           "top": 100,
+           "type": "rect",
+           "width": 12
+          },
+          "id": "TKtgCrGa2z"
+         },
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 15
+          },
+          {
+           "_": "font_family",
+           "complexScript": "Trebuchet MS",
+           "eastAsia": "Trebuchet MS",
+           "value": "Trebuchet MS"
+          },
+          {
+           "_": "strong"
+          },
+          {
+           "_": "color",
+           "value": "#e55d50"
+          }
+         ],
+         "type": "picture"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "EJuruKU6vu",
+        "headingLevel": 1,
+        "paddingTop": 10.66666666666667
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 12
+          },
+          {
+           "_": "font_family",
+           "complexScript": "\"Trebuchet MS\"",
+           "eastAsia": "\"Trebuchet MS\"",
+           "value": "\"Trebuchet MS\""
+          },
+          {
+           "_": "strong"
+          },
+          {
+           "_": "color",
+           "value": "rgb(46, 92, 115)"
+          }
+         ],
+         "text": "Menu Item Name",
+         "type": "text"
+        },
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 12
+          },
+          {
+           "_": "font_family",
+           "complexScript": "\"Trebuchet MS\"",
+           "eastAsia": "\"Trebuchet MS\"",
+           "value": "\"Trebuchet MS\""
+          },
+          {
+           "_": "color",
+           "value": "rgb(46, 92, 115)"
+          }
+         ],
+         "text": " ……………………………………………………………………………….…………… $20.00",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "a1QFlwVCfV",
+        "headingLevel": 2
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 11
+          },
+          {
+           "_": "font_family",
+           "complexScript": "\"Trebuchet MS\"",
+           "eastAsia": "\"Trebuchet MS\"",
+           "value": "\"Trebuchet MS\""
+          },
+          {
+           "_": "color",
+           "value": "rgb(150, 152, 154)"
+          }
+         ],
+         "text": "Menu item description.",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "zjXIgNFmHx",
+        "headingLevel": 1,
+        "paddingTop": 10.66666666666667
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 12
+          },
+          {
+           "_": "font_family",
+           "complexScript": "\"Trebuchet MS\"",
+           "eastAsia": "\"Trebuchet MS\"",
+           "value": "\"Trebuchet MS\""
+          },
+          {
+           "_": "strong"
+          },
+          {
+           "_": "color",
+           "value": "rgb(46, 92, 115)"
+          }
+         ],
+         "text": "Menu Item Name",
+         "type": "text"
+        },
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 12
+          },
+          {
+           "_": "font_family",
+           "complexScript": "\"Trebuchet MS\"",
+           "eastAsia": "\"Trebuchet MS\"",
+           "value": "\"Trebuchet MS\""
+          },
+          {
+           "_": "color",
+           "value": "rgb(46, 92, 115)"
+          }
+         ],
+         "text": " ……………………………………………………………………………….…………… $20.00",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "Yk3JKyxeu0",
+        "headingLevel": 2
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 11
+          },
+          {
+           "_": "font_family",
+           "complexScript": "\"Trebuchet MS\"",
+           "eastAsia": "\"Trebuchet MS\"",
+           "value": "\"Trebuchet MS\""
+          },
+          {
+           "_": "color",
+           "value": "rgb(150, 152, 154)"
+          }
+         ],
+         "text": "Menu item description.",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "tVRZPh2Hrn",
+        "headingLevel": 1,
+        "paddingTop": 10.66666666666667
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 12
+          },
+          {
+           "_": "font_family",
+           "complexScript": "\"Trebuchet MS\"",
+           "eastAsia": "\"Trebuchet MS\"",
+           "value": "\"Trebuchet MS\""
+          },
+          {
+           "_": "strong"
+          },
+          {
+           "_": "color",
+           "value": "rgb(46, 92, 115)"
+          }
+         ],
+         "text": "Menu Item Name",
+         "type": "text"
+        },
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 12
+          },
+          {
+           "_": "font_family",
+           "complexScript": "\"Trebuchet MS\"",
+           "eastAsia": "\"Trebuchet MS\"",
+           "value": "\"Trebuchet MS\""
+          },
+          {
+           "_": "color",
+           "value": "rgb(46, 92, 115)"
+          }
+         ],
+         "text": " ……………………………………………………………………………….…………… $20.00",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "ZpZAzgOmti",
+        "headingLevel": 2
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 11
+          },
+          {
+           "_": "font_family",
+           "complexScript": "\"Trebuchet MS\"",
+           "eastAsia": "\"Trebuchet MS\"",
+           "value": "\"Trebuchet MS\""
+          },
+          {
+           "_": "color",
+           "value": "rgb(150, 152, 154)"
+          }
+         ],
+         "text": "Menu item description.",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "textMarks": [
+         {
+          "_": "font_size",
+          "value": 11
+         },
+         {
+          "_": "font_family",
+          "complexScript": "\"Trebuchet MS\"",
+          "eastAsia": "\"Trebuchet MS\"",
+          "value": "\"Trebuchet MS\""
+         },
+         {
+          "_": "color",
+          "value": "rgb(150, 152, 154)"
+         }
+        ]
+       },
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "6sfPQ2mnSI",
+        "headingLevel": 0,
+        "paddingTop": 16,
+        "textAlign": "center",
+        "textMarks": [
+         {
+          "_": "strong"
+         },
+         {
+          "_": "font_size",
+          "value": 15
+         },
+         {
+          "_": "font_family",
+          "complexScript": "Trebuchet MS",
+          "eastAsia": "Trebuchet MS",
+          "value": "Trebuchet MS"
+         },
+         {
+          "_": "color",
+          "value": "#e55d50"
+         }
+        ]
+       },
+       "content": [
+        {
+         "attrs": {
+          "config": {
+           "alignment": "inline",
+           "alt": "null?_sid=%22JOzRNvBnqzmis13C0LTN00612.png",
+           "config": "",
+           "crop": {
+            "b": 0,
+            "l": 0,
+            "r": 0,
+            "t": 0
+           },
+           "customized_points": {},
+           "deg": 0,
+           "file_alt": "null?_sid=%22JOzRNvBnqzmis13C0LTN00612.png",
+           "file_id": "3a14ceff55dd4834b904e41bb5875ee5",
+           "file_type": "image",
+           "fill": "none",
+           "flip_h": false,
+           "flip_v": false,
+           "height": 20,
+           "left": 100,
+           "order": 0,
+           "prst": "rect",
+           "ref": "",
+           "stroke": "#2E3133",
+           "stroke-width": 0,
+           "top": 100,
+           "type": "rect",
+           "width": 12
+          },
+          "id": "LVICUPAFwI"
+         },
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 15
+          }
+         ],
+         "type": "picture"
+        },
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 15
+          },
+          {
+           "_": "font_family",
+           "complexScript": "Trebuchet MS",
+           "eastAsia": "Trebuchet MS",
+           "value": "Trebuchet MS"
+          },
+          {
+           "_": "strong"
+          },
+          {
+           "_": "color",
+           "value": "#e55d50"
+          }
+         ],
+         "text": " ",
+         "type": "text"
+        },
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 15
+          },
+          {
+           "_": "font_family",
+           "complexScript": "\"Trebuchet MS\"",
+           "eastAsia": "\"Trebuchet MS\"",
+           "value": "\"Trebuchet MS\""
+          },
+          {
+           "_": "strong"
+          },
+          {
+           "_": "color",
+           "value": "rgb(229, 93, 80)"
+          }
+         ],
+         "text": "Soup of the Day",
+         "type": "text"
+        },
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 15
+          },
+          {
+           "_": "font_family",
+           "complexScript": "Trebuchet MS",
+           "eastAsia": "Trebuchet MS",
+           "value": "Trebuchet MS"
+          },
+          {
+           "_": "strong"
+          },
+          {
+           "_": "color",
+           "value": "#e55d50"
+          }
+         ],
+         "text": " ",
+         "type": "text"
+        },
+        {
+         "attrs": {
+          "config": {
+           "alignment": "inline",
+           "alt": "null?_sid=%22JOzRNvBnqzmis13C0LTN00612.png",
+           "config": "",
+           "crop": {
+            "b": 0,
+            "l": 0,
+            "r": 0,
+            "t": 0
+           },
+           "customized_points": {},
+           "deg": 0,
+           "file_alt": "null?_sid=%22JOzRNvBnqzmis13C0LTN00612.png",
+           "file_id": "59985101430e4df7853f18180fb3c459",
+           "file_type": "image",
+           "fill": "none",
+           "flip_h": false,
+           "flip_v": false,
+           "height": 20,
+           "left": 100,
+           "order": 0,
+           "prst": "rect",
+           "ref": "",
+           "stroke": "#2E3133",
+           "stroke-width": 0,
+           "top": 100,
+           "type": "rect",
+           "width": 12
+          },
+          "id": "EHzJs1osb2"
+         },
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 15
+          },
+          {
+           "_": "font_family",
+           "complexScript": "Trebuchet MS",
+           "eastAsia": "Trebuchet MS",
+           "value": "Trebuchet MS"
+          },
+          {
+           "_": "strong"
+          },
+          {
+           "_": "color",
+           "value": "#e55d50"
+          }
+         ],
+         "type": "picture"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "n6xcV3Fqpp",
+        "headingLevel": 1,
+        "paddingTop": 10.66666666666667
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 12
+          },
+          {
+           "_": "font_family",
+           "complexScript": "\"Trebuchet MS\"",
+           "eastAsia": "\"Trebuchet MS\"",
+           "value": "\"Trebuchet MS\""
+          },
+          {
+           "_": "strong"
+          },
+          {
+           "_": "color",
+           "value": "rgb(46, 92, 115)"
+          }
+         ],
+         "text": "Menu Item Name",
+         "type": "text"
+        },
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 12
+          },
+          {
+           "_": "font_family",
+           "complexScript": "\"Trebuchet MS\"",
+           "eastAsia": "\"Trebuchet MS\"",
+           "value": "\"Trebuchet MS\""
+          },
+          {
+           "_": "color",
+           "value": "rgb(46, 92, 115)"
+          }
+         ],
+         "text": " ……………………………………………………………………………….…………… $20.00",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "PfmAWVke2Y",
+        "headingLevel": 2
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 11
+          },
+          {
+           "_": "font_family",
+           "complexScript": "\"Trebuchet MS\"",
+           "eastAsia": "\"Trebuchet MS\"",
+           "value": "\"Trebuchet MS\""
+          },
+          {
+           "_": "color",
+           "value": "rgb(150, 152, 154)"
+          }
+         ],
+         "text": "Menu item description.",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "sgXZ5Nv3JU",
+        "headingLevel": 1,
+        "paddingTop": 10.66666666666667
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 12
+          },
+          {
+           "_": "font_family",
+           "complexScript": "\"Trebuchet MS\"",
+           "eastAsia": "\"Trebuchet MS\"",
+           "value": "\"Trebuchet MS\""
+          },
+          {
+           "_": "strong"
+          },
+          {
+           "_": "color",
+           "value": "rgb(46, 92, 115)"
+          }
+         ],
+         "text": "Menu Item Name",
+         "type": "text"
+        },
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 12
+          },
+          {
+           "_": "font_family",
+           "complexScript": "\"Trebuchet MS\"",
+           "eastAsia": "\"Trebuchet MS\"",
+           "value": "\"Trebuchet MS\""
+          },
+          {
+           "_": "color",
+           "value": "rgb(46, 92, 115)"
+          }
+         ],
+         "text": " ……………………………………………………………………………….…………… $20.00",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "KrtbYOrgvI",
+        "headingLevel": 2
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 11
+          },
+          {
+           "_": "font_family",
+           "complexScript": "\"Trebuchet MS\"",
+           "eastAsia": "\"Trebuchet MS\"",
+           "value": "\"Trebuchet MS\""
+          },
+          {
+           "_": "color",
+           "value": "rgb(150, 152, 154)"
+          }
+         ],
+         "text": "Menu item description.",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "YRoS3TcVCx",
+        "headingLevel": 1,
+        "paddingTop": 10.66666666666667
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 12
+          },
+          {
+           "_": "font_family",
+           "complexScript": "\"Trebuchet MS\"",
+           "eastAsia": "\"Trebuchet MS\"",
+           "value": "\"Trebuchet MS\""
+          },
+          {
+           "_": "strong"
+          },
+          {
+           "_": "color",
+           "value": "rgb(46, 92, 115)"
+          }
+         ],
+         "text": "Menu Item Name",
+         "type": "text"
+        },
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 12
+          },
+          {
+           "_": "font_family",
+           "complexScript": "\"Trebuchet MS\"",
+           "eastAsia": "\"Trebuchet MS\"",
+           "value": "\"Trebuchet MS\""
+          },
+          {
+           "_": "color",
+           "value": "rgb(46, 92, 115)"
+          }
+         ],
+         "text": " ……………………………………………………………………………….…………… $20.00",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "hCXxX473JU",
+        "headingLevel": 2
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 11
+          },
+          {
+           "_": "font_family",
+           "complexScript": "\"Trebuchet MS\"",
+           "eastAsia": "\"Trebuchet MS\"",
+           "value": "\"Trebuchet MS\""
+          },
+          {
+           "_": "color",
+           "value": "rgb(150, 152, 154)"
+          }
+         ],
+         "text": "Menu item description.",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "textMarks": [
+         {
+          "_": "font_size",
+          "value": 11
+         },
+         {
+          "_": "font_family",
+          "complexScript": "\"Trebuchet MS\"",
+          "eastAsia": "\"Trebuchet MS\"",
+          "value": "\"Trebuchet MS\""
+         },
+         {
+          "_": "color",
+          "value": "rgb(150, 152, 154)"
+         }
+        ]
+       },
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "SHWKMuhFv8",
+        "headingLevel": 0,
+        "paddingTop": 16,
+        "textAlign": "center",
+        "textMarks": [
+         {
+          "_": "strong"
+         },
+         {
+          "_": "font_size",
+          "value": 15
+         },
+         {
+          "_": "font_family",
+          "complexScript": "Trebuchet MS",
+          "eastAsia": "Trebuchet MS",
+          "value": "Trebuchet MS"
+         },
+         {
+          "_": "color",
+          "value": "#e55d50"
+         }
+        ]
+       },
+       "content": [
+        {
+         "attrs": {
+          "config": {
+           "alignment": "inline",
+           "alt": "null?_sid=%22JOzRNvBnqzmis13C0LTN00612.png",
+           "config": "",
+           "crop": {
+            "b": 0,
+            "l": 0,
+            "r": 0,
+            "t": 0
+           },
+           "customized_points": {},
+           "deg": 0,
+           "file_alt": "null?_sid=%22JOzRNvBnqzmis13C0LTN00612.png",
+           "file_id": "7437dee7c2a24b5ca65409e40548ab25",
+           "file_type": "image",
+           "fill": "none",
+           "flip_h": false,
+           "flip_v": false,
+           "height": 20,
+           "left": 100,
+           "order": 0,
+           "prst": "rect",
+           "ref": "",
+           "stroke": "#2E3133",
+           "stroke-width": 0,
+           "top": 100,
+           "type": "rect",
+           "width": 12
+          },
+          "id": "PILrDmf7Jh"
+         },
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 15
+          }
+         ],
+         "type": "picture"
+        },
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 15
+          },
+          {
+           "_": "font_family",
+           "complexScript": "Trebuchet MS",
+           "eastAsia": "Trebuchet MS",
+           "value": "Trebuchet MS"
+          },
+          {
+           "_": "strong"
+          },
+          {
+           "_": "color",
+           "value": "#e55d50"
+          }
+         ],
+         "text": " ",
+         "type": "text"
+        },
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 15
+          },
+          {
+           "_": "font_family",
+           "complexScript": "\"Trebuchet MS\"",
+           "eastAsia": "\"Trebuchet MS\"",
+           "value": "\"Trebuchet MS\""
+          },
+          {
+           "_": "strong"
+          },
+          {
+           "_": "color",
+           "value": "rgb(229, 93, 80)"
+          }
+         ],
+         "text": "Main Courses",
+         "type": "text"
+        },
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 15
+          },
+          {
+           "_": "font_family",
+           "complexScript": "Trebuchet MS",
+           "eastAsia": "Trebuchet MS",
+           "value": "Trebuchet MS"
+          },
+          {
+           "_": "strong"
+          },
+          {
+           "_": "color",
+           "value": "#e55d50"
+          }
+         ],
+         "text": " ",
+         "type": "text"
+        },
+        {
+         "attrs": {
+          "config": {
+           "alignment": "inline",
+           "alt": "null?_sid=%22JOzRNvBnqzmis13C0LTN00612.png",
+           "config": "",
+           "crop": {
+            "b": 0,
+            "l": 0,
+            "r": 0,
+            "t": 0
+           },
+           "customized_points": {},
+           "deg": 0,
+           "file_alt": "null?_sid=%22JOzRNvBnqzmis13C0LTN00612.png",
+           "file_id": "450fa9b715624e4b9042bfac23874b43",
+           "file_type": "image",
+           "fill": "none",
+           "flip_h": false,
+           "flip_v": false,
+           "height": 20,
+           "left": 100,
+           "order": 0,
+           "prst": "rect",
+           "ref": "",
+           "stroke": "#2E3133",
+           "stroke-width": 0,
+           "top": 100,
+           "type": "rect",
+           "width": 12
+          },
+          "id": "mS9EwbGYJn"
+         },
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 15
+          },
+          {
+           "_": "font_family",
+           "complexScript": "Trebuchet MS",
+           "eastAsia": "Trebuchet MS",
+           "value": "Trebuchet MS"
+          },
+          {
+           "_": "strong"
+          },
+          {
+           "_": "color",
+           "value": "#e55d50"
+          }
+         ],
+         "type": "picture"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "bOEJIugN9b",
+        "headingLevel": 1,
+        "paddingTop": 10.66666666666667
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 12
+          },
+          {
+           "_": "font_family",
+           "complexScript": "\"Trebuchet MS\"",
+           "eastAsia": "\"Trebuchet MS\"",
+           "value": "\"Trebuchet MS\""
+          },
+          {
+           "_": "strong"
+          },
+          {
+           "_": "color",
+           "value": "rgb(46, 92, 115)"
+          }
+         ],
+         "text": "Menu Item Name",
+         "type": "text"
+        },
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 12
+          },
+          {
+           "_": "font_family",
+           "complexScript": "\"Trebuchet MS\"",
+           "eastAsia": "\"Trebuchet MS\"",
+           "value": "\"Trebuchet MS\""
+          },
+          {
+           "_": "color",
+           "value": "rgb(46, 92, 115)"
+          }
+         ],
+         "text": " ……………………………………………………………………………….…………… $20.00",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "90ZzCCJaq9",
+        "headingLevel": 2
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 11
+          },
+          {
+           "_": "font_family",
+           "complexScript": "\"Trebuchet MS\"",
+           "eastAsia": "\"Trebuchet MS\"",
+           "value": "\"Trebuchet MS\""
+          },
+          {
+           "_": "color",
+           "value": "rgb(150, 152, 154)"
+          }
+         ],
+         "text": "Menu item description.",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "3mTh8XJChy",
+        "headingLevel": 1,
+        "paddingTop": 10.66666666666667
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 12
+          },
+          {
+           "_": "font_family",
+           "complexScript": "\"Trebuchet MS\"",
+           "eastAsia": "\"Trebuchet MS\"",
+           "value": "\"Trebuchet MS\""
+          },
+          {
+           "_": "strong"
+          },
+          {
+           "_": "color",
+           "value": "rgb(46, 92, 115)"
+          }
+         ],
+         "text": "Menu Item Name",
+         "type": "text"
+        },
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 12
+          },
+          {
+           "_": "font_family",
+           "complexScript": "\"Trebuchet MS\"",
+           "eastAsia": "\"Trebuchet MS\"",
+           "value": "\"Trebuchet MS\""
+          },
+          {
+           "_": "color",
+           "value": "rgb(46, 92, 115)"
+          }
+         ],
+         "text": " ……………………………………………………………………………….…………… $20.00",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "m9O3MyYIgI",
+        "headingLevel": 2
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 11
+          },
+          {
+           "_": "font_family",
+           "complexScript": "\"Trebuchet MS\"",
+           "eastAsia": "\"Trebuchet MS\"",
+           "value": "\"Trebuchet MS\""
+          },
+          {
+           "_": "color",
+           "value": "rgb(150, 152, 154)"
+          }
+         ],
+         "text": "Menu item description.",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "kKS2N1wpfM",
+        "headingLevel": 1,
+        "paddingTop": 10.66666666666667
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 12
+          },
+          {
+           "_": "font_family",
+           "complexScript": "\"Trebuchet MS\"",
+           "eastAsia": "\"Trebuchet MS\"",
+           "value": "\"Trebuchet MS\""
+          },
+          {
+           "_": "strong"
+          },
+          {
+           "_": "color",
+           "value": "rgb(46, 92, 115)"
+          }
+         ],
+         "text": "Menu Item Name",
+         "type": "text"
+        },
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 12
+          },
+          {
+           "_": "font_family",
+           "complexScript": "\"Trebuchet MS\"",
+           "eastAsia": "\"Trebuchet MS\"",
+           "value": "\"Trebuchet MS\""
+          },
+          {
+           "_": "color",
+           "value": "rgb(46, 92, 115)"
+          }
+         ],
+         "text": " ……………………………………………………………………………….…………… $20.00",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "iBgzxJRUD5",
+        "headingLevel": 2
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 11
+          },
+          {
+           "_": "font_family",
+           "complexScript": "\"Trebuchet MS\"",
+           "eastAsia": "\"Trebuchet MS\"",
+           "value": "\"Trebuchet MS\""
+          },
+          {
+           "_": "color",
+           "value": "rgb(150, 152, 154)"
+          }
+         ],
+         "text": "Menu item description.",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "dlkXdXpcra",
+        "headingLevel": 0,
+        "paddingTop": 16,
+        "textAlign": "center",
+        "textMarks": [
+         {
+          "_": "strong"
+         },
+         {
+          "_": "font_size",
+          "value": 15
+         },
+         {
+          "_": "font_family",
+          "complexScript": "Trebuchet MS",
+          "eastAsia": "Trebuchet MS",
+          "value": "Trebuchet MS"
+         },
+         {
+          "_": "color",
+          "value": "#e55d50"
+         }
+        ]
+       },
+       "content": [
+        {
+         "attrs": {
+          "config": {
+           "alignment": "inline",
+           "alt": "null?_sid=%22JOzRNvBnqzmis13C0LTN00612.png",
+           "config": "",
+           "crop": {
+            "b": 0,
+            "l": 0,
+            "r": 0,
+            "t": 0
+           },
+           "customized_points": {},
+           "deg": 0,
+           "file_alt": "null?_sid=%22JOzRNvBnqzmis13C0LTN00612.png",
+           "file_id": "99ea7b1820754894b3e3828c4bbd4591",
+           "file_type": "image",
+           "fill": "none",
+           "flip_h": false,
+           "flip_v": false,
+           "height": 20,
+           "left": 100,
+           "order": 0,
+           "prst": "rect",
+           "ref": "",
+           "stroke": "#2E3133",
+           "stroke-width": 0,
+           "top": 100,
+           "type": "rect",
+           "width": 12
+          },
+          "id": "UdYTHgaC8F"
+         },
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 15
+          }
+         ],
+         "type": "picture"
+        },
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 15
+          },
+          {
+           "_": "font_family",
+           "complexScript": "Trebuchet MS",
+           "eastAsia": "Trebuchet MS",
+           "value": "Trebuchet MS"
+          },
+          {
+           "_": "strong"
+          },
+          {
+           "_": "color",
+           "value": "#e55d50"
+          }
+         ],
+         "text": " ",
+         "type": "text"
+        },
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 15
+          },
+          {
+           "_": "font_family",
+           "complexScript": "\"Trebuchet MS\"",
+           "eastAsia": "\"Trebuchet MS\"",
+           "value": "\"Trebuchet MS\""
+          },
+          {
+           "_": "strong"
+          },
+          {
+           "_": "color",
+           "value": "rgb(229, 93, 80)"
+          }
+         ],
+         "text": "Desserts",
+         "type": "text"
+        },
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 15
+          },
+          {
+           "_": "font_family",
+           "complexScript": "Trebuchet MS",
+           "eastAsia": "Trebuchet MS",
+           "value": "Trebuchet MS"
+          },
+          {
+           "_": "strong"
+          },
+          {
+           "_": "color",
+           "value": "#e55d50"
+          }
+         ],
+         "text": " ",
+         "type": "text"
+        },
+        {
+         "attrs": {
+          "config": {
+           "alignment": "inline",
+           "alt": "null?_sid=%22JOzRNvBnqzmis13C0LTN00612.png",
+           "config": "",
+           "crop": {
+            "b": 0,
+            "l": 0,
+            "r": 0,
+            "t": 0
+           },
+           "customized_points": {},
+           "deg": 0,
+           "file_alt": "null?_sid=%22JOzRNvBnqzmis13C0LTN00612.png",
+           "file_id": "ccdd37838704438797a096950c2ff081",
+           "file_type": "image",
+           "fill": "none",
+           "flip_h": false,
+           "flip_v": false,
+           "height": 20,
+           "left": 100,
+           "order": 0,
+           "prst": "rect",
+           "ref": "",
+           "stroke": "#2E3133",
+           "stroke-width": 0,
+           "top": 100,
+           "type": "rect",
+           "width": 12
+          },
+          "id": "6c6blEjCah"
+         },
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 15
+          },
+          {
+           "_": "font_family",
+           "complexScript": "Trebuchet MS",
+           "eastAsia": "Trebuchet MS",
+           "value": "Trebuchet MS"
+          },
+          {
+           "_": "strong"
+          },
+          {
+           "_": "color",
+           "value": "#e55d50"
+          }
+         ],
+         "type": "picture"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "HR4ugyqbB0",
+        "headingLevel": 1,
+        "paddingTop": 10.66666666666667
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 12
+          },
+          {
+           "_": "font_family",
+           "complexScript": "\"Trebuchet MS\"",
+           "eastAsia": "\"Trebuchet MS\"",
+           "value": "\"Trebuchet MS\""
+          },
+          {
+           "_": "strong"
+          },
+          {
+           "_": "color",
+           "value": "rgb(46, 92, 115)"
+          }
+         ],
+         "text": "Menu Item Name",
+         "type": "text"
+        },
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 12
+          },
+          {
+           "_": "font_family",
+           "complexScript": "\"Trebuchet MS\"",
+           "eastAsia": "\"Trebuchet MS\"",
+           "value": "\"Trebuchet MS\""
+          },
+          {
+           "_": "color",
+           "value": "rgb(46, 92, 115)"
+          }
+         ],
+         "text": " ……………………………………………………………………………….…………… $20.00",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "qMhxDYJOOK",
+        "headingLevel": 2
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 11
+          },
+          {
+           "_": "font_family",
+           "complexScript": "\"Trebuchet MS\"",
+           "eastAsia": "\"Trebuchet MS\"",
+           "value": "\"Trebuchet MS\""
+          },
+          {
+           "_": "color",
+           "value": "rgb(150, 152, 154)"
+          }
+         ],
+         "text": "Menu item description.",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "U99SKrlROk",
+        "headingLevel": 1,
+        "paddingTop": 10.66666666666667
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 12
+          },
+          {
+           "_": "font_family",
+           "complexScript": "\"Trebuchet MS\"",
+           "eastAsia": "\"Trebuchet MS\"",
+           "value": "\"Trebuchet MS\""
+          },
+          {
+           "_": "strong"
+          },
+          {
+           "_": "color",
+           "value": "rgb(46, 92, 115)"
+          }
+         ],
+         "text": "Menu Item Name",
+         "type": "text"
+        },
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 12
+          },
+          {
+           "_": "font_family",
+           "complexScript": "\"Trebuchet MS\"",
+           "eastAsia": "\"Trebuchet MS\"",
+           "value": "\"Trebuchet MS\""
+          },
+          {
+           "_": "color",
+           "value": "rgb(46, 92, 115)"
+          }
+         ],
+         "text": " ……………………………………………………………………………….…………… $20.00",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "lzmCuyjUlm",
+        "headingLevel": 2
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 11
+          },
+          {
+           "_": "font_family",
+           "complexScript": "\"Trebuchet MS\"",
+           "eastAsia": "\"Trebuchet MS\"",
+           "value": "\"Trebuchet MS\""
+          },
+          {
+           "_": "color",
+           "value": "rgb(150, 152, 154)"
+          }
+         ],
+         "text": "Menu item description.",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "VumkuJZFPj",
+        "headingLevel": 1,
+        "paddingTop": 10.66666666666667
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 12
+          },
+          {
+           "_": "font_family",
+           "complexScript": "\"Trebuchet MS\"",
+           "eastAsia": "\"Trebuchet MS\"",
+           "value": "\"Trebuchet MS\""
+          },
+          {
+           "_": "strong"
+          },
+          {
+           "_": "color",
+           "value": "rgb(46, 92, 115)"
+          }
+         ],
+         "text": "Menu Item Name",
+         "type": "text"
+        },
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 12
+          },
+          {
+           "_": "font_family",
+           "complexScript": "\"Trebuchet MS\"",
+           "eastAsia": "\"Trebuchet MS\"",
+           "value": "\"Trebuchet MS\""
+          },
+          {
+           "_": "color",
+           "value": "rgb(46, 92, 115)"
+          }
+         ],
+         "text": " ……………………………………………………………………………….…………… $20.00",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "C5HEIqts0w",
+        "headingLevel": 2
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 11
+          },
+          {
+           "_": "font_family",
+           "complexScript": "\"Trebuchet MS\"",
+           "eastAsia": "\"Trebuchet MS\"",
+           "value": "\"Trebuchet MS\""
+          },
+          {
+           "_": "color",
+           "value": "rgb(150, 152, 154)"
+          }
+         ],
+         "text": "Menu item description.",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "lineHeight": 2,
+        "paddingTop": 26.66666666666666
+       },
+       "content": [
+        {
+         "attrs": {
+          "config": {
+           "alignment": "inline",
+           "alt": "divider_19.png",
+           "config": "",
+           "crop": {
+            "b": 0,
+            "l": 0,
+            "r": 0,
+            "t": 0
+           },
+           "customized_points": {},
+           "deg": 0,
+           "file_alt": "divider_19.png",
+           "file_id": "a0073545682f4dd6ae62dcdebb4fa147",
+           "file_type": "image",
+           "fill": "none",
+           "flip_h": false,
+           "flip_v": false,
+           "height": 12,
+           "left": 100,
+           "order": 0,
+           "prst": "rect",
+           "ref": "",
+           "stroke": "#2E3133",
+           "stroke-width": 0,
+           "top": 100,
+           "type": "rect",
+           "width": 594
+          },
+          "id": "fAHE3WftZ8"
+         },
+         "type": "picture"
+        }
+       ],
+       "type": "paragraph"
+      }
+     ],
+     "type": "edit_area"
+    },
+    {
+     "attrs": {
+      "num-cover": false,
+      "num-even": false,
+      "num-pos": "br",
+      "num-show": false,
+      "place-cover": false,
+      "place-even": false,
+      "place-show": false
+     },
+     "content": [
+      {
+       "attrs": {
+        "type": "cover"
+       },
+       "content": [
+        {
+         "type": "paragraph"
+        }
+       ],
+       "type": "header"
+      },
+      {
+       "attrs": {
+        "type": "even"
+       },
+       "content": [
+        {
+         "type": "paragraph"
+        }
+       ],
+       "type": "header"
+      },
+      {
+       "attrs": {
+        "type": "normal"
+       },
+       "content": [
+        {
+         "type": "paragraph"
+        }
+       ],
+       "type": "header"
+      },
+      {
+       "attrs": {
+        "type": "cover"
+       },
+       "content": [
+        {
+         "type": "paragraph"
+        }
+       ],
+       "type": "footer"
+      },
+      {
+       "attrs": {
+        "type": "even"
+       },
+       "content": [
+        {
+         "type": "paragraph"
+        }
+       ],
+       "type": "footer"
+      },
+      {
+       "attrs": {
+        "type": "normal"
+       },
+       "content": [
+        {
+         "type": "paragraph"
+        }
+       ],
+       "type": "footer"
+      },
+      {
+       "attrs": {
+        "type": "normal"
+       },
+       "content": [
+        {
+         "content": [
+          {
+           "type": "page_num_text"
+          }
+         ],
+         "type": "page_num_block"
+        }
+       ],
+       "type": "page_num"
+      }
+     ],
+     "type": "page_decorate"
+    }
+   ],
+   "type": "doc"
+  },
+  "version": 46
+ }
+}

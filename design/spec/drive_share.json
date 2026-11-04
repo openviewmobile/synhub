@@ -1,0 +1,81 @@
+{
+  "id": "drive_share",
+  "unit": "lib/src/features/files/drive_share_page.dart",
+  "title": {
+    "zh": "共享",
+    "en": "Sharing"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "settings",
+    "groups": [
+      {
+        "title": {
+          "zh": "链接",
+          "en": "Link"
+        },
+        "rows": [
+          {
+            "label": {
+              "zh": "公开链接",
+              "en": "Public link"
+            },
+            "kind": "switch",
+            "value": true
+          },
+          {
+            "label": {
+              "zh": "允许下载",
+              "en": "Allow download"
+            },
+            "kind": "switch",
+            "value": true
+          },
+          {
+            "label": {
+              "zh": "有效期",
+              "en": "Expiry"
+            },
+            "kind": "switch",
+            "value": false
+          }
+        ]
+      },
+      {
+        "title": {
+          "zh": "协作者",
+          "en": "Collaborators"
+        },
+        "rows": [
+          {
+            "label": {
+              "zh": "李雷（可编辑）",
+              "en": "Li (can edit)"
+            },
+            "kind": "arrow"
+          },
+          {
+            "label": {
+              "zh": "韩梅梅（只读）",
+              "en": "Han (view only)"
+            },
+            "kind": "arrow"
+          }
+        ]
+      }
+    ],
+    "note": {
+      "zh": "关闭链接后，已发出的链接会立即失效",
+      "en": "Turning the link off invalidates existing links"
+    }
+  },
+  "footerAction": {
+    "zh": "复制链接",
+    "en": "Copy link"
+  },
+  "bottomNav": null
+}

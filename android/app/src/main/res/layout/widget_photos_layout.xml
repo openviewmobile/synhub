@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 相册小组件（P66）：2×2 缩略图网格 + 占位文案。
+     ⚠️ 只允许 RemoteViews 支持的视图（LinearLayout/ImageView/TextView…）：
+     ConstraintLayout、自定义 View、<include> 在 launcher 进程里inflate 不了。
+     缩略图用 setImageViewBitmap（见 PhotoGridWidgetProvider 的注释），
+     不用 content:// —— FileProvider 的 URI 在 launcher 进程里没有读权限。 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/widget_card_bg"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/widget_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="@string/widget_photos_label"
+        android:textColor="#FFFFFFFF"
+        android:textSize="13sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/widget_updated"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="#99FFFFFF"
+        android:textSize="10sp" />
+
+    <LinearLayout
+        android:id="@+id/widget_photo_grid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/widget_photo_0"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:background="@drawable/widget_tile_bg"
+                android:contentDescription="@string/widget_photos_label"
+                android:scaleType="centerCrop" />
+
+            <ImageView
+                android:id="@+id/widget_photo_1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:background="@drawable/widget_tile_bg"
+                android:contentDescription="@string/widget_photos_label"
+                android:scaleType="centerCrop" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/widget_photo_2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:background="@drawable/widget_tile_bg"
+                android:contentDescription="@string/widget_photos_label"
+                android:scaleType="centerCrop" />
+
+            <ImageView
+                android:id="@+id/widget_photo_3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:background="@drawable/widget_tile_bg"
+                android:contentDescription="@string/widget_photos_label"
+                android:scaleType="centerCrop" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- 占位是**文案**，不是空白：未登录 / 未连接 / 空相册各说各的人话 -->
+    <TextView
+        android:id="@+id/widget_placeholder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:lineSpacingExtra="2dp"
+        android:textColor="#CCFFFFFF"
+        android:textSize="12sp"
+        android:visibility="gone" />
+</LinearLayout>

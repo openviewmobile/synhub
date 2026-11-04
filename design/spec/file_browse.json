@@ -1,0 +1,65 @@
+{
+  "id": "file_browse",
+  "unit": "lib/src/features/files/file_browse_page.dart",
+  "title": {
+    "zh": "文件",
+    "en": "Files"
+  },
+  "appbar": {
+    "actions": [
+      "search",
+      "more"
+    ]
+  },
+  "breadcrumb": {
+    "zh": "File Station / photo / 2026",
+    "en": "File Station / photo / 2026"
+  },
+  "body": {
+    "type": "list",
+    "items": [
+      {
+        "title": {
+          "zh": "2026 春节",
+          "en": "Chinese New Year 2026"
+        },
+        "sub": {
+          "zh": "文件夹 · 128 项",
+          "en": "Folder · 128 items"
+        },
+        "lead": "icon",
+        "trail": "more",
+        "icon": "folder"
+      },
+      {
+        "title": "IMG_20260214_1032.jpg",
+        "sub": {
+          "zh": "4.2 MB · 今天 10:32",
+          "en": "4.2 MB · Today 10:32"
+        },
+        "lead": "cover",
+        "trail": "more"
+      },
+      {
+        "title": "旅行计划.docx",
+        "sub": {
+          "zh": "38 KB · 昨天",
+          "en": "38 KB · Yesterday"
+        },
+        "lead": "icon",
+        "trail": "more"
+      },
+      {
+        "title": "backup.tar.gz",
+        "sub": {
+          "zh": "1.8 GB · 3 天前",
+          "en": "1.8 GB · 3 days ago"
+        },
+        "lead": "icon",
+        "trail": "more"
+      }
+    ]
+  },
+  "fab": true,
+  "bottomNav": "files"
+}

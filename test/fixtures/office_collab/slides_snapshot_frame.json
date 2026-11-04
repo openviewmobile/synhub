@@ -1,0 +1,1413 @@
+{
+ "comment": {
+  "data": [],
+  "format": 1
+ },
+ "content": {
+  "data": {
+   "attrs": {
+    "cx": 960,
+    "cy": 540,
+    "schema": 13,
+    "type": "presentation"
+   },
+   "content": [
+    {
+     "attrs": {},
+     "content": [],
+     "type": "settings"
+    },
+    {
+     "attrs": {},
+     "content": [
+      {
+       "attrs": {
+        "id": "MSOFFICE_MASTER_0"
+       },
+       "content": [
+        {
+         "attrs": {
+          "color": "141E32",
+          "opacity": 1
+         },
+         "content": [],
+         "type": "master_background"
+        },
+        {
+         "attrs": {},
+         "content": [
+          {
+           "attrs": {
+            "id": "MSOFFICE_DRAWING_MASTER_3",
+            "transform": {
+             "deg": 0,
+             "height": 62.79999999999999,
+             "left": 35,
+             "top": 45,
+             "width": 890
+            },
+            "type_id": "0"
+           },
+           "content": [
+            {
+             "attrs": {
+              "fill": false,
+              "fill_config": {
+               "fill": "#ffffff",
+               "fill-opacity": 1
+              },
+              "shape_type": "rect",
+              "stroke": false,
+              "stroke_config": {
+               "stroke": "#000000",
+               "stroke-dasharray": "none",
+               "stroke-opacity": 1,
+               "stroke-width": 1
+              }
+             },
+             "content": [
+              {
+               "attrs": {
+                "listMap": {
+                 "_": {
+                  "configs": [
+                   {
+                    "marks": [
+                     {
+                      "_": "font_size",
+                      "value": 28
+                     },
+                     {
+                      "_": "font_family",
+                      "complexScript": "Arial",
+                      "eastAsia": "Arial",
+                      "value": "Arial"
+                     },
+                     {
+                      "_": "em",
+                      "value": false
+                     },
+                     {
+                      "_": "strong",
+                      "value": false
+                     }
+                    ]
+                   },
+                   {
+                    "marks": [
+                     {
+                      "_": "font_size",
+                      "value": 28
+                     },
+                     {
+                      "_": "font_family",
+                      "complexScript": "Arial",
+                      "eastAsia": "Arial",
+                      "value": "Arial"
+                     },
+                     {
+                      "_": "em",
+                      "value": false
+                     },
+                     {
+                      "_": "strong",
+                      "value": false
+                     }
+                    ]
+                   },
+                   {
+                    "marks": [
+                     {
+                      "_": "font_size",
+                      "value": 28
+                     },
+                     {
+                      "_": "font_family",
+                      "complexScript": "Arial",
+                      "eastAsia": "Arial",
+                      "value": "Arial"
+                     },
+                     {
+                      "_": "em",
+                      "value": false
+                     },
+                     {
+                      "_": "strong",
+                      "value": false
+                     }
+                    ]
+                   },
+                   {
+                    "marks": [
+                     {
+                      "_": "font_size",
+                      "value": 28
+                     },
+                     {
+                      "_": "font_family",
+                      "complexScript": "Arial",
+                      "eastAsia": "Arial",
+                      "value": "Arial"
+                     },
+                     {
+                      "_": "em",
+                      "value": false
+                     },
+                     {
+                      "_": "strong",
+                      "value": false
+                     }
+                    ]
+                   },
+                   {
+                    "marks": [
+                     {
+                      "_": "font_size",
+                      "value": 28
+                     },
+                     {
+                      "_": "font_family",
+                      "complexScript": "Arial",
+                      "eastAsia": "Arial",
+                      "value": "Arial"
+                     },
+                     {
+                      "_": "em",
+                      "value": false
+                     },
+                     {
+                      "_": "strong",
+                      "value": false
+                     }
+                    ]
+                   },
+                   {
+                    "marks": [
+                     {
+                      "_": "font_size",
+                      "value": 28
+                     },
+                     {
+                      "_": "font_family",
+                      "complexScript": "Arial",
+                      "eastAsia": "Arial",
+                      "value": "Arial"
+                     },
+                     {
+                      "_": "em",
+                      "value": false
+                     },
+                     {
+                      "_": "strong",
+                      "value": false
+                     }
+                    ]
+                   },
+                   {
+                    "marks": [
+                     {
+                      "_": "font_size",
+                      "value": 28
+                     },
+                     {
+                      "_": "font_family",
+                      "complexScript": "Arial",
+                      "eastAsia": "Arial",
+                      "value": "Arial"
+                     },
+                     {
+                      "_": "em",
+                      "value": false
+                     },
+                     {
+                      "_": "strong",
+                      "value": false
+                     }
+                    ]
+                   },
+                   {
+                    "marks": [
+                     {
+                      "_": "font_size",
+                      "value": 28
+                     },
+                     {
+                      "_": "font_family",
+                      "complexScript": "Arial",
+                      "eastAsia": "Arial",
+                      "value": "Arial"
+                     },
+                     {
+                      "_": "em",
+                      "value": false
+                     },
+                     {
+                      "_": "strong",
+                      "value": false
+                     }
+                    ]
+                   },
+                   {
+                    "marks": [
+                     {
+                      "_": "font_size",
+                      "value": 28
+                     },
+                     {
+                      "_": "font_family",
+                      "complexScript": "Arial",
+                      "eastAsia": "Arial",
+                      "value": "Arial"
+                     },
+                     {
+                      "_": "em",
+                      "value": false
+                     },
+                     {
+                      "_": "strong",
+                      "value": false
+                     }
+                    ]
+                   }
+                  ],
+                  "type": "ul"
+                 }
+                },
+                "padding": {
+                 "bottom": 4.8,
+                 "left": 9.6,
+                 "right": 9.6,
+                 "top": 4.8
+                },
+                "vertical_align": -1
+               },
+               "content": [
+                {
+                 "attrs": {
+                  "indentFirst": 0,
+                  "indentLeft": 0,
+                  "lineHeight": 1,
+                  "listMarks": [],
+                  "textAlign": "left",
+                  "textMarks": [
+                   {
+                    "_": "font_size",
+                    "value": 28
+                   },
+                   {
+                    "_": "font_family",
+                    "complexScript": "Arial",
+                    "eastAsia": "Arial",
+                    "value": "Arial"
+                   },
+                   {
+                    "_": "em",
+                    "value": false
+                   },
+                   {
+                    "_": "strong",
+                    "value": false
+                   },
+                   {
+                    "_": "color",
+                    "value": "#FFFFFF"
+                   }
+                  ]
+                 },
+                 "content": [],
+                 "type": "holder_paragraph"
+                }
+               ],
+               "type": "title_master_holder_text_block"
+              }
+             ],
+             "type": "title_master_holder_shape"
+            }
+           ],
+           "type": "title_master_holder"
+          }
+         ],
+         "type": "master_content_container"
+        }
+       ],
+       "type": "master"
+      }
+     ],
+     "type": "master_container"
+    },
+    {
+     "attrs": {
+      "date_time_enabled": false,
+      "page_num_enabled": false,
+      "page_num_skip_title": false
+     },
+     "content": [
+      {
+       "attrs": {
+        "id": "MSOFFICE_SLIDE_0",
+        "layout_id": "MSOFFICE_LAYOUT_0",
+        "master_id": "MSOFFICE_MASTER_0"
+       },
+       "content": [
+        {
+         "attrs": {},
+         "content": [],
+         "type": "slide_background"
+        },
+        {
+         "attrs": {},
+         "content": [
+          {
+           "attrs": {
+            "id": "MSOFFICE_DRAWING_SLIDE_2",
+            "type_id": "0"
+           },
+           "content": [
+            {
+             "attrs": {
+              "fill": false,
+              "fill_config": {
+               "fill": "#ffffff"
+              },
+              "shape_type": "rect",
+              "stroke": false,
+              "stroke_config": {
+               "stroke": "#000000"
+              }
+             },
+             "content": [
+              {
+               "attrs": {
+                "listMap": {
+                 "MSOFFICE_DRAWING_SLIDE_2_LIST": {
+                  "configs": [
+                   {
+                    "marks": []
+                   },
+                   {
+                    "marks": []
+                   },
+                   {
+                    "marks": []
+                   },
+                   {
+                    "marks": []
+                   },
+                   {
+                    "marks": []
+                   },
+                   {
+                    "marks": []
+                   },
+                   {
+                    "marks": []
+                   },
+                   {
+                    "marks": []
+                   },
+                   {
+                    "marks": []
+                   }
+                  ],
+                  "type": "ul"
+                 }
+                }
+               },
+               "content": [
+                {
+                 "attrs": {
+                  "indentFirst": 0,
+                  "indentLeft": 0,
+                  "listMarks": []
+                 },
+                 "content": [
+                  {
+                   "attrs": {},
+                   "text": "Social Media",
+                   "type": "text"
+                  }
+                 ],
+                 "type": "paragraph"
+                },
+                {
+                 "attrs": {
+                  "indentFirst": 0,
+                  "indentLeft": 0,
+                  "listMarks": []
+                 },
+                 "content": [
+                  {
+                   "attrs": {},
+                   "text": "Strategy",
+                   "type": "text"
+                  }
+                 ],
+                 "type": "paragraph"
+                }
+               ],
+               "type": "title_slide_holder_text_block"
+              }
+             ],
+             "type": "title_slide_holder_shape"
+            }
+           ],
+           "type": "title_slide_holder"
+          },
+          {
+           "attrs": {
+            "id": "MSOFFICE_DRAWING_SLIDE_3",
+            "type_id": "0"
+           },
+           "content": [
+            {
+             "attrs": {
+              "fill": false,
+              "fill_config": {
+               "fill": "#ffffff"
+              },
+              "shape_type": "rect",
+              "stroke": false,
+              "stroke_config": {
+               "stroke": "#000000"
+              }
+             },
+             "content": [
+              {
+               "attrs": {
+                "listMap": {
+                 "MSOFFICE_DRAWING_SLIDE_3_LIST": {
+                  "configs": [
+                   {
+                    "marks": []
+                   },
+                   {
+                    "marks": []
+                   },
+                   {
+                    "marks": []
+                   },
+                   {
+                    "marks": []
+                   },
+                   {
+                    "marks": []
+                   },
+                   {
+                    "marks": []
+                   },
+                   {
+                    "marks": []
+                   },
+                   {
+                    "marks": []
+                   },
+                   {
+                    "marks": []
+                   }
+                  ],
+                  "type": "ul"
+                 }
+                }
+               },
+               "content": [
+                {
+                 "attrs": {
+                  "indentFirst": 0,
+                  "indentLeft": 0,
+                  "listMarks": []
+                 },
+                 "content": [
+                  {
+                   "attrs": {},
+                   "text": "How to grow your fans from 0 to 10K",
+                   "type": "text"
+                  }
+                 ],
+                 "type": "paragraph"
+                }
+               ],
+               "type": "sub_title_slide_holder_text_block"
+              }
+             ],
+             "type": "sub_title_slide_holder_shape"
+            }
+           ],
+           "type": "sub_title_slide_holder"
+          }
+         ],
+         "type": "slide_content_container"
+        },
+        {
+         "attrs": {
+          "listMap": {
+           "MSOFFICE_DRAWING_2_LIST": {
+            "configs": [
+             {
+              "marks": [
+               {
+                "_": "font_size",
+                "value": 11
+               },
+               {
+                "_": "font_family",
+                "complexScript": "Arial",
+                "eastAsia": "Arial",
+                "value": "Arial"
+               },
+               {
+                "_": "em",
+                "value": false
+               },
+               {
+                "_": "strong",
+                "value": false
+               }
+              ]
+             },
+             {
+              "marks": [
+               {
+                "_": "font_size",
+                "value": 11
+               },
+               {
+                "_": "font_family",
+                "complexScript": "Arial",
+                "eastAsia": "Arial",
+                "value": "Arial"
+               },
+               {
+                "_": "em",
+                "value": false
+               },
+               {
+                "_": "strong",
+                "value": false
+               }
+              ]
+             },
+             {
+              "marks": [
+               {
+                "_": "font_size",
+                "value": 11
+               },
+               {
+                "_": "font_family",
+                "complexScript": "Arial",
+                "eastAsia": "Arial",
+                "value": "Arial"
+               },
+               {
+                "_": "em",
+                "value": false
+               },
+               {
+                "_": "strong",
+                "value": false
+               }
+              ]
+             },
+             {
+              "marks": [
+               {
+                "_": "font_size",
+                "value": 11
+               },
+               {
+                "_": "font_family",
+                "complexScript": "Arial",
+                "eastAsia": "Arial",
+                "value": "Arial"
+               },
+               {
+                "_": "em",
+                "value": false
+               },
+               {
+                "_": "strong",
+                "value": false
+               }
+              ]
+             },
+             {
+              "marks": [
+               {
+                "_": "font_size",
+                "value": 11
+               },
+               {
+                "_": "font_family",
+                "complexScript": "Arial",
+                "eastAsia": "Arial",
+                "value": "Arial"
+               },
+               {
+                "_": "em",
+                "value": false
+               },
+               {
+                "_": "strong",
+                "value": false
+               }
+              ]
+             },
+             {
+              "marks": [
+               {
+                "_": "font_size",
+                "value": 11
+               },
+               {
+                "_": "font_family",
+                "complexScript": "Arial",
+                "eastAsia": "Arial",
+                "value": "Arial"
+               },
+               {
+                "_": "em",
+                "value": false
+               },
+               {
+                "_": "strong",
+                "value": false
+               }
+              ]
+             },
+             {
+              "marks": [
+               {
+                "_": "font_size",
+                "value": 11
+               },
+               {
+                "_": "font_family",
+                "complexScript": "Arial",
+                "eastAsia": "Arial",
+                "value": "Arial"
+               },
+               {
+                "_": "em",
+                "value": false
+               },
+               {
+                "_": "strong",
+                "value": false
+               }
+              ]
+             },
+             {
+              "marks": [
+               {
+                "_": "font_size",
+                "value": 11
+               },
+               {
+                "_": "font_family",
+                "complexScript": "Arial",
+                "eastAsia": "Arial",
+                "value": "Arial"
+               },
+               {
+                "_": "em",
+                "value": false
+               },
+               {
+                "_": "strong",
+                "value": false
+               }
+              ]
+             },
+             {
+              "marks": [
+               {
+                "_": "font_size",
+                "value": 11
+               },
+               {
+                "_": "font_family",
+                "complexScript": "Arial",
+                "eastAsia": "Arial",
+                "value": "Arial"
+               },
+               {
+                "_": "em",
+                "value": false
+               },
+               {
+                "_": "strong",
+                "value": false
+               }
+              ]
+             }
+            ],
+            "type": "ul"
+           }
+          }
+         },
+         "content": [
+          {
+           "attrs": {
+            "indentFirst": 0,
+            "indentLeft": 0,
+            "lineHeight": 1,
+            "listMarks": [],
+            "textAlign": "left",
+            "textMarks": [
+             {
+              "_": "font_size",
+              "value": 11
+             },
+             {
+              "_": "font_family",
+              "complexScript": "Arial",
+              "eastAsia": "Arial",
+              "value": "Arial"
+             },
+             {
+              "_": "em",
+              "value": false
+             },
+             {
+              "_": "strong",
+              "value": false
+             },
+             {
+              "_": "color",
+              "value": "#000000"
+             }
+            ]
+           },
+           "content": [],
+           "type": "paragraph"
+          }
+         ],
+         "type": "note"
+        }
+       ],
+       "type": "slide"
+      },
+      {
+       "attrs": {
+        "id": "MSOFFICE_SLIDE_2",
+        "layout_id": "MSOFFICE_LAYOUT_9",
+        "master_id": "MSOFFICE_MASTER_0"
+       },
+       "content": [
+        {
+         "attrs": {},
+         "content": [],
+         "type": "slide_background"
+        },
+        {
+         "attrs": {},
+         "content": [
+          {
+           "attrs": {
+            "id": "MSOFFICE_DRAWING_SLIDE_2",
+            "type_id": "0"
+           },
+           "content": [
+            {
+             "attrs": {
+              "fill": false,
+              "fill_config": {
+               "fill": "#ffffff"
+              },
+              "shape_type": "rect",
+              "stroke": false,
+              "stroke_config": {
+               "stroke": "#000000"
+              }
+             },
+             "content": [
+              {
+               "attrs": {
+                "listMap": {
+                 "MSOFFICE_DRAWING_SLIDE_2_LIST": {
+                  "configs": [
+                   {
+                    "marks": []
+                   },
+                   {
+                    "marks": []
+                   },
+                   {
+                    "marks": []
+                   },
+                   {
+                    "marks": []
+                   },
+                   {
+                    "marks": []
+                   },
+                   {
+                    "marks": []
+                   },
+                   {
+                    "marks": []
+                   },
+                   {
+                    "marks": []
+                   },
+                   {
+                    "marks": []
+                   }
+                  ],
+                  "type": "ul"
+                 }
+                }
+               },
+               "content": [
+                {
+                 "attrs": {
+                  "indentFirst": 0,
+                  "indentLeft": 0,
+                  "listMarks": []
+                 },
+                 "content": [
+                  {
+                   "attrs": {},
+                   "text": "Hello!",
+                   "type": "text"
+                  }
+                 ],
+                 "type": "paragraph"
+                }
+               ],
+               "type": "title_slide_holder_text_block"
+              }
+             ],
+             "type": "title_slide_holder_shape"
+            }
+           ],
+           "type": "title_slide_holder"
+          },
+          {
+           "attrs": {
+            "id": "MSOFFICE_DRAWING_SLIDE_3",
+            "type_id": "0"
+           },
+           "content": [
+            {
+             "attrs": {
+              "fill": false,
+              "fill_config": {
+               "fill": "#ffffff"
+              },
+              "shape_type": "rect",
+              "stroke": false,
+              "stroke_config": {
+               "stroke": "#000000"
+              }
+             },
+             "content": [
+              {
+               "attrs": {
+                "listMap": {
+                 "MSOFFICE_DRAWING_SLIDE_3_LIST": {
+                  "configs": [
+                   {
+                    "marks": []
+                   },
+                   {
+                    "marks": []
+                   },
+                   {
+                    "marks": []
+                   },
+                   {
+                    "marks": []
+                   },
+                   {
+                    "marks": []
+                   },
+                   {
+                    "marks": []
+                   },
+                   {
+                    "marks": []
+                   },
+                   {
+                    "marks": []
+                   },
+                   {
+                    "marks": []
+                   }
+                  ],
+                  "type": "ul"
+                 }
+                }
+               },
+               "content": [
+                {
+                 "attrs": {
+                  "indentFirst": 0,
+                  "indentLeft": 0,
+                  "listMarks": []
+                 },
+                 "content": [
+                  {
+                   "attrs": {},
+                   "text": "I am Peter Smith",
+                   "type": "text"
+                  }
+                 ],
+                 "type": "paragraph"
+                }
+               ],
+               "type": "sub_title_slide_holder_text_block"
+              }
+             ],
+             "type": "sub_title_slide_holder_shape"
+            }
+           ],
+           "type": "sub_title_slide_holder"
+          },
+          {
+           "attrs": {
+            "id": "MSOFFICE_DRAWING_SLIDE_4",
+            "type_id": "0"
+           },
+           "content": [
+            {
+             "attrs": {
+              "fill": false,
+              "fill_config": {
+               "fill": "#ffffff"
+              },
+              "shape_type": "rect",
+              "stroke": false,
+              "stroke_config": {
+               "stroke": "#000000"
+              }
+             },
+             "content": [
+              {
+               "attrs": {
+                "listMap": {
+                 "MSOFFICE_DRAWING_SLIDE_4_LIST": {
+                  "configs": [
+                   {
+                    "format": "decimal",
+                    "marks": [],
+                    "start": 1,
+                    "text": "%1."
+                   },
+                   {
+                    "format": "lowerLetter",
+                    "marks": [],
+                    "start": 1,
+                    "text": "%2."
+                   },
+                   {
+                    "format": "lowerRoman",
+                    "marks": [],
+                    "start": 1,
+                    "text": "%3."
+                   },
+                   {
+                    "format": "decimal",
+                    "marks": [],
+                    "start": 1,
+                    "text": "%4."
+                   },
+                   {
+                    "format": "lowerLetter",
+                    "marks": [],
+                    "start": 1,
+                    "text": "%5."
+                   },
+                   {
+                    "format": "lowerRoman",
+                    "marks": [],
+                    "start": 1,
+                    "text": "%6."
+                   },
+                   {
+                    "format": "decimal",
+                    "marks": [],
+                    "start": 1,
+                    "text": "%7."
+                   },
+                   {
+                    "format": "lowerLetter",
+                    "marks": [],
+                    "start": 1,
+                    "text": "%8."
+                   },
+                   {
+                    "format": "lowerRoman",
+                    "marks": [],
+                    "start": 1,
+                    "text": "%9."
+                   }
+                  ],
+                  "type": "ol"
+                 }
+                }
+               },
+               "content": [
+                {
+                 "attrs": {
+                  "indentFirst": 0,
+                  "indentLeft": 0,
+                  "listMarks": []
+                 },
+                 "content": [
+                  {
+                   "attrs": {},
+                   "text": "I am a passionate entrepreneur! I have lectured 30,000+ students on Social Media, SEO, and e-commerce.",
+                   "type": "text"
+                  }
+                 ],
+                 "type": "paragraph"
+                }
+               ],
+               "type": "body_slide_holder_text_block"
+              }
+             ],
+             "type": "body_slide_holder_shape"
+            }
+           ],
+           "type": "body_slide_holder"
+          }
+         ],
+         "type": "slide_content_container"
+        },
+        {
+         "attrs": {
+          "listMap": {
+           "MSOFFICE_DRAWING_2_LIST": {
+            "configs": [
+             {
+              "marks": [
+               {
+                "_": "font_size",
+                "value": 11
+               },
+               {
+                "_": "font_family",
+                "complexScript": "Arial",
+                "eastAsia": "Arial",
+                "value": "Arial"
+               },
+               {
+                "_": "em",
+                "value": false
+               },
+               {
+                "_": "strong",
+                "value": false
+               }
+              ]
+             },
+             {
+              "marks": [
+               {
+                "_": "font_size",
+                "value": 11
+               },
+               {
+                "_": "font_family",
+                "complexScript": "Arial",
+                "eastAsia": "Arial",
+                "value": "Arial"
+               },
+               {
+                "_": "em",
+                "value": false
+               },
+               {
+                "_": "strong",
+                "value": false
+               }
+              ]
+             },
+             {
+              "marks": [
+               {
+                "_": "font_size",
+                "value": 11
+               },
+               {
+                "_": "font_family",
+                "complexScript": "Arial",
+                "eastAsia": "Arial",
+                "value": "Arial"
+               },
+               {
+                "_": "em",
+                "value": false
+               },
+               {
+                "_": "strong",
+                "value": false
+               }
+              ]
+             },
+             {
+              "marks": [
+               {
+                "_": "font_size",
+                "value": 11
+               },
+               {
+                "_": "font_family",
+                "complexScript": "Arial",
+                "eastAsia": "Arial",
+                "value": "Arial"
+               },
+               {
+                "_": "em",
+                "value": false
+               },
+               {
+                "_": "strong",
+                "value": false
+               }
+              ]
+             },
+             {
+              "marks": [
+               {
+                "_": "font_size",
+                "value": 11
+               },
+               {
+                "_": "font_family",
+                "complexScript": "Arial",
+                "eastAsia": "Arial",
+                "value": "Arial"
+               },
+               {
+                "_": "em",
+                "value": false
+               },
+               {
+                "_": "strong",
+                "value": false
+               }
+              ]
+             },
+             {
+              "marks": [
+               {
+                "_": "font_size",
+                "value": 11
+               },
+               {
+                "_": "font_family",
+                "complexScript": "Arial",
+                "eastAsia": "Arial",
+                "value": "Arial"
+               },
+               {
+                "_": "em",
+                "value": false
+               },
+               {
+                "_": "strong",
+                "value": false
+               }
+              ]
+             },
+             {
+              "marks": [
+               {
+                "_": "font_size",
+                "value": 11
+               },
+               {
+                "_": "font_family",
+                "complexScript": "Arial",
+                "eastAsia": "Arial",
+                "value": "Arial"
+               },
+               {
+                "_": "em",
+                "value": false
+               },
+               {
+                "_": "strong",
+                "value": false
+               }
+              ]
+             },
+             {
+              "marks": [
+               {
+                "_": "font_size",
+                "value": 11
+               },
+               {
+                "_": "font_family",
+                "complexScript": "Arial",
+                "eastAsia": "Arial",
+                "value": "Arial"
+               },
+               {
+                "_": "em",
+                "value": false
+               },
+               {
+                "_": "strong",
+                "value": false
+               }
+              ]
+             },
+             {
+              "marks": [
+               {
+                "_": "font_size",
+                "value": 11
+               },
+               {
+                "_": "font_family",
+                "complexScript": "Arial",
+                "eastAsia": "Arial",
+                "value": "Arial"
+               },
+               {
+                "_": "em",
+                "value": false
+               },
+               {
+                "_": "strong",
+                "value": false
+               }
+              ]
+             }
+            ],
+            "type": "ul"
+           }
+          }
+         },
+         "content": [
+          {
+           "attrs": {
+            "indentFirst": 0,
+            "indentLeft": 0,
+            "lineHeight": 1,
+            "listMarks": [],
+            "textAlign": "left",
+            "textMarks": [
+             {
+              "_": "font_size",
+              "value": 11
+             },
+             {
+              "_": "font_family",
+              "complexScript": "Arial",
+              "eastAsia": "Arial",
+              "value": "Arial"
+             },
+             {
+              "_": "em",
+              "value": false
+             },
+             {
+              "_": "strong",
+              "value": false
+             },
+             {
+              "_": "color",
+              "value": "#000000"
+             }
+            ]
+           },
+           "content": [],
+           "type": "paragraph"
+          }
+         ],
+         "type": "note"
+        }
+       ],
+       "type": "slide"
+      }
+     ],
+     "type": "slide_container"
+    }
+   ]
+  },
+  "version": 1
+ },
+ "file": [
+  {
+   "basename": "image1",
+   "ext": "png",
+   "file_id": "1",
+   "fullname": "image1.png",
+   "hash": "04efd01be639eaa334407754b4722279",
+   "height": 14,
+   "rotated": true,
+   "size": 8496,
+   "type": "image",
+   "width": 1917
+  },
+  {
+   "basename": "image2",
+   "ext": "jpg",
+   "file_id": "2",
+   "fullname": "image2.jpg",
+   "hash": "e2995fa00a20ad127fe1f4ee1d96ca4f",
+   "height": 810,
+   "rotated": true,
+   "size": 75042,
+   "type": "image",
+   "width": 1440
+  },
+  {
+   "basename": "image3",
+   "ext": "jpg",
+   "file_id": "3",
+   "fullname": "image3.jpg",
+   "hash": "36c65fa92395531761d0cf68786523da",
+   "height": 810,
+   "rotated": true,
+   "size": 71567,
+   "type": "image",
+   "width": 1440
+  },
+  {
+   "basename": "image4",
+   "ext": "jpg",
+   "file_id": "4",
+   "fullname": "image4.jpg",
+   "hash": "6de70a23500519c1d1d37251896cd781",
+   "height": 810,
+   "rotated": true,
+   "size": 106107,
+   "type": "image",
+   "width": 544
+  },
+  {
+   "basename": "image5",
+   "ext": "jpg",
+   "file_id": "5",
+   "fullname": "image5.jpg",
+   "hash": "7d468379e8c9eccac98f0724794505af",
+   "height": 397,
+   "rotated": true,
+   "size": 24572,
+   "type": "image",
+   "width": 397
+  },
+  {
+   "basename": "image6",
+   "ext": "jpg",
+   "file_id": "6",
+   "fullname": "image6.jpg",
+   "hash": "6b7c62847a9e4df9dafd0554c54a4c7e",
+   "height": 3742,
+   "rotated": true,
+   "size": 8911530,
+   "thumb": "f7b363652c9d308a1a3951f80229314e",
+   "thumb_height": 1280,
+   "thumb_size": 999662,
+   "thumb_width": 1920,
+   "type": "image",
+   "width": 5612
+  }
+ ]
+}

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- 保留沙箱：这是 App Store 上架的前提，也是最小权限的默认。 -->
+	<key>com.apple.security.app-sandbox</key>
+	<true/>
+	<!-- Debug/Profile 用：Flutter 的 JIT 解释器与 VM service 需要（Release 不给）。 -->
+	<key>com.apple.security.cs.allow-jit</key>
+	<true/>
+	<!-- Debug/Profile 用：Flutter tool 的 VM service / DDS 要**监听**本地端口。 -->
+	<key>com.apple.security.network.server</key>
+	<true/>
+	<!-- ★ 必需：没有它就**一个字节都出不去**，连不上 NAS（原模板只有 network.server，
+	     所以原样跑起来时"能启动、不能联网"）。见 docs/platform-macos.md §3。 -->
+	<key>com.apple.security.network.client</key>
+	<true/>
+	<!-- 用户自己选的下载/导出目录（保存面板 = 一次性沙箱扩展）。
+	     刻意**不要** files.downloads.read-write / 全盘访问：App 容器内的
+	     Downloads 目录本来就免授权，用户显式选目录时才需要这一条。 -->
+	<key>com.apple.security.files.user-selected.read-write</key>
+	<true/>
+	<!-- 聊天语音消息 / 笔记语音（`record`）。只加这一个设备能力；
+	     摄像头在 macOS 上不走 image_picker（用的是文件选择器）⇒ 不申请。 -->
+	<key>com.apple.security.device.audio-input</key>
+	<true/>
+	<!-- ★ r328（backlog §3.4）：**安全作用域书签** —— 把"用户上次选的目录"
+	     跨启动记住。`user-selected.read-write` 只给**一次性**扩展，重启就没了，
+	     没有这一条就只能每次都弹面板。
+	     它随 `FsBookmarkBridge.swift`（`synhub/fsbookmark`）一起生效；
+	     逐字守卫见 `test/fs_bookmark_test.dart`（读本文件原文，不靠"我记得配了"）。 -->
+	<key>com.apple.security.files.bookmarks.app-scope</key>
+	<true/>
+</dict>
+</plist>

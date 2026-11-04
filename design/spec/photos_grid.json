@@ -1,0 +1,38 @@
+{
+  "id": "photos_grid",
+  "unit": "sample/跨模块样例（不计入 160 台账）",
+  "title": {
+    "zh": "相册",
+    "en": "Photos"
+  },
+  "appbar": {
+    "actions": [
+      "search",
+      "more"
+    ]
+  },
+  "tabs": [
+    {
+      "zh": "全部",
+      "en": "All"
+    },
+    {
+      "zh": "最近",
+      "en": "Recent"
+    },
+    {
+      "zh": "人物",
+      "en": "People"
+    },
+    {
+      "zh": "场景",
+      "en": "Scenes"
+    }
+  ],
+  "body": {
+    "type": "grid",
+    "count": 9
+  },
+  "bottomNav": "photos",
+  "fab": false
+}

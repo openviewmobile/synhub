@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  :root{
+    --bg:#0d1014; --frame:#15181e; --phone:#0f1216; --surface:#1a1f27; --surface2:#222833;
+    --text:#e9edf2; --muted:#98a2af; --line:#2a3140;
+    --primary:#4c8dff; --primary-soft:#1d2c48; --accent:#8fb8ff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);
+       font-family:-apple-system,"PingFang SC","Helvetica Neue",Arial,sans-serif;
+       padding:28px 30px 34px;width:1240px}
+  h1{font-size:19px;font-weight:650;letter-spacing:.2px}
+  .sub{color:var(--muted);font-size:12.5px;margin-top:6px;line-height:1.55}
+  .board{display:flex;gap:26px;margin-top:22px;align-items:flex-start}
+  .col{width:352px}
+  .cap{display:flex;align-items:baseline;gap:8px;margin:0 0 10px 2px}
+  .cap b{font-size:13.5px}
+  .cap span{font-size:11.5px;color:var(--muted)}
+  .phone{width:352px;height:812px;background:var(--phone);border:1px solid var(--line);
+         border-radius:30px;overflow:hidden;position:relative;display:flex;flex-direction:column;
+         box-shadow:0 18px 40px rgba(0,0,0,.45)}
+  .statusbar{height:30px;display:flex;align-items:center;justify-content:space-between;
+             padding:0 18px;font-size:11px;color:var(--muted)}
+  .appbar{height:52px;display:flex;align-items:center;gap:12px;padding:0 14px;border-bottom:1px solid var(--line)}
+  .appbar .title{font-size:15px;font-weight:600;flex:1}
+  .icon{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;
+        color:var(--text);font-size:16px;background:transparent}
+  .icon.soft{background:var(--surface)}
+  .dot{width:3px;height:3px;border-radius:2px;background:currentColor;box-shadow:0 -5px 0 currentColor,0 5px 0 currentColor}
+  .body{flex:1;padding:16px 16px 10px;display:flex;flex-direction:column;overflow:hidden}
+
+  /* ---- 播放页 ---- */
+  .cover{width:100%;height:176px;border-radius:18px;
+    background:radial-gradient(120% 120% at 20% 15%,#3c5a86 0%,#22314a 45%,#141a24 100%);
+    border:1px solid #2b3648;display:grid;place-items:center;color:#94a9c7;font-size:12px;letter-spacing:2px}
+  .song{margin-top:13px;font-size:17px;font-weight:640}
+  .artist{margin-top:5px;font-size:12.5px;color:var(--muted)}
+  .prog{margin-top:13px}
+  .bar{height:4px;border-radius:3px;background:#242b36;position:relative}
+  .bar i{position:absolute;left:0;top:0;bottom:0;width:38%;border-radius:3px;background:var(--primary)}
+  .bar u{position:absolute;left:38%;top:50%;transform:translate(-50%,-50%);
+         width:12px;height:12px;border-radius:50%;background:#fff;box-shadow:0 0 0 4px rgba(76,141,255,.22)}
+  .times{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-top:7px;
+         font-variant-numeric:tabular-nums}
+  .transport{display:flex;align-items:center;justify-content:space-between;margin:10px 2px 2px}
+  .tbtn{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;color:var(--text)}
+  .tbtn.small{width:40px;height:40px;color:var(--muted)}
+  .tbtn.play{width:60px;height:60px;background:var(--primary);color:#08111f;font-size:20px;
+             box-shadow:0 8px 22px rgba(76,141,255,.35)}
+  .lyrics{margin-top:12px;background:var(--surface);border:1px solid var(--line);border-radius:14px;
+          padding:14px 10px;flex:1;display:flex;flex-direction:column;justify-content:center;gap:11px;
+          overflow:hidden;position:relative}
+  .lyrics::after{content:"";position:absolute;inset:auto 0 0 0;height:34px;
+    background:linear-gradient(transparent,var(--surface))}
+  .ly{font-size:12.5px;color:#6f7b8b;text-align:center;line-height:1.3}
+  .ly.on{font-size:15px;color:var(--accent);font-weight:650}
+  .lybl{display:flex;align-items:center;justify-content:space-between;padding:0 4px}
+  .lybl b{font-size:12px;color:var(--muted);font-weight:600;letter-spacing:.4px}
+  .lybl span{font-size:11px;color:#5c6675}
+  .quick{display:flex;justify-content:space-around;padding:10px 6px 0}
+  .q{display:flex;flex-direction:column;align-items:center;gap:5px;font-size:10.5px;color:var(--muted)}
+  .q i{width:34px;height:34px;border-radius:10px;background:var(--surface);display:grid;place-items:center;
+       font-style:normal;color:var(--text);font-size:14px}
+
+  /* ---- 电台页 ---- */
+  .chips{display:flex;gap:8px;padding:2px 0 12px}
+  .chip{font-size:12px;padding:7px 13px;border-radius:9px;background:var(--surface);color:var(--muted)}
+  .chip.on{background:var(--primary-soft);color:var(--accent);border:1px solid #2f4straight}
+  .chip.on{border:1px solid #2f4a7a}
+  .rows{display:flex;flex-direction:column;gap:8px;overflow:hidden}
+  .row{display:flex;align-items:center;gap:12px;padding:10px 10px;border-radius:13px;background:var(--surface)}
+  .avatar{width:40px;height:40px;border-radius:11px;flex:none;display:grid;place-items:center;
+          font-size:15px;color:#0b121e;font-weight:700}
+  .a1{background:linear-gradient(135deg,#8fb8ff,#4c8dff)}
+  .a2{background:linear-gradient(135deg,#ffd28f,#f2a54a)}
+  .a3{background:linear-gradient(135deg,#a6e3c5,#4fbf8f)}
+  .a4{background:linear-gradient(135deg,#f0a8c8,#d0679b)}
+  .rmeta{flex:1;min-width:0}
+  .rmeta b{font-size:13px;font-weight:600;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .rmeta span{font-size:11px;color:var(--muted);display:block;margin-top:3px}
+  .playbtn{width:40px;height:40px;border-radius:50%;background:#243040;color:var(--accent);
+           display:grid;place-items:center;font-size:15px;flex:none}
+  .playbtn.actived{background:var(--primary);color:#08111f}
+  /* 迷你播放器（新增） */
+  .mini{position:absolute;left:12px;right:12px;bottom:14px;height:64px;border-radius:16px;
+        background:#1d2531;border:1px solid #2c3646;display:flex;align-items:center;gap:11px;
+        padding:0 12px;box-shadow:0 -6px 24px rgba(0,0,0,.45)}
+  .mcover{width:40px;height:40px;border-radius:10px;flex:none;
+          background:linear-gradient(135deg,#3c5a86,#22314a);border:1px solid #2b3648}
+  .mmeta{flex:1;min-width:0}
+  .mmeta b{font-size:12.5px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .mmeta span{font-size:10.5px;color:var(--muted);display:block;margin-top:2px}
+  .mbtn{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;color:var(--text);font-size:13px}
+  .mbtn.p{background:var(--primary);color:#08111f;border-radius:50%}
+
+  /* ---- 说明 ---- */
+  .notes{width:400px;padding-top:2px}
+  .note{background:var(--frame);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:12px}
+  .note h3{font-size:12.5px;color:var(--accent);font-weight:650;margin-bottom:8px;letter-spacing:.3px}
+  .note p,.note li{font-size:12px;color:#c3ccd8;line-height:1.66}
+  .note li{margin-left:16px;margin-top:3px}
+  .bad{color:#ff9c9c}
+  .good{color:#8fe0b4}
+  .kbd{font-family:ui-monospace,Menlo,monospace;font-size:11px;background:#20262f;border:1px solid #2d3542;
+       border-radius:5px;padding:1px 5px;color:#cfd8e3}
+</style>
+</head>
+<body>
+  <h1>r459 设计稿 · 音频流程（第 1 版，供评审）</h1>
+  <div class="sub">
+    目的：先把「反人类」的地方在设计上定死，再回代码改。<b>演员表</b>：① 现在播放 = 全屏播放器（单一 ⋮、歌词贴住播放位置）
+    ② 网络电台 = 每行直接可播 + <b>常驻迷你播放器</b>（暂停/关闭不再"无处可点"）。
+  </div>
+
+  <div class="board">
+    <!-- 屏 1 -->
+    <div class="col">
+      <div class="cap"><b>① 现在播放</b><span>歌词随播放滚动 · 全屏只有一个 ⋮</span></div>
+      <div class="phone">
+        <div class="statusbar"><span>9:41</span><span>◐ ◍ ▮▮▮</span></div>
+        <div class="appbar">
+          <div class="icon">‹</div>
+          <div class="title">正在播放</div>
+          <div class="icon">♡</div>
+          <div class="icon"><span class="dot"></span></div>
+        </div>
+        <div class="body">
+          <div class="cover">封面 210×210 · 主色律动</div>
+          <div class="song">Demo Song</div>
+          <div class="artist">Demo Artist · 320 kbps · 无损直连</div>
+
+          <div class="prog">
+            <div class="bar"><i></i><u></u></div>
+            <div class="times"><span>1:32</span><span>−2:19</span></div>
+          </div>
+
+          <div class="transport">
+            <div class="tbtn small">⤨</div>
+            <div class="tbtn small">◀◀</div>
+            <div class="tbtn play">▶</div>
+            <div class="tbtn small">▶▶</div>
+            <div class="tbtn small">↻</div>
+          </div>
+
+          <div class="lyrics">
+            <div class="lybl"><b>歌词</b><span>lrclib · 带时间轴</span></div>
+            <div class="ly">Sample lyric line one</div>
+            <div class="ly">Sample lyric line two</div>
+            <div class="ly on">Sample lyric line three</div>
+            <div class="ly">Sample lyric line four</div>
+            <div class="ly">Sample lyric line five</div>
+          </div>
+
+          <div class="quick">
+            <div class="q"><i>≡</i>播放队列</div>
+            <div class="q"><i>⇄</i>投送到</div>
+            <div class="q"><i>♩</i>音效</div>
+            <div class="q"><i>⏱</i>睡眠定时</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 屏 2 -->
+    <div class="col">
+      <div class="cap"><b>② 网络电台</b><span>行内直接播放 + 底部迷你播放器（新增）</span></div>
+      <div class="phone">
+        <div class="statusbar"><span>9:41</span><span>◐ ◍ ▮▮▮</span></div>
+        <div class="appbar">
+          <div class="icon">‹</div>
+          <div class="title">网络电台</div>
+          <div class="icon">⌕</div>
+          <div class="icon"><span class="dot"></span></div>
+        </div>
+        <div class="body" style="padding-bottom:86px">
+          <div class="chips">
+            <div class="chip on">全部</div>
+            <div class="chip">收藏</div>
+            <div class="chip">最近播放</div>
+            <div class="chip">我的电台</div>
+          </div>
+          <div class="rows">
+            <div class="row">
+              <div class="avatar a1">♫</div>
+              <div class="rmeta"><b>BBC Radio 1</b><span>Shoutcast · 128 kbps</span></div>
+              <div class="playbtn actived">❚❚</div>
+            </div>
+            <div class="row">
+              <div class="avatar a2">♫</div>
+              <div class="rmeta"><b>Radio Paradise</b><span>MP3 · 320 kbps</span></div>
+              <div class="playbtn">▶</div>
+            </div>
+            <div class="row">
+              <div class="avatar a3">♫</div>
+              <div class="rmeta"><b>Jazz24</b><span>AAC · 96 kbps</span></div>
+              <div class="playbtn">▶</div>
+            </div>
+            <div class="row">
+              <div class="avatar a4">♫</div>
+              <div class="rmeta"><b>Classic FM</b><span>HLS · 128 kbps</span></div>
+              <div class="playbtn">▶</div>
+            </div>
+            <div class="row" style="opacity:.55">
+              <div class="avatar a1">＋</div>
+              <div class="rmeta"><b>添加自定义电台</b><span>粘贴播放列表或直链</span></div>
+            </div>
+          </div>
+        </div>
+        <!-- 迷你播放器 -->
+        <div class="mini">
+          <div class="mcover"></div>
+          <div class="mmeta"><b>BBC Radio 1</b><span>正在播放 · 网络电台</span></div>
+          <div class="mbtn p">❚❚</div>
+          <div class="mbtn">✕</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 说明 -->
+    <div class="notes">
+      <div class="note">
+        <h3>这一版要解决的 4 个具体问题</h3>
+        <p><span class="bad">现状 ①</span> 电台页点播后<b>页面上没有任何控制</b>（没有暂停/关闭/正在播放），只能回外壳找播放器。</p>
+        <p style="margin-top:8px"><span class="good">改法</span> 播放态固定在底部一条迷你播放器：封面/标题/暂停/关闭，任意页可见。</p>
+      </div>
+      <div class="note">
+        <h3>菜单收敛原则（全站）</h3>
+        <ul>
+          <li>一个屏幕<b>最多一个 ⋮</b>；行内"更多"只在列表行上出现，且不与顶栏 ⋮ 同时出现在同一视觉层。</li>
+          <li>高频动作（播放/暂停/下载/分享/删除/刷新/搜索）<b>一律露在界面上</b>，进菜单只放低频与危险动作。</li>
+          <li>⋮ 里的条目<b>不重复</b>；同一动作在两个入口出现时必须长得一样、名字一样。</li>
+        </ul>
+      </div>
+      <div class="note">
+        <h3>可读性硬指标</h3>
+        <ul>
+          <li>点击区 ≥ 48dp；图标画在 24dp 网格里（现状有 <span class="kbd">iconSize: 16–20</span> 的 9 处）。</li>
+          <li>任何"能点"的东西必须有可见形态（图标/文字/底纹），不允许透明按钮。</li>
+          <li>歌词：当前行高亮 + 垂直居中 + 240ms 缓动跟随；<b>播放位置必须是驱动源</b>，不是构建时快照。</li>
+        </ul>
+      </div>
+      <div class="note" style="border-color:#3a4a63">
+        <h3>下一步（等你点头再动手）</h3>
+        <p>① 你挑这一版哪里不对（布局/信息层级/文案）；<br>
+           ② 我按同一套设计令牌铺完剩下 5 个核心流程（文件、下载、相册、聊天、设置）；<br>
+           ③ 设计稿定稿后，我逐屏改代码并真机验收（每屏 A/B 像素对照）。</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+# golden snapshot: RAR 真实样本（libarchive 测试数据 + real.rar）
+# 生成：dart run tool/golden_snapshot.dart
+# 口径：RarArchive 解出的每个条目 size/crc32/sha256；解不开写 ERROR
+# format: sample<TAB>entry<TAB>size<TAB>crc32<TAB>sha256
+# format: sample<TAB>ERROR<TAB>exception<TAB>message
+real.rar	test.txt	20	bec8a242	5a5f16e01faf8adf92eb4499a2d3e93010c4b41dbb7f698f4a8466d9f58e6dd2
+real.rar	testlink	8	b6c9447b	a6ed0c785d4590bc95c216bcf514384eee6765b1c2b732d0b0a1ad7e14d3204a
+real.rar	testdir/test.txt	20	bec8a242	5a5f16e01faf8adf92eb4499a2d3e93010c4b41dbb7f698f4a8466d9f58e6dd2
+test_read_format_rar3_lowdist_reset.rar	lowdist-reset.bin	64	6ff838dc	353d5f7a0789034186922e5834f666f36fa1f98e18f53fb4140b336ba090a923
+test_read_format_rar4_encrypted.rar	ERROR	RarUnsupportedException	RAR 不支持：「b.txt」是带密码（加密）的 RAR 条目，本阅读器不解密
+test_read_format_rar4_encrypted_filenames.rar	ERROR	RarUnsupportedException	RAR 不支持：归档头被加密（带密码的 RAR）
+test_read_format_rar4_solid_encrypted.rar	ERROR	RarUnsupportedException	RAR 不支持：「a.txt」是带密码（加密）的 RAR 条目，本阅读器不解密
+test_read_format_rar4_solid_encrypted_filenames.rar	ERROR	RarUnsupportedException	RAR 不支持：归档头被加密（带密码的 RAR）
+test_read_format_rar5_arm.rar	elf-Linux-ARMv7-ls	90808	886f91eb	e68c62b49184ed764f324fb4722481d60e1bf321b722238d95247f391960605c
+test_read_format_rar5_arm_filter_on_window_boundary.rar	ERROR	RarFormatException	RAR 解析失败：RAR5 块头长度非法（0）
+test_read_format_rar5_bad_tables.rar	ERROR	RarFormatException	RAR 解析失败：RAR5 块头长度非法（2）
+test_read_format_rar5_bad_window_sz_in_mltarc_file.rar	ERROR	RarFormatException	RAR 解析失败：RAR5 块头长度非法（2）
+test_read_format_rar5_blake2.rar	cebula.txt	814	7e5ec49e	1e98540238b2b13d1a22f4f4fa8e2eb6c66e24d46115ffdfafd3f3f981b212e7
+test_read_format_rar5_compressed.rar	test.bin	1200	7cca70cd	588870a2dade35c2650fbb7898c9a9c7f21fce7c281198604e8d0c9737f2c375
+test_read_format_rar5_solid.rar	test.bin	1200	7cca70cd	588870a2dade35c2650fbb7898c9a9c7f21fce7c281198604e8d0c9737f2c375
+test_read_format_rar5_solid.rar	test1.bin	4096	7e13b2c6	7d89f86f9f69d744ffff3fc043e15bf89fc3ffc134ffcbb31d164a99bb8b67b0
+test_read_format_rar5_solid.rar	test2.bin	4096	f166afcb	f81e6fceeeab366306b23466bf6bb3aac2875e0906dc20a8652be0696ceb15a2
+test_read_format_rar5_solid.rar	test3.bin	4096	9fb123d9	5e621f2b6ce8fed758c3df8221f994eda55d1e432c7cc4349c34a30ec2e1c43d
+test_read_format_rar5_solid.rar	test4.bin	4096	10c43ed4	2627f40180217252956edb9a426e8d3e344adaf89019d3bccbe04f6c3416dcdd
+test_read_format_rar5_solid.rar	test5.bin	4096	b9d155f2	b0622b648b174abd9c5f3965155bbcc82c642f997ab8949add0a8632bf94e636
+test_read_format_rar5_solid.rar	test6.bin	4096	36a448ff	0b79ce23670b7c2e5a0d4b62f0de7b0c745522be9ed6a9ec70da6991c2f010f2
+test_read_format_rar5_solid_encrypted.rar	ERROR	RarUnsupportedException	RAR 不支持：「a.txt」是带密码（加密）的 RAR 条目，本阅读器不解密
+test_read_format_rar5_solid_encrypted_filenames.rar	ERROR	RarUnsupportedException	RAR 不支持：归档头被加密（带密码的 RAR）

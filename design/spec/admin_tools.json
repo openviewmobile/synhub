@@ -1,0 +1,76 @@
+{
+  "id": "admin_tools",
+  "unit": "lib/src/features/admin/admin_tools_page.dart",
+  "title": {
+    "zh": "管理工具",
+    "en": "Admin tools"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "settings",
+    "groups": [
+      {
+        "title": {
+          "zh": "系统",
+          "en": "System"
+        },
+        "rows": [
+          {
+            "label": {
+              "zh": "用户与群组",
+              "en": "Users & groups"
+            },
+            "kind": "arrow"
+          },
+          {
+            "label": {
+              "zh": "套件中心",
+              "en": "Package center"
+            },
+            "kind": "arrow"
+          },
+          {
+            "label": {
+              "zh": "日志",
+              "en": "Logs"
+            },
+            "kind": "arrow"
+          }
+        ]
+      },
+      {
+        "title": {
+          "zh": "安全",
+          "en": "Security"
+        },
+        "rows": [
+          {
+            "label": {
+              "zh": "两步验证",
+              "en": "Two-factor"
+            },
+            "kind": "switch",
+            "value": true
+          },
+          {
+            "label": {
+              "zh": "强制 HTTPS",
+              "en": "Force HTTPS"
+            },
+            "kind": "switch",
+            "value": false
+          }
+        ]
+      }
+    ],
+    "note": {
+      "zh": "仅管理员可见；普通账号不显示该入口",
+      "en": "Admin only; hidden for regular accounts"
+    }
+  },
+  "bottomNav": null
+}

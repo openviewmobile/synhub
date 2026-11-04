@@ -1,0 +1,68 @@
+{
+  "id": "surv",
+  "unit": "lib/src/features/surveillance/surv_page.dart",
+  "title": {
+    "zh": "监控",
+    "en": "Surveillance"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "list",
+    "sections": true,
+    "items": [
+      {
+        "section": {
+          "zh": "在线 2",
+          "en": "Online 2"
+        },
+        "title": {
+          "zh": "门口",
+          "en": "Front door"
+        },
+        "sub": {
+          "zh": "1080p · 录制中",
+          "en": "1080p · recording"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "section": {
+          "zh": "在线 2",
+          "en": "Online 2"
+        },
+        "title": {
+          "zh": "车库",
+          "en": "Garage"
+        },
+        "sub": {
+          "zh": "720p · 空闲",
+          "en": "720p · idle"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "section": {
+          "zh": "离线 1",
+          "en": "Offline 1"
+        },
+        "title": {
+          "zh": "后院",
+          "en": "Backyard"
+        },
+        "sub": {
+          "zh": "离线 3 小时",
+          "en": "Offline 3h"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      }
+    ]
+  },
+  "bottomNav": null
+}

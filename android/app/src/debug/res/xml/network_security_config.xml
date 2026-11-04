@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    **仅 debug 构建**的网络安全配置（经 `src/debug/AndroidManifest.xml` 的
+    `android:networkSecurityConfig` 引用）。release 不使用本文件，因此 release
+    仍按 targetSdk=36 的默认策略**禁止一切明文 HTTP**。
+
+    白名单刻意只列**具体的、测试用的**主机：
+      * `10.254.254.39` —— R6 真机批次里宿主 `en0` 的地址（mock 跑在 8788）；
+      * `127.0.0.1` / `localhost` —— 空洞隧道/本机 mock 的 loopback。
+
+    **没有** `<base-config cleartextTrafficPermitted="true">`、**没有**通配 `*`：
+    换了宿主 IP 时必须**显式**再补一条（这是故意的，防止顺手放开整段网段）。
+
+    注意：Media3/ExoPlayer 走系统 `NetworkSecurityPolicy`，所以它读的就是这份
+    按域规则 —— 这正是"让 mock 流进原生播放器、同时不放宽 release"的最小改动。
+-->
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="false">10.254.254.39</domain>
+        <domain includeSubdomains="false">127.0.0.1</domain>
+        <domain includeSubdomains="false">localhost</domain>
+    </domain-config>
+</network-security-config>

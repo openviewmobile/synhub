@@ -1,0 +1,76 @@
+{
+  "id": "ai_model",
+  "unit": "lib/src/features/ai/ai_model_page.dart",
+  "title": {
+    "zh": "AI 服务",
+    "en": "AI service"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "settings",
+    "groups": [
+      {
+        "title": {
+          "zh": "模式",
+          "en": "Mode"
+        },
+        "rows": [
+          {
+            "label": {
+              "zh": "云端 AI",
+              "en": "Cloud AI"
+            },
+            "kind": "switch",
+            "value": true
+          },
+          {
+            "label": {
+              "zh": "服务商",
+              "en": "Provider"
+            },
+            "kind": "arrow"
+          },
+          {
+            "label": {
+              "zh": "模型",
+              "en": "Model"
+            },
+            "kind": "arrow"
+          }
+        ]
+      },
+      {
+        "title": {
+          "zh": "本机",
+          "en": "This device"
+        },
+        "rows": [
+          {
+            "label": {
+              "zh": "端侧模型",
+              "en": "On-device model"
+            },
+            "kind": "arrow"
+          },
+          {
+            "label": {
+              "zh": "仅在 Wi-Fi 下加载",
+              "en": "Load on Wi-Fi only"
+            },
+            "kind": "switch",
+            "value": true
+          }
+        ]
+      }
+    ],
+    "note": {
+      "zh": "云端调用会在「AI 用量」里按次记账",
+      "en": "Cloud calls are metered in AI usage"
+    }
+  },
+  "bottomNav": null
+}

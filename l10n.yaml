@@ -1,0 +1,11 @@
+# 多语言的生成配置（`flutter gen-l10n`，`flutter: generate: true` 会自动跑）。
+#
+# 设计取舍：**模板是中文**（app_zh.arb）。界面文案本来就全中文，
+# 把中文当模板意味着"漏翻一条"时用户看到的还是中文，不会突然冒出英文。
+# 英文缺失时 gen-l10n 会回落到模板（中文），这正是我们要的行为。
+arb-dir: lib/l10n
+template-arb-file: app_zh.arb
+output-localization-file: app_localizations.dart
+output-class: AppText
+output-dir: lib/l10n/gen
+nullable-getter: true

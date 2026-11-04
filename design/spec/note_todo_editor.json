@@ -1,0 +1,67 @@
+{
+  "id": "note_todo_editor",
+  "unit": "lib/src/features/notes/note_todo_editor_page.dart",
+  "title": {
+    "zh": "新建待办",
+    "en": "New to-do"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "form",
+    "fields": [
+      {
+        "label": {
+          "zh": "标题",
+          "en": "Title"
+        },
+        "value": {
+          "zh": "把时间线收成两级",
+          "en": "Collapse the timeline"
+        }
+      },
+      {
+        "label": {
+          "zh": "截止时间",
+          "en": "Due"
+        },
+        "value": {
+          "zh": "2026-03-20 18:00",
+          "en": "2026-03-20 18:00"
+        }
+      },
+      {
+        "label": {
+          "zh": "优先级",
+          "en": "Priority"
+        },
+        "value": {
+          "zh": "高",
+          "en": "High"
+        }
+      },
+      {
+        "label": {
+          "zh": "标签",
+          "en": "Tag"
+        },
+        "value": "#设计"
+      }
+    ],
+    "switch": {
+      "label": {
+        "zh": "逾期时汇总提醒我",
+        "en": "Notify me when overdue"
+      },
+      "value": true
+    },
+    "submit": {
+      "zh": "保存待办",
+      "en": "Save to-do"
+    }
+  },
+  "bottomNav": null
+}

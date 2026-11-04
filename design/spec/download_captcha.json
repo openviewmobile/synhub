@@ -1,0 +1,35 @@
+{
+  "id": "download_captcha",
+  "unit": "lib/src/features/downloads/download_captcha_page.dart",
+  "title": {
+    "zh": "输入验证码",
+    "en": "Enter captcha"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "form",
+    "captcha": true,
+    "fields": [
+      {
+        "label": {
+          "zh": "验证码",
+          "en": "Captcha"
+        },
+        "value": ""
+      }
+    ],
+    "submit": {
+      "zh": "继续",
+      "en": "Continue"
+    }
+  },
+  "note": {
+    "zh": "验证码由下载站返回，输入后才会开始任务",
+    "en": "The captcha comes from the site; the task starts after you enter it"
+  },
+  "bottomNav": null
+}

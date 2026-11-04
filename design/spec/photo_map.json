@@ -1,0 +1,54 @@
+{
+  "id": "photo_map",
+  "unit": "lib/src/features/photos/photo_map_page.dart",
+  "title": {
+    "zh": "照片地图",
+    "en": "Photo map"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "map",
+    "caption": {
+      "zh": "地图瓦片来自 OpenStreetMap",
+      "en": "Map tiles by OpenStreetMap"
+    },
+    "places": [
+      {
+        "title": {
+          "zh": "杭州 · 西湖",
+          "en": "Hangzhou · West Lake"
+        },
+        "sub": {
+          "zh": "128 张 · 2025 年 4 月",
+          "en": "128 photos · Apr 2025"
+        }
+      },
+      {
+        "title": {
+          "zh": "上海 · 外滩",
+          "en": "Shanghai · Bund"
+        },
+        "sub": {
+          "zh": "42 张 · 2025 年 10 月",
+          "en": "42 photos · Oct 2025"
+        }
+      },
+      {
+        "title": {
+          "zh": "成都 · 宽窄巷子",
+          "en": "Chengdu · Kuanzhai"
+        },
+        "sub": {
+          "zh": "18 张 · 2024 年 8 月",
+          "en": "18 photos · Aug 2024"
+        }
+      }
+    ],
+    "trail": "chev"
+  },
+  "bottomNav": null
+}

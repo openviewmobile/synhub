@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ★★ DA102（第 455 轮）：**原生地板**。
+         以前这里没有任何状态栏声明（Flutter 模板原样）⇒ 进程起来到 Flutter
+         画出第一帧之间，窗口用的是 ROM 主题默认 `statusBarColor=#40000000`
+         （25% 黑），冷启动首帧在浅色页上是一条灰带。
+         这一层按**系统夜间模式**（本文件在 `values-night/`，即系统深色）先声明成透明 +
+         浅色图标，让"第一帧之前"也是对的；运行期由 Dart 侧的
+         `SystemBarsScope`（`lib/src/core/ui/system_bars.dart`）按 **App 内主题**
+         接管。取证见 `docs/android-ui-audit-r454.md` / `r455.md`。 -->
+    <style name="LaunchTheme" parent="@android:style/Theme.Black.NoTitleBar">
+        <item name="android:windowBackground">@drawable/launch_background</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+    <style name="NormalTheme" parent="@android:style/Theme.Black.NoTitleBar">
+        <item name="android:windowBackground">?android:colorBackground</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+</resources>

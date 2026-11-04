@@ -1,0 +1,62 @@
+# 静态登记：XPS / FB3 真实样本（样本本体不进仓库，只放 /tmp/ebook-samples/）
+#
+# 用途：给 test/file_book_xps_test.dart 与 test/file_book_fb3_test.dart 的
+#       "真实样本端到端" 组做身份对照（文件名/大小/sha256），并留一条 oracle 记录。
+# 采集命令见 docs/format-codec-support-matrix.md 末尾 "XPS / FB3 真实样本" 一节。
+#
+# XPS 来源 A：HiraokaHyperTools/SampleXpsDocuments_1_0（Sample XPS Documents 1.0
+#   官方一致性测试套件；MXDW = Microsoft XPS Document Writer 真机打印，WPF/Office2007
+#   是各自真实生产者导出）。仓库未附独立 LICENSE，按测试套件原样再分发使用。
+# XPS 来源 B：ArtifexSoftware/ghostpdl（AGPL-3.0）xps/tools 与 pcl/examples。
+# FB3 来源：gribuser/FB3（FictionBook 3 规范与参考工具仓库，Litres 许可，见其
+#   license.txt：规范 schema 原样再分发允许、不得修改）；样本由 Litres FB3 工具链产出。
+#
+# format: sample<TAB>bytes<TAB>sha256<TAB>provenance
+ghostpdl_xps_tiger.xps	62775	685143e809d9d14542289b41707a1d29b98242e6a3b6f0a396ca24d55fc3fd0a	ghostpdl/master:xps/tools/tiger.xps
+ghostpdl_colorcirc.xps	50588	cbe7075c8d1e8b2030423150ab7a339fe41aa58766a43d18dbb2fdc7070555ee	ghostpdl/master:xps/tools/colorcirc.xps
+ghostpdl_pcl_tiger.xps	124664	e9148cbe5af9dc05d39fc1f46ac1dde4cb8d61c454e2b613f32239c1daade0cd	ghostpdl/master:pcl/examples/tiger.xps
+xpssuite_office2007_eurotest.xps	412161	3fa1e11acaf2008724bfd6697553ad0b11789fa3d2da1b0fee200a370f388b2a	SampleXpsDocuments_1_0:Office2007/Office2007_EUROTEST.xps
+xpssuite_office2007_excel_digit.xps	106406	c70de54aeaffa6c491a8bbecc30007106901c7d072063555a5548411af37ce65	SampleXpsDocuments_1_0:Office2007/Office2007_Excel_digit_formats.xps
+xpssuite_wpf_glyphs_lingrad.xps	86145	df62a327af198ca93e885b48283b1dd1edafa7d9cd65e77e4f4ba6a6576f0946	SampleXpsDocuments_1_0:WPF/WPF_GlyphsLinGradScaleTransfTemplate.xps
+xpssuite_mxdw_coreproperty2.xps	67340	56e98c07868abaff3793147b5b2642f733976d1f59174b1539ae0d3478c4912b	SampleXpsDocuments_1_0:MXDW/Properties/CoreProperty2.xps
+xpssuite_showcase_outlook_calendar.xps	188822	47aad036735b88f24217360e84065f968344ecb95ed2855def923936fad894b9	SampleXpsDocuments_1_0:Showcase/Outlook2007_Calendar.xps
+xpssuite_handcrafted_clustermap.xps	238886	1610df3d9d9a08382843249ceaed2bfc112f51ad5c692529531d4dc0a6791e1e	SampleXpsDocuments_1_0:Handcrafted/ClusterMap.xps
+fb3_author_exists_193286.fb3	4708	bff1069ce97f843fb997565d314d058f3e03a5436ca4be5c72207f48c03a1725	FB3/api/perl/FB3-Convert/t/examples/fb3_to_fb2/author_exists_193286.fb3
+fb3_table_title_189446.fb3	4280	8fd06dae9a91b6fb1ae2e44c1508a7675254920efa86b54cf41adb3598847684	FB3/api/perl/FB3-Convert/t/examples/fb3_to_fb2/table_title_189446.fb3
+fb3_marker_156543.fb3	7504	f470ea216499db5d336d4e0ebb18ff70a6365c5e8c0fbc8115f8441a0ad85b61	FB3/api/perl/FB3-Convert/t/examples/fb3_to_fb2/marker_156543.fb3
+fb3_nightmare_example.fb3	1946886	78590f293181f5e4bfcb47ca5773130822307be2fcebf8405e12cd1a647a0ffe	FB3/Examples/nightmare_example.fb3
+fb3_hardcore_structure.fb3	1736767	78b116a3d669985129c6de9e573d222d46b87f378659c64a2cfc595d59218f2d	FB3/Examples/Hardcore file structure.fb3
+fb3_anathomy_tutorial.fb3	2671834	d2b0484224ccbbcf84ecf9b7918ec90625baf892a003a8ea986787261c8704d5	FB3/Examples/Anathomy tutorial example.fb3
+#
+# oracle（独立于本仓库解析器，来自 unzip + grep 原始 part）：
+#   format: sample<TAB>pages<TAB>glyphs<TAB>images<TAB>note
+#   pages  = FixedDocumentSequence→… 展开后的 FixedPage part 数（或 FB3 = section 数）
+#   glyphs = 所有 FixedPage 里 <Glyphs> 元素总数
+#   images = 包内按后缀/magic 认出的图片 part 数
+ghostpdl_xps_tiger.xps	1	0	1	vector-only(305 Paths)
+ghostpdl_colorcirc.xps	1	7	1	Glyphs Indices+私用区 UnicodeString
+ghostpdl_pcl_tiger.xps	1	0	0	vector-only(305 Paths)
+xpssuite_office2007_eurotest.xps	2	256	1	UTF-16 XML
+xpssuite_office2007_excel_digit.xps	1	255	1	UTF-16 XML
+xpssuite_wpf_glyphs_lingrad.xps	1	1	0	单 Glyphs
+xpssuite_mxdw_coreproperty2.xps	1	0	1	vector-only
+xpssuite_showcase_outlook_calendar.xps	1	144	1	Glyphs + ImageBrush
+xpssuite_handcrafted_clustermap.xps	2	1614	1	docProps/core.xml 有 title/creator
+fb3_author_exists_193286.fb3	0	-	0	fb3-body，本仓库当前读不了
+fb3_table_title_189446.fb3	0	-	0	fb3-body，本仓库当前读不了
+fb3_marker_156543.fb3	0	-	1	fb3-body，本仓库当前读不了
+fb3_nightmare_example.fb3	0	-	26	fb3-body，本仓库当前读不了
+fb3_hardcore_structure.fb3	0	-	24	fb3-body，本仓库当前读不了
+fb3_anathomy_tutorial.fb3	0	-	6	fb3-body，本仓库当前读不了
+#
+# FB3 改后实测（只追加；本批真实 OPC 解析落地，样本本体不进仓库）
+# 列：sample<TAB>chapters<TAB>sections_all<TAB>tables<TAB>images(resources)<TAB>note
+# chapters     = 成章的结构 section 数（只有子 section 的包装 section 不计）
+# sections_all = 正文 part 里全部 <section> 数
+# images       = 进 BookContent.resources 的图片部件数（后缀或 magic 认出，含 svg）
+fb3_author_exists_193286.fb3	1	1	0	0	title=The Believer, Issue 111; author=Vendela Vida; lang=en; 包内无图(悬空 rel Id)
+fb3_table_title_189446.fb3	1	1	1	0	table title→表头行; cells=one yes da/two/1 2 3
+fb3_marker_156543.fb3	1	2	0	1	src=img_eaccff44-… → fb3/img/img_eaccff44-….jpg
+fb3_nightmare_example.fb3	27	27	5	26	img4→fb3/img/_600400.jpg; cover=fb3/img/cover1.png(3801B raster)
+fb3_hardcore_structure.fb3	51	51	0	24	正文在根目录无扩展名 %D0%BA…（Content_Types+rels 发现）; img7→Pictures/t11.png; cover=cover/thumb.svg
+fb3_anathomy_tutorial.fb3	7	7	0	6	rId1→fb3/img/split.png; 3 authors; lang=ru

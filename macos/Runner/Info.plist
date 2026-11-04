@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<!-- Finder / 菜单栏显示名。zh-Hans 下由 InfoPlist.strings 覆盖成「星枢」。 -->
+	<key>CFBundleDisplayName</key>
+	<string>$(PRODUCT_NAME)</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIconFile</key>
+	<string></string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<!-- 我们只声明自己真的做了本地化的语言（Flutter 的 app_en/app_zh 两套）。 -->
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>en</string>
+		<string>zh-Hans</string>
+	</array>
+	<key>CFBundleName</key>
+	<string>$(PRODUCT_NAME)</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>$(FLUTTER_BUILD_NAME)</string>
+	<key>CFBundleVersion</key>
+	<string>$(FLUTTER_BUILD_NUMBER)</string>
+	<key>LSApplicationCategoryType</key>
+	<string>public.app-category.productivity</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>$(MACOSX_DEPLOYMENT_TARGET)</string>
+	<!--
+	  ATS（App Transport Security）—— 第 279 轮的决策与事实，别凭印象改：
+
+	  * **Dart/Dio 那条路根本不过 ATS**：`dio` 建在 `dart:io` 的 `HttpClient` 上
+	    （BSD socket + 自己的 TLS 栈），ATS 只约束 Apple 的 URL loading system
+	    （NSURLSession / CFNetwork / WKWebView / AVFoundation）。所以"能列目录、
+	    能看缩略图"完全不受 ATS 影响 —— Dart 侧的 `TrustStore` 就是唯一政策来源。
+	  * **原生媒体栈过 ATS**：macOS 上 `just_audio` / `video_player` 建在
+	    **AVFoundation（AVURLAsset/AVPlayer）** 上。AVFoundation **不认** Dart 的
+	    TrustStore ⇒ 按 **IP** 访问 NAS（`https://nas.example.com:5001`）时会被
+	    `NSURLErrorServerCertificateUntrusted (-1202)` 拒掉。
+	    ★ 第 279 轮**实测修正**（别照抄旧说法「自签证书」）：真 NAS 的证书是
+	    **Let's Encrypt 签发的公信证书**，但 SAN 里只有 `*.nas.example.com`
+	    / `nas.example.com`、**没有 IP** ⇒ 被拒的原因是**主机名不匹配**，
+	    不是「证书没人认」。宿主只读探针（python ssl 取 DER）实测：
+	        subject=CN=nas.example.com
+	        issuer=C=US, O=Let's Encrypt, CN=YE2
+	        SAN=DNS:*.nas.example.com, DNS:nas.example.com
+	    这与 Android §2.0.11 的 logcat 逐字一致（`Hostname nas.example.com
+	    not verified: ... subjectAltNames: [*.nas.example.com]`）⇒
+	    **同一个缺陷类、同一个根因**：Dart 侧的放宽没有传导给原生栈。
+	    ★ 这一点与 Android §2.0.11 是**同一个缺陷的 macOS 形态**；
+	    **`NSAllowsLocalNetworking` 修不了它**（那条只放行明文 http / 本地域名的
+	    ATS 明文限制，不改变证书链校验）。
+	  * 因此本轮**不做全局放宽**（不加 `NSAllowsArbitraryLoads`）—— 那会把整个 App
+	    的 TLS 门槛一次性拆掉，而它只解决我们**没有**的问题。
+	    正解是 AVFoundation 的 `AVAssetResourceLoaderDelegate`，即
+	    `MediaTlsPolicy` 的 Swift 版（只对当前会话那一台主机、只按已知指纹放宽，
+	    登出还原）。**本轮未实现，见 `docs/platform-macos.md` 的 backlog。**
+	  * `NSAllowsLocalNetworking = true` 保留：Mock 服务器
+	    （`http://127.0.0.1:18080`）与局域网明文调试地址需要它，且它
+	    **不放宽任何 HTTPS 证书校验**，是这里唯一"宽而不危"的一条。
+	-->
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsLocalNetworking</key>
+		<true/>
+	</dict>
+	<!-- macOS 15+ 起，访问**局域网主机**（我们的 NAS 就是 192.168.x.x）会弹系统授权，
+	     没有这条描述文字系统直接拒绝连接请求。 -->
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>SynHub 需要访问局域网内的群晖 NAS 以浏览文件、播放媒体与收发消息。</string>
+	<!-- 聊天语音消息（`record` 插件）需要麦克风。 -->
+	<key>NSMicrophoneUsageDescription</key>
+	<string>SynHub 需要麦克风来录制聊天语音消息与笔记语音。</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>$(PRODUCT_COPYRIGHT)</string>
+	<key>NSMainNibFile</key>
+	<string>MainMenu</string>
+	<key>NSPrincipalClass</key>
+	<string>NSApplication</string>
+</dict>
+</plist>

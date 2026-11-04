@@ -1,0 +1,44 @@
+{
+  "id": "download_emule_search",
+  "unit": "lib/src/features/downloads/download_emule_search_page.dart",
+  "title": {
+    "zh": "eMule 搜索",
+    "en": "eMule search"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "search": {
+    "hint": {
+      "zh": "输入关键词搜索 eD2k",
+      "en": "Search eD2k"
+    }
+  },
+  "rowIcon": "download",
+  "body": {
+    "type": "list",
+    "items": [
+      {
+        "title": "debian-12.5.0-amd64-netinst.iso",
+        "sub": {
+          "zh": "640 MB · 24 源",
+          "en": "640 MB · 24 sources"
+        },
+        "lead": "icon",
+        "trail": "plus"
+      },
+      {
+        "title": "ubuntu-24.04.1-live-server-amd64.iso",
+        "sub": {
+          "zh": "2.6 GB · 9 源",
+          "en": "2.6 GB · 9 sources"
+        },
+        "lead": "icon",
+        "trail": "plus"
+      }
+    ]
+  },
+  "bottomNav": null
+}

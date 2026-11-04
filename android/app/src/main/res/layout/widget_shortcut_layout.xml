@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 快捷小组件（N1 的 Shortcut 部分）：一个"新建笔记"入口。
+     点击 → 打开 App 的笔记 tab 并直接进新建编辑器。 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/widget_card_bg"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/widget_shortcut_icon"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:contentDescription="@string/widget_new_note_label"
+        android:src="@drawable/ic_widget_new_note" />
+
+    <TextView
+        android:id="@+id/widget_shortcut_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="@string/widget_new_note_label"
+        android:textColor="#FFFFFFFF"
+        android:textSize="13sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/widget_shortcut_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="#99FFFFFF"
+        android:textSize="10sp" />
+</LinearLayout>

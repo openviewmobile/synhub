@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CADisableMinimumFrameDurationOnPhone</key>
+	<true/>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string>SynHub</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>SynHub</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>$(FLUTTER_BUILD_NAME)</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>$(FLUTTER_BUILD_NUMBER)</string>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<!-- ★ 第 92 轮 iOS 迁移：能力声明（每一条都对应一个真的会用到它的插件） -->
+	<!-- 相册读取：image_picker（选图上传到 Chat / Photos） -->
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Select photos and videos from your library to upload to your Synology NAS.</string>
+	<!-- 相册写入：保存 NAS 上的图片/视频到本机相册 -->
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Save photos and videos from your Synology NAS to your photo library.</string>
+	<!-- 相机：image_picker 拍照上传 -->
+	<key>NSCameraUsageDescription</key>
+	<string>Take a photo to upload to your Synology NAS.</string>
+	<!-- 麦克风：record（Chat / Chat 语音消息录制） -->
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Record voice messages to send in Synology Chat.</string>
+	<!-- 本地网络：NAS 在局域网内（QuickConnect 走公网，但直连/发现走 LAN） -->
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>SynHub connects to your Synology NAS on the local network.</string>
+	<!-- 文件可见性：把容器 Documents/ 暴露给「文件」App，
+	     对齐 `SaveDestination` 的 B 轨（容器内 Documents/downloads）——
+	     否则用户在 iOS 上**找不到**下载下来的文件。 -->
+	<key>UIFileSharingEnabled</key>
+	<true/>
+	<key>LSSupportsOpeningDocumentsInPlace</key>
+	<true/>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.openviewai.synhub.chatdeeplink</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>synochat</string>
+				<string>synochats</string>
+				<string>synochatGuest</string>
+				<string>synochatsGuest</string>
+			</array>
+		</dict>
+		<dict>
+			<!-- r688：主屏小组件的点击落点。**专用** scheme，刻意不与上面四条
+			     官方聊天深链混用（那四条语义是"登录到某台 NAS"）。 -->
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+			<key>CFBundleURLName</key>
+			<string>com.openviewai.synhub.widget</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>synhubwidget</string>
+			</array>
+		</dict>
+	</array>
+	<key>UIApplicationSceneManifest</key>
+	<dict>
+		<key>UIApplicationSupportsMultipleScenes</key>
+		<false/>
+		<key>UISceneConfigurations</key>
+		<dict>
+			<key>UIWindowSceneSessionRoleApplication</key>
+			<array>
+				<dict>
+					<key>UISceneClassName</key>
+					<string>UIWindowScene</string>
+					<key>UISceneConfigurationName</key>
+					<string>flutter</string>
+					<key>UISceneDelegateClassName</key>
+					<!-- r688：换成自家子类（只多加一条 `synhubwidget://` 路由，
+					     其余 URL 原样交回 super）。原因见 SynHubSceneDelegate.swift 文件头。 -->
+					<string>$(PRODUCT_MODULE_NAME).SynHubSceneDelegate</string>
+					<key>UISceneStoryboardFile</key>
+					<string>Main</string>
+				</dict>
+			</array>
+		</dict>
+	</dict>
+	<key>UIApplicationSupportsIndirectInputEvents</key>
+	<true/>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UIMainStoryboardFile</key>
+	<string>Main</string>
+	<!-- r682：后台执行。iOS 没有 Android 的常驻前台服务，这里只开两样：
+	     fetch = 允许 `BGAppRefreshTask`（一次性刷新机会，由系统按使用习惯排）；
+	     任务标识必须与 `BackgroundBridge.swift` 的 `kSynhubRefreshTaskId` 逐字一致，
+	     否则 `BGTaskScheduler.submit` 会抛 `NSInternalInconsistencyException`。 -->
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+	</array>
+	<key>BGTaskSchedulerPermittedIdentifiers</key>
+	<array>
+		<string>com.openviewai.synhub.refresh</string>
+	</array>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+</dict>
+</plist>

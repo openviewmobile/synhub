@@ -1,0 +1,1470 @@
+{
+ "provenance": {
+  "source": "NAS /mydrive/5-day trip planner.odoc",
+  "channel": "SYNO.Office.Snapshot:get v4 (read-only, link_id=permanent_link)",
+  "permanent_link": "19yWDUyKQgqT7TGZ0wml6hMaNWMD2PaC",
+  "object_id": "1028_72JAC5VIB52476TUQOU567U698.doc",
+  "ntype": "doc"
+ },
+ "content": {
+  "data": {
+   "attrs": {
+    "page_setup": {
+     "bottom": 2.54,
+     "left": 2.54,
+     "orientation": "portrait",
+     "page_type": "a4",
+     "right": 2.54,
+     "top": 2.54
+    },
+    "schema": 13,
+    "type": "document"
+   },
+   "content": [
+    {
+     "type": "settings"
+    },
+    {
+     "content": [
+      {
+       "attrs": {
+        "lineHeight": 1.5
+       },
+       "type": "style_paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "_heading0",
+        "headingLevel": 0,
+        "lineHeight": 1.5
+       },
+       "type": "style_paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "_heading1",
+        "headingLevel": 1,
+        "lineHeight": 1.5
+       },
+       "type": "style_paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "_heading2",
+        "headingLevel": 2,
+        "lineHeight": 1.5
+       },
+       "type": "style_paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "_heading3",
+        "headingLevel": 3,
+        "lineHeight": 1.5
+       },
+       "type": "style_paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "_heading4",
+        "headingLevel": 4,
+        "lineHeight": 1.5
+       },
+       "type": "style_paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "_heading5",
+        "headingLevel": 5,
+        "lineHeight": 1.5
+       },
+       "type": "style_paragraph"
+      }
+     ],
+     "type": "style_editor"
+    },
+    {
+     "type": "invisible"
+    },
+    {
+     "content": [
+      {
+       "attrs": {
+        "paddingBottom": 16,
+        "textAlign": "center"
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 28
+          },
+          {
+           "_": "font_family",
+           "complexScript": "\"Trebuchet MS\"",
+           "eastAsia": "\"Trebuchet MS\"",
+           "value": "\"Trebuchet MS\""
+          },
+          {
+           "_": "strong"
+          },
+          {
+           "_": "color",
+           "value": "rgb(112, 82, 204)"
+          }
+         ],
+         "text": "5-Day Trip Planner",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "content": [
+        {
+         "attrs": {
+          "config": {
+           "alignment": "inline",
+           "alt": "divider_21.png",
+           "config": "",
+           "crop": {
+            "b": 0,
+            "l": 0,
+            "r": 0,
+            "t": 0
+           },
+           "customized_points": {},
+           "deg": 0,
+           "file_alt": "divider_21.png",
+           "file_id": "e8397f434e644189b08bb8669b3b4e3f",
+           "file_type": "image",
+           "fill": "none",
+           "flip_h": false,
+           "flip_v": false,
+           "height": 53,
+           "left": 100,
+           "order": 0,
+           "prst": "rect",
+           "ref": "",
+           "stroke": "#2E3133",
+           "stroke-width": 0,
+           "top": 100,
+           "type": "rect",
+           "width": 594
+          },
+          "id": "UGqhDqJISV"
+         },
+         "type": "picture"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "s6kSfag2nN",
+        "headingLevel": 1,
+        "paddingTop": 10.66666666666667,
+        "textMarks": [
+         {
+          "_": "font_size",
+          "value": 18
+         },
+         {
+          "_": "font_family",
+          "complexScript": "Trebuchet MS",
+          "eastAsia": "Trebuchet MS",
+          "value": "Trebuchet MS"
+         },
+         {
+          "_": "color",
+          "value": "#fa7d00"
+         }
+        ]
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 18
+          },
+          {
+           "_": "font_family",
+           "complexScript": "Trebuchet MS",
+           "eastAsia": "Trebuchet MS",
+           "value": "Trebuchet MS"
+          },
+          {
+           "_": "color",
+           "value": "#00b23b"
+          }
+         ],
+         "text": "- DAY 1",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "colgroup": [
+         {
+          "width": 413
+         },
+         {
+          "width": 188
+         }
+        ],
+        "synotable": "2pgIFIeerl"
+       },
+       "content": [
+        {
+         "attrs": {
+          "height": 124
+         },
+         "content": [
+          {
+           "attrs": {
+            "borderBottomColor": "#ffffff",
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": 1,
+            "borderLeftColor": "#ffffff",
+            "borderLeftStyle": "solid",
+            "borderLeftWidth": 1,
+            "borderRightColor": "#ffffff",
+            "borderRightStyle": "solid",
+            "borderRightWidth": 1,
+            "borderTopColor": "#ffffff",
+            "borderTopStyle": "solid",
+            "borderTopWidth": 1,
+            "colspan": 1,
+            "rowspan": 1,
+            "verticalAlign": "middle"
+           },
+           "content": [
+            {
+             "content": [
+              {
+               "marks": [
+                {
+                 "_": "strong"
+                }
+               ],
+               "text": "Destination: ",
+               "type": "text"
+              },
+              {
+               "text": "[Enter destination here]",
+               "type": "text"
+              }
+             ],
+             "type": "paragraph"
+            },
+            {
+             "attrs": {
+              "textMarks": [
+               {
+                "_": "strong"
+               }
+              ]
+             },
+             "content": [
+              {
+               "marks": [
+                {
+                 "_": "strong"
+                }
+               ],
+               "text": "Meals: ",
+               "type": "text"
+              },
+              {
+               "text": "[Enter eating plans here]",
+               "type": "text"
+              }
+             ],
+             "type": "paragraph"
+            },
+            {
+             "attrs": {
+              "textMarks": [
+               {
+                "_": "strong"
+               }
+              ]
+             },
+             "content": [
+              {
+               "marks": [
+                {
+                 "_": "strong"
+                }
+               ],
+               "text": "Activities:",
+               "type": "text"
+              },
+              {
+               "text": " [Enter activities here]",
+               "type": "text"
+              }
+             ],
+             "type": "paragraph"
+            },
+            {
+             "attrs": {
+              "textMarks": [
+               {
+                "_": "strong"
+               }
+              ]
+             },
+             "content": [
+              {
+               "marks": [
+                {
+                 "_": "strong"
+                }
+               ],
+               "text": "Accommodation:",
+               "type": "text"
+              },
+              {
+               "text": " [Enter hotel name here]",
+               "type": "text"
+              }
+             ],
+             "type": "paragraph"
+            },
+            {
+             "attrs": {
+              "textMarks": [
+               {
+                "_": "strong"
+               }
+              ]
+             },
+             "content": [
+              {
+               "marks": [
+                {
+                 "_": "strong"
+                }
+               ],
+               "text": "Transportation:",
+               "type": "text"
+              },
+              {
+               "text": " [Enter transportation options here]",
+               "type": "text"
+              }
+             ],
+             "type": "paragraph"
+            }
+           ],
+           "type": "table_cell"
+          },
+          {
+           "attrs": {
+            "borderBottomColor": "#ffffff",
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": 1,
+            "borderLeftColor": "#ffffff",
+            "borderLeftStyle": "solid",
+            "borderLeftWidth": 1,
+            "borderRightColor": "#ffffff",
+            "borderRightStyle": "solid",
+            "borderRightWidth": 1,
+            "borderTopColor": "#ffffff",
+            "borderTopStyle": "solid",
+            "borderTopWidth": 1,
+            "colspan": 1,
+            "rowspan": 1,
+            "verticalAlign": "middle"
+           },
+           "content": [
+            {
+             "attrs": {
+              "textAlign": "right"
+             },
+             "content": [
+              {
+               "attrs": {
+                "config": {
+                 "alignment": "inline",
+                 "alt": "01.png",
+                 "config": "",
+                 "crop": {
+                  "b": 0,
+                  "l": 0,
+                  "r": 0,
+                  "t": 0
+                 },
+                 "customized_points": {},
+                 "deg": 0,
+                 "file_alt": "01.png",
+                 "file_id": "1ecfac18a9d64d35bff238d546fe2c70",
+                 "file_type": "image",
+                 "fill": "none",
+                 "flip_h": false,
+                 "flip_v": false,
+                 "height": 120,
+                 "left": 100,
+                 "order": 0,
+                 "prst": "rect",
+                 "ref": "",
+                 "stroke": "#2E3133",
+                 "stroke-width": 0,
+                 "top": 100,
+                 "type": "rect",
+                 "width": 180
+                },
+                "id": "KOCfzmQY4t"
+               },
+               "type": "picture"
+              }
+             ],
+             "type": "paragraph"
+            }
+           ],
+           "type": "table_cell"
+          }
+         ],
+         "type": "table_row"
+        }
+       ],
+       "type": "table"
+      },
+      {
+       "content": [
+        {
+         "attrs": {
+          "config": {
+           "alignment": "inline",
+           "alt": "null?_sid=%22KoFcFq3S0Spqc13C0LTN00612.png",
+           "config": "",
+           "crop": {
+            "b": 0,
+            "l": 0,
+            "r": 0,
+            "t": 0
+           },
+           "customized_points": {},
+           "deg": 0,
+           "file_alt": "null?_sid=%22KoFcFq3S0Spqc13C0LTN00612.png",
+           "file_id": "fed96c11b9824e0d9a39d026298d0a8f",
+           "file_type": "image",
+           "fill": "none",
+           "flip_h": false,
+           "flip_v": false,
+           "height": 2,
+           "left": 100,
+           "order": 0,
+           "prst": "rect",
+           "ref": "",
+           "stroke": "#2E3133",
+           "stroke-width": 0,
+           "top": 100,
+           "type": "rect",
+           "width": 594
+          },
+          "id": "c0TXGUaZ47"
+         },
+         "type": "picture"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "d4AVy2ME9Q",
+        "headingLevel": 1,
+        "paddingTop": 10.66666666666667
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 20
+          },
+          {
+           "_": "font_family",
+           "complexScript": "Trebuchet MS",
+           "eastAsia": "Trebuchet MS",
+           "value": "Trebuchet MS"
+          },
+          {
+           "_": "color",
+           "value": "#00b23b"
+          }
+         ],
+         "text": "- DAY 2",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "colgroup": [
+         {
+          "width": 413
+         },
+         {
+          "width": 188
+         }
+        ],
+        "synotable": "2pgIFIeerl"
+       },
+       "content": [
+        {
+         "attrs": {
+          "height": 124
+         },
+         "content": [
+          {
+           "attrs": {
+            "borderBottomColor": "#ffffff",
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": 1,
+            "borderLeftColor": "#ffffff",
+            "borderLeftStyle": "solid",
+            "borderLeftWidth": 1,
+            "borderRightColor": "#ffffff",
+            "borderRightStyle": "solid",
+            "borderRightWidth": 1,
+            "borderTopColor": "#ffffff",
+            "borderTopStyle": "solid",
+            "borderTopWidth": 1,
+            "colspan": 1,
+            "rowspan": 1,
+            "verticalAlign": "middle"
+           },
+           "content": [
+            {
+             "content": [
+              {
+               "text": "[Description of itinerary]",
+               "type": "text"
+              }
+             ],
+             "type": "paragraph"
+            }
+           ],
+           "type": "table_cell"
+          },
+          {
+           "attrs": {
+            "borderBottomColor": "#ffffff",
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": 1,
+            "borderLeftColor": "#ffffff",
+            "borderLeftStyle": "solid",
+            "borderLeftWidth": 1,
+            "borderRightColor": "#ffffff",
+            "borderRightStyle": "solid",
+            "borderRightWidth": 1,
+            "borderTopColor": "#ffffff",
+            "borderTopStyle": "solid",
+            "borderTopWidth": 1,
+            "colspan": 1,
+            "rowspan": 1,
+            "verticalAlign": "middle"
+           },
+           "content": [
+            {
+             "attrs": {
+              "textAlign": "right"
+             },
+             "content": [
+              {
+               "attrs": {
+                "config": {
+                 "alignment": "inline",
+                 "alt": "04.png",
+                 "config": "",
+                 "crop": {
+                  "b": 0,
+                  "l": 0,
+                  "r": 0,
+                  "t": 0
+                 },
+                 "customized_points": {},
+                 "deg": 0,
+                 "file_alt": "04.png",
+                 "file_id": "0d63a4204c744fba836cb1fd007c4dcb",
+                 "file_type": "image",
+                 "fill": "none",
+                 "flip_h": false,
+                 "flip_v": false,
+                 "height": 120,
+                 "left": 100,
+                 "order": 0,
+                 "prst": "rect",
+                 "ref": "",
+                 "stroke": "#2E3133",
+                 "stroke-width": 0,
+                 "top": 100,
+                 "type": "rect",
+                 "width": 180
+                },
+                "id": "zhMRHCv5D2"
+               },
+               "type": "picture"
+              }
+             ],
+             "type": "paragraph"
+            }
+           ],
+           "type": "table_cell"
+          }
+         ],
+         "type": "table_row"
+        }
+       ],
+       "type": "table"
+      },
+      {
+       "content": [
+        {
+         "attrs": {
+          "config": {
+           "alignment": "inline",
+           "alt": "null?_sid=%22KoFcFq3S0Spqc13C0LTN00612.png",
+           "config": "",
+           "crop": {
+            "b": 0,
+            "l": 0,
+            "r": 0,
+            "t": 0
+           },
+           "customized_points": {},
+           "deg": 0,
+           "file_alt": "null?_sid=%22KoFcFq3S0Spqc13C0LTN00612.png",
+           "file_id": "69b610fe2a444086a9f4899a384adec8",
+           "file_type": "image",
+           "fill": "none",
+           "flip_h": false,
+           "flip_v": false,
+           "height": 2,
+           "left": 100,
+           "order": 0,
+           "prst": "rect",
+           "ref": "",
+           "stroke": "#2E3133",
+           "stroke-width": 0,
+           "top": 100,
+           "type": "rect",
+           "width": 594
+          },
+          "id": "6SWtRk33Y5"
+         },
+         "type": "picture"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "vBfzXKvxS6",
+        "headingLevel": 1,
+        "paddingTop": 10.66666666666667
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 20
+          },
+          {
+           "_": "font_family",
+           "complexScript": "Trebuchet MS",
+           "eastAsia": "Trebuchet MS",
+           "value": "Trebuchet MS"
+          },
+          {
+           "_": "color",
+           "value": "#00b23b"
+          }
+         ],
+         "text": "- DAY 3",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "colgroup": [
+         {
+          "width": 413
+         },
+         {
+          "width": 188
+         }
+        ],
+        "synotable": "2pgIFIeerl"
+       },
+       "content": [
+        {
+         "attrs": {
+          "height": 124
+         },
+         "content": [
+          {
+           "attrs": {
+            "borderBottomColor": "#ffffff",
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": 1,
+            "borderLeftColor": "#ffffff",
+            "borderLeftStyle": "solid",
+            "borderLeftWidth": 1,
+            "borderRightColor": "#ffffff",
+            "borderRightStyle": "solid",
+            "borderRightWidth": 1,
+            "borderTopColor": "#ffffff",
+            "borderTopStyle": "solid",
+            "borderTopWidth": 1,
+            "colspan": 1,
+            "rowspan": 1,
+            "verticalAlign": "middle"
+           },
+           "content": [
+            {
+             "content": [
+              {
+               "text": "[Description of itinerary]",
+               "type": "text"
+              }
+             ],
+             "type": "paragraph"
+            }
+           ],
+           "type": "table_cell"
+          },
+          {
+           "attrs": {
+            "borderBottomColor": "#ffffff",
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": 1,
+            "borderLeftColor": "#ffffff",
+            "borderLeftStyle": "solid",
+            "borderLeftWidth": 1,
+            "borderRightColor": "#ffffff",
+            "borderRightStyle": "solid",
+            "borderRightWidth": 1,
+            "borderTopColor": "#ffffff",
+            "borderTopStyle": "solid",
+            "borderTopWidth": 1,
+            "colspan": 1,
+            "rowspan": 1,
+            "verticalAlign": "middle"
+           },
+           "content": [
+            {
+             "attrs": {
+              "textAlign": "right"
+             },
+             "content": [
+              {
+               "attrs": {
+                "config": {
+                 "alignment": "inline",
+                 "alt": "03.png",
+                 "config": "",
+                 "crop": {
+                  "b": 0,
+                  "l": 0,
+                  "r": 0,
+                  "t": 0
+                 },
+                 "customized_points": {},
+                 "deg": 0,
+                 "file_alt": "03.png",
+                 "file_id": "89562e90a8a04ac083707c516dec8cfb",
+                 "file_type": "image",
+                 "fill": "none",
+                 "flip_h": false,
+                 "flip_v": false,
+                 "height": 120,
+                 "left": 100,
+                 "order": 0,
+                 "prst": "rect",
+                 "ref": "",
+                 "stroke": "#2E3133",
+                 "stroke-width": 0,
+                 "top": 100,
+                 "type": "rect",
+                 "width": 180
+                },
+                "id": "C5ZeAOpchK"
+               },
+               "type": "picture"
+              }
+             ],
+             "type": "paragraph"
+            }
+           ],
+           "type": "table_cell"
+          }
+         ],
+         "type": "table_row"
+        }
+       ],
+       "type": "table"
+      },
+      {
+       "content": [
+        {
+         "attrs": {
+          "config": {
+           "alignment": "inline",
+           "alt": "null?_sid=%22KoFcFq3S0Spqc13C0LTN00612.png",
+           "config": "",
+           "crop": {
+            "b": 0,
+            "l": 0,
+            "r": 0,
+            "t": 0
+           },
+           "customized_points": {},
+           "deg": 0,
+           "file_alt": "null?_sid=%22KoFcFq3S0Spqc13C0LTN00612.png",
+           "file_id": "71d29c8e8ca041779e38aeece0872928",
+           "file_type": "image",
+           "fill": "none",
+           "flip_h": false,
+           "flip_v": false,
+           "height": 2,
+           "left": 100,
+           "order": 0,
+           "prst": "rect",
+           "ref": "",
+           "stroke": "#2E3133",
+           "stroke-width": 0,
+           "top": 100,
+           "type": "rect",
+           "width": 594
+          },
+          "id": "dGavvrwCWG"
+         },
+         "type": "picture"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "yVwxr0D2Es",
+        "headingLevel": 1,
+        "paddingTop": 10.66666666666667
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 20
+          },
+          {
+           "_": "font_family",
+           "complexScript": "Trebuchet MS",
+           "eastAsia": "Trebuchet MS",
+           "value": "Trebuchet MS"
+          },
+          {
+           "_": "color",
+           "value": "#00b23b"
+          }
+         ],
+         "text": "- DAY 4",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "colgroup": [
+         {
+          "width": 413
+         },
+         {
+          "width": 188
+         }
+        ],
+        "synotable": "2pgIFIeerl"
+       },
+       "content": [
+        {
+         "attrs": {
+          "height": 124
+         },
+         "content": [
+          {
+           "attrs": {
+            "borderBottomColor": "#ffffff",
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": 1,
+            "borderLeftColor": "#ffffff",
+            "borderLeftStyle": "solid",
+            "borderLeftWidth": 1,
+            "borderRightColor": "#ffffff",
+            "borderRightStyle": "solid",
+            "borderRightWidth": 1,
+            "borderTopColor": "#ffffff",
+            "borderTopStyle": "solid",
+            "borderTopWidth": 1,
+            "colspan": 1,
+            "rowspan": 1,
+            "verticalAlign": "middle"
+           },
+           "content": [
+            {
+             "content": [
+              {
+               "marks": [
+                {
+                 "_": "strong"
+                }
+               ],
+               "text": "Destination: ",
+               "type": "text"
+              },
+              {
+               "text": "[Enter destination here]",
+               "type": "text"
+              }
+             ],
+             "type": "paragraph"
+            },
+            {
+             "content": [
+              {
+               "marks": [
+                {
+                 "_": "strong"
+                }
+               ],
+               "text": "Meals: ",
+               "type": "text"
+              },
+              {
+               "text": "[Enter eating plans here]",
+               "type": "text"
+              }
+             ],
+             "type": "paragraph"
+            },
+            {
+             "content": [
+              {
+               "marks": [
+                {
+                 "_": "strong"
+                }
+               ],
+               "text": "Activities:",
+               "type": "text"
+              },
+              {
+               "text": " [Enter activities here]",
+               "type": "text"
+              }
+             ],
+             "type": "paragraph"
+            },
+            {
+             "content": [
+              {
+               "marks": [
+                {
+                 "_": "strong"
+                }
+               ],
+               "text": "Accommodation:",
+               "type": "text"
+              },
+              {
+               "text": " [Enter hotel name here]",
+               "type": "text"
+              }
+             ],
+             "type": "paragraph"
+            },
+            {
+             "content": [
+              {
+               "marks": [
+                {
+                 "_": "strong"
+                }
+               ],
+               "text": "Transportation:",
+               "type": "text"
+              },
+              {
+               "text": " [Enter transportation options here]",
+               "type": "text"
+              }
+             ],
+             "type": "paragraph"
+            }
+           ],
+           "type": "table_cell"
+          },
+          {
+           "attrs": {
+            "borderBottomColor": "#ffffff",
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": 1,
+            "borderLeftColor": "#ffffff",
+            "borderLeftStyle": "solid",
+            "borderLeftWidth": 1,
+            "borderRightColor": "#ffffff",
+            "borderRightStyle": "solid",
+            "borderRightWidth": 1,
+            "borderTopColor": "#ffffff",
+            "borderTopStyle": "solid",
+            "borderTopWidth": 1,
+            "colspan": 1,
+            "rowspan": 1,
+            "verticalAlign": "middle"
+           },
+           "content": [
+            {
+             "attrs": {
+              "textAlign": "right"
+             },
+             "content": [
+              {
+               "attrs": {
+                "config": {
+                 "alignment": "inline",
+                 "alt": "06.png",
+                 "config": "",
+                 "crop": {
+                  "b": 0,
+                  "l": 0,
+                  "r": 0,
+                  "t": 0
+                 },
+                 "customized_points": {},
+                 "deg": 0,
+                 "file_alt": "06.png",
+                 "file_id": "6a3e39825e5240bd941a8f837b2346b2",
+                 "file_type": "image",
+                 "fill": "none",
+                 "flip_h": false,
+                 "flip_v": false,
+                 "height": 120,
+                 "left": 100,
+                 "order": 0,
+                 "prst": "rect",
+                 "ref": "",
+                 "stroke": "#2E3133",
+                 "stroke-width": 0,
+                 "top": 100,
+                 "type": "rect",
+                 "width": 180
+                },
+                "id": "YoqmFQhAKE"
+               },
+               "type": "picture"
+              }
+             ],
+             "type": "paragraph"
+            }
+           ],
+           "type": "table_cell"
+          }
+         ],
+         "type": "table_row"
+        }
+       ],
+       "type": "table"
+      },
+      {
+       "content": [
+        {
+         "attrs": {
+          "config": {
+           "alignment": "inline",
+           "alt": "null?_sid=%22KoFcFq3S0Spqc13C0LTN00612.png",
+           "config": "",
+           "crop": {
+            "b": 0,
+            "l": 0,
+            "r": 0,
+            "t": 0
+           },
+           "customized_points": {},
+           "deg": 0,
+           "file_alt": "null?_sid=%22KoFcFq3S0Spqc13C0LTN00612.png",
+           "file_id": "0ba142db9fab48e1bee3b37ccf89bfba",
+           "file_type": "image",
+           "fill": "none",
+           "flip_h": false,
+           "flip_v": false,
+           "height": 2,
+           "left": 100,
+           "order": 0,
+           "prst": "rect",
+           "ref": "",
+           "stroke": "#2E3133",
+           "stroke-width": 0,
+           "top": 100,
+           "type": "rect",
+           "width": 594
+          },
+          "id": "zuJM55pXwI"
+         },
+         "type": "picture"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "DSi1buPhAP",
+        "headingLevel": 1,
+        "paddingTop": 10.66666666666667
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 20
+          },
+          {
+           "_": "font_family",
+           "complexScript": "Trebuchet MS",
+           "eastAsia": "Trebuchet MS",
+           "value": "Trebuchet MS"
+          },
+          {
+           "_": "color",
+           "value": "#00b23b"
+          }
+         ],
+         "text": "- DAY 5",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "colgroup": [
+         {
+          "width": 413
+         },
+         {
+          "width": 188
+         }
+        ],
+        "synotable": "2pgIFIeerl"
+       },
+       "content": [
+        {
+         "attrs": {
+          "height": 124
+         },
+         "content": [
+          {
+           "attrs": {
+            "borderBottomColor": "#ffffff",
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": 1,
+            "borderLeftColor": "#ffffff",
+            "borderLeftStyle": "solid",
+            "borderLeftWidth": 1,
+            "borderRightColor": "#ffffff",
+            "borderRightStyle": "solid",
+            "borderRightWidth": 1,
+            "borderTopColor": "#ffffff",
+            "borderTopStyle": "solid",
+            "borderTopWidth": 1,
+            "colspan": 1,
+            "rowspan": 1,
+            "verticalAlign": "middle"
+           },
+           "content": [
+            {
+             "content": [
+              {
+               "marks": [
+                {
+                 "_": "strong"
+                }
+               ],
+               "text": "Destination: ",
+               "type": "text"
+              },
+              {
+               "text": "[Enter destination here]",
+               "type": "text"
+              }
+             ],
+             "type": "paragraph"
+            },
+            {
+             "content": [
+              {
+               "marks": [
+                {
+                 "_": "strong"
+                }
+               ],
+               "text": "Meals: ",
+               "type": "text"
+              },
+              {
+               "text": "[Enter eating plans here]",
+               "type": "text"
+              }
+             ],
+             "type": "paragraph"
+            },
+            {
+             "content": [
+              {
+               "marks": [
+                {
+                 "_": "strong"
+                }
+               ],
+               "text": "Activities:",
+               "type": "text"
+              },
+              {
+               "text": " [Enter activities here]",
+               "type": "text"
+              }
+             ],
+             "type": "paragraph"
+            },
+            {
+             "content": [
+              {
+               "marks": [
+                {
+                 "_": "strong"
+                }
+               ],
+               "text": "Accommodation:",
+               "type": "text"
+              },
+              {
+               "text": " [Enter hotel name here]",
+               "type": "text"
+              }
+             ],
+             "type": "paragraph"
+            },
+            {
+             "content": [
+              {
+               "marks": [
+                {
+                 "_": "strong"
+                }
+               ],
+               "text": "Transportation:",
+               "type": "text"
+              },
+              {
+               "text": " [Enter transportation options here]",
+               "type": "text"
+              }
+             ],
+             "type": "paragraph"
+            }
+           ],
+           "type": "table_cell"
+          },
+          {
+           "attrs": {
+            "borderBottomColor": "#ffffff",
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": 1,
+            "borderLeftColor": "#ffffff",
+            "borderLeftStyle": "solid",
+            "borderLeftWidth": 1,
+            "borderRightColor": "#ffffff",
+            "borderRightStyle": "solid",
+            "borderRightWidth": 1,
+            "borderTopColor": "#ffffff",
+            "borderTopStyle": "solid",
+            "borderTopWidth": 1,
+            "colspan": 1,
+            "rowspan": 1,
+            "verticalAlign": "middle"
+           },
+           "content": [
+            {
+             "attrs": {
+              "textAlign": "right"
+             },
+             "content": [
+              {
+               "attrs": {
+                "config": {
+                 "alignment": "inline",
+                 "alt": "07.png",
+                 "config": "",
+                 "crop": {
+                  "b": 0,
+                  "l": 0,
+                  "r": 0,
+                  "t": 0
+                 },
+                 "customized_points": {},
+                 "deg": 0,
+                 "file_alt": "07.png",
+                 "file_id": "c9534ae2a7da4fd3b65a89af9aa366f9",
+                 "file_type": "image",
+                 "fill": "none",
+                 "flip_h": false,
+                 "flip_v": false,
+                 "height": 120,
+                 "left": 100,
+                 "order": 0,
+                 "prst": "rect",
+                 "ref": "",
+                 "stroke": "#2E3133",
+                 "stroke-width": 0,
+                 "top": 100,
+                 "type": "rect",
+                 "width": 180
+                },
+                "id": "rKEDkAfxGG"
+               },
+               "type": "picture"
+              }
+             ],
+             "type": "paragraph"
+            }
+           ],
+           "type": "table_cell"
+          }
+         ],
+         "type": "table_row"
+        }
+       ],
+       "type": "table"
+      },
+      {
+       "type": "paragraph"
+      }
+     ],
+     "type": "edit_area"
+    },
+    {
+     "attrs": {
+      "num-cover": false,
+      "num-even": false,
+      "num-pos": "br",
+      "num-show": false,
+      "place-cover": false,
+      "place-even": false,
+      "place-show": false
+     },
+     "content": [
+      {
+       "attrs": {
+        "type": "cover"
+       },
+       "content": [
+        {
+         "type": "paragraph"
+        }
+       ],
+       "type": "header"
+      },
+      {
+       "attrs": {
+        "type": "even"
+       },
+       "content": [
+        {
+         "type": "paragraph"
+        }
+       ],
+       "type": "header"
+      },
+      {
+       "attrs": {
+        "type": "normal"
+       },
+       "content": [
+        {
+         "type": "paragraph"
+        }
+       ],
+       "type": "header"
+      },
+      {
+       "attrs": {
+        "type": "cover"
+       },
+       "content": [
+        {
+         "type": "paragraph"
+        }
+       ],
+       "type": "footer"
+      },
+      {
+       "attrs": {
+        "type": "even"
+       },
+       "content": [
+        {
+         "type": "paragraph"
+        }
+       ],
+       "type": "footer"
+      },
+      {
+       "attrs": {
+        "type": "normal"
+       },
+       "content": [
+        {
+         "type": "paragraph"
+        }
+       ],
+       "type": "footer"
+      },
+      {
+       "attrs": {
+        "type": "normal"
+       },
+       "content": [
+        {
+         "content": [
+          {
+           "type": "page_num_text"
+          }
+         ],
+         "type": "page_num_block"
+        }
+       ],
+       "type": "page_num"
+      }
+     ],
+     "type": "page_decorate"
+    }
+   ],
+   "type": "doc"
+  },
+  "version": 42
+ }
+}

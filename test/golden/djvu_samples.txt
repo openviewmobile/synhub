@@ -1,0 +1,16 @@
+# golden snapshot: DJVU 真实样本
+# 生成：dart run tool/golden_snapshot.dart
+# 口径：结构/尺寸/墨迹占比来自本仓库渲染；meanAbs/IoU 由 ddjvu 3.5.28 对首页
+# 目录里有 7 个 .djvu；**像素级对照只有 6 份**（index.djvu 是散装 indirect，
+#   缺分页文件 → 明确报错，不参与像素对照）—— 这就是文档"6 份 vs 7 份"的真相。
+# 首页-only 的数字只是抽样；全量（每份前 6 页）由 tool/djvu_real_compare.dart
+#   输出，实测范围 meanAbs 0.0–1.6 / IoU 0.982–1.000（与 docs 一致）。
+# format: sample<TAB>error<TAB>detail            （解不开时）
+# format: sample<TAB>pages<TAB>w<TAB>h<TAB>navm<TAB>thum<TAB>darkPct<TAB>meanAbs<TAB>iou
+1998_compression.djvu	25	2556	3300	0	0	6.005	0.023	1.0000
+1998_lossy_masked.djvu	10	2556	3300	0	0	3.816	0.014	1.0000
+1998_zcoder.djvu	10	2550	3300	0	0	5.781	0.000	1.0000
+DjVu3Spec_bundled.djvu	71	2539	3295	100	71	6.168	0.000	1.0000
+Mcguffey's_Primer.djvu	62	2260	3669	0	0	6.175	0.299	0.9936
+djvulibre-book-en.djvu	57	3400	4400	22	0	5.773	0.000	1.0000
+index.djvu	ERROR	DJVU 不支持：散装（indirect）DJVU：页在其它文件里（index 的 INCL 指向外部），当前只拿到这一个文件 → 缺少分页文件，无法读取

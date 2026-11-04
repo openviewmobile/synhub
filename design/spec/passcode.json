@@ -1,0 +1,25 @@
+{
+  "id": "passcode",
+  "unit": "lib/src/features/security/passcode_screen.dart",
+  "title": {
+    "zh": "应用锁",
+    "en": "App lock"
+  },
+  "appbar": {
+    "actions": []
+  },
+  "body": {
+    "type": "keypad",
+    "title": {
+      "zh": "输入密码",
+      "en": "Enter passcode"
+    },
+    "hint": {
+      "zh": "用于解锁 SynHub",
+      "en": "Unlocks SynHub"
+    },
+    "length": 4,
+    "filled": 2
+  },
+  "bottomNav": null
+}

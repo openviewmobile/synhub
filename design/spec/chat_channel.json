@@ -1,0 +1,73 @@
+{
+  "id": "chat_channel",
+  "unit": "lib/src/features/chat/chat_page.dart",
+  "title": {
+    "zh": "# 设计评审",
+    "en": "# Design review"
+  },
+  "appbar": {
+    "actions": [
+      "search",
+      "more"
+    ]
+  },
+  "body": {
+    "type": "bubbles",
+    "pinned": {
+      "zh": "置顶：本周五前交设计稿终版",
+      "en": "Pinned: final design due Friday"
+    },
+    "day": {
+      "zh": "今天",
+      "en": "Today"
+    },
+    "messages": [
+      {
+        "side": "in",
+        "name": {
+          "zh": "李雷",
+          "en": "Li"
+        },
+        "text": {
+          "zh": "早，设计稿我看过了，时间线那部分要再收一收。",
+          "en": "Morning — I read the draft; the timeline part needs tightening."
+        },
+        "time": "09:41"
+      },
+      {
+        "side": "out",
+        "text": {
+          "zh": "收到，我把它压成两级：年/月，月内只留日期分组。",
+          "en": "Got it — collapsing to two levels: year/month, then date groups."
+        },
+        "time": "09:42"
+      },
+      {
+        "side": "in",
+        "name": {
+          "zh": "韩梅梅",
+          "en": "Han"
+        },
+        "text": {
+          "zh": "这张是现在的效果，参考下",
+          "en": "This is the current state, for reference"
+        },
+        "time": "09:43",
+        "kind": "image"
+      },
+      {
+        "side": "out",
+        "text": {
+          "zh": "好，我下午把这版改完发你。",
+          "en": "Fine — I'll finish this revision and send it this afternoon."
+        },
+        "time": "09:44"
+      }
+    ],
+    "composer": {
+      "zh": "发消息…",
+      "en": "Message…"
+    }
+  },
+  "bottomNav": null
+}

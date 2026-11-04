@@ -1,0 +1,40 @@
+{
+  "id": "file_offline",
+  "unit": "lib/src/features/files/file_offline_page.dart",
+  "title": {
+    "zh": "离线文件",
+    "en": "Offline files"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "list",
+    "items": [
+      {
+        "title": "backup.tar.gz",
+        "sub": {
+          "zh": "1.8 GB · 可离线打开",
+          "en": "1.8 GB · available offline"
+        },
+        "lead": "icon",
+        "trail": "more"
+      },
+      {
+        "title": {
+          "zh": "旅行计划.docx",
+          "en": "Trip plan.docx"
+        },
+        "sub": {
+          "zh": "38 KB · 已缓存",
+          "en": "38 KB · cached"
+        },
+        "lead": "icon",
+        "trail": "more"
+      }
+    ]
+  },
+  "bottomNav": "files"
+}

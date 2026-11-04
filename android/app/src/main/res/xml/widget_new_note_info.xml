@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 「新建笔记」快捷小组件（N1 的 Shortcut 部分）的元数据。
+     这个组件不需要等数据，所以定时刷新最长（6 小时）—— 它只是個入口。 -->
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:description="@string/widget_new_note_label"
+    android:initialLayout="@layout/widget_shortcut_layout"
+    android:minHeight="60dp"
+    android:minWidth="110dp"
+    android:previewLayout="@layout/widget_shortcut_layout"
+    android:resizeMode="horizontal|vertical"
+    android:targetCellHeight="1"
+    android:targetCellWidth="2"
+    android:updatePeriodMillis="21600000"
+    android:widgetCategory="home_screen" />

@@ -1,0 +1,84 @@
+{
+  "_source": "键名取自**仓库自己的解析代码** `lib/src/data/dto/channel_dto.dart:156-194`（`ChannelDto.fromJson` 逐字读的键名），不是编的；取值是**自造的演示数据**（Mock 用途），字段齐全度对齐解析器实际读取的键。",
+  "_note": "★ 加这条夹具的原因（第 282/283 轮）：Mock 此前**没有任何 Chat 频道夹具** ⇒ 客户端列到空列表，UI 显示 `No channels yet / 0 channels`，看代码像'功能没做'，其实只是 Mock 没数据。有了它，四个平台都能**离线**验证 Chat 列表页。 ★ r326 订正：时间戳此前写成**秒**（`1758800000`），而真机录下来的 `test/fixtures/channel_list.json` 是**毫秒**（`1612400211640`）——统一乘 1000。",
+  "_shape": "线上是 `{channels:[…]}` —— `lib/src/data/chat_api.dart:2248` 读的就是 `data['channels']`。",
+  "channels": [
+    {
+      "channel_id": 1,
+      "name": "general",
+      "purpose": "Mock 频道：用于离线验证 Chat 列表/会话页（SynHub）",
+      "type": "public",
+      "encrypted": false,
+      "is_joined": true,
+      "is_star": true,
+      "unread": 2,
+      "unread_mention": 1,
+      "unread_comment": 0,
+      "unread_mention_comment": 0,
+      "unread_thread": {},
+      "subscribes": [
+        1
+      ],
+      "members": [
+        1,
+        2
+      ],
+      "broken_users": [],
+      "channel_key_enc": "",
+      "total_member_count": 2,
+      "creator_id": 1,
+      "user_id": 1,
+      "invitor_id": 0,
+      "user": {
+        "user_id": 1,
+        "username": "mockuser",
+        "nickname": "Mock User",
+        "is_admin": false
+      },
+      "last_post_at": 1758800000000,
+      "last_view_at": 1758800000000,
+      "last_view_comment_at": 0,
+      "channel_order_time": 1758800000000,
+      "hide_global_at": 0,
+      "preferences": {}
+    },
+    {
+      "channel_id": 2,
+      "name": "notes-to-self",
+      "purpose": "Mock 私有频道（验证私聊/我的空间分支）",
+      "type": "private",
+      "encrypted": false,
+      "is_joined": true,
+      "is_star": false,
+      "unread": 0,
+      "unread_mention": 0,
+      "unread_comment": 0,
+      "unread_mention_comment": 0,
+      "unread_thread": {},
+      "subscribes": [
+        1
+      ],
+      "members": [
+        1
+      ],
+      "broken_users": [],
+      "channel_key_enc": "",
+      "total_member_count": 1,
+      "creator_id": 1,
+      "user_id": 1,
+      "invitor_id": 0,
+      "user": {
+        "user_id": 1,
+        "username": "mockuser",
+        "nickname": "Mock User",
+        "is_admin": false
+      },
+      "last_post_at": 1758790000000,
+      "last_view_at": 1758790000000,
+      "last_view_comment_at": 0,
+      "channel_order_time": 1758790000000,
+      "hide_global_at": 0,
+      "preferences": {}
+    }
+  ]
+}

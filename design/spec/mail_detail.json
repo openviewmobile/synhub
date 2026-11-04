@@ -1,0 +1,55 @@
+{
+  "id": "mail_detail",
+  "unit": "lib/src/features/mailplus/mail_detail_page.dart",
+  "title": {
+    "zh": "设计稿评审结论",
+    "en": "Design review outcome"
+  },
+  "appbar": {
+    "actions": [
+      "share",
+      "more"
+    ]
+  },
+  "body": {
+    "type": "viewer",
+    "kind": "document",
+    "caption": {
+      "zh": "李雷 → 我 · 10:12 · 2 个附件",
+      "en": "Li → me · 10:12 · 2 attachments"
+    },
+    "text": [
+      {
+        "zh": "结论：时间线按两级走，暗色分隔线再压一档。",
+        "en": "Decision: two-level timeline; darken the dividers."
+      },
+      {
+        "zh": "",
+        "en": ""
+      },
+      {
+        "zh": "待办：我改稿，周五前发终版。",
+        "en": "Action: I revise and send the final by Friday."
+      },
+      {
+        "zh": "附件：设计稿终版 v12.pdf（4.2 MB）",
+        "en": "Attachment: Design final v12.pdf (4.2 MB)"
+      }
+    ],
+    "toolbar": [
+      {
+        "zh": "回复",
+        "en": "Reply"
+      },
+      {
+        "zh": "转发",
+        "en": "Forward"
+      },
+      {
+        "zh": "删除",
+        "en": "Delete"
+      }
+    ]
+  },
+  "bottomNav": null
+}

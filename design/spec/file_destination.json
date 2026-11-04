@@ -1,0 +1,66 @@
+{
+  "id": "file_destination",
+  "unit": "lib/src/features/files/file_destination_picker.dart",
+  "title": {
+    "zh": "移动到…",
+    "en": "Move to…"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "breadcrumb": {
+    "zh": "File Station",
+    "en": "File Station"
+  },
+  "body": {
+    "type": "list",
+    "items": [
+      {
+        "title": {
+          "zh": "photo",
+          "en": "photo"
+        },
+        "sub": {
+          "zh": "文件夹",
+          "en": "Folder"
+        },
+        "lead": "icon",
+        "trail": "more",
+        "icon": "folder"
+      },
+      {
+        "title": {
+          "zh": "doc",
+          "en": "doc"
+        },
+        "sub": {
+          "zh": "文件夹",
+          "en": "Folder"
+        },
+        "lead": "icon",
+        "trail": "check",
+        "icon": "folder"
+      },
+      {
+        "title": {
+          "zh": "backup",
+          "en": "backup"
+        },
+        "sub": {
+          "zh": "文件夹",
+          "en": "Folder"
+        },
+        "lead": "icon",
+        "trail": "more",
+        "icon": "folder"
+      }
+    ]
+  },
+  "footerAction": {
+    "zh": "移动到此处",
+    "en": "Move here"
+  },
+  "bottomNav": null
+}

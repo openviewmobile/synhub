@@ -1,0 +1,1842 @@
+{
+ "provenance": {
+  "source": "NAS /mydrive/Product spec.odoc",
+  "channel": "SYNO.Office.Snapshot:get v4 (read-only, link_id=permanent_link)",
+  "permanent_link": "19yWEYiAdPde1nixdvKGr8yzfB7Gffru",
+  "object_id": "1028_EEE1GJF4P91631SMD01KIT5D8S.doc",
+  "ntype": "doc"
+ },
+ "content": {
+  "data": {
+   "attrs": {
+    "page_setup": {
+     "bottom": 2.54,
+     "left": 2.54,
+     "orientation": "portrait",
+     "page_type": "a4",
+     "right": 2.54,
+     "top": 2.54
+    },
+    "schema": 13,
+    "type": "document"
+   },
+   "content": [
+    {
+     "type": "settings"
+    },
+    {
+     "content": [
+      {
+       "attrs": {
+        "lineHeight": 1.5
+       },
+       "type": "style_paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "_heading0",
+        "headingLevel": 0,
+        "lineHeight": 1.5
+       },
+       "type": "style_paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "_heading1",
+        "headingLevel": 1,
+        "lineHeight": 1.5
+       },
+       "type": "style_paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "_heading2",
+        "headingLevel": 2,
+        "lineHeight": 1.5
+       },
+       "type": "style_paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "_heading3",
+        "headingLevel": 3,
+        "lineHeight": 1.5
+       },
+       "type": "style_paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "_heading4",
+        "headingLevel": 4,
+        "lineHeight": 1.5
+       },
+       "type": "style_paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "_heading5",
+        "headingLevel": 5,
+        "lineHeight": 1.5
+       },
+       "type": "style_paragraph"
+      }
+     ],
+     "type": "style_editor"
+    },
+    {
+     "type": "invisible"
+    },
+    {
+     "attrs": {
+      "listMap": {
+       "LOxRIfnwJn": {
+        "configs": [
+         {},
+         null,
+         null,
+         null,
+         null,
+         null,
+         null,
+         null,
+         null
+        ],
+        "type": "ul"
+       }
+      }
+     },
+     "content": [
+      {
+       "attrs": {
+        "lineHeight": 1.2
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 20
+          },
+          {
+           "_": "font_family",
+           "complexScript": "Trebuchet MS",
+           "eastAsia": "Trebuchet MS",
+           "value": "Trebuchet MS"
+          },
+          {
+           "_": "color",
+           "value": "#4176cc"
+          }
+         ],
+         "text": "YOUR COMPANY",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "lineHeight": 1.2
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 50
+          },
+          {
+           "_": "font_family",
+           "complexScript": "Arial",
+           "eastAsia": "Arial",
+           "value": "Arial"
+          },
+          {
+           "_": "strong"
+          }
+         ],
+         "text": "Product Name",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "lineHeight": 1.2
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 24
+          },
+          {
+           "_": "font_family",
+           "complexScript": "Arial",
+           "eastAsia": "Arial",
+           "value": "Arial"
+          },
+          {
+           "_": "strong"
+          }
+         ],
+         "text": "Functional Spec",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "lineHeight": 1.2
+       },
+       "type": "paragraph"
+      },
+      {
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 12
+          },
+          {
+           "_": "font_family",
+           "complexScript": "Arial",
+           "eastAsia": "Arial",
+           "value": "Arial"
+          },
+          {
+           "_": "color",
+           "value": "#64696e"
+          }
+         ],
+         "text": "Author: Teaona",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "textMarks": [
+         {
+          "_": "font_size",
+          "value": 12
+         },
+         {
+          "_": "font_family",
+          "complexScript": "Arial",
+          "eastAsia": "Arial",
+          "value": "Arial"
+         },
+         {
+          "_": "color",
+          "value": "#64696e"
+         }
+        ]
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 12
+          },
+          {
+           "_": "font_family",
+           "complexScript": "Arial",
+           "eastAsia": "Arial",
+           "value": "Arial"
+          },
+          {
+           "_": "color",
+           "value": "#64696e"
+          }
+         ],
+         "text": "Date: 10/20/2016",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "textMarks": [
+         {
+          "_": "color",
+          "value": "#64696e"
+         }
+        ]
+       },
+       "type": "paragraph"
+      },
+      {
+       "content": [
+        {
+         "attrs": {
+          "config": {
+           "alignment": "inline",
+           "alt": "divider_6.png",
+           "config": "",
+           "crop": {
+            "b": 0,
+            "l": 0,
+            "r": 0,
+            "t": 0
+           },
+           "customized_points": {},
+           "deg": 0,
+           "file_alt": "divider_6.png",
+           "file_id": "7cad22442df74cd9b8c39759536ac931",
+           "file_type": "image",
+           "fill": "none",
+           "flip_h": false,
+           "flip_v": false,
+           "height": 5,
+           "left": 100,
+           "order": 0,
+           "prst": "rect",
+           "ref": "",
+           "stroke": "#2E3133",
+           "stroke-width": 0,
+           "top": 100,
+           "type": "rect",
+           "width": 124
+          },
+          "id": "zT0FFfqq8o"
+         },
+         "type": "picture"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "type": "paragraph"
+      },
+      {
+       "type": "paragraph"
+      },
+      {
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 18
+          },
+          {
+           "_": "font_family",
+           "complexScript": "Arial",
+           "eastAsia": "Arial",
+           "value": "Arial"
+          },
+          {
+           "_": "color",
+           "value": "#15658c"
+          }
+         ],
+         "text": "Revision History",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "colgroup": [
+         {
+          "width": 136
+         },
+         {
+          "width": 118
+         },
+         {
+          "width": 232
+         },
+         {
+          "width": 114
+         }
+        ],
+        "synotable": "VVrQS3dLo6"
+       },
+       "content": [
+        {
+         "attrs": {
+          "height": 28
+         },
+         "content": [
+          {
+           "attrs": {
+            "borderBottomColor": "#aaaaaa",
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": 1,
+            "borderLeftColor": "#aaaaaa",
+            "borderLeftStyle": "solid",
+            "borderLeftWidth": 1,
+            "borderRightColor": "#aaaaaa",
+            "borderRightStyle": "solid",
+            "borderRightWidth": 1,
+            "borderTopColor": "#aaaaaa",
+            "borderTopStyle": "solid",
+            "borderTopWidth": 1,
+            "colspan": 1,
+            "rowspan": 1,
+            "verticalAlign": "middle"
+           },
+           "content": [
+            {
+             "attrs": {
+              "textAlign": "center"
+             },
+             "content": [
+              {
+               "marks": [
+                {
+                 "_": "font_family",
+                 "complexScript": "Arial",
+                 "eastAsia": "Arial",
+                 "value": "Arial"
+                },
+                {
+                 "_": "strong"
+                }
+               ],
+               "text": "Version Number",
+               "type": "text"
+              }
+             ],
+             "type": "paragraph"
+            }
+           ],
+           "type": "table_cell"
+          },
+          {
+           "attrs": {
+            "borderBottomColor": "#aaaaaa",
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": 1,
+            "borderLeftColor": "#aaaaaa",
+            "borderLeftStyle": "solid",
+            "borderLeftWidth": 1,
+            "borderRightColor": "#aaaaaa",
+            "borderRightStyle": "solid",
+            "borderRightWidth": 1,
+            "borderTopColor": "#aaaaaa",
+            "borderTopStyle": "solid",
+            "borderTopWidth": 1,
+            "colspan": 1,
+            "rowspan": 1,
+            "verticalAlign": "middle"
+           },
+           "content": [
+            {
+             "attrs": {
+              "textAlign": "center"
+             },
+             "content": [
+              {
+               "marks": [
+                {
+                 "_": "font_family",
+                 "complexScript": "Arial",
+                 "eastAsia": "Arial",
+                 "value": "Arial"
+                },
+                {
+                 "_": "strong"
+                }
+               ],
+               "text": "Date",
+               "type": "text"
+              }
+             ],
+             "type": "paragraph"
+            }
+           ],
+           "type": "table_cell"
+          },
+          {
+           "attrs": {
+            "borderBottomColor": "#aaaaaa",
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": 1,
+            "borderLeftColor": "#aaaaaa",
+            "borderLeftStyle": "solid",
+            "borderLeftWidth": 1,
+            "borderRightColor": "#aaaaaa",
+            "borderRightStyle": "solid",
+            "borderRightWidth": 1,
+            "borderTopColor": "#aaaaaa",
+            "borderTopStyle": "solid",
+            "borderTopWidth": 1,
+            "colspan": 1,
+            "rowspan": 1,
+            "verticalAlign": "middle"
+           },
+           "content": [
+            {
+             "attrs": {
+              "textAlign": "center"
+             },
+             "content": [
+              {
+               "marks": [
+                {
+                 "_": "font_family",
+                 "complexScript": "Arial",
+                 "eastAsia": "Arial",
+                 "value": "Arial"
+                },
+                {
+                 "_": "strong"
+                }
+               ],
+               "text": "Description",
+               "type": "text"
+              }
+             ],
+             "type": "paragraph"
+            }
+           ],
+           "type": "table_cell"
+          },
+          {
+           "attrs": {
+            "borderBottomColor": "#aaaaaa",
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": 1,
+            "borderLeftColor": "#aaaaaa",
+            "borderLeftStyle": "solid",
+            "borderLeftWidth": 1,
+            "borderRightColor": "#aaaaaa",
+            "borderRightStyle": "solid",
+            "borderRightWidth": 1,
+            "borderTopColor": "#aaaaaa",
+            "borderTopStyle": "solid",
+            "borderTopWidth": 1,
+            "colspan": 1,
+            "rowspan": 1,
+            "verticalAlign": "middle"
+           },
+           "content": [
+            {
+             "attrs": {
+              "textAlign": "center"
+             },
+             "content": [
+              {
+               "marks": [
+                {
+                 "_": "font_family",
+                 "complexScript": "Arial",
+                 "eastAsia": "Arial",
+                 "value": "Arial"
+                },
+                {
+                 "_": "strong"
+                }
+               ],
+               "text": "Author",
+               "type": "text"
+              }
+             ],
+             "type": "paragraph"
+            }
+           ],
+           "type": "table_cell"
+          }
+         ],
+         "type": "table_row"
+        },
+        {
+         "attrs": {
+          "height": 28
+         },
+         "content": [
+          {
+           "attrs": {
+            "borderBottomColor": "#aaaaaa",
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": 1,
+            "borderLeftColor": "#aaaaaa",
+            "borderLeftStyle": "solid",
+            "borderLeftWidth": 1,
+            "borderRightColor": "#aaaaaa",
+            "borderRightStyle": "solid",
+            "borderRightWidth": 1,
+            "borderTopColor": "#aaaaaa",
+            "borderTopStyle": "solid",
+            "borderTopWidth": 1,
+            "colspan": 1,
+            "rowspan": 1,
+            "verticalAlign": "middle"
+           },
+           "content": [
+            {
+             "attrs": {
+              "textAlign": "center"
+             },
+             "content": [
+              {
+               "marks": [
+                {
+                 "_": "font_family",
+                 "complexScript": "Arial",
+                 "eastAsia": "Arial",
+                 "value": "Arial"
+                }
+               ],
+               "text": "1.0",
+               "type": "text"
+              }
+             ],
+             "type": "paragraph"
+            }
+           ],
+           "type": "table_cell"
+          },
+          {
+           "attrs": {
+            "borderBottomColor": "#aaaaaa",
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": 1,
+            "borderLeftColor": "#aaaaaa",
+            "borderLeftStyle": "solid",
+            "borderLeftWidth": 1,
+            "borderRightColor": "#aaaaaa",
+            "borderRightStyle": "solid",
+            "borderRightWidth": 1,
+            "borderTopColor": "#aaaaaa",
+            "borderTopStyle": "solid",
+            "borderTopWidth": 1,
+            "colspan": 1,
+            "rowspan": 1,
+            "verticalAlign": "middle"
+           },
+           "content": [
+            {
+             "attrs": {
+              "textAlign": "center",
+              "textMarks": [
+               {
+                "_": "font_family",
+                "complexScript": "Arial",
+                "eastAsia": "Arial",
+                "value": "Arial"
+               }
+              ]
+             },
+             "content": [
+              {
+               "marks": [
+                {
+                 "_": "font_family",
+                 "complexScript": "Arial",
+                 "eastAsia": "Arial",
+                 "value": "Arial"
+                }
+               ],
+               "text": "10/20/2016",
+               "type": "text"
+              }
+             ],
+             "type": "paragraph"
+            }
+           ],
+           "type": "table_cell"
+          },
+          {
+           "attrs": {
+            "borderBottomColor": "#aaaaaa",
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": 1,
+            "borderLeftColor": "#aaaaaa",
+            "borderLeftStyle": "solid",
+            "borderLeftWidth": 1,
+            "borderRightColor": "#aaaaaa",
+            "borderRightStyle": "solid",
+            "borderRightWidth": 1,
+            "borderTopColor": "#aaaaaa",
+            "borderTopStyle": "solid",
+            "borderTopWidth": 1,
+            "colspan": 1,
+            "rowspan": 1,
+            "verticalAlign": "middle"
+           },
+           "content": [
+            {
+             "attrs": {
+              "textAlign": "center",
+              "textMarks": [
+               {
+                "_": "font_family",
+                "complexScript": "Arial",
+                "eastAsia": "Arial",
+                "value": "Arial"
+               }
+              ]
+             },
+             "content": [
+              {
+               "marks": [
+                {
+                 "_": "font_family",
+                 "complexScript": "Arial",
+                 "eastAsia": "Arial",
+                 "value": "Arial"
+                }
+               ],
+               "text": "Document created",
+               "type": "text"
+              }
+             ],
+             "type": "paragraph"
+            }
+           ],
+           "type": "table_cell"
+          },
+          {
+           "attrs": {
+            "borderBottomColor": "#aaaaaa",
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": 1,
+            "borderLeftColor": "#aaaaaa",
+            "borderLeftStyle": "solid",
+            "borderLeftWidth": 1,
+            "borderRightColor": "#aaaaaa",
+            "borderRightStyle": "solid",
+            "borderRightWidth": 1,
+            "borderTopColor": "#aaaaaa",
+            "borderTopStyle": "solid",
+            "borderTopWidth": 1,
+            "colspan": 1,
+            "rowspan": 1,
+            "verticalAlign": "middle"
+           },
+           "content": [
+            {
+             "attrs": {
+              "textAlign": "center"
+             },
+             "content": [
+              {
+               "marks": [
+                {
+                 "_": "font_family",
+                 "complexScript": "Arial",
+                 "eastAsia": "Arial",
+                 "value": "Arial"
+                }
+               ],
+               "text": "Teaona",
+               "type": "text"
+              }
+             ],
+             "type": "paragraph"
+            }
+           ],
+           "type": "table_cell"
+          }
+         ],
+         "type": "table_row"
+        },
+        {
+         "attrs": {
+          "height": 28
+         },
+         "content": [
+          {
+           "attrs": {
+            "borderBottomColor": "#aaaaaa",
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": 1,
+            "borderLeftColor": "#aaaaaa",
+            "borderLeftStyle": "solid",
+            "borderLeftWidth": 1,
+            "borderRightColor": "#aaaaaa",
+            "borderRightStyle": "solid",
+            "borderRightWidth": 1,
+            "borderTopColor": "#aaaaaa",
+            "borderTopStyle": "solid",
+            "borderTopWidth": 1,
+            "colspan": 1,
+            "rowspan": 1,
+            "verticalAlign": "middle"
+           },
+           "content": [
+            {
+             "attrs": {
+              "textAlign": "center",
+              "textMarks": [
+               {
+                "_": "font_family",
+                "complexScript": "Arial",
+                "eastAsia": "Arial",
+                "value": "Arial"
+               }
+              ]
+             },
+             "type": "paragraph"
+            }
+           ],
+           "type": "table_cell"
+          },
+          {
+           "attrs": {
+            "borderBottomColor": "#aaaaaa",
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": 1,
+            "borderLeftColor": "#aaaaaa",
+            "borderLeftStyle": "solid",
+            "borderLeftWidth": 1,
+            "borderRightColor": "#aaaaaa",
+            "borderRightStyle": "solid",
+            "borderRightWidth": 1,
+            "borderTopColor": "#aaaaaa",
+            "borderTopStyle": "solid",
+            "borderTopWidth": 1,
+            "colspan": 1,
+            "rowspan": 1,
+            "verticalAlign": "middle"
+           },
+           "content": [
+            {
+             "attrs": {
+              "textAlign": "center",
+              "textMarks": [
+               {
+                "_": "font_family",
+                "complexScript": "Arial",
+                "eastAsia": "Arial",
+                "value": "Arial"
+               }
+              ]
+             },
+             "type": "paragraph"
+            }
+           ],
+           "type": "table_cell"
+          },
+          {
+           "attrs": {
+            "borderBottomColor": "#aaaaaa",
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": 1,
+            "borderLeftColor": "#aaaaaa",
+            "borderLeftStyle": "solid",
+            "borderLeftWidth": 1,
+            "borderRightColor": "#aaaaaa",
+            "borderRightStyle": "solid",
+            "borderRightWidth": 1,
+            "borderTopColor": "#aaaaaa",
+            "borderTopStyle": "solid",
+            "borderTopWidth": 1,
+            "colspan": 1,
+            "rowspan": 1,
+            "verticalAlign": "middle"
+           },
+           "content": [
+            {
+             "attrs": {
+              "textAlign": "center",
+              "textMarks": [
+               {
+                "_": "font_family",
+                "complexScript": "Arial",
+                "eastAsia": "Arial",
+                "value": "Arial"
+               }
+              ]
+             },
+             "type": "paragraph"
+            }
+           ],
+           "type": "table_cell"
+          },
+          {
+           "attrs": {
+            "borderBottomColor": "#aaaaaa",
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": 1,
+            "borderLeftColor": "#aaaaaa",
+            "borderLeftStyle": "solid",
+            "borderLeftWidth": 1,
+            "borderRightColor": "#aaaaaa",
+            "borderRightStyle": "solid",
+            "borderRightWidth": 1,
+            "borderTopColor": "#aaaaaa",
+            "borderTopStyle": "solid",
+            "borderTopWidth": 1,
+            "colspan": 1,
+            "rowspan": 1,
+            "verticalAlign": "middle"
+           },
+           "content": [
+            {
+             "attrs": {
+              "textAlign": "center",
+              "textMarks": [
+               {
+                "_": "font_family",
+                "complexScript": "Arial",
+                "eastAsia": "Arial",
+                "value": "Arial"
+               }
+              ]
+             },
+             "type": "paragraph"
+            }
+           ],
+           "type": "table_cell"
+          }
+         ],
+         "type": "table_row"
+        },
+        {
+         "attrs": {
+          "height": 28
+         },
+         "content": [
+          {
+           "attrs": {
+            "borderBottomColor": "#aaaaaa",
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": 1,
+            "borderLeftColor": "#aaaaaa",
+            "borderLeftStyle": "solid",
+            "borderLeftWidth": 1,
+            "borderRightColor": "#aaaaaa",
+            "borderRightStyle": "solid",
+            "borderRightWidth": 1,
+            "borderTopColor": "#aaaaaa",
+            "borderTopStyle": "solid",
+            "borderTopWidth": 1,
+            "colspan": 1,
+            "rowspan": 1,
+            "verticalAlign": "middle"
+           },
+           "content": [
+            {
+             "attrs": {
+              "textAlign": "center",
+              "textMarks": [
+               {
+                "_": "font_family",
+                "complexScript": "Arial",
+                "eastAsia": "Arial",
+                "value": "Arial"
+               }
+              ]
+             },
+             "type": "paragraph"
+            }
+           ],
+           "type": "table_cell"
+          },
+          {
+           "attrs": {
+            "borderBottomColor": "#aaaaaa",
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": 1,
+            "borderLeftColor": "#aaaaaa",
+            "borderLeftStyle": "solid",
+            "borderLeftWidth": 1,
+            "borderRightColor": "#aaaaaa",
+            "borderRightStyle": "solid",
+            "borderRightWidth": 1,
+            "borderTopColor": "#aaaaaa",
+            "borderTopStyle": "solid",
+            "borderTopWidth": 1,
+            "colspan": 1,
+            "rowspan": 1,
+            "verticalAlign": "middle"
+           },
+           "content": [
+            {
+             "attrs": {
+              "textAlign": "center",
+              "textMarks": [
+               {
+                "_": "font_family",
+                "complexScript": "Arial",
+                "eastAsia": "Arial",
+                "value": "Arial"
+               }
+              ]
+             },
+             "type": "paragraph"
+            }
+           ],
+           "type": "table_cell"
+          },
+          {
+           "attrs": {
+            "borderBottomColor": "#aaaaaa",
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": 1,
+            "borderLeftColor": "#aaaaaa",
+            "borderLeftStyle": "solid",
+            "borderLeftWidth": 1,
+            "borderRightColor": "#aaaaaa",
+            "borderRightStyle": "solid",
+            "borderRightWidth": 1,
+            "borderTopColor": "#aaaaaa",
+            "borderTopStyle": "solid",
+            "borderTopWidth": 1,
+            "colspan": 1,
+            "rowspan": 1,
+            "verticalAlign": "middle"
+           },
+           "content": [
+            {
+             "attrs": {
+              "textAlign": "center",
+              "textMarks": [
+               {
+                "_": "font_family",
+                "complexScript": "Arial",
+                "eastAsia": "Arial",
+                "value": "Arial"
+               }
+              ]
+             },
+             "type": "paragraph"
+            }
+           ],
+           "type": "table_cell"
+          },
+          {
+           "attrs": {
+            "borderBottomColor": "#aaaaaa",
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": 1,
+            "borderLeftColor": "#aaaaaa",
+            "borderLeftStyle": "solid",
+            "borderLeftWidth": 1,
+            "borderRightColor": "#aaaaaa",
+            "borderRightStyle": "solid",
+            "borderRightWidth": 1,
+            "borderTopColor": "#aaaaaa",
+            "borderTopStyle": "solid",
+            "borderTopWidth": 1,
+            "colspan": 1,
+            "rowspan": 1,
+            "verticalAlign": "middle"
+           },
+           "content": [
+            {
+             "attrs": {
+              "textAlign": "center",
+              "textMarks": [
+               {
+                "_": "font_family",
+                "complexScript": "Arial",
+                "eastAsia": "Arial",
+                "value": "Arial"
+               }
+              ]
+             },
+             "type": "paragraph"
+            }
+           ],
+           "type": "table_cell"
+          }
+         ],
+         "type": "table_row"
+        },
+        {
+         "attrs": {
+          "height": 28
+         },
+         "content": [
+          {
+           "attrs": {
+            "borderBottomColor": "#aaaaaa",
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": 1,
+            "borderLeftColor": "#aaaaaa",
+            "borderLeftStyle": "solid",
+            "borderLeftWidth": 1,
+            "borderRightColor": "#aaaaaa",
+            "borderRightStyle": "solid",
+            "borderRightWidth": 1,
+            "borderTopColor": "#aaaaaa",
+            "borderTopStyle": "solid",
+            "borderTopWidth": 1,
+            "colspan": 1,
+            "rowspan": 1,
+            "verticalAlign": "middle"
+           },
+           "content": [
+            {
+             "attrs": {
+              "textAlign": "center",
+              "textMarks": [
+               {
+                "_": "font_family",
+                "complexScript": "Arial",
+                "eastAsia": "Arial",
+                "value": "Arial"
+               }
+              ]
+             },
+             "type": "paragraph"
+            }
+           ],
+           "type": "table_cell"
+          },
+          {
+           "attrs": {
+            "borderBottomColor": "#aaaaaa",
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": 1,
+            "borderLeftColor": "#aaaaaa",
+            "borderLeftStyle": "solid",
+            "borderLeftWidth": 1,
+            "borderRightColor": "#aaaaaa",
+            "borderRightStyle": "solid",
+            "borderRightWidth": 1,
+            "borderTopColor": "#aaaaaa",
+            "borderTopStyle": "solid",
+            "borderTopWidth": 1,
+            "colspan": 1,
+            "rowspan": 1,
+            "verticalAlign": "middle"
+           },
+           "content": [
+            {
+             "attrs": {
+              "textAlign": "center",
+              "textMarks": [
+               {
+                "_": "font_family",
+                "complexScript": "Arial",
+                "eastAsia": "Arial",
+                "value": "Arial"
+               }
+              ]
+             },
+             "type": "paragraph"
+            }
+           ],
+           "type": "table_cell"
+          },
+          {
+           "attrs": {
+            "borderBottomColor": "#aaaaaa",
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": 1,
+            "borderLeftColor": "#aaaaaa",
+            "borderLeftStyle": "solid",
+            "borderLeftWidth": 1,
+            "borderRightColor": "#aaaaaa",
+            "borderRightStyle": "solid",
+            "borderRightWidth": 1,
+            "borderTopColor": "#aaaaaa",
+            "borderTopStyle": "solid",
+            "borderTopWidth": 1,
+            "colspan": 1,
+            "rowspan": 1,
+            "verticalAlign": "middle"
+           },
+           "content": [
+            {
+             "attrs": {
+              "textAlign": "center",
+              "textMarks": [
+               {
+                "_": "font_family",
+                "complexScript": "Arial",
+                "eastAsia": "Arial",
+                "value": "Arial"
+               }
+              ]
+             },
+             "type": "paragraph"
+            }
+           ],
+           "type": "table_cell"
+          },
+          {
+           "attrs": {
+            "borderBottomColor": "#aaaaaa",
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": 1,
+            "borderLeftColor": "#aaaaaa",
+            "borderLeftStyle": "solid",
+            "borderLeftWidth": 1,
+            "borderRightColor": "#aaaaaa",
+            "borderRightStyle": "solid",
+            "borderRightWidth": 1,
+            "borderTopColor": "#aaaaaa",
+            "borderTopStyle": "solid",
+            "borderTopWidth": 1,
+            "colspan": 1,
+            "rowspan": 1,
+            "verticalAlign": "middle"
+           },
+           "content": [
+            {
+             "attrs": {
+              "textAlign": "center",
+              "textMarks": [
+               {
+                "_": "font_family",
+                "complexScript": "Arial",
+                "eastAsia": "Arial",
+                "value": "Arial"
+               }
+              ]
+             },
+             "type": "paragraph"
+            }
+           ],
+           "type": "table_cell"
+          }
+         ],
+         "type": "table_row"
+        }
+       ],
+       "type": "table"
+      },
+      {
+       "attrs": {
+        "paddingTop": 13.33333333333333
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 18
+          },
+          {
+           "_": "color",
+           "value": "#15658c"
+          }
+         ],
+         "text": "Table of Contents",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "content": [
+        {
+         "content": [
+          {
+           "marks": [
+            {
+             "_": "link",
+             "href": "#atrzFKK65v"
+            },
+            {
+             "_": "color",
+             "value": "#0F7BE9"
+            },
+            {
+             "_": "underline"
+            }
+           ],
+           "text": "1. Introduction",
+           "type": "text"
+          }
+         ],
+         "type": "paragraph"
+        },
+        {
+         "attrs": {
+          "paddingTop": 16
+         },
+         "content": [
+          {
+           "marks": [
+            {
+             "_": "link",
+             "href": "#cJ1U4VaiDy"
+            },
+            {
+             "_": "color",
+             "value": "#0F7BE9"
+            },
+            {
+             "_": "underline"
+            }
+           ],
+           "text": "2. Summary",
+           "type": "text"
+          }
+         ],
+         "type": "paragraph"
+        },
+        {
+         "attrs": {
+          "paddingTop": 16
+         },
+         "content": [
+          {
+           "marks": [
+            {
+             "_": "link",
+             "href": "#NItoi5Eh0Z"
+            },
+            {
+             "_": "color",
+             "value": "#0F7BE9"
+            },
+            {
+             "_": "underline"
+            }
+           ],
+           "text": "3. Specifications",
+           "type": "text"
+          }
+         ],
+         "type": "paragraph"
+        },
+        {
+         "attrs": {
+          "indentFirst": 30,
+          "indentLeft": 30,
+          "paddingTop": 6
+         },
+         "content": [
+          {
+           "marks": [
+            {
+             "_": "link",
+             "href": "#dDC1tFyfjy"
+            },
+            {
+             "_": "color",
+             "value": "#0F7BE9"
+            },
+            {
+             "_": "underline"
+            }
+           ],
+           "text": "3.1. Technique",
+           "type": "text"
+          }
+         ],
+         "type": "paragraph"
+        },
+        {
+         "attrs": {
+          "indentFirst": 30,
+          "indentLeft": 30,
+          "paddingTop": 6
+         },
+         "content": [
+          {
+           "marks": [
+            {
+             "_": "link",
+             "href": "#Y2JLiws0l9"
+            },
+            {
+             "_": "color",
+             "value": "#0F7BE9"
+            },
+            {
+             "_": "underline"
+            }
+           ],
+           "text": "3.2. Design",
+           "type": "text"
+          }
+         ],
+         "type": "paragraph"
+        },
+        {
+         "attrs": {
+          "paddingTop": 16
+         },
+         "content": [
+          {
+           "marks": [
+            {
+             "_": "link",
+             "href": "#zM4o65dCkl"
+            },
+            {
+             "_": "color",
+             "value": "#0F7BE9"
+            },
+            {
+             "_": "underline"
+            }
+           ],
+           "text": "4. Limitations",
+           "type": "text"
+          }
+         ],
+         "type": "paragraph"
+        },
+        {
+         "attrs": {
+          "paddingTop": 16
+         },
+         "content": [
+          {
+           "marks": [
+            {
+             "_": "link",
+             "href": "#AfoQcS6itY"
+            },
+            {
+             "_": "color",
+             "value": "#0F7BE9"
+            },
+            {
+             "_": "underline"
+            }
+           ],
+           "text": "5. To Be Discussed",
+           "type": "text"
+          }
+         ],
+         "type": "paragraph"
+        }
+       ],
+       "type": "navigation"
+      },
+      {
+       "attrs": {
+        "headingId": "atrzFKK65v",
+        "headingLevel": 0
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 18
+          },
+          {
+           "_": "color",
+           "value": "#15658c"
+          }
+         ],
+         "text": "1. Introduction",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "textMarks": [
+         {
+          "_": "font_family",
+          "complexScript": "Microsoft Sans Serif",
+          "eastAsia": "Microsoft Sans Serif",
+          "value": "Microsoft Sans Serif"
+         }
+        ]
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_family",
+           "complexScript": "Arial",
+           "eastAsia": "Arial",
+           "value": "Arial"
+          }
+         ],
+         "text": "Describe the concept of this product here.",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "cJ1U4VaiDy",
+        "headingLevel": 0
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 18
+          },
+          {
+           "_": "color",
+           "value": "#15658c"
+          }
+         ],
+         "text": "2. Summary",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "textMarks": [
+         {
+          "_": "font_family",
+          "complexScript": "Microsoft Sans Serif",
+          "eastAsia": "Microsoft Sans Serif",
+          "value": "Microsoft Sans Serif"
+         }
+        ]
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_family",
+           "complexScript": "Arial",
+           "eastAsia": "Arial",
+           "value": "Arial"
+          }
+         ],
+         "text": "List the features and solutions this product provides.",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "NItoi5Eh0Z",
+        "headingLevel": 0
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 18
+          },
+          {
+           "_": "color",
+           "value": "#15658c"
+          }
+         ],
+         "text": "3. Specifications",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "dDC1tFyfjy",
+        "headingLevel": 1
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 15
+          }
+         ],
+         "text": "3.1. Technique",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_family",
+           "complexScript": "Arial",
+           "eastAsia": "Arial",
+           "value": "Arial"
+          }
+         ],
+         "text": "Provide specifications in specific, quantitative terms.",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "Y2JLiws0l9",
+        "headingLevel": 1
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 15
+          }
+         ],
+         "text": "3.2. Design",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_family",
+           "complexScript": "Arial",
+           "eastAsia": "Arial",
+           "value": "Arial"
+          }
+         ],
+         "text": "Provide related resources.",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "zM4o65dCkl",
+        "headingLevel": 0
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 18
+          },
+          {
+           "_": "color",
+           "value": "#15658c"
+          }
+         ],
+         "text": "4. Limitations",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_family",
+           "complexScript": "Arial",
+           "eastAsia": "Arial",
+           "value": "Arial"
+          }
+         ],
+         "text": "List the limitations of this product.",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "headingId": "AfoQcS6itY",
+        "headingLevel": 0
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_size",
+           "value": 18
+          },
+          {
+           "_": "color",
+           "value": "#15658c"
+          }
+         ],
+         "text": "5. To Be Discussed",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "listId": "LOxRIfnwJn",
+        "listMarks": [
+         {
+          "_": "font_family",
+          "complexScript": "Microsoft Sans Serif",
+          "eastAsia": "Microsoft Sans Serif",
+          "value": "Microsoft Sans Serif"
+         }
+        ],
+        "textMarks": [
+         {
+          "_": "font_family",
+          "complexScript": "Microsoft Sans Serif",
+          "eastAsia": "Microsoft Sans Serif",
+          "value": "Microsoft Sans Serif"
+         }
+        ]
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_family",
+           "complexScript": "Arial",
+           "eastAsia": "Arial",
+           "value": "Arial"
+          }
+         ],
+         "text": "Record the issues without conclusions.",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      },
+      {
+       "attrs": {
+        "listId": "LOxRIfnwJn",
+        "listMarks": [
+         {
+          "_": "font_family",
+          "complexScript": "Arial",
+          "eastAsia": "Arial",
+          "value": "Arial"
+         }
+        ],
+        "textMarks": [
+         {
+          "_": "font_family",
+          "complexScript": "Arial",
+          "eastAsia": "Arial",
+          "value": "Arial"
+         }
+        ]
+       },
+       "content": [
+        {
+         "marks": [
+          {
+           "_": "font_family",
+           "complexScript": "Arial",
+           "eastAsia": "Arial",
+           "value": "Arial"
+          }
+         ],
+         "text": "Propose the next step for this product.",
+         "type": "text"
+        }
+       ],
+       "type": "paragraph"
+      }
+     ],
+     "type": "edit_area"
+    },
+    {
+     "attrs": {
+      "num-cover": false,
+      "num-even": false,
+      "num-pos": "br",
+      "num-show": false,
+      "place-cover": false,
+      "place-even": false,
+      "place-show": false
+     },
+     "content": [
+      {
+       "attrs": {
+        "type": "cover"
+       },
+       "content": [
+        {
+         "type": "paragraph"
+        }
+       ],
+       "type": "header"
+      },
+      {
+       "attrs": {
+        "type": "even"
+       },
+       "content": [
+        {
+         "type": "paragraph"
+        }
+       ],
+       "type": "header"
+      },
+      {
+       "attrs": {
+        "type": "normal"
+       },
+       "content": [
+        {
+         "type": "paragraph"
+        }
+       ],
+       "type": "header"
+      },
+      {
+       "attrs": {
+        "type": "cover"
+       },
+       "content": [
+        {
+         "type": "paragraph"
+        }
+       ],
+       "type": "footer"
+      },
+      {
+       "attrs": {
+        "type": "even"
+       },
+       "content": [
+        {
+         "type": "paragraph"
+        }
+       ],
+       "type": "footer"
+      },
+      {
+       "attrs": {
+        "type": "normal"
+       },
+       "content": [
+        {
+         "type": "paragraph"
+        }
+       ],
+       "type": "footer"
+      },
+      {
+       "attrs": {
+        "type": "normal"
+       },
+       "content": [
+        {
+         "content": [
+          {
+           "type": "page_num_text"
+          }
+         ],
+         "type": "page_num_block"
+        }
+       ],
+       "type": "page_num"
+      }
+     ],
+     "type": "page_decorate"
+    }
+   ],
+   "type": "doc"
+  },
+  "version": 34
+ }
+}

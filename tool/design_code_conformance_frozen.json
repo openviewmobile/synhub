@@ -1,0 +1,1290 @@
+{
+ "rows": [
+  {
+   "unit": "admin_tools_page.dart",
+   "module": "admin",
+   "spec": "admin_tools",
+   "verdict": "E",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "ai_model_page.dart",
+   "module": "ai",
+   "spec": "ai_model",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "ai_usage_page.dart",
+   "module": "ai",
+   "spec": "ai_usage",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "analytics_page.dart",
+   "module": "analytics",
+   "spec": "analytics",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "traffic_page.dart",
+   "module": "analytics",
+   "spec": "traffic",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "audio_cast_page.dart",
+   "module": "audio",
+   "spec": "audio_cast",
+   "verdict": "E",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "audio_detail_page.dart",
+   "module": "audio",
+   "spec": "audio_detail",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "audio_equalizer.dart",
+   "module": "audio",
+   "spec": "audio_equalizer",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "2 处引用"
+  },
+  {
+   "unit": "audio_gaps_page.dart",
+   "module": "audio",
+   "spec": "audio_gaps",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "audio_page.dart",
+   "module": "audio",
+   "spec": "audio_library",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "audio_pins_page.dart",
+   "module": "audio",
+   "spec": "audio_pins",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "audio_radio_page.dart",
+   "module": "audio",
+   "spec": "audio_radio",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "audio_remote_page.dart",
+   "module": "audio",
+   "spec": "audio_remote",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "audio_search_page.dart",
+   "module": "audio",
+   "spec": "audio_search",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "audio_song_page.dart",
+   "module": "audio",
+   "spec": "audio_song",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "audio_web_queue_page.dart",
+   "module": "audio",
+   "spec": "audio_web_queue",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "calendar_page.dart",
+   "module": "calendar",
+   "spec": "calendar",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "archive_page.dart",
+   "module": "chat",
+   "spec": "chat_archive",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "attachment_view.dart",
+   "module": "chat",
+   "spec": "chat_attachment",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "2 处引用"
+  },
+  {
+   "unit": "available_channels_page.dart",
+   "module": "chat",
+   "spec": "chat_available",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "channel_content_page.dart",
+   "module": "chat",
+   "spec": "chat_content",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "channel_create_page.dart",
+   "module": "chat",
+   "spec": "chat_create",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "channel_hashtags_page.dart",
+   "module": "chat",
+   "spec": "chat_hashtags",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "channel_list_page.dart",
+   "module": "chat",
+   "spec": "chat_channels",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "channel_media_page.dart",
+   "module": "chat",
+   "spec": "chat_media",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "channel_members_page.dart",
+   "module": "chat",
+   "spec": "chat_members",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "channel_scheduled_page.dart",
+   "module": "chat",
+   "spec": "chat_scheduled",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "chat_page.dart",
+   "module": "chat",
+   "spec": "chat_channel",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "global_content_page.dart",
+   "module": "chat",
+   "spec": "chat_global",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "read_status_page.dart",
+   "module": "chat",
+   "spec": "chat_read_status",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "subscribed_threads_page.dart",
+   "module": "chat",
+   "spec": "chat_threads",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "thread_page.dart",
+   "module": "chat",
+   "spec": "chat_thread",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "contact_editor_page.dart",
+   "module": "contacts",
+   "spec": "contact_editor",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "contact_import_page.dart",
+   "module": "contacts",
+   "spec": "contact_import",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "contacts_manage_page.dart",
+   "module": "contacts",
+   "spec": "contacts_manage",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "contacts_page.dart",
+   "module": "contacts",
+   "spec": "contacts",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "design_preview_page.dart",
+   "module": "design",
+   "spec": "design_preview",
+   "verdict": "E",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "diag_page.dart",
+   "module": "diagnostics",
+   "spec": "diag",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "download_bt_search_page.dart",
+   "module": "downloads",
+   "spec": "download_bt_search",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "download_captcha_page.dart",
+   "module": "downloads",
+   "spec": "download_captcha",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "download_create_page.dart",
+   "module": "downloads",
+   "spec": "download_create",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "download_detail_page.dart",
+   "module": "downloads",
+   "spec": "download_detail",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "download_emule_page.dart",
+   "module": "downloads",
+   "spec": "download_emule",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "download_emule_search_page.dart",
+   "module": "downloads",
+   "spec": "download_emule_search",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "download_emule_server_page.dart",
+   "module": "downloads",
+   "spec": "download_emule_server",
+   "verdict": "E",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "download_file_select_page.dart",
+   "module": "downloads",
+   "spec": "download_files",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "download_link_browser.dart",
+   "module": "downloads",
+   "spec": "download_link_browser",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "download_page.dart",
+   "module": "downloads",
+   "spec": "download_page",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "download_rss_page.dart",
+   "module": "downloads",
+   "spec": "download_rss",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "download_settings_page.dart",
+   "module": "downloads",
+   "spec": "download_settings",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "drive_admin_page.dart",
+   "module": "drive",
+   "spec": "drive_admin",
+   "verdict": "E",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "drive_advance_sharing_page.dart",
+   "module": "drive",
+   "spec": "drive_advance_sharing",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "drive_category_page.dart",
+   "module": "drive",
+   "spec": "drive_category",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "drive_collection_page.dart",
+   "module": "drive",
+   "spec": "drive_collection",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "drive_computers_page.dart",
+   "module": "drive",
+   "spec": "drive_computers",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "drive_connections_page.dart",
+   "module": "drive",
+   "spec": "drive_connections",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "drive_copy_move_page.dart",
+   "module": "drive",
+   "spec": "drive_copy_move",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "drive_extras_page.dart",
+   "module": "drive",
+   "spec": "drive_extras",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "drive_file_request_page.dart",
+   "module": "drive",
+   "spec": "drive_file_request",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "drive_folder_page.dart",
+   "module": "drive",
+   "spec": "drive_folder",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "drive_local_files_page.dart",
+   "module": "drive",
+   "spec": "drive_local_files",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "drive_notifications_page.dart",
+   "module": "drive",
+   "spec": "drive_notifications",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "drive_pdf_markup_page.dart",
+   "module": "drive",
+   "spec": "drive_pdf_markup",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "drive_pdf_text_layer.dart",
+   "module": "drive",
+   "spec": null,
+   "verdict": "E",
+   "judge": "非界面",
+   "note": "无 Widget 类（数据模型/平台抽象）"
+  },
+  {
+   "unit": "drive_quota_page.dart",
+   "module": "drive",
+   "spec": "drive_quota",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "drive_scan_page.dart",
+   "module": "drive",
+   "spec": "drive_scan",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "drive_search_page.dart",
+   "module": "drive",
+   "spec": "drive_search",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "drive_sync_tasks_page.dart",
+   "module": "drive",
+   "spec": "drive_sync_tasks",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "drive_team_members_page.dart",
+   "module": "drive",
+   "spec": "drive_team_members",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "drive_team_trash_page.dart",
+   "module": "drive",
+   "spec": "drive_team_trash",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "drive_text_editor_page.dart",
+   "module": "drive",
+   "spec": "drive_text_editor",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "drive_trash_page.dart",
+   "module": "drive",
+   "spec": "drive_trash",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "book_resume.dart",
+   "module": "files",
+   "spec": "book_resume",
+   "verdict": "A",
+   "judge": "经入口",
+   "note": "入口 build"
+  },
+  {
+   "unit": "djvu_archive.dart",
+   "module": "files",
+   "spec": null,
+   "verdict": "E",
+   "judge": "非界面",
+   "note": "无 Widget 类（数据模型/平台抽象）"
+  },
+  {
+   "unit": "drive_labels_page.dart",
+   "module": "files",
+   "spec": "drive_labels",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "drive_more_page.dart",
+   "module": "files",
+   "spec": "drive_more",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "drive_revisions_page.dart",
+   "module": "files",
+   "spec": "drive_revisions",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "drive_saf_on_demand_page.dart",
+   "module": "files",
+   "spec": "drive_saf_on_demand",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "drive_share_page.dart",
+   "module": "files",
+   "spec": "drive_share",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "drive_tasks_page.dart",
+   "module": "files",
+   "spec": "drive_tasks",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "file_browse_page.dart",
+   "module": "files",
+   "spec": "file_browse",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "file_destination_picker.dart",
+   "module": "files",
+   "spec": "file_destination",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "file_mount_page.dart",
+   "module": "files",
+   "spec": "file_mount",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "file_offline_page.dart",
+   "module": "files",
+   "spec": "file_offline",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "file_pages.dart",
+   "module": "files",
+   "spec": "file_pages",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "2 处引用"
+  },
+  {
+   "unit": "file_preview_page.dart",
+   "module": "files",
+   "spec": "file_preview",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "office_page.dart",
+   "module": "files",
+   "spec": "office_page",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "office_viewer_page.dart",
+   "module": "files",
+   "spec": "office_viewer",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "usb_devices_page.dart",
+   "module": "files",
+   "spec": "usb_devices",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "webdav_page.dart",
+   "module": "files",
+   "spec": "webdav_page",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "home_page.dart",
+   "module": "home",
+   "spec": null,
+   "verdict": "E",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "login_page.dart",
+   "module": "login",
+   "spec": "login",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "mail_compose_page.dart",
+   "module": "mailplus",
+   "spec": "mail_compose",
+   "verdict": "E",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "mail_detail_page.dart",
+   "module": "mailplus",
+   "spec": "mail_detail",
+   "verdict": "E",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "mail_page.dart",
+   "module": "mailplus",
+   "spec": "mail_list",
+   "verdict": "E",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "media_player_view.dart",
+   "module": "media",
+   "spec": "media_player",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "2 处引用"
+  },
+  {
+   "unit": "note_adv_search_page.dart",
+   "module": "notes",
+   "spec": "note_adv_search",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "note_background_sync_page.dart",
+   "module": "notes",
+   "spec": "note_bg_sync",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "note_body.dart",
+   "module": "notes",
+   "spec": null,
+   "verdict": "A",
+   "judge": "直达",
+   "note": "4 处引用"
+  },
+  {
+   "unit": "note_c3_pages.dart",
+   "module": "notes",
+   "spec": "note_c3",
+   "verdict": "A",
+   "judge": "经入口",
+   "note": "入口 createState"
+  },
+  {
+   "unit": "note_conflict_page.dart",
+   "module": "notes",
+   "spec": "note_conflict",
+   "verdict": "C",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "note_drawing_page.dart",
+   "module": "notes",
+   "spec": "note_drawing",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "note_editor_page.dart",
+   "module": "notes",
+   "spec": "note_editor",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "note_fts_search_page.dart",
+   "module": "notes",
+   "spec": "note_fts",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "note_joined_page.dart",
+   "module": "notes",
+   "spec": "note_joined",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "note_nas_picker.dart",
+   "module": "notes",
+   "spec": "note_nas_picker",
+   "verdict": "A",
+   "judge": "经入口",
+   "note": "入口 build"
+  },
+  {
+   "unit": "note_overdue_settings_page.dart",
+   "module": "notes",
+   "spec": "note_overdue",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "note_recycle_page.dart",
+   "module": "notes",
+   "spec": "note_recycle",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "note_share_page.dart",
+   "module": "notes",
+   "spec": "note_share",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "note_shared_page.dart",
+   "module": "notes",
+   "spec": "note_shared",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "note_shelf_page.dart",
+   "module": "notes",
+   "spec": "note_shelf",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "note_shortcut_page.dart",
+   "module": "notes",
+   "spec": "note_shortcut",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "note_smart_page.dart",
+   "module": "notes",
+   "spec": "note_smart",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "note_tag_page.dart",
+   "module": "notes",
+   "spec": "note_tags",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "2 处引用"
+  },
+  {
+   "unit": "note_todo_editor_page.dart",
+   "module": "notes",
+   "spec": "note_todo_editor",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "note_todo_page.dart",
+   "module": "notes",
+   "spec": "note_todo",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "note_view_page.dart",
+   "module": "notes",
+   "spec": "note_view",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "notes_page.dart",
+   "module": "notes",
+   "spec": "notes",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "office_doc_page.dart",
+   "module": "office",
+   "spec": "office_doc",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "office_doc_page_frame.dart",
+   "module": "office",
+   "spec": null,
+   "verdict": "E",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "office_doc_paper.dart",
+   "module": "office",
+   "spec": null,
+   "verdict": "E",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "office_library_page.dart",
+   "module": "office",
+   "spec": "office_library",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "office_sheet_page.dart",
+   "module": "office",
+   "spec": "office_sheet",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "office_slides_page.dart",
+   "module": "office",
+   "spec": "office_slides",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "office_template_preview.dart",
+   "module": "office",
+   "spec": "office_template_preview",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "photo_admin_page.dart",
+   "module": "photos",
+   "spec": "photo_admin",
+   "verdict": "E",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "photo_ai_edit_settings_page.dart",
+   "module": "photos",
+   "spec": "photo_ai_edit",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "photo_background_tasks_page.dart",
+   "module": "photos",
+   "spec": "photo_tasks",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "photo_backup_page.dart",
+   "module": "photos",
+   "spec": "photo_backup",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "photo_browse_page.dart",
+   "module": "photos",
+   "spec": "photo_browse",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "photo_c2_page.dart",
+   "module": "photos",
+   "spec": "photo_c2",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "photo_c2_sections.dart",
+   "module": "photos",
+   "spec": null,
+   "verdict": "A",
+   "judge": "直达",
+   "note": "6 处引用"
+  },
+  {
+   "unit": "photo_free_up_page.dart",
+   "module": "photos",
+   "spec": "photo_free_up",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "photo_map_page.dart",
+   "module": "photos",
+   "spec": "photo_map",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "photo_migration_page.dart",
+   "module": "photos",
+   "spec": "photo_migration",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "photo_recent_page.dart",
+   "module": "photos",
+   "spec": "photo_recent",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "photo_viewer_page.dart",
+   "module": "photos",
+   "spec": "photo_viewer",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "photo_wave2_page.dart",
+   "module": "photos",
+   "spec": "photo_wave2",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "photo_wave3_page.dart",
+   "module": "photos",
+   "spec": "photo_wave3",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "sleep_backup_page.dart",
+   "module": "photos",
+   "spec": "sleep_backup",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "sleep_backup_platform.dart",
+   "module": "photos",
+   "spec": null,
+   "verdict": "E",
+   "judge": "非界面",
+   "note": "无 Widget 类（数据模型/平台抽象）"
+  },
+  {
+   "unit": "global_search_page.dart",
+   "module": "search",
+   "spec": "global_search",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "search_page.dart",
+   "module": "search",
+   "spec": "search_advanced",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "passcode_screen.dart",
+   "module": "security",
+   "spec": "passcode",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "certificates_page.dart",
+   "module": "servers",
+   "spec": "certificates",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "nas_manager_page.dart",
+   "module": "servers",
+   "spec": "nas_manager",
+   "verdict": "C",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "server_setup_page.dart",
+   "module": "servers",
+   "spec": "server_setup",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "bots_page.dart",
+   "module": "settings",
+   "spec": "settings_bots",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "e2ee_page.dart",
+   "module": "settings",
+   "spec": "settings_e2ee",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "notification_settings_page.dart",
+   "module": "settings",
+   "spec": "settings_notifications",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "oem_keepalive_page.dart",
+   "module": "settings",
+   "spec": "settings_oem",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "2 处引用"
+  },
+  {
+   "unit": "personal_profile_page.dart",
+   "module": "settings",
+   "spec": "settings_profile",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "profile_edit_page.dart",
+   "module": "settings",
+   "spec": "settings_profile_edit",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "service_check_page.dart",
+   "module": "settings",
+   "spec": "settings_service_check",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "settings_page.dart",
+   "module": "settings",
+   "spec": "settings",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "snooze_settings_page.dart",
+   "module": "settings",
+   "spec": "settings_snooze",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "2 处引用"
+  },
+  {
+   "unit": "app_shell_page.dart",
+   "module": "shell",
+   "spec": "app_shell",
+   "verdict": "A",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "service_gate_pages.dart",
+   "module": "shell",
+   "spec": "service_gate",
+   "verdict": "A",
+   "judge": "经入口",
+   "note": "入口 build"
+  },
+  {
+   "unit": "surv_camera_page.dart",
+   "module": "surveillance",
+   "spec": "surv_camera",
+   "verdict": "E",
+   "judge": "直达",
+   "note": "1 处引用"
+  },
+  {
+   "unit": "surv_page.dart",
+   "module": "surveillance",
+   "spec": "surv",
+   "verdict": "E",
+   "judge": "直达",
+   "note": "1 处引用"
+  }
+ ],
+ "counts": {
+  "直达": 153,
+  "经入口": 4,
+  "内部件": 0,
+  "非界面": 3
+ }
+}

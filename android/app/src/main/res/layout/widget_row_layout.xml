@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 笔记 / 待办小组件里的一行：主标题 + 次行（时间 / 截止时间）。
+     整行可点 —— 点进 App 对应的笔记。 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_row_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="2dp"
+    android:background="@drawable/widget_row_bg"
+    android:orientation="vertical"
+    android:paddingStart="8dp"
+    android:paddingTop="5dp"
+    android:paddingEnd="8dp"
+    android:paddingBottom="5dp">
+
+    <TextView
+        android:id="@+id/widget_row_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="#FFFFFFFF"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/widget_row_subtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="#99FFFFFF"
+        android:textSize="10sp" />
+</LinearLayout>

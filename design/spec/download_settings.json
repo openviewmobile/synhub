@@ -1,0 +1,77 @@
+{
+  "id": "download_settings",
+  "unit": "lib/src/features/downloads/download_settings_page.dart",
+  "title": {
+    "zh": "下载设置",
+    "en": "Download settings"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "settings",
+    "groups": [
+      {
+        "title": {
+          "zh": "解压",
+          "en": "Extraction"
+        },
+        "rows": [
+          {
+            "label": {
+              "zh": "自动解压",
+              "en": "Auto extract"
+            },
+            "kind": "switch",
+            "value": true
+          },
+          {
+            "label": {
+              "zh": "解压后删除压缩包",
+              "en": "Delete archive after extract"
+            },
+            "kind": "switch",
+            "value": false
+          },
+          {
+            "label": {
+              "zh": "解压位置",
+              "en": "Extract to"
+            },
+            "kind": "arrow"
+          },
+          {
+            "label": {
+              "zh": "解压密码",
+              "en": "Archive password"
+            },
+            "kind": "arrow"
+          }
+        ]
+      },
+      {
+        "title": {
+          "zh": "通知",
+          "en": "Notifications"
+        },
+        "rows": [
+          {
+            "label": {
+              "zh": "下载完成时通知",
+              "en": "Notify on complete"
+            },
+            "kind": "switch",
+            "value": true
+          }
+        ]
+      }
+    ],
+    "note": {
+      "zh": "解压需要服务端安装「解压缩」套件",
+      "en": "Extraction requires the server-side Archive package"
+    }
+  },
+  "bottomNav": null
+}

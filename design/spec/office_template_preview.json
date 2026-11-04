@@ -1,0 +1,63 @@
+{
+  "id": "office_template_preview",
+  "unit": "lib/src/features/office/office_template_preview.dart",
+  "title": {
+    "zh": "会议纪要模板",
+    "en": "Meeting notes template"
+  },
+  "appbar": {
+    "actions": [
+      "share",
+      "more"
+    ]
+  },
+  "body": {
+    "type": "viewer",
+    "kind": "document",
+    "caption": {
+      "zh": "模板预览 · 12 人使用过",
+      "en": "Template preview · used by 12"
+    },
+    "text": [
+      {
+        "zh": "会议纪要",
+        "en": "Meeting minutes"
+      },
+      {
+        "zh": "",
+        "en": ""
+      },
+      {
+        "zh": "时间：____　参会：____",
+        "en": "Time: ____  Attendees: ____"
+      },
+      {
+        "zh": "结论：",
+        "en": "Decisions:"
+      },
+      {
+        "zh": "待办：",
+        "en": "Action items:"
+      }
+    ],
+    "toolbar": [
+      {
+        "zh": "使用模板",
+        "en": "Use template"
+      },
+      {
+        "zh": "收藏",
+        "en": "Bookmark"
+      },
+      {
+        "zh": "分享",
+        "en": "Share"
+      }
+    ]
+  },
+  "footerAction": {
+    "zh": "用这个模板新建",
+    "en": "Create from template"
+  },
+  "bottomNav": null
+}

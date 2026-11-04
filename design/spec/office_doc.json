@@ -1,0 +1,67 @@
+{
+  "id": "office_doc",
+  "unit": "lib/src/features/office/office_doc_page.dart",
+  "title": {
+    "zh": "评审纪要.odoc",
+    "en": "Review minutes.odoc"
+  },
+  "appbar": {
+    "actions": [
+      "save",
+      "more"
+    ]
+  },
+  "body": {
+    "type": "viewer",
+    "kind": "document",
+    "caption": {
+      "zh": "第 1 / 3 页 · 已自动保存",
+      "en": "Page 1 of 3 · auto-saved"
+    },
+    "text": [
+      {
+        "zh": "评审纪要 · 2 月",
+        "en": "Review minutes · February"
+      },
+      {
+        "zh": "",
+        "en": ""
+      },
+      {
+        "zh": "一、时间线：压成两年/月两级，二级就地展开。",
+        "en": "1. Timeline: two levels (year/month), expand in place."
+      },
+      {
+        "zh": "二、暗色：分隔线降到 #23272E，可读性够。",
+        "en": "2. Dark mode: dividers at #23272E — readable."
+      },
+      {
+        "zh": "三、待办：逾期一天只汇总一次。",
+        "en": "3. To-dos: one overdue digest per day."
+      }
+    ],
+    "toolbar": [
+      {
+        "zh": "编辑",
+        "en": "Edit"
+      },
+      {
+        "zh": "加粗",
+        "en": "Bold"
+      },
+      {
+        "zh": "列表",
+        "en": "List"
+      },
+      {
+        "zh": "导出",
+        "en": "Export"
+      }
+    ]
+  },
+  "footerAction": {
+    "zh": "保存并关闭",
+    "en": "Save and close"
+  },
+  "bottomNav": null
+}

@@ -1,0 +1,20 @@
+{
+  "batch": "O3 (.oslides / PPTX)",
+  "source": "SYNO.SynologyDrive.Files:download (files=[\"id:<file_id>\"], force_download=true, is_preview=false) 只读探测取回的原始字节",
+  "files": [
+    {
+      "name": "celestial.oslides",
+      "bytes": 27688,
+      "sha256": "775382d30b22753c5c481defcebc136e7b2ae0de2bc6ccb380ef3b4289e1ef8d"
+    },
+    {
+      "name": "technology.oslides",
+      "bytes": 327156,
+      "sha256": "463463397b3fa2f3b2195d8da7c5687d2c77c12b0e12cb8b92a552e4a53b63cf"
+    }
+  ],
+  "notes": [
+    "technology.oslides：服务器 size=317794，下载 327156 字节，头 PK\\x03\\x04（标准 PPTX），15 页真实内容。",
+    "celestial.oslides：下载 27688 字节；slide1 本来就只有两个空占位符（title+subTitle 的 <a:t> 为空），是文件真实内容，不是解析缺陷。"
+  ]
+}

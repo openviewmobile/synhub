@@ -1,0 +1,56 @@
+{
+ "note": "O2 batch: real .osheet content sections captured read-only from the NAS via SYNO.Office.Snapshot:get v4 (link_id = Drive permanent_link). Probe /tmp/o2_probe.py. These are NOT official templates; they are the user's own /mydrive files.",
+ "api": "SYNO.Office.Snapshot:get v4",
+ "source": "NAS /mydrive",
+ "files": {
+  "annual_income_and_expenditure.json": {
+   "nas_name": "Annual_income_and_expenditure.osheet",
+   "permanent_link": "19yWHSFsnwKCjheEtq0WKNPLmGxy0W1r",
+   "bytes": 61550,
+   "sha256": "7c04fff437b6aee7f5fbc954e268572dc5405cedfeeb9c3cda052363088719c5",
+   "ntype": "sheet",
+   "object_id": "1028_OHR2SB1A1P6590EPV9K8BATAU4.sh"
+  },
+  "sales_tracker.json": {
+   "nas_name": "Sales_tracker.osheet",
+   "permanent_link": "19yWGCvkeYs0lIFJpIJwKjQDVQFMGGWq",
+   "bytes": 16423,
+   "sha256": "d020e19862976d8a694f1868485771cfe477b33a23b05a6c5a8f9931f9e32c76",
+   "ntype": "sheet",
+   "object_id": "1028_UQT6IVBQ6501F5A78GE4KTD98G.sh"
+  },
+  "travel_expenses.json": {
+   "nas_name": "Travel_expenses.osheet",
+   "permanent_link": "19yWGyR0YCgG0F55TYDYv4b9Rsl9wDVn",
+   "bytes": 39356,
+   "sha256": "e7fb10b5b302dc5348c6bdd1f074e2b1e253cc0e409cb59faf7700e53b1c65d1",
+   "ntype": "sheet",
+   "object_id": "1028_LKP97M9TPP09J75ICCJBTDOTQC.sh"
+  }
+ },
+ "xlsx": {
+  "note": "O2 batch: the SAME real NAS .osheet files, downloaded READ-ONLY via SYNO.SynologyDrive.Files:download (files=[\"id:<file_id>\"], force_download=true, is_preview=false). The server transcodes them to standard XLSX (PK ZIP). Evidence + method: docs/ooxml-ground-truth.md; probe /tmp/o2_dl.py.",
+  "api": "SYNO.SynologyDrive.Files:download v2",
+  "source": "NAS /mydrive",
+  "files": {
+   "sales_tracker.xlsx": {
+    "nas_name": "Sales tracker.osheet",
+    "bytes": 10719,
+    "sha256": "1e66ae81dce5d263dd15758f1b6112058261aed2b70b362abbf792225bf896f0",
+    "magic": "504b0304"
+   },
+   "annual_income_and_expenditure.xlsx": {
+    "nas_name": "Annual income and expenditure.osheet",
+    "bytes": 12955,
+    "sha256": "97f7dc5f0ce76d762583cf99d6d8235b7b56b3e078f5a535d8376d279ab05f1c",
+    "magic": "504b0304"
+   },
+   "travel_expenses.xlsx": {
+    "nas_name": "Travel expenses.osheet",
+    "bytes": 12595,
+    "sha256": "c4deedb475580827acbd1fdbdc6e348246f71f5dd1a1c23c9f1335058a0b7074",
+    "magic": "504b0304"
+   }
+  }
+ }
+}

@@ -1,0 +1,69 @@
+{
+  "id": "analytics",
+  "unit": "lib/src/features/analytics/analytics_page.dart",
+  "title": {
+    "zh": "使用分析",
+    "en": "Usage analytics"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "fields",
+    "title": {
+      "zh": "近 7 天使用 3 小时 12 分",
+      "en": "3h 12m in the last 7 days"
+    },
+    "sub": {
+      "zh": "只在本机统计，不上传",
+      "en": "Computed on-device; never uploaded"
+    },
+    "actions": [
+      {
+        "zh": "查看流量",
+        "en": "View traffic"
+      },
+      {
+        "zh": "清除统计",
+        "en": "Clear stats"
+      }
+    ],
+    "rows": [
+      {
+        "label": {
+          "zh": "聊天",
+          "en": "Chat"
+        },
+        "value": "1 小时 40 分"
+      },
+      {
+        "label": {
+          "zh": "文件",
+          "en": "Files"
+        },
+        "value": "48 分"
+      },
+      {
+        "label": {
+          "zh": "相册",
+          "en": "Photos"
+        },
+        "value": "26 分"
+      },
+      {
+        "label": {
+          "zh": "设置",
+          "en": "Settings"
+        },
+        "value": "18 分"
+      }
+    ]
+  },
+  "note": {
+    "zh": "分析开关关掉后不再记录新数据",
+    "en": "Turning it off stops new records"
+  },
+  "bottomNav": null
+}

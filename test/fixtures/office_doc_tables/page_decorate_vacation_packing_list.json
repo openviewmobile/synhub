@@ -1,0 +1,96 @@
+{
+ "attrs": {
+  "num-cover": false,
+  "num-even": false,
+  "num-pos": "br",
+  "num-show": false,
+  "place-cover": false,
+  "place-even": false,
+  "place-show": false
+ },
+ "content": [
+  {
+   "attrs": {
+    "type": "cover"
+   },
+   "content": [
+    {
+     "type": "paragraph"
+    }
+   ],
+   "type": "header"
+  },
+  {
+   "attrs": {
+    "type": "even"
+   },
+   "content": [
+    {
+     "type": "paragraph"
+    }
+   ],
+   "type": "header"
+  },
+  {
+   "attrs": {
+    "type": "normal"
+   },
+   "content": [
+    {
+     "type": "paragraph"
+    }
+   ],
+   "type": "header"
+  },
+  {
+   "attrs": {
+    "type": "cover"
+   },
+   "content": [
+    {
+     "type": "paragraph"
+    }
+   ],
+   "type": "footer"
+  },
+  {
+   "attrs": {
+    "type": "even"
+   },
+   "content": [
+    {
+     "type": "paragraph"
+    }
+   ],
+   "type": "footer"
+  },
+  {
+   "attrs": {
+    "type": "normal"
+   },
+   "content": [
+    {
+     "type": "paragraph"
+    }
+   ],
+   "type": "footer"
+  },
+  {
+   "attrs": {
+    "type": "normal"
+   },
+   "content": [
+    {
+     "content": [
+      {
+       "type": "page_num_text"
+      }
+     ],
+     "type": "page_num_block"
+    }
+   ],
+   "type": "page_num"
+  }
+ ],
+ "type": "page_decorate"
+}

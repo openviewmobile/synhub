@@ -1,0 +1,81 @@
+{
+  "id": "sleep_backup",
+  "unit": "lib/src/features/photos/sleep_backup_page.dart",
+  "title": {
+    "zh": "睡眠备份",
+    "en": "Sleep backup"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "settings",
+    "groups": [
+      {
+        "title": {
+          "zh": "排程",
+          "en": "Schedule"
+        },
+        "rows": [
+          {
+            "label": {
+              "zh": "启用睡眠备份",
+              "en": "Enable sleep backup"
+            },
+            "kind": "switch",
+            "value": true
+          },
+          {
+            "label": {
+              "zh": "开始时间",
+              "en": "Start time"
+            },
+            "kind": "arrow"
+          },
+          {
+            "label": {
+              "zh": "结束时间",
+              "en": "End time"
+            },
+            "kind": "arrow"
+          }
+        ]
+      },
+      {
+        "title": {
+          "zh": "条件",
+          "en": "Conditions"
+        },
+        "rows": [
+          {
+            "label": {
+              "zh": "仅充电时",
+              "en": "Only while charging"
+            },
+            "kind": "switch",
+            "value": true
+          },
+          {
+            "label": {
+              "zh": "仅 Wi-Fi",
+              "en": "Wi-Fi only"
+            },
+            "kind": "switch",
+            "value": true
+          }
+        ]
+      }
+    ],
+    "note": {
+      "zh": "这台设备不支持系统级后台排程，备份只在应用打开时进行",
+      "en": "This device has no system-level scheduling; backup runs only while the app is open"
+    }
+  },
+  "footerAction": {
+    "zh": "测试一次",
+    "en": "Test now"
+  },
+  "bottomNav": null
+}

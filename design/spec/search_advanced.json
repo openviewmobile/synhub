@@ -1,0 +1,70 @@
+{
+  "id": "search_advanced",
+  "unit": "lib/src/features/search/search_page.dart",
+  "title": {
+    "zh": "高级搜索",
+    "en": "Advanced search"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "form",
+    "fields": [
+      {
+        "label": {
+          "zh": "关键词",
+          "en": "Keywords"
+        },
+        "value": {
+          "zh": "设计稿",
+          "en": "design"
+        }
+      },
+      {
+        "label": {
+          "zh": "类型",
+          "en": "Type"
+        },
+        "value": {
+          "zh": "文件 + 笔记",
+          "en": "Files + notes"
+        }
+      },
+      {
+        "label": {
+          "zh": "时间范围",
+          "en": "Date range"
+        },
+        "value": {
+          "zh": "最近 90 天",
+          "en": "Last 90 days"
+        }
+      },
+      {
+        "label": {
+          "zh": "位置",
+          "en": "Location"
+        },
+        "value": {
+          "zh": "我的文件",
+          "en": "My Drive"
+        }
+      }
+    ],
+    "switch": {
+      "label": {
+        "zh": "同时搜索正文内容",
+        "en": "Search body text too"
+      },
+      "value": true
+    },
+    "submit": {
+      "zh": "搜索",
+      "en": "Search"
+    }
+  },
+  "bottomNav": null
+}

@@ -1,0 +1,130 @@
+{
+  "id": "settings",
+  "unit": "lib/src/features/settings/settings_page.dart",
+  "title": {
+    "zh": "设置",
+    "en": "Settings"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "rowIcon": "settings",
+  "body": {
+    "type": "list",
+    "sections": true,
+    "items": [
+      {
+        "section": {
+          "zh": "账号",
+          "en": "Account"
+        },
+        "title": {
+          "zh": "个人资料",
+          "en": "Profile"
+        },
+        "sub": {
+          "zh": "李雷 · li@example.com",
+          "en": "Li · li@example.com"
+        },
+        "lead": "#8FB8FF",
+        "trail": "chev"
+      },
+      {
+        "section": {
+          "zh": "账号",
+          "en": "Account"
+        },
+        "title": {
+          "zh": "管理工具",
+          "en": "Admin tools"
+        },
+        "sub": {
+          "zh": "仅管理员可见",
+          "en": "Admin only"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "section": {
+          "zh": "通知与后台",
+          "en": "Notifications & background"
+        },
+        "title": {
+          "zh": "通知设置",
+          "en": "Notifications"
+        },
+        "sub": {
+          "zh": "已开启",
+          "en": "On"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "section": {
+          "zh": "通知与后台",
+          "en": "Notifications & background"
+        },
+        "title": {
+          "zh": "免打扰",
+          "en": "Do not disturb"
+        },
+        "sub": {
+          "zh": "22:00 – 08:00",
+          "en": "22:00 – 08:00"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "section": {
+          "zh": "通知与后台",
+          "en": "Notifications & background"
+        },
+        "title": {
+          "zh": "厂商保活",
+          "en": "Keep-alive"
+        },
+        "sub": {
+          "zh": "已授权",
+          "en": "Allowed"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "section": {
+          "zh": "其他",
+          "en": "Other"
+        },
+        "title": {
+          "zh": "服务检测",
+          "en": "Service check"
+        },
+        "sub": {
+          "zh": "上次检测 8 项全部正常",
+          "en": "8 checks OK last time"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "section": {
+          "zh": "其他",
+          "en": "Other"
+        },
+        "title": {
+          "zh": "关于",
+          "en": "About"
+        },
+        "sub": "SynHub 1.0.0 (452)",
+        "lead": "icon",
+        "trail": "chev"
+      }
+    ]
+  },
+  "bottomNav": null
+}

@@ -1,0 +1,66 @@
+{
+  "id": "drive_team_members",
+  "unit": "lib/src/features/drive/drive_team_members_page.dart",
+  "title": {
+    "zh": "团队成员",
+    "en": "Team members"
+  },
+  "appbar": {
+    "actions": [
+      "plus",
+      "more"
+    ]
+  },
+  "search": {
+    "hint": {
+      "zh": "搜索成员",
+      "en": "Search members"
+    }
+  },
+  "body": {
+    "type": "list",
+    "items": [
+      {
+        "title": {
+          "zh": "李雷（管理员）",
+          "en": "Li (admin)"
+        },
+        "sub": {
+          "zh": "完全控制",
+          "en": "Full control"
+        },
+        "lead": "#8FB8FF",
+        "trail": "more"
+      },
+      {
+        "title": {
+          "zh": "韩梅梅",
+          "en": "Han"
+        },
+        "sub": {
+          "zh": "可编辑",
+          "en": "Can edit"
+        },
+        "lead": "#F0A8C8",
+        "trail": "more"
+      },
+      {
+        "title": {
+          "zh": "王五",
+          "en": "Wang"
+        },
+        "sub": {
+          "zh": "仅查看",
+          "en": "View only"
+        },
+        "lead": "#A6E3C5",
+        "trail": "more"
+      }
+    ]
+  },
+  "note": {
+    "zh": "权限按角色下发；改角色会立即生效",
+    "en": "Roles apply immediately"
+  },
+  "bottomNav": null
+}

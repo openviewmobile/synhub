@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 笔记小组件（N1 的 Notebook 部分）的元数据。
+     定时兜底刷新与格子提示同 widget_photos_info.xml 的说明。 -->
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:description="@string/widget_notes_label"
+    android:initialLayout="@layout/widget_list_layout"
+    android:minHeight="110dp"
+    android:minWidth="180dp"
+    android:previewLayout="@layout/widget_list_layout"
+    android:resizeMode="horizontal|vertical"
+    android:targetCellHeight="2"
+    android:targetCellWidth="3"
+    android:updatePeriodMillis="1800000"
+    android:widgetCategory="home_screen" />

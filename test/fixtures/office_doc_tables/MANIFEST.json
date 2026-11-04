@@ -1,0 +1,86 @@
+{
+ "provenance": "真实 NAS /mydrive 下的官方 Office 模板样例（只读 Snapshot:get v4 取得）",
+ "channel": "SYNO.Office.Snapshot:get v4，参数 {link_id: <Drive permanent_link>}",
+ "read_only": "只读探测：未上传/未修改/未删除 NAS 上任何文件",
+ "fetched_at": "2026-09-22",
+ "source_docs": {
+  "5-day trip planner.odoc": "1028_72JAC5VIB52476TUQOU567U698.doc",
+  "Product spec.odoc": "1028_EEE1GJF4P91631SMD01KIT5D8S.doc",
+  "Vacation packing list.odoc": "1028_6HGIBIU491605E5VCH5N6R42DO.doc"
+ },
+ "files": {
+  "table_trip_planner.json": {
+   "source_doc": "5-day trip planner.odoc",
+   "object_id": "1028_72JAC5VIB52476TUQOU567U698.doc",
+   "top_type": "table",
+   "nodes": 22,
+   "bytes": 4414,
+   "sha256": "89e82cc17bfc2a601fbfeee5a09a12e4cfb4dc211f89801d7b2ae9d612880c29",
+   "note": "表格 #1/5（5 个 table 形状相同）。colgroup=[413,188]（Σ=601px）；row height=124；cell colspan/rowspan=1、border* #ffffff/solid/1、verticalAlign=middle；cell0 含 5 个 paragraph（strong mark），cell1 含右对齐 picture。"
+  },
+  "table_product_spec.json": {
+   "source_doc": "Product spec.odoc",
+   "object_id": "1028_EEE1GJF4P91631SMD01KIT5D8S.doc",
+   "top_type": "table",
+   "nodes": 54,
+   "bytes": 18886,
+   "sha256": "9b876206635e7140f0cd23a31e06d3a86828597c5af10ad7c12eef6e10762e58",
+   "note": "唯一的 4 列 × 5 行表格；colgroup=[136,118,232,114]（Σ=600px）；每行 height=28；边框 #aaaaaa/solid/1；cell 文本 Version Number/Date/Description/Author。"
+  },
+  "table_vacation_packing.json": {
+   "source_doc": "Vacation packing list.odoc",
+   "object_id": "1028_6HGIBIU491605E5VCH5N6R42DO.doc",
+   "top_type": "table",
+   "nodes": 67,
+   "bytes": 15571,
+   "sha256": "db239c8566f52bc43d415e7c2b4195ed5251211988699dbfd2867d7b5e621eca",
+   "note": "唯一的 2 列 × 6 行表格；colgroup=[301,299]（Σ=600px）；行高 [26,44,54,91,53,91]（真实值各不相同）；边框 #ffffff/solid/1。"
+  },
+  "page_decorate_five_day_trip_planner.json": {
+   "source_doc": "5-day trip planner.odoc",
+   "object_id": "1028_72JAC5VIB52476TUQOU567U698.doc",
+   "top_type": "page_decorate",
+   "nodes": 23,
+   "bytes": 1191,
+   "sha256": "6ce03267badd609c3563fd8cd51901ef247af59ba58a1a8c836dff1f233de3a4",
+   "note": "page_decorate 节点：attrs {num-pos:\"br\", 其它 *-show/*-cover/*-even 全 false}；content = header×3(cover/even/normal) + footer×3 + page_num(type=normal→page_num_block→page_num_text)。三份文档的该节点内容一致（实探）。"
+  },
+  "page_decorate_product_spec.json": {
+   "source_doc": "Product spec.odoc",
+   "object_id": "1028_EEE1GJF4P91631SMD01KIT5D8S.doc",
+   "top_type": "page_decorate",
+   "nodes": 23,
+   "bytes": 1191,
+   "sha256": "6ce03267badd609c3563fd8cd51901ef247af59ba58a1a8c836dff1f233de3a4",
+   "note": "page_decorate 节点：attrs {num-pos:\"br\", 其它 *-show/*-cover/*-even 全 false}；content = header×3(cover/even/normal) + footer×3 + page_num(type=normal→page_num_block→page_num_text)。三份文档的该节点内容一致（实探）。"
+  },
+  "page_decorate_vacation_packing_list.json": {
+   "source_doc": "Vacation packing list.odoc",
+   "object_id": "1028_6HGIBIU491605E5VCH5N6R42DO.doc",
+   "top_type": "page_decorate",
+   "nodes": 23,
+   "bytes": 1191,
+   "sha256": "6ce03267badd609c3563fd8cd51901ef247af59ba58a1a8c836dff1f233de3a4",
+   "note": "page_decorate 节点：attrs {num-pos:\"br\", 其它 *-show/*-cover/*-even 全 false}；content = header×3(cover/even/normal) + footer×3 + page_num(type=normal→page_num_block→page_num_text)。三份文档的该节点内容一致（实探）。"
+  },
+  "page_setup_five_day_trip_planner.json": {
+   "source_doc": "5-day trip planner.odoc",
+   "object_id": "1028_72JAC5VIB52476TUQOU567U698.doc",
+   "top_type": "doc",
+   "nodes": 2,
+   "bytes": 216,
+   "sha256": "daf38ef84098862b641ad3e4da334c577c647bdda89e7bada9b8dd0c3e662e60",
+   "note": "文档根 attrs（页面设置）：page_type=a4、orientation=portrait、top/left/right/bottom=2.54(cm)、schema=13。A4 内容宽 = 21 - 5.08 = 15.92cm ≈ 601.7px(@96dpi)，与三份文档 colgroup 的 Σ=600/601 相符。"
+  }
+ },
+ "derived": {
+  "header_footer_visible_text": "真实 13 份样例的 header/footer 内容都是**空 paragraph**（无可见文字），因此“页眉/页脚可见文字”的用例在测试里把文字注入真实节点形状（type/attrs/层级来自夹具，文字是测试注入），属于派生夹具，不是 NAS 原文。",
+  "merged_cell": "全部 13 份样例共 42 个 table_cell 的 colspan/rowspan **全为 1**，没有任何真实合并单元格实例 → 合并渲染路径未取证（实现存在，验证待真实样例）。"
+ },
+ "notes": [
+  "synotable 是**表格样式/定义 id**（不是表格 id，也不是合并判据）：`5-day trip planner.odoc` 的 5 个彼此独立的 table 取值完全相同（\"2pgIFIeerl\"） → 同一份样式/定义可被多个表复用。",
+  "真正的合并字段是每个 table_cell 自己的 attrs.colspan / rowspan（schema 已声明，34 个入库格子 + 全部 42 个真实格子都存在该键，值全为 1）。",
+  "⚠️ 跨 >1 格**无真实样例** → 合并渲染路径按 schema 字段语义实现并标注\"未取证\"；要真验证需要一个带合并单元格的真实文档（可由用户在 DSM Office 里造）。",
+  "backgroundColor 是 schema 声明的**可选**键，但 42 个真实格子里**一个都没有**→ 代码只在存在时才用；测试里那次底色断言是**派生**用例（形状取自真实节点）。"
+ ]
+}

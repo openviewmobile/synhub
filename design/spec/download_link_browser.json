@@ -1,0 +1,40 @@
+{
+  "id": "download_link_browser",
+  "unit": "lib/src/features/downloads/download_link_browser.dart",
+  "title": {
+    "zh": "内置浏览器",
+    "en": "In-app browser"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "viewer",
+    "kind": "web",
+    "caption": {
+      "zh": "https://example.com/releases",
+      "en": "https://example.com/releases"
+    },
+    "toolbar": [
+      {
+        "zh": "后退",
+        "en": "Back"
+      },
+      {
+        "zh": "前进",
+        "en": "Forward"
+      },
+      {
+        "zh": "刷新",
+        "en": "Reload"
+      },
+      {
+        "zh": "下载本页链接",
+        "en": "Download links"
+      }
+    ]
+  },
+  "bottomNav": null
+}

@@ -1,0 +1,61 @@
+{
+  "id": "note_smart",
+  "unit": "lib/src/features/notes/note_smart_page.dart",
+  "title": {
+    "zh": "智能笔记本",
+    "en": "Smart notebooks"
+  },
+  "appbar": {
+    "actions": [
+      "plus",
+      "more"
+    ]
+  },
+  "rowIcon": "folder",
+  "body": {
+    "type": "list",
+    "items": [
+      {
+        "title": {
+          "zh": "上周修改",
+          "en": "Edited last week"
+        },
+        "sub": {
+          "zh": "18 条 · 修改时间 ≥ 7 天前",
+          "en": "18 · edited within 7 days"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "title": {
+          "zh": "带附件",
+          "en": "With attachments"
+        },
+        "sub": {
+          "zh": "34 条 · 含图片或文件",
+          "en": "34 · has images or files"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "title": {
+          "zh": "含待办",
+          "en": "With to-dos"
+        },
+        "sub": {
+          "zh": "12 条 · 含未完成待办",
+          "en": "12 · has open to-dos"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      }
+    ]
+  },
+  "note": {
+    "zh": "智能笔记本是条件，不复制内容；改条件立即重算",
+    "en": "Smart notebooks are filters, not copies"
+  },
+  "bottomNav": null
+}

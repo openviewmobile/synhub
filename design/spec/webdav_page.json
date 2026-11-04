@@ -1,0 +1,59 @@
+{
+  "id": "webdav_page",
+  "unit": "lib/src/features/files/webdav_page.dart",
+  "title": {
+    "zh": "WebDAV",
+    "en": "WebDAV"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "form",
+    "fields": [
+      {
+        "label": {
+          "zh": "服务器地址",
+          "en": "Server URL"
+        },
+        "value": "https://nas.example.com:5006"
+      },
+      {
+        "label": {
+          "zh": "账号",
+          "en": "Account"
+        },
+        "value": "demo_user"
+      },
+      {
+        "label": {
+          "zh": "密码",
+          "en": "Password"
+        },
+        "value": "••••••••",
+        "obscure": true
+      },
+      {
+        "label": {
+          "zh": "根路径",
+          "en": "Root path"
+        },
+        "value": "/home"
+      }
+    ],
+    "switch": {
+      "label": {
+        "zh": "启用 WebDAV",
+        "en": "Enable WebDAV"
+      },
+      "value": true
+    },
+    "submit": {
+      "zh": "保存并测试连接",
+      "en": "Save & test"
+    }
+  },
+  "bottomNav": null
+}

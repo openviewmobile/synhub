@@ -1,0 +1,69 @@
+{
+  "id": "file_pages",
+  "unit": "lib/src/features/files/file_pages.dart",
+  "title": {
+    "zh": "文件搜索",
+    "en": "File search"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "tabs": [
+    {
+      "zh": "搜索",
+      "en": "Search"
+    },
+    {
+      "zh": "收藏",
+      "en": "Favorites"
+    },
+    {
+      "zh": "分享链接",
+      "en": "Share links"
+    }
+  ],
+  "search": {
+    "hint": {
+      "zh": "搜索文件名或内容",
+      "en": "Search name or content"
+    }
+  },
+  "body": {
+    "type": "list",
+    "items": [
+      {
+        "title": "IMG_20260214_1032.jpg",
+        "sub": {
+          "zh": "photo/2026 · 4.2 MB",
+          "en": "photo/2026 · 4.2 MB"
+        },
+        "lead": "cover",
+        "trail": "more"
+      },
+      {
+        "title": {
+          "zh": "旅行计划.docx",
+          "en": "Trip plan.docx"
+        },
+        "sub": {
+          "zh": "doc · 38 KB",
+          "en": "doc · 38 KB"
+        },
+        "lead": "icon",
+        "trail": "more"
+      },
+      {
+        "title": "backup.tar.gz",
+        "sub": {
+          "zh": "archive · 1.8 GB",
+          "en": "archive · 1.8 GB"
+        },
+        "lead": "icon",
+        "trail": "more"
+      }
+    ]
+  },
+  "bottomNav": null
+}

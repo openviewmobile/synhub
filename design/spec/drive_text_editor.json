@@ -1,0 +1,63 @@
+{
+  "id": "drive_text_editor",
+  "unit": "lib/src/features/drive/drive_text_editor_page.dart",
+  "title": {
+    "zh": "时间线说明.txt",
+    "en": "Timeline notes.txt"
+  },
+  "appbar": {
+    "actions": [
+      "save",
+      "more"
+    ]
+  },
+  "body": {
+    "type": "viewer",
+    "kind": "text",
+    "caption": {
+      "zh": "已自动保存 · 12 KB",
+      "en": "Auto-saved · 12 KB"
+    },
+    "toolbar": [
+      {
+        "zh": "撤销",
+        "en": "Undo"
+      },
+      {
+        "zh": "重做",
+        "en": "Redo"
+      },
+      {
+        "zh": "查找",
+        "en": "Find"
+      }
+    ],
+    "text": [
+      {
+        "zh": "时间线收口说明",
+        "en": "Timeline notes"
+      },
+      {
+        "zh": "",
+        "en": ""
+      },
+      {
+        "zh": "1. 一级是年/月，二级在当前月内按日期分组。",
+        "en": "1. Level one is year/month; level two groups by date within the current month."
+      },
+      {
+        "zh": "2. 点标题就地展开，不跳页。",
+        "en": "2. Tapping a header expands in place; no page jump."
+      },
+      {
+        "zh": "3. 分组计数取同一份列表，避免两处数字不一样。",
+        "en": "3. Group counts come from the same list, so numbers can't disagree."
+      }
+    ]
+  },
+  "note": {
+    "zh": "纯文本编辑器不做富文本；换行原样保留",
+    "en": "Plain text only; line breaks are preserved"
+  },
+  "bottomNav": null
+}

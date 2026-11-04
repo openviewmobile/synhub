@@ -1,0 +1,54 @@
+{
+  "id": "note_overdue",
+  "unit": "lib/src/features/notes/note_overdue_settings_page.dart",
+  "title": {
+    "zh": "逾期提醒",
+    "en": "Overdue reminders"
+  },
+  "appbar": {
+    "actions": [
+      "more"
+    ]
+  },
+  "body": {
+    "type": "settings",
+    "groups": [
+      {
+        "title": {
+          "zh": "提醒",
+          "en": "Reminders"
+        },
+        "rows": [
+          {
+            "label": {
+              "zh": "逾期汇总通知",
+              "en": "Overdue digest"
+            },
+            "kind": "switch",
+            "value": true
+          },
+          {
+            "label": {
+              "zh": "每天提醒时间",
+              "en": "Daily time"
+            },
+            "kind": "arrow"
+          },
+          {
+            "label": {
+              "zh": "只提醒我负责的",
+              "en": "Only my to-dos"
+            },
+            "kind": "switch",
+            "value": true
+          }
+        ]
+      }
+    ],
+    "note": {
+      "zh": "汇总一天只发一次，避免逐条打扰",
+      "en": "One digest per day, not one per item"
+    }
+  },
+  "bottomNav": null
+}

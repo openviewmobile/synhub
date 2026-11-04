@@ -1,0 +1,26 @@
+{
+  "passcode": "flt-passcode-2026",
+  "passcodeKey": "5/fG3MyX+FHnaejEN9gg3dJGtZG9Ob6kXG5xfvZdxaE=",
+  "secretbox": {
+    "key": "AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8=",
+    "nonce": "AAECAwQFBgcICQoLDA0ODxAREhMUFRYX",
+    "plaintext": "中文消息 with emoji 🙂",
+    "ciphertext": "H834p5ZY83WkgWNgmY3CX7pHlalRTUSmM9oOkUj4I+M6hSOy409Wz+c9/hY="
+  },
+  "seal": {
+    "recipientPublicKey": "VzCACrNA/LGM5REe2p1wX5E4i0HkVEy9EDullC2yIz4=",
+    "recipientPrivateKey": "iHr1ijYgLgXEwc/sW/bGH61mvKhRU2AEB0sx8bVuSsk=",
+    "plaintextBase64": "QEFCQ0RFRkdISUpLTE1OT1BRUlNUVVZXWFlaW1xdXl8=",
+    "sealed": "ty/KO7O2N5BVTaI5wuCsCyvvGVYLkWv7l3LsLtg5xgRgYbr9ewRGrJPIOLDjPbQZUBzfonupU6jng0bofSwBKuVl4JjYgyU/qDXtaChN2e4="
+  },
+  "kx": {
+    "clientPublicKey": "p+CdISlWjoqlz5bqf9ng+IGl14v1kiaVYpY/e29okFA=",
+    "clientPrivateKey": "Xt5BmZY4zcq+w3yNuXJMlRzun0sqqeUi730B85mr/U8=",
+    "serverPublicKey": "fd5OvH5rsyk6RkNCOyLKTfNUK5DBd5IwvXd6nubT2S8=",
+    "serverPrivateKey": "uw4kvv41zWEq0G2nekpUpMeNAbOPRgntyx1NAGKMwvo=",
+    "clientRx": "aimGC22Ow4UROZN4/GlIOAMyN9gV3S6Vf97CVrMeaME=",
+    "clientTx": "vUagoEzfTENxNTvNzw3mCTT8993+ptTi62o3EpbtBwI=",
+    "serverRx": "vUagoEzfTENxNTvNzw3mCTT8993+ptTi62o3EpbtBwI=",
+    "serverTx": "aimGC22Ow4UROZN4/GlIOAMyN9gV3S6Vf97CVrMeaME="
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "id": "drive_folder",
+  "unit": "lib/src/features/drive/drive_folder_page.dart",
+  "title": {
+    "zh": "我的文件",
+    "en": "My Drive"
+  },
+  "appbar": {
+    "actions": [
+      "search",
+      "more"
+    ]
+  },
+  "breadcrumb": {
+    "zh": "我的文件 / 设计",
+    "en": "My Drive / Design"
+  },
+  "chips": [
+    {
+      "zh": "名称",
+      "en": "Name"
+    },
+    {
+      "zh": "修改时间",
+      "en": "Modified"
+    },
+    {
+      "zh": "大小",
+      "en": "Size"
+    }
+  ],
+  "rowIcon": "folder",
+  "body": {
+    "type": "list",
+    "items": [
+      {
+        "title": {
+          "zh": "原型",
+          "en": "Prototype"
+        },
+        "sub": {
+          "zh": "12 个文件夹 · 2.1 GB",
+          "en": "12 folders · 2.1 GB"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "title": {
+          "zh": "评审截图",
+          "en": "Review shots"
+        },
+        "sub": {
+          "zh": "48 个文件 · 386 MB",
+          "en": "48 files · 386 MB"
+        },
+        "lead": "icon",
+        "trail": "chev"
+      },
+      {
+        "title": {
+          "zh": "设计稿终版 v12.pdf",
+          "en": "Design final v12.pdf"
+        },
+        "sub": {
+          "zh": "4.2 MB · 今天 09:12",
+          "en": "4.2 MB · Today 09:12"
+        },
+        "lead": "icon",
+        "trail": "more"
+      },
+      {
+        "title": {
+          "zh": "时间线说明.txt",
+          "en": "时间线说明.txt"
+        },
+        "sub": {
+          "zh": "12 KB · 昨天",
+          "en": "12 KB · Yesterday"
+        },
+        "lead": "icon",
+        "trail": "more"
+      }
+    ]
+  },
+  "fab": true,
+  "bottomNav": null
+}
