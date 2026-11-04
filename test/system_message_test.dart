@@ -12,13 +12,13 @@ import 'package:synhub/src/data/dto/user_dto.dart';
 import 'package:synhub/src/features/chat/system_message.dart';
 
 const _me = 14;
-const _demo_user4 = 4;
+const _demoUserId = 4;
 const _guest = 9;
 
 final _users = <int, UserDto>{
   _me: UserDto(userId: _me, username: 'me', nickname: '我', type: 'human'),
-  _demo_user4: UserDto(
-    userId: _demo_user4,
+  _demoUserId: UserDto(
+    userId: _demoUserId,
     username: 'demo',
     nickname: '演示用户',
     type: 'human',
@@ -66,7 +66,7 @@ void main() {
       expect(
         _text(
           _post('channel.join', const {
-            'target_user_ids': [_demo_user4],
+            'target_user_ids': [_demoUserId],
           }),
         ),
         '演示用户 加入了此频道。',
@@ -78,7 +78,7 @@ void main() {
         _text(
           _post('channel.join', const {
             'trigger_user_id': _me,
-            'target_user_ids': [_demo_user4],
+            'target_user_ids': [_demoUserId],
           }),
         ),
         '我 已邀请 演示用户 进入此频道。',
@@ -102,7 +102,7 @@ void main() {
       expect(
         _text(
           _post('channel.disjoin', const {
-            'target_user_ids': [_demo_user4],
+            'target_user_ids': [_demoUserId],
           }),
         ),
         '演示用户 离开了此频道。',
@@ -114,7 +114,7 @@ void main() {
         _text(
           _post('channel.disjoin', const {
             'trigger_user_id': _me,
-            'target_user_ids': [_demo_user4],
+            'target_user_ids': [_demoUserId],
           }),
         ),
         '我 已将 演示用户 从成员列表中删除。',
@@ -148,7 +148,7 @@ void main() {
       expect(
         _text(
           _post('channel.disjoin', const {
-            'target_user_ids': [_demo_user4, _me],
+            'target_user_ids': [_demoUserId, _me],
           }),
         ),
         '演示用户, 我 离开了此频道。',
@@ -250,20 +250,20 @@ void main() {
         '频道 项目讨论 已被 系统用户 存档。',
       );
       expect(
-        _text(_post('channel.archive', const {'trigger_user_id': _demo_user4})),
+        _text(_post('channel.archive', const {'trigger_user_id': _demoUserId})),
         '频道 项目讨论 已被 演示用户 存档。',
       );
     });
 
     test('channel.revive / channel.rescue', () {
       expect(
-        _text(_post('channel.revive', const {'trigger_user_id': _demo_user4})),
+        _text(_post('channel.revive', const {'trigger_user_id': _demoUserId})),
         '您已被 演示用户 恢复。您现在可回到 项目讨论。',
       );
       expect(
         _text(
           _post('channel.rescue', const {
-            'trigger_user_id': _demo_user4,
+            'trigger_user_id': _demoUserId,
             'target_user_ids': [_me],
           }),
         ),
@@ -278,7 +278,7 @@ void main() {
         _text(
           _post('user.broken', const {
             'trigger_user_id': _me,
-            'target_user_ids': [_demo_user4],
+            'target_user_ids': [_demoUserId],
           }),
         ),
         '我, 演示用户 无法进入此频道且其权限必须由另一用户恢复。',
@@ -296,7 +296,7 @@ void main() {
 
     test('encrypt.notify 带上邀请人', () {
       expect(
-        _text(_post('encrypt.notify', const {'trigger_user_id': _demo_user4})),
+        _text(_post('encrypt.notify', const {'trigger_user_id': _demoUserId})),
         contains('演示用户 邀请您使用频道加密'),
       );
     });
@@ -311,7 +311,7 @@ void main() {
     test('thread.create / comment.create / post.pin', () {
       expect(_text(_post('thread.create', const {})), '已创建一篇帖子。');
       expect(
-        _text(_post('comment.create', const {'trigger_user_id': _demo_user4})),
+        _text(_post('comment.create', const {'trigger_user_id': _demoUserId})),
         '演示用户 已在帖子中留言。',
       );
       expect(_text(_post('post.pin', const {})), '已锁定此消息');
@@ -321,7 +321,7 @@ void main() {
       expect(
         _text(
           _post('post.delete', const {
-            'trigger_user_id': _demo_user4,
+            'trigger_user_id': _demoUserId,
             'extra': {
               'username': 'demo',
               'channel': {'name': '项目讨论'},
@@ -334,7 +334,7 @@ void main() {
       expect(
         _text(
           _post('post.delete', const {
-            'trigger_user_id': _demo_user4,
+            'trigger_user_id': _demoUserId,
             'extra': {
               'username': 'demo',
               'channel': {'name': '项目讨论'},
@@ -353,7 +353,7 @@ void main() {
       expect(
         _text(
           _post('post.vote.delete', const {
-            'trigger_user_id': _demo_user4,
+            'trigger_user_id': _demoUserId,
             'extra': {
               'username': 'demo',
               'channel': {'name': '项目讨论'},
@@ -374,7 +374,7 @@ void main() {
         _text(
           _post('bot.add', const {
             'trigger_user_id': _me,
-            'target_user_ids': [_demo_user4],
+            'target_user_ids': [_demoUserId],
           }),
         ),
         '我 已添加整合 演示用户',
@@ -383,7 +383,7 @@ void main() {
         _text(
           _post('bot.delete', const {
             'trigger_user_id': _me,
-            'target_user_ids': [_demo_user4],
+            'target_user_ids': [_demoUserId],
           }),
         ),
         '我 已删除整合 演示用户。',
@@ -392,7 +392,7 @@ void main() {
         _text(
           _post('bot.set_disabled', const {
             'trigger_user_id': _me,
-            'target_user_ids': [_demo_user4],
+            'target_user_ids': [_demoUserId],
             'extra': {'is_disabled': true},
           }),
         ),
@@ -405,8 +405,8 @@ void main() {
       expect(
         _text(
           _post('welcome.message', const {
-            'trigger_user_id': _demo_user4,
-            'effective_user_id': _demo_user4,
+            'trigger_user_id': _demoUserId,
+            'effective_user_id': _demoUserId,
           }),
         ),
         '您好，演示用户，\n这是您的私密空间，您可在此写信息或保留您将来可能会用到的任何文件和链接。',
@@ -447,7 +447,7 @@ void main() {
 
     test('未知 event → 明确兜底，不崩', () {
       expect(
-        _text(_post('brand.new.event', const {'trigger_user_id': _demo_user4})),
+        _text(_post('brand.new.event', const {'trigger_user_id': _demoUserId})),
         '系统消息（brand.new.event）',
       );
     });
@@ -456,7 +456,7 @@ void main() {
   group('兜底与兼容', () {
     test('只有 effective_user_id 时也能说清是谁', () {
       expect(
-        _text(_post('channel.join', const {'effective_user_id': _demo_user4})),
+        _text(_post('channel.join', const {'effective_user_id': _demoUserId})),
         '演示用户 加入了此频道。',
       );
     });
@@ -464,7 +464,7 @@ void main() {
 
   group('名字规则（ChatUtil.displayUserName）', () {
     test('昵称优先、访客后缀、缺用户兜底', () {
-      expect(displayUserName(_users[_demo_user4], _demo_user4), '演示用户');
+      expect(displayUserName(_users[_demoUserId], _demoUserId), '演示用户');
       expect(displayUserName(_users[_guest], _guest), 'abc 访客');
       expect(displayUserName(null, 42), '用户 42');
       expect(
