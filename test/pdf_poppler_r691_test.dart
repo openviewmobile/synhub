@@ -176,7 +176,14 @@ void main() {
             ),
           ),
         );
-        await Future<void>.delayed(const Duration(milliseconds: 400));
+        // ★ 轮询而不是死等 400ms：并行跑全量时这一步偶尔还没完成（假红，
+        //   第 438 轮全量里连红两次、单独跑恒绿）。判据仍然是"结果出现"。
+        for (var i = 0; i < 100; i++) {
+          await Future<void>.delayed(const Duration(milliseconds: 50));
+          if (find.byKey(const Key('pdf-poppler-error')).evaluate().isNotEmpty) {
+            break;
+          }
+        }
       });
       await tester.pump();
       expect(find.byKey(const Key('pdf-poppler-error')), findsOneWidget);
@@ -217,7 +224,12 @@ void main() {
             ),
           ),
         );
-        await Future<void>.delayed(const Duration(milliseconds: 400));
+        for (var i = 0; i < 100; i++) {
+          await Future<void>.delayed(const Duration(milliseconds: 50));
+          if (find.byKey(const Key('pdf-poppler-page-indicator')).evaluate().isNotEmpty) {
+            break;
+          }
+        }
       });
       await tester.pump();
       expect(find.byKey(const Key('pdf-poppler-page-indicator')), findsOneWidget);
