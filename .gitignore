@@ -54,3 +54,6 @@ design/synhub_ui/out/
 ios/Flutter/Generated.xcconfig
 ios/Flutter/flutter_export_environment.sh
 macos/Flutter/ephemeral/
+
+# ---- 本地脱敏词表（不得提交）----
+tool/secret_words.local
