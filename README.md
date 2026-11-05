@@ -28,6 +28,13 @@ Talks to DSM over its own Web API — QuickConnect, File Station, Photos, Chat, 
 - UI is bilingual (Simplified Chinese / English) via `flutter gen-l10n`; ARB files live in `lib/l10n/`.
 - No FCM and no push service of ours — the app only talks to the NAS you configure.
 
+## Getting the source
+
+```bash
+git clone https://github.com/openviewmobile/synhub.git
+cd synhub
+```
+
 ## Build
 
 Prereqs: Flutter **3.47.x** (Dart 3.13), plus per platform:
