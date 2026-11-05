@@ -224,11 +224,14 @@ void main() {
             ),
           ),
         );
-        for (var i = 0; i < 100; i++) {
+        // 这里要等到「PNG 也解出来」为止：只等翻页条会在并行负载下缺 Image
+        // （解码晚一拍 ⇒ 假红）。判据仍是"结果出现"，不是放宽断言。
+        for (var i = 0; i < 120; i++) {
+          await tester.pump();
           await Future<void>.delayed(const Duration(milliseconds: 50));
-          if (find.byKey(const Key('pdf-poppler-page-indicator')).evaluate().isNotEmpty) {
-            break;
-          }
+          final ready = find.byKey(const Key('pdf-poppler-page-indicator')).evaluate().isNotEmpty &&
+              find.byType(Image).evaluate().isNotEmpty;
+          if (ready) break;
         }
       });
       await tester.pump();
