@@ -99,7 +99,7 @@ dependencies:
   #   `.osheet` = 标准 XLSX（xl/worksheets/sheet1.xml 含 <cols> 列宽 + 单元格 s= 样式索引）
   #   `.oslides` = 标准 PPTX（ppt/slides/slideN.xml + slideLayouts + slideMasters）
   # 见 `docs/ooxml-ground-truth.md`。这是对齐 WPS/MS Office 显示效果的正确路径。
-  xml: ^6.5.0
+  xml: ^7.1.0
   markdown: ^7.3.1
   flutter_gemma: ^1.8.3
   flutter_gemma_litertlm: ^1.6.4
