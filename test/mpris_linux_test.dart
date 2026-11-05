@@ -10,8 +10,6 @@
 //
 // 本文件只锁**离线可判**的部分（元数据编码 / 状态串 / 无总线时降级）；
 // 真总线上的行为由 `test/mpris_linux_bus_test.dart` 在容器里跑（宿主自动跳过）。
-import 'dart:io';
-
 import 'package:dbus/dbus.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -113,16 +111,19 @@ void main() {
   });
 
   test('拿不到会话总线时 start() 返回 null 且**不抛**（播放不许被挡住）', () async {
+    // 用注入的"拿不到总线"工厂，而不是看宿主机有没有总线：
+    // macOS 宿主没有总线、Linux CI 反而有一个 ⇒ 靠环境判断两边结论相反。
+    var calls = 0;
     final svc = await MprisLinuxService.start(
       callbacks: const MprisCallbacks(),
+      sessionFactory: () {
+        calls++;
+        throw StateError('no session bus');
+      },
     );
+    expect(calls, 1, reason: '降级路径必须真的去连一次，不是提前短路');
     expect(svc, isNull);
-  },
-      // 容器里**有**会话总线（那一路的正例在 `mpris_linux_bus_test.dart`）；
-      // 这条是"拿不到总线"的降级判据，只在宿主/CI 上跑。
-      skip: (Platform.environment['DBUS_SESSION_BUS_ADDRESS'] ?? '').isEmpty
-          ? null
-          : '本机有会话总线 —— 降级判据在无总线的宿主上跑');
+  });
 }
 
 /// `DBusDict.stringVariant` → `Map<String, DBusValue>`（用例侧解包）。

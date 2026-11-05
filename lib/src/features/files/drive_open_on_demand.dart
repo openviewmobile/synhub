@@ -249,7 +249,12 @@ class DriveOpenOnDemand {
       stats.add((f: f, len: len, at: await f.lastModified()));
     }
     if (total <= policy.cacheLimitBytes) return;
-    stats.sort((a, b) => a.at.compareTo(b.at));
+    // 同一时间戳的文件必须有确定顺序（`List.sort` 不稳定 ⇒ 摇摆在两次
+    // 清理之间会删掉不同的文件；Linux 上已实测到 old1 反而活下来）。
+    stats.sort((a, b) {
+      final byTime = a.at.compareTo(b.at);
+      return byTime != 0 ? byTime : a.f.path.compareTo(b.f.path);
+    });
     final target = (policy.cacheLimitBytes * 0.8).round();
     for (final s in stats) {
       if (total <= target) break;

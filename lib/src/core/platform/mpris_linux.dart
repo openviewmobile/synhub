@@ -125,14 +125,19 @@ class MprisLinuxService {
   static const String rootInterface = 'org.mpris.MediaPlayer2';
 
   /// 起服务。**任何失败都退化成 `null`**（没有总线 / 名字被占 / 权限）。
+  ///
+  /// [sessionFactory] 只为用例而存在：判"没有会话总线时降级为 null"这条
+  /// 不能靠宿主有没有总线（macOS 没有、Linux CI 却有），否则用例在两边
+  /// 会得出相反的结论。默认就是 `DBusClient.session`。
   static Future<MprisLinuxService?> start({
     required MprisCallbacks callbacks,
     String identity = 'SynHub',
     String desktopEntry = 'synhub',
+    DBusClient Function()? sessionFactory,
   }) async {
     DBusClient? client;
     try {
-      client = DBusClient.session();
+      client = (sessionFactory ?? DBusClient.session)();
       final reply = await client.requestName(
         busName,
         flags: {DBusRequestNameFlag.doNotQueue},

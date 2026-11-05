@@ -18,6 +18,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:synhub/src/core/platform/app_platform.dart';
+import 'package:synhub/src/features/notifications/reminder_scheduler.dart';
 import 'package:synhub/src/features/chat/channel_list_page.dart';
 import 'package:synhub/src/features/chat/global_content_page.dart';
 
@@ -235,6 +236,15 @@ void main() {
       // （真桌面就是这个行为）。本用例的 `ProviderContainer` 是手工建的、
       // 不随 widget 树析构 ⇒ 必须显式 dispose 才会跑到 `ref.onDispose(stop)`
       // 取消 Timer，否则报 "A Timer is still pending"。
+      // Linux CI 上这条 Timer 常常还没走到就结束（时序与 macos 不同）⇒
+      // 先卸树、再 dispose 容器并 flush 一帧，把降级路径收干净。
+      // 直接停掉调度器：它按设计排了一个 1s 前台 Timer，而用例体结束时
+      // fake_async 会检查"还有没有 pending Timer"（macOS 上这一步恰好已经
+      // 走过，Linux CI 上就报 "A Timer is still pending"）。
+      // 不用 `container.dispose()`：那会连带关掉 drift 的查询流，又排一个
+      // 零延时 Timer，反而更难收干净。
+      h.container.read(reminderSchedulerProvider).stop();
+      await tester.pump();
     });
 
     testWidgets('频道列表溢出菜单有「跨频道内容」入口', (tester) async {
