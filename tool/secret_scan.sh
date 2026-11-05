@@ -6,9 +6,18 @@ cd "$(dirname "$0")/.." || exit 2
 git rev-parse --git-dir >/dev/null 2>&1 || { echo '不是 git 仓库'; exit 2; }
 bad=0
 
-scan() { # scan <正则> <说明> [白名单正则]
-  local hits
-  hits=$(git grep -IlE "$1" -- . 2>/dev/null || true)
+scan() { # scan <正则> <说明> [白名单正则] [路径限定]
+  local hits rc
+  # ★★★ 规则自证（第 438 轮的真实事故）：`git grep -E` 用的是 POSIX ERE，
+  #   不支持 `(?!…)` 这类 lookahead —— 写了它 grep 直接**语法报错退出 128**，
+  #   而 `2>/dev/null` 把错误吃掉 ⇒ 恒判定"无命中" ⇒ **假绿**。
+  #   这里先拿空输入压一遍：`grep -E` 语法错返回 2，无命中返回 1。
+  printf '' | grep -E -e "$1" >/dev/null 2>&1
+  rc=$?
+  if [ "$rc" -eq 2 ]; then
+    printf '❌ 正则语法错误（本规则恒不命中，等于没检查）：%s\n' "$1"; bad=1; return
+  fi
+  hits=$(git grep -IlE -e "$1" -- ${4:-.} 2>/dev/null | grep -v '^tool/secret_scan\.sh$' || true)
   if [ -n "${3:-}" ]; then hits=$(printf '%s\n' "$hits" | grep -vE "$3" || true); fi
   if [ -n "${hits// /}" ]; then
     printf '❌ %s\n' "$2"; printf '%s\n' "$hits" | sed 's/^/    /' | head -20; bad=1
@@ -27,9 +36,12 @@ scan '(ghp|gho|ghs)_[A-Za-z0-9]{20,}'                   'GitHub token'
 scan 'AKIA[0-9A-Z]{16}'                                 'AWS access key'
 scan '-----BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY-----'   '私钥' 'mock_nas_key\.pem|r296_macos_player_tls_probe_test\.dart'
 # ★ r723：个人信息面（不是凭据，但同样不该进公开仓库）
-scan '\b(192\.168|172\.(1[6-9]|2[0-9]|3[01])|10\.(254\.(25[0-3])|(?!254\.)[0-9]{1,3}))\.[0-9]{1,3}\.[0-9]{1,3}\b' '真实内网 IPv4（合成段 10.254.254.x 除外）'
-scan '\b1[3-9][0-9]{9}\b'                              '中国大陆手机号字面量'
-scan '\.(synology|myds|ddns|diskstation)\.(me|net|com)\b|\b[A-Za-z0-9-]{3,}\.quickconnect\.(to|cn)\b' '真实 DDNS/QuickConnect 域名' 'serv_api_test\.dart'
+# 私网地址只在**散文/台账**里算泄漏（代码与测试夹具里的 192.168.1.x 是通用占位）。
+# 真实值同时在 `tool/secret_words.local` 里，双保险。
+scan '(^|[^0-9])192\.168\.[0-9]{1,3}\.[0-9]{1,3}([^0-9]|$)' '私网地址 192.168.x.x（文档里）' '' '*.md'
+scan '(^|[^0-9])172\.(1[6-9]|2[0-9]|3[01])\.[0-9]{1,3}\.[0-9]{1,3}([^0-9]|$)' '私网地址 172.16-31.x.x（文档里）' '' '*.md'
+scan '(^|[^0-9])1[3-9][0-9]{9}([^0-9]|$)'               '中国大陆手机号字面量（文档里）' '' '*.md'
+scan '\.(synology|myds|ddns|diskstation)\.(me|net)'      '真实 DDNS 域名' 'serv_api_test\.dart'
 scan '[A-Za-z0-9._%+-]+@(qq|163|126|sina|gmail|outlook|hotmail|icloud)\.com' '真实邮箱域名' 
 # ③ 上游标识词表：**不进仓库**（`tool/secret_words.local`，一行一个，`#` 注释）
 #    ★ 词表本身若进仓库，等于把要保护的名字公开 ⇒ 只读不存。
