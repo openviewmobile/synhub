@@ -1,16 +1,15 @@
-// 内嵌封面（大 APIC）测试夹具。
+// 内嵌封面（大 APIC）测试夹具 —— **全部字节都是合成的**。
 //
-// **真实夹具**：`test/support/media_cover_apic_real.bin`
-//   * 来源：真机文件 `/home/Music/CD1 - 01 - Track01.mp3`（8.7 MB）的前
-//     **2,200,001 字节**（`/tmp/mp3_cover_head.bin`，真实 NAS 只读 Range HTTP 206）；
-//   * 本仓只留前 **2,110,000 字节**（剪裁范围 `[0, 2110000)`）——
-//     刚好盖住 APIC 数据尾（绝对 2,104,127）+ 约 5.8KB 标签 padding；
-//   * 剪裁后 sha256 前 16 位 = `fe652c7213a49c83`；
-//   * 该文件是 ID3v2.3，APIC 帧头在绝对偏移 **526**、声明长度 **2,103,591**，
-//     MIME 字段写作 `image/jpg`（归一成 `image/jpeg`），图片数据起于 **549**、
-//     止于 **2,104,127**（**2,103,578 字节**）。
+// `test/support/media_cover_apic_large.bin`（2,110,000 字节）按真机上观察到的
+// 形状构造，用来复现"预读 512KB 装不下封面"的那条路径：
+//   * ID3v2.3 头；APIC 帧头在绝对偏移 **526**、声明长度 **2,103,591**；
+//   * MIME 字段写作 `image/jpg`（代码归一成 `image/jpeg`）；
+//   * 图片数据起于 **549**、止于 **2,104,127**（**2,103,578 字节**）；
+//   * 其余标签帧（TALB/TPE1/COMM/TIT2…）都是占位文本，长度与真实样本一致，
+//     只是为了让帧偏移保持在 526 —— 不含任何真实曲目/专辑信息；
+//   * 图片是仓库自带的图标转出的 JPEG，后面补零到声明长度。
 //
-// 第一段预读只有 512KB（`kMediaCoverId3HeadBytes`）⇒ 图片被截断，正是本轮
+// 第一段预读只有 512KB（`kMediaCoverId3HeadBytes`）⇒ 图片被截断，这正是
 // "两段式取字节"要修的现象。
 import 'dart:io';
 import 'dart:typed_data';
@@ -18,14 +17,14 @@ import 'dart:typed_data';
 /// 真机文件的总大小（列表里的 `size`；8.7 MB）
 const int kRealApicFileSize = 9130000;
 
-/// 真机 ID3v2.3 APIC 图片在文件里的绝对区间 [start, end)
+/// 合成夹具里 ID3v2.3 APIC 图片的绝对区间 [start, end)
 const int kRealApicImageStart = 549;
 const int kRealApicImageEnd = 2104127;
 
 /// 图片字节数（= end - start）
 const int kRealApicImageLength = kRealApicImageEnd - kRealApicImageStart;
 
-/// 剪裁后夹具的 sha256 前 16 位（见文件头说明）
+/// 夹具的 sha256 前 16 位（合成内容，随夹具变化）
 const String kRealApicFixtureSha256Prefix = 'fe652c7213a49c83';
 
 /// 剪裁后夹具的字节数
@@ -34,11 +33,11 @@ const int kRealApicFixtureBytes = 2110000;
 Uint8List? _cached;
 Uint8List? _cachedImage;
 
-/// 读真实夹具（进程内缓存；文件缺失时抛，让用例失败而不是静默 skip）。
+/// 读夹具（进程内缓存；文件缺失时抛，让用例失败而不是静默 skip）。
 Uint8List realApicFixture() {
   final cached = _cached;
   if (cached != null) return cached;
-  final file = File('test/support/media_cover_apic_real.bin');
+  final file = File('test/support/media_cover_apic_large.bin');
   if (!file.existsSync()) {
     throw StateError('缺少夹具 ${file.path}（见 test/support/media_cover_samples.dart）');
   }
@@ -47,7 +46,7 @@ Uint8List realApicFixture() {
   return bytes;
 }
 
-/// 真实的 2.1MB APIC 图片字节（夹具里 [549, 2104127) 那一段）
+/// 夹具里的 2.1MB APIC 图片字节（[549, 2104127) 那一段，合成 JPEG）
 Uint8List realApicImage() =>
     _cachedImage ??= Uint8List.sublistView(
       realApicFixture(),
