@@ -1313,7 +1313,7 @@ class AudioStationApi {
   ///
   /// ✅ **2026-09-22 真机取证**（`docs/audio-api-live.md` §1/§1.2）：
   /// path `AudioStation/lyrics.cgi`、方法名 **`getlyrics`**、参数 **`{id}`** →
-  /// `{"data":{"lyrics":"Sample lyric line one\r\nSample lyric line two\r\n…"}}`（真实歌词）。
+  /// `{"data":{"lyrics":"<第一行>\r\n<第二行>\r\n…"}}`（整首歌词）。
   /// ⚠️ **`get` / `list` / `getinfo` 全是 `103`（方法不存在）** —— 不要改用它们。
   /// 没歌词时回空串（不是错误）。
   Future<String> getLyrics(String id) async {

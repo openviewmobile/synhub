@@ -699,7 +699,7 @@ class LrclibLyricsSource implements LyricsSource {
   /// 实测对比（2026-10-15，同一时间同一台机）：
   ///   * `q=Demo Song`               → 20 条，**没有一条是 Demo Artist**；
   ///   * `track_name=Demo Song&artist_name=Demo Artist` → 20 条，**全是 Demo Artist**
-  ///     （230/231/232 s，`syncedLyrics` 就是 "Sample lyric line one…"）。
+  ///     （230/231/232 s，`syncedLyrics` 是整首歌词）。
   static Uri searchTrackUri(String title, String artist) => Uri.https(host, '/api/search', {
     'track_name': title,
     'artist_name': artist,
