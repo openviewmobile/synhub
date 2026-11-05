@@ -57,3 +57,6 @@ macos/Flutter/ephemeral/
 
 # ---- 本地脱敏词表（不得提交）----
 tool/secret_words.local
+
+# 逆向研究材料：保留在本机，不进仓库（决策 r723）
+reverse/
