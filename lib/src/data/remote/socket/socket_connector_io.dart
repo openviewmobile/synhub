@@ -13,12 +13,17 @@ Future<SocketLike> openSocket(
   Map<String, String> headers = const {},
   bool allowSelfSigned = true,
   void Function(Object cert, String host)? onCertificate,
+  /// ★ 证书裁决：非空时**由它决定**放不放行（生产必须传 —— 见 `trust_store.dart`
+  ///   的首连信任），`allowSelfSigned` 只在它为空时生效（工具/探针/测试用）。
+  bool Function(Object cert, String host, int port)? certVerifier,
   Duration timeout = const Duration(seconds: 15),
 }) async {
   final client = HttpClient()..connectionTimeout = timeout;
-  if (allowSelfSigned) {
+  if (certVerifier != null || allowSelfSigned) {
     client.badCertificateCallback = (cert, host, port) {
       onCertificate?.call(cert, host);
+      final verifier = certVerifier;
+      if (verifier != null) return verifier(cert, host, port);
       return true;
     };
   }

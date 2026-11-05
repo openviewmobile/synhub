@@ -66,6 +66,7 @@ class ChatSocket {
     this.synotoken,
     this.autoReconnect = true,
     this.allowSelfSigned = true,
+    this.certVerifier,
     this.connectTimeout = const Duration(seconds: 15),
   });
 
@@ -82,6 +83,10 @@ class ChatSocket {
 
   /// 自签 / 主机名不匹配的证书是否放行（见 core/net/self_signed.dart）
   final bool allowSelfSigned;
+
+  /// ★ 证书裁决：生产的会话层必须传它（首连信任库），
+  ///   否则自签/主机名不匹配就"一律放行"（见 `core/net/trust_store.dart`）。
+  final bool Function(Object cert, String host, int port)? certVerifier;
 
   final Duration connectTimeout;
 
@@ -171,6 +176,7 @@ class ChatSocket {
       },
       headers: {'Cookie': _cookieHeader},
       allowSelfSigned: allowSelfSigned,
+      certVerifier: certVerifier,
       connectTimeout: connectTimeout,
     );
     _client = client;

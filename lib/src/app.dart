@@ -8,6 +8,7 @@ import 'package:flutter_quill/flutter_quill.dart'
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'core/i18n/l10n.dart';
+import 'core/net/cert_policy_hook.dart';
 import 'core/router/app_router.dart';
 import 'features/servers/certificate_trust_dialog.dart';
 import 'core/security/passcode_service.dart';
@@ -130,6 +131,11 @@ class _SynologyChatAppState extends ConsumerState<SynologyChatApp>
     ref.read(reminderSchedulerProvider).start();
     // Phase 9：首连信任 —— 把"问用户"接到全局导航上（后台任务里没人问就拒绝）
     final trust = ref.read(trustPolicyProvider);
+    // ★ 安全：Office 协作的 WebSocket 走原生 `HttpClient`（不经 Dio），
+    //   以前它的 `badCertificateCallback` 是"一律 true" ⇒ 与 HTTP 的首连信任
+    //   不一致 ⇒ 装同一套裁决（自签也要指纹钉住才放行）。走 web 安全的挂钩，
+    //   免得把 `dart:io` 引进 web 包（`test/platform_web_test.dart` 有硬基线）。
+    officeCollabCertVerifier = trust.evaluateObject;
     trust.prompt = (challenge) async {
       final ctx = rootNavigatorKey.currentContext;
       if (ctx == null || !ctx.mounted) return false;

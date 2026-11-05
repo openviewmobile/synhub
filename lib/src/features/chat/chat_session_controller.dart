@@ -26,6 +26,7 @@ import '../../data/dto/post_dto.dart';
 import '../../data/dto/user_dto.dart';
 import '../../data/dto/vote_dto.dart';
 import '../../core/security/keystore_secret_keeper.dart';
+import '../servers/session_controller.dart' show trustPolicyProvider;
 import '../../data/local/chat_store.dart';
 import '../../data/local/database.dart';
 import 'attachment_access.dart';
@@ -139,8 +140,19 @@ final chatSocketFactoryProvider =
       ChatSocket Function(String baseUrl, String sid, String? synotoken)
     >(
       (ref) =>
-          (baseUrl, sid, synotoken) =>
-              ChatSocket(baseUrl: baseUrl, sid: sid, synotoken: synotoken),
+          (baseUrl, sid, synotoken) => ChatSocket(
+            baseUrl: baseUrl,
+            sid: sid,
+            synotoken: synotoken,
+            // ★ 安全：实时通道必须与 HTTP 同一条首连信任策略
+            //   （以前不传 ⇒ 默认"自签一律放行"，等于给 WebSocket 开了 MITM 口子）。
+            certVerifier: (cert, host, port) {
+              final policy = ref.read(trustPolicyProvider);
+              return cert is X509Certificate
+                  ? policy.evaluate(cert, host, port)
+                  : false; // 拿不到证书对象 = 判不了 ⇒ fail-closed
+            },
+          ),
     );
 
 /// 当前连接上的 ChatApi（未登录时为 null）

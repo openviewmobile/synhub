@@ -183,6 +183,11 @@ class TrustPolicy {
   bool evaluate(X509Certificate cert, String host, int port) =>
       evaluateInfo(CertInfo.fromX509(cert), host, port);
 
+  /// `Object` 版：给**不能 import `dart:io`** 的调用方（web 内核/挂钩）用。
+  /// 拿不到真实证书对象 ⇒ fail-closed（返回 false）。
+  bool evaluateObject(Object cert, String host, int port) =>
+      cert is X509Certificate ? evaluate(cert, host, port) : false;
+
   /// [evaluate] 的本体（可脱离真实握手测试）
   bool evaluateInfo(CertInfo info, String host, int port) {
     final address = hostKey('$host:$port');

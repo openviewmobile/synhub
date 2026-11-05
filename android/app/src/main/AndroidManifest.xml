@@ -68,7 +68,14 @@
          （HttpURLConnection/Media3）会严格执行明文策略（Dart 走裸 socket 不受影响）。
          真实 NAS 走 QuickConnect/局域网 IP 时仍按系统默认**禁止明文**，
          所以这条不放松真实场景的安全边界。见 res/xml/network_security_config.xml -->
+    <!-- ★ r723 安全：**关掉系统自动备份**。默认 `allowBackup=true` 会把
+         `<dataDir>`（Drift 库：账号列表、聊天/笔记缓存、首连信任指纹）随
+         Google Drive 自动备份上传 —— 那是本机之外的第二份副本，
+         与"凭据只留在本机"的立场冲突。自己没有跨设备迁移需求 ⇒ 直接关。 -->
     <application
+        android:allowBackup="false"
+        android:fullBackupContent="false"
+        android:dataExtractionRules="@xml/data_extraction_rules"
         android:networkSecurityConfig="@xml/network_security_config"
         android:label="@string/app_name"
         android:name="${applicationName}"

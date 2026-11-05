@@ -21,6 +21,7 @@ Future<SocketLike> openSocket(
   Map<String, String> headers = const {},
   bool allowSelfSigned = true,
   void Function(Object cert, String host)? onCertificate,
+  bool Function(Object cert, String host, int port)? certVerifier,
   Duration timeout = const Duration(seconds: 15),
 }) async {
   // ⚠️ `headers` / `allowSelfSigned` 在浏览器上没有对应能力（见文件头）。

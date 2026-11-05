@@ -162,6 +162,54 @@ void main() {
     expect('$error', contains('HandshakeException'), reason: '实际: $error');
   });
 
+  // ★★★ r723：**证书裁决必须能接管默认的"一律放行"**。
+  //   以前实时通道只在"放行 / 严格"两档里选，没有任何指纹校验的入口 ⇒
+  //   自签 NAS 之外的主机也能被中间人换证书。现在 `certVerifier` 是唯一裁决。
+  test('③b certVerifier 拒绝 ⇒ 自签连不上（默认放行已被接管）', () async {
+    final server = TlsFakeChatServer(ctx);
+    await server.start();
+    addTearDown(server.stop);
+
+    var asked = 0;
+    final socket = ChatSocket(
+      baseUrl: server.baseUrl,
+      sid: 'SID',
+      autoReconnect: false,
+      certVerifier: (cert, host, port) {
+        asked++;
+        return false; // 指纹对不上 = 拒绝
+      },
+    );
+    addTearDown(socket.dispose);
+
+    Object? error;
+    try {
+      await socket.connect();
+      await socket.waitReady(timeout: const Duration(seconds: 5));
+    } catch (e) {
+      error = e;
+    }
+    expect(asked, greaterThan(0), reason: '裁决必须被调用（否则等于没接线）');
+    expect(error, isNotNull, reason: '被拒绝的证书不该连上');
+  });
+
+  test('③c certVerifier 放行 ⇒ 自签也能连上（策略仍可信任首连）', () async {
+    final server = TlsFakeChatServer(ctx);
+    await server.start();
+    addTearDown(server.stop);
+
+    final socket = ChatSocket(
+      baseUrl: server.baseUrl,
+      sid: 'SID',
+      autoReconnect: false,
+      certVerifier: (cert, host, port) => true,
+    );
+    addTearDown(socket.dispose);
+    await socket.connect();
+    await socket.waitReady(timeout: const Duration(seconds: 10));
+    expect(socket.status, ChatSocketStatus.ready);
+  });
+
   test('④ Cookie 头按 `id=<sid>; synotoken=<t>` 拼（服务端要这个）', () async {
     final server = TlsFakeChatServer(ctx);
     await server.start();

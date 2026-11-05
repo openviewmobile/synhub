@@ -51,6 +51,7 @@ class Eio3Client {
     this.headers = const {},
     this.allowSelfSigned = true,
     this.onCertificate,
+    this.certVerifier,
     this.connectTimeout = const Duration(seconds: 15),
   });
 
@@ -61,6 +62,9 @@ class Eio3Client {
   final bool allowSelfSigned;
   /// 自签证书回调（**只对原生侧有意义**；Web 侧浏览器自己判证书）。
   final void Function(Object cert, String host)? onCertificate;
+
+  /// 证书裁决（生产由首连信任库提供；空 = 旧行为，见 `openSocket`）。
+  final bool Function(Object cert, String host, int port)? certVerifier;
   final Duration connectTimeout;
 
   /// ★ `DA281`（r664）：连接对象走条件导入门面（`socket_connector.dart`）——
@@ -116,6 +120,7 @@ class Eio3Client {
         headers: headers,
         allowSelfSigned: allowSelfSigned,
         onCertificate: onCertificate,
+        certVerifier: certVerifier,
         timeout: connectTimeout,
       );
       _ws = ws;

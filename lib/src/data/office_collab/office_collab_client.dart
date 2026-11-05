@@ -36,6 +36,8 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
+import '../../core/net/cert_policy_hook.dart';
+
 // ---------------------------------------------------------------------------
 // Errors
 // ---------------------------------------------------------------------------
@@ -397,12 +399,24 @@ abstract class OfficeCollabTransport {
 class IoOfficeCollabTransport implements OfficeCollabTransport {
   IoOfficeCollabTransport({
     HttpClient? httpClient,
+    this.certVerifier,
     this.connectionTimeout = const Duration(seconds: 20),
     this.requestTimeout = const Duration(seconds: 60),
-  }) : _http =
-           httpClient ??
-           (HttpClient()..badCertificateCallback = (cert, host, port) => true) {
+  }) : _http = httpClient ?? _clientFor(certVerifier) {
     _http.connectionTimeout = connectionTimeout;
+  }
+
+  /// 本条传输自己的裁决（优先于进程级挂钩）。
+  final CertVerifier? certVerifier;
+
+  static HttpClient _clientFor(
+    bool Function(Object cert, String host, int port)? verifier,
+  ) {
+    final client = HttpClient();
+    final v = verifier ?? officeCollabCertVerifier;
+    client.badCertificateCallback = (cert, host, port) =>
+        v == null ? true : v(cert, host, port);
+    return client;
   }
 
   final HttpClient _http;
