@@ -5,6 +5,10 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); version
 
 ## [Unreleased]
 
+## [0.1.0] - 2026-11-05
+
+First public source release. Source only — no APK / IPA / MSIX / deb / AppImage.
+
 ### Added
 - First public source release (no binary packages).
 - Six platform runners: Android (arm64-v8a), iOS, macOS, Linux, Windows, Web.
@@ -25,3 +29,6 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); version
 - No prebuilt packages; you build from source.
 - Web builds that write through encrypted DSM endpoints need a same-origin deployment.
 - QuickConnect depends on Synology's client behaviour and may break on their updates.
+
+[Unreleased]: https://github.com/openviewmobile/synhub/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/openviewmobile/synhub/releases/tag/v0.1.0
