@@ -22,9 +22,11 @@ Third-party components distributed in this repository
    pubspec.lock; `flutter pub deps --style=compact` prints the graph.
 
 4) Sample documents under test/fixtures/ and test/support/
-   Small, non-production samples used by the offline test suite
-   (document format fixtures, a cover-art byte blob for image-pipeline tests).
-   They are included only as test inputs and are not part of the application.
+   Non-production samples used by the offline test suite only: a document
+   template, a truncated ID3/APIC byte blob for the cover-art pipeline, and
+   small JSON fixtures. They are test inputs, are not part of the application,
+   and are not redistributed as content. Copyright in any third-party sample
+   remains with its owner; a sample will be removed or replaced on request.
 
 --------------------------------------------------------------------------
 Trademarks
