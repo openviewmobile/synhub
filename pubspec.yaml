@@ -2,7 +2,10 @@ name: synhub
 description: "SynHub — an unofficial, from-scratch Flutter client for Synology NAS (DiskStation) quick-connect, files, photos, chat, notes, audio, drive, download and office suites."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: 'none'
+repository: https://github.com/openviewmobile/synhub
+homepage: https://github.com/openviewmobile/synhub
+issue_tracker: https://github.com/openviewmobile/synhub/issues
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43

@@ -1,0 +1,36 @@
+SynHub
+Copyright 2026 The SynHub authors
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+--------------------------------------------------------------------------
+Third-party components distributed in this repository
+--------------------------------------------------------------------------
+
+1) UDT4 — reimpl/third_party/udt4/
+   Copyright (c) 2001 - 2010, The Board of Trustees of the University of
+   Illinois. All rights reserved.
+   BSD 3-Clause license; the full text is in
+   reimpl/third_party/udt4/LICENSE.txt.
+
+2) SQLite — web/sqlite3.wasm
+   SQLite is in the public domain.
+   https://www.sqlite.org/copyright.html
+
+3) sqlite3.dart / drift — web/drift_worker.dart.js and Dart dependencies
+   MIT license. Resolved package versions and their licenses are listed in
+   pubspec.lock; `flutter pub deps --style=compact` prints the graph.
+
+4) Sample documents under test/fixtures/ and test/support/
+   Small, non-production samples used by the offline test suite
+   (document format fixtures, a cover-art byte blob for image-pipeline tests).
+   They are included only as test inputs and are not part of the application.
+
+--------------------------------------------------------------------------
+Trademarks
+--------------------------------------------------------------------------
+"Synology", "DiskStation", "DSM", "QuickConnect", "File Station",
+"Synology Photos", "Synology Chat", "Note Station", "Audio Station",
+"Synology Drive", "Download Station" and "Surveillance Station" are
+trademarks of Synology Inc. This project is unofficial and is not
+affiliated with, endorsed by, or supported by Synology Inc.

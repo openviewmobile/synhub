@@ -3,6 +3,9 @@
 *.jpg binary
 *.webp binary
 *.so binary
+*.wasm binary
+*.bin binary
+*.oslides binary
 *.a binary
 *.pdf binary
 *.docx binary
