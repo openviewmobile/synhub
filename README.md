@@ -114,6 +114,10 @@ test/                    offline test suite
 assets/branding/         app icon sources
 ```
 
+Comments in the code sometimes cite `docs/evidence-*/...` paths. Those are internal
+acceptance records kept out of this repository; the references are provenance notes,
+not files you can open here.
+
 ## License
 
 Apache License 2.0 — see [LICENSE](LICENSE) and [NOTICE](NOTICE) for third-party attributions and the trademark statement.
