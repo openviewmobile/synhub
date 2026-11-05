@@ -2,7 +2,7 @@
 
 用自有 C++ 重新实现 Synology Chat 的打洞 / 中继 / UDT 隧道功能。
 **不打包 Synology 任何专有二进制**，全部代码由 `libsynoholepunch.so` 的反编译结果重建。
-协议依据见 [`../reverse/holepunch/PROTOCOL.md`](../reverse/holepunch/PROTOCOL.md)。
+协议依据来自内部笔记（不进本仓库；本仓库不含任何 Synology 二进制）。
 
 ## 目录
 

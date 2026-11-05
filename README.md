@@ -107,7 +107,6 @@ Self-signed certificates: the app pins the fingerprint you approve at first conn
 lib/                     application (features/* core/* data/* design/* l10n/*)
 android/ ios/ macos/ linux/ windows/ web/    platform runners
 reimpl/                  clean-room C++ reimplementation of Chat hole-punching
-reverse/holepunch/       protocol notes only (no decompiled vendor source)
 tool/mock_dsm/           offline DSM mock server used by tests
 tool/                    developer scripts
 integration_test/        on-device sweeps (not run in CI)

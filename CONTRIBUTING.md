@@ -7,8 +7,7 @@ Thanks for helping! A few rules keep this project reviewable.
 1. **No real-NAS artifacts.** No screenshots from your own NAS, no capture files, no
    credentials, no `SynoToken`/`_sid` values. Tests must run against `tool/mock_dsm/`.
 2. **No vendor code.** Do not paste decompiled Synology source, `.lib`/`.so` extracts, or
-   strings dumps from vendor packages. Describe the protocol in your own words instead
-   (see `reverse/holepunch/PROTOCOL.md` for the intended style).
+   strings dumps from vendor packages. Describe the protocol in your own words instead.
 3. **Keep tests hermetic.** `flutter test` must pass with the network unplugged.
 4. **One concern per PR.** Bug fix + refactor in the same PR is hard to review.
 

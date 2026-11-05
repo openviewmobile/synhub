@@ -1,5 +1,5 @@
 // libpunch 协议层 —— 由 libsynoholepunch.so (Synology Chat 2.11.1-607) 逆向还原
-// 参考: reverse/holepunch/PROTOCOL.md, reverse/holepunch/decompiled/
+// 参考: 内部协议笔记（不进本仓库）
 //
 // 本文件为独立实现，不含 Synology 任何代码或二进制。
 #pragma once
