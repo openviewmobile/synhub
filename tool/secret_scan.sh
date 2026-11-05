@@ -65,8 +65,17 @@ else
 fi
 
 # ② 卫生：跟踪文件里不许有超大文件；不许跟踪产物目录
-big=$(git ls-files -z | xargs -0 -I{} sh -c 'test -f "{}" && [ "$(wc -c <"{}")" -gt 5000000 ] && echo "{}"' 2>/dev/null | grep -v 'office_slides_o3/dynamic.oslides' || true)
-if [ -n "${big// /}" ]; then echo '❌ 超过 5 MB 的跟踪文件（大样本请走 Release 附件）'; echo "$big" | sed 's/^/    /'; bad=1; fi
+# ★ 第 438 轮第二个假绿：这里原来是 `git ls-files -z | xargs -0 -I{} sh -c ...`，
+#   2,800 个文件时 xargs 直接 "command line cannot be assembled, too long" 退出，
+#   而 `2>/dev/null` 把错误吃了 ⇒ 恒判"没有大文件"。改成 read 循环，不再有长度上限。
+big=""
+while IFS= read -r -d '' f; do
+  [ -f "$f" ] || continue
+  case "$f" in test/fixtures/office_slides_o3/dynamic.oslides) continue ;; esac
+  sz=$(wc -c <"$f" 2>/dev/null || echo 0)
+  if [ "$sz" -gt 5000000 ]; then big="${big}${f} (${sz} B)"$'\n'; fi
+done < <(git ls-files -z)
+if [ -n "${big// /}" ]; then echo '❌ 超过 5 MB 的跟踪文件（大样本请走 Release 附件）'; printf '%s' "$big" | sed 's/^/    /'; bad=1; fi
 tracked_build=$(git ls-files | grep -E '^(build/|\.dart_tool/)|/build/' | head -5 || true)
 if [ -n "${tracked_build// /}" ]; then echo '❌ 构建产物被跟踪'; echo "$tracked_build" | sed 's/^/    /'; bad=1; fi
 
