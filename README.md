@@ -117,5 +117,5 @@ assets/branding/         app icon sources
 
 ## License
 
-Apache License 2.0 — see [LICENSE](LICENSE) and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+Apache License 2.0 — see [LICENSE](LICENSE) and [NOTICE](NOTICE) for third-party attributions and the trademark statement.
 `reimpl/third_party/udt4` is third-party (BSD-style) and keeps its own headers.
