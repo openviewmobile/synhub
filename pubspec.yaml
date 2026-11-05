@@ -155,7 +155,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^5.0.0
+  flutter_lints: ^6.0.0
 
   # 视频/图片选择器的**真实 seam**：`ImagePicker().pickVideo()` 最终落到
   # `ImagePickerPlatform.instance.getVideo(...)`。`test/chat_video_picker_seam_mock_test.dart`
