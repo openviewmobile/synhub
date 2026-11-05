@@ -28,11 +28,23 @@ scan 'AKIA[0-9A-Z]{16}'                                 'AWS access key'
 scan '-----BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY-----'   '私钥' 'mock_nas_key\.pem|r296_macos_player_tls_probe_test\.dart'
 # ③ 上游标识词表：**不进仓库**（`tool/secret_words.local`，一行一个，`#` 注释）
 #    ★ 词表本身若进仓库，等于把要保护的名字公开 ⇒ 只读不存。
-if [ -f tool/secret_words.local ]; then
+#   来源优先级：环境变量 SECRET_WORDS（CI 用 secrets 注入）→ tool/secret_words.local（本机）
+alts="${SECRET_WORDS:-}"
+if [ -z "${alts}" ] && [ -f tool/secret_words.local ]; then
   alts=$(grep -v '^#' tool/secret_words.local 2>/dev/null | grep -v '^[[:space:]]*$' | paste -sd'|' -)
-  if [ -n "${alts}" ]; then scan "(${alts})" '上游标识词表命中' 'secret_scan\.sh'; else echo '（词表为空：上游标识未校验）'; fi
+fi
+if [ -n "${alts}" ]; then
+  scan "(${alts})" '上游标识词表命中' 'secret_scan\.sh'
 else
-  echo '（⚠️ 未提供 tool/secret_words.local：上游标识此项未校验）'
+  echo '（⚠️ 未提供词表（SECRET_WORDS / tool/secret_words.local）：上游标识此项未校验）'
+fi
+
+# ④ 签名材料 / 本地配置：**一律不许进仓库**
+tracked_secret_files=$(git ls-files | grep -E '(^|/)(key\.properties|secret_words\.local)$|\.(jks|keystore|p12|mobileprovision)$|(^|/)\.env$' | head -10 || true)
+if [ -n "${tracked_secret_files// /}" ]; then
+  echo '❌ 签名材料/本地配置被跟踪'; printf '%s\n' "$tracked_secret_files" | sed 's/^/    /'; bad=1
+else
+  echo '✅ 签名材料/本地配置未跟踪'
 fi
 
 # ② 卫生：跟踪文件里不许有超大文件；不许跟踪产物目录

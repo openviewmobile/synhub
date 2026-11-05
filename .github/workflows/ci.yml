@@ -24,4 +24,7 @@ jobs:
       - name: test
         run: flutter test --reporter compact
       - name: secret scan
+        # 词表只放在仓库的 Actions secret 里（SECRET_WORDS），公开代码里只留读取逻辑。
+        env:
+          SECRET_WORDS: ${{ secrets.SECRET_WORDS }}
         run: bash tool/secret_scan.sh
