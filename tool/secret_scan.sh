@@ -26,6 +26,11 @@ scan '/Users/[a-z]+/'                                   '本机绝对路径' 'fs
 scan '(ghp|gho|ghs)_[A-Za-z0-9]{20,}'                   'GitHub token'
 scan 'AKIA[0-9A-Z]{16}'                                 'AWS access key'
 scan '-----BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY-----'   '私钥' 'mock_nas_key\.pem|r296_macos_player_tls_probe_test\.dart'
+# ★ r723：个人信息面（不是凭据，但同样不该进公开仓库）
+scan '\b(192\.168|172\.(1[6-9]|2[0-9]|3[01])|10\.(254\.(25[0-3])|(?!254\.)[0-9]{1,3}))\.[0-9]{1,3}\.[0-9]{1,3}\b' '真实内网 IPv4（合成段 10.254.254.x 除外）'
+scan '\b1[3-9][0-9]{9}\b'                              '中国大陆手机号字面量'
+scan '\.(synology|myds|ddns|diskstation)\.(me|net|com)\b|\b[A-Za-z0-9-]{3,}\.quickconnect\.(to|cn)\b' '真实 DDNS/QuickConnect 域名' 'serv_api_test\.dart'
+scan '[A-Za-z0-9._%+-]+@(qq|163|126|sina|gmail|outlook|hotmail|icloud)\.com' '真实邮箱域名' 
 # ③ 上游标识词表：**不进仓库**（`tool/secret_words.local`，一行一个，`#` 注释）
 #    ★ 词表本身若进仓库，等于把要保护的名字公开 ⇒ 只读不存。
 #   来源优先级：环境变量 SECRET_WORDS（CI 用 secrets 注入）→ tool/secret_words.local（本机）
