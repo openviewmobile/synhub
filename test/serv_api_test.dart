@@ -238,10 +238,10 @@ void main() {
       'errno': 0,
       'env': {'controlHost': 'global.quickconnect.to', 'relayRegion': 'tw'},
       'server': {
-        'serverID': 'my-qcid',
+        'serverID': 'demo-qcid',
         'external': '203.0.113.5',
-        'ddns': 'my-qcid.direct.quickconnect.to',
-        'fqdn': 'my-qcid.example.com',
+        'ddns': 'demo-qcid.direct.quickconnect.to',
+        'fqdn': 'demo-qcid.example.com',
         'udp_punch_port': 51342,
         'tcp_punch_port': 51343,
         'behind_nat': true,
@@ -250,7 +250,7 @@ void main() {
         ],
       },
       'smartdns': {
-        'host': 'my-qcid.direct.quickconnect.to',
+        'host': 'demo-qcid.direct.quickconnect.to',
         'external': '203.0.113.5',
         'lans': ['192.168.1.10'],
       },
@@ -262,7 +262,7 @@ void main() {
       fake.handlers['get_server_info'] = (_) => serverInfoResponse();
       await api
           .fetchServerInfo(
-            serverId: 'my-qcid',
+            serverId: 'demo-qcid',
             serviceId: 'dsm_https',
             relayServer: null,
           )
@@ -271,7 +271,7 @@ void main() {
       final body = fake.requests.last['body'] as Map<String, dynamic>;
       expect(body['version'], 1); // 数字
       expect(body['command'], 'get_server_info');
-      expect(body['serverID'], 'my-qcid');
+      expect(body['serverID'], 'demo-qcid');
       expect(body['id'], 'dsm_https'); // 两阶段都用 "id"
       expect(body['get_ca_fingerprints'], true);
       expect(body.length, 5);
@@ -280,7 +280,7 @@ void main() {
     test('解析 env / server / smartdns / service / relay_servers', () async {
       fake.handlers['get_server_info'] = (_) => serverInfoResponse();
       final info = await api.fetchServerInfo(
-        serverId: 'my-qcid',
+        serverId: 'demo-qcid',
         serviceId: 'dsm_https',
       );
 
@@ -291,7 +291,7 @@ void main() {
       expect(info.server?.tcpPunchPort, 51343);
       expect(info.server?.behindNat, isTrue);
       expect(info.server?.interfaceIps, ['192.168.1.10']);
-      expect(info.smartdns?.host, 'my-qcid.direct.quickconnect.to');
+      expect(info.smartdns?.host, 'demo-qcid.direct.quickconnect.to');
       expect(info.smartdns?.lans, ['192.168.1.10']);
       expect(info.servicePort, 5001);
       expect(info.relayServers, ['relay1.example.com', 'relay2.example.com']);
