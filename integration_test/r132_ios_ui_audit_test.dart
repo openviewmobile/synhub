@@ -580,7 +580,7 @@ Future<void> _toFileRoot(WidgetTester tester) async {
   await _selectNasSource(tester);
   // ★ 判据改「到根」而不是「有 docker 目录」：pass2 真 NAS 的根**没有** `docker`
   //   （DUMP：`Shared folders / home / Drive / ebooktest / Music / music / Photos /
-  //   pictest / Video / 演示相册-视频资料 / No more items`）⇒ 旧判据必然超时。
+  //   pictest / Video / 演示相册-视频 / No more items`）⇒ 旧判据必然超时。
   //   根 = **没有**「上一级」按钮（`file-up` 只在栈深 > 1 时出现）。
   for (var i = 0; i < 10; i++) {
     if (!_hasKey('file-up')) break;
@@ -964,7 +964,7 @@ void main() {
         }
         // ★ r674：`Books` 在 2026-10 的真 NAS `/home` 上**已经不存在**了
         //   （r674 的 iPad 像素实测：Download / Drive / ebooktest / Music / music /
-        //   Photos / pictest / Video / 演示相册-视频资料）。
+        //   Photos / pictest / Video / 演示相册-视频）。
         //   旧判据写死 `Books` ⇒ 场景"红"但其实是**夹具漂移**，不是多选坏了。
         //   改成"按候选名逐个试第一个存在的行"，并把实际点到的那一行记进报告。
         var pressed = false;

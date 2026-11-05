@@ -177,7 +177,8 @@ void main() {
     await tester.pump();
     expect(t.asked.length, 1, reason: '主 URL 就是真图 ⇒ 不触发回退');
     expect(t.asked.single, contains('method=getcover'));
-    expect(t.asked.single, contains('album_name=11'));
+    // 专辑名换成合成值后不再以 `11` 开头；这条断言的本意只是"走的是专辑级参数"。
+    expect(t.asked.single, contains('album_name='));
     expect(find.byType(Image), findsOneWidget);
   });
 

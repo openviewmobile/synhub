@@ -559,7 +559,7 @@ Future<void> _toFileRoot(WidgetTester tester) async {
   await _selectNasSource(tester);
   // ★ 判据改「到根」而不是「有 docker 目录」：pass2 真 NAS 的根**没有** `docker`
   //   （DUMP：`Shared folders / home / Drive / ebooktest / Music / music / Photos /
-  //   pictest / Video / 演示相册-视频资料 / No more items`）⇒ 旧判据必然超时。
+  //   pictest / Video / 演示相册-视频 / No more items`）⇒ 旧判据必然超时。
   //   根 = **没有**「上一级」按钮（`file-up` 只在栈深 > 1 时出现）。
   // ★ r667：窄屏上 `file-up` 在工具条里，**宽屏会被 `FoldingActions` 折进 `⋮`**
   //   （Web 1600px 实测：工具条只剩 搜索/星标/链接/下载/刷新/网格/列表，没有向上箭头）
