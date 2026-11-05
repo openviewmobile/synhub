@@ -41,7 +41,7 @@ scan '-----BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY-----'   '私钥' 'mock_nas_key\
 scan '(^|[^0-9])192\.168\.[0-9]{1,3}\.[0-9]{1,3}([^0-9]|$)' '私网地址 192.168.x.x（文档里）' '' '*.md'
 scan '(^|[^0-9])172\.(1[6-9]|2[0-9]|3[01])\.[0-9]{1,3}\.[0-9]{1,3}([^0-9]|$)' '私网地址 172.16-31.x.x（文档里）' '' '*.md'
 scan '(^|[^0-9])1[3-9][0-9]{9}([^0-9]|$)'               '中国大陆手机号字面量（文档里）' '' '*.md'
-scan '\.(synology|myds|ddns|diskstation)\.(me|net)'      '真实 DDNS 域名' 'serv_api_test\.dart'
+scan '\.(synology|myds|ddns|diskstation)\.(me|net)'      '真实 DDNS 域名'
 scan '[A-Za-z0-9._%+-]+@(qq|163|126|sina|gmail|outlook|hotmail|icloud)\.com' '真实邮箱域名' 
 # ③ 上游标识词表：**不进仓库**（`tool/secret_words.local`，一行一个，`#` 注释）
 #    ★ 词表本身若进仓库，等于把要保护的名字公开 ⇒ 只读不存。
