@@ -54,7 +54,7 @@ dependencies:
   pointycastle: ^4.0.0
   flutter_riverpod: ^3.4.3
   go_router: ^18.0.1
-  drift: 2.35.0
+  drift: 2.35.3
   # ★ r667：`web/sqlite3.wasm` 钉在 **3.6.0**（字节数 + sha256 见
   #   `test/web_assets_version_test.dart`）⇒ 传递依赖也必须留在同一版本，
   #   否则浏览器里的 wasm 与 Dart 侧 ABI 对不上（真浏览器实测：库根本打不开）。
