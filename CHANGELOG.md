@@ -22,6 +22,8 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); version
   the same suite from ~20 to ~36 minutes and turns timing-sensitive tests into noise.
 - `.pre-commit-config.yaml` with a local `secret-scan` hook, so the wordlist scan runs before
   the push instead of only in CI.
+- `flake-probe` workflow (manual, repeats chosen files N times on one Linux runner) and a
+  CONTRIBUTING section on how to read its result instead of re-running until green.
 
 ## [0.1.0] - 2026-11-05
 
