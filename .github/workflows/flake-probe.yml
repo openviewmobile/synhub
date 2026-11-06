@@ -1,0 +1,80 @@
+name: flake-probe
+
+# 偶发红取证装置：把指定用例在同一台 Linux runner 上重复跑 N 次，逐次留结果。
+#
+# 为什么要有它：本仓有一批对时序/资源敏感的用例，在 macOS 本机连跑 18 次全绿，
+# 但在 CI 上偶发红。光靠"再点一次 Re-run"永远得不出结论 —— 必须知道
+# **哪个文件、第几次、失败原因**，才能判"能修"还是"写进已知抖动"。
+#
+# 只在手动触发，不进任何门禁。
+
+on:
+  workflow_dispatch:
+    inputs:
+      tests:
+        description: '要探测的用例文件（空格分隔）'
+        required: false
+        default: >-
+          test/media_stream_test.dart
+          test/photo_p0_batch_ui_test.dart
+          test/photo_p0_deadcode_coverage_test.dart
+          test/photo_p0_delete_quality_test.dart
+          test/file_download_tasks_test.dart
+          test/drive_admin_api_mock_test.dart
+      repeat:
+        description: '每个文件重复次数'
+        required: false
+        default: '5'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: flake-probe-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      TESTS: ${{ inputs.tests }}
+      REPEAT: ${{ inputs.repeat }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2 # v2
+        with:
+          channel: stable
+          flutter-version: '3.47.4'
+          cache: true
+      - name: pub get
+        run: flutter pub get
+      - name: gen-l10n
+        run: flutter gen-l10n
+      - name: probe
+        run: |
+          set -u
+          echo "| iteration | file | result |" >> "$GITHUB_STEP_SUMMARY"
+          echo "|---|---|---|" >> "$GITHUB_STEP_SUMMARY"
+          fails=0
+          total=0
+          for i in $(seq 1 "$REPEAT"); do
+            for f in $TESTS; do
+              total=$((total + 1))
+              log="/tmp/probe-$i-$(basename "$f").log"
+              if flutter test "$f" --reporter compact > "$log" 2>&1; then
+                echo "iter $i  $f  ok"
+                echo "| $i | \`$f\` | ok |" >> "$GITHUB_STEP_SUMMARY"
+              else
+                fails=$((fails + 1))
+                echo "iter $i  $f  FAIL"
+                echo "| $i | \`$f\` | **fail** |" >> "$GITHUB_STEP_SUMMARY"
+                # 只贴失败尾巴：完整日志没有信息量，判据是断言与异常类型
+                grep -E "\+[0-9]+.*\[E\]|Expected:|Actual:|EXCEPTION|TimeoutException|Some tests failed" "$log" | head -20
+              fi
+            done
+          done
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "**$((total - fails))/$total iterations green** (repeat=$REPEAT)" >> "$GITHUB_STEP_SUMMARY"
+          echo "summary: $((total - fails))/$total green"
+          test "$fails" -eq 0
