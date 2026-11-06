@@ -36,6 +36,38 @@ If you touch the UI strings, run `flutter gen-l10n` and commit both ARB files
 If you touch platform runners, add the exact command you used to verify the build
 (e.g. `flutter build macos --debug`) to the PR description.
 
+## When a test fails only in CI
+
+Don't re-run until it goes green — that produces no information and leaves the suite
+untrustworthy. Use the `flake-probe` workflow (Actions → flake-probe → Run workflow):
+
+```
+tests:  test/that_file_test.dart     # space-separated, several files allowed
+repeat: 10                           # per file, on one runner
+```
+
+It runs each file that many times on the same Linux runner and prints a per-iteration
+table plus the failing assertion tail. Three outcomes:
+
+| Result | What it means | What to do |
+|---|---|---|
+| fails in every iteration | plain regression | fix it |
+| fails in some iterations | real flake | find the timing/order dependency and fix it |
+| never fails in N repeats | not reproduced | say so in the PR; do not claim it is fixed |
+
+Last measurement (2026-11-06, Linux runner, one file at a time, 5 repeats each):
+
+```
+30/30 iterations green — media_stream, photo_p0_batch_ui, photo_p0_deadcode_coverage,
+photo_p0_delete_quality, file_download_tasks, drive_admin_api_mock
+3/3 green — the same six files in a single invocation, on macOS
+```
+
+Those six were carried as "known flaky" for a long time. They do **not** reproduce
+isolated, which means any remaining flake lives in concurrency with the rest of the
+suite, not in those files by themselves. If one of them goes red again, run the probe
+with `repeat: 10` before touching the test.
+
 ## Commit messages
 
 ```
