@@ -16,8 +16,10 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); version
 ### Added
 - `.editorconfig` for cross-editor consistency.
 - Branch protection on `main`: PR required, `ci / analyze-test` must pass, admins included.
-- CI: line coverage report in the job summary + `coverage-lcov` artifact (reported, not gated),
-  and a separate `supply-chain` job running OSV-Scanner over the lockfile.
+- CI: a separate `supply-chain` job running OSV-Scanner over the lockfile.
+- `coverage` workflow (weekly + manual, **not** a merge gate): line coverage in the job
+  summary plus a `coverage-lcov` artifact. Kept off the PR path because `--coverage` takes
+  the same suite from ~20 to ~36 minutes and turns timing-sensitive tests into noise.
 - `.pre-commit-config.yaml` with a local `secret-scan` hook, so the wordlist scan runs before
   the push instead of only in CI.
 
