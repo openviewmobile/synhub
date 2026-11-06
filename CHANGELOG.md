@@ -10,10 +10,16 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); version
   (490 mechanical lint fixes from `dart fix`), `actions/checkout` v7.
 - `dynamic_color` stays on 1.x: 2.x pulls in the separate `material_ui` toolkit, whose
   `ColorScheme` is a different type from Flutter's.
+- `drift` 2.35.3 with `web/drift_worker.dart.js` re-vendored from the matching release
+  (the pinned wasm/worker pair cannot be bumped by a version PR alone).
 
 ### Added
 - `.editorconfig` for cross-editor consistency.
 - Branch protection on `main`: PR required, `ci / analyze-test` must pass, admins included.
+- CI: line coverage report in the job summary + `coverage-lcov` artifact (reported, not gated),
+  and a separate `supply-chain` job running OSV-Scanner over the lockfile.
+- `.pre-commit-config.yaml` with a local `secret-scan` hook, so the wordlist scan runs before
+  the push instead of only in CI.
 
 ## [0.1.0] - 2026-11-05
 

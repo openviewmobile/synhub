@@ -30,9 +30,42 @@ jobs:
       - name: analyze
         run: flutter analyze lib test tool/mock_dsm
       - name: test
-        run: flutter test --reporter compact
+        run: flutter test --coverage --reporter compact
+      - name: coverage summary
+        # 只报行覆盖率，不设门槛：门槛会诱使人写"碰一下就算覆盖"的空用例。
+        # 数字进 job summary，趋势自己看，别做成假指标。
+        run: |
+          test -f coverage/lcov.info || { echo 'no coverage/lcov.info'; exit 1; }
+          awk -F: '
+            /^LF:/ {lf += $2}
+            /^LH:/ {lh += $2}
+            END {
+              if (lf == 0) {print "lcov has no line data"; exit 1}
+              printf "lines hit: %d / %d (%.1f%%)\n", lh, lf, 100 * lh / lf
+            }' coverage/lcov.info | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: upload coverage
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: coverage-lcov
+          path: coverage/lcov.info
+          retention-days: 14
+          if-no-files-found: error
       - name: secret scan
         # 词表只放在仓库的 Actions secret 里（SECRET_WORDS），公开代码里只留读取逻辑。
         env:
           SECRET_WORDS: ${{ secrets.SECRET_WORDS }}
         run: bash tool/secret_scan.sh
+
+  # 依赖漏洞扫描：与 analyze-test 分开，失败时一眼能看出是"代码问题"还是"依赖问题"。
+  # 用 Google 官方 action（固定到 commit SHA），它内部跑 osv-scanner 的 docker 镜像。
+  supply-chain:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: google/osv-scanner-action/osv-scanner-action@b1d267aea5211fa648d9d442fa64b90dbdcbdd36 # v2.7.0
+        with:
+          # 参数取自 action 仓库自己的示例 workflow（v2 CLI 认这两个参数）
+          scan-args: |-
+            --include-git-root
+            -r
+            ./
