@@ -1,0 +1,27 @@
+# 跨编辑器的最小约定：缩进、换行、行尾空白。
+# 语言风格由 `analysis_options.yaml` + `dart format` 决定，这里不重复。
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 2
+
+[*.md]
+# Markdown 的行尾两个空格是有意义的硬换行
+trim_trailing_whitespace = false
+
+[*.{kt,kts,java,gradle}]
+indent_size = 4
+
+[*.{swift,mm,m,h,cpp,cc}]
+indent_size = 2
+
+[*.{yml,yaml,json}]
+indent_size = 2
+
+[Makefile]
+indent_style = tab

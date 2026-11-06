@@ -5,6 +5,16 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); version
 
 ## [Unreleased]
 
+### Changed
+- Dependencies: `xml` 7, `open_filex` 5, `file_picker` 13.3.2, `flutter_lints` 6
+  (490 mechanical lint fixes from `dart fix`), `actions/checkout` v7.
+- `dynamic_color` stays on 1.x: 2.x pulls in the separate `material_ui` toolkit, whose
+  `ColorScheme` is a different type from Flutter's.
+
+### Added
+- `.editorconfig` for cross-editor consistency.
+- Branch protection on `main`: PR required, `ci / analyze-test` must pass, admins included.
+
 ## [0.1.0] - 2026-11-05
 
 First public source release. Source only — no APK / IPA / MSIX / deb / AppImage.
