@@ -202,7 +202,7 @@ class _DriveBrowseViewState extends ConsumerState<DriveBrowseView> {
     final list = ref.watch(driveListProvider(path));
     return list.when(
       loading: () => const Center(child: CircularProgressIndicator()),
-      error: (e, __) {
+      error: (e, _) {
         // ★ 第 256 轮真机缺陷修复（用户：「选了排序过滤条件之后界面出问题了，
         // 回不去了」）：
         //
@@ -331,7 +331,7 @@ class _DriveBrowseViewState extends ConsumerState<DriveBrowseView> {
                             bottom: kDriveListBottomInset,
                           ),
                           itemCount: items.length,
-                          separatorBuilder: (_, __) => Divider(
+                          separatorBuilder: (_, _) => Divider(
                             height: 1,
                             color: hud.dim.withValues(alpha: 0.12),
                           ),
@@ -731,7 +731,7 @@ class DriveWideFolderPane extends ConsumerWidget {
             ),
             child: async.when(
               loading: () => const Center(child: CircularProgressIndicator()),
-              error: (e, __) => _Hint(
+              error: (e, _) => _Hint(
                 icon: Icons.cloud_off,
                 title: t.fileWideContentsFailed,
                 detail: describeFileError(e),
@@ -751,7 +751,7 @@ class DriveWideFolderPane extends ConsumerWidget {
                 return ListView.separated(
                   key: const Key('file-wide-drive-list'),
                   itemCount: items.length,
-                  separatorBuilder: (_, __) => Divider(
+                  separatorBuilder: (_, _) => Divider(
                     height: 1,
                     color: hud.dim.withValues(alpha: 0.12),
                   ),
@@ -2519,7 +2519,7 @@ class _DriveThumb extends ConsumerWidget {
             bytes,
             fit: aspect == null ? BoxFit.contain : BoxFit.cover,
             gaplessPlayback: true,
-            errorBuilder: (_, __, ___) => fallback,
+            errorBuilder: (_, _, _) => fallback,
           ),
         ),
       ),

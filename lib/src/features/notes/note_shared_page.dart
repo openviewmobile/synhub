@@ -32,7 +32,7 @@ class NoteSharedPage extends ConsumerWidget {
       appBar: AppBar(title: Text(noteB(kNoteSharedTitle, '我分享的'))),
       body: shared.when(
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (e, __) => AppErrorView(
+        error: (e, _) => AppErrorView(
           title: noteB(kNoteSharedTitle, '我分享的'),
           detail: describeNoteError(e, context.t),
           onRetry: () => ref.invalidate(noteSharedProvider),

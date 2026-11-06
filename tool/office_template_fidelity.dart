@@ -1062,7 +1062,7 @@ Map<String, Object?> _entry(
   'raw': raw,
   'model': model,
   'delta': raw - model,
-  if (note != null) 'note': note,
+  'note': ?note,
 };
 
 bool _valueEquals(Object? a, Object? b) {

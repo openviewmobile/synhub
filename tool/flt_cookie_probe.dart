@@ -5,7 +5,7 @@ import 'dart:io';
 
 Future<void> main() async {
   final base = Platform.environment['SYNO_NAS_URL']!;
-  final client = HttpClient()..badCertificateCallback = (_, __, ___) => true;
+  final client = HttpClient()..badCertificateCallback = (_, _, _) => true;
 
   Future<(String, List<String>)> post(
     String url,

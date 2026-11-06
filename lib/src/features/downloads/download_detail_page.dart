@@ -39,7 +39,7 @@ class DownloadDetailPage extends ConsumerWidget {
       appBar: AppBar(title: Text(t.dsDetail)),
       body: task.when(
         loading: () => const AppListSkeleton(rows: 5),
-        error: (e, __) => AppErrorView(
+        error: (e, _) => AppErrorView(
           title: t.dsErrLoadDetail,
           detail: describeDownloadError(e),
           onRetry: () => ref.invalidate(downloadTaskProvider(taskId)),
@@ -192,7 +192,7 @@ class _PreviewThumb extends ConsumerWidget {
         fit: BoxFit.cover,
         gaplessPlayback: true,
         // 解码失败也不留空白（回落到状态图标）。
-        errorBuilder: (_, __, ___) =>
+        errorBuilder: (_, _, _) =>
             Icon(_fallbackIcon, color: color, size: size),
       ),
     );
@@ -539,7 +539,7 @@ class _NzbLogSection extends ConsumerWidget {
           padding: EdgeInsets.all(Gap.md),
           child: Center(child: CircularProgressIndicator()),
         ),
-        error: (e, __) => Text(describeDownloadError(e), style: t.bodyMedium),
+        error: (e, _) => Text(describeDownloadError(e), style: t.bodyMedium),
         data: (text) => text.trim().isEmpty
             ? Text(dataText('dsNzbLogEmpty', '暂无 NZB 日志'), style: t.bodyMedium)
             : SelectableText(
@@ -604,7 +604,7 @@ class _BtSectionState extends ConsumerState<_BtSection> {
           child: Center(child: CircularProgressIndicator()),
         ),
       ),
-      error: (e, __) => _Panel(
+      error: (e, _) => _Panel(
         title: t.dsBtSettings,
         child: Padding(
           padding: const EdgeInsets.all(Gap.lg),
@@ -832,7 +832,7 @@ class _TrackerSection extends ConsumerWidget {
           padding: EdgeInsets.all(Gap.md),
           child: Center(child: CircularProgressIndicator()),
         ),
-        error: (e, __) => Text(
+        error: (e, _) => Text(
           describeDownloadError(e),
           style: Theme.of(context).textTheme.bodyMedium,
         ),
@@ -890,7 +890,7 @@ class _PeerSection extends ConsumerWidget {
           padding: EdgeInsets.all(Gap.md),
           child: Center(child: CircularProgressIndicator()),
         ),
-        error: (e, __) => Text(
+        error: (e, _) => Text(
           describeDownloadError(e),
           style: Theme.of(context).textTheme.bodyMedium,
         ),

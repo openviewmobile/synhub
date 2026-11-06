@@ -61,7 +61,7 @@ class DriveTasksPage extends ConsumerWidget {
       ),
       body: tasks.when(
           loading: () => const AppListSkeleton(),
-          error: (e, __) => AppErrorView(
+          error: (e, _) => AppErrorView(
             title: t.fileTasksLoadFailed,
             detail: describeFileError(e),
             onRetry: () => ref.invalidate(driveTasksProvider),
@@ -78,7 +78,7 @@ class DriveTasksPage extends ConsumerWidget {
                     physics: const AlwaysScrollableScrollPhysics(),
                     padding: const EdgeInsets.only(top: Gap.sm, bottom: Gap.xl),
                     itemCount: rows.length,
-                    separatorBuilder: (_, __) => Divider(
+                    separatorBuilder: (_, _) => Divider(
                       height: 1,
                       color: hud.dim.withValues(alpha: 0.12),
                     ),

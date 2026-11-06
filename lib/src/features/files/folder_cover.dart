@@ -173,7 +173,7 @@ class FolderCoverMosaic extends StatelessWidget {
         fit: BoxFit.cover,
         gaplessPlayback: true,
         cacheWidth: 160,
-        errorBuilder: (_, __, ___) =>
+        errorBuilder: (_, _, _) =>
             ColoredBox(color: scheme.surfaceContainerHighest),
       ),
     );
@@ -189,7 +189,7 @@ class FolderCoverMosaic extends StatelessWidget {
           fit: BoxFit.contain,
           gaplessPlayback: true,
           cacheWidth: 160,
-          errorBuilder: (_, __, ___) =>
+          errorBuilder: (_, _, _) =>
               ColoredBox(color: scheme.surfaceContainerHighest),
         ),
       );

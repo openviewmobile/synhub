@@ -323,7 +323,7 @@ class _ChannelMembersPageState extends ConsumerState<ChannelMembersPage> {
                 ? Center(child: Text(t.chatNoMembers))
                 : ListView.separated(
                     itemCount: shown.length,
-                    separatorBuilder: (_, __) => const Divider(height: 1),
+                    separatorBuilder: (_, _) => const Divider(height: 1),
                     itemBuilder: (context, i) {
                       final u = shown[i];
                       final isMe = u.userId == myId;

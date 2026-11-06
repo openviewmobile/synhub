@@ -311,7 +311,7 @@ void main() {
         routes: [
           GoRoute(
             path: '/x',
-            builder: (_, __) => ChannelContentPage(
+            builder: (_, _) => ChannelContentPage(
               channelId: 5,
               kind: ChannelContentKind.links,
             ),

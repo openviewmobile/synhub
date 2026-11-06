@@ -213,7 +213,7 @@ class _UploadSection extends ConsumerWidget {
             padding: EdgeInsets.symmetric(horizontal: Gap.lg),
             child: LinearProgressIndicator(),
           ),
-          error: (_, __) => const SizedBox.shrink(),
+          error: (_, _) => const SizedBox.shrink(),
           data: (list) => list.isEmpty
               ? Padding(
                   padding: const EdgeInsets.symmetric(horizontal: Gap.lg),

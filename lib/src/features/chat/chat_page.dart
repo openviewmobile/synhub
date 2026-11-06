@@ -1494,7 +1494,7 @@ class _ChatPageState extends ConsumerState<ChatPage> {
                   child: posts.when(
                     loading: () =>
                         const Center(child: CircularProgressIndicator()),
-                    error: (e, __) => Center(
+                    error: (e, _) => Center(
                       child: Text(t.botsLoadFailed(userFacingError(e))),
                     ),
                     data: (msgs) {

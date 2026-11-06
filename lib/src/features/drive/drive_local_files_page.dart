@@ -176,7 +176,7 @@ class _DriveLocalFilesPageState extends ConsumerState<DriveLocalFilesPage> {
     final async = ref.watch(driveLocalRootsProvider);
     return async.when(
       loading: () => const Center(child: CircularProgressIndicator()),
-      error: (e, __) => AppErrorView(
+      error: (e, _) => AppErrorView(
         key: const Key('drive-local-roots-error'),
         icon: Icons.folder_off_outlined,
         title: driveG4(DriveG4TextKeys.localFilesUnavailable, '本机目录不可用'),
@@ -250,7 +250,7 @@ class _DriveLocalFilesPageState extends ConsumerState<DriveLocalFilesPage> {
       child: ListView.separated(
         key: const Key('drive-local-list'),
         itemCount: entries.length,
-        separatorBuilder: (_, __) => const Divider(height: 1),
+        separatorBuilder: (_, _) => const Divider(height: 1),
         itemBuilder: (context, i) {
           final entity = entries[i];
           final isDir = entity is Directory;

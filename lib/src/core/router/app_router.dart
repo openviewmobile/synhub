@@ -43,17 +43,17 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: AppRoutes.setup,
       name: AppRoutes.setupName,
-      builder: (_, __) => const ServerSetupPage(),
+      builder: (_, _) => const ServerSetupPage(),
     ),
     GoRoute(
       path: AppRoutes.login,
       name: AppRoutes.loginName,
-      builder: (_, __) => const LoginPage(),
+      builder: (_, _) => const LoginPage(),
     ),
     GoRoute(
       path: AppRoutes.home,
       name: AppRoutes.homeName,
-      builder: (_, __) => const HomePage(),
+      builder: (_, _) => const HomePage(),
     ),
     GoRoute(
       path: '${AppRoutes.chat}/:channelId',
@@ -138,69 +138,69 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: AppRoutes.search,
       name: AppRoutes.searchName,
-      builder: (_, __) => const SearchPage(),
+      builder: (_, _) => const SearchPage(),
     ),
     GoRoute(
       path: AppRoutes.bots,
       name: AppRoutes.botsName,
-      builder: (_, __) => const BotsPage(),
+      builder: (_, _) => const BotsPage(),
     ),
     GoRoute(
       path: AppRoutes.settings,
       name: AppRoutes.settingsName,
-      builder: (_, __) => const SettingsPage(),
+      builder: (_, _) => const SettingsPage(),
     ),
     GoRoute(
       path: AppRoutes.profileEdit,
       name: AppRoutes.profileEditName,
-      builder: (_, __) => const ProfileEditPage(),
+      builder: (_, _) => const ProfileEditPage(),
     ),
     GoRoute(
       path: AppRoutes.notifications,
       name: AppRoutes.notificationsName,
-      builder: (_, __) => const NotificationSettingsPage(),
+      builder: (_, _) => const NotificationSettingsPage(),
     ),
     GoRoute(
       path: AppRoutes.snooze,
       name: AppRoutes.snoozeName,
-      builder: (_, __) => const SnoozeSettingsPage(),
+      builder: (_, _) => const SnoozeSettingsPage(),
     ),
     GoRoute(
       path: AppRoutes.archives,
       name: AppRoutes.archivesName,
-      builder: (_, __) => const ArchivePage(),
+      builder: (_, _) => const ArchivePage(),
     ),
     GoRoute(
       path: AppRoutes.certificates,
       name: AppRoutes.certificatesName,
-      builder: (_, __) => const CertificatesPage(),
+      builder: (_, _) => const CertificatesPage(),
     ),
     GoRoute(
       path: AppRoutes.serviceCheck,
       name: AppRoutes.serviceCheckName,
-      builder: (_, __) => const ServiceCheckPage(),
+      builder: (_, _) => const ServiceCheckPage(),
     ),
     GoRoute(
       path: AppRoutes.e2ee,
       name: AppRoutes.e2eeName,
-      builder: (_, __) => const E2eePage(),
+      builder: (_, _) => const E2eePage(),
     ),
     // 临时/调试页面：**只在 dev 档注册**（release 包里连路由都不存在）。
     if (kDevTools) ...[
       GoRoute(
         path: AppRoutes.designPreview,
         name: AppRoutes.designPreviewName,
-        builder: (_, __) => const DesignPreviewPage(),
+        builder: (_, _) => const DesignPreviewPage(),
       ),
       GoRoute(
         path: AppRoutes.designGallery,
         name: AppRoutes.designGalleryName,
-        builder: (_, __) => const DesignGalleryPage(),
+        builder: (_, _) => const DesignGalleryPage(),
       ),
       GoRoute(
         path: AppRoutes.diagnostics,
         name: AppRoutes.diagnosticsName,
-        builder: (_, __) => const DiagPage(autoRun: false),
+        builder: (_, _) => const DiagPage(autoRun: false),
       ),
     ],
   ],

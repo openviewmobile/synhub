@@ -39,8 +39,8 @@ void main() {
       return {
         'success': true,
         'data': {
-          if (model != null) 'model': model,
-          if (version != null) 'version': version,
+          'model': ?model,
+          'version': ?version,
         },
       };
     });
@@ -50,7 +50,7 @@ void main() {
     backend.fixture(kFindMeApi, 'supported', (p) {
       return {
         'success': true,
-        'data': {if (supported != null) 'supported': supported},
+        'data': {'supported': ?supported},
       };
     });
   }

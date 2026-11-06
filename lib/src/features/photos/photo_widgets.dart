@@ -508,7 +508,7 @@ class PhotoThumb extends ConsumerWidget {
             gaplessPlayback: true,
             cacheWidth: req.decodeWidth,
             // 解码失败也要有交代（不白屏、不整格透明）
-            errorBuilder: (_, __, ___) => formatHint == null
+            errorBuilder: (_, _, _) => formatHint == null
                 ? ColoredBox(
                     color: hud.bg,
                     child: Center(
@@ -651,7 +651,7 @@ class PhotoThumb extends ConsumerWidget {
                 fit: aspect == null ? BoxFit.contain : BoxFit.cover,
                 gaplessPlayback: true,
                 // 抽帧失败（坏字节）也要有交代 —— 不白屏、不抛。
-                errorBuilder: (_, __, ___) => Center(
+                errorBuilder: (_, _, _) => Center(
                   child: Icon(
                     Icons.videocam_off_outlined,
                     color: hud.dim,

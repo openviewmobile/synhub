@@ -43,7 +43,7 @@ class NoteSmartPage extends ConsumerWidget {
       ),
       body: smarts.when(
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (e, __) => AppErrorView(
+        error: (e, _) => AppErrorView(
           title: noteB(NoteBTextKeys.smart, '智能笔记本'),
           detail: describeNoteError(e, context.t),
           onRetry: () => ref.invalidate(smartNotebooksProvider),
@@ -57,7 +57,7 @@ class NoteSmartPage extends ConsumerWidget {
               )
             : ListView.separated(
                 itemCount: rows.length,
-                separatorBuilder: (_, __) =>
+                separatorBuilder: (_, _) =>
                     Divider(height: 1, color: hud.line),
                 itemBuilder: (context, i) {
                   final smart = rows[i];
@@ -108,7 +108,7 @@ class NoteSmartNotesPage extends ConsumerWidget {
       appBar: AppBar(title: Text(smart.displayTitle)),
       body: notes.when(
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (e, __) => AppErrorView(
+        error: (e, _) => AppErrorView(
           title: smart.displayTitle,
           detail: describeNoteError(e, context.t),
           onRetry: () => ref.invalidate(smartNotesProvider(smart.query)),
@@ -122,7 +122,7 @@ class NoteSmartNotesPage extends ConsumerWidget {
               )
             : ListView.separated(
                 itemCount: rows.length,
-                separatorBuilder: (_, __) =>
+                separatorBuilder: (_, _) =>
                     Divider(height: 1, color: hud.line),
                 itemBuilder: (context, i) {
                   final note = rows[i];

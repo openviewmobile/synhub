@@ -330,7 +330,7 @@ class _DriveSharePageState extends ConsumerState<DriveSharePage> {
                       // 骨架是 ListView，套在外层 ListView 里必须给高度
                       loading: () =>
                           const SizedBox(height: 220, child: AppListSkeleton()),
-                      error: (e, __) => AppErrorView(
+                      error: (e, _) => AppErrorView(
                         title: t.driveSharesLoadFailed,
                         detail: describeFileError(e),
                         onRetry: () =>
@@ -509,7 +509,7 @@ class _InviteSheetState extends ConsumerState<_InviteSheet> {
                     padding: EdgeInsets.all(Gap.lg),
                     child: LinearProgressIndicator(minHeight: 2),
                   ),
-                  error: (e, __) => Padding(
+                  error: (e, _) => Padding(
                     padding: const EdgeInsets.all(Gap.lg),
                     child: Text(
                       t.driveSearchPrincipalsFailed(describeFileError(e)),

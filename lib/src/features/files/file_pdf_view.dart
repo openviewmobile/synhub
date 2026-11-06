@@ -630,7 +630,7 @@ class FilePdfStage extends ConsumerWidget {
           ],
         ),
       ),
-      error: (e, __) => Center(
+      error: (e, _) => Center(
         child: Padding(
           padding: const EdgeInsets.all(Gap.xl),
           child: Column(

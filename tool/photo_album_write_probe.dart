@@ -115,7 +115,7 @@ Future<void> main() async {
 
   print('\n③ 改封面（Album/set_cover）');
   print(
-    '   ${await t('Browse.Album', 'set_cover', const [5, 4, 3, 2, 1], {'id': albumId, if (itemId != null) 'id_item': itemId})}',
+    '   ${await t('Browse.Album', 'set_cover', const [5, 4, 3, 2, 1], {'id': albumId, 'id_item': ?itemId})}',
   );
 
   print('\n④ 改名（Album/set_name）');

@@ -104,7 +104,7 @@ class _TrafficPageState extends ConsumerState<TrafficPage> {
                     padding: EdgeInsets.all(Gap.md),
                     child: AppListSkeleton(rows: 5),
                   ),
-                  error: (e, __) => AppErrorView(
+                  error: (e, _) => AppErrorView(
                     key: const Key('traffic-error'),
                     title: t.trafficLoadFailed,
                     detail: userFacingError(e),

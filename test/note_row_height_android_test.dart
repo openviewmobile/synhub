@@ -68,7 +68,7 @@ Future<void> _pumpRows(WidgetTester tester, List<Widget> rows) async {
         home: Scaffold(
           body: ListView.separated(
             itemCount: rows.length,
-            separatorBuilder: (_, __) => const Divider(height: 1),
+            separatorBuilder: (_, _) => const Divider(height: 1),
             itemBuilder: (_, i) => rows[i],
           ),
         ),

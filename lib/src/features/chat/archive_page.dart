@@ -44,7 +44,7 @@ class ArchivePage extends ConsumerWidget {
       ),
       body: archives.when(
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (e, __) => Center(child: Text(context.t.botsLoadFailed(userFacingError(e)))),
+        error: (e, _) => Center(child: Text(context.t.botsLoadFailed(userFacingError(e)))),
         data: (list) {
           if (list.isEmpty) {
             return Center(
@@ -59,7 +59,7 @@ class ArchivePage extends ConsumerWidget {
           }
           return ListView.separated(
             itemCount: list.length,
-            separatorBuilder: (_, __) => const Divider(height: 1),
+            separatorBuilder: (_, _) => const Divider(height: 1),
             itemBuilder: (context, i) {
               final a = list[i];
               final channel = a.channel;

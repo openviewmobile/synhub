@@ -179,7 +179,7 @@ class _MailPageState extends ConsumerState<MailPage> {
         controller: _scroll,
         padding: const EdgeInsets.only(top: Gap.xs, bottom: Gap.xxl),
         itemCount: state.items.length + 1,
-        separatorBuilder: (_, __) => Divider(
+        separatorBuilder: (_, _) => Divider(
           height: 1,
           color: DesignPalette.of(context).dim.withValues(alpha: 0.12),
         ),
@@ -221,7 +221,7 @@ class _MailboxBar extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         padding: const EdgeInsets.symmetric(horizontal: Gap.md),
         itemCount: boxes.length,
-        separatorBuilder: (_, __) => const SizedBox(width: Gap.xs),
+        separatorBuilder: (_, _) => const SizedBox(width: Gap.xs),
         itemBuilder: (context, i) {
           final b = boxes[i];
           final on = b.path == selected;

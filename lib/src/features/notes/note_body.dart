@@ -248,7 +248,7 @@ class _LocalImagePreview extends StatelessWidget {
           child: Image.file(
             File(path),
             fit: BoxFit.contain,
-            errorBuilder: (_, __, ___) => Container(
+            errorBuilder: (_, _, _) => Container(
               constraints: const BoxConstraints(minHeight: 72, minWidth: 72),
               color: hud.surface,
               alignment: Alignment.center,
@@ -306,14 +306,14 @@ class NoteThumb extends ConsumerWidget {
         borderRadius: BorderRadius.circular(4),
         child: bytes.when(
           loading: () => _icon(hud, side, loading: true),
-          error: (e, __) => _icon(hud, side),
+          error: (e, _) => _icon(hud, side),
           data: (data) => Image.memory(
             data,
             width: size,
             height: side.h,
             fit: BoxFit.cover,
             gaplessPlayback: true,
-            errorBuilder: (_, __, ___) => _icon(hud, side),
+            errorBuilder: (_, _, _) => _icon(hud, side),
           ),
         ),
       ),
@@ -386,7 +386,7 @@ class _NoteImageState extends ConsumerState<NoteImage> {
       padding: const EdgeInsets.symmetric(vertical: Gap.sm),
       child: bytes.when(
         loading: () => _placeholder(hud, loading: true),
-        error: (e, __) => _placeholder(hud, failed: true),
+        error: (e, _) => _placeholder(hud, failed: true),
         data: (data) => GestureDetector(
           onTap: () => _openFull(context),
           child: ClipRRect(
@@ -397,7 +397,7 @@ class _NoteImageState extends ConsumerState<NoteImage> {
                 data,
                 fit: BoxFit.contain,
                 gaplessPlayback: true,
-                errorBuilder: (_, __, ___) => _placeholder(hud, failed: true),
+                errorBuilder: (_, _, _) => _placeholder(hud, failed: true),
               ),
             ),
           ),
@@ -585,7 +585,7 @@ class _FullImageState extends ConsumerState<_FullImage> {
     );
     return bytes.when(
       loading: () => const Center(child: CircularProgressIndicator()),
-      error: (e, __) => Center(
+      error: (e, _) => Center(
         child: Padding(
           padding: const EdgeInsets.all(Gap.xl),
           child: Text(

@@ -101,8 +101,8 @@ class MethodChannelEqualizerBridge implements AudioEqualizerBridge {
     await _channel.invokeMethod<void>('apply', {
       'session': session,
       'enabled': enabled,
-      if (preset != null) 'preset': preset,
-      if (bandLevels != null) 'bands': bandLevels,
+      'preset': ?preset,
+      'bands': ?bandLevels,
     });
   }
 }

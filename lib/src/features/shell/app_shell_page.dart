@@ -1061,7 +1061,7 @@ class _RecentSection extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               padding: const EdgeInsets.symmetric(horizontal: Gap.lg),
               itemCount: modules.length,
-              separatorBuilder: (_, __) => const SizedBox(width: Gap.sm),
+              separatorBuilder: (_, _) => const SizedBox(width: Gap.sm),
               itemBuilder: (_, i) => _RecentModuleTile(
                 item: modules[i],
                 onTap: () => onModule(modules[i]),
@@ -1079,7 +1079,7 @@ class _RecentSection extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               padding: const EdgeInsets.symmetric(horizontal: Gap.lg),
               itemCount: books.length,
-              separatorBuilder: (_, __) => const SizedBox(width: Gap.sm),
+              separatorBuilder: (_, _) => const SizedBox(width: Gap.sm),
               itemBuilder: (_, i) => _ContinueBookTile(
                 book: books[i],
                 onTap: () => onBook(books[i]),

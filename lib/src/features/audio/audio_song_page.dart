@@ -401,7 +401,7 @@ class _AudioSongDetailPageState extends ConsumerState<AudioSongDetailPage> {
             )
           : async.when(
               loading: () => const AppListSkeleton(rows: 5),
-              error: (e, __) => AppErrorView(
+              error: (e, _) => AppErrorView(
                 title: t.asSongLoadFailed,
                 detail: describeAudioError(e),
                 onRetry: () => ref.invalidate(audioSongProvider(_songId)),
@@ -2624,7 +2624,7 @@ class _LyricsSectionState extends ConsumerState<_LyricsSection> {
                 spacing: Gap.md,
                 runSpacing: Gap.xs,
                 children: [
-                  if (pickButton != null) pickButton,
+                  ?pickButton,
                   searchButton,
                 ],
               ),

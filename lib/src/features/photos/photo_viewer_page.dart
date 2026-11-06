@@ -1366,7 +1366,7 @@ class _OriginalPhoto extends ConsumerWidget {
           fit: BoxFit.contain,
           gaplessPlayback: true,
           cacheWidth: req.decodeWidth,
-          errorBuilder: (_, __, ___) => PhotoFormatFallback(
+          errorBuilder: (_, _, _) => PhotoFormatFallback(
             filename: item.filename,
             onDownload: onDownload,
             onOpenExternal: onOpenExternal,

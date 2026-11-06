@@ -19,7 +19,7 @@ import 'dart:convert';
 import 'dart:io';
 
 final HttpClient _client = HttpClient()
-  ..badCertificateCallback = (_, __, ___) => true;
+  ..badCertificateCallback = (_, _, _) => true;
 
 late String _base;
 String _sid = '';

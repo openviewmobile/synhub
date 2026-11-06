@@ -1054,7 +1054,7 @@ class _MediaAudioStageState extends ConsumerState<MediaAudioStage> {
           children: [
             title,
             const Spacer(),
-            if (trailing != null) trailing,
+            ?trailing,
           ],
         ),
         // 判据取**屏上正在显示的那一份**（`result`），不是"最近搜到的"：

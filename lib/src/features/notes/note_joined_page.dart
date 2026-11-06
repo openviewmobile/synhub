@@ -35,7 +35,7 @@ class NoteJoinedPage extends ConsumerWidget {
       appBar: AppBar(title: Text(noteB(NoteBTextKeys.joined, '共享给我'))),
       body: joined.when(
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (e, __) => AppErrorView(
+        error: (e, _) => AppErrorView(
           title: noteB(NoteBTextKeys.joined, '共享给我'),
           detail: describeNoteError(e, context.t),
           onRetry: () => ref.invalidate(noteJoinedProvider),
@@ -116,7 +116,7 @@ class NoteJoinedNotebookPage extends ConsumerWidget {
       appBar: AppBar(title: Text(notebook.displayTitle)),
       body: all.when(
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (e, __) => AppErrorView(
+        error: (e, _) => AppErrorView(
           title: notebook.displayTitle,
           detail: describeNoteError(e, context.t),
           onRetry: () => ref.invalidate(noteListProvider),
@@ -135,7 +135,7 @@ class NoteJoinedNotebookPage extends ConsumerWidget {
           }
           return ListView.separated(
             itemCount: rows.length,
-            separatorBuilder: (_, __) => Divider(height: 1, color: hud.line),
+            separatorBuilder: (_, _) => Divider(height: 1, color: hud.line),
             itemBuilder: (context, i) {
               final note = rows[i];
               return NoteRow(

@@ -57,7 +57,7 @@ class AudioRecentlyAddedPage extends ConsumerWidget {
             key: const Key('as-recently-added-list'),
             padding: const EdgeInsets.only(top: Gap.sm, bottom: Gap.xxl),
             itemCount: page.items.length,
-            separatorBuilder: (_, __) => const SizedBox(height: 2),
+            separatorBuilder: (_, _) => const SizedBox(height: 2),
             itemBuilder: (context, i) {
               final album = page.items[i];
               return DesignRowTile(
@@ -149,7 +149,7 @@ class AudioRandom100Page extends ConsumerWidget {
             key: const Key('as-random-100-list'),
             padding: const EdgeInsets.only(top: Gap.sm, bottom: Gap.xxl),
             itemCount: songs.length,
-            separatorBuilder: (_, __) => const SizedBox(height: 2),
+            separatorBuilder: (_, _) => const SizedBox(height: 2),
             itemBuilder: (context, i) => AudioSongTile(
               key: Key('as-random-song-${songs[i].id}'),
               song: songs[i],
@@ -201,7 +201,7 @@ class AudioPlayedPage extends ConsumerWidget {
               key: Key('as-played-list-${mode.name}'),
               padding: const EdgeInsets.only(top: Gap.sm, bottom: Gap.xxl),
               itemCount: records.length,
-              separatorBuilder: (_, __) => const SizedBox(height: 2),
+              separatorBuilder: (_, _) => const SizedBox(height: 2),
               itemBuilder: (context, i) => _PlayedTile(record: records[i]),
             ),
     );

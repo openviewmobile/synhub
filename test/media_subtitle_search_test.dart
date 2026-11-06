@@ -255,7 +255,7 @@ void main() {
 ]}''';
 
     test('匿名 + 只要 en → languages=en，结果按下载量排序', () async {
-      final http = FakeSubtitleHttp((_, __) async => _res(200, searchBody()));
+      final http = FakeSubtitleHttp((_, _) async => _res(200, searchBody()));
       final source = OpenSubtitlesSource(http: http);
       final hits = await source.search(
         const SubtitleSearchQuery(
@@ -272,7 +272,7 @@ void main() {
     });
 
     test('要中文 → languages=all 并在客户端过滤；多段如实标注', () async {
-      final http = FakeSubtitleHttp((_, __) async => _res(200, searchBody()));
+      final http = FakeSubtitleHttp((_, _) async => _res(200, searchBody()));
       final source = OpenSubtitlesSource(http: http);
       final hits = await source.search(
         const SubtitleSearchQuery(
@@ -288,7 +288,7 @@ void main() {
     });
 
     test('有 hash → 带 moviehash 参数（哈希匹配走同一条搜索）', () async {
-      final http = FakeSubtitleHttp((_, __) async => _res(200, searchBody()));
+      final http = FakeSubtitleHttp((_, _) async => _res(200, searchBody()));
       final source = OpenSubtitlesSource(http: http);
       await source.search(
         const SubtitleSearchQuery(
@@ -302,7 +302,7 @@ void main() {
 
     test('403 且没填 key → keyMissing（界面据此提示填密钥）', () async {
       final http = FakeSubtitleHttp(
-        (_, __) async =>
+        (_, _) async =>
             _res(403, '{"message":"You cannot consume this service"}'),
       );
       final source = OpenSubtitlesSource(http: http);
@@ -319,7 +319,7 @@ void main() {
     });
 
     test('403 且填了 key → keyRejected；Api-Key 头真的发出去了', () async {
-      final http = FakeSubtitleHttp((_, __) async => _res(403, '{}'));
+      final http = FakeSubtitleHttp((_, _) async => _res(403, '{}'));
       final source = OpenSubtitlesSource(http: http);
       await expectLater(
         source.search(
@@ -339,7 +339,7 @@ void main() {
 
     test('503 → rateLimited；非 JSON → badResponse', () async {
       final http503 = FakeSubtitleHttp(
-        (_, __) async => _res(503, '{"message":"Service unavailable"}'),
+        (_, _) async => _res(503, '{"message":"Service unavailable"}'),
       );
       await expectLater(
         OpenSubtitlesSource(http: http503).search(
@@ -355,7 +355,7 @@ void main() {
       );
 
       final httpHtml = FakeSubtitleHttp(
-        (_, __) async => _res(200, '<html>nope</html>', ct: 'text/html'),
+        (_, _) async => _res(200, '<html>nope</html>', ct: 'text/html'),
       );
       await expectLater(
         OpenSubtitlesSource(http: httpHtml).search(
@@ -374,7 +374,7 @@ void main() {
     test('下载走 dl.opensubtitles.org/en/download/sub/<legacy>，zip 里取 srt', () async {
       final zip = _zipWith(files: {'Inception.nfo': 'x', 'Inception.srt': _sampleSrt});
       final http = FakeSubtitleHttp(
-        (_, __) async => SubtitleHttpResponse(
+        (_, _) async => SubtitleHttpResponse(
           statusCode: 200,
           body: Uint8List.fromList(zip),
           contentType: 'application/zip',
@@ -433,7 +433,7 @@ void main() {
     String restBody(List<String> rows) => '[${rows.join(',')}]';
 
     test('① 请求契约：路径**全小写**、`+` 连接、没有点/空格（大写会撞那条坏 302）', () async {
-      final http = FakeSubtitleHttp((_, __) async => _res(200, '[]'));
+      final http = FakeSubtitleHttp((_, _) async => _res(200, '[]'));
       await OpenSubtitlesRestSource(http: http).search(
         const SubtitleSearchQuery(
           fileName: 'Inception.2010.1080p.BluRay.x264.mp4',
@@ -458,7 +458,7 @@ void main() {
     });
 
     test('② 中文优先档 → chi/zhe/zht/eng 各一次（去重、保序、每语言一次请求）', () async {
-      final http = FakeSubtitleHttp((_, __) async => _res(200, '[]'));
+      final http = FakeSubtitleHttp((_, _) async => _res(200, '[]'));
       await OpenSubtitlesRestSource(http: http).search(
         const SubtitleSearchQuery(
           fileName: 'Inception.mp4',
@@ -480,7 +480,7 @@ void main() {
     test('③ 解析：chi→zh-cn / zht→zh-tw、按下载量排序、字段照实带回', () async {
       // 假 HTTP 按**请求里那个 legacy 语言码**回包 —— 真实端点就是按 sublanguageid
       // 过滤后再回的（所以"混合语言"场景在生产里不会出现，这里不伪造它）。
-      final http = FakeSubtitleHttp((uri, __) async {
+      final http = FakeSubtitleHttp((uri, _) async {
         final code = uri.pathSegments.last.replaceFirst('sublanguageid-', '');
         if (code == 'chi') {
           return _res(
@@ -518,7 +518,7 @@ void main() {
     });
 
     test('③-b 排序与上限：中文命中先排，每源最多 40 条（英文太多不许把中文挤掉）', () async {
-      final http = FakeSubtitleHttp((uri, __) async {
+      final http = FakeSubtitleHttp((uri, _) async {
         final code = uri.pathSegments.last.replaceFirst('sublanguageid-', '');
         if (code == 'chi') {
           return _res(200, restBody([
@@ -549,7 +549,7 @@ void main() {
       //   `service.sourceById(hit.sourceId)` 返回 null ⇒ 界面报
       //   「这个源已经不可用了（OpenSubtitles REST）」。宿主用例当时没做这条往返。
       final service = SubtitleSearchService.defaults(
-        http: FakeSubtitleHttp((uri, __) async {
+        http: FakeSubtitleHttp((uri, _) async {
           if (!uri.host.startsWith('rest.')) return _res(200, '{}');
           final code = uri.pathSegments.last.replaceFirst('sublanguageid-', '');
           if (code != 'chi') return _res(200, '[]');
@@ -574,7 +574,7 @@ void main() {
 
     test('④ 剧集：路径只带 `season-`，集号在**客户端**过滤（`episode-` 会 302）', () async {
       final http = FakeSubtitleHttp(
-        (_, __) async => _res(
+        (_, _) async => _res(
           200,
           restBody([
             restRow(id: 'e1', name: 'Breaking.Bad.S01E01.chs.srt', season: 1, episode: 1),
@@ -601,7 +601,7 @@ void main() {
 
     test('⑤ 302 / 404 都当"这个语言没结果"，**不是**失败（别把界面吓成网络错）', () async {
       for (final code in [302, 404]) {
-        final http = FakeSubtitleHttp((_, __) async => _res(code, ''));
+        final http = FakeSubtitleHttp((_, _) async => _res(code, ''));
         final hits = await OpenSubtitlesRestSource(http: http).search(
           const SubtitleSearchQuery(fileName: 'Inception.mp4', languages: ['zh-cn']),
         );
@@ -610,7 +610,7 @@ void main() {
     });
 
     test('⑥ 500 → badResponse 带状态码；推不出片名 → unsupported', () async {
-      final http500 = FakeSubtitleHttp((_, __) async => _res(500, 'boom'));
+      final http500 = FakeSubtitleHttp((_, _) async => _res(500, 'boom'));
       await expectLater(
         OpenSubtitlesRestSource(http: http500).search(
           const SubtitleSearchQuery(fileName: 'Inception.mp4', languages: ['zh-cn']),
@@ -622,7 +622,7 @@ void main() {
         ),
       );
 
-      final httpOk = FakeSubtitleHttp((_, __) async => _res(200, '[]'));
+      final httpOk = FakeSubtitleHttp((_, _) async => _res(200, '[]'));
       await expectLater(
         OpenSubtitlesRestSource(http: httpOk).search(
           // 只有分隔符、没有字母数字 ⇒ 真的推不出片名
@@ -644,7 +644,7 @@ void main() {
     test('⑦ 下载：裸 gzip（`.gz`，不是 zip）要自己解，解出真 srt；文件名用回源文件名', () async {
       final gz = gzip.encode(utf8.encode(_sampleSrt));
       final http = FakeSubtitleHttp(
-        (_, __) async => SubtitleHttpResponse(
+        (_, _) async => SubtitleHttpResponse(
           statusCode: 200,
           body: Uint8List.fromList(gz),
           contentType: 'application/force-download',
@@ -673,7 +673,7 @@ void main() {
     });
 
     test('⑧ 没有下载地址 / 下载口 500 → 都如实报错（不静默）', () async {
-      final http = FakeSubtitleHttp((_, __) async => _res(500, 'boom'));
+      final http = FakeSubtitleHttp((_, _) async => _res(500, 'boom'));
       const bare = SubtitleSearchHit(
         sourceId: 'opensubtitles-rest',
         sourceLabel: 'OpenSubtitles REST',
@@ -749,7 +749,7 @@ void main() {
     });
 
     test('电影文件名（没有季集）→ unsupported，不发请求', () async {
-      final http = FakeSubtitleHttp((_, __) async => _res(200, '{}'));
+      final http = FakeSubtitleHttp((_, _) async => _res(200, '{}'));
       await expectLater(
         GestdownSource(http: http).search(
           const SubtitleSearchQuery(fileName: 'Inception.2010.mp4'),
@@ -783,7 +783,7 @@ void main() {
 
     test('下载：downloadUri 拼到 base 上，正文就是 srt', () async {
       final http = FakeSubtitleHttp(
-        (_, __) => Future.value(
+        (_, _) => Future.value(
           _res(200, _sampleSrt, ct: 'text/srt'),
         ),
       );
@@ -931,7 +931,7 @@ void main() {
     test('fetchAndStore：下载一次到位，返回落盘名', () async {
       final zip = _zipWith(files: {'Inception.srt': _sampleSrt});
       final http = FakeSubtitleHttp(
-        (_, __) async => SubtitleHttpResponse(
+        (_, _) async => SubtitleHttpResponse(
           statusCode: 200,
           body: Uint8List.fromList(zip),
           contentType: 'application/zip',
@@ -961,7 +961,7 @@ void main() {
   group('默认源集合', () {
     test('默认三个源、id 稳定、各自的能力声明如实', () {
       final service = SubtitleSearchService.defaults(
-        http: FakeSubtitleHttp((_, __) async => _res(200, '{}')),
+        http: FakeSubtitleHttp((_, _) async => _res(200, '{}')),
       );
       expect(service.sources.map((s) => s.id), [
         'opensubtitles',

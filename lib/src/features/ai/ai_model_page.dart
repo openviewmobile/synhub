@@ -221,7 +221,7 @@ class _AiModelPageState extends ConsumerState<AiModelPage> {
               title: readiness.when(
                 data: (s) => _statusTitle(context.t, tier, s),
                 loading: () => context.t.aiChecking,
-                error: (e, __) => context.t.aiCheckFailed(userFacingError(e)),
+                error: (e, _) => context.t.aiCheckFailed(userFacingError(e)),
               ),
               body: readiness.maybeWhen(
                 data: (s) => s.readiness == AiReadiness.ready

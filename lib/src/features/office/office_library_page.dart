@@ -485,7 +485,7 @@ class OfficeVersionsReadOnlyPage extends ConsumerWidget {
             key: Key('office-versions-readonly-loading'),
             child: CircularProgressIndicator(),
           ),
-          error: (e, __) => Center(
+          error: (e, _) => Center(
             key: const Key('office-versions-readonly-error'),
             child: Padding(
               padding: const EdgeInsets.all(Gap.lg),

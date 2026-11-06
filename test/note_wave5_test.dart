@@ -217,7 +217,7 @@ Map<String, dynamic> _noteJson({
   'brief': 'brief-$id',
   'mtime': mtime,
   'ctime': ctime,
-  if (sourceUrl != null) 'source_url': sourceUrl,
+  'source_url': ?sourceUrl,
   'tag': tags,
   'recycle': recycle,
   'encrypt': encrypt,

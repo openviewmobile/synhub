@@ -108,7 +108,7 @@ void _mainDelivery() {
 
     test('没取到（null）/ 空字节 ⇒ 不调用 attach（不假装有封面）', () async {
       var calls = 0;
-      Future<void> attach(String _, Uint8List __) async => calls++;
+      Future<void> attach(String _, Uint8List _) async => calls++;
       await deliverCoverBytesToHandler(
         mediaId: 'm',
         load: () async => null,
@@ -127,7 +127,7 @@ void _mainDelivery() {
       await deliverCoverBytesToHandler(
         mediaId: 'm',
         load: () async => throw StateError('network down'),
-        attach: (_, __) async => calls++,
+        attach: (_, _) async => calls++,
       );
       expect(calls, 0);
     });

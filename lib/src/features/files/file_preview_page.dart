@@ -472,7 +472,7 @@ class _FilePreviewPageState extends ConsumerState<FilePreviewPage> {
         // （`onCurrentSourceChanged` 回填 `_playingMedia`）。
         title: ValueListenableBuilder<MediaSource?>(
           valueListenable: _playingMedia,
-          builder: (_, playing, __) {
+          builder: (_, playing, _) {
             // ★ r645（**DA244**，真机 2026-10-23）：在播时顶栏把**容器格式**当成了
             //   标题和副标题：标题是 `60招基础街球S01E01.AVI`（扩展名占掉 4 个字，
             //   真正想看的名字在 `A…` 处就被截断），第二行整整一行只写 `AVI`。
@@ -963,7 +963,7 @@ class _ImageStageState extends ConsumerState<_ImageStage> {
                 child: CircularProgressIndicator(strokeWidth: 2),
               ),
             ),
-            error: (err, __) => _PreviewError(
+            error: (err, _) => _PreviewError(
               detail: describeFileError(err),
               onRetry: () => ref.invalidate(
                 fileBytesProvider(
@@ -980,7 +980,7 @@ class _ImageStageState extends ConsumerState<_ImageStage> {
                         Uint8List.fromList(bytes),
                         fit: BoxFit.contain,
                         gaplessPlayback: true,
-                        errorBuilder: (_, __, ___) => Center(
+                        errorBuilder: (_, _, _) => Center(
                           child: Text(context.t.fileImageDecodeFailed),
                         ),
                       ),
@@ -1087,7 +1087,7 @@ class _TextStage extends ConsumerWidget {
 
     return head.when(
       loading: () => const Center(child: CircularProgressIndicator()),
-      error: (err, __) => _PreviewError(
+      error: (err, _) => _PreviewError(
         detail: describeFileError(err),
         onRetry: () => ref.invalidate(fileBytesProvider(req)),
       ),
@@ -1187,7 +1187,7 @@ class _OfficeStage extends ConsumerWidget {
     final text = ref.watch(officeExtractProvider(link));
     return text.when(
       loading: () => const Center(child: CircularProgressIndicator()),
-      error: (err, __) => _PreviewError(
+      error: (err, _) => _PreviewError(
         detail:
             '${describeFileError(err)}\n'
             '${context.t.fileOfficeExtractHint}',
@@ -1307,7 +1307,7 @@ class _XlsxStage extends ConsumerWidget {
     final async = ref.watch(fileBytesProvider(req));
     return async.when(
       loading: () => const Center(child: CircularProgressIndicator()),
-      error: (e, __) => _BookLikeHint(
+      error: (e, _) => _BookLikeHint(
         icon: Icons.error_outline,
         title: t.bookOpenFailed,
         detail: describeFileError(e),

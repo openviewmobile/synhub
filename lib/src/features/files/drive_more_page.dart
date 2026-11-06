@@ -397,7 +397,7 @@ class _LabelsSection extends ConsumerWidget {
         Expanded(
           child: async.when(
             loading: () => const Center(child: CircularProgressIndicator()),
-            error: (e, __) => AppEmptyState(
+            error: (e, _) => AppEmptyState(
               icon: Icons.error_outline,
               title: t.driveLabelsLoadFailed,
               message: describeFileError(e),
@@ -413,7 +413,7 @@ class _LabelsSection extends ConsumerWidget {
                 : ListView.separated(
                     padding: const EdgeInsets.only(bottom: Gap.xl),
                     itemCount: labels.length,
-                    separatorBuilder: (_, __) => Divider(
+                    separatorBuilder: (_, _) => Divider(
                       height: 1,
                       color: hud.dim.withValues(alpha: 0.12),
                     ),
@@ -510,7 +510,7 @@ class _TrashSection extends ConsumerWidget {
         Expanded(
           child: async.when(
             loading: () => const Center(child: CircularProgressIndicator()),
-            error: (e, __) => AppEmptyState(
+            error: (e, _) => AppEmptyState(
               icon: Icons.error_outline,
               title: t.noteOpenRecycleFailed,
               message: describeFileError(e),
@@ -526,7 +526,7 @@ class _TrashSection extends ConsumerWidget {
                 : ListView.separated(
                     padding: const EdgeInsets.only(bottom: Gap.xl),
                     itemCount: data.items.length,
-                    separatorBuilder: (_, __) => Divider(
+                    separatorBuilder: (_, _) => Divider(
                       height: 1,
                       color: hud.dim.withValues(alpha: 0.12),
                     ),
@@ -662,7 +662,7 @@ class _SimpleListSection extends ConsumerWidget {
       loading: () => const Center(child: CircularProgressIndicator()),
       // 降级：105/160（无权限）与 102/103（服务端没有该方法）都**不让整页塌**，
       // 只在这段里说明原因；其余错误照常走 describeFileError。
-      error: (e, __) {
+      error: (e, _) {
         final gate = driveEntryGate(e);
         final gated = gate != DriveEntryGate.available;
         return AppEmptyState(
@@ -678,7 +678,7 @@ class _SimpleListSection extends ConsumerWidget {
           : ListView.separated(
               padding: const EdgeInsets.only(bottom: Gap.xl),
               itemCount: data.items.length,
-              separatorBuilder: (_, __) => const SizedBox(height: Gap.xs),
+              separatorBuilder: (_, _) => const SizedBox(height: Gap.xs),
               itemBuilder: (context, i) => _DriveMoreRow(entry: data.items[i]),
             ),
     );

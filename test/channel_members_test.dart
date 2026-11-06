@@ -329,7 +329,7 @@ void main() {
         routes: [
           GoRoute(
             path: '/members',
-            builder: (_, __) => const ChannelMembersPage(channelId: 50),
+            builder: (_, _) => const ChannelMembersPage(channelId: 50),
           ),
           GoRoute(
             path: '/chat/:channelId',

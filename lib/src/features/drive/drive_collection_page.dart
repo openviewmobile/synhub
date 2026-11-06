@@ -86,7 +86,7 @@ class _DriveCollectionPageState extends ConsumerState<DriveCollectionPage> {
                 child: async.when(
                   loading: () =>
                       const Center(child: CircularProgressIndicator()),
-                  error: (e, __) => AppEmptyState(
+                  error: (e, _) => AppEmptyState(
                     icon: Icons.error_outline,
                     title: driveCollection(
                       DriveCollectionTextKeys.loadFailed,
@@ -112,7 +112,7 @@ class _DriveCollectionPageState extends ConsumerState<DriveCollectionPage> {
                       : ListView.separated(
                           padding: const EdgeInsets.only(bottom: Gap.xl),
                           itemCount: items.length,
-                          separatorBuilder: (_, __) => Divider(
+                          separatorBuilder: (_, _) => Divider(
                             height: 1,
                             color: hud.dim.withValues(alpha: 0.12),
                           ),
@@ -210,7 +210,7 @@ class _TypeFilter extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         padding: const EdgeInsets.symmetric(horizontal: Gap.md),
         itemCount: items.length,
-        separatorBuilder: (_, __) => const SizedBox(width: Gap.sm),
+        separatorBuilder: (_, _) => const SizedBox(width: Gap.sm),
         itemBuilder: (context, i) {
           final (value, label) = items[i];
           return Center(
@@ -436,7 +436,7 @@ class DriveCollectionFilesPage extends ConsumerWidget {
                 child: async.when(
                   loading: () =>
                       const Center(child: CircularProgressIndicator()),
-                  error: (e, __) => AppEmptyState(
+                  error: (e, _) => AppEmptyState(
                     icon: Icons.error_outline,
                     title: driveCollection(
                       DriveCollectionTextKeys.filesLoadFailed,
@@ -463,7 +463,7 @@ class DriveCollectionFilesPage extends ConsumerWidget {
                       : ListView.separated(
                           padding: const EdgeInsets.only(bottom: Gap.xl),
                           itemCount: data.items.length,
-                          separatorBuilder: (_, __) => Divider(
+                          separatorBuilder: (_, _) => Divider(
                             height: 1,
                             color: hud.dim.withValues(alpha: 0.12),
                           ),

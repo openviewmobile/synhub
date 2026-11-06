@@ -69,7 +69,7 @@ class UsbDevicesPage extends ConsumerWidget {
                 child: async.when(
                   loading: () =>
                       const Center(child: CircularProgressIndicator()),
-                  error: (e, __) => AppEmptyState(
+                  error: (e, _) => AppEmptyState(
                     icon: Icons.usb_off_outlined,
                     title: fsG4(
                       FsG4TextKeys.usbLoadFailed,

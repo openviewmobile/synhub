@@ -713,7 +713,7 @@ class _TimelineViewModeBar extends ConsumerWidget {
                       // `centerLeft`：Stack 形状、淡入/上滑动画、高度都不变。
                       layoutBuilder: (current, previous) => Stack(
                         alignment: Alignment.centerLeft,
-                        children: [...previous, if (current != null) current],
+                        children: [...previous, ?current],
                       ),
                       transitionBuilder: (child, animation) => FadeTransition(
                         opacity: animation,
@@ -1465,7 +1465,7 @@ class _FoldersView extends ConsumerWidget {
       builder: (folders) => ListView.separated(
         padding: const EdgeInsets.all(Gap.md),
         itemCount: folders.length,
-        separatorBuilder: (_, __) => const SizedBox(height: Gap.sm),
+        separatorBuilder: (_, _) => const SizedBox(height: Gap.sm),
         itemBuilder: (context, i) {
           final f = folders[i];
           return _FolderRow(
@@ -2910,7 +2910,7 @@ class _PhotoFolderPageState extends ConsumerState<PhotoFolderPage> {
                         ),
                       ),
                     ],
-                    error: (e, __) => [
+                    error: (e, _) => [
                       SliverToBoxAdapter(
                         child: Padding(
                           padding: const EdgeInsets.all(Gap.md),
@@ -2962,7 +2962,7 @@ class _PhotoFolderPageState extends ConsumerState<PhotoFolderPage> {
                         child: Center(child: CircularProgressIndicator()),
                       ),
                     ),
-                    error: (e, __) => SliverToBoxAdapter(
+                    error: (e, _) => SliverToBoxAdapter(
                       child: Padding(
                         padding: const EdgeInsets.all(Gap.md),
                         child: Text(

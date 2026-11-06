@@ -1130,8 +1130,8 @@ class _NodeRenderer {
         TextSpan(
           style: baseStyle,
           children: [
-            if (leadingIndent != null) leadingIndent,
-            if (prefix != null) prefix,
+            ?leadingIndent,
+            ?prefix,
             ...spans,
           ],
         ),

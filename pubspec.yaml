@@ -62,11 +62,11 @@ dependencies:
   #   按"钉住"的规矩在这里显式声明 3.6.0。
   sqlite3: 3.6.0
   drift_flutter: ^0.3.1
-  file_picker: ^13.1.0
+  file_picker: ^13.3.2
   image_picker: ^1.2.3
   url_launcher: ^6.3.2
   webview_flutter: ^4.9.0
-  open_filex: ^4.7.0
+  open_filex: ^5.0.0
   http_parser: ^4.1.2
   path_provider: ^2.1.6
   # `path`：拼接/取 basename（端侧模型保管库要拼 Android/media 目录）。
@@ -86,7 +86,7 @@ dependencies:
   image: 4.10.1
   local_auth: ^3.0.2
   meta: ^1.19.0
-  dynamic_color: ^1.7.0
+  dynamic_color: ^1.9.0
   flutter_quill: ^11.6.0
   html: ^0.15.7
   pdfx: ^2.11.0
@@ -99,7 +99,7 @@ dependencies:
   #   `.osheet` = 标准 XLSX（xl/worksheets/sheet1.xml 含 <cols> 列宽 + 单元格 s= 样式索引）
   #   `.oslides` = 标准 PPTX（ppt/slides/slideN.xml + slideLayouts + slideMasters）
   # 见 `docs/ooxml-ground-truth.md`。这是对齐 WPS/MS Office 显示效果的正确路径。
-  xml: ^6.5.0
+  xml: ^7.1.0
   markdown: ^7.3.1
   flutter_gemma: ^1.8.3
   flutter_gemma_litertlm: ^1.6.4
@@ -155,7 +155,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^5.0.0
+  flutter_lints: ^6.0.0
 
   # 视频/图片选择器的**真实 seam**：`ImagePicker().pickVideo()` 最终落到
   # `ImagePickerPlatform.instance.getVideo(...)`。`test/chat_video_picker_seam_mock_test.dart`
@@ -176,6 +176,8 @@ dev_dependencies:
 # (pub.flutter-io.cn) 目前只同步到 code_assets 2.0.0，会让 `flutter test` /
 # `dart run` 在编译 hook 阶段直接失败。这里固定在不需要 objective_c 的 2.4.x。
 # 镜像同步到 code_assets 2.1.0 后即可删掉这条 override。
+  vm_service: any
+  crypto: any
 dependency_overrides:
   path_provider_foundation: 2.4.3
   drift_dev: ^2.35.0

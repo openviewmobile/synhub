@@ -36,8 +36,8 @@ Future<ChatHarness> _bootOwnPost({
 }) async {
   final h = await bootChat(
     extra: {
-      if (settings != null) 'SYNO.Chat.Admin.Setting.get': settings,
-      if (readStatus != null) 'SYNO.Chat.Post.get_read_status': readStatus,
+      'SYNO.Chat.Admin.Setting.get': ?settings,
+      'SYNO.Chat.Post.get_read_status': ?readStatus,
     },
   );
   if (failReadStatus) {

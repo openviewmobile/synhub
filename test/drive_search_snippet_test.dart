@@ -63,7 +63,7 @@ void main() {
                 'name': name,
                 'type': 'file',
                 'size': 100,
-                if (snippet != null) 'content_snippet': snippet,
+                'content_snippet': ?snippet,
               },
             ],
           },

@@ -57,7 +57,7 @@ Map<String, dynamic> _itemJson(String id, {int? rating}) => {
   'type': 'photo',
   'additional': {
     'thumbnail': {'sm': 'sm_$id', 'm': 'm_$id', 'cache_key': 'ck'},
-    if (rating != null) 'rating': rating,
+    'rating': ?rating,
   },
 };
 

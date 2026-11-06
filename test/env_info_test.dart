@@ -346,12 +346,12 @@ void main() {
             },
           };
         },
-        '/stations': (_, __) => {
+        '/stations': (_, _) => {
           'features': [
             {'id': '$_stubUrl/stations/KNYC'},
           ],
         },
-        '/stations/KNYC/observations/latest': (_, __) => {
+        '/stations/KNYC/observations/latest': (_, _) => {
           'properties': {
             'timestamp': '2026-09-19T14:00:00+00:00',
             'temperature': {'unitCode': 'wmoUnit:degC', 'value': 17.8},
@@ -363,7 +363,7 @@ void main() {
             'textDescription': 'Mostly Cloudy',
           },
         },
-        '/forecast/x': (_, __) => {
+        '/forecast/x': (_, _) => {
           'properties': {
             'periods': [
               {
@@ -521,7 +521,7 @@ void main() {
 
     test('和风：没 key 直接报人话错误（不发请求）', () async {
       final stub = _Stub({
-        '/v7/weather': (_, __) => {'code': '200'},
+        '/v7/weather': (_, _) => {'code': '200'},
       });
       await stub.start();
       addTearDown(stub.stop);
@@ -567,7 +567,7 @@ void main() {
             },
           };
         },
-        '/v7/weather/7d': (_, __) => {
+        '/v7/weather/7d': (_, _) => {
           'code': '200',
           'daily': [
             {
@@ -602,7 +602,7 @@ void main() {
     test('HTTP 错误 → 人话（含状态码）', () async {
       final stub = _Stub(
         {
-          '/v1/forecast': (_, __) => {'error': 'rate limited'},
+          '/v1/forecast': (_, _) => {'error': 'rate limited'},
         },
         statuses: {'/v1/forecast': 429},
       );
@@ -648,7 +648,7 @@ void main() {
 
     test('逐小时：open-meteo 的**平行数组**（time[] + 每字段一个数组）', () async {
       final stub = _Stub({
-        '/v1/forecast': (uri, __) {
+        '/v1/forecast': (uri, _) {
           // 必须真的把 `hourly=…` 带上，否则线上不会回逐小时
           expect(uri.queryParameters['hourly'], contains('temperature_2m'));
           expect(
@@ -704,7 +704,7 @@ void main() {
 
     test('逐小时：wttr 的 `time` 是 3 小时一格的 `"0"`/`"300"`（HHMM）', () async {
       final stub = _Stub({
-        '/39.900,116.400': (_, __) => {
+        '/39.900,116.400': (_, _) => {
           'current_condition': [
             {'temp_C': '24', 'weatherCode': '116', 'humidity': '40'},
           ],
@@ -763,7 +763,7 @@ void main() {
 
     test('逐小时：met.no 的 timeseries 直接就是 1 小时一格', () async {
       final stub = _Stub({
-        '/weatherapi/locationforecast/2.0/compact': (_, __) => {
+        '/weatherapi/locationforecast/2.0/compact': (_, _) => {
           'properties': {
             'timeseries': [
               {
@@ -818,13 +818,13 @@ void main() {
 
     test('逐小时：NWS 要另取 `forecastHourly`（第二次请求，失败不致命）', () async {
       final stub = _Stub({
-        '/points/': (_, __) => {
+        '/points/': (_, _) => {
           'properties': {
             'forecast': '$_stubUrl/hf',
             'forecastHourly': '$_stubUrl/hourly',
           },
         },
-        '/hf': (_, __) => {
+        '/hf': (_, _) => {
           'properties': {
             'periods': [
               {
@@ -837,7 +837,7 @@ void main() {
             ],
           },
         },
-        '/hourly': (_, __) => {
+        '/hourly': (_, _) => {
           'properties': {
             'periods': [
               {
@@ -884,11 +884,11 @@ void main() {
 
     test('逐小时：和风的 `/v7/weather/24h`（`hourly[]` 带 pop）', () async {
       final stub = _Stub({
-        '/v7/weather/now': (_, __) => {
+        '/v7/weather/now': (_, _) => {
           'code': '200',
           'now': {'temp': '24', 'icon': '100'},
         },
-        '/v7/weather/7d': (_, __) => {
+        '/v7/weather/7d': (_, _) => {
           'code': '200',
           'daily': [
             {
@@ -899,7 +899,7 @@ void main() {
             },
           ],
         },
-        '/v7/weather/24h': (_, __) => {
+        '/v7/weather/24h': (_, _) => {
           'code': '200',
           'hourly': [
             {
@@ -944,7 +944,7 @@ void main() {
   group('节假日', () {
     test('Nager：解析 localName / types / counties；204 → 空', () async {
       final stub = _Stub({
-        '/PublicHolidays/2026/DE': (_, __) => [
+        '/PublicHolidays/2026/DE': (_, _) => [
           {
             'date': '2026-01-01',
             'localName': 'Neujahr',
@@ -965,7 +965,7 @@ void main() {
             'types': ['Observance'],
           },
         ],
-        '/PublicHolidays/2026/TW': (_, __) => null, // 204：不支持
+        '/PublicHolidays/2026/TW': (_, _) => null, // 204：不支持
       });
       await stub.start();
       addTearDown(stub.stop);
@@ -1073,7 +1073,7 @@ void main() {
 
     test('中国大陆：本地官方表优先，网络源同一天的法定条目让位', () async {
       final stub = _Stub({
-        '/PublicHolidays/2026/CN': (_, __) => [
+        '/PublicHolidays/2026/CN': (_, _) => [
           {
             'date': '2026-10-01',
             'localName': 'National Day',
@@ -1138,7 +1138,7 @@ void main() {
 
     test('非华人地区不塞农历节日', () async {
       final stub = _Stub({
-        '/PublicHolidays/2026/FR': (_, __) => [
+        '/PublicHolidays/2026/FR': (_, _) => [
           {
             'date': '2026-01-01',
             'localName': 'Jour de l\'an',
@@ -1157,7 +1157,7 @@ void main() {
     test('缓存：第二次不再发请求；forceRefresh 会重发', () async {
       var calls = 0;
       final stub = _Stub({
-        '/PublicHolidays/2026/US': (_, __) {
+        '/PublicHolidays/2026/US': (_, _) {
           calls++;
           return [
             {
@@ -1180,7 +1180,7 @@ void main() {
 
     test('一个源挂了不影响另一个（说明里如实写）', () async {
       final stub = _Stub({
-        '/PublicHolidays': (_, __) => [
+        '/PublicHolidays': (_, _) => [
           {
             'startDate': '2026-05-01',
             'type': 'Public',
@@ -1277,7 +1277,7 @@ void main() {
   group('地理编码', () {
     test('Open-Meteo 命不中就退 Nominatim（中文地名实测 Open-Meteo 回空）', () async {
       final stub = _Stub({
-        '/v1/search': (_, __) => {'results': <Object?>[]},
+        '/v1/search': (_, _) => {'results': <Object?>[]},
         '/search': (uri, headers) {
           expect(headers['user-agent'], contains('SynHub'));
           return [

@@ -260,7 +260,7 @@ class _NoteDrawingPageState extends ConsumerState<NoteDrawingPage> {
                         painter: _NoteDrawingPainter(
                           strokes: [
                             ..._model.strokes,
-                            if (live != null) live,
+                            ?live,
                           ],
                           background: _background,
                         ),

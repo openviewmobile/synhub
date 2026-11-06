@@ -106,9 +106,9 @@ Map<String, dynamic> _person(
   'id': id,
   'name': name,
   'item_count': count,
-  if (show != null) 'show': show,
-  if (cover != null) 'cover': cover,
-  if (additional != null) 'additional': additional,
+  'show': ?show,
+  'cover': ?cover,
+  'additional': ?additional,
 };
 
 /// 场景/主题条目（与 `_person` 同形：`id` / `name` / `item_count` / `cover`）。
@@ -121,7 +121,7 @@ Map<String, dynamic> _concept(
   'id': id,
   'name': name,
   'item_count': count,
-  if (cover != null) 'cover': cover,
+  'cover': ?cover,
 };
 
 /// 最后一次打到某个大 api 的调用。

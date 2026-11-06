@@ -46,7 +46,7 @@ class DriveTeamMembersPage extends ConsumerWidget {
                 child: async.when(
                   loading: () =>
                       const Center(child: CircularProgressIndicator()),
-                  error: (e, __) => AppEmptyState(
+                  error: (e, _) => AppEmptyState(
                     icon: Icons.error_outline,
                     title: t.driveListOpenFailed,
                     message: describeFileError(e),
@@ -82,7 +82,7 @@ class DriveTeamMembersPage extends ConsumerWidget {
                               child: ListView.separated(
                                 padding: const EdgeInsets.only(bottom: Gap.xl),
                                 itemCount: data.items.length,
-                                separatorBuilder: (_, __) => Divider(
+                                separatorBuilder: (_, _) => Divider(
                                   height: 1,
                                   color: hud.dim.withValues(alpha: 0.12),
                                 ),
@@ -160,7 +160,7 @@ class DriveTeamMemberListPage extends ConsumerWidget {
                 child: async.when(
                   loading: () =>
                       const Center(child: CircularProgressIndicator()),
-                  error: (e, __) => AppEmptyState(
+                  error: (e, _) => AppEmptyState(
                     icon: Icons.error_outline,
                     title: t.driveListOpenFailed,
                     message: describeFileError(e),
@@ -180,7 +180,7 @@ class DriveTeamMemberListPage extends ConsumerWidget {
                       : ListView.separated(
                           padding: const EdgeInsets.only(bottom: Gap.xl),
                           itemCount: members.length,
-                          separatorBuilder: (_, __) => Divider(
+                          separatorBuilder: (_, _) => Divider(
                             height: 1,
                             color: hud.dim.withValues(alpha: 0.12),
                           ),

@@ -134,7 +134,7 @@ class _NoteTodoPageState extends ConsumerState<NoteTodoPage> {
           Expanded(
             child: todos.when(
               loading: () => const AppListSkeleton(),
-              error: (e, __) => AppErrorView(
+              error: (e, _) => AppErrorView(
                 title: context.t.noteOpenTodosFailed,
                 detail: describeNoteError(e, context.t),
                 onRetry: () {
@@ -184,7 +184,7 @@ class _NoteTodoPageState extends ConsumerState<NoteTodoPage> {
                           )
                         : ListView.separated(
                             itemCount: flat.length,
-                            separatorBuilder: (_, __) => Divider(
+                            separatorBuilder: (_, _) => Divider(
                               height: 1,
                               indent: Gap.lg,
                               color: hud.line,

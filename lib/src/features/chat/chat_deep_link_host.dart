@@ -86,7 +86,7 @@ class _ChatDeepLinkHostState extends ConsumerState<ChatDeepLinkHost> {
   @override
   Widget build(BuildContext context) {
     // 会话状态变化后再试一次（例如冷启动恢复登录完成后，把积压的深链判掉）
-    ref.listen(sessionControllerProvider, (_, __) => _maybeHandle());
+    ref.listen(sessionControllerProvider, (_, _) => _maybeHandle());
     return widget.child;
   }
 }

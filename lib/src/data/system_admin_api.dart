@@ -118,7 +118,7 @@ class SystemAdminApi {
       'SYNO.Core.System',
       'info',
       preferredVersion: _v('SYNO.Core.System', 1),
-      params: {if (type != null) 'type': type},
+      params: {'type': ?type},
     );
     return SystemInfo.fromJson(data);
   }
@@ -285,7 +285,7 @@ class SystemAdminApi {
   Future<Map<String, dynamic>> smartInfo({String? disk}) => _read(
     'SYNO.Storage.CGI.Smart',
     'get_smart_info',
-    params: {if (disk != null) 'disk': disk},
+    params: {'disk': ?disk},
   );
 
   /// `SYNO.Storage.CGI.Storage:load_bad_disks` —— 异常磁盘（只读）。

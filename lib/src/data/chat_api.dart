@@ -473,7 +473,7 @@ class ChatApi {
         'purpose': purpose,
         'type': type,
         'encrypted': encrypted ? 'true' : 'false',
-        if (channelKeyEnc != null) 'channel_key_enc': channelKeyEnc,
+        'channel_key_enc': ?channelKeyEnc,
       },
     );
     final id = data['channel_id'];
@@ -559,8 +559,8 @@ class ChatApi {
       preferredVersion: namedVersion,
       params: {
         'channel_id': channelId,
-        if (name != null) 'name': name,
-        if (purpose != null) 'purpose': purpose,
+        'name': ?name,
+        'purpose': ?purpose,
       },
     );
   }

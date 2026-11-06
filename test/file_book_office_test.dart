@@ -38,7 +38,7 @@ Map<String, List<int>> _docx(Map<String, String> body, {List<int>? png}) => {
   'word/document.xml': utf8.encode('$_docxHead${body['main']}$_docxTail'),
   if (body['rels'] != null)
     'word/_rels/document.xml.rels': utf8.encode(body['rels']!),
-  if (png != null) 'word/media/image1.png': png,
+  'word/media/image1.png': ?png,
   if (body['core'] != null) 'docProps/core.xml': utf8.encode(body['core']!),
 };
 

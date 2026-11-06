@@ -77,7 +77,7 @@ class DriveComputersPage extends ConsumerWidget {
                 child: async.when(
                   loading: () =>
                       const Center(child: CircularProgressIndicator()),
-                  error: (e, __) => AppEmptyState(
+                  error: (e, _) => AppEmptyState(
                     icon: Icons.error_outline,
                     title: driveG4(
                       DriveG4TextKeys.computersLoadFailed,
@@ -107,7 +107,7 @@ class DriveComputersPage extends ConsumerWidget {
                       key: const Key('drive-computers-list'),
                       padding: const EdgeInsets.all(Gap.md),
                       itemCount: page.items.length,
-                      separatorBuilder: (_, __) =>
+                      separatorBuilder: (_, _) =>
                           const SizedBox(height: Gap.xs),
                       itemBuilder: (context, i) =>
                           _ComputerRow(entry: page.items[i]),

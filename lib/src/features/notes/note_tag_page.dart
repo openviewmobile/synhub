@@ -65,7 +65,7 @@ class _NoteTagPageState extends ConsumerState<NoteTagPage> {
       ),
       body: tags.when(
         loading: () => const AppListSkeleton(),
-        error: (e, __) => AppErrorView(
+        error: (e, _) => AppErrorView(
           title: context.t.noteOpenTagsFailed,
           detail: describeNoteError(e, context.t),
           onRetry: () => ref.invalidate(noteTagsProvider),
@@ -106,7 +106,7 @@ class _NoteTagPageState extends ConsumerState<NoteTagPage> {
       physics: const AlwaysScrollableScrollPhysics(),
       padding: const EdgeInsets.only(bottom: 96),
       itemCount: visible.length,
-      separatorBuilder: (_, __) =>
+      separatorBuilder: (_, _) =>
           Divider(height: 1, indent: Gap.lg, color: hud.line),
       itemBuilder: (context, i) {
         final entry = visible[i];

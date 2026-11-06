@@ -462,7 +462,7 @@ Map<String, Object?> officeSlidesEventFrame({
     'version': version,
     'steps': steps,
     'clientId': clientId,
-    if (selection != null) 'selection': selection,
+    'selection': ?selection,
   };
 }
 

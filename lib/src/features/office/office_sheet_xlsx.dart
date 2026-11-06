@@ -399,7 +399,7 @@ OSheetSheet _parseWorksheet({
     if (drawings.isNotEmpty) 'drawing': drawings,
     // 网格线（文档自己的声明；缺省时不写，渲染层用文档兜底色）。
     if (!showGridLines) 'showGridLines': false,
-    if (gridLineHex != null) 'gridLineColor': gridLineHex,
+    'gridLineColor': ?gridLineHex,
   };
 
   return OSheetSheet(
@@ -586,8 +586,8 @@ OSheetStylePool _buildStylePool(
     final existing = alignmentByKey[key];
     if (existing != null) return existing;
     final map = <String, Object?>{
-      if (h != null) 'h': h,
-      if (v != null) 'v': v,
+      'h': ?h,
+      'v': ?v,
       if (wrap) 'w': 'wrap',
     };
     alignments.add(map);
@@ -851,7 +851,7 @@ Map<String, Object?> _parseChartXml(XmlElement root) {
         'type': chartType,
         'index': position,
         'order': position,
-        if (name != null) 'name': name,
+        'name': ?name,
       });
       position++;
     }
@@ -862,9 +862,9 @@ Map<String, Object?> _parseChartXml(XmlElement root) {
             '${series.map((e) => e['val']).join(',')}';
 
   return <String, Object?>{
-    if (chartType != null) 'chartType': chartType,
-    if (barDir != null) 'barDir': barDir,
-    if (displayRange != null) 'displayRange': displayRange,
+    'chartType': ?chartType,
+    'barDir': ?barDir,
+    'displayRange': ?displayRange,
     'plotArea': <String, Object?>{'series': series},
     'title': <String, Object?>{'text': _chartTitle(root) ?? ''},
   };

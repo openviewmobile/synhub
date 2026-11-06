@@ -45,7 +45,7 @@ final availableChannelsProvider = FutureProvider<List<ChannelDto>>((ref) async {
       .toList(growable: false);
   // 与 `office_viewer_page` / `photo_c2_sections` 同款：**失败就停在错误态**，
   // 交给用户点「重试」，不要 Riverpod 3 的自动重试把错误态盖掉。
-}, retry: (_, __) => null);
+}, retry: (_, _) => null);
 
 /// 公开频道浏览页。
 class AvailableChannelsPage extends ConsumerStatefulWidget {
@@ -97,7 +97,7 @@ class _AvailableChannelsPageState extends ConsumerState<AvailableChannelsPage> {
             )
           : async.when(
               loading: () => const AppListSkeleton(rows: 5),
-              error: (e, __) => AppErrorView(
+              error: (e, _) => AppErrorView(
                 key: const Key('chat-public-error'),
                 title: dataText(
                   'chatAvailableChannelsLoadFailed',
@@ -167,7 +167,7 @@ class _AvailableChannelsPageState extends ConsumerState<AvailableChannelsPage> {
                           : ListView.separated(
                               key: const Key('chat-public-list'),
                               itemCount: visible.length,
-                              separatorBuilder: (_, __) => const Divider(
+                              separatorBuilder: (_, _) => const Divider(
                                 height: 1,
                               ),
                               itemBuilder: (context, i) =>

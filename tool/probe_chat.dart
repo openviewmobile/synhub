@@ -18,7 +18,7 @@ class _AllowSelfSigned extends HttpOverrides {
   @override
   HttpClient createHttpClient(SecurityContext? context) =>
       super.createHttpClient(context)
-        ..badCertificateCallback = (_, __, ___) => true;
+        ..badCertificateCallback = (_, _, _) => true;
 }
 
 Future<void> main() async {

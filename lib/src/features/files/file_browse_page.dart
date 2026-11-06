@@ -408,7 +408,7 @@ class _FileBrowsePageState extends ConsumerState<FileBrowsePage> {
                             )
                           : cached.when(
                               loading: () => const AppListSkeleton(),
-                              error: (e, __) => AppErrorView(
+                              error: (e, _) => AppErrorView(
                                 title: context.t.fileCacheReadFailed,
                                 detail: describeFileError(e),
                                 onRetry: () =>
@@ -2187,7 +2187,7 @@ class _Breadcrumb extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               padding: const EdgeInsets.symmetric(horizontal: Gap.md),
               itemCount: stack.length,
-              separatorBuilder: (_, __) =>
+              separatorBuilder: (_, _) =>
                   Icon(Icons.chevron_right, size: 14, color: hud.dim),
               itemBuilder: (context, i) {
                 final isLast = i == stack.length - 1;

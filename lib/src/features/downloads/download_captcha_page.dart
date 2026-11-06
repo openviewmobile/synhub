@@ -67,7 +67,7 @@ class _DownloadCaptchaPageState extends ConsumerState<DownloadCaptchaPage> {
           ? async.when(
               loading: () => const AppListSkeleton(rows: 4),
               // 取不到列表：**不装成空态**，给明确原因 + 重试。
-              error: (e, __) => AppErrorView(
+              error: (e, _) => AppErrorView(
                 key: const Key('ds-captcha-load-error'),
                 title: dataText('dsCaptchaLoadFailed', '验证码任务读取失败'),
                 detail: describeDownloadError(e),
@@ -117,7 +117,7 @@ class _DownloadCaptchaPageState extends ConsumerState<DownloadCaptchaPage> {
               child: Center(child: CircularProgressIndicator()),
             ),
             // 真机取图失败是 HTTP 404 + HTML ⇒ 明确提示，不留空白。
-            error: (e, __) => Text(
+            error: (e, _) => Text(
               dataText('dsCaptchaImageFailed', '验证码图片加载失败，请重试'),
             ),
             data: (bytes) => bytes == null

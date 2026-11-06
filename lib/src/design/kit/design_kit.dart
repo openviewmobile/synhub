@@ -76,7 +76,7 @@ class DesignScaffold extends StatelessWidget {
           .copyWith(
             // 只带色相层：中性色/语义色仍然由 `DesignTheme.of` 按令牌钉死，
             // 别的扩展（如 HUD 的 `HudTokens`）不进设计壳，保持原有边界。
-            extensions: <ThemeExtension<dynamic>>[if (hue != null) hue],
+            extensions: <ThemeExtension<dynamic>>[?hue],
             // 顶栏必须是实色 `phone`：HUD 主题给的是半透明玻璃，
             // 换页时会把上一页的网格底纹透出来（真机第一次就是这样）。
             // 仍在用 Material `Card` 的老页面（如 OEM 保活）也要落成设计卡片：

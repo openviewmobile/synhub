@@ -95,7 +95,7 @@ Map<String, dynamic> _msg({
   'rfc_message_id': '<x@y>',
   'read': false,
   'star': false,
-  if (attachment != null) 'attachment': attachment,
+  'attachment': ?attachment,
 };
 
 void main() {

@@ -119,7 +119,7 @@ Map<String, dynamic> _item({
     'can_preview': true,
     'can_write': true,
   },
-  if (thumbnail != null) 'thumbnail': thumbnail,
+  'thumbnail': ?thumbnail,
 };
 
 const _allDriveApis = {

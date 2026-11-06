@@ -69,7 +69,7 @@ class AudioPinsPage extends ConsumerWidget {
             )
           : async.when(
               loading: () => const AppListSkeleton(rows: 4),
-              error: (e, __) => AppErrorView(
+              error: (e, _) => AppErrorView(
                 icon: audioFailureKind(e) == AsFailureKind.network
                     ? Icons.wifi_off
                     : Icons.error_outline,

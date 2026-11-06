@@ -165,7 +165,7 @@ class _FileOfflinePageState extends ConsumerState<FileOfflinePage> {
                         child: ListView.separated(
                           key: const Key('file-offline-list'),
                           itemCount: items.length,
-                          separatorBuilder: (_, __) => const Divider(height: 1),
+                          separatorBuilder: (_, _) => const Divider(height: 1),
                           itemBuilder: (context, i) {
                             final e = items[i];
                             return DesignRowTile(

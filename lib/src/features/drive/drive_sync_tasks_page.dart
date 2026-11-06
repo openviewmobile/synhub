@@ -461,7 +461,7 @@ class _DriveSyncTasksPageState extends ConsumerState<DriveSyncTasksPage> {
       ),
       body: async.when(
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (e, __) => AppEmptyState(
+        error: (e, _) => AppEmptyState(
           icon: Icons.error_outline,
           title: _zh('drive_sync_load_failed', '读不到同步任务'),
           message: '$e',

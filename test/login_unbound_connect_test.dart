@@ -56,14 +56,14 @@ Widget _app(ProviderContainer c) {
   final router = GoRouter(
     initialLocation: '/',
     routes: [
-      GoRoute(path: '/', builder: (_, __) => const LoginPage()),
+      GoRoute(path: '/', builder: (_, _) => const LoginPage()),
       GoRoute(
         path: '/home',
-        builder: (_, __) => const Scaffold(body: Text('HOME-PAGE')),
+        builder: (_, _) => const Scaffold(body: Text('HOME-PAGE')),
       ),
       GoRoute(
         path: '/setup',
-        builder: (_, __) => const Scaffold(body: Text('SETUP-PAGE')),
+        builder: (_, _) => const Scaffold(body: Text('SETUP-PAGE')),
       ),
     ],
   );

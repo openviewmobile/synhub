@@ -239,7 +239,7 @@ class _PhotoMapPageState extends ConsumerState<PhotoMapPage> {
                 child: ListView.separated(
                   key: const Key('photo-map-cluster-list'),
                   itemCount: clusters.length,
-                  separatorBuilder: (_, __) => const Divider(height: 1),
+                  separatorBuilder: (_, _) => const Divider(height: 1),
                   itemBuilder: (context, i) => _ClusterTile(
                     cluster: clusters[i],
                     onOpen: () => _openCluster(context, ref, clusters[i]),

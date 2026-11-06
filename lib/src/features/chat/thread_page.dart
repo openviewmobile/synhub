@@ -198,7 +198,7 @@ class _ThreadPageState extends ConsumerState<ThreadPage> {
               loading: () => const Center(child: CircularProgressIndicator()),
               // ★ 以前只给一行错误文本、没有重试：流断了以后这一屏就死了
               //   （连"重新加载"都没有，只能退出话题再进来）。
-              error: (e, __) => AppErrorView(
+              error: (e, _) => AppErrorView(
                 key: const Key('thread-replies-error'),
                 detail: userFacingError(e),
                 onRetry: () => ref.invalidate(threadRepliesProvider(key)),

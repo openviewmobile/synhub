@@ -332,8 +332,8 @@ class SurveillanceStationApi {
         'cameraId': cameraId,
         'moveType': moveType,
         if (direction.isNotEmpty) 'direction': direction,
-        if (ptSpeed != null) 'ptSpeed': ptSpeed,
-        if (profileType != null) 'profileType': profileType,
+        'ptSpeed': ?ptSpeed,
+        'profileType': ?profileType,
         if (control.isNotEmpty) 'control': control,
       },
     );

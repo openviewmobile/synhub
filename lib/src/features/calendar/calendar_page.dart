@@ -3099,7 +3099,7 @@ class _ParticipantPickerSheetState
                   padding: EdgeInsets.symmetric(vertical: Gap.md),
                   child: Center(child: CircularProgressIndicator()),
                 ),
-                error: (_, __) => Padding(
+                error: (_, _) => Padding(
                   padding: const EdgeInsets.symmetric(vertical: Gap.sm),
                   child: Text(
                     dataText(

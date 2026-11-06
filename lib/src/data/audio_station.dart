@@ -311,9 +311,9 @@ class AudioStationApi {
         if (_notEmpty(genreFilter)) 'genre_filter': genreFilter,
         if (_notEmpty(playlist)) 'playlist': playlist,
         if (_notEmpty(folder)) 'folder': folder,
-        if (recursive != null) 'recursive': recursive,
-        if (ratingMeq != null) 'song_rating_meq': ratingMeq,
-        if (ratingLeq != null) 'song_rating_leq': ratingLeq,
+        'recursive': ?recursive,
+        'song_rating_meq': ?ratingMeq,
+        'song_rating_leq': ?ratingLeq,
         if (_notEmpty(sortBy)) ...{
           'sort_by': sortBy,
           'sort_direction': descending ? 'DESC' : 'ASC',
@@ -620,8 +620,8 @@ class AudioStationApi {
         if (_notEmpty(id)) 'id': id,
         if (_notEmpty(path)) 'path': path,
         if (library != null) 'library': library.wire,
-        if (recursive != null) 'recursive': recursive,
-        if (isPersonal != null) 'is_personal': isPersonal,
+        'recursive': ?recursive,
+        'is_personal': ?isPersonal,
         if (_notEmpty(sortBy)) ...{
           'sort_by': sortBy,
           'sort_direction': descending ? 'DESC' : 'ASC',
@@ -882,7 +882,7 @@ class AudioStationApi {
   /// 官方 `ApiRemoteController.java:320-360` 会**先试 `RemotePlayerStatus`，
   /// 失败再回落到 `RemotePlayer`/`getstatus`**；这里照做（版本 v2→v1）。
   Future<Map<String, dynamic>> getRemoteStatus({String? id}) async {
-    final params = <String, dynamic>{if (id != null) 'id': id};
+    final params = <String, dynamic>{'id': ?id};
     try {
       final data = await api.call(
         apiRemotePlayerStatus,
@@ -919,8 +919,8 @@ class AudioStationApi {
       params: {
         'id': id,
         'action': action,
-        if (value != null) 'value': value,
-        if (subplayerId != null) 'subplayer_id': subplayerId,
+        'value': ?value,
+        'subplayer_id': ?subplayerId,
       },
     );
   }

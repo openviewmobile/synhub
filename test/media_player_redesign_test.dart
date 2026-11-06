@@ -477,7 +477,7 @@ void main() {
       await _pump(
         tester,
         adapter: _FakeFullAdapter(),
-        bundle: _bundle((_, __) async => _json(200, _osSearchBody())),
+        bundle: _bundle((_, _) async => _json(200, _osSearchBody())),
       );
 
       await _openSheet(tester);
@@ -557,7 +557,7 @@ void main() {
         tester,
         adapter: _FakeFullAdapter(),
         bundle: _bundle(
-          (_, __) async =>
+          (_, _) async =>
               _json(403, '{"message":"You cannot consume this service"}'),
         ),
       );
@@ -583,7 +583,7 @@ void main() {
       await _pump(
         tester,
         adapter: _FakeFullAdapter(),
-        bundle: _bundle((_, __) async => _json(200, '{"data":[],"total_count":0}')),
+        bundle: _bundle((_, _) async => _json(200, '{"data":[],"total_count":0}')),
       );
 
       await _openSheet(tester);
@@ -597,7 +597,7 @@ void main() {
 
   group('在线字幕的记忆与恢复', () {
     testWidgets('重启后按缓存文件名把在线字幕挂回来', (tester) async {
-      final bundle = _bundle((_, __) async => _json(200, '{"data":[]}'));
+      final bundle = _bundle((_, _) async => _json(200, '{"data":[]}'));
       const cacheName = 'subtitle_restore.opensubtitles.1.srt';
       await bundle.cache.write(fileName: cacheName, bytes: utf8.encode(_srt));
 
@@ -643,7 +643,7 @@ void main() {
     });
 
     testWidgets('缓存文件不在 → 老老实实不挂，不崩不假装', (tester) async {
-      final bundle = _bundle((_, __) async => _json(200, '{"data":[]}'));
+      final bundle = _bundle((_, _) async => _json(200, '{"data":[]}'));
       final entry = _entry('gone.mp4');
       final key = mediaSubtitleMemoryKey(path: entry.path, size: entry.size)!;
       final store = InMemoryMediaPlaybackStore(
@@ -682,7 +682,7 @@ void main() {
             _FakeFullAdapter.new,
           ),
           subtitleSearchBundleProvider.overrideWithValue(
-            _bundle((_, __) async => _json(200, _osSearchBody())),
+            _bundle((_, _) async => _json(200, _osSearchBody())),
           ),
         ],
       );

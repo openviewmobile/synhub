@@ -69,7 +69,7 @@ class DriveFileRequestPage extends ConsumerWidget {
                 child: async.when(
                   loading: () =>
                       const Center(child: CircularProgressIndicator()),
-                  error: (e, __) => AppEmptyState(
+                  error: (e, _) => AppEmptyState(
                     key: const Key('drive-file-request-error'),
                     icon: Icons.error_outline,
                     title: t.driveListOpenFailed,
@@ -95,7 +95,7 @@ class DriveFileRequestPage extends ConsumerWidget {
                       : ListView.separated(
                           padding: const EdgeInsets.only(bottom: Gap.xl),
                           itemCount: items.length,
-                          separatorBuilder: (_, __) => Divider(
+                          separatorBuilder: (_, _) => Divider(
                             height: 1,
                             color: hud.dim.withValues(alpha: 0.12),
                           ),

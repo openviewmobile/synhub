@@ -65,7 +65,7 @@ Map<String, dynamic> _item({
     'can_preview': true,
     'can_write': true,
   },
-  if (thumbnail != null) 'thumbnail': thumbnail,
+  'thumbnail': ?thumbnail,
 };
 
 Future<({FakeTransport t, DsmWebApi api})> _loggedIn(FakeTransport t) async {
@@ -113,7 +113,7 @@ void main() {
       c
           .read(driveSortProvider.notifier)
           .set(DriveSortBy.name, descending: true);
-      final keep = c.listen(driveListProvider(kDriveRoot), (_, __) {});
+      final keep = c.listen(driveListProvider(kDriveRoot), (_, _) {});
       addTearDown(keep.close);
       await c.read(driveListProvider(kDriveRoot).future);
       final call = _listCall(t);
@@ -129,7 +129,7 @@ void main() {
       );
       final s = await _loggedIn(t);
       final c = _container(t, s.api);
-      final keep = c.listen(driveListProvider(kDriveRoot), (_, __) {});
+      final keep = c.listen(driveListProvider(kDriveRoot), (_, _) {});
       addTearDown(keep.close);
       await c.read(driveListProvider(kDriveRoot).future);
       expect(_listCall(t).containsKey('sort_by'), isFalse);
@@ -148,7 +148,7 @@ void main() {
       );
       final s = await _loggedIn(t);
       final c = _container(t, s.api);
-      final keep = c.listen(driveListProvider(kDriveRoot), (_, __) {});
+      final keep = c.listen(driveListProvider(kDriveRoot), (_, _) {});
       addTearDown(keep.close);
       await c.read(driveListProvider(kDriveRoot).future);
       expect(_listCall(t).containsKey('field'), isFalse);

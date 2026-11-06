@@ -72,7 +72,7 @@ class DriveQuotaPage extends ConsumerWidget {
                 child: async.when(
                   loading: () =>
                       const Center(child: CircularProgressIndicator()),
-                  error: (e, __) {
+                  error: (e, _) {
                     final gate = driveEntryGate(e);
                     final gated = gate != DriveEntryGate.available;
                     return AppEmptyState(

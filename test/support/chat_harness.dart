@@ -343,14 +343,14 @@ class FakeTransport extends WebApiTransport {
     final recorded = <String, dynamic>{
       ...query,
       ...fields,
-      if (fileName != null) 'file_name': fileName,
-      if (filePath != null) 'file_path': filePath,
+      'file_name': ?fileName,
+      'file_path': ?filePath,
       // 上传时声明的 MIME（视频入口要验 `video/mp4` 这类走对了）
-      if (mimeType != null) 'mime_type': mimeType,
+      'mime_type': ?mimeType,
       // 上传那一刻的实际字节（加密附件测试要检查它是密文）
       if (filePath != null && File(filePath).existsSync())
         'file_bytes': File(filePath).readAsBytesSync(),
-      if (fileField != null) 'file_field': fileField,
+      'file_field': ?fileField,
       // 多文件（笔记附件）：字段名 → 文件名 的列表
       if (files != null)
         'files': [for (final f in files) '${f.field}:${f.fileName}'],
@@ -549,7 +549,7 @@ class FakeTransport extends WebApiTransport {
     // 所以脚手架必须跟生产一致，否则测的是"假传输的缺陷"。
     final qp = <String, String>{
       ...params,
-      if (sid != null) '_sid': sid,
+      '_sid': ?sid,
       if (synoToken != null && synoToken!.isNotEmpty) 'SynoToken': synoToken!,
     };
     final q = qp.entries

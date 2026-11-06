@@ -78,7 +78,7 @@ class MethodChannelCastBridge implements AudioCastBridge {
     }
     await _channel.invokeMethod<void>('play', {
       'mediaUrl': mediaUrl,
-      if (positionSeconds != null) 'positionSeconds': positionSeconds,
+      'positionSeconds': ?positionSeconds,
     });
   }
 
@@ -159,7 +159,7 @@ class AudioCastController extends Notifier<AudioCastState> {
       if (list is List) {
         devices = [
           for (final e in list)
-            if (AudioCastDevice.tryParse(e) case final d?) d,
+            ?AudioCastDevice.tryParse(e),
         ];
       }
     } on MissingPluginException {

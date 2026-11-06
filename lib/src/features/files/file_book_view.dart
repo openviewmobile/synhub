@@ -207,8 +207,8 @@ class _FileBookBytesStageState extends State<FileBookBytesStage> {
       bookKey: '',
       initialScroll: 0,
       onAi: () {},
-      onAiSelection: (_, __) {},
-      onScrollForPage: (_, __) {},
+      onAiSelection: (_, _) {},
+      onScrollForPage: (_, _) {},
       onSeekChapter: (i) => setState(() => _chapter = i),
       onChapter: (i) => setState(() => _chapter = i),
     );
@@ -327,7 +327,7 @@ class _FileBookStageState extends ConsumerState<FileBookStage> {
     final async = ref.watch(fileBytesProvider(req));
     return async.when(
       loading: () => const Center(child: CircularProgressIndicator()),
-      error: (e, __) => _BookHint(
+      error: (e, _) => _BookHint(
         icon: Icons.error_outline,
         title: t.bookOpenFailed,
         detail: describeFileError(e),
@@ -1276,7 +1276,7 @@ class _BookReaderState extends ConsumerState<_BookReader> {
                           key: const Key('book-search-list'),
                           controller: scroll,
                           itemCount: hits.length + (searching ? 1 : 0),
-                          separatorBuilder: (_, __) => const Divider(height: 1),
+                          separatorBuilder: (_, _) => const Divider(height: 1),
                           itemBuilder: (context, i) {
                             final h = hits[i];
                             return DesignRowTile(
@@ -1443,7 +1443,7 @@ class _BookReaderState extends ConsumerState<_BookReader> {
                           key: const Key('book-mark-list'),
                           controller: scroll,
                           itemCount: marks.length,
-                          separatorBuilder: (_, __) => const Divider(height: 1),
+                          separatorBuilder: (_, _) => const Divider(height: 1),
                           itemBuilder: (context, i) {
                             final m = marks[i];
                             return DesignRowTile(

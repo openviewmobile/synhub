@@ -243,7 +243,7 @@ class _AuthedImageState extends State<AuthedImage> {
           height: widget.height,
           fit: widget.fit,
           gaplessPlayback: true,
-          errorBuilder: (_, __, ___) => widget.fallback,
+          errorBuilder: (_, _, _) => widget.fallback,
         );
       },
     );

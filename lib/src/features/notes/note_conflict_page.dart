@@ -68,7 +68,7 @@ class _NoteConflictPageState extends ConsumerState<NoteConflictPage> {
               scrollDirection: Axis.horizontal,
               padding: const EdgeInsets.symmetric(horizontal: Gap.md),
               itemCount: list.length,
-              separatorBuilder: (_, __) => const SizedBox(width: Gap.xs),
+              separatorBuilder: (_, _) => const SizedBox(width: Gap.xs),
               itemBuilder: (context, i) => Center(
                 child: ChoiceChip(
                   label: Text(

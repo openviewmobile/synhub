@@ -4,7 +4,7 @@
 // ignore_for_file: avoid_print
 import 'dart:convert';
 import 'dart:io';
-final HttpClient c = HttpClient()..badCertificateCallback = (_, __, ___) => true;
+final HttpClient c = HttpClient()..badCertificateCallback = (_, _, _) => true;
 Future<(int, String)> raw(String base, Map<String, String> f) async {
   final r = await c.postUrl(Uri.parse('$base/webapi/entry.cgi'));
   r.headers.contentType = ContentType('application', 'x-www-form-urlencoded');

@@ -97,7 +97,7 @@ class DriveConnectionsPage extends ConsumerWidget {
                 child: async.when(
                   loading: () =>
                       const Center(child: CircularProgressIndicator()),
-                  error: (e, __) => AppEmptyState(
+                  error: (e, _) => AppEmptyState(
                     key: const Key('drive-connections-error'),
                     icon: Icons.error_outline,
                     title: driveG6(
@@ -129,7 +129,7 @@ class DriveConnectionsPage extends ConsumerWidget {
                       key: const Key('drive-connections-list'),
                       padding: const EdgeInsets.all(Gap.md),
                       itemCount: page.items.length,
-                      separatorBuilder: (_, __) =>
+                      separatorBuilder: (_, _) =>
                           const SizedBox(height: Gap.xs),
                       itemBuilder: (context, i) =>
                           _ConnectionRow(connection: page.items[i]),

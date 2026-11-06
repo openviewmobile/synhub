@@ -626,7 +626,7 @@ Future<String> saveOffline(
       'content': html,
       'ver': ver,
       if (encrypt) 'encrypt': true,
-      if (brief != null) 'brief': brief,
+      'brief': ?brief,
     },
   );
   await sync.refreshPending();

@@ -373,7 +373,7 @@ class CalendarEnvCard extends ConsumerWidget {
                     child: ListView.separated(
                       scrollDirection: Axis.horizontal,
                       itemCount: days.length,
-                      separatorBuilder: (_, __) =>
+                      separatorBuilder: (_, _) =>
                           const SizedBox(width: Gap.md),
                       itemBuilder: (_, i) {
                         final d = days[i];
@@ -434,7 +434,7 @@ class CalendarEnvCard extends ConsumerWidget {
                       ),
                       scrollDirection: Axis.horizontal,
                       itemCount: hourList.length,
-                      separatorBuilder: (_, __) =>
+                      separatorBuilder: (_, _) =>
                           const SizedBox(width: Gap.md),
                       itemBuilder: (_, i) {
                         final h = hourList[i];

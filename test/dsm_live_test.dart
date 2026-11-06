@@ -47,7 +47,7 @@ void main() {
     dio.httpClientAdapter = IOHttpClientAdapter(
       createHttpClient: () {
         final c = HttpClient();
-        c.badCertificateCallback = (_, __, ___) => true;
+        c.badCertificateCallback = (_, _, _) => true;
         return c;
       },
     );

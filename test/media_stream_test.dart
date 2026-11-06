@@ -148,7 +148,7 @@ void main() {
         postWith(43, fileJson('clip.mkv')),
         FilePropDto.fromJson(fileJson('clip.mkv')),
         allowStreaming: true,
-        streamOpener: (_, __) async => false,
+        streamOpener: (_, _) async => false,
       );
       expect(err, kNoStreamHandler);
       expect(h.transport.downloads, isEmpty);
@@ -164,7 +164,7 @@ void main() {
         FilePropDto.fromJson(fileJson('report.pdf')),
         allowStreaming: true,
         saveDir: dir.path,
-        streamOpener: (_, __) async {
+        streamOpener: (_, _) async {
           streamed++;
           return true;
         },
@@ -188,7 +188,7 @@ void main() {
         FilePropDto.fromJson(fileJson('clip.mp4')),
         allowStreaming: false,
         saveDir: dir.path,
-        streamOpener: (_, __) async {
+        streamOpener: (_, _) async {
           streamed++;
           return true;
         },

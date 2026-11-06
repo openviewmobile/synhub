@@ -54,7 +54,7 @@ Map<String, dynamic> _searchData({String? snippet}) => {
       'content_type': 'application/vnd.openxmlformats',
       'display_path': '/mydrive/文档',
       'modified_time': 1700000000,
-      if (snippet != null) 'content_snippet': snippet,
+      'content_snippet': ?snippet,
     },
   ],
 };

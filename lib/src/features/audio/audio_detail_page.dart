@@ -256,7 +256,7 @@ class _AudioDetailPageState extends ConsumerState<AudioDetailPage> {
     final async = ref.watch(audioPlaylistDetailProvider(id));
     return async.when(
       loading: () => const AppListSkeleton(),
-      error: (e, __) => AppErrorView(
+      error: (e, _) => AppErrorView(
         title: t.asPlaylistLoadFailed,
         detail: describeAudioError(e),
         onRetry: () => ref.invalidate(audioPlaylistDetailProvider(id)),
@@ -277,7 +277,7 @@ class _AudioDetailPageState extends ConsumerState<AudioDetailPage> {
         return ListView.separated(
           padding: const EdgeInsets.only(top: Gap.sm, bottom: Gap.xxl * 2),
           itemCount: p.songs.length,
-          separatorBuilder: (_, __) => Divider(
+          separatorBuilder: (_, _) => Divider(
             height: 1,
             color: DesignPalette.of(context).dim.withValues(alpha: 0.12),
           ),

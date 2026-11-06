@@ -52,7 +52,7 @@ void main() {
     // ④ 真实 API 请求（宽松证书）
     final sw3 = Stopwatch()..start();
     try {
-      final c = HttpClient()..badCertificateCallback = (_, __, ___) => true;
+      final c = HttpClient()..badCertificateCallback = (_, _, _) => true;
       final req = await c.getUrl(Uri.parse(
           'https://$host:$port/webapi/query.cgi?api=SYNO.API.Info&version=1&method=query'));
       final resp = await req.close().timeout(const Duration(seconds: 12));

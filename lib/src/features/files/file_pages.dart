@@ -1585,7 +1585,7 @@ class FileTasksPage extends ConsumerWidget {
       ),
       body: tasks.when(
           loading: () => const AppListSkeleton(),
-          error: (e, __) => AppErrorView(
+          error: (e, _) => AppErrorView(
             title: t.fileTasksLoadFailed,
             detail: describeFileError(e),
             onRetry: () => ref.invalidate(fileTasksProvider),

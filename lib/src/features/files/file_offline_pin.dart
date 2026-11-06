@@ -112,7 +112,7 @@ class SecureOfflinePinStore implements OfflinePinStore {
       if (decoded is! List) return const [];
       return [
         for (final e in decoded)
-          if (OfflinePinEntry.fromJson(e) case final entry?) entry,
+          ?OfflinePinEntry.fromJson(e),
       ];
     } catch (_) {
       // 存储不可用 / 旧值损坏 → 当空清单（绝不让坏的持久化把页面打崩）

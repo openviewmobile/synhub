@@ -526,7 +526,7 @@ class _PhotoTileMapState extends ConsumerState<PhotoTileMap> {
               gaplessPlayback: true,
               fit: BoxFit.cover,
               filterQuality: FilterQuality.low,
-              errorBuilder: (_, __, ___) =>
+              errorBuilder: (_, _, _) =>
                   const ColoredBox(color: Color(0xFFEFEFEF)),
             ),
     );

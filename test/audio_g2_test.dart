@@ -2415,8 +2415,8 @@ class _FakeEq implements AudioEqualizerBridge {
     appliedSessions.add(session);
     applied.add({
       'enabled': enabled,
-      if (preset != null) 'preset': preset,
-      if (bandLevels != null) 'bands': bandLevels,
+      'preset': ?preset,
+      'bands': ?bandLevels,
     });
   }
 }
@@ -2482,7 +2482,7 @@ class _FakeCast implements AudioCastBridge {
   Future<void> play(String mediaUrl, {int? positionSeconds}) async => calls.add({
     'm': 'play',
     'url': mediaUrl,
-    if (positionSeconds != null) 'positionSeconds': positionSeconds,
+    'positionSeconds': ?positionSeconds,
   });
 
   @override

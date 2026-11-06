@@ -254,7 +254,7 @@ class _SearchPageState extends ConsumerState<SearchPage> {
     return ListView.separated(
       controller: _scroll,
       itemCount: state.posts.length + (state.loadingMore ? 1 : 0),
-      separatorBuilder: (_, __) => const Divider(height: 1),
+      separatorBuilder: (_, _) => const Divider(height: 1),
       itemBuilder: (context, i) {
         if (i >= state.posts.length) {
           return const Padding(

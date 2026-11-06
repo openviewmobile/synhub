@@ -126,7 +126,7 @@ class NoteShortcutPage extends ConsumerWidget {
       ),
       body: shortcuts.when(
         loading: () => const AppListSkeleton(),
-        error: (e, __) => AppErrorView(
+        error: (e, _) => AppErrorView(
           title: noteB(NoteBTextKeys.shortcutLoadFailed, '快捷方式加载失败'),
           detail: describeNoteError(e, context.t),
           onRetry: () => ref.invalidate(noteShortcutsProvider),
@@ -151,7 +151,7 @@ class NoteShortcutPage extends ConsumerWidget {
                   physics: const AlwaysScrollableScrollPhysics(),
                   padding: const EdgeInsets.only(bottom: 96),
                   itemCount: rows.length,
-                  separatorBuilder: (_, __) =>
+                  separatorBuilder: (_, _) =>
                       Divider(height: 1, indent: Gap.lg, color: hud.line),
                   itemBuilder: (context, i) {
                     final shortcut = rows[i];

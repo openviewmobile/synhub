@@ -469,7 +469,7 @@ class _MediaList extends ConsumerWidget {
     };
     return ListView.separated(
       itemCount: page.length,
-      separatorBuilder: (_, __) => const Divider(height: 1),
+      separatorBuilder: (_, _) => const Divider(height: 1),
       itemBuilder: (context, i) {
         final post = page[i];
         final prop = post.attachments.first;

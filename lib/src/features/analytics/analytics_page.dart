@@ -205,7 +205,7 @@ class _UsageAnalyticsPageState extends ConsumerState<UsageAnalyticsPage> {
                           height: 160,
                           child: AppListSkeleton(rows: 4),
                         ),
-                        error: (e, __) => AppErrorView(
+                        error: (e, _) => AppErrorView(
                           title: context.t.usageInsightsFailed,
                           detail: userFacingError(e),
                           onRetry: () => ref.invalidate(usageInsightsProvider),
@@ -234,7 +234,7 @@ class _UsageAnalyticsPageState extends ConsumerState<UsageAnalyticsPage> {
                         // ★ 本地统计读取失败原来渲染成 `SizedBox.shrink()`：
                         //   "统计"小标题在、内容凭空消失，用户看不到失败也
                         //   没有重试入口（失败被静默吞掉）。
-                        error: (e, __) => AppErrorView(
+                        error: (e, _) => AppErrorView(
                           key: const Key('usage-stats-error'),
                           title: context.t.usageSectionData,
                           detail: userFacingError(e),

@@ -2991,7 +2991,7 @@ class _MediaPlayerViewState extends ConsumerState<MediaPlayerView> {
       isScrollControlled: true,
       builder: (outer) => ValueListenableBuilder<int>(
         valueListenable: tick,
-        builder: (outerRebuild, _, __) => StatefulBuilder(
+        builder: (outerRebuild, _, _) => StatefulBuilder(
           // ★ r635（DA226）：字幕字号要在面板里当场看到变化 ⇒ 需要局部 setState
           builder: (ctx, setSheet) {
             // ★ r659（`DA274`）：**现取**，不用外面的快照

@@ -220,7 +220,7 @@ class _NasImagePickerPageState extends ConsumerState<_NasImagePickerPage> {
     }
     return ListView.separated(
       itemCount: rows.length,
-      separatorBuilder: (_, __) => const Divider(height: 1, indent: Gap.lg),
+      separatorBuilder: (_, _) => const Divider(height: 1, indent: Gap.lg),
       itemBuilder: (context, i) {
         final e = rows[i];
         if (e.isDir) {

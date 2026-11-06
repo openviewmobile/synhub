@@ -110,7 +110,7 @@ class DriveAdvanceSharingPage extends ConsumerWidget {
                 child: async.when(
                   loading: () =>
                       const Center(child: CircularProgressIndicator()),
-                  error: (e, __) {
+                  error: (e, _) {
                     // 1036 = 这个条目还没有高级共享链接（官方同款语义）
                     if (e is DsmApiException &&
                         e.code == kAdvanceSharingNotFoundCode) {

@@ -96,7 +96,7 @@ class StickerCatalog {
     return StickerCatalog(
       categories: [
         for (final c in list)
-          if (StickerCategoryDto.tryParse(c) case final dto?) dto,
+          ?StickerCategoryDto.tryParse(c),
       ],
     );
   }

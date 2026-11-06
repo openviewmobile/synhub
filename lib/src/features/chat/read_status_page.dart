@@ -171,7 +171,7 @@ class _ReadStatusPageState extends ConsumerState<ReadStatusPage> {
                     ? Center(child: Text(context.t.chatReadStatusNoMatch))
                     : ListView.separated(
                         itemCount: shown.length,
-                        separatorBuilder: (_, __) => const Divider(height: 1),
+                        separatorBuilder: (_, _) => const Divider(height: 1),
                         itemBuilder: (context, i) {
                           final u = shown[i];
                           return DesignRowTile(

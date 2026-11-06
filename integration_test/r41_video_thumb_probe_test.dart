@@ -36,7 +36,7 @@ const _ch = MethodChannel('synhub/video_frame');
 const int _headBytes = kVideoFrameHeadBytes; // ★ 6 MB：必须与 App 一致（512KB 是我上一版的错误参数）
 
 Future<Uint8List> _rangeGet(Uri uri, int maxBytes) async {
-  final client = HttpClient()..badCertificateCallback = (_, __, ___) => true;
+  final client = HttpClient()..badCertificateCallback = (_, _, _) => true;
   try {
     final req = await client.getUrl(uri);
     req.headers.set('Range', 'bytes=0-${maxBytes - 1}');

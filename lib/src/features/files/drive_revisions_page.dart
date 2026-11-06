@@ -156,7 +156,7 @@ class _DriveRevisionsPageState extends ConsumerState<DriveRevisionsPage> {
               Expanded(
                 child: async.when(
                   loading: () => const AppListSkeleton(),
-                  error: (e, __) => AppErrorView(
+                  error: (e, _) => AppErrorView(
                     title: t.driveRevisionsOpenFailed,
                     detail: describeFileError(e),
                     onRetry: () =>
@@ -171,7 +171,7 @@ class _DriveRevisionsPageState extends ConsumerState<DriveRevisionsPage> {
                       : ListView.separated(
                           padding: const EdgeInsets.only(bottom: Gap.xl),
                           itemCount: revs.length,
-                          separatorBuilder: (_, __) => Divider(
+                          separatorBuilder: (_, _) => Divider(
                             height: 1,
                             color: hud.dim.withValues(alpha: 0.12),
                           ),
@@ -519,7 +519,7 @@ class _OfficeVersionsPageState extends ConsumerState<_OfficeVersionsPage> {
               Expanded(
                 child: async.when(
                   loading: () => const AppListSkeleton(),
-                  error: (e, __) => AppErrorView(
+                  error: (e, _) => AppErrorView(
                     title: t.driveRevisionsOpenFailed,
                     detail: describeFileError(e),
                     onRetry: _refresh,
@@ -533,7 +533,7 @@ class _OfficeVersionsPageState extends ConsumerState<_OfficeVersionsPage> {
                       : ListView.separated(
                           padding: const EdgeInsets.only(bottom: Gap.xl),
                           itemCount: vers.length,
-                          separatorBuilder: (_, __) => Divider(
+                          separatorBuilder: (_, _) => Divider(
                             height: 1,
                             color: hud.dim.withValues(alpha: 0.12),
                           ),

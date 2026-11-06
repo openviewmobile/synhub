@@ -101,7 +101,7 @@ class RawLog {
       'dir': dir, // c2s | s2c | notice
       'transport': transport, // polling | websocket | local
       'raw': raw,
-      if (note != null) 'note': note,
+      'note': ?note,
     });
     return seq;
   }
@@ -352,7 +352,7 @@ class EioSioClient {
     final id = ++_ackSeq;
     final completer = Completer<dynamic>();
     _acks[id] = completer;
-    final arr = <dynamic>[event, if (data != null) data];
+    final arr = <dynamic>[event, ?data];
     final frame = '42$id${jsonEncode(arr)}';
     log.record('c2s', _useWs ? 'websocket' : 'polling', frame, 'socket.io EVENT+ACK $event');
     _sendRaw(frame);

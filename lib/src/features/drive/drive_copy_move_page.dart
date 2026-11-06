@@ -106,7 +106,7 @@ class _DriveCopyMovePageState extends ConsumerState<DriveCopyMovePage> {
       ),
       body: async.when(
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (e, __) => AppEmptyState(
+        error: (e, _) => AppEmptyState(
           icon: Icons.error_outline,
           title: driveP0(DriveP0TextKeys.folderOpenFailed, '打不开这个文件夹'),
           message: describeFileError(e),
@@ -129,7 +129,7 @@ class _DriveCopyMovePageState extends ConsumerState<DriveCopyMovePage> {
           return ListView.separated(
             padding: const EdgeInsets.only(bottom: Gap.xl),
             itemCount: dirs.length,
-            separatorBuilder: (_, __) => Divider(
+            separatorBuilder: (_, _) => Divider(
               height: 1,
               color: hud.dim.withValues(alpha: 0.12),
             ),

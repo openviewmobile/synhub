@@ -29,10 +29,10 @@ class _NoteReminderHostState extends ConsumerState<NoteReminderHost> {
     scheduler.onEvent = _handle;
 
     // 待办列表 / 逾期设置变化 → 重建定时器
-    ref.listen(noteTodosProvider, (_, __) => refreshTodoReminders(ref));
+    ref.listen(noteTodosProvider, (_, _) => refreshTodoReminders(ref));
     ref.listen(
       todoOverdueSettingsProvider,
-      (_, __) => refreshTodoReminders(ref),
+      (_, _) => refreshTodoReminders(ref),
     );
     // 首帧也排一次（列表可能已经加载完）
     WidgetsBinding.instance.addPostFrameCallback((_) {

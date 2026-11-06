@@ -2046,7 +2046,7 @@ class DsmWebApi {
     final sid = _session?.sid;
     return transport.postBytes(
       path,
-      {...params, if (sid != null) '_sid': sid},
+      {...params, '_sid': ?sid},
       onProgress: onProgress,
       cancelToken: cancelToken,
       module: trafficModule,

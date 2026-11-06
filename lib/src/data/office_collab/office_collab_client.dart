@@ -354,7 +354,7 @@ class SioPacket {
   static SioPacket event(String event, {Object? data, int? ackId}) => SioPacket(
     type: SioPacketType.event,
     ackId: ackId,
-    payload: jsonEncode(<Object?>[event, if (data != null) data]),
+    payload: jsonEncode(<Object?>[event, ?data]),
   );
 
   @override

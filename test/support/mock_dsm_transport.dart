@@ -105,7 +105,7 @@ class MockDsmTransport extends WebApiTransport {
     Map<String, String> params, {
     String? sid,
   }) {
-    final q = <String, String>{...params, if (sid != null) '_sid': sid};
+    final q = <String, String>{...params, '_sid': ?sid};
     return Uri.parse('$baseUrl$path').replace(queryParameters: q).toString();
   }
 

@@ -247,7 +247,7 @@ class DriveApi {
         'limit': limit,
         if (sortBy != null) 'sort_by': sortBy.value,
         if (sortBy != null) 'sort_direction': sortDirection,
-        if (field != null) 'field': field,
+        'field': ?field,
       },
     );
     return DriveEntryDto.listFromJson(data);
@@ -530,7 +530,7 @@ class DriveApi {
       'method': 'get_thumbnail',
       'path': 'id:$fileId',
       'size': size,
-      if (versionId != null) 'version_id': versionId,
+      'version_id': ?versionId,
       'is_preview': isPreview ? 'true' : 'false',
     });
   }
@@ -698,11 +698,11 @@ class DriveApi {
       preferredVersion: _negotiate('SYNO.SynologyDrive.Files', _v2),
       params: {
         'path': 'id:$fileId',
-        if (name != null) 'name': name,
-        if (modifiedTime != null) 'modified_time': modifiedTime,
-        if (createdTime != null) 'created_time': createdTime,
-        if (starred != null) 'starred': starred,
-        if (labels != null) 'labels': labels,
+        'name': ?name,
+        'modified_time': ?modifiedTime,
+        'created_time': ?createdTime,
+        'starred': ?starred,
+        'labels': ?labels,
       },
     );
     return DriveEntryDto.fromJson(data);
@@ -1451,7 +1451,7 @@ class DriveApi {
       params: {
         'files': files,
         'conflict_action': conflictAction,
-        if (toParentFolder != null) 'to_parent_folder': toParentFolder,
+        'to_parent_folder': ?toParentFolder,
       },
     );
     return '${data['async_task_id'] ?? ''}';
@@ -1719,7 +1719,7 @@ class DriveApi {
         'has_due_date_hour': hasDueDateHour,
         'sharing_link': sharingLink,
         'path': path,
-        if (fileRequestStatus != null) 'file_request_status': fileRequestStatus,
+        'file_request_status': ?fileRequestStatus,
       },
     );
     return DriveFileRequestDto.fromJson(data);
@@ -2486,7 +2486,7 @@ class DriveApi {
       if (mute) 'mute': 'true',
       if (modifiedTimeSeconds != null && modifiedTimeSeconds != 0)
         'modified_time': '$modifiedTimeSeconds',
-      if (sharingToken != null) 'sharing_token': sharingToken,
+      'sharing_token': ?sharingToken,
     };
     final raw = await api.postMultipart(
       api.apiPath(apiId),
@@ -2562,7 +2562,7 @@ class DriveApi {
       if (mute) 'mute': 'true',
       if (modifiedTimeSeconds != null && modifiedTimeSeconds != 0)
         'modified_time': '$modifiedTimeSeconds',
-      if (sharingToken != null) 'sharing_token': sharingToken,
+      'sharing_token': ?sharingToken,
     };
     final raw = await api.postMultipart(
       api.apiPath(apiId),

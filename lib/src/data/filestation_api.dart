@@ -768,7 +768,7 @@ class FileStationApi {
       params: {
         'path': FileEntryDto.encodePaths(paths),
         'dest_folder_path': destFolderPath,
-        if (destFileName != null) 'dest_file_path': destFileName,
+        'dest_file_path': ?destFileName,
         'remove_src': removeSrc,
         'overwrite': overwrite,
         'accurate_progress': accurateProgress,
@@ -1169,10 +1169,10 @@ class FileStationApi {
         if (filetype != null && filetype.isNotEmpty) 'filetype': filetype,
         if (sizeFrom > 0) 'size_from': sizeFrom,
         if (sizeTo > 0) 'size_to': sizeTo,
-        if (mtimeFrom != null) 'mtime_from': mtimeFrom,
-        if (mtimeTo != null) 'mtime_to': mtimeTo,
-        if (crtimeFrom != null) 'crtime_from': crtimeFrom,
-        if (crtimeTo != null) 'crtime_to': crtimeTo,
+        'mtime_from': ?mtimeFrom,
+        'mtime_to': ?mtimeTo,
+        'crtime_from': ?crtimeFrom,
+        'crtime_to': ?crtimeTo,
         if (owner != null && owner.isNotEmpty) 'owner': owner,
         if (group != null && group.isNotEmpty) 'group': group,
         'recursive': recursive,
@@ -1914,7 +1914,7 @@ class FileStationApi {
           'version': '$version',
           'method': 'download',
           'id': linkId,
-          if (path != null) 'path': path,
+          'path': ?path,
         });
   }
 

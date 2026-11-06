@@ -52,7 +52,7 @@ class _NoteRecyclePageState extends ConsumerState<NoteRecyclePage> {
       ),
       body: notes.when(
         loading: () => const AppListSkeleton(),
-        error: (e, __) => AppErrorView(
+        error: (e, _) => AppErrorView(
           title: context.t.noteOpenRecycleFailed,
           detail: describeNoteError(e, context.t),
           onRetry: () => ref.invalidate(noteRecycleProvider),
@@ -73,7 +73,7 @@ class _NoteRecyclePageState extends ConsumerState<NoteRecyclePage> {
                 child: ListView.separated(
                   physics: const AlwaysScrollableScrollPhysics(),
                   itemCount: rows.length,
-                  separatorBuilder: (_, __) =>
+                  separatorBuilder: (_, _) =>
                       Divider(height: 1, indent: Gap.lg, color: hud.line),
                   itemBuilder: (context, i) {
                     final note = rows[i];

@@ -81,7 +81,7 @@ Future<void> main() async {
             'channel_id': '1',
             'prev_count': '20',
             'next_count': '0',
-            if (ft != null) 'file_type': ft,
+            'file_type': ?ft,
             'attributes': attrs,
           },
         );

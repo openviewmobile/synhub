@@ -223,7 +223,7 @@ class OfficeDocPageFrame extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                if (footer != null) footer!,
+                ?footer,
                 if (pageNumber != null)
                   Align(
                     alignment: pageNumberAlignment,

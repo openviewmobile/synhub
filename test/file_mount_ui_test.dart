@@ -100,7 +100,7 @@ Map<String, dynamic> _file(
       'perm': {
         'acl': {'read': true, 'write': writable, 'exec': false},
       },
-    if (wormState != null) 'worm_state': wormState,
+    'worm_state': ?wormState,
   },
 };
 

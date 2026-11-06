@@ -227,7 +227,7 @@ final officeNativeDocumentProvider = FutureProvider.autoDispose
       final kind = sniffOfficePackage(bytes);
       if (kind != null) throw OfficeNativeTranscodedBytesException(kind);
       return OfficeNativeDocument.parse(bytes, format: req.format);
-    }, retry: (_, __) => null);
+    }, retry: (_, _) => null);
 
 // ------------------------------------------------------- 三跳只读优先级（本批）
 
@@ -361,7 +361,7 @@ final officeNativeReadProvider = FutureProvider.autoDispose
         Error.throwWithStackTrace(lastError, lastTrace ?? StackTrace.current);
       }
       throw StateError('Office 只读通道不可用：没有可尝试的来源');
-    }, retry: (_, __) => null);
+    }, retry: (_, _) => null);
 
 /// 执行一跳。
 Future<OfficeNativeDocument> _readOfficeHop(
@@ -637,7 +637,7 @@ class OfficeNativeViewer extends ConsumerWidget {
     final doc = ref.watch(officeNativeReadProvider(req));
     return doc.when(
       loading: () => const _OfficeLoadingStage(),
-      error: (err, __) {
+      error: (err, _) {
         final info = officeNativeErrorInfo(err, t: context.t);
         return _OfficeErrorStage(
           info: info,

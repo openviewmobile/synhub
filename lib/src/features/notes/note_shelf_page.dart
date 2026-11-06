@@ -93,7 +93,7 @@ class NoteShelfPage extends ConsumerWidget {
       appBar: AppBar(title: Text(noteB(NoteBTextKeys.shelf, 'Shelf 分层'))),
       body: notebooks.when(
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (e, __) => AppErrorView(
+        error: (e, _) => AppErrorView(
           title: noteB(NoteBTextKeys.shelf, 'Shelf 分层'),
           detail: describeNoteError(e, context.t),
           onRetry: () => ref.invalidate(notebooksProvider),

@@ -124,7 +124,7 @@ class AudioRemotePage extends ConsumerWidget {
                 key: const Key('as-remote-list'),
                 padding: const EdgeInsets.all(Gap.md),
                 itemCount: players.length,
-                separatorBuilder: (_, __) => const SizedBox(height: Gap.sm),
+                separatorBuilder: (_, _) => const SizedBox(height: Gap.sm),
                 itemBuilder: (context, i) =>
                     _RemoteTile(player: players[i], index: i),
               ),

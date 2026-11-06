@@ -74,7 +74,7 @@ class _DownloadFileSelectPageState
         ),
         body: list.when(
           loading: () => const AppListSkeleton(rows: 6),
-          error: (e, __) => AppErrorView(
+          error: (e, _) => AppErrorView(
             title: dataText('dsFileSelectFailed', '文件清单加载失败'),
             detail: describeDownloadError(e),
             onRetry: () =>

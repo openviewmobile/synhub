@@ -1281,7 +1281,7 @@ class AudioPagedBody<T> extends StatelessWidget {
           physics: const AlwaysScrollableScrollPhysics(),
           padding: const EdgeInsets.only(top: Gap.sm, bottom: Gap.xxl * 2),
           itemCount: state.items.length + (state.loadingMore ? 1 : 0),
-          separatorBuilder: (_, __) => Divider(
+          separatorBuilder: (_, _) => Divider(
             height: 1,
             color: DesignPalette.of(context).dim.withValues(alpha: 0.12),
           ),

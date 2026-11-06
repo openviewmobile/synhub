@@ -130,7 +130,7 @@ class _SurveillancePageState extends ConsumerState<SurveillancePage> {
         physics: const AlwaysScrollableScrollPhysics(),
         padding: const EdgeInsets.only(top: Gap.sm, bottom: Gap.xxl),
         itemCount: state.items.length + 1,
-        separatorBuilder: (_, __) => Divider(
+        separatorBuilder: (_, _) => Divider(
           height: 1,
           color: DesignPalette.of(context).dim.withValues(alpha: 0.12),
         ),

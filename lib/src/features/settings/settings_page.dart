@@ -461,7 +461,7 @@ class SettingsPage extends ConsumerWidget {
     final usage = ref.watch(cacheUsageProvider);
     return usage.when(
       loading: () => t.cacheCounting,
-      error: (e, __) => t.cacheCountFailed,
+      error: (e, _) => t.cacheCountFailed,
       data: (u) =>
           u.files == 0 ? t.cacheNone : t.cacheUsed(u.humanSize, u.files),
     );

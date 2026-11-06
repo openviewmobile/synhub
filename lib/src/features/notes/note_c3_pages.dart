@@ -93,7 +93,7 @@ Future<void> showNoteExportSheet(
     context: context,
     showDragHandle: true,
     builder: (ctx) => Consumer(
-      builder: (ctx, r, __) {
+      builder: (ctx, r, _) {
         final a = r.watch(noteC3AvailabilityProvider).value;
         final tiles = <Widget>[
           if (_denied(a, NoteC3Feature.exportWord))
@@ -395,7 +395,7 @@ Future<void> showNoteImportSheet(BuildContext context, WidgetRef ref) {
     context: context,
     showDragHandle: true,
     builder: (ctx) => Consumer(
-      builder: (ctx, r, __) {
+      builder: (ctx, r, _) {
         final a = r.watch(noteC3AvailabilityProvider).value;
         return SafeArea(
           child: Column(
@@ -822,7 +822,7 @@ class NoteVersionPage extends ConsumerWidget {
       appBar: AppBar(title: Text(noteC3(NoteC3TextKeys.versionTitle, '版本历史'))),
       body: versions.when(
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (e, __) => AppErrorView(
+        error: (e, _) => AppErrorView(
           title: t.noteHistoryFailed,
           // 用 C3 的错误映射：`105`/`160` → 无权限文案（`describeNoteError`
           // 只认 `160`，105 会掉到通用描述里）
@@ -910,7 +910,7 @@ class NoteVersionPreviewPage extends ConsumerWidget {
       ),
       body: detail.when(
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (e, __) => AppErrorView(
+        error: (e, _) => AppErrorView(
           title: t.noteOpenFailed,
           detail: describeNoteC3Error(e),
           onRetry: () => ref.invalidate(noteVersionDetailProvider(key)),
@@ -1260,7 +1260,7 @@ class _ProgressDialog extends StatelessWidget {
         Expanded(
           child: ValueListenableBuilder<String>(
             valueListenable: label,
-            builder: (_, v, __) => Text(v),
+            builder: (_, v, _) => Text(v),
           ),
         ),
       ],

@@ -291,11 +291,11 @@ void main() {
         routes: [
           GoRoute(
             path: AppRoutes.home,
-            builder: (_, __) => const ChatDeepLinkHost(child: Text('HOME')),
+            builder: (_, _) => const ChatDeepLinkHost(child: Text('HOME')),
           ),
           GoRoute(
             path: AppRoutes.login,
-            builder: (_, __) => const Text('LOGIN'),
+            builder: (_, _) => const Text('LOGIN'),
           ),
         ],
       );

@@ -12,7 +12,7 @@ import 'dart:convert';
 import 'dart:io';
 
 final HttpClient _client = HttpClient()
-  ..badCertificateCallback = (_, __, ___) => true;
+  ..badCertificateCallback = (_, _, _) => true;
 
 Future<(int, String)> _form(String base, Map<String, String> f) async {
   final req = await _client.postUrl(Uri.parse('$base/webapi/entry.cgi'));

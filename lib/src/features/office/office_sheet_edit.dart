@@ -120,7 +120,7 @@ Map<String, Object?> officeSheetValueCommand({
     'cmd': 'value',
     'id': sheetId,
     'changes': <Object?>[for (final c in changes) c.toTriple()],
-    if (source != null) 'source': source,
+    'source': ?source,
     'rev': rev,
   };
 }

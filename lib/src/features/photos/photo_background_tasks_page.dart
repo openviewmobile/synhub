@@ -56,7 +56,7 @@ class PhotoBackgroundTasksPage extends ConsumerWidget {
           key: const Key('photo-g6-tasks-list'),
           padding: const EdgeInsets.all(Gap.md),
           itemCount: tasks.length,
-          separatorBuilder: (_, __) => const SizedBox(height: Gap.xs),
+          separatorBuilder: (_, _) => const SizedBox(height: Gap.xs),
           itemBuilder: (context, i) => _TaskRow(task: tasks[i]),
         ),
       ),

@@ -100,7 +100,7 @@ class _NoteFtsSearchPageState extends ConsumerState<NoteFtsSearchPage> {
                   )
                 : rows.when(
                     loading: () => const AppListSkeleton(),
-                    error: (e, __) => AppErrorView(
+                    error: (e, _) => AppErrorView(
                       key: const Key('note-fts-error'),
                       title: noteWave4(NoteWave4TextKeys.ftsFailed, '检索失败'),
                       detail: describeNoteError(e, context.t),
@@ -123,7 +123,7 @@ class _NoteFtsSearchPageState extends ConsumerState<NoteFtsSearchPage> {
                         : ListView.separated(
                             padding: const EdgeInsets.only(bottom: 96),
                             itemCount: matches.length,
-                            separatorBuilder: (_, __) => Divider(
+                            separatorBuilder: (_, _) => Divider(
                               height: 1,
                               indent: Gap.lg * 2,
                               color: hud.line,

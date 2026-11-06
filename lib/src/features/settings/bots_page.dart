@@ -45,7 +45,7 @@ class BotsPage extends ConsumerWidget {
           if (bots.isEmpty) return Center(child: Text(t.botsEmpty));
           return ListView.separated(
             itemCount: bots.length,
-            separatorBuilder: (_, __) => const Divider(height: 1),
+            separatorBuilder: (_, _) => const Divider(height: 1),
             itemBuilder: (context, i) {
               final bot = bots[i];
               return DesignRowTile(

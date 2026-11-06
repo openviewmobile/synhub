@@ -182,7 +182,7 @@ class _DriveLabelsPageState extends ConsumerState<DriveLabelsPage> {
               Expanded(
                 child: labels.when(
                   loading: () => const AppListSkeleton(),
-                  error: (e, __) => AppErrorView(
+                  error: (e, _) => AppErrorView(
                     title: t.driveLabelsLoadFailed,
                     detail: describeFileError(e),
                     onRetry: () => ref.invalidate(driveLabelsProvider),
@@ -196,7 +196,7 @@ class _DriveLabelsPageState extends ConsumerState<DriveLabelsPage> {
                       : ListView.separated(
                           padding: const EdgeInsets.only(bottom: Gap.xl),
                           itemCount: list.length,
-                          separatorBuilder: (_, __) => Divider(
+                          separatorBuilder: (_, _) => Divider(
                             height: 1,
                             color: hud.dim.withValues(alpha: 0.12),
                           ),
@@ -339,7 +339,7 @@ class DriveLabelledPage extends ConsumerWidget {
               Expanded(
                 child: files.when(
                   loading: () => const AppListSkeleton(),
-                  error: (e, __) => AppErrorView(
+                  error: (e, _) => AppErrorView(
                     title: t.driveLabelOpenFailed,
                     detail: describeFileError(e),
                     onRetry: () =>
@@ -354,7 +354,7 @@ class DriveLabelledPage extends ConsumerWidget {
                       : ListView.separated(
                           padding: const EdgeInsets.only(bottom: Gap.xl),
                           itemCount: data.items.length,
-                          separatorBuilder: (_, __) => Divider(
+                          separatorBuilder: (_, _) => Divider(
                             height: 1,
                             color: hud.dim.withValues(alpha: 0.12),
                           ),
@@ -529,7 +529,7 @@ class _LabelPickerSheetState extends ConsumerState<_LabelPickerSheet> {
                     padding: EdgeInsets.all(Gap.lg),
                     child: LinearProgressIndicator(minHeight: 2),
                   ),
-                  error: (e, __) => Padding(
+                  error: (e, _) => Padding(
                     padding: const EdgeInsets.all(Gap.lg),
                     child: Text(
                       t.driveLabelPickerReadFailed(describeFileError(e)),

@@ -436,7 +436,7 @@ class FileThumb extends ConsumerWidget {
                 fit: BoxFit.cover,
                 gaplessPlayback: true,
                 cacheWidth: scale.decodeWidth,
-                errorBuilder: (_, __, ___) => fallback,
+                errorBuilder: (_, _, _) => fallback,
               ),
             ),
           ),
@@ -461,7 +461,7 @@ class FileThumb extends ConsumerWidget {
           fit: aspect == null ? BoxFit.contain : BoxFit.cover,
           gaplessPlayback: true,
           cacheWidth: scale.decodeWidth,
-          errorBuilder: (_, __, ___) => fallback,
+          errorBuilder: (_, _, _) => fallback,
         ),
       ),
     );

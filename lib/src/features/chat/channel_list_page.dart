@@ -106,7 +106,7 @@ class ChannelListPage extends ConsumerWidget {
                 Expanded(
                   child: channels.when(
                     loading: () => const AppListSkeleton(),
-                    error: (e, __) => AppErrorView(
+                    error: (e, _) => AppErrorView(
                       title: context.t.photoLoadFailed,
                       detail: userFacingError(e),
                       onRetry: () {

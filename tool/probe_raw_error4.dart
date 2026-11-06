@@ -15,7 +15,7 @@ import 'dart:convert';
 import 'dart:io';
 
 final HttpClient _client = HttpClient()
-  ..badCertificateCallback = (_, __, ___) => true;
+  ..badCertificateCallback = (_, _, _) => true;
 
 Future<(int, String)> _raw(
   String base, {
@@ -29,7 +29,7 @@ Future<(int, String)> _raw(
     'api': api,
     'method': method,
     'version': '$version',
-    if (sid != null) '_sid': sid,
+    '_sid': ?sid,
     ...extra,
   };
   final req = await _client.postUrl(Uri.parse('$base/webapi/entry.cgi'));

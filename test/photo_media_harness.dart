@@ -135,11 +135,11 @@ Map<String, dynamic> photoMediaItem(
       : time,
   'folder_id': folderId,
   'type': type,
-  if (liveType != null) 'live_type': liveType,
+  'live_type': ?liveType,
   'additional': {
     'thumbnail': {'sm': 'sm_$id', 'm': 'm_$id', 'cache_key': 'ck_$id'},
     ...?extraAdditional,
-    if (motionPhoto != null) 'motion_photo': motionPhoto,
+    'motion_photo': ?motionPhoto,
   },
 };
 

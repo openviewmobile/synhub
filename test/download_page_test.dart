@@ -83,7 +83,7 @@ Map<String, dynamic> _task({
   'additional': {
     'detail': {
       'destination': destination,
-      if (priority != null) 'priority': priority,
+      'priority': ?priority,
     },
     'transfer': {
       'size_downloaded': downloaded,

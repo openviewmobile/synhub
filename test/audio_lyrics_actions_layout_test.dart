@@ -21,8 +21,12 @@ void main() {
       isTrue,
       reason: 'DA107：歌词区两个动作按钮要用 Align + Wrap（放不下换行），不是 Row + Spacer',
     );
+    // r471 起写成 `if (pickButton != null) pickButton`；r472 的 lint 批次
+    // （flutter_lints 6 的 `use_null_aware_elements`）把它改成语义完全等价的
+    // `?pickButton`。两种写法都算"按钮还在同一组里"，守卫别钉死其中一种。
     expect(
-      src.contains('if (pickButton != null) pickButton,'),
+      src.contains('if (pickButton != null) pickButton,') ||
+          src.contains('?pickButton,'),
       isTrue,
       reason: 'DA107：换版本按钮必须仍在同一组里（不要为了"不溢出"把它删掉）',
     );

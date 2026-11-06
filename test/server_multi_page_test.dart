@@ -124,14 +124,14 @@ void main() {
     final router = GoRouter(
       initialLocation: '/',
       routes: [
-        GoRoute(path: '/', builder: (_, __) => const ServerSetupPage()),
+        GoRoute(path: '/', builder: (_, _) => const ServerSetupPage()),
         GoRoute(
           path: '/home',
-          builder: (_, __) => const Scaffold(body: Text('HOME-PAGE')),
+          builder: (_, _) => const Scaffold(body: Text('HOME-PAGE')),
         ),
         GoRoute(
           path: '/login',
-          builder: (_, __) => const Scaffold(body: Text('LOGIN-PAGE')),
+          builder: (_, _) => const Scaffold(body: Text('LOGIN-PAGE')),
         ),
       ],
     );
@@ -209,7 +209,7 @@ void main() {
     await notifier.restore();
     final sub = h.container.listen(
       _fakeListProvider,
-      (_, __) {},
+      (_, _) {},
       fireImmediately: true,
     );
     await tester.pump();

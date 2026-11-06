@@ -83,7 +83,7 @@ class _AutoExtraction extends ConsumerWidget {
         padding: EdgeInsets.all(Gap.lg),
         child: Center(child: CircularProgressIndicator()),
       ),
-      error: (e, __) => AppErrorView(
+      error: (e, _) => AppErrorView(
         title: dataText('dsSettingsLoadFailed', '设置加载失败'),
         detail: describeDownloadError(e),
         onRetry: () => ref.invalidate(downloadAutoExtractionProvider),
@@ -464,7 +464,7 @@ class _PackageSection extends ConsumerWidget {
           Text(
             info.when(
               loading: () => dataText('dsLoading', '加载中…'),
-              error: (e, __) => describeDownloadError(e),
+              error: (e, _) => describeDownloadError(e),
               data: (v) => v == null || v.versionString.isEmpty
                   ? dataText('dsVersionUnknown', '版本未知')
                   : '${dataText('dsVersion', '版本')} ${v.versionString}',
@@ -476,7 +476,7 @@ class _PackageSection extends ConsumerWidget {
           Text(
             modules.when(
               loading: () => '',
-              error: (e, __) => '',
+              error: (e, _) => '',
               data: (list) => list.isEmpty
                   ? ''
                   : context.t.dsModulesLine(list.map(_moduleLabel).join(' · ')),
@@ -489,7 +489,7 @@ class _PackageSection extends ConsumerWidget {
           const SizedBox(height: Gap.sm),
           service.when(
             loading: () => const SizedBox.shrink(),
-            error: (e, __) => const SizedBox.shrink(),
+            error: (e, _) => const SizedBox.shrink(),
             data: (s) => s == null
                 ? const SizedBox.shrink()
                 : Wrap(

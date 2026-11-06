@@ -72,7 +72,7 @@ final photoPersonFacesProvider =
       final raw = await api.personFaces(query.personId, itemIds: query.itemIds);
       return [
         for (final r in raw)
-          if (PhotoFaceDto.tryParse(r) case final f?) f,
+          ?PhotoFaceDto.tryParse(r),
       ];
     });
 
@@ -125,7 +125,7 @@ class PhotoFaceStrip extends ConsumerWidget {
         height: 2,
         child: LinearProgressIndicator(key: Key('photo-face-strip-loading')),
       ),
-      error: (_, __) => const SizedBox.shrink(),
+      error: (_, _) => const SizedBox.shrink(),
       data: (list) {
         if (list.isEmpty) return const SizedBox.shrink();
         return SizedBox(
@@ -135,7 +135,7 @@ class PhotoFaceStrip extends ConsumerWidget {
             scrollDirection: Axis.horizontal,
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
             itemCount: list.length,
-            separatorBuilder: (_, __) => const SizedBox(width: 6),
+            separatorBuilder: (_, _) => const SizedBox(width: 6),
             itemBuilder: (context, i) => GestureDetector(
               key: Key('photo-face-${list[i].id}'),
               onTap: () => _openActions(context, ref, list[i]),

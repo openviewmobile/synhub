@@ -1094,8 +1094,8 @@ class DownloadStationApi {
       params: {
         'task_id': taskId,
         'index': jsonEncode(indexes),
-        if (priority != null) 'priority': priority,
-        if (wanted != null) 'wanted': wanted,
+        'priority': ?priority,
+        'wanted': ?wanted,
       },
     );
   }
@@ -1193,9 +1193,9 @@ class DownloadStationApi {
         'keyword': kw,
         'search_type': searchType,
         'file_type': fileType,
-        if (fileSizeMin != null) 'file_size_min': fileSizeMin,
-        if (fileSizeMax != null) 'file_size_max': fileSizeMax,
-        if (sourceNumMin != null) 'source_num_min': sourceNumMin,
+        'file_size_min': ?fileSizeMin,
+        'file_size_max': ?fileSizeMax,
+        'source_num_min': ?sourceNumMin,
         if (ext.isNotEmpty) 'file_extension': ext,
       },
     );
@@ -1534,15 +1534,14 @@ class DownloadStationApi {
       'set',
       preferredVersion: negotiate(apiAutoExtraction, _v1),
       params: {
-        if (enableUnzip != null) 'enable_unzip': enableUnzip,
-        if (unzipLocationToCurrentFolder != null)
-          'unzip_location': unzipLocationToCurrentFolder,
+        'enable_unzip': ?enableUnzip,
+        'unzip_location': ?unzipLocationToCurrentFolder,
         if (unzipToPath != null)
           // 空串 = 用户要清空 ⇒ 必须 JSON 编码，否则服务端静默丢弃。
           'unzip_to_path': unzipToPath.isEmpty ? jsonEncode('') : unzipToPath,
-        if (createSubfolder != null) 'create_subfolder': createSubfolder,
-        if (deleteArchive != null) 'delete_archive': deleteArchive,
-        if (unzipOverwrite != null) 'unzip_overwrite': unzipOverwrite,
+        'create_subfolder': ?createSubfolder,
+        'delete_archive': ?deleteArchive,
+        'unzip_overwrite': ?unzipOverwrite,
       },
     );
   }
@@ -2175,8 +2174,8 @@ class DownloadStationApi {
       preferredVersion: negotiate(apiRssFeed, _v1),
       params: {
         'id': id,
-        if (title != null) 'title': title,
-        if (url != null) 'url': url,
+        'title': ?title,
+        'url': ?url,
       },
     );
   }

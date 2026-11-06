@@ -118,7 +118,7 @@ Map<String, dynamic> _note({
   'brief': brief,
   'mtime': mtime,
   'ver': '1.0',
-  if (tags != null) 'tag': tags,
+  'tag': ?tags,
 };
 
 /// 装好 NoteStation API 的 ProviderContainer + 挂页面

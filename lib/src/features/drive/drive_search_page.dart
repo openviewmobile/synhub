@@ -169,7 +169,7 @@ class _DriveSearchPageState extends ConsumerState<DriveSearchPage> {
                       .when(
                         loading: () =>
                             const Center(child: CircularProgressIndicator()),
-                        error: (e, __) => AppEmptyState(
+                        error: (e, _) => AppEmptyState(
                           icon: Icons.error_outline,
                           title: driveP0(
                             DriveP0TextKeys.searchFailed,
@@ -197,7 +197,7 @@ class _DriveSearchPageState extends ConsumerState<DriveSearchPage> {
                                   bottom: Gap.xl,
                                 ),
                                 itemCount: data.items.length,
-                                separatorBuilder: (_, __) => Divider(
+                                separatorBuilder: (_, _) => Divider(
                                   height: 1,
                                   color: hud.dim.withValues(alpha: 0.12),
                                 ),

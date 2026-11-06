@@ -321,7 +321,7 @@ extension MockDownloadStationDemo on MockDsmBackend {
       final ids = stringList(p['id']);
       final found = <MockDownloadTask>[
         for (final id in ids)
-          if (q.byId(id) case final t?) t,
+          ?q.byId(id),
       ];
       return {
         'success': true,

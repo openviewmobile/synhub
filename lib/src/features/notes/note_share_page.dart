@@ -445,7 +445,7 @@ class _PrincipalSheetState extends ConsumerState<_PrincipalSheet> {
                     padding: EdgeInsets.all(Gap.lg),
                     child: LinearProgressIndicator(minHeight: 2),
                   ),
-                  error: (e, __) => Padding(
+                  error: (e, _) => Padding(
                     padding: const EdgeInsets.all(Gap.lg),
                     child: Text(
                       context.t.noteAccountSearchFailed(describeFileError(e)),

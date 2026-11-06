@@ -76,7 +76,7 @@ Map<String, dynamic> _item({
   'system': system,
   'title': title,
   'ver': ver,
-  if (sortOrder != null) 'sort_order': sortOrder,
+  'sort_order': ?sortOrder,
 };
 
 OfficeTemplateDto _dto(Map<String, dynamic> json) =>

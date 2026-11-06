@@ -192,7 +192,7 @@ void main() {
         mimeType: 'image/png',
         threadId: 99,
         voiceMsgLength: 7,
-        onProgress: (_, __) {},
+        onProgress: (_, _) {},
       );
       final call = t.calls.singleWhere(
         (c) => '${c['api']}.${c['method']}' == 'SYNO.Chat.Post.create',

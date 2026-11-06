@@ -432,7 +432,7 @@ class _AsyncList<T> extends StatelessWidget {
         child: ListView.separated(
           physics: const AlwaysScrollableScrollPhysics(),
           itemCount: list.length,
-          separatorBuilder: (_, __) => const Divider(height: 1),
+          separatorBuilder: (_, _) => const Divider(height: 1),
           itemBuilder: (context, i) => itemBuilder(context, list[i]),
         ),
       );

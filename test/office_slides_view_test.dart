@@ -117,7 +117,7 @@ Map<String, Object?> _miniSections({
                   'type': 'slide_content_container',
                   'attrs': <String, Object?>{},
                   'content': <Object?>[
-                    if (extraSlideContent != null) extraSlideContent,
+                    ?extraSlideContent,
                     <String, Object?>{
                       'type': 'paragraph',
                       'attrs': <String, Object?>{'textAlign': 'center'},

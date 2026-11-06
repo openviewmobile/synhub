@@ -129,7 +129,7 @@ class _DriveFolderPageState extends ConsumerState<DriveFolderPage> {
       ),
       body: async.when(
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (e, __) {
+        error: (e, _) {
           final gate = driveEntryGate(e);
           final gated = gate != DriveEntryGate.available;
           return AppEmptyState(
@@ -152,7 +152,7 @@ class _DriveFolderPageState extends ConsumerState<DriveFolderPage> {
             : ListView.separated(
                 padding: const EdgeInsets.only(bottom: Gap.xl),
                 itemCount: data.items.length,
-                separatorBuilder: (_, __) =>
+                separatorBuilder: (_, _) =>
                     Divider(height: 1, color: hud.dim.withValues(alpha: 0.12)),
                 itemBuilder: (context, i) => _row(data.items[i]),
               ),

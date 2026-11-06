@@ -98,7 +98,7 @@ class _BooksTab extends ConsumerWidget {
         loading: () => const Center(child: CircularProgressIndicator()),
         // 失败态必须与"空结果"分开、并保留重试入口（铁律②）：通讯录列表
         // 加载失败时用户原来只能看到一行错误文本、没有任何出路。
-        error: (e, __) => AppErrorView(
+        error: (e, _) => AppErrorView(
           key: const Key('contact-books-error'),
           detail: describeContactsError(e, t),
           onRetry: () => ref.invalidate(addressbooksProvider),
@@ -395,7 +395,7 @@ class _LabelsTab extends ConsumerWidget {
       ),
       body: async.when(
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (e, __) => AppErrorView(
+        error: (e, _) => AppErrorView(
           key: const Key('contact-labels-error'),
           detail: describeContactsError(e, t),
           onRetry: () => ref.invalidate(labelsProvider),
@@ -621,7 +621,7 @@ class _GroupsTabState extends ConsumerState<_GroupsTab> {
 
     return async.when(
       loading: () => const Center(child: CircularProgressIndicator()),
-      error: (e, __) => AppErrorView(
+      error: (e, _) => AppErrorView(
         key: const Key('contact-groups-error'),
         detail: describeContactsError(e, t),
         onRetry: () => ref.invalidate(addressbooksProvider),
@@ -685,7 +685,7 @@ class _GroupsTabState extends ConsumerState<_GroupsTab> {
                 padding: EdgeInsets.symmetric(vertical: Gap.md),
                 child: LinearProgressIndicator(minHeight: 2),
               ),
-              error: (e, __) => Padding(
+              error: (e, _) => Padding(
                 padding: const EdgeInsets.symmetric(
                   horizontal: Gap.lg,
                   vertical: Gap.sm,
@@ -732,7 +732,7 @@ class _GroupsTabState extends ConsumerState<_GroupsTab> {
                   padding: EdgeInsets.symmetric(vertical: Gap.md),
                   child: LinearProgressIndicator(minHeight: 2),
                 ),
-                error: (e, __) => Padding(
+                error: (e, _) => Padding(
                   padding: const EdgeInsets.symmetric(
                     horizontal: Gap.lg,
                     vertical: Gap.sm,
@@ -841,7 +841,7 @@ class _GroupTileState extends ConsumerState<_GroupTile> {
                 padding: EdgeInsets.all(Gap.md),
                 child: LinearProgressIndicator(minHeight: 2),
               ),
-              error: (e, __) => Padding(
+              error: (e, _) => Padding(
                 padding: const EdgeInsets.all(Gap.sm),
                 child: AppEmptyState(
                   key: const Key('contact-group-members-error'),

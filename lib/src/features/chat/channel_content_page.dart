@@ -303,7 +303,7 @@ class _ChannelContentPageState extends ConsumerState<ChannelContentPage> {
                 physics: const AlwaysScrollableScrollPhysics(),
                 controller: _scroll,
                 itemCount: _state.posts.length + (_state.hasMore ? 1 : 0),
-                separatorBuilder: (_, __) => const Divider(height: 1),
+                separatorBuilder: (_, _) => const Divider(height: 1),
                 itemBuilder: (context, i) {
                   if (i >= _state.posts.length) {
                     return const Padding(

@@ -480,7 +480,7 @@ class _DownloadPageState extends ConsumerState<DownloadPage>
           physics: const AlwaysScrollableScrollPhysics(),
           padding: const EdgeInsets.only(top: Gap.sm, bottom: Gap.xxl * 2),
           itemCount: state.items.length + (state.loadingMore ? 1 : 0),
-          separatorBuilder: (_, __) => Divider(
+          separatorBuilder: (_, _) => Divider(
             height: 1,
             color: DesignPalette.of(context).dim.withValues(alpha: 0.12),
           ),
@@ -1446,7 +1446,7 @@ class _PreviewThumb extends ConsumerWidget {
         height: 40,
         fit: BoxFit.cover,
         gaplessPlayback: true,
-        errorBuilder: (_, __, ___) => Icon(_fallbackIcon, color: color),
+        errorBuilder: (_, _, _) => Icon(_fallbackIcon, color: color),
       ),
     );
   }

@@ -5,7 +5,7 @@ import 'dart:io';
 
 Future<void> main() async {
   final base = Platform.environment['SYNO_NAS_URL']!;
-  final http = HttpClient()..badCertificateCallback = (_, __, ___) => true;
+  final http = HttpClient()..badCertificateCallback = (_, _, _) => true;
   final req = await http.postUrl(Uri.parse('$base/webapi/entry.cgi'));
   req.headers.contentType = ContentType('application', 'x-www-form-urlencoded');
   req.write(

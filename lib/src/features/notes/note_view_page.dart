@@ -298,7 +298,7 @@ class _NoteViewPageState extends ConsumerState<NoteViewPage> {
             )
           : detail.when(
               loading: () => const Center(child: CircularProgressIndicator()),
-              error: (e, __) => AppErrorView(
+              error: (e, _) => AppErrorView(
                 title: context.t.noteOpenFailed,
                 detail: describeNoteError(e, context.t),
                 onRetry: () =>
@@ -332,7 +332,7 @@ class _NoteViewPageState extends ConsumerState<NoteViewPage> {
   }) {
     final t = context.t;
     final meta = [
-      if (notebookTitle != null) notebookTitle,
+      ?notebookTitle,
       if (note.mtime > 0) t.noteModifiedAt(formatFileTime(note.mtime)),
       if (note.ownerName != null) note.ownerName!,
       if (note.encrypt) t.noteEncryptedAes,
@@ -535,7 +535,7 @@ class _NoteViewPageState extends ConsumerState<NoteViewPage> {
         scrollDirection: Axis.horizontal,
         padding: const EdgeInsets.symmetric(horizontal: 12),
         itemCount: note.attachments.length,
-        separatorBuilder: (_, __) => const SizedBox(width: 8),
+        separatorBuilder: (_, _) => const SizedBox(width: 8),
         itemBuilder: (_, i) {
           final a = note.attachments.values.elementAt(i);
           return InkWell(

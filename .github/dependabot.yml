@@ -7,6 +7,13 @@ updates:
     open-pull-requests-limit: 5
     commit-message:
       prefix: "chore"
+    ignore:
+      # dynamic_color 2.x 换掉了整层 material：它内部 `import material_ui`，
+      # `DynamicColorBuilder` 交出来的是 material_ui 的 `ColorScheme`，
+      # 和 Flutter `material` 的 `ColorScheme` 不是同一个类型 ⇒ 全仓编不过。
+      # 要升它必须先整体迁到 material_ui，那是另一件事，不是"依赖小步更新"。
+      - dependency-name: "dynamic_color"
+        versions: [">=2.0.0"]
   - package-ecosystem: github-actions
     directory: "/"
     schedule:
