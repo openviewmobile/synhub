@@ -23,10 +23,10 @@ const String kPinnedWasmSha256 =
 
 /// 取自 drift 仓库对应版本的 `web/drift_worker.dart.js`
 /// （`https://github.com/simolus3/drift/releases/download/drift-<版本>/drift_worker.dart.js`）
-const String kPinnedDriftVersion = '2.35.0';
-const int kPinnedWorkerBytes = 357220;
+const String kPinnedDriftVersion = '2.35.3';
+const int kPinnedWorkerBytes = 361829;
 const String kPinnedWorkerSha256 =
-    'df0066e75363a9bed59a14eedbbded421c1f5910f8379812df164716aa2e6eed';
+    'a54b81412d4c4ab56653bb9e4c02912b0820bb37e2bba00722ddef4d78083d4a';
 
 /// 从 lock 文件里取某包的解析版本（`pubspec.lock` 是 YAML，但结构固定，不引入依赖）
 String _lockedVersion(String lock, String pkg) {

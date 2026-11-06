@@ -14,6 +14,13 @@ updates:
       # 要升它必须先整体迁到 material_ui，那是另一件事，不是"依赖小步更新"。
       - dependency-name: "dynamic_color"
         versions: [">=2.0.0"]
+      # drift / sqlite3 与 `web/sqlite3.wasm`、`web/drift_worker.dart.js` **成对发布**：
+      # 那两个 wasm 资产是按具体 drift/sqlite3 版本预编译后钉进仓库的
+      # （`test/web_assets_version_test.dart` 逐个比对字节数与 sha256）。
+      # 只升 pub 依赖而不重新生成这两份资产 ⇒ Web 端运行时版本不匹配，守卫必红。
+      # 重新上架资产的步骤写在 test 文件头部注释里；在那之前先别开升 drift 的 PR。
+      - dependency-name: "drift"
+      - dependency-name: "sqlite3"
   - package-ecosystem: github-actions
     directory: "/"
     schedule:
