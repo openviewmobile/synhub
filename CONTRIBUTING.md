@@ -19,6 +19,17 @@ flutter test                               # must be green, ~800 files
 bash tool/secret_scan.sh                   # must be green
 ```
 
+You can have the last one run automatically on every commit:
+
+```bash
+pipx install pre-commit   # or: uv tool install pre-commit
+pre-commit install        # writes .git/hooks/pre-commit
+```
+
+The hook is defined in `.pre-commit-config.yaml` and only calls repo-local scripts
+(`tool/secret_scan.sh`), so it runs the same check CI runs — the wordlist comes from
+`SECRET_WORDS` in the environment or the gitignored `tool/secret_words.local`.
+
 If you touch the UI strings, run `flutter gen-l10n` and commit both ARB files
 (`lib/l10n/app_en.arb`, `lib/l10n/app_zh.arb`) — never hand-edit `lib/l10n/gen/`.
 

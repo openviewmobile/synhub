@@ -36,3 +36,17 @@ jobs:
         env:
           SECRET_WORDS: ${{ secrets.SECRET_WORDS }}
         run: bash tool/secret_scan.sh
+
+  # 依赖漏洞扫描：与 analyze-test 分开，失败时一眼能看出是"代码问题"还是"依赖问题"。
+  # 用 Google 官方 action（固定到 commit SHA），它内部跑 osv-scanner 的 docker 镜像。
+  supply-chain:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: google/osv-scanner-action/osv-scanner-action@b1d267aea5211fa648d9d442fa64b90dbdcbdd36 # v2.7.0
+        with:
+          # 参数取自 action 仓库自己的示例 workflow（v2 CLI 认这两个参数）
+          scan-args: |-
+            --include-git-root
+            -r
+            ./

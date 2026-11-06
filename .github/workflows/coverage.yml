@@ -1,0 +1,59 @@
+name: coverage
+
+# 覆盖率**不进 PR 门禁**，这里说清楚为什么：
+#
+# ① 加 `--coverage` 后同一条测试命令在本仓从 ~20 分钟涨到 ~36 分钟，
+#    而门禁要的是"快而确定"；
+# ② 全量 1.2 万个用例里有一批对时序敏感的用例（见 CONTRIBUTING 的偶发红名单），
+#    插桩把整体拉慢后再叠加 runner 抖动，就会变成"覆盖率任务红 ⇒ 看不出是代码坏了还是它自己慢"。
+#
+# 所以：按周 + 手动跑，数值进 job summary，lcov 存档。要趋势，不要假门槛。
+
+on:
+  schedule:
+    # 每周一 04:17 UTC（避开整点排队）
+    - cron: '17 4 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: coverage-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  coverage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2 # v2
+        with:
+          channel: stable
+          flutter-version: '3.47.4'
+          cache: true
+      - name: pub get
+        run: flutter pub get
+      - name: gen-l10n
+        run: flutter gen-l10n
+      - name: test with coverage
+        run: flutter test --coverage --reporter compact
+      - name: coverage summary
+        # 只报行覆盖率，不设门槛：门槛会诱使人写"碰一下就算覆盖"的空用例。
+        run: |
+          test -f coverage/lcov.info || { echo 'no coverage/lcov.info'; exit 1; }
+          awk -F: '
+            /^LF:/ {lf += $2}
+            /^LH:/ {lh += $2}
+            END {
+              if (lf == 0) {print "lcov has no line data"; exit 1}
+              printf "lines hit: %d / %d (%.1f%%)\n", lh, lf, 100 * lh / lf
+            }' coverage/lcov.info | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: upload coverage
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: coverage-lcov
+          path: coverage/lcov.info
+          retention-days: 30
+          if-no-files-found: error

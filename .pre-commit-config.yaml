@@ -1,0 +1,14 @@
+# 提交前的最小闸门。装法见 CONTRIBUTING.md（`pre-commit install`）。
+#
+# 只放**仓库内**的钩子：不引第三方 hook 仓库 = 少一层供应链风险，
+# 也让 `pre-commit run` 与 CI 跑的是同一份脚本、同一套判据。
+repos:
+  - repo: local
+    hooks:
+      - id: secret-scan
+        name: secret scan (tool/secret_scan.sh)
+        entry: bash tool/secret_scan.sh
+        language: system
+        pass_filenames: false
+        # 扫描针对已跟踪文件；词表来自 SECRET_WORDS 或 tool/secret_words.local
+        stages: [pre-commit]
