@@ -17,6 +17,12 @@ First release with packages. Every asset is built by
   fails outright if `lib/arm64-v8a/libsynochatpunch.so` is missing, and the iOS job builds the
   static library the Runner link step requires.
 
+### Notes
+- One CI-only failure was observed while landing this release:
+  `test/photo_album_write_test.dart` → "相册里的大图页有「设为封面 / 移出相册」" failed
+  inside `pumpWidget` on `ubuntu-latest`, and passed 3/3 locally at the same commit. It is
+  recorded here rather than called fixed — the cause is not established.
+
 ### Fixed
 - `scripts/build_linux_deb.sh` hardcoded the arm64 bundle path, so it could not package an x64
   build. It now derives the bundle directory from `uname -m`.
