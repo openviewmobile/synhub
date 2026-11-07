@@ -30,7 +30,20 @@ jobs:
       - name: analyze
         run: flutter analyze lib test tool/mock_dsm
       - name: test
-        run: flutter test --reporter compact
+        # 整份用例日志直接进步骤日志会触发 GitHub 的截断：它砍掉**中间**，
+        # 恰好把失败原因砍没（run 42338934283 就这样丢了 23 分钟的现场）。
+        # 所以：全量写文件，步骤里只贴尾部；失败时再贴判据行。
+        run: |
+          set +e
+          flutter test --reporter compact > /tmp/test.log 2>&1
+          rc=$?
+          tail -n 120 /tmp/test.log
+          if [ "$rc" -ne 0 ]; then
+            echo "::group::failing tests"
+            grep -nE '\[E\]$|Expected:|Actual:|Which:|EXCEPTION CAUGHT|Some tests failed|Test failed\. See' /tmp/test.log | head -n 60
+            echo "::endgroup::"
+          fi
+          exit "$rc"
       - name: secret scan
         # 词表只放在仓库的 Actions secret 里（SECRET_WORDS），公开代码里只留读取逻辑。
         env:

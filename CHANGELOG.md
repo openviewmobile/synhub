@@ -24,6 +24,9 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); version
   the push instead of only in CI.
 - `flake-probe` workflow (manual, repeats chosen files N times on one Linux runner) and a
   CONTRIBUTING section on how to read its result instead of re-running until green.
+- `ci` test step now keeps the full log in a file and prints only the tail plus the failing
+  assertion lines: GitHub truncates an oversized step log from the **middle**, which is where
+  the failure reason sits (a 23-minute red had to be re-derived from a widget-tree dump).
 - `platform-build` workflow (weekly + manual): actually builds web / linux / windows / macos.
   Until now nothing in CI compiled a platform, so a broken platform tree could sit green —
   that is exactly how the macOS target stopped building unnoticed for a stretch.
