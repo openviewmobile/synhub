@@ -174,7 +174,15 @@ jobs:
           echo "app: $APP"
           codesign -dv --verbose=2 "$APP" 2>&1 | sed -n '1,8p' || true
           ditto -c -k --sequesterRsrc --keepParent "$APP" "synhub-${V}-macos.zip"
-          hdiutil create -volname "SynHub" -srcfolder "$(dirname "$APP")" -ov -format UDZO "synhub-${V}-macos.dmg" >/dev/null
+          # ★ 只把 .app 放进 dmg。v0.2.0 直接拿 `dirname "$APP"`（Release 目录）当源，
+          #   把同目录的 *.dSYM 调试符号一起打了进去 —— 311MB 的 dmg 就是这么来的
+          #   （同一次构建的 zip 是 53MB）。顺带加一个 /Applications 软链，
+          #   装的时候可以直接拖。
+          STAGE="$(mktemp -d)"
+          cp -R "$APP" "$STAGE/"
+          ln -s /Applications "$STAGE/Applications"
+          hdiutil create -volname "SynHub" -srcfolder "$STAGE" -ov -format UDZO "synhub-${V}-macos.dmg" >/dev/null
+          rm -rf "$STAGE"
           ls -lh "synhub-${V}-macos.zip" "synhub-${V}-macos.dmg"
           shasum -a 256 "synhub-${V}-macos.zip" "synhub-${V}-macos.dmg"
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
@@ -205,6 +213,9 @@ jobs:
         shell: pwsh
         run: |
           $V = (Select-String -Path pubspec.yaml -Pattern '^version:\s*(\S+)' ).Matches[0].Groups[1].Value -replace '\+.*$',''
+          # ★ 去掉 .pdb 调试符号：它们对终端用户没用，且能把 zip 撑到 143MB。
+          $pdbs = Get-ChildItem -Path build\windows\x64\runner\Release -Recurse -Include *.pdb
+          if ($pdbs) { "removing $($pdbs.Count) pdb file(s)"; $pdbs | Remove-Item -Force }
           Compress-Archive -Path build\windows\x64\runner\Release\* -DestinationPath "synhub-$V-windows-x64.zip" -Force
           Get-Item "synhub-$V-windows-x64.zip" | Format-List Name,Length
           Get-FileHash "synhub-$V-windows-x64.zip" -Algorithm SHA256

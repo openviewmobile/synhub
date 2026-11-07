@@ -3,6 +3,24 @@
 All notable changes to this project are documented here.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versions follow SemVer.
 
+## [0.2.1] - 2026-11-07
+
+Packaging fix-up for the first release. `v0.2.0` shipped a 311 MB macOS image and a
+143 MB Windows zip because both included debug symbols.
+
+### Fixed
+- macOS `.dmg` is built from a staging directory holding only the `.app` (plus an
+  `/Applications` symlink). Previously `dirname "$APP"` was used as the source, which
+  swept the sibling `*.dSYM` bundle into the image — 311 MB instead of 53 MB.
+- Windows `.zip` drops `*.pdb` files before archiving.
+
+### Notes
+- The Android APK is 111 MB. The breakdown, measured from the published asset:
+  `libapp.so` 29.8 MB, `libLiteRtLm.so` 26.4 MB (on-device AI runtime), `libmpv.so`
+  12.4 MB, `libflutter.so` 11.7 MB, LiteRT accelerators/samplers ~13 MB, QNN
+  system+stubs ~11 MB, `classes.dex` 4.6 MB. Nothing here is accidental; the AI
+  runtime is the largest single contributor.
+
 ## [0.2.0] - 2026-11-07
 
 First release with packages. Every asset is built by
