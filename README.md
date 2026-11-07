@@ -23,8 +23,9 @@ Linux, Windows and Web**.
 
 **If you came here to…**
 
-- **use it** — there is nothing to download (source only). Build it (§ [Build](#build)), or see
-  it running against the bundled mock in about five minutes (§ [Quick start](#quick-start-offline--no-nas-required)).
+- **use it** — grab a package from [Releases](https://github.com/openviewmobile/synhub/releases)
+  (§ [Packages](#packages)), or see it running against the bundled mock in about five minutes
+  (§ [Quick start](#quick-start-offline--no-nas-required)).
 - **read the code** — start at `lib/src/data/` (the typed DSM API surface) and `tool/mock_dsm/`
   (what the whole test suite runs against).
 - **contribute** — [CONTRIBUTING.md](CONTRIBUTING.md) for the rules, [ROADMAP.md](ROADMAP.md)
@@ -36,9 +37,38 @@ Linux, Windows and Web**.
 |---|---|
 | ✅ | Application source: Flutter/Dart (`lib/`), six platform runners, ~800 offline unit/widget tests, an offline mock DSM server (`tool/mock_dsm/`), and the clean-room QuickConnect hole-punch library (`reimpl/`) |
 | ✅ | Build scripts for Android (arm64-v8a), iOS, macOS, Linux, Windows and Web |
-| ❌ | **No prebuilt packages.** Source only — no APK / IPA / MSIX / deb / AppImage. Build it yourself (§ [Build](#build)). |
+| ✅ / ⚠️ | **Packages for all six targets** on the [Releases](https://github.com/openviewmobile/synhub/releases) page, built by CI from the tagged commit. They are not equally signed — read § [Packages](#packages) before installing. |
 | ❌ | **No screenshots or acceptance ledgers.** The upstream project keeps per-round acceptance evidence (thousands of screenshots, per-platform ledgers) in a private QA repository. Tests that assert on those ledgers are not shipped here. |
 | ❌ | No credentials, no signing keys, no capture files from a real NAS. Anything that needs a server runs against the bundled mock. |
+
+## Packages
+
+Every `v*` tag is built by [`.github/workflows/release.yml`](.github/workflows/release.yml) on
+GitHub-hosted runners, and the assets are attached to that tag. `SHA256SUMS.txt` sits next to them.
+
+| Asset | Platform | What the signature actually means |
+|---|---|---|
+| `synhub-<ver>-android-arm64.apk` | Android 5.0+, **arm64-v8a only** | signed with the project release key, or with the Flutter debug key if the CI secrets are not configured — the job says which, in its log |
+| `synhub-<ver>-ios-unsigned.ipa` | iOS | **unsigned**. It will not install on a device until you re-sign it yourself (AltStore, Sideloadly, your own certificate) |
+| `synhub-<ver>-macos.zip` / `.dmg` | macOS | **ad-hoc** signature. Downloaded copies are quarantined by Gatekeeper; `xattr -dr com.apple.quarantine /Applications/SynHub.app` after copying |
+| `synhub-<ver>-windows-x64.zip` | Windows | unzip and run `synhub.exe`. No Authenticode signature, so SmartScreen will ask |
+| `synhub_<ver>_amd64.deb`, `synhub-<ver>-linux-x64.tar.gz` | Linux x64 | unsigned packages; the `.deb` installs to `/opt/synhub` with a menu entry |
+| `synhub-<ver>-web.tar.gz` | Web | a static bundle. Serve it over HTTP — opening `index.html` from `file://` will not work, and encrypted-DSM writes need same-origin hosting |
+
+Verify before installing:
+
+```bash
+sha256sum -c SHA256SUMS.txt
+apksigner verify --print-certs synhub-<ver>-android-arm64.apk | head -3   # Android
+```
+
+Two consequences worth knowing up front:
+
+- The APK is signed with the project key. If you build the app yourself with your own key, Android
+  refuses to install it over a release build (`INSTALL_FAILED_UPDATE_INCOMPATIBLE`) — you have to
+  uninstall first, which deletes app data and any stored NAS credentials.
+- Nothing here is affiliated with or endorsed by Synology. These are signatures of *build
+  provenance*, nothing more. See [RELEASING.md](RELEASING.md).
 
 ## Conventions
 

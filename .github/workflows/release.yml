@@ -104,6 +104,10 @@ jobs:
           V="$(awk '/^version:/{print $2}' pubspec.yaml | cut -d+ -f1)"
           cp "$APK" "synhub-${V}-android-arm64.apk"
           sha256sum synhub-*.apk
+          # 体积构成落到日志里：116.8MB 的包必须能一眼看出是谁占的
+          # （release #2/#3 的 APK 就是 116.8MB，而本地 release 包历史上是 27–32MB）。
+          echo "==> APK 内容 top 20（按压缩前大小）"
+          unzip -l "$APK" | awk 'NR>3 && $1 ~ /^[0-9]+$/ {print $1, $4}' | sort -rn | head -20
 
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:

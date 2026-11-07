@@ -20,7 +20,8 @@ repository. Treat "builds" and "acceptance-tested" as different words.
 
 - [ ] Keep the dependabot batch moving (currently: `go_router`, `archive`, `image`,
       `cupertino_icons`, `audio_session`).
-- [ ] Decide whether releases ship prebuilt packages. Today the answer is **no** — source only.
+- [x] Releases ship prebuilt packages for all six targets (`v0.2.0` onwards), built by CI from the
+      tagged commit. See § [Packages](README.md#packages) for what each signature level means.
 - [ ] Make the CI suite cheaper: 20+ minutes on a 4-core runner is the main reason people
       stop pushing. Sharding by directory is the obvious lever.
 
@@ -37,8 +38,8 @@ repository. Treat "builds" and "acceptance-tested" as different words.
 
 ## Later
 
-- [ ] Prebuilt packages (APK / MSIX / deb) with a documented signing story — depends on the
-      decision above.
+- [ ] MSIX packaging for Windows and a notarized macOS build — both need a certificate we do not
+      have; today Windows ships a zip and macOS an ad-hoc signed app.
 - [ ] Plugin/extension point for custom views over the file/photo APIs.
 - [ ] Offline-first document editing (Office) — currently view + create, not collaborative edit.
 
