@@ -21,6 +21,15 @@ Linux, Windows and Web**.
 
 ---
 
+**If you came here to…**
+
+- **use it** — there is nothing to download (source only). Build it (§ [Build](#build)), or see
+  it running against the bundled mock in about five minutes (§ [Quick start](#quick-start-offline--no-nas-required)).
+- **read the code** — start at `lib/src/data/` (the typed DSM API surface) and `tool/mock_dsm/`
+  (what the whole test suite runs against).
+- **contribute** — [CONTRIBUTING.md](CONTRIBUTING.md) for the rules, [ROADMAP.md](ROADMAP.md)
+  for what is wanted next and which pieces are small enough to start with.
+
 ## What this repository is (and is not)
 
 | | |
@@ -201,6 +210,8 @@ not files you can open here.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) — ground rules (no real-NAS artifacts, no vendor code),
 the pre-PR checklist, the pre-commit hook, and how to triage a CI-only failure.
+[ROADMAP.md](ROADMAP.md) lists what is wanted next, what is deliberately not planned, and a few
+small self-contained starting points.
 Security issues: [SECURITY.md](SECURITY.md) (private advisory, please).
 Changes per release: [CHANGELOG.md](CHANGELOG.md).
 
