@@ -14,6 +14,9 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); version
   (the pinned wasm/worker pair cannot be bumped by a version PR alone).
 
 ### Added
+- README restructured: badges, an offline quick start, a per-suite table, an honest
+  "builds vs acceptance-tested" platform table, the Linux dev packages that the build actually
+  needs, a privacy section, and a table of what each CI workflow does.
 - `.editorconfig` for cross-editor consistency.
 - Branch protection on `main`: PR required, `ci / analyze-test` must pass, admins included.
 - CI: a separate `supply-chain` job running OSV-Scanner over the lockfile.
