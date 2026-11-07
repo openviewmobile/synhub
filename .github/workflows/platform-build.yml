@@ -1,0 +1,70 @@
+name: platform-build
+
+# 为什么要有这个工作流：这个仓的 CI 只跑 analyze/test，**从来不编任何平台**。
+# 代价在 macOS 上真实发生过一次：`macos/Runner/MediaPlayerBridge.swift` 引用了一个
+# 只存在于 iOS target 的符号，`flutter build macos` 一编就红，而 test/analyze 全绿 ——
+# 于是"macOS 验收"在一棵**编不出来的树**上进行了一整段（内部编号 `D86`）。
+#
+# 所以：每个平台每周真编一次，红了说明"某个平台的树坏了"，而不是"某个用例抖了"。
+# 只在 schedule + 手动触发：单次 macOS 构建代价高，不该挂在每个 PR 上。
+
+on:
+  schedule:
+    # 每周二 04:37 UTC（与 coverage 的周一错开）
+    - cron: '37 4 * * 2'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: platform-build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: build (${{ matrix.platform }})
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - platform: web
+            os: ubuntu-latest
+            command: flutter build web --release
+          - platform: linux
+            os: ubuntu-latest
+            command: flutter build linux --debug
+            apt: >-
+              clang cmake ninja-build pkg-config libgtk-3-dev liblzma-dev
+              libstdc++-12-dev
+          - platform: windows
+            os: windows-latest
+            command: flutter build windows --debug
+          - platform: macos
+            os: macos-latest
+            command: flutter build macos --debug
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: install linux deps
+        if: matrix.apt != ''
+        run: sudo apt-get update && sudo apt-get install -y ${{ matrix.apt }}
+      - uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2 # v2
+        with:
+          channel: stable
+          flutter-version: '3.47.4'
+          cache: true
+      - name: pub get
+        run: flutter pub get
+      - name: gen-l10n
+        run: flutter gen-l10n
+      - name: build
+        run: ${{ matrix.command }}
+      - name: summary
+        if: always()
+        shell: bash
+        run: |
+          echo "| platform | command | result |" >> "$GITHUB_STEP_SUMMARY"
+          echo "|---|---|---|" >> "$GITHUB_STEP_SUMMARY"
+          echo "| ${{ matrix.platform }} | \`${{ matrix.command }}\` | ${{ job.status }} |" >> "$GITHUB_STEP_SUMMARY"

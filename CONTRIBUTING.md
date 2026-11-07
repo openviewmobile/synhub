@@ -36,6 +36,23 @@ If you touch the UI strings, run `flutter gen-l10n` and commit both ARB files
 If you touch platform runners, add the exact command you used to verify the build
 (e.g. `flutter build macos --debug`) to the PR description.
 
+## Changing platform code
+
+`flutter test` says nothing about whether a platform tree still compiles — it compiles
+Dart, not the Swift/Kotlin/C++ runners. If you touch `macos/`, `ios/`, `windows/`,
+`linux/`, `android/` or a conditional import, build that platform before opening the PR:
+
+```bash
+flutter build macos --debug     # macOS
+flutter build linux --debug     # Linux
+flutter build windows --debug   # Windows
+flutter build web --release     # Web (catches dart:io leaking into shared code)
+flutter build apk --debug --target-platform android-arm64
+```
+
+The `platform-build` workflow runs the web/linux/windows/macos builds weekly; it is not a
+per-PR gate (a macOS build is expensive), so a green PR does not mean the platform compiles.
+
 ## When a test fails only in CI
 
 Don't re-run until it goes green — that produces no information and leaves the suite
