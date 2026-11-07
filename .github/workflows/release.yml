@@ -90,7 +90,14 @@ jobs:
           set -euo pipefail
           APK=build/app/outputs/flutter-apk/app-release.apk
           test -f "$APK"
-          APKSIGNER="$(ls -d "$ANDROID_HOME"/build-tools/*/apksigner 2>/dev/null | sort -V | tail -1)"
+          APKSIGNER="$(command -v apksigner || true)"
+          if [ -z "$APKSIGNER" ]; then
+            APKSIGNER="$(ls -d "${ANDROID_HOME:-/usr/local/lib/android/sdk}"/build-tools/*/apksigner 2>/dev/null | sort -V | tail -1 || true)"
+          fi
+          if [ -z "$APKSIGNER" ]; then
+            echo "::error::apksigner 找不到 —— 无法核对签名者，拒绝产出"
+            exit 1
+          fi
           "$APKSIGNER" verify --print-certs "$APK" | sed -n '1,4p'
           unzip -l "$APK" | grep -q "lib/arm64-v8a/libsynochatpunch.so" \
             || { echo "::error::APK 里没有 arm64 的 hole-punch 库"; exit 1; }
@@ -117,6 +124,10 @@ jobs:
           cache: true
       - run: flutter pub get
       - run: flutter gen-l10n
+      # Runner 的 OTHER_LDFLAGS 里是 -force_load "$(SRCROOT)/lib/libsynochatpunch.a"，
+      # 缺这个静态库 Xcode 直接 "Build input file cannot be found"（release #1 实测）。
+      - name: native hole-punch library (device)
+        run: bash reimpl/scripts/build_ios.sh --device
       # 没有 Apple 开发者证书 ⇒ 只能出**未签名**包。这不是"发布版 iOS App"，
       # 是给会自己重签的人用的产物；RELEASING.md 里写清了这一点。
       - run: flutter build ios --release --no-codesign

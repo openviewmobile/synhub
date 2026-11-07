@@ -18,7 +18,14 @@ cd "$ROOT"
 APP_ID="com.openviewai.synhub"
 PKG="synhub"
 VERSION="$(awk '/^version:/{print $2}' pubspec.yaml | cut -d+ -f1)"
-BUNDLE="build/linux/arm64/release/bundle"
+# Bundle 路径按**宿主架构**取：Flutter 把 x64 放在 build/linux/x64，arm64 放在
+# build/linux/arm64。原来写死 arm64，在 x64 runner 上必然 die（release.yml 实测）。
+case "$(uname -m)" in
+  x86_64|amd64)  LINUX_ARCH=x64 ;;
+  aarch64|arm64) LINUX_ARCH=arm64 ;;
+  *) echo "[deb] 不支持的 Linux 架构：$(uname -m)" >&2; exit 1 ;;
+esac
+BUNDLE="build/linux/$LINUX_ARCH/release/bundle"
 OUT="build/linux_deb"
 STAGE="$OUT/stage"
 
