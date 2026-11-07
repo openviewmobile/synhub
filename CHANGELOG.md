@@ -3,6 +3,33 @@
 All notable changes to this project are documented here.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versions follow SemVer.
 
+## [0.2.0] - 2026-11-07
+
+First release with packages. Every asset is built by
+[`release.yml`](.github/workflows/release.yml) on GitHub-hosted runners from the tagged commit.
+
+### Added
+- **Prebuilt packages for all six targets**: Android arm64-v8a APK, unsigned iOS `.ipa`,
+  ad-hoc-signed macOS `.zip` / `.dmg`, Windows x64 `.zip`, Linux `.deb` + `.tar.gz`, and the Web
+  bundle, all with `SHA256SUMS.txt`. Signing levels are stated per asset rather than implied; see
+  § Packages in the README and [RELEASING.md](RELEASING.md).
+- `src/reimpl`-built hole-punch libraries are now compiled in CI before packaging — the Android job
+  fails outright if `lib/arm64-v8a/libsynochatpunch.so` is missing, and the iOS job builds the
+  static library the Runner link step requires.
+
+### Notes
+- One CI-only failure was observed while landing this release:
+  `test/photo_album_write_test.dart` → "相册里的大图页有「设为封面 / 移出相册」" failed
+  inside `pumpWidget` on `ubuntu-latest`, and passed 3/3 locally at the same commit. It is
+  recorded here rather than called fixed — the cause is not established.
+
+### Fixed
+- `scripts/build_linux_deb.sh` hardcoded the arm64 bundle path, so it could not package an x64
+  build. It now derives the bundle directory from `uname -m`.
+- `scripts/build_arm64_release.sh` looked for `apksigner` only under `$HOME/Library/Android/sdk`.
+  On Linux that empty substitution aborted the script under `set -e`, turning a successful build
+  into a failure; the lookup now checks `command -v`, `ANDROID_HOME` and `ANDROID_SDK_ROOT`.
+
 ## [Unreleased]
 
 ### Changed
