@@ -92,7 +92,7 @@ dependencies:
   pdfx: ^2.11.0
 
   # EPUB / CBZ 就是 zip 包（电子书阅读要**运行时**解压，不只是探针用）
-  archive: ^4.0.7
+  archive: ^4.6.0
   # OOXML（.odoc/.osheet/.oslides 的**真实**载体）解析：
   # 真机+服务端实测 —— `SYNO.SynologyDrive.Files:download` 回来的
   #   `.odoc` = 标准 DOCX（word/document.xml、styles/numbering、headers/footers）
