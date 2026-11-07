@@ -290,9 +290,20 @@ jobs:
           merge-multiple: true
       - name: checksums
         run: |
+          set -euo pipefail
           cd dist
-          sha256sum * > SHA256SUMS.txt
+          # ★ `download-artifact@v5` 在 dist 里多留一层目录（`build/linux_deb/*.deb`
+          #   的父目录被保留），`sha256sum *` 撞上目录就 "Is a directory" 退出 1
+          #   —— v0.2.0 的 publish 就是这样挂的（六个平台的构建全是绿的）。
+          #   只对**普通文件**做摘要，并把它们平铺到 dist/ 根。
+          find . -type f ! -name SHA256SUMS.txt -print0 \
+            | xargs -0 -I{} sh -c 'mv -f "$1" "./$(basename "$1")" 2>/dev/null || true' _ {}
+          find . -mindepth 1 -type d -empty -delete
+          # 摘要只取 dist 根下的普通文件（`sha256sum *` 会再次撞上残留目录）
+          find . -maxdepth 1 -type f ! -name SHA256SUMS.txt -print0 \
+            | sort -z | xargs -0 sha256sum > SHA256SUMS.txt
           cat SHA256SUMS.txt
+          test -s SHA256SUMS.txt || { echo "::error::SHA256SUMS.txt 是空的"; exit 1; }
       - name: upload to the tag's release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
