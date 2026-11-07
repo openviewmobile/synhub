@@ -36,11 +36,17 @@ jobs:
           - platform: linux
             os: ubuntu-latest
             command: flutter build linux --debug
+            # flutter_secure_storage_linux 在 CMake 阶段要求 libsecret-1>=0.18.4，
+            # 缺它时是 `Unable to generate build files`，不是编译错 —— 第一次跑就撞到了。
             apt: >-
               clang cmake ninja-build pkg-config libgtk-3-dev liblzma-dev
-              libstdc++-12-dev
+              libstdc++-12-dev libsecret-1-dev
+          # 钉 windows-2022：windows-latest 已是 VS18 / MSVC 14.51，而依赖
+          # `local_auth_windows` 用了被微软移除的 `<experimental/coroutine>`
+          # ⇒ `error C2338: STL1011`。这是插件与工具链的兼容问题，不是本仓代码；
+          # 等插件修好后再考虑回到 windows-latest。
           - platform: windows
-            os: windows-latest
+            os: windows-2022
             command: flutter build windows --debug
           - platform: macos
             os: macos-latest
