@@ -307,6 +307,9 @@ jobs:
       - name: upload to the tag's release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # 这个 job 没有 checkout，`gh` 会去猜仓库而报
+          # "failed to run git: fatal: not a git repository"（v0.2.0 第二次挂在这）
+          GH_REPO: ${{ github.repository }}
           TAG: ${{ github.ref_name }}
         run: |
           set -euo pipefail
