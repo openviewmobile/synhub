@@ -14,6 +14,8 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); version
   (the pinned wasm/worker pair cannot be bumped by a version PR alone).
 
 ### Added
+- `ROADMAP.md`: what is being worked on, what is deliberately not planned, and small
+  self-contained starting points for contributors.
 - README restructured: badges, an offline quick start, a per-suite table, an honest
   "builds vs acceptance-tested" platform table, the Linux dev packages that the build actually
   needs, a privacy section, and a table of what each CI workflow does.
