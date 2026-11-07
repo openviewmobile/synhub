@@ -1,0 +1,310 @@
+name: release
+
+# 为什么**在 GitHub 上编**而不是本机编好再上传：
+#   ① 产物与 tag 对应的 commit 绑定，谁都能从 tag 重编一遍对照；
+#   ② 签名口令只存在于 Actions secrets，不经过任何人的笔记本；
+#   ③ 挂附件的动作由 `gh` 完成，不需要人手点文件选择框。
+#
+# 触发：推一个 `v*` tag ⇒ 六个平台全部构建 + 发布。
+#       workflow_dispatch ⇒ 只构建，产物进 workflow artifacts（用来验证，不发布）。
+#
+# ★ 签名档位是**如实**的，不假装：
+#   Android —— 有 secret 就用项目发布密钥；没有就出 debug 签名的包并大声警告；
+#   iOS     —— **未签名** .ipa（--no-codesign）。真机安装必须自己重签（AltStore/Sideloadly 等）；
+#   macOS   —— ad-hoc 签名（`Signature=adhoc`），下载后 Gatekeeper 会拦，见 RELEASING.md；
+#   Windows —— zip（未做 MSIX 与 Authenticode 签名）；
+#   Linux   —— deb + tar.gz（未做仓库签名）；
+#   Web     —— 静态站打包（未做任何托管）。
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  android:
+    name: android (arm64-v8a)
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2 # v2
+        with:
+          channel: stable
+          flutter-version: '3.47.4'
+          cache: true
+
+      - name: NDK (for the hole-punch library)
+        run: |
+          SDK="${ANDROID_HOME:-$ANDROID_SDK_ROOT}"
+          if [ -z "$(ls -A "$SDK/ndk" 2>/dev/null)" ]; then
+            yes | "$SDK/cmdline-tools/latest/bin/sdkmanager" --install "ndk;28.2.13676358"
+          fi
+          ls "$SDK/ndk"
+
+      - run: flutter pub get
+      - run: flutter gen-l10n
+      - name: native hole-punch library
+        run: bash reimpl/scripts/build_android.sh
+
+      - name: signing material
+        env:
+          KEYSTORE_B64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+        run: |
+          set -euo pipefail
+          # 没有 secret 就**不签**：宁可产出 debug 签名的包并明确标注，
+          # 也不要一个"看起来是发布包、其实是 debug 密钥"的东西混进 release。
+          if [ -z "${KEYSTORE_B64:-}" ]; then
+            echo "::warning::ANDROID_KEYSTORE_BASE64 未配置 —— 本次产物是 debug 签名，仅供验证"
+            echo "SIGNED=no" >> "$GITHUB_ENV"
+            exit 0
+          fi
+          echo "$KEYSTORE_B64" | base64 -d > "$RUNNER_TEMP/release.jks"
+          chmod 600 "$RUNNER_TEMP/release.jks"
+          {
+            echo "SYNHUB_KEYSTORE_FILE=$RUNNER_TEMP/release.jks"
+            echo "SYNHUB_KEYSTORE_PASSWORD=${{ secrets.ANDROID_KEYSTORE_PASSWORD }}"
+            echo "SYNHUB_KEY_ALIAS=${{ secrets.ANDROID_KEY_ALIAS }}"
+            echo "SYNHUB_KEY_PASSWORD=${{ secrets.ANDROID_KEY_PASSWORD }}"
+          } >> "$GITHUB_ENV"
+          echo "SIGNED=yes" >> "$GITHUB_ENV"
+
+      - name: build apk
+        run: |
+          set -euo pipefail
+          if [ "${SIGNED}" = "yes" ]; then
+            SYNHUB_SIGN=release bash scripts/build_arm64_release.sh
+          else
+            bash scripts/build_arm64_release.sh
+          fi
+
+      - name: verify
+        run: |
+          set -euo pipefail
+          APK=build/app/outputs/flutter-apk/app-release.apk
+          test -f "$APK"
+          APKSIGNER="$(ls -d "$ANDROID_HOME"/build-tools/*/apksigner 2>/dev/null | sort -V | tail -1)"
+          "$APKSIGNER" verify --print-certs "$APK" | sed -n '1,4p'
+          unzip -l "$APK" | grep -q "lib/arm64-v8a/libsynochatpunch.so" \
+            || { echo "::error::APK 里没有 arm64 的 hole-punch 库"; exit 1; }
+          V="$(awk '/^version:/{print $2}' pubspec.yaml | cut -d+ -f1)"
+          cp "$APK" "synhub-${V}-android-arm64.apk"
+          sha256sum synhub-*.apk
+
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: android
+          path: synhub-*-android-arm64.apk
+          if-no-files-found: error
+
+  ios:
+    name: ios (unsigned ipa)
+    runs-on: macos-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2 # v2
+        with:
+          channel: stable
+          flutter-version: '3.47.4'
+          cache: true
+      - run: flutter pub get
+      - run: flutter gen-l10n
+      # 没有 Apple 开发者证书 ⇒ 只能出**未签名**包。这不是"发布版 iOS App"，
+      # 是给会自己重签的人用的产物；RELEASING.md 里写清了这一点。
+      - run: flutter build ios --release --no-codesign
+      - name: pack ipa
+        run: |
+          set -euo pipefail
+          V="$(awk '/^version:/{print $2}' pubspec.yaml | cut -d+ -f1)"
+          APP="$(ls -d build/ios/iphoneos/*.app | head -1)"
+          echo "app: $APP"
+          rm -rf /tmp/ipa && mkdir -p /tmp/ipa/Payload
+          cp -R "$APP" /tmp/ipa/Payload/
+          (cd /tmp/ipa && zip -qry "$GITHUB_WORKSPACE/synhub-${V}-ios-unsigned.ipa" Payload)
+          unzip -l "synhub-${V}-ios-unsigned.ipa" | head -12
+          shasum -a 256 "synhub-${V}-ios-unsigned.ipa"
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: ios
+          path: synhub-*-ios-unsigned.ipa
+          if-no-files-found: error
+
+  macos:
+    name: macos (adhoc)
+    runs-on: macos-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2 # v2
+        with:
+          channel: stable
+          flutter-version: '3.47.4'
+          cache: true
+      - run: flutter pub get
+      - run: flutter gen-l10n
+      - run: flutter build macos --release
+      - name: pack zip + dmg
+        run: |
+          set -euo pipefail
+          V="$(awk '/^version:/{print $2}' pubspec.yaml | cut -d+ -f1)"
+          APP="$(ls -d build/macos/Build/Products/Release/*.app | head -1)"
+          echo "app: $APP"
+          codesign -dv --verbose=2 "$APP" 2>&1 | sed -n '1,8p' || true
+          ditto -c -k --sequesterRsrc --keepParent "$APP" "synhub-${V}-macos.zip"
+          hdiutil create -volname "SynHub" -srcfolder "$(dirname "$APP")" -ov -format UDZO "synhub-${V}-macos.dmg" >/dev/null
+          ls -lh "synhub-${V}-macos.zip" "synhub-${V}-macos.dmg"
+          shasum -a 256 "synhub-${V}-macos.zip" "synhub-${V}-macos.dmg"
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: macos
+          path: |
+            synhub-*-macos.zip
+            synhub-*-macos.dmg
+          if-no-files-found: error
+
+  windows:
+    name: windows (zip)
+    # 钉 windows-2022：windows-latest 是 VS18 / MSVC 14.51，而依赖 local_auth_windows
+    # 仍用被移除的 <experimental/coroutine> ⇒ error C2338。见 platform-build.yml。
+    runs-on: windows-2022
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2 # v2
+        with:
+          channel: stable
+          flutter-version: '3.47.4'
+          cache: true
+      - run: flutter pub get
+      - run: flutter gen-l10n
+      - run: flutter build windows --release
+      - name: pack zip
+        shell: pwsh
+        run: |
+          $V = (Select-String -Path pubspec.yaml -Pattern '^version:\s*(\S+)' ).Matches[0].Groups[1].Value -replace '\+.*$',''
+          Compress-Archive -Path build\windows\x64\runner\Release\* -DestinationPath "synhub-$V-windows-x64.zip" -Force
+          Get-Item "synhub-$V-windows-x64.zip" | Format-List Name,Length
+          Get-FileHash "synhub-$V-windows-x64.zip" -Algorithm SHA256
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: windows
+          path: synhub-*-windows-x64.zip
+          if-no-files-found: error
+
+  linux:
+    name: linux (deb + tar.gz)
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: deps
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            clang cmake ninja-build pkg-config libgtk-3-dev liblzma-dev libstdc++-12-dev \
+            libsecret-1-dev libmpv-dev libepoxy-dev dpkg-dev
+      - uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2 # v2
+        with:
+          channel: stable
+          flutter-version: '3.47.4'
+          cache: true
+      - run: flutter pub get
+      - run: flutter gen-l10n
+      - run: flutter build linux --release
+      - name: packages
+        run: |
+          set -euo pipefail
+          V="$(awk '/^version:/{print $2}' pubspec.yaml | cut -d+ -f1)"
+          bash scripts/build_linux_deb.sh
+          tar -C build/linux/x64/release/bundle -czf "synhub-${V}-linux-x64.tar.gz" .
+          ls -lh build/linux_deb/*.deb "synhub-${V}-linux-x64.tar.gz"
+          sha256sum build/linux_deb/*.deb "synhub-${V}-linux-x64.tar.gz"
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: linux
+          path: |
+            build/linux_deb/*.deb
+            synhub-*-linux-x64.tar.gz
+          if-no-files-found: error
+
+  web:
+    name: web (static bundle)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2 # v2
+        with:
+          channel: stable
+          flutter-version: '3.47.4'
+          cache: true
+      - run: flutter pub get
+      - run: flutter gen-l10n
+      - run: flutter build web --release
+      - name: pack
+        run: |
+          set -euo pipefail
+          V="$(awk '/^version:/{print $2}' pubspec.yaml | cut -d+ -f1)"
+          tar -C build/web -czf "synhub-${V}-web.tar.gz" .
+          sha256sum "synhub-${V}-web.tar.gz"
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: web
+          path: synhub-*-web.tar.gz
+          if-no-files-found: error
+
+  publish:
+    name: publish
+    needs: [android, ios, macos, windows, linux, web]
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5
+        with:
+          path: dist
+          merge-multiple: true
+      - name: checksums
+        run: |
+          cd dist
+          sha256sum * > SHA256SUMS.txt
+          cat SHA256SUMS.txt
+      - name: upload to the tag's release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+          cd dist
+          if ! gh release view "$TAG" >/dev/null 2>&1; then
+            cat > /tmp/notes.md <<'NOTES'
+          Unofficial, from-scratch client for Synology NAS. Not affiliated with, endorsed by, or
+          supported by Synology Inc.
+
+          **Assets**
+
+          | File | Platform | Signing |
+          |---|---|---|
+          | `*-android-arm64.apk` | Android arm64-v8a | project release key (or debug key, if the secrets are not configured — the job warns) |
+          | `*-ios-unsigned.ipa` | iOS | **unsigned** — re-sign it yourself before installing on a device |
+          | `*-macos.zip` / `*-macos.dmg` | macOS | **ad-hoc**; clear the quarantine attribute, see RELEASING.md |
+          | `*-windows-x64.zip` | Windows x64 | unzip and run `synhub.exe` (no Authenticode signature) |
+          | `*.deb` / `*-linux-x64.tar.gz` | Linux x64 | unsigned packages |
+          | `*-web.tar.gz` | Web | static bundle, needs a static server (and same-origin for encrypted DSM writes) |
+
+          Verify with `sha256sum -c SHA256SUMS.txt` before installing, and read
+          [RELEASING.md](https://github.com/openviewmobile/synhub/blob/main/RELEASING.md) for what
+          each signature level does and does not mean.
+          NOTES
+            gh release create "$TAG" --title "$TAG" --notes-file /tmp/notes.md
+          fi
+          gh release upload "$TAG" ./* --clobber
