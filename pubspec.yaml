@@ -83,7 +83,7 @@ dependencies:
   #   defined for the type 'ZLibDecoder'`）；macOS/Android 侧因为 lock 里是
   #   4.10.1 所以一直没暴露。区间约束会让新机器重新解析到 4.11.0，
   #   所以这里改成精确版本（升级前必须先升 `archive`）。
-  image: 4.10.1
+  image: 4.12.0
   local_auth: ^3.0.2
   meta: ^1.19.0
   dynamic_color: ^1.9.0
