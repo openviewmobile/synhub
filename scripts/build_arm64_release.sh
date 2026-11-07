@@ -116,7 +116,20 @@ ls -la "$APK"
 shasum -a 256 "$APK"
 
 # 签名验真：不能只看 Gradle 有没有打印，要读产物里的签名者（AGENTS §2.0.31）
-APKSIGNER="$(ls -d "$HOME"/Library/Android/sdk/build-tools/*/apksigner 2>/dev/null | sort -V | tail -1)"
+# ★ 原来这里写死 `$HOME/Library/Android/sdk`（只对 macOS 成立）。在 Linux runner 上
+#   `ls` 找不到会返回 2，而 `VAR="$(ls ...)"` 在 `set -e` 下**直接终止脚本** ——
+#   release #2 的 android job 就是这样以 exit 2 挂在收尾（APK 本身已经编好了）。
+find_apksigner() {
+  if command -v apksigner >/dev/null 2>&1; then command -v apksigner; return 0; fi
+  local sdk p
+  for sdk in "${ANDROID_HOME:-}" "${ANDROID_SDK_ROOT:-}" "$HOME/Library/Android/sdk" "$HOME/Android/Sdk"; do
+    [ -n "$sdk" ] || continue
+    p="$(ls -d "$sdk"/build-tools/*/apksigner 2>/dev/null | sort -V | tail -1 || true)"
+    if [ -n "$p" ]; then printf '%s\n' "$p"; return 0; fi
+  done
+  return 0
+}
+APKSIGNER="$(find_apksigner)"
 if [ -n "$APKSIGNER" ]; then
   echo "==> apksigner verify --print-certs"
   "$APKSIGNER" verify --print-certs "$APK" 2>/dev/null | sed -n '1,6p'
