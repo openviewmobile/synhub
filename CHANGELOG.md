@@ -7,6 +7,11 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); version
 
 暂无。
 
+## [0.2.3] - 2026-11-09
+
+### Fixed
+- **The `.rpm` shipped in `v0.2.2` had no verifiable signature.** `rpm --checksig -v` on the released file reports only digests, while re-signing the same file with the project key produces `Header V4 EdDSA/SHA512 Signature … : OK`. The signing step had judged success with `rpm --checksig | grep 'signatures OK'`, which is not the same statement as "this file carries a signature"; it now requires a `signature … : OK` line in the verbose output, and the publish job re-verifies with a fresh rpmdb built from the committed public key **before** uploading, failing the release if it does not hold.  The packaging smoke now builds a 40 MB payload so the signing path is exercised at release size rather than at 64 KB.
+
 ## [0.2.2] - 2026-11-09
 
 ### Changed
@@ -192,7 +197,8 @@ First public source release. Source only — no APK / IPA / MSIX / deb / AppImag
 - Web builds that write through encrypted DSM endpoints need a same-origin deployment.
 - QuickConnect depends on Synology's client behaviour and may break on their updates.
 
-[Unreleased]: https://github.com/openviewmobile/synhub/compare/v0.2.2...HEAD
+[Unreleased]: https://github.com/openviewmobile/synhub/compare/v0.2.3...HEAD
+[0.2.3]: https://github.com/openviewmobile/synhub/releases/tag/v0.2.3
 [0.2.2]: https://github.com/openviewmobile/synhub/releases/tag/v0.2.2
 [0.2.1]: https://github.com/openviewmobile/synhub/releases/tag/v0.2.1
 [0.1.0]: https://github.com/openviewmobile/synhub/releases/tag/v0.1.0
