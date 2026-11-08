@@ -377,8 +377,14 @@ jobs:
           fi
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends gnupg createrepo-c apt-utils
-          bash scripts/build_linux_repo.sh --out dist/pages \
-            $(ls dist/*.deb 2>/dev/null) $(ls dist/*.rpm 2>/dev/null)
+          DEBS="$(ls dist/*.deb 2>/dev/null || true)"
+          RPMS="$(ls dist/*.rpm 2>/dev/null || true)"
+          if [ -z "$DEBS$RPMS" ]; then
+            echo "::error::dist 里没有 deb/rpm，仓库无从生成"; exit 1
+          fi
+          # ★ 输出到 /tmp/pages 而不是 dist/pages：dist 根后面要 `gh release upload ./*`，
+          #   多一个目录就会让上传失败。
+          bash scripts/build_linux_repo.sh --out /tmp/pages $DEBS $RPMS
           echo "built=yes" >> "$GITHUB_OUTPUT"
       - name: publish the repositories to gh-pages
         # ★ 站点根 = gh-pages 分支根：https://openviewmobile.github.io/synhub/
@@ -389,7 +395,7 @@ jobs:
         run: |
           set -euo pipefail
           WORK="$(mktemp -d)"
-          cp -a dist/pages/. "$WORK/"
+          cp -a /tmp/pages/. "$WORK/"
           cd "$WORK"
           git init -q -b gh-pages
           git config user.name "github-actions[bot]"
