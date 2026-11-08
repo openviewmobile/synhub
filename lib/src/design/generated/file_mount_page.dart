@@ -63,7 +63,7 @@ class _Strings {
 
   String get title => _zh ? '远程挂载' : 'Remote mounts';
   String get item0Title => _zh ? 'NAS 媒体库（NFS）' : 'NAS media (NFS)';
-  String get item0Sub => _zh ? '192.168.1.10:/volume1/media · 已挂载' : '192.168.1.10:/volume1/media · mounted';
+  String get item0Sub => _zh ? 'nas.example.com:/volume1/media · 已挂载' : 'nas.example.com:/volume1/media · mounted';
   String get item1Title => _zh ? '同事共享（SMB）' : 'Team share (SMB)';
   String get item1Sub => _zh ? '192.168.1.22/share · 未挂载' : '192.168.1.22/share · not mounted';
 }

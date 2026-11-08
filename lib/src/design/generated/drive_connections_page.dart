@@ -50,7 +50,7 @@ class _Strings {
 
   String get title => _zh ? '已连接的设备' : 'Connected devices';
   String get note => _zh ? '断开后该设备需要重新登录' : 'Disconnected devices must sign in again';
-  String get item0Title => _zh ? '本机 · HONOR LGE-AN10' : 'This device · HONOR LGE-AN10';
+  String get item0Title => _zh ? '本机 · SynHub 演示机' : 'This device · SynHub demo unit';
   String get item0Sub => _zh ? '当前设备' : 'Current device';
   String get item1Title => _zh ? 'iPad Air' : 'iPad Air';
   String get item1Sub => _zh ? '2 小时前' : '2 hours ago';

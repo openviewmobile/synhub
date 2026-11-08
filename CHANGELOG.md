@@ -6,21 +6,34 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); version
 ## [Unreleased]
 
 ### Changed
+- `image` unpinned, `4.10.1` → `^4.12.0`, with `archive` `^4.0.7` → `^4.6.0`.
+
+  The pin existed because `image` ≥ 4.11 calls `ZLibDecoder.decodeLazy`, which the locked
+  `archive 4.0.9` did not have, and Linux/arm64 stopped compiling. The lock's `archive` is
+  now 4.6.0 (decodeLazy landed in 4.1.0), so both ends move.
+
+  The blocker was never the code — it was the guard. `DA285` asserted the literal string
+  `4.10.1` in `pubspec.yaml`, so any upgrade failed it, and I previously misread two CI
+  failures as a flaky widget test because the log tail showed the file that ran *next*. It
+  is now the invariant it was trying to state: **if the locked `image` is ≥ 4.11, the locked
+  `archive` must be ≥ 4.1.0**. Upgrades no longer need the guard edited; half-upgrades still
+  go red.
 - `audio_session` ^0.1.21 → ^0.2.4.
 - Dropped `cupertino_icons`: nothing imports it (0 references in `lib/` and `test/`).
 - `pubspec.lock` URLs normalised from the legacy `https://pub.dartlang.org` to
   `https://pub.dev` (a mechanical rewrite by the current pub client; no version changed).
 
-### Changed (again, and this time for real)
-- `image` unpinned, `4.10.1` → `^4.12.0`, with `archive` `^4.0.7` → `^4.6.0`.
-
-  The earlier attempt was recorded here as "CI goes red at photo_album_write". That reading
-  was wrong: the two failures were `DA285` — a guard in `test/platform_round665_test.dart`
-  that asserted the literal string `4.10.1` — and the log's tail was showing the *next* file
-  to run, not the failing one. The guard has been rewritten as the invariant it was trying
-  to express: **if the locked `image` is ≥ 4.11, the locked `archive` must be ≥ 4.1.0**
-  (`image` ≥ 4.11 calls `ZLibDecoder.decodeLazy`, which `archive` gained in 4.1.0). Upgrades
-  no longer need the guard edited; half-upgrades still go red.
+### Fixed
+- `lib/src/design/generated/` had drifted from its source: re-running
+  `design/emit_flutter.py` over all 153 specs reproduced 150 files byte-for-byte and changed
+  3 (`audio_radio`, `audio_song`, `media_player`) — someone had edited those specs without
+  re-running the generator. Regenerated, so the checked-in pages are the spec again.
+- The design specs carried real-hardware residue: a shipping phone's model string as the
+  device name (`drive_connections`, `settings_profile`) and a private-range LAN address as
+  the NFS mount (`file_mount`). Replaced with `SynHub demo unit` and
+  `nas.example.com:/volume1/media` and regenerated (spec → SVG → Dart, with
+  `design/check_parity.py` green). The removed values are deliberately not repeated here —
+  writing them into prose to say they are gone is how they come back.
 
 ### Added
 - `ARCHITECTURE.md` — layer map, runtime spine, generated-code rules, and where to start
@@ -28,11 +41,9 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); version
 - `.github/CODEOWNERS`, `.github/ISSUE_TEMPLATE/config.yml` (Discussions + private advisory
   links), `.mailmap`.
 - `ROADMAP.md` § Known debt: the measured breakdown of the 143 MB Windows package and the
-  111 MB APK, including why the `X.dll`/`libX.dll` pairs cannot simply be deleted.
-
-### Fixed
-- Test-count claims said "798 files" while the tree has 797 `*_test.dart`; the prose now
-  says "~800" so it stops drifting.
+  111 MB APK — including the correction that the NPU/WebGPU DLLs are reachable
+  (`PreferredBackend.npu` is documented for Windows on Intel LunarLake/PantherLake), so
+  removing them is a product trade-off, not dead weight.
 
 ## [0.2.1] - 2026-11-07
 

@@ -15,7 +15,7 @@ class DesignMediaPlayerPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: p.phone,
       appBar: _appBar(p, s),
-      body: _Viewer(p: p, s: s, icon: Icons.image_outlined, lines: <String>[], actions: <Widget>[_ViewerAction(p: p, icon: Icons.play_arrow, label: s.vToolbar0), _ViewerAction(p: p, icon: Icons.fullscreen, label: s.vToolbar1), _ViewerAction(p: p, icon: Icons.subtitles_outlined, label: s.vToolbar2), _ViewerAction(p: p, icon: Icons.picture_in_picture_alt_outlined, label: s.vToolbar3)]),
+      body: _Viewer(p: p, s: s, icon: Icons.image_outlined, lines: <String>[], actions: <Widget>[_ViewerAction(p: p, icon: Icons.play_arrow, label: s.vToolbar0), _ViewerAction(p: p, icon: Icons.more_horiz, label: s.vToolbar1), _ViewerAction(p: p, icon: Icons.more_horiz, label: s.vToolbar2), _ViewerAction(p: p, icon: Icons.more_horiz, label: s.vToolbar3), _ViewerAction(p: p, icon: Icons.settings_outlined, label: s.vToolbar4), _ViewerAction(p: p, icon: Icons.fullscreen, label: s.vToolbar5)]),
     );
   }
 
@@ -44,10 +44,12 @@ class _Strings {
   String get title => _zh ? '正在播放' : 'Now playing';
   String get vCaption => _zh ? '1920×1080 · H.264 · 4 分 12 秒' : '1920×1080 · H.264 · 4m 12s';
   String get vToolbar0 => _zh ? '播放' : 'Play';
-  String get vToolbar1 => _zh ? '全屏' : 'Fullscreen';
-  String get vToolbar2 => _zh ? '字幕' : 'Subtitles';
-  String get vToolbar3 => _zh ? '画中画' : 'PiP';
-  String get note => _zh ? '同一个播放视图给视频与音频复用，控制条 10 秒自动隐藏' : 'One player view serves video and audio; controls hide after 10s';
+  String get vToolbar1 => _zh ? '快退 10 秒' : 'Back 10s';
+  String get vToolbar2 => _zh ? '快进 10 秒' : 'Forward 10s';
+  String get vToolbar3 => _zh ? '下一集' : 'Next';
+  String get vToolbar4 => _zh ? '播放设置' : 'Playback settings';
+  String get vToolbar5 => _zh ? '全屏' : 'Fullscreen';
+  String get note => _zh ? '三行控制条：进度（拖动时浮出目标时间与增量）/ 主控（播放＋±10 秒＋换集，永不折叠）/ 次控（设置·静音·在线字幕·全屏 ＋ 音量）。空格单击显隐、双击左右 ±10 秒、左半竖直调亮度、右半竖直调音量；暂停时中央另有 76dp 大播放键。' : 'Three-row chrome: scrubber (drag bubble shows target time and delta) / primary row (play, ±10s, prev-next, never folded) / secondary row (settings, mute, online subtitles, fullscreen + volume). Tap toggles chrome, double-tap seeks ±10s, left half swipes brightness, right half volume; a 76dp centre play button appears while paused.';
 }
 
 class _Viewer extends StatelessWidget {

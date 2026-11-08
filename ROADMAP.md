@@ -45,14 +45,18 @@ repository. Treat "builds" and "acceptance-tested" as different words.
 
 ## Known debt
 
-- **The Windows package is 143 MB.** Measured from the published zip (377 MB unpacked):
-  `openvino_intel_npu_compiler.dll` 78 MB, `dxcompiler.dll` 17 MB, `openvino.dll` 15 MB,
-  `webgpu_dawn.dll` 11 MB, `LiteRtWebGpuAccelerator.dll` 12 MB,
-  `LiteRtTopKWebGpuSampler.dll` 9 MB — i.e. ~143 MB of NPU/WebGPU backends that the
-  CPU/GPU path never selects. They can only be dropped after the AI feature is exercised
-  on a real Windows machine without them, which nobody has done yet. Note that the
-  `X.dll` / `libX.dll` pairs are **not** duplicates that can be deleted: both names are
-  referenced from the import tables of the other modules.
+- **The Windows package is 143 MB, and the size is a product decision, not a bug.**
+  Measured from the published zip (377 MB unpacked): `openvino_intel_npu_compiler.dll`
+  78 MB, `dxcompiler.dll` 17 MB, `openvino.dll` 15 MB, `webgpu_dawn.dll` 11 MB,
+  `LiteRtWebGpuAccelerator.dll` 12 MB, `LiteRtTopKWebGpuSampler.dll` 9 MB. These are the
+  on-device AI accelerators, and both are **reachable at runtime**:
+  `flutter_gemma`'s `PreferredBackend.npu` is documented for Windows on Intel
+  LunarLake/PantherLake, and `gpu` on any DX12-class adapter. Nothing statically imports
+  them (the whole LiteRT stack is `LoadLibrary`-ed by the FFI layer), so deleting them
+  produces a package that still launches — and silently loses NPU/GPU inference. Shipping
+  a slim variant therefore needs a real Windows machine to prove the CPU fallback still
+  answers, which nobody has done. Note that the `X.dll` / `libX.dll` pairs are **not**
+  deletable duplicates either: both names appear in the other modules' import tables.
 - **The Android APK is 111 MB**, of which ~45 MB is the on-device AI runtime
   (`libLiteRtLm.so` 26 MB + LiteRT accelerators/samplers ~19 MB).
 
