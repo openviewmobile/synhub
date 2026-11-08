@@ -64,11 +64,16 @@ for f in "$@"; do
       RPMDB="$(mktemp -d)"
       rpm --dbpath "$RPMDB" --initdb
       rpm --dbpath "$RPMDB" --import "$PUB" || die "公钥导入 rpm 库失败（$RPMDB）"
-      rpm --dbpath "$RPMDB" --checksig "$f" | grep -qi 'signatures OK' || {
-        echo "[sign] rpm --checksig 输出：" >&2
-        rpm --dbpath "$RPMDB" --checksig -v "$f" | sed 's/^/    /' >&2
-        die "$f 签名校验失败"
-      }
+      # ★★ 判据必须是 `-v` 输出里的 **Signature 行**，不能只看 "signatures OK"：
+      #   v0.2.2 那次 `.rpm` 里根本没有签名头，而当时的 `rpm --checksig` 却回了
+      #   "digests signatures OK" —— 自验通过、产物没签名。现在两条都要，并回显全文。
+      OUT="$(rpm --dbpath "$RPMDB" --checksig -v "$f")" || true
+      echo "$OUT" | sed 's/^/    /'
+      if ! grep -q 'Signature, key ID' <<<"$OUT"; then
+        die "$f 里没有签名头（rpm 只是重写了包，没有签上）"
+      fi
+      grep -qi 'signatures OK' <<<"$(rpm --dbpath "$RPMDB" --checksig "$f")" \
+        || die "$f 签名校验没通过"
       log "已签并验证：$f"
       ;;
     *.deb)

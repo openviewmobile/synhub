@@ -353,6 +353,36 @@ jobs:
           cd dist
           bash ../scripts/sign_linux_packages.sh SHA256SUMS.txt || true
           ls -l SHA256SUMS.txt* || true
+      - name: refuse to publish unsigned packages
+        # ★ r733：v0.2.2 的 `.rpm` **没有签名**，而它自己的签名步骤当场报过 "已签并验证"。
+        #   独立复核（`rpm --checksig -v` 只有指纹摘要行、没有 Signature 行）才发现。
+        #   结论：签完就自验不可信 —— 在**发布之前**用发布的公钥、在干净的 rpm 库里再验一次，
+        #   不通过就不许上传。这一条是**会变红**的判据，不是注释。
+        run: |
+          set -euo pipefail
+          cd dist
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends rpm gnupg
+          export GNUPGHOME="$(mktemp -d)"; chmod 700 "$GNUPGHOME"
+          # rpm 要二进制公钥，gpg 要 armored —— 两个工具的习惯不一样
+          gpg --dearmor < keys/synhub-archive-keyring.asc > /tmp/pub.gpg
+          gpg --batch --import keys/synhub-archive-keyring.asc
+          RPMDB="$(mktemp -d)"; rpm --dbpath "$RPMDB" --initdb
+          rpm --dbpath "$RPMDB" --import /tmp/pub.gpg
+          fail=0
+          for r in *.rpm; do
+            [ -e "$r" ] || continue
+            out="$(rpm --dbpath "$RPMDB" --checksig -v "$r")"
+            echo "$out"
+            grep -q 'Signature, key ID' <<<"$out" || { echo "::error::$r 没有签名头"; fail=1; }
+            grep -q 'signatures OK' <<<"$(rpm --dbpath "$RPMDB" --checksig "$r")" || { echo "::error::$r 签名校验没通过"; fail=1; }
+          done
+          for d in *.deb; do
+            [ -e "$d" ] || continue
+            gpg --batch --verify "$d.asc" "$d" || { echo "::error::$d 的分离签名校验失败"; fail=1; }
+          done
+          [ "$fail" = 0 ] || exit 1
+          echo '✅ 包签名独立复核通过'
       - name: upload to the tag's release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
