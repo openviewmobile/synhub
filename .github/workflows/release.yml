@@ -256,12 +256,27 @@ jobs:
           tar -C build/linux/x64/release/bundle -czf "synhub-${V}-linux-x64.tar.gz" .
           ls -lh build/linux_deb/*.deb build/linux_rpm/*.rpm "synhub-${V}-linux-x64.tar.gz"
           sha256sum build/linux_deb/*.deb build/linux_rpm/*.rpm "synhub-${V}-linux-x64.tar.gz"
+      - name: sign packages
+        # ★ r732：GPG 签名（项目自有密钥）。没配 secret 时脚本会告警后跳过，
+        #   job 不会因此失败 —— 但摘要里会写明"本次未签名"，不假装。
+        env:
+          SYNHUB_GPG_PRIVATE_KEY: ${{ secrets.SYNHUB_GPG_PRIVATE_KEY }}
+          SYNHUB_GPG_KEY_ID: ${{ secrets.SYNHUB_GPG_KEY_ID }}
+        run: |
+          set -euo pipefail
+          sha256sum build/linux_deb/*.deb build/linux_rpm/*.rpm > SHA256SUMS.linux.txt
+          bash scripts/sign_linux_packages.sh \
+            build/linux_deb/*.deb build/linux_rpm/*.rpm SHA256SUMS.linux.txt
+          ls -l build/linux_deb/*.asc build/linux_rpm/*.asc SHA256SUMS.linux.txt* 2>/dev/null || true
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: linux
           path: |
             build/linux_deb/*.deb
+            build/linux_deb/*.deb.asc
             build/linux_rpm/*.rpm
+            SHA256SUMS.linux.txt
+            SHA256SUMS.linux.txt.asc
             synhub-*-linux-x64.tar.gz
           if-no-files-found: error
 
@@ -298,6 +313,9 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      # ★ provenance（SLSA 来源证明）：id-token 用来拿 OIDC，attestations 用来写证明
+      id-token: write
+      attestations: write
     steps:
       - uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5
         with:
@@ -319,6 +337,73 @@ jobs:
             | sort -z | xargs -0 sha256sum > SHA256SUMS.txt
           cat SHA256SUMS.txt
           test -s SHA256SUMS.txt || { echo "::error::SHA256SUMS.txt 是空的"; exit 1; }
+      - name: sign the checksums file
+        # ★ r732：`SHA256SUMS.txt` 如果只是裸文本，改了文件顺手改校验和毫无门槛；
+        #   分离签名之后它才是一份**可验证的**清单。
+        env:
+          SYNHUB_GPG_PRIVATE_KEY: ${{ secrets.SYNHUB_GPG_PRIVATE_KEY }}
+          SYNHUB_GPG_KEY_ID: ${{ secrets.SYNHUB_GPG_KEY_ID }}
+        run: |
+          set -euo pipefail
+          cd dist
+          bash ../scripts/sign_linux_packages.sh SHA256SUMS.txt || true
+          ls -l SHA256SUMS.txt* || true
+      - name: attest build provenance
+        # ★ 免费且三端通用：证明"这个文件由这个仓库的这次 workflow、这个 commit 产出"。
+        #   它**不替代** Gatekeeper/SmartScreen 的签名，但能证明产物没被换过。
+        uses: actions/attest-build-provenance@4d101475d8b20a2381f78447822ac1eab6504dd8 # v4.2.2
+        with:
+          # 只对**文件**出证明（dist 里还有 pages/ 目录）
+          subject-path: |
+            dist/*.apk
+            dist/*.ipa
+            dist/*.zip
+            dist/*.dmg
+            dist/*.deb
+            dist/*.rpm
+            dist/*.tar.gz
+            dist/SHA256SUMS.txt
+      - name: build the package repositories
+        id: repo
+        env:
+          SYNHUB_GPG_PRIVATE_KEY: ${{ secrets.SYNHUB_GPG_PRIVATE_KEY }}
+          SYNHUB_GPG_KEY_ID: ${{ secrets.SYNHUB_GPG_KEY_ID }}
+        run: |
+          set -euo pipefail
+          if [ -z "${SYNHUB_GPG_PRIVATE_KEY:-}" ]; then
+            echo "::warning::没有 GPG 密钥 —— 跳过 apt/dnf 仓库（本次只发文件，不发仓库）"
+            echo "built=no" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends gnupg createrepo-c apt-utils
+          DEBS="$(ls dist/*.deb 2>/dev/null || true)"
+          RPMS="$(ls dist/*.rpm 2>/dev/null || true)"
+          if [ -z "$DEBS$RPMS" ]; then
+            echo "::error::dist 里没有 deb/rpm，仓库无从生成"; exit 1
+          fi
+          # ★ 输出到 /tmp/pages 而不是 dist/pages：dist 根后面要 `gh release upload ./*`，
+          #   多一个目录就会让上传失败。
+          bash scripts/build_linux_repo.sh --out /tmp/pages $DEBS $RPMS
+          echo "built=yes" >> "$GITHUB_OUTPUT"
+      - name: publish the repositories to gh-pages
+        # ★ 站点根 = gh-pages 分支根：https://openviewmobile.github.io/synhub/
+        #   用户侧 `apt`/`dnf` 的 baseurl 就指到这里（见 README 的安装段）。
+        if: steps.repo.outputs.built == 'yes'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          WORK="$(mktemp -d)"
+          cp -a /tmp/pages/. "$WORK/"
+          cd "$WORK"
+          git init -q -b gh-pages
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -qm "repo: ${{ github.ref_name }}"
+          # 只推这一个分支，不碰 main；强制推送是因为每次发版整棵树重建
+          git push -f "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" gh-pages
       - name: upload to the tag's release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -342,7 +427,7 @@ jobs:
           | `*-ios-unsigned.ipa` | iOS | **unsigned** — re-sign it yourself before installing on a device |
           | `*-macos.zip` / `*-macos.dmg` | macOS | **ad-hoc**; clear the quarantine attribute, see RELEASING.md |
           | `*-windows-x64.zip` | Windows x64 | unzip and run `synhub.exe` (no Authenticode signature) |
-          | `*.deb` / `*.rpm` / `*-linux-x64.tar.gz` | Linux x64 | unsigned packages (deb for Debian/Ubuntu, rpm for Fedora/RHEL/openSUSE) |
+          | `*.deb` / `*.rpm` / `*-linux-x64.tar.gz` | Linux x64 | GPG-signed when the signing secret is configured (rpm embedded, deb detached); see `keys/README.md` |
           | `*-web.tar.gz` | Web | static bundle, needs a static server (and same-origin for encrypted DSM writes) |
 
           Verify with `sha256sum -c SHA256SUMS.txt` before installing, and read

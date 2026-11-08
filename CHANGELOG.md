@@ -43,6 +43,18 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); version
   writing them into prose to say they are gone is how they come back.
 
 ### Added
+- **GPG-signed Linux artifacts and a signed package repository.** The `.rpm` now carries an
+  embedded signature, the `.deb` ships a detached `.deb.asc`, and `SHA256SUMS.txt.asc` covers all
+  six platforms. The publish job also builds apt (`Release`/`InRelease`) and dnf (`repodata`)
+  indexes and pushes them to `gh-pages`, so Debian/Ubuntu and Fedora/RHEL/openSUSE can install and
+  upgrade through their package manager with the index *and* the package verified
+  (`repo_gpgcheck=1`). Key material lives in Actions secrets only; `keys/README.md` documents the
+  fingerprint and rotation, and `build_linux_repo.sh` refuses to publish a repository whose signing
+  key does not match the committed public key.
+- **Build provenance attestations** for every released artifact
+  (`actions/attest-build-provenance`), verifiable with `gh attestation verify <file> --repo
+  openviewmobile/synhub`. This is not an OS signature — Gatekeeper and SmartScreen do not read it —
+  but it proves an artifact came from this workflow at this commit.
 - **Linux `.rpm`** next to the `.deb` (`scripts/build_linux_rpm.sh`, wired into `release.yml` as
   `synhub-<ver>-1.x86_64.rpm`). Same bundle, same layout: `/opt/synhub`, `/usr/bin/synhub`,
   desktop entry, icon, and a `%files` list that removes all four on `rpm -e`.

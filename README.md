@@ -52,15 +52,44 @@ GitHub-hosted runners, and the assets are attached to that tag. `SHA256SUMS.txt`
 | `synhub-<ver>-ios-unsigned.ipa` | iOS | **unsigned**. It will not install on a device until you re-sign it yourself (AltStore, Sideloadly, your own certificate) |
 | `synhub-<ver>-macos.zip` / `.dmg` | macOS | **ad-hoc** signature. Downloaded copies are quarantined by Gatekeeper; `xattr -dr com.apple.quarantine /Applications/SynHub.app` after copying |
 | `synhub-<ver>-windows-x64.zip` | Windows | unzip and run `synhub.exe`. No Authenticode signature, so SmartScreen will ask |
-| `synhub_<ver>_amd64.deb`, `synhub-<ver>-1.x86_64.rpm`, `synhub-<ver>-linux-x64.tar.gz` | Linux x64 | unsigned packages; the `.deb` (Debian/Ubuntu) and `.rpm` (Fedora/RHEL/openSUSE) both install to `/opt/synhub` with a menu entry |
+| `synhub_<ver>_amd64.deb`, `synhub-<ver>-1.x86_64.rpm`, `synhub-<ver>-linux-x64.tar.gz` | Linux x64 | GPG-signed when the repository secret is configured: the `.rpm` carries an embedded signature, the `.deb` ships a detached `.deb.asc`, and `SHA256SUMS.txt.asc` covers all six platforms. Both packages install to `/opt/synhub` with a menu entry |
 | `synhub-<ver>-web.tar.gz` | Web | a static bundle. Serve it over HTTP — opening `index.html` from `file://` will not work, and encrypted-DSM writes need same-origin hosting |
 
 Verify before installing:
 
 ```bash
+# 1. the checksums file itself (this is the part a bare SHA256SUMS.txt cannot prove)
+gpg --keyserver hkps://keys.openpgp.org --recv-keys <fingerprint from keys/README.md>
+gpg --verify SHA256SUMS.txt.asc SHA256SUMS.txt
 sha256sum -c SHA256SUMS.txt
+
+# 2. per-platform
 apksigner verify --print-certs synhub-<ver>-android-arm64.apk | head -3   # Android
+rpm --import keys/synhub-archive-keyring.asc && rpm --checksig -v *.rpm   # Linux (rpm)
+gpg --verify synhub_<ver>_amd64.deb.asc synhub_<ver>_amd64.deb           # Linux (deb)
 ```
+
+### Installing on Linux from the package repository
+
+Debian/Ubuntu and Fedora/RHEL/openSUSE get a **signed** repository, so upgrades arrive through the
+normal tools and the package manager verifies both the index and the package:
+
+```bash
+# Debian / Ubuntu
+curl -fsSL https://openviewmobile.github.io/synhub/keys/synhub-archive-keyring.asc \
+  | sudo gpg --dearmor -o /usr/share/keyrings/synhub.gpg
+echo "deb [signed-by=/usr/share/keyrings/synhub.gpg] https://openviewmobile.github.io/synhub/repo/apt stable main" \
+  | sudo tee /etc/apt/sources.list.d/synhub.list
+sudo apt update && sudo apt install synhub
+
+# Fedora / RHEL / openSUSE
+sudo curl -fsSL https://openviewmobile.github.io/synhub/repo/rpm/synhub.repo \
+  -o /etc/yum.repos.d/synhub.repo
+sudo dnf install synhub
+```
+
+`repo_gpgcheck=1` is on in that `.repo` file, so the *index* is signature-checked too — a forged
+index cannot point `dnf` at a "validly signed but different" package.
 
 Two consequences worth knowing up front:
 
