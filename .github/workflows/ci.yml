@@ -39,6 +39,20 @@ jobs:
           rc=$?
           tail -n 120 /tmp/test.log
           if [ "$rc" -ne 0 ]; then
+            # ★ r726：判据命中为 0 ≠ 没有失败。四次红里有一半是"计数 +1 但判据一行没打印"
+            #   （`photo_album_write_test` 那例：日志里只有 drift 的多库告警栈，没有 [E]）。
+            #   所以补一条兜底：把**第一次**失败出现位置的上下文原样贴出来。
+            if ! grep -qE '\[E\]$|Expected:|Actual:|Which:|EXCEPTION CAUGHT|timed out|TimeoutException|pumpAndSettle' /tmp/test.log; then
+              echo "::group::no failure marker found — context around the first failure count"
+              first=$(grep -nE ' -[1-9][0-9]*: ' /tmp/test.log | head -n 1 | cut -d: -f1)
+              if [ -n "$first" ]; then
+                start=$((first > 60 ? first - 60 : 1))
+                sed -n "${start},${first}p" /tmp/test.log
+              else
+                tail -n 60 /tmp/test.log
+              fi
+              echo "::endgroup::"
+            fi
             echo "::group::failing tests"
             # ★ r725：原判据漏了**超时**。三次 CI 红都是「失败数 +1 但判据行一条没打印」，
             #   因为超时打的是 `Test timed out after …` / `pumpAndSettle timed out`，
