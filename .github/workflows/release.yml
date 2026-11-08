@@ -365,8 +365,12 @@ jobs:
           sudo apt-get install -y --no-install-recommends rpm gnupg
           export GNUPGHOME="$(mktemp -d)"; chmod 700 "$GNUPGHOME"
           # rpm 要二进制公钥，gpg 要 armored —— 两个工具的习惯不一样
-          gpg --dearmor < keys/synhub-archive-keyring.asc > /tmp/pub.gpg
-          gpg --batch --import keys/synhub-archive-keyring.asc
+          # ★ 这一步在 `dist/` 里跑，`keys/` 在仓库根，得走 $GITHUB_WORKSPACE ——
+          #   第一版写成相对路径，v0.2.3 的发布就卡在「文件不存在」上（守卫是对的，路径是错的）。
+          KEYRING="$GITHUB_WORKSPACE/keys/synhub-archive-keyring.asc"
+          test -s "$KEYRING" || { echo "::error::找不到 $KEYRING"; exit 1; }
+          gpg --dearmor < "$KEYRING" > /tmp/pub.gpg
+          gpg --batch --import "$KEYRING"
           RPMDB="$(mktemp -d)"; rpm --dbpath "$RPMDB" --initdb
           rpm --dbpath "$RPMDB" --import /tmp/pub.gpg
           fail=0
