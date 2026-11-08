@@ -59,13 +59,13 @@ class _Strings {
   String get pbTitle => _zh ? 'BBC Radio 1' : 'BBC Radio 1';
   String get pbSub => _zh ? '正在播放 · 网络电台' : 'Now playing · Radio';
   String get item0Title => _zh ? 'BBC Radio 1' : 'BBC Radio 1';
-  String get item0Sub => _zh ? 'SHOUTcast · 128 kbps' : 'SHOUTcast · 128 kbps';
+  String get item0Sub => _zh ? '流行 · 新闻 · 直播' : 'Pop · News · Live';
   String get item1Title => _zh ? 'Radio Paradise' : 'Radio Paradise';
-  String get item1Sub => _zh ? 'MP3 · 320 kbps' : 'MP3 · 320 kbps';
+  String get item1Sub => _zh ? '多元音乐混播' : 'Eclectic music mix';
   String get item2Title => _zh ? 'Jazz24' : 'Jazz24';
-  String get item2Sub => _zh ? 'AAC · 96 kbps' : 'AAC · 96 kbps';
+  String get item2Sub => _zh ? '爵士 24 小时' : 'Jazz around the clock';
   String get item3Title => _zh ? 'Classic FM' : 'Classic FM';
-  String get item3Sub => _zh ? 'HLS · 128 kbps' : 'HLS · 128 kbps';
+  String get item3Sub => _zh ? '古典音乐台' : 'Classical music';
   String get item4Title => _zh ? '添加自定义电台' : 'Add custom station';
   String get item4Sub => _zh ? '粘贴播放列表或直链' : 'Paste a playlist URL';
 }

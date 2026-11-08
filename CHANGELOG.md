@@ -11,6 +11,18 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); version
 - `pubspec.lock` URLs normalised from the legacy `https://pub.dartlang.org` to
   `https://pub.dev` (a mechanical rewrite by the current pub client; no version changed).
 
+### Fixed
+- `lib/src/design/generated/` had drifted from its source: re-running
+  `design/emit_flutter.py` over all 153 specs reproduced 150 files byte-for-byte and changed
+  3 (`audio_radio`, `audio_song`, `media_player`) — someone had edited those specs without
+  re-running the generator. Regenerated, so the checked-in pages are the spec again.
+- The design specs carried real-hardware residue: a shipping phone's model string as the
+  device name (`drive_connections`, `settings_profile`) and a private-range LAN address as
+  the NFS mount (`file_mount`). Replaced with `SynHub demo unit` and
+  `nas.example.com:/volume1/media` and regenerated (spec → SVG → Dart, with
+  `design/check_parity.py` green). The removed values are deliberately not repeated here —
+  writing them into prose to say they are gone is how they come back.
+
 ### Not done, and why
 - **`image` stays pinned at 4.10.1.** It was tried: with `archive` already at 4.6.0 (so the
   `decodeLazy` blocker is gone), `image ^4.12.0` resolves, `flutter analyze` is clean, and the

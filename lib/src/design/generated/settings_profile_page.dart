@@ -68,7 +68,7 @@ class _Strings {
   String get fldLabel2 => _zh ? '角色' : 'Role';
   String get fldValue2 => _zh ? '管理员' : 'Administrator';
   String get fldLabel3 => _zh ? '本机设备' : 'This device';
-  String get fldValue3 => _zh ? 'HONOR LGE-AN10' : 'HONOR LGE-AN10';
+  String get fldValue3 => _zh ? 'SynHub demo unit' : 'SynHub demo unit';
   String get fldLabel4 => _zh ? '上次登录' : 'Last sign-in';
   String get fldValue4 => _zh ? '今天 08:02' : 'Today 08:02';
 }

@@ -19,8 +19,8 @@
           "en": "NAS media (NFS)"
         },
         "sub": {
-          "zh": "192.168.1.10:/volume1/media · 已挂载",
-          "en": "192.168.1.10:/volume1/media · mounted"
+          "zh": "nas.example.com:/volume1/media · 已挂载",
+          "en": "nas.example.com:/volume1/media · mounted"
         },
         "lead": "icon",
         "trail": "check"

@@ -81,7 +81,7 @@ class _Strings {
   String get songTitle => _zh ? 'Demo Song' : 'Demo Song';
   String get pCover => _zh ? '封面' : 'Cover';
   String get pArtist => _zh ? 'Demo Artist · 00s Love Songs' : 'Demo Artist · 00s Love Songs';
-  String get pMeta => _zh ? '320 kbps · 44.1 kHz · 9.0 MB' : '320 kbps · 44.1 kHz · 9.0 MB';
+  String get pMeta => _zh ? '3:51 · 2022' : '3:51 · 2022';
   String get pLeft => _zh ? '1:32' : '1:32';
   String get pRight => _zh ? '−2:19' : '−2:19';
   String get lyric0 => _zh ? 'Sample lyric line one' : 'Sample lyric line one';
@@ -92,7 +92,7 @@ class _Strings {
   String get quick0 => _zh ? '播放队列' : 'Queue';
   String get quick1 => _zh ? '投送到' : 'Cast';
   String get quick2 => _zh ? '音效' : 'Effects';
-  String get quick3 => _zh ? '睡眠定时' : 'Sleep';
+  String get quick3 => _zh ? '歌曲信息' : 'Info';
 }
 
 class _Cover extends StatelessWidget {
