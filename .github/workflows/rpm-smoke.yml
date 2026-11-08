@@ -1,4 +1,4 @@
-name: rpm-smoke
+name: packaging-smoke
 
 # r730：`scripts/build_linux_rpm.sh` 的**快速**回归。
 #
@@ -12,16 +12,26 @@ name: rpm-smoke
 #   ② 依赖里有我们显式声明的三个 soname（rpm 的 ELF 依赖生成器**不扫 /opt**，
 #      一旦有人把这行当成冗余删掉，用户侧就是"装成功、起不来"，这里必须红）；
 #   ③ `%files` 覆盖到启动器/桌面项/图标（卸载干净的判据是"全都列出来"）；
-#   ④ 用 `rpm2cpio` 解出载荷，确认 /usr/bin/synhub 是软链。
+#   ④ 用 `rpm2cpio` 解出载荷，确认 /usr/bin/synhub 是软链；
+#   ⑤ r732 起还验**签名与仓库**：用一把临时密钥签 rpm/deb/SHA256SUMS、建 apt+dnf 索引，
+#      再逐条验签；顺带验"指纹守卫"两个方向（一致通过 / 不一致变红）。
 
 on:
   push:
     paths:
       - 'scripts/build_linux_rpm.sh'
+      - 'scripts/build_linux_deb.sh'
+      - 'scripts/sign_linux_packages.sh'
+      - 'scripts/build_linux_repo.sh'
+      - 'keys/**'
       - '.github/workflows/rpm-smoke.yml'
   pull_request:
     paths:
       - 'scripts/build_linux_rpm.sh'
+      - 'scripts/build_linux_deb.sh'
+      - 'scripts/sign_linux_packages.sh'
+      - 'scripts/build_linux_repo.sh'
+      - 'keys/**'
       - '.github/workflows/rpm-smoke.yml'
   workflow_dispatch:
 
@@ -38,7 +48,7 @@ jobs:
       - name: install rpm tooling
         run: |
           sudo apt-get update
-          sudo apt-get install -y --no-install-recommends rpm cpio file
+          sudo apt-get install -y --no-install-recommends rpm cpio file debsigs createrepo-c apt-utils gnupg rsync
           rpmbuild --version
       - name: synthetic bundle
         # 只给打包器一份"形状正确"的输入：一个真 ELF（好让 file/rpm 认得出架构）+ 一个
@@ -72,8 +82,52 @@ jobs:
           test -L usr/bin/synhub || { echo '❌ /usr/bin/synhub 不是软链'; exit 1; }
           test "$(readlink usr/bin/synhub)" = "/opt/synhub/synhub" || { echo '❌ 软链指向不对'; exit 1; }
           echo '✅ 依赖、%files、软链三项都对'
+      - name: sign + repository smoke
+        # ★ 这一段是 r732 新脚本的回归：签名、索引、指纹守卫。用**临时密钥**，
+        #   不为测试引入真密钥；真密钥只存在于 Actions secret 里。
+        run: |
+          set -euo pipefail
+          export GNUPGHOME="$(mktemp -d)"; chmod 700 "$GNUPGHOME"
+          gpg --batch --pinentry-mode loopback --passphrase '' \
+              --quick-gen-key 'SynHub smoke <smoke@example.com>' ed25519 sign 0 >/dev/null 2>&1
+          KEYID="$(gpg --batch --with-colons --fingerprint | awk -F: '/^fpr:/{print $10; exit}')"
+          export SYNHUB_GPG_PRIVATE_KEY="$(gpg --batch --armor --export-secret-keys "$KEYID")"
+          export SYNHUB_GPG_KEY_ID="$KEYID"
+          echo "临时密钥：$KEYID"
+
+          bash scripts/build_linux_deb.sh >/dev/null
+          sha256sum build/linux_rpm/*.rpm build/linux_deb/*.deb > SMSUMS.txt
+          bash scripts/sign_linux_packages.sh build/linux_rpm/*.rpm build/linux_deb/*.deb SMSUMS.txt
+
+          # 指纹守卫：先把声明对齐（正向），再故意写错（反向，必须红）
+          cp keys/README.md /tmp/keys.bak
+          sed -i "s/^key-fingerprint: .*/key-fingerprint: $KEYID/" keys/README.md
+          bash scripts/build_linux_repo.sh --out /tmp/pages build/linux_rpm/*.rpm build/linux_deb/*.deb
+          sed -i "s/^key-fingerprint: .*/key-fingerprint: 0000000000000000000000000000000000000000/" keys/README.md
+          if bash scripts/build_linux_repo.sh --out /tmp/pages-bad build/linux_rpm/*.rpm build/linux_deb/*.deb >/dev/null 2>&1; then
+            echo '❌ 指纹不一致时仓库脚本没有失败'; exit 1
+          fi
+          cp /tmp/keys.bak keys/README.md
+          echo '✅ 指纹守卫两个方向都对'
+
+          # 签名与索引必须**真的**能验：换一个干净的 GNUPGHOME，只导**发布的公钥**，
+          # 避免"用签名时那把私钥顺手验过"的假绿。
+          rm -rf "$GNUPGHOME"; export GNUPGHOME="$(mktemp -d)"; chmod 700 "$GNUPGHOME"
+          gpg --batch --import /tmp/pages/keys/synhub-archive-keyring.asc >/dev/null 2>&1
+          gpg --batch --verify SMSUMS.txt.asc SMSUMS.txt
+          gpg --batch --verify /tmp/pages/repo/apt/dists/stable/Release.gpg \
+              /tmp/pages/repo/apt/dists/stable/Release
+          gpg --batch --clearsign --verify /tmp/pages/repo/apt/dists/stable/InRelease >/dev/null 2>&1 \
+            || gpg --batch --verify /tmp/pages/repo/apt/dists/stable/InRelease >/dev/null 2>&1
+          gpg --batch --verify /tmp/pages/repo/rpm/*/repodata/repomd.xml.asc \
+              /tmp/pages/repo/rpm/*/repodata/repomd.xml
+          rpm --import /tmp/pages/keys/synhub-archive-keyring.asc
+          rpm --checksig build/linux_rpm/*.rpm | grep -qi 'signatures OK'
+          echo '✅ 索引与包的签名都能验（用发布的公钥）'
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: rpm-smoke
-          path: build/linux_rpm/*.rpm
+          path: |
+            build/linux_rpm/*.rpm
+            build/linux_deb/*.deb
           if-no-files-found: error

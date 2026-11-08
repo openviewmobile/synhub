@@ -60,3 +60,7 @@ tool/secret_words.local
 
 # 逆向研究材料：保留在本机，不进仓库（决策 r723）
 reverse/
+# 本地演练产物（scripts/*_smoke 之类会写这些）
+SMSUMS.txt
+SMSUMS.txt.asc
+SHA256SUMS*.txt

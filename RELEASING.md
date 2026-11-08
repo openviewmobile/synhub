@@ -60,6 +60,44 @@ it does not exist, and uploads everything. Watch it under Actions → release.
 If something fails, fix it on `main`, delete the tag, and re-tag — do not upload hand-built files
 next to CI-built ones; the point is that every asset in a release names the commit it came from.
 
+## Signing the Linux artifacts and the package repositories
+
+The `.deb`/`.rpm` and the apt/dnf indexes are signed with a project GPG key. Two repository
+secrets drive it:
+
+| Secret | Value |
+|---|---|
+| `SYNHUB_GPG_PRIVATE_KEY` | the armored private key (`gpg --armor --export-secret-keys <fpr>`) |
+| `SYNHUB_GPG_KEY_ID` | the fingerprint, e.g. `9E85497E64A128A1427CD5F8AEF0C14A16617FE8` |
+
+Generate or rotate the key with `scripts/new_gpg_key.sh` — it writes the private half **outside** the
+repository (`~/.config/synhub/synhub-linux-signing-key.asc`, `0600`), updates
+`keys/synhub-archive-keyring.asc`, and prints the two `gh secret set` commands. Keep an offline
+backup: losing the key means rotating it, and every user has to import the new public key.
+
+What gets signed, and by what:
+
+| Artifact | Signature |
+|---|---|
+| `.rpm` | embedded (`rpm --checksig -v`) |
+| `.deb` | detached `.deb.asc` — Ubuntu 24.04 dropped `dpkg-sig` and `debsigs` is broken there; apt verifies `Release`/`InRelease` anyway |
+| `SHA256SUMS.txt` | detached `SHA256SUMS.txt.asc`, covering all six platforms |
+| apt `Release` / `InRelease`, dnf `repodata/repomd.xml` | detached / clearsigned |
+
+The publish job also builds both repositories and force-pushes them to the `gh-pages` branch, so
+`https://openviewmobile.github.io/synhub/` is the stable base URL for `apt`/`dnf`. **GitHub Pages
+must be enabled once** (Settings → Pages → Deploy from a branch → `gh-pages` / `/`); the job cannot
+turn it on itself.
+
+If the secrets are absent, the signing step prints a `::warning::` and skips, and the repository
+step is skipped too — releases still happen, they are just unsigned and have no repository. The
+`packaging-smoke` workflow covers the scripts themselves with a throwaway key on every change, so a
+broken spec/index/signature path goes red without waiting for a tag.
+
+A guard is worth knowing about: `build_linux_repo.sh` compares the fingerprint it actually signed
+with the `key-fingerprint:` line in `keys/README.md` and **fails** if they differ. Publishing a
+repository signed by a key users do not have would be worse than publishing none.
+
 ## Verify
 
 ```bash
