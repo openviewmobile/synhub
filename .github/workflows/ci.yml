@@ -40,6 +40,10 @@ jobs:
             ~/.cache/flutter_gemma
             ~/Library/Caches/flutter_gemma
           key: gemma-native-${{ runner.os }}-litertlm-1.8.6-native-v0.17.1-a
+      - name: seed flutter_gemma native libs
+        # hook 里写的下载地址（DenisovAV/flutter_gemma）**已经随仓库改名失效**，
+        # 现在返回 504；这个脚本改走仍可用的 API 资源端点，按 hook 的缓存布局放好。
+        run: bash tool/seed_native_libs.sh linux_x86_64
       - name: test
         # 整份用例日志直接进步骤日志会触发 GitHub 的截断：它砍掉**中间**，
         # 恰好把失败原因砍没（run 42338934283 就这样丢了 23 分钟的现场）。
