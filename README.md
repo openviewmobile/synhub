@@ -28,7 +28,7 @@ Linux, Windows and Web**.
   (§ [Quick start](#quick-start-offline--no-nas-required)).
 - **read the code** — start at `lib/src/data/` (the typed DSM API surface) and `tool/mock_dsm/`
   (what the whole test suite runs against).
-- **contribute** — [CONTRIBUTING.md](CONTRIBUTING.md) for the rules, [ROADMAP.md](ROADMAP.md)
+- **contribute** — [ARCHITECTURE.md](ARCHITECTURE.md) for the code map, [CONTRIBUTING.md](CONTRIBUTING.md) for the rules, [ROADMAP.md](ROADMAP.md)
   for what is wanted next and which pieces are small enough to start with.
 
 ## What this repository is (and is not)
@@ -173,7 +173,7 @@ Debug builds need nothing.
 
 ```bash
 flutter analyze lib test tool/mock_dsm
-flutter test                 # 798 files, fully offline
+flutter test                 # ~800 files, fully offline
 ```
 
 Everything is hermetic: no test contacts a real NAS. Server-facing behaviour runs against
@@ -210,6 +210,8 @@ Self-signed certificates: the app pins the fingerprint you approve at first conn
 
 ## Layout
 
+[ARCHITECTURE.md](ARCHITECTURE.md) explains how the pieces fit; this is just the tree.
+
 ```
 lib/                     application (features/* core/* data/* design/* l10n/*)
 android/ ios/ macos/ linux/ windows/ web/    platform runners
@@ -217,7 +219,7 @@ reimpl/                  clean-room C++ reimplementation of Chat hole-punching
 tool/mock_dsm/           offline DSM mock server used by tests
 tool/                    developer scripts
 integration_test/        on-device sweeps (not run in CI)
-test/                    offline test suite (798 files)
+test/                    offline test suite (~800 files)
 assets/branding/         app icon sources
 ```
 

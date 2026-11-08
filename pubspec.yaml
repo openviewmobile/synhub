@@ -40,7 +40,6 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.8
 
   # 空洞穿透隧道（自研原生库）的 Dart FFI 绑定
   ffi: ^2.1.0
@@ -83,6 +82,10 @@ dependencies:
   #   defined for the type 'ZLibDecoder'`）；macOS/Android 侧因为 lock 里是
   #   4.10.1 所以一直没暴露。区间约束会让新机器重新解析到 4.11.0，
   #   所以这里改成精确版本（升级前必须先升 `archive`）。
+  #   ★ r724：试过 `archive ^4.6.0` + `image ^4.12.0`（两者互相解锁），
+  #   `flutter analyze` 干净、zip/PNG 相关 82 条用例本地全绿，但 CI 上
+  #   `test/photo_album_write_test.dart` 的「设为封面 / 移出相册」**稳定红两次**
+  #   （同一行 `pumpWidget`，本地 3/3 绿）⇒ 先回退，等那条用例查清再解绑。
   image: 4.10.1
   local_auth: ^3.0.2
   meta: ^1.19.0
@@ -138,7 +141,7 @@ dependencies:
   just_audio_media_kit: ^2.1.0
   audio_service: ^0.18.19
   dbus: ^0.8.0                     # r699：Linux MPRIS（媒体键/系统媒体面板）
-  audio_session: ^0.1.21
+  audio_session: ^0.2.4
   pdf: ^3.12.0
 dev_dependencies:
   integration_test:

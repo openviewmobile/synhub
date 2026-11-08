@@ -40,7 +40,10 @@ jobs:
           tail -n 120 /tmp/test.log
           if [ "$rc" -ne 0 ]; then
             echo "::group::failing tests"
-            grep -nE '\[E\]$|Expected:|Actual:|Which:|EXCEPTION CAUGHT|Some tests failed|Test failed\. See' /tmp/test.log | head -n 60
+            # ★ r725：原判据漏了**超时**。三次 CI 红都是「失败数 +1 但判据行一条没打印」，
+            #   因为超时打的是 `Test timed out after …` / `pumpAndSettle timed out`，
+            #   既不以 `[E]` 结尾也不含 Expected/EXCEPTION ⇒ 现场全丢。
+            grep -nE '\[E\]$|Expected:|Actual:|Which:|EXCEPTION CAUGHT|Some tests failed|Test failed\. See|timed out|TimeoutException|pumpAndSettle' /tmp/test.log | head -n 80
             echo "::endgroup::"
           fi
           exit "$rc"

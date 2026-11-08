@@ -1,0 +1,10 @@
+# Blank issues stay enabled on purpose: a "my NAS model is unsupported" report does not
+# fit either template, and forcing it into one produces worse reports.
+blank_issues_enabled: true
+contact_links:
+  - name: Usage questions and setup help
+    url: https://github.com/openviewmobile/synhub/discussions
+    about: Ask here instead of opening an issue — Discussions is monitored too.
+  - name: Security vulnerability
+    url: https://github.com/openviewmobile/synhub/security/advisories/new
+    about: Please do not open a public issue for a vulnerability.
