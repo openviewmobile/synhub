@@ -3,6 +3,27 @@
 All notable changes to this project are documented here.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versions follow SemVer.
 
+## [Unreleased]
+
+### Changed
+- `archive` ^4.0.7 → ^4.6.0 and `image` pinned `4.10.1` → `^4.12.0`. The pin existed because
+  `image` 4.11+ calls `ZLibDecoder.decodeLazy`, which `archive` 4.0.9 did not have — with
+  `archive` current, both constraints clear together.
+- `audio_session` ^0.1.21 → ^0.2.4.
+- Dropped `cupertino_icons`: nothing imports it (0 references in `lib/` and `test/`).
+
+### Added
+- `ARCHITECTURE.md` — layer map, runtime spine, generated-code rules, and where to start
+  reading. Numbers in it were measured from the tree.
+- `.github/CODEOWNERS`, `.github/ISSUE_TEMPLATE/config.yml` (Discussions + private advisory
+  links), `.mailmap`.
+- `ROADMAP.md` § Known debt: the measured breakdown of the 143 MB Windows package and the
+  111 MB APK, including why the `X.dll`/`libX.dll` pairs cannot simply be deleted.
+
+### Fixed
+- Test-count claims said "798 files" while the tree has 797 `*_test.dart`; the prose now
+  says "~800" so it stops drifting.
+
 ## [0.2.1] - 2026-11-07
 
 Packaging fix-up for the first release. `v0.2.0` shipped a 311 MB macOS image and a

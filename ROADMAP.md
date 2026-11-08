@@ -7,7 +7,7 @@ happens — not when it is started. If an item here looks stale, open an issue a
 
 Working, self-contained source for six targets. What CI actually proves today:
 
-- `flutter analyze` + the full offline suite (798 files) on every push and PR;
+- `flutter analyze` + the full offline suite (~800 files) on every push and PR;
 - dependency-vulnerability scan (OSV) on every push and PR;
 - web / linux / windows / macos **really build** once a week;
 - coverage is measured weekly but is deliberately **not** a merge gate.
@@ -42,6 +42,19 @@ repository. Treat "builds" and "acceptance-tested" as different words.
       have; today Windows ships a zip and macOS an ad-hoc signed app.
 - [ ] Plugin/extension point for custom views over the file/photo APIs.
 - [ ] Offline-first document editing (Office) — currently view + create, not collaborative edit.
+
+## Known debt
+
+- **The Windows package is 143 MB.** Measured from the published zip (377 MB unpacked):
+  `openvino_intel_npu_compiler.dll` 78 MB, `dxcompiler.dll` 17 MB, `openvino.dll` 15 MB,
+  `webgpu_dawn.dll` 11 MB, `LiteRtWebGpuAccelerator.dll` 12 MB,
+  `LiteRtTopKWebGpuSampler.dll` 9 MB — i.e. ~143 MB of NPU/WebGPU backends that the
+  CPU/GPU path never selects. They can only be dropped after the AI feature is exercised
+  on a real Windows machine without them, which nobody has done yet. Note that the
+  `X.dll` / `libX.dll` pairs are **not** duplicates that can be deleted: both names are
+  referenced from the import tables of the other modules.
+- **The Android APK is 111 MB**, of which ~45 MB is the on-device AI runtime
+  (`libLiteRtLm.so` 26 MB + LiteRT accelerators/samplers ~19 MB).
 
 ## Not planned
 

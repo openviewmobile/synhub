@@ -40,7 +40,6 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.8
 
   # 空洞穿透隧道（自研原生库）的 Dart FFI 绑定
   ffi: ^2.1.0
@@ -77,13 +76,13 @@ dependencies:
   pinenacl: ^0.6.0
   blake2b: ^0.2.3
   # 发送图片时的「标准质量」预处理（长边 1280 + JPEG 90，对齐原版 BitmapUtil）
-  # ★ r665：`image` **钉死**在 4.10.1。4.11.0 的 `png_decoder.dart` 调
-  #   `ZLibDecoder.decodeLazy`，而本仓锁着的 `archive 4.0.9` 没有这个方法 ⇒
-  #   **Linux/arm64 构建直接编译失败**（`Error: The method 'decodeLazy' isn't
-  #   defined for the type 'ZLibDecoder'`）；macOS/Android 侧因为 lock 里是
-  #   4.10.1 所以一直没暴露。区间约束会让新机器重新解析到 4.11.0，
-  #   所以这里改成精确版本（升级前必须先升 `archive`）。
-  image: 4.10.1
+  # ★ r665：`image` 曾钉死在 4.10.1 —— 4.11.0 的 `png_decoder.dart` 调
+  #   `ZLibDecoder.decodeLazy`，而当时锁着的 `archive 4.0.9` 没有这个方法 ⇒
+  #   **Linux/arm64 构建直接编译失败**。r724 起 `archive` 已升到 4.6.x
+  #   （`decodeLazy` 在 4.1.0 就有），两条约束一起解开，所以恢复区间约束。
+  #   守卫：`test/book_reader_e2_test.dart` / `test/office_slides_color_resolve_test.dart`
+  #   会在 archive 之上真解 zip 与 PNG。
+  image: ^4.12.0
   local_auth: ^3.0.2
   meta: ^1.19.0
   dynamic_color: ^1.9.0
@@ -92,7 +91,7 @@ dependencies:
   pdfx: ^2.11.0
 
   # EPUB / CBZ 就是 zip 包（电子书阅读要**运行时**解压，不只是探针用）
-  archive: ^4.0.7
+  archive: ^4.6.0
   # OOXML（.odoc/.osheet/.oslides 的**真实**载体）解析：
   # 真机+服务端实测 —— `SYNO.SynologyDrive.Files:download` 回来的
   #   `.odoc` = 标准 DOCX（word/document.xml、styles/numbering、headers/footers）
@@ -138,7 +137,7 @@ dependencies:
   just_audio_media_kit: ^2.1.0
   audio_service: ^0.18.19
   dbus: ^0.8.0                     # r699：Linux MPRIS（媒体键/系统媒体面板）
-  audio_session: ^0.1.21
+  audio_session: ^0.2.4
   pdf: ^3.12.0
 dev_dependencies:
   integration_test:
