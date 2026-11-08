@@ -374,7 +374,7 @@ jobs:
             [ -e "$r" ] || continue
             out="$(rpm --dbpath "$RPMDB" --checksig -v "$r")"
             echo "$out"
-            grep -q 'Signature, key ID' <<<"$out" || { echo "::error::$r 没有签名头"; fail=1; }
+            grep -Eiq 'signature.*: *OK' <<<"$out" || { echo "::error::$r 没有可验证的签名头"; fail=1; }
             grep -q 'signatures OK' <<<"$(rpm --dbpath "$RPMDB" --checksig "$r")" || { echo "::error::$r 签名校验没通过"; fail=1; }
           done
           for d in *.deb; do

@@ -69,8 +69,12 @@ for f in "$@"; do
       #   "digests signatures OK" —— 自验通过、产物没签名。现在两条都要，并回显全文。
       OUT="$(rpm --dbpath "$RPMDB" --checksig -v "$f")" || true
       echo "$OUT" | sed 's/^/    /'
-      if ! grep -q 'Signature, key ID' <<<"$OUT"; then
-        die "$f 里没有签名头（rpm 只是重写了包，没有签上）"
+      # ★ rpm 的措辞随版本变：4.18 写 `Header V4 EdDSA/SHA512 Signature, key ID <id>: OK`，
+      #   4.19+ 写 `Header OpenPGP V4 EdDSA/SHA512 signature, key fingerprint: <fpr>: OK`。
+      #   所以判据只认"有 signature 字样 + OK"，不认某一种具体措辞（第一版只认前者，
+      #   在 runner 上把**签成功的**包判成了没签）。
+      if ! grep -Eiq 'signature.*: *OK' <<<"$OUT"; then
+        die "$f 里没有可验证的签名头（rpm 只是重写了包，没有签上）"
       fi
       grep -qi 'signatures OK' <<<"$(rpm --dbpath "$RPMDB" --checksig "$f")" \
         || die "$f 签名校验没通过"
