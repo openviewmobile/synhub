@@ -64,11 +64,20 @@ for f in "$@"; do
       RPMDB="$(mktemp -d)"
       rpm --dbpath "$RPMDB" --initdb
       rpm --dbpath "$RPMDB" --import "$PUB" || die "公钥导入 rpm 库失败（$RPMDB）"
-      rpm --dbpath "$RPMDB" --checksig "$f" | grep -qi 'signatures OK' || {
-        echo "[sign] rpm --checksig 输出：" >&2
-        rpm --dbpath "$RPMDB" --checksig -v "$f" | sed 's/^/    /' >&2
-        die "$f 签名校验失败"
-      }
+      # ★★ 判据必须是 `-v` 输出里的 **Signature 行**，不能只看 "signatures OK"：
+      #   v0.2.2 那次 `.rpm` 里根本没有签名头，而当时的 `rpm --checksig` 却回了
+      #   "digests signatures OK" —— 自验通过、产物没签名。现在两条都要，并回显全文。
+      OUT="$(rpm --dbpath "$RPMDB" --checksig -v "$f")" || true
+      echo "$OUT" | sed 's/^/    /'
+      # ★ rpm 的措辞随版本变：4.18 写 `Header V4 EdDSA/SHA512 Signature, key ID <id>: OK`，
+      #   4.19+ 写 `Header OpenPGP V4 EdDSA/SHA512 signature, key fingerprint: <fpr>: OK`。
+      #   所以判据只认"有 signature 字样 + OK"，不认某一种具体措辞（第一版只认前者，
+      #   在 runner 上把**签成功的**包判成了没签）。
+      if ! grep -Eiq 'signature.*: *OK' <<<"$OUT"; then
+        die "$f 里没有可验证的签名头（rpm 只是重写了包，没有签上）"
+      fi
+      grep -qi 'signatures OK' <<<"$(rpm --dbpath "$RPMDB" --checksig "$f")" \
+        || die "$f 签名校验没通过"
       log "已签并验证：$f"
       ;;
     *.deb)
