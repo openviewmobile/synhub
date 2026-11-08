@@ -40,7 +40,7 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.8
+  cupertino_icons: ^2.0.0
 
   # 空洞穿透隧道（自研原生库）的 Dart FFI 绑定
   ffi: ^2.1.0
