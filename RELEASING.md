@@ -60,6 +60,19 @@ it does not exist, and uploads everything. Watch it under Actions → release.
 If something fails, fix it on `main`, delete the tag, and re-tag — do not upload hand-built files
 next to CI-built ones; the point is that every asset in a release names the commit it came from.
 
+## Cutting a version
+
+1. `pubspec.yaml`: bump `version:` (`0.2.2+4` — the `+N` build number must increase too).
+2. `lib/src/features/settings/settings_page.dart`: bump `kAppVersion` to the same string.
+   `test/app_version_match_test.dart` reads `pubspec.yaml` as an independent second source and goes
+   red otherwise — which is the point: the "About" page once displayed a version that had not been
+   the real one for several releases.
+3. `CHANGELOG.md`: move the `[Unreleased]` bullets into a new `## [x.y.z] - YYYY-MM-DD` section and
+   add the compare/release link at the bottom.
+4. Merge, then tag `vX.Y.Z` on the merge commit and push the tag: the `release` workflow builds all
+   six targets from that commit and publishes the assets, the checksums, the provenance and the
+   package repositories.
+
 ## Signing the Linux artifacts and the package repositories
 
 The `.deb`/`.rpm` and the apt/dnf indexes are signed with a project GPG key. Two repository
