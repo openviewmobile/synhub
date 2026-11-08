@@ -40,16 +40,18 @@ jobs:
             ~/.cache/flutter_gemma
             ~/Library/Caches/flutter_gemma
           key: gemma-native-${{ runner.os }}-litertlm-1.8.6-native-v0.17.1-a
-      - name: seed flutter_gemma native libs
-        # hook 里写的下载地址（DenisovAV/flutter_gemma）**已经随仓库改名失效**，
-        # 现在返回 504；这个脚本改走仍可用的 API 资源端点，按 hook 的缓存布局放好。
-        run: bash tool/seed_native_libs.sh linux_x86_64
       - name: test
         # 整份用例日志直接进步骤日志会触发 GitHub 的截断：它砍掉**中间**，
         # 恰好把失败原因砍没（run 42338934283 就这样丢了 23 分钟的现场）。
         # 所以：全量写文件，步骤里只贴尾部；失败时再贴判据行。
         run: |
           set +e
+          # ★ r729：预置必须**紧贴** `flutter test`。上一版放在独立步骤里，第二次红时
+          #   才发现 `flutter test` 自己的隐式 `pub get` 会把 `.dart_tool` 重造一遍，
+          #   于是刚放好的 sqlite3 又没了（这也是它上一轮能绿、这一轮不能的原因）。
+          bash tool/seed_native_libs.sh linux_x86_64
+          echo '--- 预置后的缓存 ---'
+          find .dart_tool/hooks_runner/shared -maxdepth 4 -name 'libsqlite3*' -o -maxdepth 4 -name 'libLiteRtLm*' 2>/dev/null
           flutter test --reporter compact > /tmp/test.log 2>&1
           rc=$?
           # ★ r728：原生命中库下载失败（HTTP 5xx / 断网）不是用例红，是基础设施抖动。
