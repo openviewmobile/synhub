@@ -6,6 +6,18 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); version
 ## [Unreleased]
 
 ### Changed
+- `image` unpinned, `4.10.1` → `^4.12.0`, with `archive` `^4.0.7` → `^4.6.0`.
+
+  The pin existed because `image` ≥ 4.11 calls `ZLibDecoder.decodeLazy`, which the locked
+  `archive 4.0.9` did not have, and Linux/arm64 stopped compiling. The lock's `archive` is
+  now 4.6.0 (decodeLazy landed in 4.1.0), so both ends move.
+
+  The blocker was never the code — it was the guard. `DA285` asserted the literal string
+  `4.10.1` in `pubspec.yaml`, so any upgrade failed it, and I previously misread two CI
+  failures as a flaky widget test because the log tail showed the file that ran *next*. It
+  is now the invariant it was trying to state: **if the locked `image` is ≥ 4.11, the locked
+  `archive` must be ≥ 4.1.0**. Upgrades no longer need the guard edited; half-upgrades still
+  go red.
 - `audio_session` ^0.1.21 → ^0.2.4.
 - Dropped `cupertino_icons`: nothing imports it (0 references in `lib/` and `test/`).
 - `pubspec.lock` URLs normalised from the legacy `https://pub.dartlang.org` to
@@ -23,25 +35,15 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); version
   `design/check_parity.py` green). The removed values are deliberately not repeated here —
   writing them into prose to say they are gone is how they come back.
 
-### Not done, and why
-- **`image` stays pinned at 4.10.1.** It was tried: with `archive` already at 4.6.0 (so the
-  `decodeLazy` blocker is gone), `image ^4.12.0` resolves, `flutter analyze` is clean, and the
-  tests that really unzip and decode pass locally (82 cases). But CI goes red **twice in a
-  row, always at the same place** — `test/photo_album_write_test.dart` "相册里的大图页有
-  「设为封面 / 移出相册」", inside `pumpWidget` — while the same file passes 3/3 locally.
-  Until that test is explained, the pin stays and the comment in `pubspec.yaml` says so.
-
 ### Added
 - `ARCHITECTURE.md` — layer map, runtime spine, generated-code rules, and where to start
   reading. Numbers in it were measured from the tree.
 - `.github/CODEOWNERS`, `.github/ISSUE_TEMPLATE/config.yml` (Discussions + private advisory
   links), `.mailmap`.
 - `ROADMAP.md` § Known debt: the measured breakdown of the 143 MB Windows package and the
-  111 MB APK, including why the `X.dll`/`libX.dll` pairs cannot simply be deleted.
-
-### Fixed
-- Test-count claims said "798 files" while the tree has 797 `*_test.dart`; the prose now
-  says "~800" so it stops drifting.
+  111 MB APK — including the correction that the NPU/WebGPU DLLs are reachable
+  (`PreferredBackend.npu` is documented for Windows on Intel LunarLake/PantherLake), so
+  removing them is a product trade-off, not dead weight.
 
 ## [0.2.1] - 2026-11-07
 
