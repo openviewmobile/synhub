@@ -57,6 +57,15 @@ First release with packages. Every asset is built by
   static library the Runner link step requires.
 
 ### Notes
+### Known CI flake (still unexplained)
+
+`test/photo_album_write_test.dart` → "相册里的大图页有「设为封面 / 移出相册」" has now failed
+**three times in CI** (v0.2.0 landing, v0.2.0 re-tag, and the readiness batch), always inside
+`pumpWidget` at line 814, while passing on demand locally (3/3, 3/3 at the same commits).
+It is recorded, not diagnosed. `test/file_mount_ui_test.dart` also appears in the same tail
+of the log; whether it is a second failure or just the next running file has not been
+established.
+
 - One CI-only failure was observed while landing this release:
   `test/photo_album_write_test.dart` → "相册里的大图页有「设为封面 / 移出相册」" failed
   inside `pumpWidget` on `ubuntu-latest`, and passed 3/3 locally at the same commit. It is
