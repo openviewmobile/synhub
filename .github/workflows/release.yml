@@ -348,6 +348,39 @@ jobs:
           cd dist
           bash ../scripts/sign_linux_packages.sh SHA256SUMS.txt || true
           ls -l SHA256SUMS.txt* || true
+      - name: upload to the tag's release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # 这个 job 没有 checkout，`gh` 会去猜仓库而报
+          # "failed to run git: fatal: not a git repository"（v0.2.0 第二次挂在这）
+          GH_REPO: ${{ github.repository }}
+          TAG: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+          cd dist
+          if ! gh release view "$TAG" >/dev/null 2>&1; then
+            cat > /tmp/notes.md <<'NOTES'
+          Unofficial, from-scratch client for Synology NAS. Not affiliated with, endorsed by, or
+          supported by Synology Inc.
+
+          **Assets**
+
+          | File | Platform | Signing |
+          |---|---|---|
+          | `*-android-arm64.apk` | Android arm64-v8a | project release key (or debug key, if the secrets are not configured — the job warns) |
+          | `*-ios-unsigned.ipa` | iOS | **unsigned** — re-sign it yourself before installing on a device |
+          | `*-macos.zip` / `*-macos.dmg` | macOS | **ad-hoc**; clear the quarantine attribute, see RELEASING.md |
+          | `*-windows-x64.zip` | Windows x64 | unzip and run `synhub.exe` (no Authenticode signature) |
+          | `*.deb` / `*.rpm` / `*-linux-x64.tar.gz` | Linux x64 | GPG-signed when the signing secret is configured (rpm embedded, deb detached); see `keys/README.md` |
+          | `*-web.tar.gz` | Web | static bundle, needs a static server (and same-origin for encrypted DSM writes) |
+
+          Verify with `sha256sum -c SHA256SUMS.txt` before installing, and read
+          [RELEASING.md](https://github.com/openviewmobile/synhub/blob/main/RELEASING.md) for what
+          each signature level does and does not mean.
+          NOTES
+            gh release create "$TAG" --title "$TAG" --notes-file /tmp/notes.md
+          fi
+          gh release upload "$TAG" ./* --clobber
       - name: attest build provenance
         # ★ 免费且三端通用：证明"这个文件由这个仓库的这次 workflow、这个 commit 产出"。
         #   它**不替代** Gatekeeper/SmartScreen 的签名，但能证明产物没被换过。
@@ -404,36 +437,3 @@ jobs:
           git commit -qm "repo: ${{ github.ref_name }}"
           # 只推这一个分支，不碰 main；强制推送是因为每次发版整棵树重建
           git push -f "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" gh-pages
-      - name: upload to the tag's release
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # 这个 job 没有 checkout，`gh` 会去猜仓库而报
-          # "failed to run git: fatal: not a git repository"（v0.2.0 第二次挂在这）
-          GH_REPO: ${{ github.repository }}
-          TAG: ${{ github.ref_name }}
-        run: |
-          set -euo pipefail
-          cd dist
-          if ! gh release view "$TAG" >/dev/null 2>&1; then
-            cat > /tmp/notes.md <<'NOTES'
-          Unofficial, from-scratch client for Synology NAS. Not affiliated with, endorsed by, or
-          supported by Synology Inc.
-
-          **Assets**
-
-          | File | Platform | Signing |
-          |---|---|---|
-          | `*-android-arm64.apk` | Android arm64-v8a | project release key (or debug key, if the secrets are not configured — the job warns) |
-          | `*-ios-unsigned.ipa` | iOS | **unsigned** — re-sign it yourself before installing on a device |
-          | `*-macos.zip` / `*-macos.dmg` | macOS | **ad-hoc**; clear the quarantine attribute, see RELEASING.md |
-          | `*-windows-x64.zip` | Windows x64 | unzip and run `synhub.exe` (no Authenticode signature) |
-          | `*.deb` / `*.rpm` / `*-linux-x64.tar.gz` | Linux x64 | GPG-signed when the signing secret is configured (rpm embedded, deb detached); see `keys/README.md` |
-          | `*-web.tar.gz` | Web | static bundle, needs a static server (and same-origin for encrypted DSM writes) |
-
-          Verify with `sha256sum -c SHA256SUMS.txt` before installing, and read
-          [RELEASING.md](https://github.com/openviewmobile/synhub/blob/main/RELEASING.md) for what
-          each signature level does and does not mean.
-          NOTES
-            gh release create "$TAG" --title "$TAG" --notes-file /tmp/notes.md
-          fi
-          gh release upload "$TAG" ./* --clobber
