@@ -317,6 +317,11 @@ jobs:
       id-token: write
       attestations: write
     steps:
+      # ★ 必须 checkout：签名与建仓库都调 `scripts/*.sh`，`build_linux_repo.sh` 还要读
+      #   `keys/README.md` 做指纹核对 —— 没有这一步，两个新步骤第一步就 `No such file`。
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b2 # v5
+        with:
+          persist-credentials: false
       - uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5
         with:
           path: dist
