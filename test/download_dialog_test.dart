@@ -154,19 +154,31 @@ void main() {
         ),
       );
       await tester.pump();
+      // ★ r731：把"等到没有"变成**可读的证据**。r730 的 CI（2 核 runner）上这一条红过
+      //   一次，本地隔离跑 3 次 + 全量 12,448 条都绿，摘要里也没有失败正文（错误正文在
+      //   计数行之后，当时没摘）。所以在不改判据的前提下做两件事：
+      //   ① 等 6s（原来 2s）—— 等的是**真实磁盘 I/O**，不是把断言放宽；
+      //   ② 等不到就 `fail()` 并带上实测数字（等了多久、路径、最后看到的存在性/字节数），
+      //      下一次红时摘要里直接有原因，不用再靠复现去猜。
+      var waitedMs = 0;
+      var sawExists = false;
+      var sawLength = -1;
+      late String cachedPath;
       await tester.runAsync(() async {
         await tester.tap(find.text('report.pdf'));
-        // ★ DA235（r641）：原来固定等 150ms —— 全量并发时真实写盘还没落完，
-        // 后面读到 0 字节就假红（隔离单跑必过）。改成**有界轮询真实落盘**，
-        // 判据仍是"文件存在且有字节"，只是不再赌那 150ms。
         final svc = h.container.read(cacheServiceProvider);
-        for (var i = 0; i < 100; i++) {
+        cachedPath = await svc.pathFor(200, 'report.pdf');
+        for (var i = 0; i < 300; i++) {
           await Future<void>.delayed(const Duration(milliseconds: 20));
-          final p = await svc.pathFor(200, 'report.pdf');
-          final f = File(p);
-          if (f.existsSync() && f.lengthSync() > 0) return;
+          waitedMs += 20;
+          final f = File(cachedPath);
+          sawExists = f.existsSync();
+          sawLength = sawExists ? f.lengthSync() : -1;
+          if (sawExists && sawLength > 0) return;
         }
       });
+      debugPrint('[dlg-ok] waited=${waitedMs}ms path=$cachedPath '
+          'exists=$sawExists length=$sawLength');
       await tester.pump();
       // 假传输是同步完成 + 没有 length → 框要么已经关掉、要么转圈中
       await tester.pump(const Duration(milliseconds: 200));
@@ -178,8 +190,11 @@ void main() {
       final cached = (await tester.runAsync(
         () => h.container.read(cacheServiceProvider).pathFor(200, 'report.pdf'),
       ))!;
-      expect(File(cached).existsSync(), isTrue);
-      expect(File(cached).lengthSync(), greaterThan(0));
+      expect(File(cached).existsSync(), isTrue,
+          reason: '等了 ${waitedMs}ms 仍没有文件：$cached（最近一次读到 exists=$sawExists '
+              'length=$sawLength）');
+      expect(File(cached).lengthSync(), greaterThan(0),
+          reason: '等了 ${waitedMs}ms 文件仍为空：$cached');
     });
 
     testWidgets('服务端 401 → 框关掉 + 文案给用户', (tester) async {
