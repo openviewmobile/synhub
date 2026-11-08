@@ -55,12 +55,18 @@ for f in "$@"; do
         --define "__gpg $(command -v gpg)" \
         --define "_gpg_name $KEYID" "$f" >/dev/null
       # ★ 签完必须验：`rpm -K` 未通过 = 等于没签（这是本仓的通行判据）
-      # ★ `rpm --checksig` 需要**公钥在 rpm 自己的库里**，否则一律 NOT OK；
-      #   所以先把公钥 import 进来（runner 是一次性的，改它的 rpm 库没有副作用）。
+      # ★ `rpm --checksig` 需要**公钥在 rpm 自己的库里**，否则一律 NOT OK。
+      #   ★★ 而且**必须给独立的 --dbpath**：CI 以非 root 跑，`rpm --import` 写
+      #   `/var/lib/rpm` 会失败（第一版把错误 `|| true` 吞了，于是 checksig 报
+      #   `NOKEY`，本地以 root 跑却一切正常 —— 这就是它在 PR 上红的原因）。
       PUB="$(mktemp)"; gpg --batch --armor --export "$KEYID" > "$PUB"
-      rpm --import "$PUB" 2>/dev/null || true
-      rpm --checksig "$f" | grep -qi 'signatures OK' || {
-        echo "[sign] rpm --checksig 输出：" >&2; rpm --checksig -v "$f" | sed 's/^/    /' >&2
+      [[ -s "$PUB" ]] || die "导不出公钥（$KEYID）"
+      RPMDB="$(mktemp -d)"
+      rpm --dbpath "$RPMDB" --initdb
+      rpm --dbpath "$RPMDB" --import "$PUB" || die "公钥导入 rpm 库失败（$RPMDB）"
+      rpm --dbpath "$RPMDB" --checksig "$f" | grep -qi 'signatures OK' || {
+        echo "[sign] rpm --checksig 输出：" >&2
+        rpm --dbpath "$RPMDB" --checksig -v "$f" | sed 's/^/    /' >&2
         die "$f 签名校验失败"
       }
       log "已签并验证：$f"

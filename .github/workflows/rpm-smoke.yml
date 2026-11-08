@@ -121,8 +121,10 @@ jobs:
             || gpg --batch --verify /tmp/pages/repo/apt/dists/stable/InRelease >/dev/null 2>&1
           gpg --batch --verify /tmp/pages/repo/rpm/*/repodata/repomd.xml.asc \
               /tmp/pages/repo/rpm/*/repodata/repomd.xml
-          rpm --import /tmp/pages/keys/synhub-archive-keyring.asc
-          rpm --checksig build/linux_rpm/*.rpm | grep -qi 'signatures OK'
+          # 非 root 跑，rpm 必须用独立 dbpath（写 /var/lib/rpm 会失败）
+          RPMDB="$(mktemp -d)"; rpm --dbpath "$RPMDB" --initdb
+          rpm --dbpath "$RPMDB" --import /tmp/pages/keys/synhub-archive-keyring.asc
+          rpm --dbpath "$RPMDB" --checksig build/linux_rpm/*.rpm | grep -qi 'signatures OK'
           echo '✅ 索引与包的签名都能验（用发布的公钥）'
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
