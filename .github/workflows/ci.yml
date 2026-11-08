@@ -29,6 +29,21 @@ jobs:
         run: flutter gen-l10n
       - name: analyze
         run: flutter analyze lib test tool/mock_dsm
+      - name: cache flutter_gemma native libs
+        # ★ r728：`flutter test` 会触发 flutter_gemma_litertlm 的 build hook，它**从
+        #   GitHub Releases 现下 100+ MB 的 litertlm 原生库**。GitHub 回 504 时整步直接
+        #   以 `Unhandled exception` 退出 —— 没有 [E]、没有失败用例，所以前几轮的
+        #   "失败数 +1 但判据一条没有"就是它。缓存命中后这一步根本不会发生。
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: |
+            ~/.cache/flutter_gemma
+            ~/Library/Caches/flutter_gemma
+          key: gemma-native-${{ runner.os }}-litertlm-1.8.6-native-v0.17.1-a
+      - name: seed flutter_gemma native libs
+        # hook 里写的下载地址（DenisovAV/flutter_gemma）**已经随仓库改名失效**，
+        # 现在返回 504；这个脚本改走仍可用的 API 资源端点，按 hook 的缓存布局放好。
+        run: bash tool/seed_native_libs.sh linux_x86_64
       - name: test
         # 整份用例日志直接进步骤日志会触发 GitHub 的截断：它砍掉**中间**，
         # 恰好把失败原因砍没（run 42338934283 就这样丢了 23 分钟的现场）。
@@ -37,8 +52,39 @@ jobs:
           set +e
           flutter test --reporter compact > /tmp/test.log 2>&1
           rc=$?
+          # ★ r728：原生命中库下载失败（HTTP 5xx / 断网）不是用例红，是基础设施抖动。
+          #   重试一次，不掩盖真正的测试失败（判据只认这一条错误串）。
+          if [ "$rc" -ne 0 ] && grep -q 'could not download litertlm native libs' /tmp/test.log; then
+            echo '::warning::litertlm 原生库下载失败（基础设施抖动），60 s 后重试一次'
+            sleep 60
+            flutter test --reporter compact > /tmp/test.log 2>&1
+            rc=$?
+          fi
           tail -n 120 /tmp/test.log
           if [ "$rc" -ne 0 ]; then
+            # ★ r727：步骤日志会被 GitHub 按体积截断（本步 >150k 行），我们贴的上下文
+            #   正在被截掉的那一段里 —— 三次红都没读到原因。改贴**步骤摘要**
+            #   （$GITHUB_STEP_SUMMARY 是独立渲染的，不吃日志截断）。
+            sum="${GITHUB_STEP_SUMMARY:-/dev/null}"
+            {
+              echo "## 失败现场（自动摘录）"
+              echo
+              echo '```'
+              echo '--- 第一次失败计数 ---'
+              grep -nE ' -[1-9][0-9]*: ' /tmp/test.log | head -n 3
+              first=$(grep -nE ' -[1-9][0-9]*: ' /tmp/test.log | head -n 1 | cut -d: -f1)
+              if [ -n "$first" ]; then
+                start=$((first > 80 ? first - 80 : 1))
+                echo '--- 失败前 80 行 ---'
+                sed -n "${start},${first}p" /tmp/test.log
+              fi
+              echo '--- 判据行 ---'
+              grep -nE '\[E\]$|Expected:|Actual:|Which:|EXCEPTION CAUGHT|Some tests failed|Test failed\. See|timed out|TimeoutException|pumpAndSettle|Bad state|No such method' /tmp/test.log | head -n 40
+              echo '--- 最后 40 行 ---'
+              tail -n 40 /tmp/test.log
+              echo '```'
+            } >> "$sum"
+
             # ★ r725/r726：判据命中数 ≠ 失败数。五次红里有一半是「计数 +1 但判据一行没打印」，
             #   原因有两个：① 超时打的是 `Test timed out after …`，原判据没有；
             #   ② 有一条用例的日志里只有 drift 的"多库告警"140 行栈，失败原因被它埋了。

@@ -69,6 +69,22 @@ jobs:
         run: flutter pub get
       - name: gen-l10n
         run: flutter gen-l10n
+      - name: seed flutter_gemma native libs
+        # 六端 build 同样会触发那个 hook（它的下载地址已失效），不预置就整场红。
+        # web 不需要原生库，跳过。
+        if: matrix.platform != 'web'
+        shell: bash
+        run: |
+          case "${{ matrix.platform }}" in
+            linux)   dir=linux_x86_64 ;;
+            windows) dir=windows_x86_64 ;;
+            macos)   dir=macos_arm64 ;;
+            android) dir=android_arm64 ;;
+            ios)     dir=ios_arm64 ;;
+            *)       dir= ;;
+          esac
+          if [ -z "$dir" ]; then echo "无需预置"; exit 0; fi
+          bash tool/seed_native_libs.sh "$dir"
       - name: build
         run: ${{ matrix.command }}
       - name: summary
