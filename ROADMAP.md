@@ -45,6 +45,39 @@ repository. Treat "builds" and "acceptance-tested" as different words.
 
 ## Known debt
 
+### Build hooks fetch binaries from GitHub Releases — and that path breaks
+
+Two dependencies compile native code through Dart build hooks that **download prebuilt
+binaries from GitHub Releases at build time**, on every clean machine:
+
+| package | what it fetches | where from |
+| --- | --- | --- |
+| `flutter_gemma_litertlm` 1.8.6 | `litertlm-<platform>.tar.gz` (7–98 MB) | `DenisovAV/flutter_gemma` |
+| `sqlite3` 3.6.0 | `libsqlite3.<arch>.<os>.so` (~1.8 MB) | `simolus3/sqlite3.dart` |
+
+``flutter test`` and `flutter build` both trigger them. That makes CI and release builds depend
+on a third-party download, and in November 2026 that path stopped working: `DenisovAV/flutter_gemma`
+was **renamed to `DenisovAV/flutter_edge_ai`**, after which `github.com/.../releases/download/...`
+answers **HTTP 504** (not 404) for the old path — and, on this machine as well as on runners, for
+the new one too. The hooks report it badly:
+
+* `flutter_gemma_litertlm` exits 255 with `Unhandled exception … could not download litertlm
+  native libs`, and the whole test step dies before running anything. No `[E]`, no failing test
+  name — which is why CI looked like "failure count +1 but no failure printed" for several runs.
+* `sqlite3` writes the error body into its cache file and then fails the **sha256 check**, which
+  reads like upstream re-published the asset. It did not; the file's hash still matches the pin.
+
+`tool/seed_native_libs.sh` pre-places both, fetched from the API asset endpoint
+(`api.github.com/repos/<owner>/<repo>/releases/assets/<id>` with
+`Accept: application/octet-stream`), which answered 200 while the `releases/download` path was
+returning 504. It lays the files out the way each hook's own cache expects — including the JSON
+marker the litertlm hook uses as its commit point — so the hooks resolve from cache and never
+touch the network. Verified cold (5.7 s) and warm (instant); wired into `ci.yml` and
+`platform-build.yml`.
+
+This is debt, not a fix: the day either package bumps its version, the asset ids and cache layout
+have to be re-checked. Checked wastefully, but silently-failing builds are worse.
+
 - **The Windows package is 143 MB, and the size is a product decision, not a bug.**
   Measured from the published zip (377 MB unpacked): `openvino_intel_npu_compiler.dll`
   78 MB, `dxcompiler.dll` 17 MB, `openvino.dll` 15 MB, `webgpu_dawn.dll` 11 MB,

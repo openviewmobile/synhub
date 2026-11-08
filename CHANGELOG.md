@@ -24,6 +24,13 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); version
   `https://pub.dev` (a mechanical rewrite by the current pub client; no version changed).
 
 ### Fixed
+- **CI's intermittent red had nothing to do with the tests.** Two build hooks download prebuilt
+  binaries from GitHub Releases when `flutter test` runs; the `releases/download` path returns 504
+  (one of the two repositories was renamed), and both hooks fail in ways that print no failing
+  test at all — `flutter_gemma_litertlm` exits with an unhandled exception before the suite
+  starts, `sqlite3` reports a bogus sha256 mismatch. `tool/seed_native_libs.sh` seeds both from
+  the API asset endpoint (200 while the download path was 504), and the failure excerpt now goes
+  to `$GITHUB_STEP_SUMMARY`, which is not truncated the way a 150k-line step log is.
 - `lib/src/design/generated/` had drifted from its source: re-running
   `design/emit_flutter.py` over all 153 specs reproduced 150 files byte-for-byte and changed
   3 (`audio_radio`, `audio_song`, `media_player`) — someone had edited those specs without
