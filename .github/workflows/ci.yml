@@ -39,6 +39,29 @@ jobs:
           rc=$?
           tail -n 120 /tmp/test.log
           if [ "$rc" -ne 0 ]; then
+            # ★ r727：步骤日志会被 GitHub 按体积截断（本步 >150k 行），我们贴的上下文
+            #   正在被截掉的那一段里 —— 三次红都没读到原因。改贴**步骤摘要**
+            #   （$GITHUB_STEP_SUMMARY 是独立渲染的，不吃日志截断）。
+            sum="${GITHUB_STEP_SUMMARY:-/dev/null}"
+            {
+              echo "## 失败现场（自动摘录）"
+              echo
+              echo '```'
+              echo '--- 第一次失败计数 ---'
+              grep -nE ' -[1-9][0-9]*: ' /tmp/test.log | head -n 3
+              first=$(grep -nE ' -[1-9][0-9]*: ' /tmp/test.log | head -n 1 | cut -d: -f1)
+              if [ -n "$first" ]; then
+                start=$((first > 80 ? first - 80 : 1))
+                echo '--- 失败前 80 行 ---'
+                sed -n "${start},${first}p" /tmp/test.log
+              fi
+              echo '--- 判据行 ---'
+              grep -nE '\[E\]$|Expected:|Actual:|Which:|EXCEPTION CAUGHT|Some tests failed|Test failed\. See|timed out|TimeoutException|pumpAndSettle|Bad state|No such method' /tmp/test.log | head -n 40
+              echo '--- 最后 40 行 ---'
+              tail -n 40 /tmp/test.log
+              echo '```'
+            } >> "$sum"
+
             # ★ r725/r726：判据命中数 ≠ 失败数。五次红里有一半是「计数 +1 但判据一行没打印」，
             #   原因有两个：① 超时打的是 `Test timed out after …`，原判据没有；
             #   ② 有一条用例的日志里只有 drift 的"多库告警"140 行栈，失败原因被它埋了。
