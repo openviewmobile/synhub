@@ -76,17 +76,15 @@ dependencies:
   pinenacl: ^0.6.0
   blake2b: ^0.2.3
   # 发送图片时的「标准质量」预处理（长边 1280 + JPEG 90，对齐原版 BitmapUtil）
-  # ★ r665：`image` **钉死**在 4.10.1。4.11.0 的 `png_decoder.dart` 调
-  #   `ZLibDecoder.decodeLazy`，而本仓锁着的 `archive 4.0.9` 没有这个方法 ⇒
+  # ★ r665 的历史：`image` 曾钉死在 4.10.1 —— 4.11.0 的 `png_decoder.dart` 调
+  #   `ZLibDecoder.decodeLazy`，而当时锁着的 `archive 4.0.9` 没有这个方法 ⇒
   #   **Linux/arm64 构建直接编译失败**（`Error: The method 'decodeLazy' isn't
-  #   defined for the type 'ZLibDecoder'`）；macOS/Android 侧因为 lock 里是
-  #   4.10.1 所以一直没暴露。区间约束会让新机器重新解析到 4.11.0，
-  #   所以这里改成精确版本（升级前必须先升 `archive`）。
-  #   ★ r724：试过 `archive ^4.6.0` + `image ^4.12.0`（两者互相解锁），
-  #   `flutter analyze` 干净、zip/PNG 相关 82 条用例本地全绿，但 CI 上
-  #   `test/photo_album_write_test.dart` 的「设为封面 / 移出相册」**稳定红两次**
-  #   （同一行 `pumpWidget`，本地 3/3 绿）⇒ 先回退，等那条用例查清再解绑。
-  image: 4.10.1
+  #   defined for the type 'ZLibDecoder'`）。
+  #   ★ r725：`archive` 已在 lock 里升到 4.6.0（`decodeLazy` 从 4.1.0 就有），
+  #   耦合的两端一起解开 ⇒ `image` 恢复区间约束。这条耦合不是注释能守住的，
+  #   所以 `test/platform_round665_test.dart` 的 DA285 改成了**关系断言**：
+  #   `image ≥ 4.11` 时锁定的 `archive` 必须 ≥ 4.1.0。别再把版本钉成常量。
+  image: ^4.12.0
   local_auth: ^3.0.2
   meta: ^1.19.0
   dynamic_color: ^1.9.0
@@ -95,7 +93,7 @@ dependencies:
   pdfx: ^2.11.0
 
   # EPUB / CBZ 就是 zip 包（电子书阅读要**运行时**解压，不只是探针用）
-  archive: ^4.0.7
+  archive: ^4.6.0
   # OOXML（.odoc/.osheet/.oslides 的**真实**载体）解析：
   # 真机+服务端实测 —— `SYNO.SynologyDrive.Files:download` 回来的
   #   `.odoc` = 标准 DOCX（word/document.xml、styles/numbering、headers/footers）
