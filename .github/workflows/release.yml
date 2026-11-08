@@ -13,7 +13,7 @@ name: release
 #   iOS     —— **未签名** .ipa（--no-codesign）。真机安装必须自己重签（AltStore/Sideloadly 等）；
 #   macOS   —— ad-hoc 签名（`Signature=adhoc`），下载后 Gatekeeper 会拦，见 RELEASING.md；
 #   Windows —— zip（未做 MSIX 与 Authenticode 签名）；
-#   Linux   —— deb + tar.gz（未做仓库签名）；
+#   Linux   —— deb + rpm + tar.gz（未做仓库签名）；
 #   Web     —— 静态站打包（未做任何托管）。
 
 on:
@@ -226,7 +226,7 @@ jobs:
           if-no-files-found: error
 
   linux:
-    name: linux (deb + tar.gz)
+    name: linux (deb + rpm + tar.gz)
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
@@ -236,7 +236,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends \
             clang cmake ninja-build pkg-config libgtk-3-dev liblzma-dev libstdc++-12-dev \
-            libsecret-1-dev libmpv-dev libepoxy-dev dpkg-dev
+            libsecret-1-dev libmpv-dev libepoxy-dev dpkg-dev rpm
       - uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2 # v2
         with:
           channel: stable
@@ -250,14 +250,18 @@ jobs:
           set -euo pipefail
           V="$(awk '/^version:/{print $2}' pubspec.yaml | cut -d+ -f1)"
           bash scripts/build_linux_deb.sh
+          # ★ r730：rpm 与 deb 同源同 bundle，只是给 Fedora/RHEL/openSUSE 一个"能装"的形态。
+          #   依赖按 soname 声明（rpm 的 ELF 依赖生成器不扫 /opt，靠推导会一条都没有）。
+          bash scripts/build_linux_rpm.sh --verify
           tar -C build/linux/x64/release/bundle -czf "synhub-${V}-linux-x64.tar.gz" .
-          ls -lh build/linux_deb/*.deb "synhub-${V}-linux-x64.tar.gz"
-          sha256sum build/linux_deb/*.deb "synhub-${V}-linux-x64.tar.gz"
+          ls -lh build/linux_deb/*.deb build/linux_rpm/*.rpm "synhub-${V}-linux-x64.tar.gz"
+          sha256sum build/linux_deb/*.deb build/linux_rpm/*.rpm "synhub-${V}-linux-x64.tar.gz"
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: linux
           path: |
             build/linux_deb/*.deb
+            build/linux_rpm/*.rpm
             synhub-*-linux-x64.tar.gz
           if-no-files-found: error
 
@@ -338,7 +342,7 @@ jobs:
           | `*-ios-unsigned.ipa` | iOS | **unsigned** — re-sign it yourself before installing on a device |
           | `*-macos.zip` / `*-macos.dmg` | macOS | **ad-hoc**; clear the quarantine attribute, see RELEASING.md |
           | `*-windows-x64.zip` | Windows x64 | unzip and run `synhub.exe` (no Authenticode signature) |
-          | `*.deb` / `*-linux-x64.tar.gz` | Linux x64 | unsigned packages |
+          | `*.deb` / `*.rpm` / `*-linux-x64.tar.gz` | Linux x64 | unsigned packages (deb for Debian/Ubuntu, rpm for Fedora/RHEL/openSUSE) |
           | `*-web.tar.gz` | Web | static bundle, needs a static server (and same-origin for encrypted DSM writes) |
 
           Verify with `sha256sum -c SHA256SUMS.txt` before installing, and read

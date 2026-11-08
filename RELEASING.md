@@ -11,11 +11,14 @@ Packages are built by GitHub Actions, not on a laptop. The workflow is
 | `synhub-<ver>-arm64.apk` | `scripts/build_arm64_release.sh` on `ubuntu-latest` | arm64-v8a only; signed with the project release key when the secret is present |
 | `synhub-<ver>-web.tar.gz` | `flutter build web --release` | static bundle; serve it, or unzip and open `index.html` through a static server |
 | `synhub_<ver>_<arch>.deb` | `scripts/build_linux_deb.sh` | x86_64 Debian/Ubuntu package |
-| `SHA256SUMS.txt` | the three assets above | verify before installing; see § Verify |
+| `synhub-<ver>-1.<arch>.rpm` | `scripts/build_linux_rpm.sh` | x86_64 Fedora/RHEL/openSUSE package |
+| `synhub-<ver>-macos-<arch>.zip` / `.dmg` | `flutter build macos --release` | ad-hoc signed (Gatekeeper will complain) |
+| `synhub-<ver>-windows-x64.zip` | `flutter build windows --release` | unsigned; MSIX is still an open decision |
+| `SHA256SUMS.txt` | everything above | verify before installing; see § Verify |
 
-Nothing here is signed by Synology, and none of it is notarized. macOS and Windows packages are
-not produced yet — the macOS build is ad-hoc signed (Gatekeeper will complain) and the Windows
-MSIX story needs its own decision.
+Nothing here is signed by Synology, and none of it is notarized. The `.deb` and the `.rpm` are
+the same bundle with two package wrappers: both install to `/opt/synhub` with a menu entry, a
+`/usr/bin/synhub` launcher and an icon, and both uninstall cleanly.
 
 ## One-time setup: signing secrets
 
@@ -65,9 +68,21 @@ sha256sum -c SHA256SUMS.txt
 # Android: the certificate must be the project's release key, not a debug key
 apksigner verify --print-certs synhub-<ver>-arm64.apk | head -3
 
-# Linux
+# Linux — Debian/Ubuntu
 dpkg-deb -I synhub_<ver>_amd64.deb | head -20
+sudo dpkg -i synhub_<ver>_amd64.deb
+
+# Linux — Fedora/RHEL/openSUSE
+rpm -qip synhub-<ver>-1.x86_64.rpm
+rpm -qpR synhub-<ver>-1.x86_64.rpm     # library deps, by soname
+sudo dnf install ./synhub-<ver>-1.x86_64.rpm   # or: sudo rpm -Uvh ...
 ```
+
+The rpm declares its library dependencies by **soname** (`libgtk-3.so.0`, `libsecret-1.so.0`,
+`libmpv.so.2`) rather than by package name, because the package names differ between Fedora,
+RHEL and openSUSE — and because `mpv-libs` on Fedora lives in RPM Fusion, which would otherwise
+turn "install SynHub" into "add a third-party repository first". `poppler-utils` is a
+`Suggests`: without it the app runs, but PDF previews render nothing.
 
 The APK is signed with the project key. If you build the app yourself with your own key, Android
 refuses to install it over a release build (`INSTALL_FAILED_UPDATE_INCOMPATIBLE`) — uninstall

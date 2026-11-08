@@ -52,7 +52,7 @@ GitHub-hosted runners, and the assets are attached to that tag. `SHA256SUMS.txt`
 | `synhub-<ver>-ios-unsigned.ipa` | iOS | **unsigned**. It will not install on a device until you re-sign it yourself (AltStore, Sideloadly, your own certificate) |
 | `synhub-<ver>-macos.zip` / `.dmg` | macOS | **ad-hoc** signature. Downloaded copies are quarantined by Gatekeeper; `xattr -dr com.apple.quarantine /Applications/SynHub.app` after copying |
 | `synhub-<ver>-windows-x64.zip` | Windows | unzip and run `synhub.exe`. No Authenticode signature, so SmartScreen will ask |
-| `synhub_<ver>_amd64.deb`, `synhub-<ver>-linux-x64.tar.gz` | Linux x64 | unsigned packages; the `.deb` installs to `/opt/synhub` with a menu entry |
+| `synhub_<ver>_amd64.deb`, `synhub-<ver>-1.x86_64.rpm`, `synhub-<ver>-linux-x64.tar.gz` | Linux x64 | unsigned packages; the `.deb` (Debian/Ubuntu) and `.rpm` (Fedora/RHEL/openSUSE) both install to `/opt/synhub` with a menu entry |
 | `synhub-<ver>-web.tar.gz` | Web | a static bundle. Serve it over HTTP — opening `index.html` from `file://` will not work, and encrypted-DSM writes need same-origin hosting |
 
 Verify before installing:
