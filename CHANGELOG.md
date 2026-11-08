@@ -6,11 +6,18 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); version
 ## [Unreleased]
 
 ### Changed
-- `archive` ^4.0.7 → ^4.6.0 and `image` pinned `4.10.1` → `^4.12.0`. The pin existed because
-  `image` 4.11+ calls `ZLibDecoder.decodeLazy`, which `archive` 4.0.9 did not have — with
-  `archive` current, both constraints clear together.
 - `audio_session` ^0.1.21 → ^0.2.4.
 - Dropped `cupertino_icons`: nothing imports it (0 references in `lib/` and `test/`).
+- `pubspec.lock` URLs normalised from the legacy `https://pub.dartlang.org` to
+  `https://pub.dev` (a mechanical rewrite by the current pub client; no version changed).
+
+### Not done, and why
+- **`image` stays pinned at 4.10.1.** It was tried: with `archive` already at 4.6.0 (so the
+  `decodeLazy` blocker is gone), `image ^4.12.0` resolves, `flutter analyze` is clean, and the
+  tests that really unzip and decode pass locally (82 cases). But CI goes red **twice in a
+  row, always at the same place** — `test/photo_album_write_test.dart` "相册里的大图页有
+  「设为封面 / 移出相册」", inside `pumpWidget` — while the same file passes 3/3 locally.
+  Until that test is explained, the pin stays and the comment in `pubspec.yaml` says so.
 
 ### Added
 - `ARCHITECTURE.md` — layer map, runtime spine, generated-code rules, and where to start
