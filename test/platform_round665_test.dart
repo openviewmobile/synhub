@@ -33,20 +33,58 @@ void main() {
     });
   });
 
-  group('DA285 依赖钉版本（image 4.11.0 在 Linux 编译失败）', () {
-    test('pubspec 里 image 是精确版本，不是区间', () {
+  group('DA285 image 与 archive 的耦合（4.11+ 需要 ZLibDecoder.decodeLazy）', () {
+    // r725：原来这里钉的是常量 `4.10.1`。钉常量挡住了升级，却没有表达**为什么**。
+    // 真正的不变式只有一条：`image` 一旦 ≥ 4.11（它的 `png_decoder.dart` 要调
+    // `ZLibDecoder.decodeLazy`），锁定的 `archive` 就必须提供这个方法（≥ 4.1.0）。
+    // 改成关系断言之后，升级不再需要改守卫，而"只升一半"照样变红。
+    bool ge(String a, String b) {
+      final x = a.split('.').map((e) => int.tryParse(e) ?? 0).toList();
+      final y = b.split('.').map((e) => int.tryParse(e) ?? 0).toList();
+      for (var i = 0; i < 3; i++) {
+        final xi = i < x.length ? x[i] : 0;
+        final yi = i < y.length ? y[i] : 0;
+        if (xi != yi) return xi > yi;
+      }
+      return true;
+    }
+
+    String locked(String name) {
+      final lock = _read('pubspec.lock');
+      final m = RegExp('\\n  $name:\\n(?:.*\\n)*?    version: "([^"]+)"').firstMatch(lock);
+      expect(m, isNotNull, reason: 'lock 里找不到 $name');
+      return m!.group(1)!;
+    }
+
+    test('image ≥ 4.11 时，锁定的 archive 必须 ≥ 4.1.0', () {
+      final img = locked('image');
+      final arc = locked('archive');
+      if (ge(img, '4.11.0')) {
+        expect(
+          ge(arc, '4.1.0'),
+          isTrue,
+          reason: 'DA285：image $img 要 archive 的 decodeLazy（≥4.1.0），实际 lock 是 $arc',
+        );
+      }
+    });
+
+    test('pubspec 的区间与 lock 一致（防止 lock 被别的机器改回去）', () {
       final src = _read('pubspec.yaml');
       final m = RegExp(r'^\s+image:\s*(\S+)\s*$', multiLine: true).firstMatch(src);
       expect(m, isNotNull, reason: 'pubspec 里找不到 image 依赖');
-      expect(m!.group(1), '4.10.1', reason: 'DA285：区间约束会让新机器解析到 4.11.0（编译失败）');
-      expect(src.contains('decodeLazy'), isTrue, reason: '注释里要留下根因，方便下一个人');
+      final spec = m!.group(1)!;
+      final img = locked('image');
+      if (spec.startsWith('^')) {
+        expect(
+          ge(img, spec.substring(1)),
+          isTrue,
+          reason: 'lock 的 image $img 低于 pubspec 下界 ${spec.substring(1)}',
+        );
+      }
     });
 
-    test('lock 与 pubspec 一致（防止 lock 被别的机器改回去）', () {
-      final lock = _read('pubspec.lock');
-      final m = RegExp(r'\n  image:\n(?:.*\n)*?    version: "([^"]+)"').firstMatch(lock);
-      expect(m, isNotNull);
-      expect(m!.group(1), '4.10.1');
+    test('注释里要留下根因，方便下一个人', () {
+      expect(_read('pubspec.yaml').contains('decodeLazy'), isTrue);
     });
   });
 

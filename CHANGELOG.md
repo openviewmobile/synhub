@@ -11,13 +11,16 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); version
 - `pubspec.lock` URLs normalised from the legacy `https://pub.dartlang.org` to
   `https://pub.dev` (a mechanical rewrite by the current pub client; no version changed).
 
-### Not done, and why
-- **`image` stays pinned at 4.10.1.** It was tried: with `archive` already at 4.6.0 (so the
-  `decodeLazy` blocker is gone), `image ^4.12.0` resolves, `flutter analyze` is clean, and the
-  tests that really unzip and decode pass locally (82 cases). But CI goes red **twice in a
-  row, always at the same place** — `test/photo_album_write_test.dart` "相册里的大图页有
-  「设为封面 / 移出相册」", inside `pumpWidget` — while the same file passes 3/3 locally.
-  Until that test is explained, the pin stays and the comment in `pubspec.yaml` says so.
+### Changed (again, and this time for real)
+- `image` unpinned, `4.10.1` → `^4.12.0`, with `archive` `^4.0.7` → `^4.6.0`.
+
+  The earlier attempt was recorded here as "CI goes red at photo_album_write". That reading
+  was wrong: the two failures were `DA285` — a guard in `test/platform_round665_test.dart`
+  that asserted the literal string `4.10.1` — and the log's tail was showing the *next* file
+  to run, not the failing one. The guard has been rewritten as the invariant it was trying
+  to express: **if the locked `image` is ≥ 4.11, the locked `archive` must be ≥ 4.1.0**
+  (`image` ≥ 4.11 calls `ZLibDecoder.decodeLazy`, which `archive` gained in 4.1.0). Upgrades
+  no longer need the guard edited; half-upgrades still go red.
 
 ### Added
 - `ARCHITECTURE.md` — layer map, runtime spine, generated-code rules, and where to start
