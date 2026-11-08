@@ -43,6 +43,15 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); version
   writing them into prose to say they are gone is how they come back.
 
 ### Added
+- **Linux `.rpm`** next to the `.deb` (`scripts/build_linux_rpm.sh`, wired into `release.yml` as
+  `synhub-<ver>-1.x86_64.rpm`). Same bundle, same layout: `/opt/synhub`, `/usr/bin/synhub`,
+  desktop entry, icon, and a `%files` list that removes all four on `rpm -e`.
+  Library dependencies are declared by **soname** (`libgtk-3.so.0`, `libsecret-1.so.0`,
+  `libmpv.so.2`) because rpm's ELF dependency generator does not scan `/opt` — measured, not
+  assumed: the same binary under `/usr/bin` produces requires, under `/opt` it produces none.
+  `poppler-utils` is a `Suggests`: without it the app runs and PDF previews are blank.
+  Guarded by a one-minute `rpm-smoke` workflow that packages a synthetic bundle on every change
+  to the script.
 - `ARCHITECTURE.md` — layer map, runtime spine, generated-code rules, and where to start
   reading. Numbers in it were measured from the tree.
 - `.github/CODEOWNERS`, `.github/ISSUE_TEMPLATE/config.yml` (Discussions + private advisory
