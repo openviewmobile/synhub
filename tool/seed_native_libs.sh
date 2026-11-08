@@ -111,3 +111,70 @@ if [ ! -f "$main_lib" ]; then
   exit 1
 fi
 echo "✅ 预置完成：${target}（$(ls -1 "$target" | wc -l | tr -d ' ') 个文件）"
+
+# ─── sqlite3 ────────────────────────────────────────────────────────────────
+# 同一个毛病：`sqlite3` 3.6.0 的 build hook 也从 `github.com/<repo>/releases/download`
+# 取预编译库，那条路径现在回 504（本轮实测本机与 runner 都一样）；它比 litertlm 更糟：
+# hook 会把 504 的响应体当成文件写进缓存，然后**哈希不匹配**报错，看起来像"上游换了包"。
+# 实测上游文件没变（sha256 与 asset_hashes.dart 里的一致），只是取不下来。
+# hook 会复用缓存里哈希正确的文件，所以按它自己的布局预置即可
+# （`.dart_tool/hooks_runner/shared/sqlite3/build/download-<hash 前 8 位>/<库文件名>`）。
+seed_sqlite3() {
+  local dir_name="$1" asset dest_dir dest_name id proj hash8 target
+  proj="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
+  case "$dir_name" in
+    linux_x86_64)  asset='libsqlite3.x64.linux.so';      dest_name='libsqlite3.so';    id=561405050 ;;
+    linux_arm64)   asset='libsqlite3.arm64.linux.so';    dest_name='libsqlite3.so';    id=561405029 ;;
+    macos_arm64)   asset='libsqlite3.arm64.macos.dylib'; dest_name='libsqlite3.dylib'; id=561405030 ;;
+    windows_x86_64) asset='sqlite3.x64.windows.dll';     dest_name='sqlite3.dll';      id=561405126 ;;
+    android_arm64) asset='libsqlite3.arm64.android.so';  dest_name='libsqlite3.so';    id=561405024 ;;
+    ios_arm64)     asset='libsqlite3.arm64.ios.dylib';   dest_name='libsqlite3.dylib'; id=561405023 ;;
+    *) echo "（sqlite3：不处理 $dir_name）"; return 0 ;;
+  esac
+
+  # 哈希只在包自己那张表里（版本一变就变），所以从 pub cache 里读，不写死。
+  local table
+  table=$(ls -1 "$HOME"/.pub-cache/hosted/pub.dev/sqlite3-*/lib/src/hook/asset_hashes.dart 2>/dev/null | tail -1)
+  if [ -z "$table" ]; then
+    echo "⚠️ sqlite3：pub cache 里找不到 asset_hashes.dart（先跑 flutter pub get）—— 跳过"
+    return 0
+  fi
+  local hash
+  hash=$(grep -oE "'$asset': '[0-9a-f]{64}'" "$table" | head -1 | grep -oE '[0-9a-f]{64}')
+  if [ -z "$hash" ]; then
+    echo "⚠️ sqlite3：表里没有 $asset —— 跳过"
+    return 0
+  fi
+  hash8="${hash:0:8}"
+  dest_dir="$proj/.dart_tool/hooks_runner/shared/sqlite3/build/download-$hash8"
+  target="$dest_dir/$dest_name"
+
+  if [ -f "$target" ]; then
+    local got
+    got=$(shasum -a 256 "$target" 2>/dev/null | cut -d' ' -f1)
+    [ -z "$got" ] && got=$(sha256sum "$target" 2>/dev/null | cut -d' ' -f1)
+    if [ "$got" = "$hash" ]; then echo "✅ sqlite3 已有缓存：$target"; return 0; fi
+    echo "（sqlite3 缓存哈希不对，重下）"
+  fi
+
+  mkdir -p "$dest_dir" || return 1
+  local tmp="${TMPDIR:-/tmp}/sqlite3-$dir_name.$$.bin"
+  echo "→ sqlite3：从 API 资源端点下载 $asset"
+  if ! curl -fsSL --retry 5 --retry-delay 5 --retry-all-errors --max-time 600 \
+        -H 'Accept: application/octet-stream' \
+        "https://api.github.com/repos/simolus3/sqlite3.dart/releases/assets/$id" \
+        -o "$tmp"; then
+    echo "❌ sqlite3 下载失败"; rm -f "$tmp"; return 1
+  fi
+  local got
+  got=$(shasum -a 256 "$tmp" 2>/dev/null | cut -d' ' -f1)
+  [ -z "$got" ] && got=$(sha256sum "$tmp" 2>/dev/null | cut -d' ' -f1)
+  if [ "$got" != "$hash" ]; then
+    echo "❌ sqlite3 哈希不匹配：拿到 $got，期望 $hash"
+    rm -f "$tmp"; return 1
+  fi
+  mv "$tmp" "$target" || return 1
+  echo "✅ sqlite3 预置完成：$target"
+}
+
+seed_sqlite3 "$dir_name" || exit 1
