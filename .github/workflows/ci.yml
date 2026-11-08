@@ -39,11 +39,25 @@ jobs:
           rc=$?
           tail -n 120 /tmp/test.log
           if [ "$rc" -ne 0 ]; then
-            echo "::group::failing tests"
-            # ★ r725：原判据漏了**超时**。三次 CI 红都是「失败数 +1 但判据行一条没打印」，
-            #   因为超时打的是 `Test timed out after …` / `pumpAndSettle timed out`，
-            #   既不以 `[E]` 结尾也不含 Expected/EXCEPTION ⇒ 现场全丢。
-            grep -nE '\[E\]$|Expected:|Actual:|Which:|EXCEPTION CAUGHT|Some tests failed|Test failed\. See|timed out|TimeoutException|pumpAndSettle' /tmp/test.log | head -n 80
+            # ★ r725/r726：判据命中数 ≠ 失败数。五次红里有一半是「计数 +1 但判据一行没打印」，
+            #   原因有两个：① 超时打的是 `Test timed out after …`，原判据没有；
+            #   ② 有一条用例的日志里只有 drift 的"多库告警"140 行栈，失败原因被它埋了。
+            #   所以这里**无条件**先把"第一次失败出现位置"的上下文原样贴出来，再做判据匹配。
+            echo "::group::first failure marks"
+            grep -nE ' -[1-9][0-9]*: ' /tmp/test.log | head -n 3
+            echo "::endgroup::"
+            first=$(grep -nE ' -[1-9][0-9]*: ' /tmp/test.log | head -n 1 | cut -d: -f1)
+            echo "::group::context before the first failure"
+            if [ -n "$first" ]; then
+              start=$((first > 60 ? first - 60 : 1))
+              sed -n "${start},${first}p" /tmp/test.log
+            else
+              echo '（日志里没有失败计数行 —— 失败可能发生在启动阶段）'
+              tail -n 60 /tmp/test.log
+            fi
+            echo "::endgroup::"
+            echo "::group::failure markers"
+            grep -nE '\[E\]$|Expected:|Actual:|Which:|EXCEPTION CAUGHT|Some tests failed|Test failed\. See|timed out|TimeoutException|pumpAndSettle|Bad state|No such method' /tmp/test.log | head -n 80
             echo "::endgroup::"
           fi
           exit "$rc"
