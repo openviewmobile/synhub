@@ -5,6 +5,10 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); version
 
 ## [Unreleased]
 
+暂无。
+
+## [0.2.2] - 2026-11-09
+
 ### Changed
 - `image` unpinned, `4.10.1` → `^4.12.0`, with `archive` `^4.0.7` → `^4.6.0`.
 
@@ -127,7 +131,10 @@ established.
   On Linux that empty substitution aborted the script under `set -e`, turning a successful build
   into a failure; the lookup now checks `command -v`, `ANDROID_HOME` and `ANDROID_SDK_ROOT`.
 
-## [Unreleased]
+## Before the first tagged release
+
+Work that landed before `v0.1.0`/`v0.2.0` and was never given its own
+version section — kept here instead of pretending it shipped in one.
 
 ### Changed
 - Dependencies: `xml` 7, `open_filex` 5, `file_picker` 13.3.2, `flutter_lints` 6
@@ -185,5 +192,7 @@ First public source release. Source only — no APK / IPA / MSIX / deb / AppImag
 - Web builds that write through encrypted DSM endpoints need a same-origin deployment.
 - QuickConnect depends on Synology's client behaviour and may break on their updates.
 
-[Unreleased]: https://github.com/openviewmobile/synhub/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/openviewmobile/synhub/compare/v0.2.2...HEAD
+[0.2.2]: https://github.com/openviewmobile/synhub/releases/tag/v0.2.2
+[0.2.1]: https://github.com/openviewmobile/synhub/releases/tag/v0.2.1
 [0.1.0]: https://github.com/openviewmobile/synhub/releases/tag/v0.1.0
