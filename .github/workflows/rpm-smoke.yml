@@ -56,9 +56,13 @@ jobs:
         run: |
           set -euo pipefail
           B=build/linux/x64/release/bundle
-          mkdir -p "$B/data/flutter_assets"
+          mkdir -p "$B/data/flutter_assets" "$B/lib"
           cp /bin/true "$B/synhub"
           echo demo > "$B/data/flutter_assets/AssetManifest.json"
+          # ★ 撑到真实量级：v0.2.2 的 45 MB 包发布后**验不出签名**，而小包的冒烟是绿的。
+          #   体积是两条路径之间剩下的唯一变量，所以冒烟也走 40 MB。
+          head -c 30000000 /dev/urandom > "$B/lib/libapp.so"
+          head -c 10000000 /dev/urandom > "$B/data/payload.bin"
       - name: build rpm
         run: bash scripts/build_linux_rpm.sh --verify
       - name: assert the package says what it should
