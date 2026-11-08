@@ -1,0 +1,79 @@
+name: rpm-smoke
+
+# r730：`scripts/build_linux_rpm.sh` 的**快速**回归。
+#
+# 为什么要有这个独立工作流：真正的 rpm 是在 `release.yml` 的 linux job 里打的，那条路
+# 要先 `flutter build linux --release`（二十多分钟）走一次才知道有没有坏。打包脚本本身
+# 坏掉（spec 语法、依赖声明、路径、%files 漏项）跟"Flutter 编不编得过"毫无关系，
+# 所以这里用**合成 bundle** 只验打包：1 分钟出结果，改脚本就自动跑。
+#
+# 判据（缺一条都算红）：
+#   ① 产物存在且是 x86_64；
+#   ② 依赖里有我们显式声明的三个 soname（rpm 的 ELF 依赖生成器**不扫 /opt**，
+#      一旦有人把这行当成冗余删掉，用户侧就是"装成功、起不来"，这里必须红）；
+#   ③ `%files` 覆盖到启动器/桌面项/图标（卸载干净的判据是"全都列出来"）；
+#   ④ 用 `rpm2cpio` 解出载荷，确认 /usr/bin/synhub 是软链。
+
+on:
+  push:
+    paths:
+      - 'scripts/build_linux_rpm.sh'
+      - '.github/workflows/rpm-smoke.yml'
+  pull_request:
+    paths:
+      - 'scripts/build_linux_rpm.sh'
+      - '.github/workflows/rpm-smoke.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  rpm:
+    name: build + inspect rpm
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: install rpm tooling
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends rpm cpio file
+          rpmbuild --version
+      - name: synthetic bundle
+        # 只给打包器一份"形状正确"的输入：一个真 ELF（好让 file/rpm 认得出架构）+ 一个
+        # 假的数据目录。不碰 Flutter，所以这一步和 `flutter build` 的成败完全解耦。
+        run: |
+          set -euo pipefail
+          B=build/linux/x64/release/bundle
+          mkdir -p "$B/data/flutter_assets"
+          cp /bin/true "$B/synhub"
+          echo demo > "$B/data/flutter_assets/AssetManifest.json"
+      - name: build rpm
+        run: bash scripts/build_linux_rpm.sh --verify
+      - name: assert the package says what it should
+        run: |
+          set -euo pipefail
+          R=$(ls build/linux_rpm/*.rpm)
+          echo "产物：$R"
+          test "$(rpm -qp --queryformat '%{ARCH}' "$R")" = "x86_64" || { echo '❌ 架构不是 x86_64'; exit 1; }
+          REQ=$(rpm -qpR "$R")
+          for soname in 'libgtk-3.so.0()(64bit)' 'libsecret-1.so.0()(64bit)' 'libmpv.so.2()(64bit)'; do
+            echo "$REQ" | grep -qF "$soname" || { echo "❌ 缺显式依赖：$soname（rpm 不会自动扫 /opt）"; exit 1; }
+          done
+          FILES=$(rpm -qlp "$R")
+          for f in /usr/bin/synhub /usr/share/applications/com.openviewai.synhub.desktop \
+                   /usr/share/icons/hicolor/256x256/apps/com.openviewai.synhub.png; do
+            echo "$FILES" | grep -qx "$f" || { echo "❌ %files 里没有 $f（卸载不会清它）"; exit 1; }
+          done
+          echo "$FILES" | grep -q '^/opt/synhub/synhub$' || { echo '❌ 主程序没进包'; exit 1; }
+          # 载荷里 /usr/bin/synhub 必须是软链（不是第二份拷贝）
+          mkdir -p /tmp/x && cd /tmp/x && rpm2cpio "$OLDPWD/$R" | cpio -idm --quiet
+          test -L usr/bin/synhub || { echo '❌ /usr/bin/synhub 不是软链'; exit 1; }
+          test "$(readlink usr/bin/synhub)" = "/opt/synhub/synhub" || { echo '❌ 软链指向不对'; exit 1; }
+          echo '✅ 依赖、%files、软链三项都对'
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: rpm-smoke
+          path: build/linux_rpm/*.rpm
+          if-no-files-found: error
