@@ -80,6 +80,13 @@ jobs:
                 echo '--- 失败前 80 行 ---'
                 sed -n "${start},${first}p" /tmp/test.log
               fi
+              # ★ r731：错误正文在**计数行之后**（`[E]` 只是这个用例的最后一个计数行，
+              #   真正的 `Expected: … / Actual: …` 和异常栈跟着它往下打）。前 80 行只能看到
+              #   上一个用例的收尾 —— 数轮红下来，摘要里从来没有过失败原因，就是这个原因。
+              if [ -n "$first" ]; then
+                echo '--- 失败后 40 行（错误正文在这里） ---'
+                sed -n "$((first + 1)),$((first + 40))p" /tmp/test.log
+              fi
               echo '--- 判据行 ---'
               grep -nE '\[E\]$|Expected:|Actual:|Which:|EXCEPTION CAUGHT|Some tests failed|Test failed\. See|timed out|TimeoutException|pumpAndSettle|Bad state|No such method' /tmp/test.log | head -n 40
               echo '--- 最后 40 行 ---'
