@@ -7,6 +7,11 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); version
 
 暂无。
 
+## [0.2.4] - 2026-11-09
+
+### Fixed
+- **The `.rpm` was signed in a form rpm 4.x cannot read.** Packages from `v0.2.2`/`v0.2.3` report only digests under `rpm --checksig -v` on rpm 4.18/4.20 (Fedora ≤41, RHEL ≤9, openSUSE), while the runner's rpm 6.0.1 reports `Header OpenPGP V4 EdDSA/SHA512 signature … : OK` for the same file — so `dnf gpgcheck=1` on those systems would refuse the package. The rpm is now signed inside an `ubuntu:24.04` container (rpm 4.18), and the packaging smoke asserts that the signed package verifies under **both** rpm 4.18 and the runner's rpm 6.
+
 ## [0.2.3] - 2026-11-09
 
 ### Fixed
@@ -197,7 +202,8 @@ First public source release. Source only — no APK / IPA / MSIX / deb / AppImag
 - Web builds that write through encrypted DSM endpoints need a same-origin deployment.
 - QuickConnect depends on Synology's client behaviour and may break on their updates.
 
-[Unreleased]: https://github.com/openviewmobile/synhub/compare/v0.2.3...HEAD
+[Unreleased]: https://github.com/openviewmobile/synhub/compare/v0.2.4...HEAD
+[0.2.4]: https://github.com/openviewmobile/synhub/releases/tag/v0.2.4
 [0.2.3]: https://github.com/openviewmobile/synhub/releases/tag/v0.2.3
 [0.2.2]: https://github.com/openviewmobile/synhub/releases/tag/v0.2.2
 [0.2.1]: https://github.com/openviewmobile/synhub/releases/tag/v0.2.1
