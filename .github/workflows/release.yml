@@ -262,6 +262,10 @@ jobs:
         env:
           SYNHUB_GPG_PRIVATE_KEY: ${{ secrets.SYNHUB_GPG_PRIVATE_KEY }}
           SYNHUB_GPG_KEY_ID: ${{ secrets.SYNHUB_GPG_KEY_ID }}
+          # ★★ runner 的 rpm 已经是 6.x，它签出来的包 Fedora ≤41 / RHEL ≤9（rpm 4.x）
+          #   **读不出签名** ⇒ `dnf gpgcheck=1` 会拒装。这里用 rpm 4.18 的容器去签，
+          #   冒烟里有两代 rpm 的硬断言守着（`packaging-smoke` 的跨代检查）。
+          SYNHUB_RPM_SIGN_IMAGE: ubuntu:24.04
         run: |
           set -euo pipefail
           sha256sum build/linux_deb/*.deb build/linux_rpm/*.rpm > SHA256SUMS.linux.txt
