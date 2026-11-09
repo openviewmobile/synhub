@@ -10,9 +10,10 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); version
 ## [0.2.5] - 2026-11-09
 
 ### Added
-- **Linux arm64 packages** — the release workflow now builds on `ubuntu-24.04-arm` as well as `ubuntu-latest`, so the tag carries `synhub_<ver>_arm64.deb`, `synhub-<ver>-1.aarch64.rpm` and `synhub-<ver>-linux-arm64.tar.gz`, and the apt/dnf repositories gain `binary-arm64` and `rpm/aarch64` indexes.  Until now arm64 Linux users could see the repository but not a single package in it.
-- **`verify-release` workflow** — after a release is published (or on demand), it re-downloads the artifacts, verifies every signature with the public key taken from the published site, installs from the live apt and dnf repositories with real clients, and asserts that what the repositories serve is byte-identical to what the release carries.
+- **`verify-release` workflow** — after a release is published (or on demand via `workflow_dispatch` with a tag), it re-downloads the published assets and checks them the way a user would: every detached signature (`SHA256SUMS.txt.asc`, `SHA256SUMS.linux.txt.asc`, `*.deb.asc`) is verified with the public key fetched **from the published site** rather than the key that signed; each rpm's embedded signature is re-checked under `ubuntu:24.04` (rpm 4.18) and `fedora:41` (rpm 4.20) — the compatibility failure that shipped in `v0.2.2`/`v0.2.3`; a real `apt-get` client and a real `dnf` client install from the live repositories; and the deb/rpm the repositories serve must have the **same sha256** as the release assets.
 
+### Documented
+- **Linux arm64 is not buildable today, and the reason is external.** `flutter_action` on an `ubuntu-24.04-arm` runner fails with `Unable to determine Flutter version for channel: stable version: 3.47.4 architecture: arm64`, and the SDK release manifest (`releases_linux.json`) only ever lists `dart_sdk_arch: x64` — Flutter does not publish a Linux arm64 SDK, so there is nothing to build with. Cross-compiling the engine is out of scope. The apt index therefore stays `binary-amd64` and the rpm tree stays `x86_64`; ARM Linux users are better served by the Android build than by a broken repository entry. The release workflow keeps a single Linux job so this does not silently regress into a half-built repository.
 ## [0.2.4] - 2026-11-09
 
 ### Fixed

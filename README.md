@@ -91,6 +91,12 @@ sudo dnf install synhub
 `repo_gpgcheck=1` is on in that `.repo` file, so the *index* is signature-checked too — a forged
 index cannot point `dnf` at a "validly signed but different" package.
 
+⚠️ The repository carries **x86_64 only** (`binary-amd64` / `rpm/x86_64`). Flutter does not publish a
+Linux arm64 SDK — `releases_linux.json` only ever lists `dart_sdk_arch: x64`, and the Flutter action
+reports `Unable to determine Flutter version … architecture: arm64` — so an arm64 package cannot be
+built without cross-compiling the engine. On arm64 Linux, use the Android build (or build from source
+with an x64 machine), and don't add this repository: it will simply be empty for you.
+
 Two consequences worth knowing up front:
 
 - The APK is signed with the project key. If you build the app yourself with your own key, Android
