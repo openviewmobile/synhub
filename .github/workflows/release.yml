@@ -226,9 +226,22 @@ jobs:
           if-no-files-found: error
 
   linux:
-    name: linux (deb + rpm + tar.gz)
-    runs-on: ubuntu-latest
+    # ★★ 两个架构各跑一遍：仓库里现在只有 x86_64，arm64 的 Linux 用户（Asahi、ARM 服务器、
+    #   树莓派 5、Snapdragon X）从 apt/dnf 里**什么都拿不到**。GitHub 对公开仓库提供
+    #   arm64 runner（`ubuntu-24.04-arm`），不需要交叉编译。
+    name: linux ${{ matrix.arch }} (deb + rpm + tar.gz)
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - arch: x64
+            runner: ubuntu-latest
+          - arch: arm64
+            runner: ubuntu-24.04-arm
+    runs-on: ${{ matrix.runner }}
     timeout-minutes: 45
+    env:
+      ARCH: ${{ matrix.arch }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: deps
@@ -253,9 +266,9 @@ jobs:
           # ★ r730：rpm 与 deb 同源同 bundle，只是给 Fedora/RHEL/openSUSE 一个"能装"的形态。
           #   依赖按 soname 声明（rpm 的 ELF 依赖生成器不扫 /opt，靠推导会一条都没有）。
           bash scripts/build_linux_rpm.sh --verify
-          tar -C build/linux/x64/release/bundle -czf "synhub-${V}-linux-x64.tar.gz" .
-          ls -lh build/linux_deb/*.deb build/linux_rpm/*.rpm "synhub-${V}-linux-x64.tar.gz"
-          sha256sum build/linux_deb/*.deb build/linux_rpm/*.rpm "synhub-${V}-linux-x64.tar.gz"
+          tar -C "build/linux/${ARCH}/release/bundle" -czf "synhub-${V}-linux-${ARCH}.tar.gz" .
+          ls -lh build/linux_deb/*.deb build/linux_rpm/*.rpm "synhub-${V}-linux-${ARCH}.tar.gz"
+          sha256sum build/linux_deb/*.deb build/linux_rpm/*.rpm "synhub-${V}-linux-${ARCH}.tar.gz"
       - name: sign packages
         # ★ r732：GPG 签名（项目自有密钥）。没配 secret 时脚本会告警后跳过，
         #   job 不会因此失败 —— 但摘要里会写明"本次未签名"，不假装。
@@ -268,20 +281,22 @@ jobs:
           SYNHUB_RPM_SIGN_IMAGE: ubuntu:24.04
         run: |
           set -euo pipefail
-          sha256sum build/linux_deb/*.deb build/linux_rpm/*.rpm > SHA256SUMS.linux.txt
+          # 每个架构一份校验和文件（两个 job 的产物会在发布 job 里合并，同名会互相覆盖）
+          sha256sum build/linux_deb/*.deb build/linux_rpm/*.rpm             "synhub-$(awk '/^version:/{print $2}' pubspec.yaml | cut -d+ -f1)-linux-${ARCH}.tar.gz" \
+            > "SHA256SUMS.linux-${ARCH}.txt"
           bash scripts/sign_linux_packages.sh \
-            build/linux_deb/*.deb build/linux_rpm/*.rpm SHA256SUMS.linux.txt
-          ls -l build/linux_deb/*.asc build/linux_rpm/*.asc SHA256SUMS.linux.txt* 2>/dev/null || true
+            build/linux_deb/*.deb build/linux_rpm/*.rpm "SHA256SUMS.linux-${ARCH}.txt"
+          ls -l build/linux_deb/*.asc build/linux_rpm/*.asc SHA256SUMS.linux-${ARCH}.txt* 2>/dev/null || true
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
-          name: linux
+          name: linux-${{ matrix.arch }}
           path: |
             build/linux_deb/*.deb
             build/linux_deb/*.deb.asc
             build/linux_rpm/*.rpm
-            SHA256SUMS.linux.txt
-            SHA256SUMS.linux.txt.asc
-            synhub-*-linux-x64.tar.gz
+            SHA256SUMS.linux-${{ matrix.arch }}.txt
+            SHA256SUMS.linux-${{ matrix.arch }}.txt.asc
+            synhub-*-linux-${{ matrix.arch }}.tar.gz
           if-no-files-found: error
 
   web:
