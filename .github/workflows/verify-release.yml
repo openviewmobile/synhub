@@ -7,6 +7,11 @@ name: verify-release
 #     ③ 仓库里拿到的那份，与 release 里那份是不是**同一个字节**（sha256 相等）。
 #   这条 workflow 红了 = 这次发布对用户就是坏的，不管构建日志多绿。
 on:
+  # ★ 发版 workflow 自己用 GITHUB_TOKEN 发 release，`release: published` 事件**不会再起**新
+  #   workflow（GitHub 防递归），所以真正的自动入口是 workflow_run。
+  workflow_run:
+    workflows: [release]
+    types: [completed]
   release:
     types: [published]
   workflow_dispatch:
@@ -70,6 +75,20 @@ jobs:
           grep -vE '^\s*$' SHA256SUMS.txt | sed 's#\./#./#' > /tmp/sums.txt
           sha256sum -c /tmp/sums.txt 2>&1 | tail -20
           sha256sum -c /tmp/sums.txt >/dev/null
+          n_sums=$(grep -cE '^[0-9a-f]{64}' SHA256SUMS.txt || true)
+          n_deb=$(ls -1 *.deb 2>/dev/null | wc -l | tr -d ' ')
+          n_rpm=$(ls -1 *.rpm 2>/dev/null | wc -l | tr -d ' ')
+          {
+            echo "### 发布物验签"
+            echo ""
+            echo "| 项 | 数量 |"
+            echo "|---|---|"
+            echo "| SHA256SUMS 覆盖的产物 | $n_sums |"
+            echo "| .deb（含分离签名） | $n_deb |"
+            echo "| .rpm（含内嵌签名） | $n_rpm |"
+            echo ""
+            echo "全部签名均由**站点上发布的公钥**（指纹 $(cat ../keys/fpr.txt)）验证通过。"
+          } >> "$GITHUB_STEP_SUMMARY"
 
       - name: rpm signature readable by both rpm generations
         run: |
@@ -172,6 +191,16 @@ jobs:
           [ "$deb_got" = "$deb_expected" ] || { echo "::error::apt 仓库发的 deb 与 release 不是同一份"; exit 1; }
           [ "$rpm_got" = "$rpm_expected" ] || { echo "::error::dnf 仓库发的 rpm 与 release 不是同一份"; exit 1; }
           echo '✅ 两个仓库发的都是 release 里的那份'
+          {
+            echo "### 真实客户端跑通的仓库"
+            echo ""
+            echo "| 客户端 | 从仓库下到的 sha256 | 与 release 相同 |"
+            echo "|---|---|---|"
+            echo "| apt（ubuntu:24.04） | \`$deb_got\` | ✅ |"
+            echo "| dnf（fedora:41） | \`$rpm_got\` | ✅ |"
+            echo ""
+            echo "apt 候选版本与 dnf repoquery 输出来自同一次运行，见上方日志。"
+          } >> "$GITHUB_STEP_SUMMARY"
 
       - name: site endpoints
         run: |
