@@ -46,15 +46,52 @@ for f in "$@"; do
   [[ -f "$f" ]] || die "文件不存在：$f"
   case "$f" in
     *.rpm)
-      command -v rpm >/dev/null || die "没有 rpm，无法给 $f 签名"
-      # ★ 两个必须显式给的 define，都是踩出来的：
-      #   ① `__gpg` —— Debian/Ubuntu 的 rpm 把 `%__gpg` 默认写成 `/usr/bin/gpg2`，
-      #      而 Ubuntu 只有 `gpg` ⇒ 报 "Could not exec gpg: No such file or directory"；
-      #   ② `_gpg_name` —— 不指定会拿默认 key，多把私钥时签错。
-      rpm --addsign \
-        --define "__gpg $(command -v gpg)" \
-        --define "_gpg_name $KEYID" "$f" >/dev/null
-      # ★ 签完必须验：`rpm -K` 未通过 = 等于没签（这是本仓的通行判据）
+      # ★★★ 为什么要考虑"换一个 rpm 来签"：runner 上已经是 **rpm 6**，它签出来的包
+      #   在 rpm 4.18/4.20 上**看不到任何 Signature 行**（只有 digest 行），而
+      #   Fedora ≤41、RHEL ≤9、openSUSE 用的就是 4.x ⇒ `dnf gpgcheck=1` 会认为包没签名。
+      #   实测（同一把公钥、同一个文件）：rpm 4.18/4.20 读不出，6.x 读得出。
+      #   所以发版时用 `SYNHUB_RPM_SIGN_IMAGE`（例如 ubuntu:24.04，内含 rpm 4.18）
+      #   在容器里签，签完再回到宿主机的 rpm 上验一遍 —— 两代都能读才算过。
+      sign_rpm_here() {
+        command -v rpm >/dev/null || die "没有 rpm，无法给 $1 签名"
+        # ★ 两个必须显式给的 define，都是踩出来的：
+        #   ① `__gpg` —— Debian/Ubuntu 的 rpm 把 `%__gpg` 默认写成 `/usr/bin/gpg2`，
+        #      而 Ubuntu 只有 `gpg` ⇒ 报 "Could not exec gpg: No such file or directory"；
+        #   ② `_gpg_name` —— 不指定会拿默认 key，多把私钥时签错。
+        rpm --addsign \
+          --define "__gpg $(command -v gpg)" \
+          --define "_gpg_name $KEYID" "$1" >/dev/null
+      }
+
+      sign_rpm_in_container() {
+        local f="$1" dir base keydir
+        dir="$(cd "$(dirname "$f")" && pwd)"; base="$(basename "$f")"
+        keydir="$(mktemp -d)"; chmod 700 "$keydir"
+        printf '%s' "$SYNHUB_GPG_PRIVATE_KEY" > "$keydir/sk.asc"; chmod 600 "$keydir/sk.asc"
+        log "在容器 $SYNHUB_RPM_SIGN_IMAGE 里签名（为了让 rpm 4.x 也验得出）"
+        docker run --rm -v "$keydir:/key:ro" -v "$dir:/w" -w /w -e KEYID="$KEYID" \
+          "$SYNHUB_RPM_SIGN_IMAGE" bash -lc '
+            set -e
+            if ! command -v rpm >/dev/null || ! command -v gpg >/dev/null; then
+              apt-get update -qq >/dev/null 2>&1
+              DEBIAN_FRONTEND=noninteractive apt-get install -y -qq rpm gnupg >/dev/null 2>&1
+            fi
+            export GNUPGHOME="$(mktemp -d)"; chmod 700 "$GNUPGHOME"
+            gpg --batch --import /key/sk.asc >/dev/null 2>&1
+            rpm --addsign --define "__gpg $(command -v gpg)" \
+                --define "_gpg_name $KEYID" "$1" >/dev/null
+            echo "[sign] 容器内 rpm：$(rpm --version)"
+          ' _ "$base" || die "容器内签名失败（$SYNHUB_RPM_SIGN_IMAGE）"
+        rm -rf "$keydir"
+      }
+
+      if [[ -n "${SYNHUB_RPM_SIGN_IMAGE:-}" ]] && command -v docker >/dev/null 2>&1; then
+        sign_rpm_in_container "$f"
+      else
+        sign_rpm_here "$f"
+      fi
+
+      # ★ 签完必须验：未通过 = 等于没签（这是本仓的通行判据）
       # ★ `rpm --checksig` 需要**公钥在 rpm 自己的库里**，否则一律 NOT OK。
       #   ★★ 而且**必须给独立的 --dbpath**：CI 以非 root 跑，`rpm --import` 写
       #   `/var/lib/rpm` 会失败（第一版把错误 `|| true` 吞了，于是 checksig 报

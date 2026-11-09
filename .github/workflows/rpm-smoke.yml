@@ -89,6 +89,10 @@ jobs:
       - name: sign + repository smoke
         # ★ 这一段是 r732 新脚本的回归：签名、索引、指纹守卫。用**临时密钥**，
         #   不为测试引入真密钥；真密钥只存在于 Actions secret 里。
+        # ★★ `SYNHUB_RPM_SIGN_IMAGE` 让 rpm 在 rpm 4.18 的容器里签 —— runner 的 rpm 6
+        #   签出来的包，Fedora ≤41 / RHEL ≤9 读不出签名（见下面跨代断言）。
+        env:
+          SYNHUB_RPM_SIGN_IMAGE: ubuntu:24.04
         run: |
           set -euo pipefail
           export GNUPGHOME="$(mktemp -d)"; chmod 700 "$GNUPGHOME"
@@ -151,7 +155,24 @@ jobs:
             echo "--- ① rpm 6 签的包，在 4.18 里 ---"
             rpm --dbpath "$DB" --checksig -v "$1"
           ' _ "$RPM" || true
-          echo "（上面若只有 digest 行、没有 Signature 行，就是复现了兼容问题）"
+          echo '--- ② 必须能在 rpm 4.x 里验出签名（硬断言）---'
+          docker run --rm -v "$PWD:/w:ro" -v "$PUB:/pub.asc:ro" -w /w ubuntu:24.04 bash -lc '
+            set -e
+            apt-get update -qq >/dev/null 2>&1
+            apt-get install -y -qq rpm >/dev/null 2>&1
+            DB=$(mktemp -d); rpm --dbpath "$DB" --initdb; rpm --dbpath "$DB" --import /pub.asc
+            OUT="$(rpm --dbpath "$DB" --checksig -v "$1")"
+            echo "$OUT"
+            grep -Eiq "signature.*: *OK" <<<"$OUT" || { echo "::error::rpm 4.x 读不出签名（旧发行版的 dnf 会拒装）"; exit 1; }
+            echo "✅ rpm 4.x 也能验出签名"
+          ' _ "$RPM"
+          echo '--- ③ 宿主的 rpm 6 再验一次（向前兼容）---'
+          rpm --dbpath "$(mktemp -d)/db" --initdb 2>/dev/null || true
+          PUB2="$(mktemp -d)"; cp "$PUB" "$PUB2/"; DB2="$(mktemp -d)"
+          rpm --dbpath "$DB2" --initdb; rpm --dbpath "$DB2" --import "$PUB"
+          rpm --dbpath "$DB2" --checksig -v "$RPM" | grep -Eiq 'signature.*: *OK' \
+            || { echo '::error::宿主的 rpm 6 读不出签名'; exit 1; }
+          echo '✅ 两代 rpm 都能验出签名'
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: rpm-smoke
