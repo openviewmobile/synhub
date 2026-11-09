@@ -170,6 +170,26 @@ jobs:
           '
           echo "从仓库下到的 rpm sha256：$(cat dnf-downloaded-sha.txt)"
 
+      - name: wait for the published repository to catch up
+        env:
+          TAG: ${{ github.event.release.tag_name || inputs.tag }}
+        run: |
+          set -euo pipefail
+          # ★ GitHub Pages 推送后**一段时间内仍然发上上次部署**，而包名里的版本号可能没变
+          #   （`synhub_<ver>_amd64.deb` 重新构建 ⇒ 同路径不同字节）—— 那就正好是"匆匆一比
+          #   就报不一致"的假红现场。所以先等索引里出现本 tag 的版本号，最多等 12 分钟。
+          want="${TAG#v}"
+          echo "等待站点索引出现 $want ..."
+          for i in $(seq 1 36); do
+            got="$(curl -fsSL --retry 3 "https://openviewmobile.github.io/synhub/repo/apt/dists/stable/main/binary-amd64/Packages" 2>/dev/null | sed -n 's/^Version: //p' | head -1)"
+            rpm_ver="$(curl -fsSL --retry 3 "https://openviewmobile.github.io/synhub/repo/rpm/x86_64/repodata/repomd.xml" 2>/dev/null | grep -c "$want" || true)"
+            echo "  第 $i 次：apt=Version ${got:-?} / rpm 命中 $rpm_ver"
+            if [ "$got" = "$want" ]; then echo "✅ 站点索引已更新到 $want"; exit 0; fi
+            sleep 20
+          done
+          echo "::error::等了 12 分钟，站点索引仍不是 $want（拿到的是 ${got:-无}）"
+          exit 1
+
       - name: the repository serves the released bytes
         env:
           TAG: ${{ github.event.release.tag_name || inputs.tag }}

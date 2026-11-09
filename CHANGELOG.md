@@ -7,6 +7,14 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); version
 
 暂无。
 
+## [0.2.7] - 2026-11-10
+
+### Fixed
+- **`v0.2.6` was cut without its version bump.** The `pubspec.yaml` / `kAppVersion` change was lost during a rebase, so the tag built and published **0.2.5** payloads under 0.2.6 names while the release notes described 0.2.6. The tag's notes now say so; `0.2.7` carries the same site change with the version actually bumped.
+
+### Added
+- `verify-release` now **waits for the published repository to catch up** before comparing bytes: GitHub Pages serves the previous deployment for a while after `gh-pages` is pushed, and a package whose file name is unchanged but whose bytes changed (`synhub_<ver>_amd64.deb`) is exactly the case where a hasty comparison reports a false mismatch.
+
 ## [0.2.6] - 2026-11-09
 
 ### Changed
@@ -217,7 +225,8 @@ First public source release. Source only — no APK / IPA / MSIX / deb / AppImag
 - Web builds that write through encrypted DSM endpoints need a same-origin deployment.
 - QuickConnect depends on Synology's client behaviour and may break on their updates.
 
-[Unreleased]: https://github.com/openviewmobile/synhub/compare/v0.2.6...HEAD
+[Unreleased]: https://github.com/openviewmobile/synhub/compare/v0.2.7...HEAD
+[0.2.7]: https://github.com/openviewmobile/synhub/releases/tag/v0.2.7
 [0.2.6]: https://github.com/openviewmobile/synhub/releases/tag/v0.2.6
 [0.2.5]: https://github.com/openviewmobile/synhub/releases/tag/v0.2.5
 [0.2.4]: https://github.com/openviewmobile/synhub/releases/tag/v0.2.4
