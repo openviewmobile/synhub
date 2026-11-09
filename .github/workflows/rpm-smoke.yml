@@ -149,7 +149,7 @@ jobs:
             echo "容器 rpm：$(rpm --version)"
             DB=$(mktemp -d); rpm --dbpath "$DB" --initdb; rpm --dbpath "$DB" --import /pub.asc
             echo "--- ① rpm 6 签的包，在 4.18 里 ---"
-            rpm --dbpath "$DB" --checksig -v "$(basename "$1")"
+            rpm --dbpath "$DB" --checksig -v "$1"
           ' _ "$RPM" || true
           echo "（上面若只有 digest 行、没有 Signature 行，就是复现了兼容问题）"
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
