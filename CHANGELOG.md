@@ -7,6 +7,14 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); version
 
 暂无。
 
+## [0.2.6] - 2026-11-09
+
+### Changed
+- **The package site now has a page instead of an index.** `https://openviewmobile.github.io/synhub/` used to be three bare links ("signing key", "dnf repo file"); it now carries the apt and dnf install commands, the direct `.deb`/`.rpm` links, the `gpg --verify` + `sha256sum -c` steps, and an explicit note that the repository is x86_64-only and why. The version shown on the page and the file names in its table are read from the artifacts being published, so they cannot drift.
+
+### Documented
+- The `v0.2.2` and `v0.2.3` release notes now open with a warning that their `.rpm` cannot be verified by rpm 4.x (`dnf gpgcheck=1` will refuse it) and point at `v0.2.4` and later, which are signed inside an rpm 4.18 container and re-checked by the `verify-release` workflow.
+
 ## [0.2.5] - 2026-11-09
 
 ### Added
@@ -209,7 +217,8 @@ First public source release. Source only — no APK / IPA / MSIX / deb / AppImag
 - Web builds that write through encrypted DSM endpoints need a same-origin deployment.
 - QuickConnect depends on Synology's client behaviour and may break on their updates.
 
-[Unreleased]: https://github.com/openviewmobile/synhub/compare/v0.2.5...HEAD
+[Unreleased]: https://github.com/openviewmobile/synhub/compare/v0.2.6...HEAD
+[0.2.6]: https://github.com/openviewmobile/synhub/releases/tag/v0.2.6
 [0.2.5]: https://github.com/openviewmobile/synhub/releases/tag/v0.2.5
 [0.2.4]: https://github.com/openviewmobile/synhub/releases/tag/v0.2.4
 [0.2.3]: https://github.com/openviewmobile/synhub/releases/tag/v0.2.3
