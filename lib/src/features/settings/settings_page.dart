@@ -58,7 +58,7 @@ import 'snooze_controller.dart';
 /// 注释里那句"保持一致"是**愿望**，不是**机制** —— 所以补了守卫
 /// `test/app_version_match_test.dart`（读 `pubspec.yaml` 逐字断言），
 /// 它**装回旧值就会红**，这才叫"机制"。
-const String kAppVersion = '0.2.4+6';
+const String kAppVersion = '0.2.5+7';
 
 class SettingsPage extends ConsumerWidget {
   const SettingsPage({super.key});

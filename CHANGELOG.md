@@ -7,6 +7,12 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); version
 
 暂无。
 
+## [0.2.5] - 2026-11-09
+
+### Added
+- **Linux arm64 packages** — the release workflow now builds on `ubuntu-24.04-arm` as well as `ubuntu-latest`, so the tag carries `synhub_<ver>_arm64.deb`, `synhub-<ver>-1.aarch64.rpm` and `synhub-<ver>-linux-arm64.tar.gz`, and the apt/dnf repositories gain `binary-arm64` and `rpm/aarch64` indexes.  Until now arm64 Linux users could see the repository but not a single package in it.
+- **`verify-release` workflow** — after a release is published (or on demand), it re-downloads the artifacts, verifies every signature with the public key taken from the published site, installs from the live apt and dnf repositories with real clients, and asserts that what the repositories serve is byte-identical to what the release carries.
+
 ## [0.2.4] - 2026-11-09
 
 ### Fixed
@@ -202,7 +208,8 @@ First public source release. Source only — no APK / IPA / MSIX / deb / AppImag
 - Web builds that write through encrypted DSM endpoints need a same-origin deployment.
 - QuickConnect depends on Synology's client behaviour and may break on their updates.
 
-[Unreleased]: https://github.com/openviewmobile/synhub/compare/v0.2.4...HEAD
+[Unreleased]: https://github.com/openviewmobile/synhub/compare/v0.2.5...HEAD
+[0.2.5]: https://github.com/openviewmobile/synhub/releases/tag/v0.2.5
 [0.2.4]: https://github.com/openviewmobile/synhub/releases/tag/v0.2.4
 [0.2.3]: https://github.com/openviewmobile/synhub/releases/tag/v0.2.3
 [0.2.2]: https://github.com/openviewmobile/synhub/releases/tag/v0.2.2
