@@ -206,6 +206,10 @@ gpg --verify SHA256SUMS.txt.asc SHA256SUMS.txt &amp;&amp; sha256sum -c SHA256SUM
 <p>Android (arm64-v8a), iOS (unsigned), macOS (ad-hoc), Windows (x64) and Web builds ship on the
 <a href="https://github.com/openviewmobile/synhub/releases/latest">Releases page</a>; every release is
 re-verified by the <code>verify-release</code> workflow with the published key.</p>
+<p>macOS and Windows builds are <strong>not</strong> signed with a commercial certificate (none is
+purchased, deliberately): on macOS right-click the app &rarr; Open, or run
+<code>xattr -dr com.apple.quarantine /Applications/SynHub.app</code>; on Windows choose
+<em>More info</em> &rarr; <em>Run anyway</em> at the SmartScreen prompt.</p>
 
 <h2>Links</h2>
 <ul>

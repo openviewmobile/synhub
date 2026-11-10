@@ -7,6 +7,11 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); version
 
 暂无。
 
+## [0.2.8] - 2026-11-10
+
+### Documented
+- **No commercial code-signing certificates — recorded as a decision, not a backlog item.** macOS stays ad-hoc signed and Windows stays unsigned; the README now says what Gatekeeper and SmartScreen will show and the one gesture that gets past each, alongside the fact that the checksums and their GPG signature are what actually prove provenance. `RELEASING.md` says the same in the release table so a future round does not re-open it as 'pending work'.
+
 ## [0.2.7] - 2026-11-10
 
 ### Fixed
@@ -225,7 +230,8 @@ First public source release. Source only — no APK / IPA / MSIX / deb / AppImag
 - Web builds that write through encrypted DSM endpoints need a same-origin deployment.
 - QuickConnect depends on Synology's client behaviour and may break on their updates.
 
-[Unreleased]: https://github.com/openviewmobile/synhub/compare/v0.2.7...HEAD
+[Unreleased]: https://github.com/openviewmobile/synhub/compare/v0.2.8...HEAD
+[0.2.8]: https://github.com/openviewmobile/synhub/releases/tag/v0.2.8
 [0.2.7]: https://github.com/openviewmobile/synhub/releases/tag/v0.2.7
 [0.2.6]: https://github.com/openviewmobile/synhub/releases/tag/v0.2.6
 [0.2.5]: https://github.com/openviewmobile/synhub/releases/tag/v0.2.5

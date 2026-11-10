@@ -51,9 +51,30 @@ GitHub-hosted runners, and the assets are attached to that tag. `SHA256SUMS.txt`
 | `synhub-<ver>-android-arm64.apk` | Android 5.0+, **arm64-v8a only** | signed with the project release key, or with the Flutter debug key if the CI secrets are not configured — the job says which, in its log |
 | `synhub-<ver>-ios-unsigned.ipa` | iOS | **unsigned**. It will not install on a device until you re-sign it yourself (AltStore, Sideloadly, your own certificate) |
 | `synhub-<ver>-macos.zip` / `.dmg` | macOS | **ad-hoc** signature. Downloaded copies are quarantined by Gatekeeper; `xattr -dr com.apple.quarantine /Applications/SynHub.app` after copying |
-| `synhub-<ver>-windows-x64.zip` | Windows | unzip and run `synhub.exe`. No Authenticode signature, so SmartScreen will ask |
+| `synhub-<ver>-windows-x64.zip` | Windows | unzip and run `synhub.exe`. No Authenticode signature (not purchased — see below), so SmartScreen will ask |
 | `synhub_<ver>_amd64.deb`, `synhub-<ver>-1.x86_64.rpm`, `synhub-<ver>-linux-x64.tar.gz` | Linux x64 | GPG-signed when the repository secret is configured: the `.rpm` carries an embedded signature, the `.deb` ships a detached `.deb.asc`, and `SHA256SUMS.txt.asc` covers all six platforms. Both packages install to `/opt/synhub` with a menu entry |
 | `synhub-<ver>-web.tar.gz` | Web | a static bundle. Serve it over HTTP — opening `index.html` from `file://` will not work, and encrypted-DSM writes need same-origin hosting |
+
+### Which platforms are signed, and which are not (a decision, not an oversight)
+
+The project does **not** buy commercial code-signing certificates. As of 2026-11-10 the owner's
+decision is that there are no plans to purchase an Apple Developer Program membership (US$99/year)
+or a Windows Authenticode certificate (~US$200–400/year), so macOS and Windows builds will keep
+arriving ad-hoc-signed and unsigned. What that means in practice:
+
+| Platform | Signature | What you will see | How to proceed |
+|---|---|---|---|
+| macOS | ad-hoc (`codesign -s -`) | Gatekeeper: *"SynHub cannot be opened because the developer cannot be verified"*, or *"is damaged"* after a browser download | Right-click → **Open** → **Open**, or `xattr -dr com.apple.quarantine /Applications/SynHub.app` |
+| Windows | none | SmartScreen: *"Windows protected your PC"* | **More info** → **Run anyway** |
+| iOS | none (unsigned IPA) | cannot install as-is | re-sign it yourself with AltStore / Sideloadly / your own certificate |
+| Android | project release key | nothing, if you install the APK directly | if you build with your own key, uninstall the release build first |
+| Linux | project GPG key | nothing; `apt`/`dnf` verify it for you | see the repository section above |
+
+Two consequences worth being explicit about, because they are the reason the decision can be
+revisited later rather than now: an unsigned Windows binary triggers SmartScreen on **every** new
+download (reputation is per-signature), and a quarantined macOS app needs one extra gesture per
+machine. Neither blocks anyone from running the app, and neither is a promise of authenticity —
+the checksums and their GPG signature are what actually prove the bytes came from this repository.
 
 Verify before installing:
 
