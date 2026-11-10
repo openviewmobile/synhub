@@ -13,10 +13,12 @@ Packages are built by GitHub Actions, not on a laptop. The workflow is
 | `synhub_<ver>_<arch>.deb` | `scripts/build_linux_deb.sh` | x86_64 Debian/Ubuntu package |
 | `synhub-<ver>-1.<arch>.rpm` | `scripts/build_linux_rpm.sh` | x86_64 Fedora/RHEL/openSUSE package |
 | `synhub-<ver>-macos-<arch>.zip` / `.dmg` | `flutter build macos --release` | ad-hoc signed (Gatekeeper will complain) |
-| `synhub-<ver>-windows-x64.zip` | `flutter build windows --release` | unsigned; MSIX is still an open decision |
+| `synhub-<ver>-windows-x64.zip` | `flutter build windows --release` | unsigned — no Authenticode certificate is purchased (decision 2026-11-10); MSIX packaging stays experimental |
 | `SHA256SUMS.txt` | everything above | verify before installing; see § Verify |
 
-Nothing here is signed by Synology, and none of it is notarized. The `.deb` and the `.rpm` are
+Nothing here is signed by Synology, and none of it is notarized. **macOS and Windows will stay
+ad-hoc/unsigned on purpose**: no Apple Developer Program and no Authenticode certificate are being
+purchased, so do not treat a future "sign the macOS build" item as pending work. The `.deb` and the `.rpm` are
 the same bundle with two package wrappers: both install to `/opt/synhub` with a menu entry, a
 `/usr/bin/synhub` launcher and an icon, and both uninstall cleanly.
 

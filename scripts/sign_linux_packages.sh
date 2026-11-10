@@ -69,12 +69,28 @@ for f in "$@"; do
         keydir="$(mktemp -d)"; chmod 700 "$keydir"
         printf '%s' "$SYNHUB_GPG_PRIVATE_KEY" > "$keydir/sk.asc"; chmod 600 "$keydir/sk.asc"
         log "在容器 $SYNHUB_RPM_SIGN_IMAGE 里签名（为了让 rpm 4.x 也验得出）"
+        # ★ 镜像拉取与容器内 apt 都是**外部网络**：r740 的 packaging-smoke 就在这两处红过
+        #   （一次 exit 100 = apt 失败，一次 exit 1 = 拉不到镜像）。都重试三次再放弃，
+        #   失败信息保留在 stderr 里 —— 重试是为了扛抖动，不是为了掩盖真错。
+        local try
+        for try in 1 2 3; do
+          if docker image inspect "$SYNHUB_RPM_SIGN_IMAGE" >/dev/null 2>&1; then break; fi
+          log "拉取 $SYNHUB_RPM_SIGN_IMAGE（第 $try 次）"
+          docker pull -q "$SYNHUB_RPM_SIGN_IMAGE" >/dev/null 2>&1 && break
+          [[ "$try" = 3 ]] && die "拉不到镜像 $SYNHUB_RPM_SIGN_IMAGE（试了 3 次）"
+          sleep 5
+        done
         docker run --rm -v "$keydir:/key:ro" -v "$dir:/w" -w /w -e KEYID="$KEYID" \
           "$SYNHUB_RPM_SIGN_IMAGE" bash -lc '
             set -e
             if ! command -v rpm >/dev/null || ! command -v gpg >/dev/null; then
-              apt-get update -qq >/dev/null 2>&1
-              DEBIAN_FRONTEND=noninteractive apt-get install -y -qq rpm gnupg >/dev/null 2>&1
+              for t in 1 2 3; do
+                apt-get update -qq -o Acquire::Retries=5 >/dev/null 2>&1 &&
+                DEBIAN_FRONTEND=noninteractive apt-get install -y -qq \
+                  -o Acquire::Retries=5 rpm gnupg >/dev/null 2>&1 && break
+                echo "[sign] 容器内装 rpm/gnupg 失败，重试 $t" >&2; sleep 5
+              done
+              command -v rpm >/dev/null && command -v gpg >/dev/null
             fi
             export GNUPGHOME="$(mktemp -d)"; chmod 700 "$GNUPGHOME"
             gpg --batch --import /key/sk.asc >/dev/null 2>&1
