@@ -1,0 +1,24 @@
+Architectures: amd64
+Codename: stable
+Components: main
+Date: Tue, 10 Nov 2026 06:30:12 +0000
+Description: SynHub — Synology NAS client (unsigned build by project key)
+Label: SynHub
+Origin: SynHub
+Suite: stable
+MD5Sum:
+ 7e96977e4ad748ad86bc775de8c22db3              212 Release
+ 65597ae31c1e344c6fbaeea86cec0d26              658 main/binary-amd64/Packages
+ c5db9d711c43b4dcb73ea96e9be95079              493 main/binary-amd64/Packages.gz
+SHA1:
+ 0f83381bd42fe25dd3c93327fcf6fae9565a2d82              212 Release
+ 8027b9df00721daec4617944ff84420fba451640              658 main/binary-amd64/Packages
+ 78923c6f041dc046fcdf873b71160c2167413e28              493 main/binary-amd64/Packages.gz
+SHA256:
+ b151b6cb79768a8a3fc2b17f05485eb3b0ed234d58a401eede58357e50ccb394              212 Release
+ 1b33247a4a30eba10acbab847aa1d5b9f26a83602d821752fa5617b66d88b22e              658 main/binary-amd64/Packages
+ 462b52024f5defe3f80d44262e823894bfc6a4f2d70774839527269d3154db35              493 main/binary-amd64/Packages.gz
+SHA512:
+ 9315a03cd9ea7112b292f779fc2c9a02e16f350d07e25949df5292c45b8ac3381714fdbaa2ad324233145bb021f3b9ef6d4deef2654dee964e0155f133d9cf03              212 Release
+ 10e92ef117cc5bd8b8b36df0c5143ad0156f59fc61300e42b1e3bc22426800ea0f22784443f520a56c4cdaa1bc3c7db140c84c5a77250faf6af6b59a93fb3a28              658 main/binary-amd64/Packages
+ 629de926084779a984db331a1c0fc0473c63e87b84cddf1bf5217a054449e8080a86c753ef8a131742528a42451e3315a87d84742512792392348191a14eaa84              493 main/binary-amd64/Packages.gz

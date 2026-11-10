@@ -1,0 +1,10 @@
+[synhub]
+name=SynHub (Synology NAS client)
+# ★ %ARCH% 由 dnf 按当前机器展开，x86_64 / aarch64 目录都能对上
+baseurl=https://openviewmobile.github.io/synhub/repo/rpm/$basearch
+enabled=1
+# ★ gpgcheck 校验**包**签名，repo_gpgcheck 校验**索引**签名 —— 两个都要开：
+#   只开前者，攻击者可以伪造索引指向一个"合法签名但内容不同"的包。
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://openviewmobile.github.io/synhub/keys/synhub-archive-keyring.asc

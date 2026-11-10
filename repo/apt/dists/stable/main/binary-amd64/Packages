@@ -1,0 +1,18 @@
+Package: synhub
+Version: 0.2.8
+Architecture: amd64
+Maintainer: SynHub <noreply@openviewai.com>
+Installed-Size: 160344
+Depends: libgtk-3-0, libmpv2 | libmpv1, libsecret-1-0
+Filename: pool/main/s/synhub/synhub_0.2.8_amd64.deb
+Size: 45681586
+MD5sum: 7ce888eee4db5e6a8ee8539227103a00
+SHA1: 09f1554cb068b414fbda91f9ca31523a8c4953f2
+SHA256: 8081afcd038c59c8f3d9ec80d8ed2b359dbe646f777f2639e79ec1540a0ccaa4
+Section: net
+Priority: optional
+Description: Synology NAS desktop client (Flutter/Linux)
+ File Station / Drive / Photos / Chat / Audio Station / Notes clients,
+ QuickConnect login, media playback (media_kit/libmpv), PDF (poppler),
+ MPRIS media integration.
+
