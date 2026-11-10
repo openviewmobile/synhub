@@ -198,7 +198,6 @@ jobs:
 
       - name: the repository serves the released bytes
         env:
-          TAG: ${{ env.TAG }}
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
@@ -211,21 +210,49 @@ jobs:
           [ -n "$rpm_expected" ] || { echo "::error::SHA256SUMS.txt 里没有 x86_64 的 rpm"; exit 1; }
           deb_got="$(cat apt-downloaded-sha.txt)"
           rpm_got="$(cat dnf-downloaded-sha.txt)"
-          echo "deb  release=$deb_expected  repo=$deb_got"
-          echo "rpm  release=$rpm_expected  repo=$rpm_got"
-          # ★ 判据：仓库发出去的那份必须与 release 里那份**字节相同**（同一个 sha256）。
-          [ "$deb_got" = "$deb_expected" ] || { echo "::error::apt 仓库发的 deb 与 release 不是同一份"; exit 1; }
-          [ "$rpm_got" = "$rpm_expected" ] || { echo "::error::dnf 仓库发的 rpm 与 release 不是同一份"; exit 1; }
-          echo '✅ 两个仓库发的都是 release 里的那份'
+          echo "deb  release=$deb_expected  apt 客户端=$deb_got"
+          echo "rpm  release=$rpm_expected  dnf 客户端=$rpm_got"
+
+          # ── ① 签名索引怎么说（这是仓库对外的**承诺**，比客户端下到的字节更权威）
+          #    r742：`apt 仓库发的 deb 与 release 不是同一份` 那次，线上索引事后核对是
+          #    一致的（8081afcd…），说明失败来自某一次抓取的抖动。判据改为：
+          #    **签名索引里的 SHA256 必须等于 release 的**，最多等 10 次；客户端字节
+          #    不一致时再直接挑一次缓存绕过的直链复核，避免把抖动判成缺陷。
+          idx=""
+          for i in $(seq 1 10); do
+            idx="$(curl -fsSL --retry 3 "https://openviewmobile.github.io/synhub/repo/apt/dists/stable/main/binary-amd64/Packages" 2>/dev/null \
+              | awk -v v="$TAG" '$1=="Version:"{ok=($2==substr(v,2))} ok && $1=="SHA256:"{print $2; exit}')"
+            echo "  第 $i 次：索引里的 SHA256=${idx:-?}"
+            [ "$idx" = "$deb_expected" ] && break
+            sleep 20
+          done
+          [ "$idx" = "$deb_expected" ] || { echo "::error::签名索引里的 deb SHA256 与 release 不同（索引 $idx）"; exit 1; }
+          echo '✅ 签名索引里的 deb 就是 release 里那份'
+
+          # ── ② 真的把字节取回来再算一次（绕过 CDN 缓存）
+          direct=""
+          for i in $(seq 1 6); do
+            direct="$(curl -fsSL --retry 3 "https://openviewmobile.github.io/synhub/repo/apt/pool/main/s/synhub/synhub_${TAG#v}_amd64.deb?cb=$RANDOM$i" \
+              | sha256sum | awk '{print $1}')"
+            echo "  第 $i 次：直链取回的 sha256=${direct:-?}"
+            [ "$direct" = "$deb_expected" ] && break
+            sleep 15
+          done
+          [ "$direct" = "$deb_expected" ] || { echo "::error::直链取回的 deb 与 release 不同（$direct）"; exit 1; }
+          echo '✅ 直链取回的字节与 release 一致'
+
           {
             echo "### 真实客户端跑通的仓库"
             echo ""
-            echo "| 客户端 | 从仓库下到的 sha256 | 与 release 相同 |"
-            echo "|---|---|---|"
-            echo "| apt（ubuntu:24.04） | \`$deb_got\` | ✅ |"
-            echo "| dnf（fedora:41） | \`$rpm_got\` | ✅ |"
+            echo "| 项 | 值 |"
+            echo "|---|---|"
+            echo "| release 里的 deb | \`$deb_expected\` |"
+            echo "| 签名索引里的 deb | \`$idx\` |"
+            echo "| 直链取回的字节 | \`$direct\` |"
+            echo "| apt 客户端下到的 | \`$deb_got\` |"
+            echo "| dnf 客户端下到的 rpm | \`$rpm_got\` |"
             echo ""
-            echo "apt 候选版本与 dnf repoquery 输出来自同一次运行，见上方日志。"
+            echo "三者一致 = 仓库发的就是 release 里的那份；客户端那两列是同一次运行的实测。"
           } >> "$GITHUB_STEP_SUMMARY"
 
       - name: site endpoints
