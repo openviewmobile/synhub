@@ -403,7 +403,24 @@ jobs:
           set -euo pipefail
           cd dist
           if ! gh release view "$TAG" >/dev/null 2>&1; then
-            cat > /tmp/notes.md <<'NOTES'
+            # ★ 发布说明必须先回答"这一版改了什么"。以前正文是一段固定模板，用户只能去翻
+            #   CHANGELOG 或 commit —— 那等于没写。这里把 CHANGELOG 里本 tag 的那一节
+            #   摘出来放最前面；摘不到就**继续发布但不编内容**（下面的模板照旧），
+            #   因为"发不出去"比"说明少一段"更坏。
+            : > /tmp/changes.md
+            if python3 scripts/changelog_section.py "${TAG#v}" > /tmp/section.md 2>/tmp/section.err; then
+              {
+                echo "## 本版改动（CHANGELOG 摘录）"
+                echo
+                cat /tmp/section.md
+                echo
+                echo "---"
+                echo
+              } > /tmp/changes.md
+            else
+              echo "::warning::CHANGELOG 里没有 ${TAG#v} 这一节，发布说明将只有资产表：$(cat /tmp/section.err)"
+            fi
+            cat > /tmp/notes_tail.md <<'NOTES'
           Unofficial, from-scratch client for Synology NAS. Not affiliated with, endorsed by, or
           supported by Synology Inc.
 
@@ -421,7 +438,13 @@ jobs:
           Verify with `sha256sum -c SHA256SUMS.txt` before installing, and read
           [RELEASING.md](https://github.com/openviewmobile/synhub/blob/main/RELEASING.md) for what
           each signature level does and does not mean.
+
+          Or let the repository do it for you: download `SHA256SUMS.txt`, `SHA256SUMS.txt.asc` and the
+          file you want into one directory, then run
+          `scripts/verify_download.sh <那个目录>` — it fetches the published key into a throwaway
+          keyring, checks the signed checksum, the bytes, and the deb/rpm signature.
           NOTES
+            cat /tmp/changes.md /tmp/notes_tail.md > /tmp/notes.md
             gh release create "$TAG" --title "$TAG" --notes-file /tmp/notes.md
           fi
           gh release upload "$TAG" ./* --clobber

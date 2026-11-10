@@ -7,6 +7,10 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); version
 
 暂无。
 
+### 发布说明与用户侧核验（未发版，随下一次发布生效）
+- **发布说明现在先写“这一版改了什么”**：`scripts/changelog_section.py` 从 `CHANGELOG.md` 抽出本 tag 的小节，拼在资产表前面；抽不到只发警告、不编内容（发不出去比说明少一段更坏）。
+- 新增 `scripts/verify_download.sh <目录>`：用**站点发布的公钥**建临时钥匙环，验 `SHA256SUMS.txt` 的签名、逐文件重算 sha256、再验 `.deb` 分离签名与 `.rpm` 嵌入签名；缺 `rpm` 会明说跳过而不是装作验过。反过来（把 deb 改一个字节）会明确报“与清单不一致”。
+
 ### CI（未发版，随下一次发布生效）
 - `verify-release` 现在**每天 03:17 UTC 自动核一遍最新 release**（站点签名、apt/dnf 客户端、仓库字节）；没有给 tag 时会回落到“当前最新 release”，不再去核空版本号。
 - 仓库字节的判据改为**签名索引里的 SHA256 == release 的**（重试 10 次）＋ **直链重取一次**（重试 6 次）；`apt-get download` 那一次抓取只作参考，不再单独定罪——r742 的假红就是它造成的。
