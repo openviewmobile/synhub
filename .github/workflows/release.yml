@@ -99,7 +99,12 @@ jobs:
             exit 1
           fi
           "$APKSIGNER" verify --print-certs "$APK" | sed -n '1,4p'
-          unzip -l "$APK" | grep -q "lib/arm64-v8a/libsynochatpunch.so" \
+          # ★★ 不能写成 `unzip -l "$APK" | grep -q ...`：`grep -q` 一命中就关管道，
+          #   `unzip` 收到 SIGPIPE（141），而 `set -o pipefail` 会把整条管道判成失败 ——
+          #   于是"库明明在包里"也会红。r741 的 release #18 就是这么在 android 上挂的
+          #   （v0.2.7 同样的代码却绿），说明它随时序抖动。先落盘再 grep。
+          unzip -l "$APK" > /tmp/apk-list.txt
+          grep -q "lib/arm64-v8a/libsynochatpunch.so" /tmp/apk-list.txt \
             || { echo "::error::APK 里没有 arm64 的 hole-punch 库"; exit 1; }
           V="$(awk '/^version:/{print $2}' pubspec.yaml | cut -d+ -f1)"
           cp "$APK" "synhub-${V}-android-arm64.apk"

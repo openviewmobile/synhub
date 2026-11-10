@@ -132,7 +132,9 @@ jobs:
           # 非 root 跑，rpm 必须用独立 dbpath（写 /var/lib/rpm 会失败）
           RPMDB="$(mktemp -d)"; rpm --dbpath "$RPMDB" --initdb
           rpm --dbpath "$RPMDB" --import /tmp/pages/keys/synhub-archive-keyring.asc
-          rpm --dbpath "$RPMDB" --checksig build/linux_rpm/*.rpm | grep -qi 'signatures OK'
+          # ★ 同样避开 SIGPIPE：先落盘再匹配（见 release.yml 里 android verify 的注释）
+          rpm --dbpath "$RPMDB" --checksig build/linux_rpm/*.rpm > /tmp/checksig.txt
+          grep -qi 'signatures OK' /tmp/checksig.txt
           echo '✅ 索引与包的签名都能验（用发布的公钥）'
       - name: cross-generation rpm signature check
         # ★ 事实：runner 已是 rpm 6.0.1，它签出来的包在 rpm 4.18/4.20 上**看不到签名**
@@ -170,7 +172,8 @@ jobs:
           rpm --dbpath "$(mktemp -d)/db" --initdb 2>/dev/null || true
           PUB2="$(mktemp -d)"; cp "$PUB" "$PUB2/"; DB2="$(mktemp -d)"
           rpm --dbpath "$DB2" --initdb; rpm --dbpath "$DB2" --import "$PUB"
-          rpm --dbpath "$DB2" --checksig -v "$RPM" | grep -Eiq 'signature.*: *OK' \
+          rpm --dbpath "$DB2" --checksig -v "$RPM" > /tmp/checksig6.txt
+          grep -Eiq 'signature.*: *OK' /tmp/checksig6.txt \
             || { echo '::error::宿主的 rpm 6 读不出签名'; exit 1; }
           echo '✅ 两代 rpm 都能验出签名'
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
