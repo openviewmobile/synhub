@@ -7,6 +7,11 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); version
 
 暂无。
 
+### CI（未发版，随下一次发布生效）
+- `verify-release` 现在**每天 03:17 UTC 自动核一遍最新 release**（站点签名、apt/dnf 客户端、仓库字节）；没有给 tag 时会回落到“当前最新 release”，不再去核空版本号。
+- 仓库字节的判据改为**签名索引里的 SHA256 == release 的**（重试 10 次）＋ **直链重取一次**（重试 6 次）；`apt-get download` 那一次抓取只作参考，不再单独定罪——r742 的假红就是它造成的。
+- `release.yml` 的 android `verify` 与 `rpm-smoke.yml` 的 `rpm --checksig | grep -q` 改为先落盘再匹配：`grep -q` 命中即关管道 ⇒ 写端 SIGPIPE(141)，`pipefail` 会把“库在包里”判成失败（r741）。
+
 ## [0.2.8] - 2026-11-10
 
 ### Documented

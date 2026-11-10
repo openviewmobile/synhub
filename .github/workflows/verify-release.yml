@@ -7,6 +7,11 @@ name: verify-release
 #     ③ 仓库里拿到的那份，与 release 里那份是不是**同一个字节**（sha256 相等）。
 #   这条 workflow 红了 = 这次发布对用户就是坏的，不管构建日志多绿。
 on:
+  # ★ 定时核验**线上已发布的东西**，而不是"发布那一刻对不对"：发版时的 workflow_run 只证明
+  #   "刚发出去的没问题"；页面被改坏、Pages 漂移、密钥轮换只有定期跑才发现。
+  #   定时触发没有 tag，`resolve the tag` 会回落到"当前最新 release"。
+  schedule:
+    - cron: '17 3 * * *'
   # ★ 发版 workflow 自己用 GITHUB_TOKEN 发 release，`release: published` 事件**不会再起**新
   #   workflow（GitHub 防递归），所以真正的自动入口是 workflow_run。
   workflow_run:
@@ -38,14 +43,28 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
+      - name: resolve the tag
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          # ★ 定时/手动都可能没给 tag ⇒ 回落"最新 release"。空 tag 直接往下跑会去核
+          #   一个不存在的版本（`gh release download ""` 甚至会替你取 latest），
+          #   那种"绿"没有意义，所以先把它变成确定的值。
+          if [ -z "${TAG:-}" ]; then
+            TAG="$(gh release view --repo "$GITHUB_REPOSITORY" --json tagName -q .tagName)"
+            echo "未指定 tag ⇒ 核最新 release：$TAG"
+          fi
+          [ -n "$TAG" ] || { echo "::error::既没有给定 tag，也查不到最新 release"; exit 1; }
+          echo "TAG=$TAG" >> "$GITHUB_ENV"
+          echo "### 验收 \`$TAG\`" >> "$GITHUB_STEP_SUMMARY"
+
       - name: fetch the release
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          [ -n "${TAG:-}" ] || { echo "::error::拿不到要验收的 tag（三种入口的取值位置都试过了）"; exit 1; }
           echo "验收 $TAG"
-          echo "### 验收 \`$TAG\`" >> "$GITHUB_STEP_SUMMARY"
           mkdir -p dist && cd dist
           gh release download "$TAG" --repo "$GITHUB_REPOSITORY" --pattern '*' --clobber
           ls -l | head -20
