@@ -76,7 +76,16 @@ download (reputation is per-signature), and a quarantined macOS app needs one ex
 machine. Neither blocks anyone from running the app, and neither is a promise of authenticity —
 the checksums and their GPG signature are what actually prove the bytes came from this repository.
 
-Verify before installing:
+Verify before installing. The short version — put `SHA256SUMS.txt`, `SHA256SUMS.txt.asc` and the file
+you want into one directory, then:
+
+```bash
+scripts/verify_download.sh ~/Downloads/synhub-0.2.8     # tag 可省略，从文件名推断
+```
+
+It builds a throwaway keyring from the key published on the package site, checks the signed checksum
+file, re-hashes whatever of the assets you actually downloaded, and verifies the `.deb` / `.rpm`
+signature when the tool for it exists. Missing tools are named, not hidden. What each step proves:
 
 ```bash
 # 1. the checksums file itself (this is the part a bare SHA256SUMS.txt cannot prove)
