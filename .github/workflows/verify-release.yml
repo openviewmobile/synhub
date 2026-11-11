@@ -146,6 +146,23 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
+      - name: resolve the tag
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          # ★★★ 这一步必须**每个 job 各做一次**。通过 `$GITHUB_ENV` 写出来的变量
+          #   只属于**那个 job**，不会跨 job 传递 —— r745 的 nightly 就是因此在
+          #   `repositories` 里拿到空 TAG，报出"站点索引仍是 0.2.8，期望 "（期望值为空）。
+          if [ -z "${TAG:-}" ]; then
+            TAG="$(gh release view --repo "$GITHUB_REPOSITORY" --json tagName -q .tagName)"
+            echo "未指定 tag ⇒ 核最新 release：$TAG"
+          fi
+          [ -n "$TAG" ] || { echo "::error::既没有给定 tag，也查不到最新 release"; exit 1; }
+          echo "TAG=$TAG" >> "$GITHUB_ENV"
+          echo "本 job 核的是 \`$TAG\`（版本 ${TAG#v}）"
+          echo "### 本 job 核的是 \`$TAG\`" >> "$GITHUB_STEP_SUMMARY"
+
       - name: apt client (x86_64)
         run: |
           set -euo pipefail
@@ -202,7 +219,12 @@ jobs:
           # ★ GitHub Pages 推送后一段时间内仍发上一次部署，而 `synhub_<ver>_amd64.deb`
           #   每次发布都重新构建 —— 同一路径、不同字节。匆匆一比就会报"不是同一份"的假红。
           #   先等索引里出现本 tag 的版本号，最多 12 分钟。
+          # ★★ 期望值为空是最坏的一种红：消息会变成"等了 12 分钟，站点索引仍是 0.2.8，
+          #   期望 " —— 看着像站点错了，其实是这个 job 根本没拿到 tag（r745 就是这样：
+          #   `$GITHUB_ENV` 只在写它的那个 job 里有效）。先断言它非空，再等。
+          [ -n "${TAG:-}" ] || { echo "::error::这个 job 没拿到 tag（TAG 为空）"; exit 1; }
           want="${TAG#v}"
+          [ -n "$want" ] || { echo "::error::tag 解析不出向量版本（TAG=$TAG）"; exit 1; }
           echo "等待站点索引出现 $want ..."
           got=""
           for i in $(seq 1 36); do

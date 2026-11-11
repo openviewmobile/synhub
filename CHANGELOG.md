@@ -7,6 +7,9 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); version
 
 暂无。
 
+### CI
+- **`verify-release` 的 `repositories` job 拿不到 tag**（nightly 第一次跑就红）：`$GITHUB_ENV` 写出的变量只属于**写它的那个 job**，两个 job 各写各的。现两个 job 各自 `resolve the tag`，并在“等待站点索引”前断言期望版本非空——否则失败的措辞会是“期望 ”（空），看着像站点错。
+
 ### 发布说明与用户侧核验（未发版，随下一次发布生效）
 - **发布说明现在先写“这一版改了什么”**：`scripts/changelog_section.py` 从 `CHANGELOG.md` 抽出本 tag 的小节，拼在资产表前面；抽不到只发警告、不编内容（发不出去比说明少一段更坏）。
 - 新增 `scripts/verify_download.sh <目录>`：用**站点发布的公钥**建临时钥匙环，验 `SHA256SUMS.txt` 的签名、逐文件重算 sha256、再验 `.deb` 分离签名与 `.rpm` 嵌入签名；缺 `rpm` 会明说跳过而不是装作验过。反过来（把 deb 改一个字节）会明确报“与清单不一致”。
