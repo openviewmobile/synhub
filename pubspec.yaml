@@ -71,7 +71,7 @@ dependencies:
   # `path`：拼接/取 basename（端侧模型保管库要拼 Android/media 目录）。
   # 它本来就是 path_provider 的传递依赖、已在 pubspec.lock 里，不新增下载。
   path: ^1.9.0
-  record: ^7.1.1
+  record: ^7.2.0
   just_audio: ^0.10.6
   pinenacl: ^0.6.0
   blake2b: ^0.2.3
